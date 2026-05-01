@@ -28,6 +28,12 @@ GenWildSplat is a feed-forward framework that achieves generalizable 3D scene re
 
 EUREKA is a novel reward design algorithm powered by coding Large Language Models (LLMs) that autonomously generates human-level reward functions for complex reinforcement learning tasks through evolutionary optimization.
 
+## [An Adaptable, Safe, and Portable Robot-Assisted Feeding System](2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/)
+
+*2026-05-01*
+
+This paper presents an adaptable, safe, and portable robot-assisted feeding system designed to enable people with mobility impairments to feed themselves using multi-modal online learning for bite acquisition and real-time perception for bite transfer.
+
 ## [Action-to-Action Flow Matching](2026-05-01-action-to-action-flow-matching/)
 
 *2026-05-01*
