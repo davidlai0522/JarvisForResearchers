@@ -1,0 +1,70 @@
+site_name: JarvisForResearchers
+site_description: High-quality robotics & AI research — explained locally with Gemma 4
+site_url: https://davidlai0522.github.io/jarvisforresearchers
+
+nav:
+  - Home: index.md
+  - Research Digest:
+    - Overview: posts/index.md
+    - "HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation": posts/2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und.md
+    - "GR00T N1: An Open Foundation Model for Generalist Humanoid Robots": posts/2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro.md
+    - "Generalizable Sparse-View 3D Reconstruction from Unconstrained Images": posts/2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain.md
+    - "Eureka: Human-Level Reward Design via Coding Large Language Models": posts/2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m.md
+    - "Action-to-Action Flow Matching": posts/2026-05-01-action-to-action-flow-matching.md
+  - Weekly Digest: digest/index.md
+  - Tags: tags.md
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: teal
+    accent: deep orange
+  font:
+    text: IBM Plex Sans
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - navigation.top
+    - navigation.indexes
+    - navigation.expand
+    - content.code.copy
+    - search.highlight
+
+plugins:
+  - search
+  - blog:
+      blog_dir: digest
+      post_date_format: long
+      post_url_format: "{slug}"
+      archive: true
+      archive_name: Archive
+      archive_date_format: "MMMM yyyy"
+      archive_url_format: "archive/{date}"
+      categories: false
+  - tags:
+      tags_file: tags.md
+
+extra_css:
+  - assets/css/blog-filter.css
+
+extra_javascript:
+  - assets/js/blog-filter.js
+
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - tables
