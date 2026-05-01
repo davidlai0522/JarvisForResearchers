@@ -1,0 +1,1188 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="HERMES++ is a unified driving world model that integrates 3D scene understanding and future geometry prediction within a single framework by leveraging a Bird’s-Eye View (BEV) representation and LLM-enhanced world queries.
+">
+      
+      
+      
+        <link rel="canonical" href="https://davidlai0522.github.io/jarvisforresearchers/posts/2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation - JarvisForResearchers</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/blog-filter.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tldr" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JarvisForResearchers" class="md-header__button md-logo" aria-label="JarvisForResearchers" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JarvisForResearchers
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Research Digest
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../digest/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Weekly Digest
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tags/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JarvisForResearchers" class="md-nav__button md-logo" aria-label="JarvisForResearchers" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JarvisForResearchers
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Digest
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Research Digest
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bev-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BEV representation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-tokenizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Tokenizer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llm-enhanced-world-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLM-enhanced world queries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-to-future-link" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current-to-Future Link
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#joint-geometric-optimization-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Joint Geometric Optimization strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#differentiable-render" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        differentiable Render
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters-for-robotics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters for Robotics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GR00T N1: An Open Foundation Model for Generalist Humanoid Robots
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generalizable Sparse-View 3D Reconstruction from Unconstrained Images
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eureka: Human-Level Reward Design via Coding Large Language Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-05-01-action-to-action-flow-matching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Action-to-Action Flow Matching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../digest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weekly Digest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bev-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BEV representation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-tokenizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Tokenizer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llm-enhanced-world-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLM-enhanced world queries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-to-future-link" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current-to-Future Link
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#joint-geometric-optimization-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Joint Geometric Optimization strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#differentiable-render" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        differentiable Render
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters-for-robotics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters for Robotics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:ai" class="md-tag">AI</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
+      
+    
+  </nav>
+
+
+
+  <h1>HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation</h1>
+
+<blockquote>
+<p><em>Generated by JarvisForResearchers Bot on 2026-05-01</em></p>
+</blockquote>
+<h2 id="tldr">TL;DR</h2>
+<p>HERMES++ establishes a unified driving world model by integrating 3D scene understanding and future geometry prediction within a single framework. This is achieved by leveraging a Bird’s-Eye View (BEV) representation and employing LLM-enhanced world queries to condition geometric evolution on semantic context, all while maintaining structural integrity via a Joint Geometric Optimization strategy.</p>
+<h2 id="the-problem">The Problem</h2>
+<p>Existing driving world models exhibit a functional dichotomy. On one hand, many focus heavily on future scene generation, often neglecting a comprehensive, explicit understanding of the current 3D scene state. On the other hand, while Large Language Models (LLMs) excel at semantic interpretation, they inherently lack the capacity to predict the precise future geometric evolution of a physical scene. This creates a fundamental disconnect: we have sophisticated semantic interpreters that cannot predict physical outcomes, and geometric predictors that lack deep semantic grounding. Furthermore, supervision derived solely from future observations often imposes only explicit constraints, which is insufficient to guarantee the structural consistency of the predicted scene evolution.</p>
+<h2 id="key-contributions">Key Contributions</h2>
+<p>We contribute three primary advancements:
+1. Proposing a unified framework that effectively integrates 3D scene understanding and future geometry prediction using a unified representation.
+2. Devising a Joint Geometric Optimization strategy to enforce structural integrity by combining explicit geometric constraints with implicit geometric regularization on the latent manifold.
+3. Introducing LLM-enhanced world queries and Textual Injection to facilitate knowledge transfer, allowing semantic reasoning to directly guide future scene evolution.</p>
+<h2 id="how-it-works">How It Works</h2>
+<p><img alt="Fig. 1: (a) Previous driving world models focus on generative scene evolution prediction. (b) Large language models for driving
+are limited to scene understanding. (c) The proposed framework unifies 3D scene understanding and scene evolution generation
+with the BEV representation. (d) Quantitative c" src="../../assets/figures/2604.28196/fig_p2_5.jpg" />
+<em>Fig. 1: (a) Previous driving world models focus on generative scene evolution prediction. (b) Large language models for driving
+are limited to scene understanding. (c) The proposed framework unifies 3D scene understanding and scene evolution generation
+with the BEV representation. (d) Quantitative c</em></p>
+<p><img alt="Fig. 1: (a) Previous driving world models focus on generative scene evolution prediction. (b) Large language models for driving
+are limited to scene understanding. (c) The proposed framework unifies 3D scene understanding and scene evolution generation
+with the BEV representation. (d) Quantitative c" src="../../assets/figures/2604.28196/fig_p2_7.jpg" />
+<em>Fig. 1: (a) Previous driving world models focus on generative scene evolution prediction. (b) Large language models for driving
+are limited to scene understanding. (c) The proposed framework unifies 3D scene understanding and scene evolution generation
+with the BEV representation. (d) Quantitative c</em></p>
+<p><img alt="Fig. 1: (a) Previous driving world models focus on generative scene evolution prediction. (b) Large language models for driving
+are limited to scene understanding. (c) The proposed framework unifies 3D scene understanding and scene evolution generation
+with the BEV representation. (d) Quantitative c" src="../../assets/figures/2604.28196/fig_p2_8.jpg" />
+<em>Fig. 1: (a) Previous driving world models focus on generative scene evolution prediction. (b) Large language models for driving
+are limited to scene understanding. (c) The proposed framework unifies 3D scene understanding and scene evolution generation
+with the BEV representation. (d) Quantitative c</em></p>
+<p>HERMES++ operates by first consolidating multi-view spatial information into a Bird’s-Eye View (BEV) representation, which serves as a structure amenable to interaction with LLMs. Semantic context is then injected into the temporal prediction pipeline via LLM-enhanced world queries. These queries aggregate rich world knowledge from text tokens and interact with BEV features through the Current-to-Future Link. This link is crucial as it conditions the geometric evolution on both semantic context (via Textual Injection) and ego-motion. Finally, the predicted latent representations are decoded into geometry using a differentiable renderer, with the entire process constrained by a Joint Geometric Optimization strategy that ensures geometric fidelity.</p>
+<h3 id="bev-representation">BEV representation</h3>
+<p>The BEV representation serves as the canonical, spatially coherent substrate for the entire model. It consolidates disparate multi-view spatial information into a unified grid structure. This transformation is executed by a Visual Tokenizer, which employs cross-attention mechanisms to map high-dimensional image inputs into the BEV space, thereby compressing the input while preserving necessary spatial relationships for downstream processing.</p>
+<h3 id="visual-tokenizer">Visual Tokenizer</h3>
+<p>The Visual Tokenizer is responsible for the initial spatial encoding. It takes multi-view images and transforms them into the BEV space. This transformation is achieved via cross-attention, which allows the model to fuse information across different camera perspectives into a single, unified spatial representation, effectively compressing the input while maintaining geometric fidelity.</p>
+<h3 id="llm-enhanced-world-queries">LLM-enhanced world queries</h3>
+<p>These queries are the mechanism for injecting high-level semantic knowledge into the geometric prediction pipeline. They leverage causal attention to aggregate rich world knowledge derived from input text tokens. By processing these tokens, the queries generate context-aware embeddings that represent the current semantic understanding of the scene, which is then utilized to guide the temporal evolution.</p>
+<h3 id="current-to-future-link">Current-to-Future Link</h3>
+<p>This component bridges the temporal gap between the current state and future timesteps. It propagates the encoded BEV features forward in time. Crucially, this propagation is conditioned not only on ego-motion but also on the enriched queries and text embeddings. The Textual Injection mechanism is embedded within this link, allowing the semantic context derived from the LLM to directly modulate how the geometry is predicted to change over time.</p>
+<h3 id="joint-geometric-optimization-strategy">Joint Geometric Optimization strategy</h3>
+<p>To prevent the predicted latent manifold from drifting into physically implausible configurations, this strategy enforces structural integrity. It operates by simultaneously minimizing two objectives: first, explicit geometric constraints applied directly to the reconstructed point clouds, and second, an implicit geometric regularization applied to the latent manifold itself. This dual constraint ensures that the predicted geometry adheres both to observable physical laws and to learned geometric priors.</p>
+<h3 id="differentiable-render">differentiable Render</h3>
+<p>The differentiable Render module serves as the geometric decoder. It takes the feature representations predicted by the temporal network and maps them back into a tangible geometric output, specifically point clouds. The differentiability of this module is essential, as it allows gradients from the geometric loss functions (like those in the Joint Geometric Optimization strategy) to flow back through the rendering process into the latent space, enabling end-to-end geometric training.</p>
+<h2 id="results">Results</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Baseline</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">3s point cloud generation error</td>
+<td style="text-align: left;">8.2% reduction</td>
+<td style="text-align: left;">DriveX [18]</td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+<tr>
+<td style="text-align: left;">CIDEr metric (understanding task)</td>
+<td style="text-align: left;">9.2% outperformance</td>
+<td style="text-align: left;">Omni-Q [15]</td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+<tr>
+<td style="text-align: left;">generation error</td>
+<td style="text-align: left;">13.7% reduction</td>
+<td style="text-align: left;">conference version</td>
+<td style="text-align: left;">Section 3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="why-this-matters-for-robotics">Why This Matters for Robotics</h2>
+<p>The integration demonstrated by HERMES++ addresses a critical bottleneck in deploying perception-to-action pipelines in autonomous systems. By unifying semantic understanding (the "what" and "why") with predictive geometry (the "where" and "how"), the model moves beyond mere scene reconstruction toward genuine world modeling. This capability is vital for robust planning, as a system can now reason about <em>why</em> a scene will evolve a certain way based on semantic cues (e.g., "the pedestrian will cross the street") and then predict the precise geometric trajectory required for safe navigation.</p>
+<h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
+<p>The current formulation is constrained by its input modality, relying exclusively on multi-view images for scene input and producing point clouds as output. Furthermore, the paper does not explicitly detail limitations beyond the inherent challenges addressed by the proposed components, leaving open questions regarding the scalability of the LLM integration to extremely long-horizon predictions or the robustness of the Textual Injection mechanism under highly ambiguous semantic inputs.</p>
+<hr />
+<h2 id="citation">Citation</h2>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2604.28196">2604.28196</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260428196</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Xin Zhou and Dingkang Liang and Xiwu Chen and Feiyang Tan and Dingyuan Zhang and Hengshuang Zhao et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2604.28196}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2604.28196}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</code></pre></div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "navigation.indexes", "navigation.expand", "content.code.copy", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/js/blog-filter.js"></script>
+      
+    
+  </body>
+</html>
