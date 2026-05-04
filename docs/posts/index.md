@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [$π_0$: A Vision-Language-Action Flow Model for General Robot Control](2026-05-04-0-a-vision-language-action-flow-model-for-general-robot-cont/)
+
+*2026-05-04*
+
+π0 is a novel flow matching architecture built on a pre-trained Vision-Language Model (VLM) to create a generalist robot policy capable of performing complex, dexterous tasks via direct prompting or fine-tuning.
+
 ## [HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation](2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/)
 
 *2026-05-01*
@@ -33,10 +39,4 @@ EUREKA is a novel reward design algorithm powered by coding Large Language Model
 *2026-05-01*
 
 This paper presents an adaptable, safe, and portable robot-assisted feeding system designed to enable people with mobility impairments to feed themselves using multi-modal online learning for bite acquisition and real-time perception for bite transfer.
-
-## [Action-to-Action Flow Matching](2026-05-01-action-to-action-flow-matching/)
-
-*2026-05-01*
-
-Action-to-Action Flow Matching (A2A) is a novel policy paradigm that replaces stochastic noise initialization in diffusion-based robotics policies with informed initialization derived from historical proprioceptive action sequences, enabling fast, single-step action generation.
 
