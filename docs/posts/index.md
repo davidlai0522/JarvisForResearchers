@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Posterior Augmented Flow Matching](2026-05-05-posterior-augmented-flow-matching/)
+
+*2026-05-05*
+
+Posterior-Augmented Flow Matching (PAFM) generalizes standard Flow Matching (FM) by replacing single-target supervision with an expectation over an approximate posterior of valid target completions, thereby reducing gradient variance.
+
 ## [$π_0$: A Vision-Language-Action Flow Model for General Robot Control](2026-05-04-0-a-vision-language-action-flow-model-for-general-robot-cont/)
 
 *2026-05-04*
