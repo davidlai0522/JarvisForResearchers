@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="HERMES++ is a unified driving world model that integrates 3D scene understanding and future geometry prediction within a single framework by leveraging a Bird’s-Eye View (BEV) representation and LLM-enhanced world queries.
+        <meta name="description" content="Posterior-Augmented Flow Matching (PAFM) generalizes standard Flow Matching (FM) by replacing single-target supervision with an expectation over an approximate posterior of valid target completions, thereby reducing gradient variance.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/jarvisforresearchers/posts/2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/">
+        <link rel="canonical" href="https://davidlai0522.github.io/jarvisforresearchers/posts/2026-05-05-posterior-augmented-flow-matching/">
       
       
-        <link rel="prev" href="../2026-05-04-0-a-vision-language-action-flow-model-for-general-robot-cont/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/">
+        <link rel="next" href="../2026-05-04-0-a-vision-language-action-flow-model-for-general-robot-cont/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation - JarvisForResearchers</title>
+        <title>Posterior Augmented Flow Matching - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation
+              Posterior Augmented Flow Matching
             
           </span>
         </div>
@@ -409,62 +409,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../2026-05-05-posterior-augmented-flow-matching/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Posterior Augmented Flow Matching
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../2026-05-04-0-a-vision-language-action-flow-model-for-general-robot-cont/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    $π_0$: A Vision-Language-Action Flow Model for General Robot Control
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -482,7 +426,7 @@
   <span class="md-ellipsis">
     
   
-    HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation
+    Posterior Augmented Flow Matching
   
 
     
@@ -500,7 +444,7 @@
   <span class="md-ellipsis">
     
   
-    HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation
+    Posterior Augmented Flow Matching
   
 
     
@@ -569,10 +513,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#bev-representation" class="md-nav__link">
+  <a href="#flow-matching-fm-objective" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BEV representation
+        Flow Matching (FM) Objective
       
     </span>
   </a>
@@ -580,10 +524,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#visual-tokenizer" class="md-nav__link">
+  <a href="#posterior-augmented-flow-matching-pafm-objective" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Visual Tokenizer
+        Posterior-Augmented Flow Matching (PAFM) Objective
       
     </span>
   </a>
@@ -591,10 +535,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#llm-enhanced-world-queries" class="md-nav__link">
+  <a href="#conditional-probability-path-p_tz_itz_j" class="md-nav__link">
     <span class="md-ellipsis">
       
-        LLM-enhanced world queries
+        Conditional Probability Path $p_t(z_{i,t}|z_j)$
       
     </span>
   </a>
@@ -602,10 +546,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#current-to-future-link" class="md-nav__link">
+  <a href="#condition-likelihood-p_ty_iz_j" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Current-to-Future Link
+        Condition Likelihood $p_t(y_i|z_j)$
       
     </span>
   </a>
@@ -613,21 +557,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#joint-geometric-optimization-strategy" class="md-nav__link">
+  <a href="#self-normalized-importance-sampling-snis" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Joint Geometric Optimization strategy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#differentiable-render" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        differentiable Render
+        Self-Normalized Importance Sampling (SNIS)
       
     </span>
   </a>
@@ -651,10 +584,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-this-matters-for-robotics" class="md-nav__link">
+  <a href="#why-this-matters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why This Matters for Robotics
+        Why This Matters
       
     </span>
   </a>
@@ -687,6 +620,62 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-05-04-0-a-vision-language-action-flow-model-for-general-robot-cont/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    $π_0$: A Vision-Language-Action Flow Model for General Robot Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -937,10 +926,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#bev-representation" class="md-nav__link">
+  <a href="#flow-matching-fm-objective" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BEV representation
+        Flow Matching (FM) Objective
       
     </span>
   </a>
@@ -948,10 +937,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#visual-tokenizer" class="md-nav__link">
+  <a href="#posterior-augmented-flow-matching-pafm-objective" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Visual Tokenizer
+        Posterior-Augmented Flow Matching (PAFM) Objective
       
     </span>
   </a>
@@ -959,10 +948,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#llm-enhanced-world-queries" class="md-nav__link">
+  <a href="#conditional-probability-path-p_tz_itz_j" class="md-nav__link">
     <span class="md-ellipsis">
       
-        LLM-enhanced world queries
+        Conditional Probability Path $p_t(z_{i,t}|z_j)$
       
     </span>
   </a>
@@ -970,10 +959,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#current-to-future-link" class="md-nav__link">
+  <a href="#condition-likelihood-p_ty_iz_j" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Current-to-Future Link
+        Condition Likelihood $p_t(y_i|z_j)$
       
     </span>
   </a>
@@ -981,21 +970,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#joint-geometric-optimization-strategy" class="md-nav__link">
+  <a href="#self-normalized-importance-sampling-snis" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Joint Geometric Optimization strategy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#differentiable-render" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        differentiable Render
+        Self-Normalized Importance Sampling (SNIS)
       
     </span>
   </a>
@@ -1019,10 +997,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-this-matters-for-robotics" class="md-nav__link">
+  <a href="#why-this-matters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why This Matters for Robotics
+        Why This Matters
       
     </span>
   </a>
@@ -1072,66 +1050,46 @@
       
       
       
-        <a href="../../tags/#tag:ai" class="md-tag">AI</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
   </nav>
 
 
 
-  <h1>HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation</h1>
+  <h1>Posterior Augmented Flow Matching</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-01</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-05-05</em></p>
 </blockquote>
 <h2 id="tldr">TL;DR</h2>
-<p>HERMES++ establishes a unified driving world model by integrating 3D scene understanding and future geometry prediction within a single framework. This is achieved by leveraging a Bird’s-Eye View (BEV) representation and employing LLM-enhanced world queries to condition geometric evolution on semantic context, all while maintaining structural integrity via a Joint Geometric Optimization strategy.</p>
+<p>Posterior-Augmented Flow Matching (PAFM) generalizes standard Flow Matching (FM) by replacing single-target supervision with an expectation over an approximate posterior of valid target completions, thereby reducing gradient variance.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Existing driving world models exhibit a functional dichotomy. On one hand, many focus heavily on future scene generation, often neglecting a comprehensive, explicit understanding of the current 3D scene state. On the other hand, while Large Language Models (LLMs) excel at semantic interpretation, they inherently lack the capacity to predict the precise future geometric evolution of a physical scene. This creates a fundamental disconnect: we have sophisticated semantic interpreters that cannot predict physical outcomes, and geometric predictors that lack deep semantic grounding. Furthermore, supervision derived solely from future observations often imposes only explicit constraints, which is insufficient to guarantee the structural consistency of the predicted scene evolution.</p>
+<p>In high-dimensional image generation utilizing Flow Matching (FM), the training signal is inherently sparse and high-variance. Specifically, each training sample only supervises a single trajectory and a single intermediate point. This constraint means that a given intermediate point $z_{i,t}$ can plausibly lie on numerous trajectories leading to different valid targets under the same conditioning. This sparse, under-constrained supervision leads to flow collapse, where the learned dynamics tend to overfit to specific, sampled source-target pairings rather than learning the general underlying data manifold dynamics. Existing theoretical frameworks and objective refinements for FM typically maintain the assumption of a one-target-per-intermediate coupling, failing to address this fundamental issue of trajectory ambiguity.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We contribute three primary advancements:
-1. Proposing a unified framework that effectively integrates 3D scene understanding and future geometry prediction using a unified representation.
-2. Devising a Joint Geometric Optimization strategy to enforce structural integrity by combining explicit geometric constraints with implicit geometric regularization on the latent manifold.
-3. Introducing LLM-enhanced world queries and Textual Injection to facilitate knowledge transfer, allowing semantic reasoning to directly guide future scene evolution.</p>
+<p>We introduce Posterior-Augmented Flow Matching (PAFM), which fundamentally shifts the supervision paradigm from single-target prediction to predicting the expected velocity over all plausible continuation trajectories, weighted by their posterior likelihood. We provide a proof demonstrating that PAFM yields an unbiased estimator of the original FM objective, i.e., $L(\text{PAFM})(\theta) = L(\text{FM})(\theta)$. Furthermore, we demonstrate that this aggregation of information across multiple plausible flows effectively reduces the gradient variance compared to standard FM.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Fig. 1: (a) Previous driving world models focus on generative scene evolution prediction. (b) Large language models for driving
-are limited to scene understanding. (c) The proposed framework unifies 3D scene understanding and scene evolution generation
-with the BEV representation. (d) Quantitative c" src="../../assets/figures/2604.28196/fig_p2_5.jpg" />
-<em>Fig. 1: (a) Previous driving world models focus on generative scene evolution prediction. (b) Large language models for driving
-are limited to scene understanding. (c) The proposed framework unifies 3D scene understanding and scene evolution generation
-with the BEV representation. (d) Quantitative c</em></p>
-<p><img alt="Fig. 1: (a) Previous driving world models focus on generative scene evolution prediction. (b) Large language models for driving
-are limited to scene understanding. (c) The proposed framework unifies 3D scene understanding and scene evolution generation
-with the BEV representation. (d) Quantitative c" src="../../assets/figures/2604.28196/fig_p2_7.jpg" />
-<em>Fig. 1: (a) Previous driving world models focus on generative scene evolution prediction. (b) Large language models for driving
-are limited to scene understanding. (c) The proposed framework unifies 3D scene understanding and scene evolution generation
-with the BEV representation. (d) Quantitative c</em></p>
-<p><img alt="Fig. 1: (a) Previous driving world models focus on generative scene evolution prediction. (b) Large language models for driving
-are limited to scene understanding. (c) The proposed framework unifies 3D scene understanding and scene evolution generation
-with the BEV representation. (d) Quantitative c" src="../../assets/figures/2604.28196/fig_p2_8.jpg" />
-<em>Fig. 1: (a) Previous driving world models focus on generative scene evolution prediction. (b) Large language models for driving
-are limited to scene understanding. (c) The proposed framework unifies 3D scene understanding and scene evolution generation
-with the BEV representation. (d) Quantitative c</em></p>
-<p>HERMES++ operates by first consolidating multi-view spatial information into a Bird’s-Eye View (BEV) representation, which serves as a structure amenable to interaction with LLMs. Semantic context is then injected into the temporal prediction pipeline via LLM-enhanced world queries. These queries aggregate rich world knowledge from text tokens and interact with BEV features through the Current-to-Future Link. This link is crucial as it conditions the geometric evolution on both semantic context (via Textual Injection) and ego-motion. Finally, the predicted latent representations are decoded into geometry using a differentiable renderer, with the entire process constrained by a Joint Geometric Optimization strategy that ensures geometric fidelity.</p>
-<h3 id="bev-representation">BEV representation</h3>
-<p>The BEV representation serves as the canonical, spatially coherent substrate for the entire model. It consolidates disparate multi-view spatial information into a unified grid structure. This transformation is executed by a Visual Tokenizer, which employs cross-attention mechanisms to map high-dimensional image inputs into the BEV space, thereby compressing the input while preserving necessary spatial relationships for downstream processing.</p>
-<h3 id="visual-tokenizer">Visual Tokenizer</h3>
-<p>The Visual Tokenizer is responsible for the initial spatial encoding. It takes multi-view images and transforms them into the BEV space. This transformation is achieved via cross-attention, which allows the model to fuse information across different camera perspectives into a single, unified spatial representation, effectively compressing the input while maintaining geometric fidelity.</p>
-<h3 id="llm-enhanced-world-queries">LLM-enhanced world queries</h3>
-<p>These queries are the mechanism for injecting high-level semantic knowledge into the geometric prediction pipeline. They leverage causal attention to aggregate rich world knowledge derived from input text tokens. By processing these tokens, the queries generate context-aware embeddings that represent the current semantic understanding of the scene, which is then utilized to guide the temporal evolution.</p>
-<h3 id="current-to-future-link">Current-to-Future Link</h3>
-<p>This component bridges the temporal gap between the current state and future timesteps. It propagates the encoded BEV features forward in time. Crucially, this propagation is conditioned not only on ego-motion but also on the enriched queries and text embeddings. The Textual Injection mechanism is embedded within this link, allowing the semantic context derived from the LLM to directly modulate how the geometry is predicted to change over time.</p>
-<h3 id="joint-geometric-optimization-strategy">Joint Geometric Optimization strategy</h3>
-<p>To prevent the predicted latent manifold from drifting into physically implausible configurations, this strategy enforces structural integrity. It operates by simultaneously minimizing two objectives: first, explicit geometric constraints applied directly to the reconstructed point clouds, and second, an implicit geometric regularization applied to the latent manifold itself. This dual constraint ensures that the predicted geometry adheres both to observable physical laws and to learned geometric priors.</p>
-<h3 id="differentiable-render">differentiable Render</h3>
-<p>The differentiable Render module serves as the geometric decoder. It takes the feature representations predicted by the temporal network and maps them back into a tangible geometric output, specifically point clouds. The differentiability of this module is essential, as it allows gradients from the geometric loss functions (like those in the Joint Geometric Optimization strategy) to flow back through the rendering process into the latent space, enabling end-to-end geometric training.</p>
+<p><img alt="Please provide the figure you would like me to analyze. I will then follow your instructions precisely." src="../../assets/figures/2605.00825/fig_p1_c1.jpg" />
+<em>Figure 1: Left: Standard FM provides a sparse, one-to-one supervision signal, pairing each interme-
+diate point with a single target and yielding a single plausible flow. Right: Our PAFM aggregates
+supervision over the full posterior of compatible targets, producing a denser, more coherent set of
+pl</em></p>
+<p>PAFM reformulates the FM objective by conditioning the velocity prediction not on a single sampled endpoint $y_i$, but on the expectation over the posterior distribution of valid targets given the intermediate state $z_{i,t}$. This posterior, $p_t(z_j|z_{i,t}, y_i)$, is generally intractable. We factor this posterior into two components: the likelihood of the intermediate state $z_{i,t}$ under a hypothesized endpoint $z_j$, $p_t(z_{i,t}|z_j)$, and the prior probability of that endpoint $z_j$ under the condition $y_i$, $p_t(y_i|z_j)$.</p>
+<p>To handle the intractability, we employ a sampling strategy that constructs a mixture over $K$ candidate targets, ${z_j}<em i_t="i,t">{j=1}^K$. We then utilize Self-Normalized Importance Sampling (SNIS) to weight these candidates according to their posterior likelihoods. This aggregation of gradients derived from multiple plausible flows effectively lowers the variance of the training gradient estimate by a factor related to the Effective Sample Size, $\text{ESS}(z</em>) \geq 1$, relative to standard FM.</p>
+<h3 id="flow-matching-fm-objective">Flow Matching (FM) Objective</h3>
+<p>The standard FM objective is defined as:
+$$L(\text{FM})(\theta) = \mathbb{E}<em i_t="i,t">{t \sim \text{Unif}[0,1), (z_i, y_i) \sim \text{data}(\bullet), z</em>|z_i) \right|^2$$
+This objective requires predicting the velocity $v$ at time $t$ given the current latent $z_{i,t}$ and the final target $y_i$.} \sim p_t(\bullet|z_i)} \left| f_\theta(z_{i,t}|t, y_i) - v(z_{i,t</p>
+<h3 id="posterior-augmented-flow-matching-pafm-objective">Posterior-Augmented Flow Matching (PAFM) Objective</h3>
+<p>PAFM modifies this by integrating over the posterior of targets:
+$$L(\text{PAFM})(\theta) = \mathbb{E}<em i_t="i,t">{t \sim \text{Unif}[0,1), y_i \sim \text{data}(y), z</em>|z_j) \right|^2$$
+Here, the expectation is taken over the distribution of plausible targets $z_j$ given the intermediate state $z_{i,t}$ and condition $y_i$.} \sim p_t(\bullet), z_j \sim p_t(\bullet|z_{i,t}, y_i)} \left| f_\theta(z_{i,t}|t, y_i) - v(z_{i,t</p>
+<h3 id="conditional-probability-path-p_tz_itz_j">Conditional Probability Path $p_t(z_{i,t}|z_j)$</h3>
+<p>We model the likelihood of reaching a specific target $z_j$ from the current latent $z_{i,t}$ using a Gaussian distribution: $N(\mu_t z_j, \alpha_t^2 \text{Id})$. The log-likelihood is proportional to $-|z_{i,t} - (1-t)z_j|^2 / 2t^2$. This term quantifies how likely the current state $z_{i,t}$ is to be on a path leading to $z_j$.</p>
+<h3 id="condition-likelihood-p_ty_iz_j">Condition Likelihood $p_t(y_i|z_j)$</h3>
+<p>This term measures the compatibility between a candidate target $z_j$ and the input condition $y_i$. For class-conditioned FM, this is deterministic (1 if $y_i = y_j$, 0 otherwise). For more complex conditioning, this requires an approximation.</p>
+<h3 id="self-normalized-importance-sampling-snis">Self-Normalized Importance Sampling (SNIS)</h3>
+<p>Since the true posterior $p_t(z_j|z_{i,t}, y_i)$ is intractable, we approximate the expectation using SNIS. This technique computes the gradient estimator $\hat{\mu}<em i_t="i,t">{\text{SNIS}}g(z</em>^K$.}|K) = \sum_{j=1}^K w_j g(z_j|z_{i,t}, y_i)$, where the weights $w_j$ are derived by normalizing the importance weights based on the posterior likelihoods of the $K$ sampled candidates ${z_j}_{j=1</p>
 <h2 id="results">Results</h2>
 <table>
 <thead>
@@ -1144,38 +1102,26 @@ with the BEV representation. (d) Quantitative c</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">3s point cloud generation error</td>
-<td style="text-align: left;">8.2% reduction</td>
-<td style="text-align: left;">DriveX [18]</td>
+<td style="text-align: left;">FID50K improvement</td>
+<td style="text-align: left;">up to 3.4</td>
+<td style="text-align: left;">FM</td>
 <td style="text-align: left;">Abstract</td>
-</tr>
-<tr>
-<td style="text-align: left;">CIDEr metric (understanding task)</td>
-<td style="text-align: left;">9.2% outperformance</td>
-<td style="text-align: left;">Omni-Q [15]</td>
-<td style="text-align: left;">Abstract</td>
-</tr>
-<tr>
-<td style="text-align: left;">generation error</td>
-<td style="text-align: left;">13.7% reduction</td>
-<td style="text-align: left;">conference version</td>
-<td style="text-align: left;">Section 3</td>
 </tr>
 </tbody>
 </table>
-<h2 id="why-this-matters-for-robotics">Why This Matters for Robotics</h2>
-<p>The integration demonstrated by HERMES++ addresses a critical bottleneck in deploying perception-to-action pipelines in autonomous systems. By unifying semantic understanding (the "what" and "why") with predictive geometry (the "where" and "how"), the model moves beyond mere scene reconstruction toward genuine world modeling. This capability is vital for robust planning, as a system can now reason about <em>why</em> a scene will evolve a certain way based on semantic cues (e.g., "the pedestrian will cross the street") and then predict the precise geometric trajectory required for safe navigation.</p>
+<h2 id="why-this-matters">Why This Matters</h2>
+<p>PAFM provides a principled method to mitigate the high variance inherent in trajectory-based generative modeling. By replacing the brittle, single-point supervision of standard FM with an expectation over a set of plausible continuations, we effectively densify the training signal. This allows the model to learn a more robust and generalized flow dynamics, leading to measurable improvements in sample quality, as evidenced by the FID score reduction. Furthermore, the method is architecturally flexible, supporting various strategies for sourcing candidate targets ${z_j}_{j=1}^K$, such as FAISS k-nearest-neighbor retrieval, and incurs only marginal computational overhead across different model scales and architectures.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current formulation is constrained by its input modality, relying exclusively on multi-view images for scene input and producing point clouds as output. Furthermore, the paper does not explicitly detail limitations beyond the inherent challenges addressed by the proposed components, leaving open questions regarding the scalability of the LLM integration to extremely long-horizon predictions or the robustness of the Textual Injection mechanism under highly ambiguous semantic inputs.</p>
+<p>The primary limitation is that the true posterior $p_t(z_j|z_{i,t}, y_i)$ remains intractable, necessitating practical approximations. Similarly, the condition likelihood $p_t(y_i|z_j)$ requires approximation, particularly in continuous-conditioned generation, although using models like CLIP offers an intuitive starting point for this approximation.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2604.28196">2604.28196</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260428196</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Xin Zhou and Dingkang Liang and Xiwu Chen and Feiyang Tan and Dingyuan Zhang and Hengshuang Zhao et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2604.28196}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.00825">2605.00825</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260500825</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Posterior Augmented Flow Matching}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{George Stoica and Sayak Paul and Matthew Wallingford and Vivek Ramanujan and Abhay Nori and Winson Han et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.00825}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2604.28196}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.00825}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
