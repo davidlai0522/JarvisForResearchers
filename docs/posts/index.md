@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [AlbumFill: Album-Guided Reasoning and Retrieval for Personalized Image Completion](2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/)
+
+*2026-05-06*
+
+AlbumFill is a training-free framework that uses vision-language reasoning to automatically retrieve identity-consistent reference images from personal photo albums to guide personalized image completion.
+
 ## [Posterior Augmented Flow Matching](2026-05-05-posterior-augmented-flow-matching/)
 
 *2026-05-05*
