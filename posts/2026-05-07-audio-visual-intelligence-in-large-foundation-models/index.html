@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="π0 is a novel flow matching architecture built on a pre-trained Vision-Language Model (VLM) to create a generalist robot policy capable of performing complex, dexterous tasks via direct prompting or fine-tuning.
+        <meta name="description" content="This survey provides the first comprehensive review of Audio-Visual Intelligence (AVI) within the paradigm of large foundation models, unifying perception, generation, and interaction research under a coherent framework.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/jarvisforresearchers/posts/2026-05-04-0-a-vision-language-action-flow-model-for-general-robot-cont/">
+        <link rel="canonical" href="https://davidlai0522.github.io/jarvisforresearchers/posts/2026-05-07-audio-visual-intelligence-in-large-foundation-models/">
       
       
-        <link rel="prev" href="../2026-05-05-posterior-augmented-flow-matching/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/">
+        <link rel="next" href="../2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>$π_0$: A Vision-Language-Action Flow Model for General Robot Control - JarvisForResearchers</title>
+        <title>Audio-Visual Intelligence in Large Foundation Models - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              $π_0$: A Vision-Language-Action Flow Model for General Robot Control
+              Audio-Visual Intelligence in Large Foundation Models
             
           </span>
         </div>
@@ -413,90 +413,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../2026-05-07-audio-visual-intelligence-in-large-foundation-models/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Audio-Visual Intelligence in Large Foundation Models
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AlbumFill: Album-Guided Reasoning and Retrieval for Personalized Image Completion
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../2026-05-05-posterior-augmented-flow-matching/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Posterior Augmented Flow Matching
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -514,7 +430,7 @@
   <span class="md-ellipsis">
     
   
-    $π_0$: A Vision-Language-Action Flow Model for General Robot Control
+    Audio-Visual Intelligence in Large Foundation Models
   
 
     
@@ -532,7 +448,7 @@
   <span class="md-ellipsis">
     
   
-    $π_0$: A Vision-Language-Action Flow Model for General Robot Control
+    Audio-Visual Intelligence in Large Foundation Models
   
 
     
@@ -601,10 +517,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#vlm-backbone" class="md-nav__link">
+  <a href="#audio-modality" class="md-nav__link">
     <span class="md-ellipsis">
       
-        VLM backbone
+        Audio Modality
       
     </span>
   </a>
@@ -612,10 +528,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#action-expert" class="md-nav__link">
+  <a href="#visual-modality" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Action expert
+        Visual Modality
       
     </span>
   </a>
@@ -623,10 +539,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#observation-input-o_t" class="md-nav__link">
+  <a href="#cross-modal-fusion-and-alignment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Observation input ($o_t$)
+        Cross-Modal Fusion and Alignment
       
     </span>
   </a>
@@ -634,10 +550,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#action-chunk-a_t" class="md-nav__link">
+  <a href="#autoregressive-generation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Action chunk ($A_t$)
+        Autoregressive Generation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diffusion-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diffusion Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llm-centric-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLM-Centric Methods
       
     </span>
   </a>
@@ -697,6 +635,90 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AlbumFill: Album-Guided Reasoning and Retrieval for Personalized Image Completion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-05-05-posterior-augmented-flow-matching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Posterior Augmented Flow Matching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-05-04-0-a-vision-language-action-flow-model-for-general-robot-cont/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    $π_0$: A Vision-Language-Action Flow Model for General Robot Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -975,10 +997,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#vlm-backbone" class="md-nav__link">
+  <a href="#audio-modality" class="md-nav__link">
     <span class="md-ellipsis">
       
-        VLM backbone
+        Audio Modality
       
     </span>
   </a>
@@ -986,10 +1008,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#action-expert" class="md-nav__link">
+  <a href="#visual-modality" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Action expert
+        Visual Modality
       
     </span>
   </a>
@@ -997,10 +1019,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#observation-input-o_t" class="md-nav__link">
+  <a href="#cross-modal-fusion-and-alignment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Observation input ($o_t$)
+        Cross-Modal Fusion and Alignment
       
     </span>
   </a>
@@ -1008,10 +1030,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#action-chunk-a_t" class="md-nav__link">
+  <a href="#autoregressive-generation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Action chunk ($A_t$)
+        Autoregressive Generation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diffusion-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diffusion Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llm-centric-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLM-Centric Methods
       
     </span>
   </a>
@@ -1088,7 +1132,14 @@
       
       
       
-        <a href="../../tags/#tag:dexterous-manipulation" class="md-tag">dexterous-manipulation</a>
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:diffusion-models" class="md-tag">diffusion-models</a>
       
     
       
@@ -1102,121 +1153,62 @@
       
       
       
-        <a href="../../tags/#tag:generalization" class="md-tag">generalization</a>
+        <a href="../../tags/#tag:perception" class="md-tag">perception</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:llm" class="md-tag">llm</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:manipulation" class="md-tag">manipulation</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
+        <a href="../../tags/#tag:transformers" class="md-tag">transformers</a>
       
     
   </nav>
 
 
 
-  <h1>$π_0$: A Vision-Language-Action Flow Model for General Robot Control</h1>
+  <h1>Audio-Visual Intelligence in Large Foundation Models</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-04</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-05-07</em></p>
 </blockquote>
 <h2 id="tldr">TL;DR</h2>
-<p>$\pi_0$ introduces a generalist robot policy architecture that integrates a pre-trained Vision-Language Model (VLM) backbone with a conditional flow matching action expert. This design enables the model to perform complex, dexterous tasks by modeling continuous action distributions, moving beyond the limitations of autoregressive action discretization prevalent in prior VLA models.</p>
+<p>This survey provides the first comprehensive review of Audio-Visual Intelligence (AVI) within the paradigm of large foundation models, unifying perception, generation, and interaction research under a coherent framework. It establishes a principled taxonomy and consolidates the methodological foundations necessary for systematic progress in this rapidly evolving domain.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>The path toward deploying generalist robotic systems in unstructured, real-world environments is significantly impeded by limitations in data scale, generalization capacity, and control robustness. Current methodologies often fail to capture the physically situated versatility inherent in human performance. Specifically, existing Vision-Language Action (VLA) models frequently rely on autoregressive discretization to represent actions, a formulation that introduces substantial challenges when attempting to model the high-frequency dynamics required for dexterous manipulation. Furthermore, prior robotic learning efforts have typically been constrained by small-scale datasets, often involving only tens or hundreds of trajectories, which is insufficient for training foundation models capable of broad generalization. A critical gap exists in unifying large-scale pre-training paradigms with the necessary architectural components required for high-frequency, dexterous control within a single, cohesive framework.</p>
+<p>The literature on Audio-Visual Intelligence (AVI) is fragmented, spanning diverse tasks, inconsistent taxonomies, and heterogeneous evaluation practices, which impedes systematic comparison and knowledge integration. Specifically, the existing body of work suffers from several critical issues: the literature remains fragmented across subcommunities with overlapping definitions, inconsistent terminology, and divergent taxonomies that hinder cumulative understanding; evaluation practices vary widely in datasets, metrics, and protocols, especially for open-ended generation, alignment quality, temporal coherence, and human-centric judgments, which complicates reproducibility and benchmarking; and safety and governance concerns, such as privacy in audio/video, consent for speech and music, watermarking and provenance, and the energy footprint of foundation-scale training, are increasingly consequential yet unevenly addressed.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>This work makes three primary contributions:
-1. The proposal of a novel generalist robot policy architecture that leverages VLM pre-training in conjunction with flow matching.
-2. An empirical investigation into effective pre-training and post-training recipes tailored for such robot foundation models.
-3. A demonstration of a level of dexterity and generality that substantially surpasses the capabilities exhibited by previously reported robot foundation models.</p>
+<p>This work makes three primary contributions. First, it provides the first systematic and in-depth survey of Audio-Visual Intelligence within the paradigm of large foundation models, unifying perception, generation, and interaction research under a coherent framework. Second, it establishes a principled taxonomy that organizes the diverse audio-visual tasks—covering speech, music, sound events, video, and open-world understanding, generation, and interaction—while clarifying task scope, assumptions, and relationships among subproblems. Third, it consolidates the methodological foundations of AVI, including audio/visual tokenization, cross-modal fusion, autoregressive and diffusion-based generation, instruction alignment, and large-scale pretraining strategies.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze. I need the image to give you a precise description." src="../../assets/figures/2410.24164/fig_p1_c1.jpg" />
-<em>Fig. 1: Our generalist robot policy uses a pre-trained vision-language model (VLM) backbone, as well as a diverse cross-
-embodiment dataset with a variety of dexterous manipulation tasks. The model is adapted to robot control by adding a separate
-action expert that produces continuous actions via fl</em></p>
-<p>$\pi_0$ is constructed by leveraging a pre-trained Vision-Language Model (VLM) backbone, initialized using PaliGemma, to assimilate Internet-scale semantic knowledge. To facilitate the generation of continuous, high-frequency actions, the VLM is augmented with a distinct action expert. This expert employs conditional flow matching to model the continuous distribution of actions. The training regimen is multi-staged: an initial large-scale pre-training phase is conducted on a mixture of dexterous manipulation datasets (sourced from 7 robot configurations and 68 tasks) alongside the OXE dataset. This is followed by a post-training phase utilizing high-quality, curated data specific to downstream tasks. This architectural and training design permits the model to effectively manage complex, temporally extended tasks.</p>
-<h3 id="vlm-backbone">VLM backbone</h3>
-<p>This component is initialized from PaliGemma. Its function is to embed the robot's image observations into the same latent embedding space utilized by the language tokens, thereby inheriting a broad base of general semantic knowledge from the pre-training corpus.</p>
-<h3 id="action-expert">Action expert</h3>
-<p>This is a separate component, possessing 300M parameters and initialized from scratch. It is responsible for generating continuous action distributions by implementing conditional flow matching.</p>
-<h3 id="observation-input-o_t">Observation input ($o_t$)</h3>
-<p>The observation input at time $t$ is a composite structure. It comprises multiple RGB images ($I^t_1, ..., I^t_n$), a sequence of language tokens ($\ell_t$) that encode task instructions, and the robot's proprioceptive state ($q_t$).</p>
-<h3 id="action-chunk-a_t">Action chunk ($A_t$)</h3>
-<p>The action chunk, $A_t$, represents a sequence of future actions: $(a_t, a_{t+1}, ..., a_{t+H-1})$. The horizon $H$ is fixed at 50 for the tasks considered.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.04045/fig_p1_u0.jpg" />
+<em>Please provide the figure you would like me to analyze.</em></p>
+<p>The survey synthesizes methodological foundations for AVI, which build upon modality-specific encoders or tokenizers for audio and vision, followed by cross-modal fusion and alignment techniques. Generative capabilities are addressed using autoregressive transformers for sequence modeling or diffusion models for high-fidelity synthesis, often adapted via cross-attention and guidance mechanisms. Furthermore, LLM-centric methods are synthesized, including Encoder+LLM for perception, LLM+Generator for generation, and unified models for joint perception and generation, all tailored for instruction alignment and preference optimization.</p>
+<h3 id="audio-modality">Audio Modality</h3>
+<p>The Audio Modality originates from physical vibrations, captured as 1D time-series digital signals (waveform, $a \in \mathbb{R}^L$) or transformed into time-frequency representations (spectrograms). The choice of representation dictates the subsequent processing pipeline, often requiring specialized feature extractors to capture relevant acoustic invariants.</p>
+<h3 id="visual-modality">Visual Modality</h3>
+<p>The Visual Modality is data represented as images or video, processed through unimodal representations before cross-modal integration. Standard computer vision backbones are employed here, but the complexity scales significantly when dealing with temporal dependencies inherent in video streams.</p>
+<h3 id="cross-modal-fusion-and-alignment">Cross-Modal Fusion and Alignment</h3>
+<p>Cross-Modal Fusion and Alignment techniques are employed to align and integrate representations from the audio and visual modalities. This step is crucial for enabling joint reasoning, ensuring that semantic correspondences between auditory and visual events are preserved across the latent space.</p>
+<h3 id="autoregressive-generation">Autoregressive Generation</h3>
+<p>Autoregressive Generation utilizes transformers driving sequence modeling for speech, music, and video tokens, enabling conditional decoding and instruction following at scale. This paradigm is fundamentally sequential, making it suitable for modeling temporal dependencies inherent in generative tasks.</p>
+<h3 id="diffusion-models">Diffusion Models</h3>
+<p>Diffusion Models provide high-fidelity synthesis and flexible editing, increasingly adapted to multimodal control via cross-attention and guidance mechanisms. Their strength lies in generating samples that adhere closely to complex, learned data distributions, often surpassing the fidelity limits of purely autoregressive approaches in certain domains.</p>
+<h3 id="llm-centric-methods">LLM-Centric Methods</h3>
+<p>LLM-Centric Methods encompass architectures utilizing Large Language Models. These include Encoder+LLM for Multimodal Perception, where the LLM interprets fused sensory data, and LLM+Generator for Multimodal Generation, where the LLM guides the synthesis process of a separate generative module.</p>
 <h2 id="results">Results</h2>
-<p>The empirical evaluation demonstrates the scale and scope of the training regimen:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Metric</th>
-<th style="text-align: left;">Value</th>
-<th style="text-align: left;">Baseline</th>
-<th style="text-align: left;">Source</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Pre-training data scale</td>
-<td style="text-align: left;">over 10,000 hours of robot data</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Section V</td>
-</tr>
-<tr>
-<td style="text-align: left;">Robot configurations used in pre-training</td>
-<td style="text-align: left;">7 different robot configurations</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Section III</td>
-</tr>
-<tr>
-<td style="text-align: left;">Tasks in pre-training</td>
-<td style="text-align: left;">68 tasks</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Section III</td>
-</tr>
-</tbody>
-</table>
+<p>(No quantitative results were provided in the outline.)</p>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The findings suggest that for developing generalist robot policies, the combination of a pre-trained VLM backbone with a flow matching action expert constitutes a viable paradigm for achieving high-frequency, dexterous control. Furthermore, the necessity of a multi-stage training recipe—pre-training on diverse, large-scale data followed by post-training on high-quality, curated data—is critical for simultaneously attaining broad capability and high-performance dexterity. This framework inherently supports cross-embodiment training, meaning a single learned model can be adapted to control heterogeneous robot platforms, including single-arm, dual-arm, and mobile manipulators.</p>
+<p>The structured review provided by this survey offers practitioners a clear roadmap for research focus. The field is structured into three main pillars: Perception (Section 5), Generation (Section 6), and Interaction (Section 7), providing a clear roadmap for research focus. Furthermore, the consolidation of key technical components—modality tokenization, cross-modal fusion, and the application of both autoregressive and diffusion-based generation—provides a necessary reference point for engineering design. Ultimately, this synthesis highlights that future research must address open challenges such as temporal synchronization, spatial audio reasoning, and multimodal controllability to advance the state-of-the-art in AVI.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The complexity of the $\pi_0$ architecture necessitates a deep understanding of how flow matching is integrated with the VLM structure. While the framework is designed to be compatible with various base pre-trained VLMs, the implementation detailed in the work utilizes PaliGemma as the specific backbone. Future work should investigate the sensitivity of the flow matching objective to the specific latent space structure provided by different VLM backbones.</p>
+<p>The primary limitations identified in the current literature are that the literature remains fragmented across subcommunities with overlapping definitions, inconsistent terminology, and divergent taxonomies. Concurrently, evaluation practices vary widely in datasets, metrics, and protocols, complicating reproducibility and benchmarking.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2410.24164">2410.24164</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">241024164</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{$π_0$: A Vision-Language-Action Flow Model for General Robot Control}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Kevin Black and Noah Brown and Danny Driess and Adnan Esmail and Michael Equi and Chelsea Finn et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2410.24164}</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2024}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2410.24164}</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.04045">2605.04045</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260504045</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Audio-Visual Intelligence in Large Foundation Models}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{You Qin and Kai Liu and Shengqiong Wu and Kai Wang and Shijian Deng and Yapeng Tian et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.04045}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.04045}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
