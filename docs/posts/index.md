@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Audio-Visual Intelligence in Large Foundation Models](2026-05-07-audio-visual-intelligence-in-large-foundation-models/)
+
+*2026-05-07*
+
+This survey provides the first comprehensive review of Audio-Visual Intelligence (AVI) within the paradigm of large foundation models, unifying perception, generation, and interaction research under a coherent framework.
+
 ## [AlbumFill: Album-Guided Reasoning and Retrieval for Personalized Image Completion](2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/)
 
 *2026-05-06*
