@@ -15,9 +15,18 @@ _MIN_HEIGHT = 150
 _MAX_ASPECT_RATIO = 8.0
 _MIN_STDDEV = 15.0
 _MIN_CONTENT_RATIO = 0.05
+# Pixels with all channels > this are "near-white" (catches subtle gradients too)
+_NEAR_WHITE_THRESH = 200
+# Pixels with mean brightness < this are "dark"
+_DARK_THRESH = 30
+_MAX_DARK_RATIO = 0.85   # reject if >85% of pixels are very dark (icon on black bg)
 
 # How far above a figure caption to look for the figure body (in PDF points, 1pt ≈ 0.35mm)
 _CAPTION_LOOKBACK_PT = 480
+# Typical running-header height to skip in the blind fallback
+_PAGE_HEADER_PT = 50
+# Maximum uncaptioned raster clusters to extract per page (avoids fragment floods)
+_MAX_UNCAPTIONED_PER_PAGE = 3
 
 
 def _render_region(page: fitz.Page, rect: fitz.Rect) -> fitz.Pixmap:
@@ -44,7 +53,7 @@ def _is_quality_figure(pix: fitz.Pixmap) -> tuple[bool, str]:
     samples = pix.samples
     total_pixels = w * h
     step = max(1, total_pixels // 4000)
-    pixel_sum = pixel_sq_sum = white_pixels = sampled = 0
+    pixel_sum = pixel_sq_sum = near_white = dark_pixels = sampled = 0
 
     for i in range(0, total_pixels, step):
         offset = i * n
@@ -52,18 +61,25 @@ def _is_quality_figure(pix: fitz.Pixmap) -> tuple[bool, str]:
         brightness = (r + g + b) / 3
         pixel_sum += brightness
         pixel_sq_sum += brightness * brightness
-        if r > 240 and g > 240 and b > 240:
-            white_pixels += 1
+        # Near-white: all channels above _NEAR_WHITE_THRESH (catches pastel gradients)
+        if r > _NEAR_WHITE_THRESH and g > _NEAR_WHITE_THRESH and b > _NEAR_WHITE_THRESH:
+            near_white += 1
+        # Very dark: mean brightness below _DARK_THRESH (icon on black background)
+        if brightness < _DARK_THRESH:
+            dark_pixels += 1
         sampled += 1
 
     mean = pixel_sum / sampled
     stddev = (pixel_sq_sum / sampled - mean * mean) ** 0.5
-    white_ratio = white_pixels / sampled
+    near_white_ratio = near_white / sampled
+    dark_ratio = dark_pixels / sampled
 
     if stddev < _MIN_STDDEV:
         return False, f"near-uniform colour (stddev={stddev:.1f})"
-    if white_ratio > (1.0 - _MIN_CONTENT_RATIO):
-        return False, f"mostly white ({white_ratio*100:.0f}%)"
+    if near_white_ratio > (1.0 - _MIN_CONTENT_RATIO):
+        return False, f"near-white/blank ({near_white_ratio*100:.0f}%)"
+    if dark_ratio > _MAX_DARK_RATIO:
+        return False, f"mostly dark — icon fragment ({dark_ratio*100:.0f}%)"
     return True, ""
 
 
@@ -101,6 +117,8 @@ def _merge_rects(rects: list[fitz.Rect], gap: float = 8.0) -> list[fitz.Rect]:
 def _drawing_clusters(page: fitz.Page, min_area: float = 800.0) -> list[fitz.Rect]:
     """Return merged bounding boxes of vector-path groups on the page.
     Ignores tiny decorative paths (rules, borders, tick marks) by area.
+    Gap of 15pt merges scattered paths within the same figure without
+    crossing typical column gutters (~12pt).
     """
     rects = []
     for d in page.get_drawings():
@@ -109,49 +127,67 @@ def _drawing_clusters(page: fitz.Page, min_area: float = 800.0) -> list[fitz.Rec
             rect = fitz.Rect(r)
             if not rect.is_empty and rect.width * rect.height >= min_area:
                 rects.append(rect)
-    return _merge_rects(rects, gap=8.0)
+    return _merge_rects(rects, gap=15.0)
 
 
-def _nearest_source_above(
+def _figure_region_above(
     cap_rect: fitz.Rect,
     clusters: list[fitz.Rect],
     raster_rects: list[fitz.Rect],
-    max_gap: float = 500.0,
+    page_top: float,
+    max_lookback: float = _CAPTION_LOOKBACK_PT,
 ) -> fitz.Rect | None:
-    """Return the drawing cluster or raster rect that sits closest above *cap_rect*
-    and has horizontal overlap with it.  Returns None if nothing is within *max_gap*.
     """
-    best: fitz.Rect | None = None
-    best_gap = max_gap
+    Return the merged bounding box of ALL drawing clusters and raster rects
+    that lie within *max_lookback* points above *cap_rect* and overlap it
+    horizontally.
+
+    Collecting every source (rather than only the nearest) gives the true
+    extent of complex figures that mix vector paths, raster insets, and labels.
+    Returns None if nothing is found in the search window.
+    """
+    search_top = cap_rect.y0 - max_lookback
 
     def h_overlap(a: fitz.Rect, b: fitz.Rect) -> bool:
         return a.x0 < b.x1 and a.x1 > b.x0
 
+    matching: list[fitz.Rect] = []
     for r in clusters + raster_rects:
-        if r.y1 > cap_rect.y0:  # must end above caption top
+        if r.y1 > cap_rect.y0:   # must end above caption top
             continue
-        gap = cap_rect.y0 - r.y1
-        if gap < best_gap and h_overlap(r, cap_rect):
-            best = r
-            best_gap = gap
-    return best
+        if r.y0 < search_top:    # too far up the page
+            continue
+        if not h_overlap(r, cap_rect):
+            continue
+        matching.append(r)
+
+    if not matching:
+        return None
+
+    x0 = min(r.x0 for r in matching)
+    y0 = min(r.y0 for r in matching)
+    x1 = max(r.x1 for r in matching)
+    y1 = max(r.y1 for r in matching)
+    return fitz.Rect(x0, y0, x1, y1)
 
 
 def extract_figures(paper_id: str, pdf_path: str) -> list[dict]:
     """
-    Extract figures from the PDF using a three-source merge strategy:
+    Extract figures from the PDF using a three-source merge strategy.
 
-    For each "Figure N" caption, the figure region is determined by finding
-    the nearest drawing cluster (vector paths from ``page.get_drawings()``) or
-    raster image rect above the caption.  This gives a tight, accurate crop
-    for both vector diagrams and embedded photos, and handles multi-column
-    layouts far better than a fixed vertical lookback.
+    Strategy 1 (caption-driven):
+      For each "Figure N" caption, all drawing clusters and raster rects within
+      _CAPTION_LOOKBACK_PT above it are merged into one bounding box.  This
+      captures the full extent of complex figures that mix vector paths and
+      embedded images.  If no source is found the region directly above the
+      caption is used as a fallback (skipping the top _PAGE_HEADER_PT to avoid
+      running headers).
 
-    If no source is found within ``_CAPTION_LOOKBACK_PT``, the strategy falls
-    back to rendering the blind region above the caption (original behaviour).
-
-    Uncaptioned raster images that were not claimed by any caption are rendered
-    as a final fallback pass.
+    Strategy 2 (uncaptioned rasters):
+      Raster images not claimed by any caption are grouped spatially (gap 15pt)
+      and rendered as a unit — preventing the icon-fragment flood caused by
+      papers that embed many small images inside one composite figure.
+      At most _MAX_UNCAPTIONED_PER_PAGE clusters are kept per page.
     """
     cache_file = pathlib.Path(f"cache/{paper_id}_figures.json")
     if cache_file.exists():
@@ -168,8 +204,6 @@ def extract_figures(paper_id: str, pdf_path: str) -> list[dict]:
     for page_num, page in enumerate(doc):
         pr = page.rect
         captions = _captions_on_page(page)
-
-        # Build vector drawing clusters for this page
         clusters = _drawing_clusters(page)
 
         # Build raster image rects for this page (reused in both passes)
@@ -188,12 +222,13 @@ def extract_figures(paper_id: str, pdf_path: str) -> list[dict]:
                 xref_to_rects[xref] = rs
                 raster_rects.extend(rs)
 
-        # ── Strategy 1: caption-driven (three-source) ────────────────────────
+        # ── Strategy 1: caption-driven (all sources merged) ──────────────────
         for cap_rect, cap_text in captions:
-            source = _nearest_source_above(cap_rect, clusters, raster_rects)
+            source = _figure_region_above(
+                cap_rect, clusters, raster_rects, page_top=pr.y0
+            )
 
             if source is not None:
-                # Tight crop: use the actual source bounds, clipped to page
                 fig_rect = fitz.Rect(
                     max(pr.x0 + 5, source.x0 - 5),
                     max(pr.y0,     source.y0 - 5),
@@ -201,8 +236,8 @@ def extract_figures(paper_id: str, pdf_path: str) -> list[dict]:
                     cap_rect.y0 - 2,
                 )
             else:
-                # Fallback: fixed-height blind region above caption
-                top = max(pr.y0, cap_rect.y0 - _CAPTION_LOOKBACK_PT)
+                # Blind fallback: skip the running-header area at the top of the page
+                top = max(pr.y0 + _PAGE_HEADER_PT, cap_rect.y0 - _CAPTION_LOOKBACK_PT)
                 fig_rect = fitz.Rect(pr.x0 + 20, top, pr.x1 - 20, cap_rect.y0 - 2)
 
             if fig_rect.is_empty or fig_rect.height < 80:
@@ -218,7 +253,7 @@ def extract_figures(paper_id: str, pdf_path: str) -> list[dict]:
 
             fig_num = _parse_fig_num(cap_text)
             fname = f"fig_p{page_num + 1}_c{fig_num or 'x'}.jpg"
-            pix.save(str(out_dir / fname), jpg_quality=_JPEG_QUALITY)
+            _save_figure(pix, str(out_dir / fname))
             captured_rects.append(fig_rect)
             figures.append({
                 "path": f"../assets/figures/{paper_id}/{fname}",
@@ -227,32 +262,44 @@ def extract_figures(paper_id: str, pdf_path: str) -> list[dict]:
                 "figure_number": fig_num,
             })
 
-        # ── Strategy 2: uncaptioned rasters not yet captured ─────────────────
+        # ── Strategy 2: uncaptioned rasters, clustered to avoid fragments ────
+        all_uncaptured: list[fitz.Rect] = []
         for xref, img_rects in xref_to_rects.items():
             for img_rect in img_rects:
-                if any(_rects_overlap(img_rect, seen) for seen in captured_rects):
-                    continue
+                if not any(_rects_overlap(img_rect, seen) for seen in captured_rects):
+                    all_uncaptured.append(img_rect)
 
-                pix = _render_region(page, img_rect)
-                ok, reason = _is_quality_figure(pix)
-                if not ok:
-                    skipped += 1
-                    continue
+        # Cluster spatially so sub-images of the same composite figure merge
+        clustered = _merge_rects(all_uncaptured, gap=15.0)
+        page_uncaptioned = 0
 
-                # Wider proximity threshold (90pt) for dense papers
-                caption = next(
-                    (t for r, t in captions if 0 <= r.y0 - img_rect.y1 < 90),
-                    "",
-                )
-                fname = f"fig_p{page_num + 1}_r{xref}.jpg"
-                pix.save(str(out_dir / fname), jpg_quality=_JPEG_QUALITY)
-                captured_rects.append(img_rect)
-                figures.append({
-                    "path": f"../assets/figures/{paper_id}/{fname}",
-                    "caption": caption,
-                    "page": page_num + 1,
-                    "figure_number": _parse_fig_num(caption),
-                })
+        for cluster_rect in clustered:
+            if page_uncaptioned >= _MAX_UNCAPTIONED_PER_PAGE:
+                break
+            if any(_rects_overlap(cluster_rect, seen) for seen in captured_rects):
+                continue
+
+            pix = _render_region(page, cluster_rect)
+            ok, reason = _is_quality_figure(pix)
+            if not ok:
+                skipped += 1
+                continue
+
+            caption = next(
+                (t for r, t in captions if 0 <= r.y0 - cluster_rect.y1 < 90),
+                "",
+            )
+            fig_num = _parse_fig_num(caption)
+            fname = f"fig_p{page_num + 1}_u{page_uncaptioned}.jpg"
+            _save_figure(pix, str(out_dir / fname))
+            captured_rects.append(cluster_rect)
+            figures.append({
+                "path": f"../assets/figures/{paper_id}/{fname}",
+                "caption": caption,
+                "page": page_num + 1,
+                "figure_number": fig_num,
+            })
+            page_uncaptioned += 1
 
     figures.sort(key=lambda f: (f["page"], f["figure_number"] or 99))
     print(
@@ -269,6 +316,22 @@ def select_blog_figures(figures: list[dict], max_figures: int = 4) -> list[dict]
     uncaptioned = [f for f in figures if not f["caption"]]
     pool = captioned if captioned else uncaptioned
     return pool[:max_figures]
+
+
+def _save_figure(pix: fitz.Pixmap, path: str, white_thresh: int = 245) -> None:
+    """Autocrop near-white margins on all four sides, then save as JPEG."""
+    from PIL import Image
+    img = Image.frombytes("RGB", (pix.width, pix.height), pix.samples)
+    mask = img.convert("L").point(lambda p: 0 if p > white_thresh else 255)
+    bbox = mask.getbbox()  # tight bounding box of non-white content
+    if bbox:
+        pad = 6
+        x0 = max(0, bbox[0] - pad)
+        y0 = max(0, bbox[1] - pad)
+        x1 = min(img.width, bbox[2] + pad)
+        y1 = min(img.height, bbox[3] + pad)
+        img = img.crop((x0, y0, x1, y1))
+    img.save(path, format="JPEG", quality=_JPEG_QUALITY)
 
 
 def _parse_fig_num(caption: str) -> int | None:

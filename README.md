@@ -2,6 +2,8 @@
 
 > Turn any arXiv paper into a polished technical blog post — no API costs, no cloud GPUs, no data leaving your machine.
 
+**Live site:** https://davidlai0522.github.io/JarvisForResearchers/
+
 **JarvisForResearchers** is an open-source pipeline that runs a local language model (Google Gemma 4 E4B) to read research papers, extract the key ideas, and publish a well-structured blog post to GitHub Pages — automatically.
 
 It works for **any technical field**: robotics, NLP, computer vision, systems, bioinformatics, etc. Everything is configured through a single `config.yaml` file.

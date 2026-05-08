@@ -11,7 +11,6 @@
 #   site_url   →  https://<blog.github_username>.github.io/<blog.github_repo>
 # ─────────────────────────────────────────────────────────────────────────────
 
-
 # ── Blog identity ─────────────────────────────────────────────────────────────
 blog:
   # Name shown in the site header and browser tab
@@ -24,12 +23,12 @@ blog:
   github_username: "davidlai0522"
 
   # The GitHub repository name you created for this blog
-  github_repo: "jarvisforresearchers"
+  github_repo: "JarvisForResearchers"
   # → Your posts will go live at:
   #   https://<github_username>.github.io/<github_repo>/
 
 
-# ── LLM settings ─────────────────────────────────────────────────────────────
+  # ── LLM settings ─────────────────────────────────────────────────────────────
 llm:
   # Any HuggingFace causal language model that supports chat templates.
   # Gemma 4 E4B is the default — 26B MoE model, only 4B active, Apache 2.0.
@@ -47,44 +46,42 @@ llm:
   # 0.1–0.3 for extraction tasks, 0.3–0.5 for creative writing.
   temperature: 0.2
 
-
 # ── Paper quality gate ────────────────────────────────────────────────────────
 quality:
   # Papers accepted at any of these venues always pass the gate.
   # Add or remove entries to match your field.
   # (Case-insensitive substring match — "NeurIPS" also matches "NeurIPS 2024")
   top_venues:
-    # Machine Learning
-    - NeurIPS
-    - ICML
-    - ICLR
-    - AAAI
-    - JMLR
-    # Computer Vision
-    - CVPR
-    - ICCV
-    - ECCV
-    # Robotics
-    - ICRA
-    - IROS
-    - CoRL
-    - RSS
-    - IJRR
-    - T-RO
-    # NLP
-    - ACL
-    - EMNLP
-    - NAACL
+  # Machine Learning
+  - NeurIPS
+  - ICML
+  - ICLR
+  - AAAI
+  - JMLR
+  # Computer Vision
+  - CVPR
+  - ICCV
+  - ECCV
+  # Robotics
+  - ICRA
+  - IROS
+  - CoRL
+  - RSS
+  - IJRR
+  - T-RO
+  # NLP
+  - ACL
+  - EMNLP
+  - NAACL
 
   # Minimum citation counts for arXiv preprints based on paper age.
   # Papers from top venues above bypass these checks entirely.
   # Set any threshold to 0 to accept all papers of that age.
   citation_thresholds:
-    age_0: 0      # brand new (this year) — always accept
-    age_1: 5      # ~1 year old — at least 5 citations
-    age_2: 20     # ~2 years old — at least 20 citations
-    age_3_plus: 50  # 3+ years old — at least 50 citations
-
+    age_0: 0 # brand new (this year) — always accept
+    age_1: 5 # ~1 year old — at least 5 citations
+    age_2: 20 # ~2 years old — at least 20 citations
+    age_3_plus: 50 # 3+ years old — at least 50 citations
 
 # ── Daily paper discovery ─────────────────────────────────────────────────────
 discovery:
@@ -97,10 +94,10 @@ discovery:
   #   Systems:     cs.AR, cs.OS, cs.DC
   #   Bio/Med AI:  cs.LG, q-bio.QM, eess.IV
   categories:
-    - cs.RO   # Robotics
-    - cs.AI   # Artificial Intelligence
-    - cs.LG   # Machine Learning
-    - cs.CV   # Computer Vision
+  - cs.RO # Robotics
+  - cs.AI # Artificial Intelligence
+  - cs.LG # Machine Learning
+  - cs.CV # Computer Vision
 
   # How many recent papers to fetch per category on each daily run.
   # Higher values = more candidates to evaluate, but slower to start.
@@ -110,7 +107,6 @@ discovery:
   # Default: 08:00 every morning.
   # Use https://crontab.guru to build your own schedule.
   cron_schedule: "0 8 * * *"
-
 
 # ── Writing style ─────────────────────────────────────────────────────────────
 author:
@@ -129,7 +125,6 @@ author:
   # Maximum word count the LLM is asked to stay within per post.
   max_words: 1800
 
-
 # ── Weekly digest ─────────────────────────────────────────────────────────────
 digest:
   # How many days back to look for processed papers to include in the digest.
@@ -144,7 +139,6 @@ digest:
   # Result: "This Week in Robotics — 2026, Week 18"
   title_prefix: "This Week in Robotics"
 
-
 # ── Vision figure descriptions ────────────────────────────────────────────────
 vision:
   # Set to false to skip vision inference entirely (faster runs, no image analysis).
@@ -154,6 +148,21 @@ vision:
   # Each image adds one extra LLM call.  3 is a good balance of quality vs. speed.
   max_figures: 3
 
+# ── Resource guard ────────────────────────────────────────────────────────────
+# These thresholds are checked before loading the LLM.  If any check fails the
+# daily cron run is skipped (exit 0) so cron does not flag it as an error.
+resources:
+  # Minimum free system RAM (GiB) required before the pipeline may start.
+  # Gemma 4 E4B in 4-bit needs ~3–5 GiB; leave headroom for the OS and browser.
+  min_free_ram_gib: 6.0
+
+  # Maximum 5-minute CPU load average per logical core (0.0 = idle, 1.0 = fully loaded).
+  # 0.8 means "skip if the machine is already at 80% sustained load".
+  max_cpu_load_per_core: 0.8
+
+  # Absolute GPU VRAM floor (GiB).  If free VRAM is below this even the 4-bit
+  # quantised model cannot run safely.  Set to 0 to disable the VRAM check.
+  min_free_vram_gib_hard: 3.0
 
 # ── Telegram bot ──────────────────────────────────────────────────────────────
 telegram:
@@ -170,3 +179,9 @@ telegram:
   # If true, the bot will reply with the live GitHub Pages URL on success.
   # If false, it replies with the local file path instead.
   notify_with_url: true
+
+  # Chat ID to push a notification to when the daily cron job finishes.
+  # Set this to your Telegram user ID (find it via @userinfobot on Telegram).
+  # Leave commented out (or null) to disable cron notifications.
+  # notify_chat_id: 123456789
+  notify_chat_id: 921871324

@@ -117,6 +117,18 @@ class _Telegram:
         raw_ids = d.get("allowed_user_ids", [])
         self.allowed_user_ids: list[int] = [int(uid) for uid in raw_ids if uid]
         self.notify_with_url: bool = bool(d.get("notify_with_url", True))
+        raw_cid = d.get("notify_chat_id")
+        self.notify_chat_id: int | None = int(raw_cid) if raw_cid else None
+
+
+class _Resources:
+    def __init__(self, d: dict) -> None:
+        # Minimum free system RAM before the pipeline is allowed to start.
+        self.min_free_ram_gib: float = float(d.get("min_free_ram_gib", 6.0))
+        # Maximum 5-minute CPU load average per logical core (0.0–1.0).
+        self.max_cpu_load_per_core: float = float(d.get("max_cpu_load_per_core", 0.8))
+        # Absolute VRAM floor — even 4-bit quantised inference needs this much.
+        self.min_free_vram_gib_hard: float = float(d.get("min_free_vram_gib_hard", 3.0))
 
 
 class _Config:
@@ -130,6 +142,7 @@ class _Config:
         self.digest = _Digest(raw.get("digest", {}))
         self.vision = _Vision(raw.get("vision", {}))
         self.telegram = _Telegram(raw.get("telegram", {}))
+        self.resources = _Resources(raw.get("resources", {}))
 
 
 # Module-level singleton — import this everywhere

@@ -31,6 +31,8 @@ from daily import pick_daily_paper, mark_processed
 from digest import build_weekly_digest
 from vision import describe_figures
 from config import cfg
+from notify import notify_daily
+from resource_guard import PipelineGuard, ResourceError
 
 
 def _remove_paper(arxiv_id: str) -> None:
@@ -90,40 +92,8 @@ def _remove_paper(arxiv_id: str) -> None:
         print(f"\n  ⚠️  Nothing staged for git commit (docs changes may already be clean).")
 
 
-def main():
-    parser = argparse.ArgumentParser(
-        description="JarvisForResearchers — LLM-powered robotics & AI research blogger"
-    )
-    group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument("--arxiv", metavar="ID", help="arXiv paper ID (e.g. 2310.12931)")
-    group.add_argument("--pdf", metavar="PATH", help="Path to a local PDF file")
-    group.add_argument("--daily", action="store_true",
-                       help="Auto-pick today's best unprocessed paper from arXiv")
-    group.add_argument("--digest", action="store_true",
-                       help="Build 'This Week in Robotics' multi-paper summary post")
-    group.add_argument("--remove", metavar="ID",
-                       help="Remove a paper by arXiv ID: deletes post, figures, and cache")
-    parser.add_argument(
-        "--force",
-        action="store_true",
-        help="Skip quality gate",
-    )
-    parser.add_argument(
-        "--no-vision",
-        action="store_true",
-        help="Skip vision figure descriptions (faster)",
-    )
-    parser.add_argument(
-        "--quantise",
-        action="store_true",
-        help="Load model in 4-bit (for low VRAM / CPU)",
-    )
-    args = parser.parse_args()
-
-    # --- Remove mode: delete a paper and all its artifacts ---
-    if args.remove:
-        _remove_paper(args.remove)
-        return
+def _run_pipeline(args) -> None:
+    """Execute the full LLM pipeline. Called inside PipelineGuard context."""
 
     # --- Digest mode: weekly multi-paper summary ---
     if args.digest:
@@ -190,6 +160,54 @@ def main():
     if paper.get("id"):
         mark_processed(paper["id"])
         print(f"  📝 Marked {paper['id']} as processed")
+
+    if args.daily:
+        notify_daily(paper)
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="JarvisForResearchers — LLM-powered robotics & AI research blogger"
+    )
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument("--arxiv", metavar="ID", help="arXiv paper ID (e.g. 2310.12931)")
+    group.add_argument("--pdf", metavar="PATH", help="Path to a local PDF file")
+    group.add_argument("--daily", action="store_true",
+                       help="Auto-pick today's best unprocessed paper from arXiv")
+    group.add_argument("--digest", action="store_true",
+                       help="Build 'This Week in Robotics' multi-paper summary post")
+    group.add_argument("--remove", metavar="ID",
+                       help="Remove a paper by arXiv ID: deletes post, figures, and cache")
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Skip quality gate",
+    )
+    parser.add_argument(
+        "--no-vision",
+        action="store_true",
+        help="Skip vision figure descriptions (faster)",
+    )
+    parser.add_argument(
+        "--quantise",
+        action="store_true",
+        help="Load model in 4-bit (for low VRAM / CPU)",
+    )
+    args = parser.parse_args()
+
+    # --remove needs no resources (pure file I/O) — skip the guard
+    if args.remove:
+        _remove_paper(args.remove)
+        return
+
+    # All other modes load Gemma 4 — check resources first
+    try:
+        with PipelineGuard():
+            _run_pipeline(args)
+    except ResourceError as exc:
+        print(f"\n  ⏭️  Run skipped — {exc}")
+        print("  Adjust thresholds in config.yaml under 'resources:' if needed.")
+        sys.exit(0)
 
 
 if __name__ == "__main__":

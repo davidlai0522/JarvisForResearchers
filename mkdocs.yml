@@ -1,6 +1,6 @@
 site_name: JarvisForResearchers
 site_description: High-quality robotics & AI research — explained locally with Gemma 4
-site_url: https://davidlai0522.github.io/jarvisforresearchers
+site_url: https://davidlai0522.github.io/JarvisForResearchers
 
 nav:
   - Home: index.md
@@ -54,9 +54,13 @@ extra_css:
   - assets/css/blog-filter.css
 
 extra_javascript:
+  - assets/js/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
   - assets/js/blog-filter.js
 
 markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid

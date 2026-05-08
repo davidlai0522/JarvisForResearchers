@@ -20,6 +20,7 @@ Commands:
   /help           — Show usage
   /force <ID>     — Run pipeline, skipping the quality gate
   /status         — Show if a pipeline is currently running
+  /resources      — Show current CPU / RAM / VRAM headroom
 """
 import asyncio
 import logging
@@ -29,6 +30,8 @@ import re
 import subprocess
 import sys
 from typing import Optional
+
+import psutil
 
 # Load .env before anything else
 try:
@@ -133,9 +136,63 @@ async def _run_pipeline(arxiv_id: str, force: bool = False) -> dict:
     return {"success": success, "output": output, "post_path": post_path}
 
 
+def _resource_snapshot() -> str:
+    """Return a human-readable resource summary for /resources."""
+    vm = psutil.virtual_memory()
+    free_ram = vm.available / 1024**3
+    total_ram = vm.total / 1024**3
+    cores = psutil.cpu_count(logical=True) or 1
+    load_per_core = os.getloadavg()[1] / cores
+
+    ram_ok = free_ram >= cfg.resources.min_free_ram_gib
+    cpu_ok = load_per_core <= cfg.resources.max_cpu_load_per_core
+
+    lines = [
+        "<b>System resources</b>",
+        "",
+        f"{'✅' if ram_ok else '❌'} RAM:  {free_ram:.1f} / {total_ram:.0f} GiB free"
+        f"  (need >= {cfg.resources.min_free_ram_gib:.0f} GiB)",
+        f"{'✅' if cpu_ok else '❌'} CPU:  {load_per_core:.2f} load/core (5-min avg)"
+        f"  (limit {cfg.resources.max_cpu_load_per_core:.1f})",
+    ]
+
+    try:
+        import torch
+        if torch.cuda.is_available():
+            free_vram = torch.cuda.mem_get_info()[0] / 1024**3
+            total_vram = torch.cuda.get_device_properties(0).total_memory / 1024**3
+            vram_ok = free_vram >= cfg.resources.min_free_vram_gib_hard
+            lines.append(
+                f"{'✅' if vram_ok else '❌'} VRAM: {free_vram:.1f} / {total_vram:.0f} GiB free"
+                f"  (need >= {cfg.resources.min_free_vram_gib_hard:.0f} GiB)"
+            )
+        else:
+            lines.append("ℹ️ VRAM: no GPU — will run on CPU")
+    except Exception:
+        lines.append("ℹ️ VRAM: could not read GPU stats")
+
+    all_ok = ram_ok and cpu_ok
+    lines += ["", "✅ Ready to run pipeline." if all_ok else "⚠️ Pipeline would be skipped right now."]
+    return "\n".join(lines)
+
+
 def _build_reply(arxiv_id: str, result: dict, force: bool) -> str:
     """Format the Telegram reply message from the pipeline result."""
     output = result["output"]
+
+    # Pipeline was skipped by PipelineGuard due to resource pressure
+    if result["success"] and "Run skipped" in output:
+        skip_reason = ""
+        for line in output.splitlines():
+            if "Run skipped" in line:
+                skip_reason = line.strip().lstrip("⏭️ ").lstrip()
+                break
+        return (
+            f"⚠️ <b>Run skipped for <code>{arxiv_id}</code></b>\n\n"
+            f"<i>{skip_reason}</i>\n\n"
+            "The machine is under resource pressure right now.\n"
+            "Use /resources to check current headroom, then try again."
+        )
 
     if result["success"]:
         # Extract post title from output if possible
@@ -208,12 +265,20 @@ async def cmd_help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "• /start — Welcome message\n"
         "• /help — This message\n"
         "• /force <code>&lt;arxiv_id&gt;</code> — Skip quality gate\n"
-        "• /status — Check if pipeline is running\n\n"
+        "• /status — Check if pipeline is running\n"
+        "• /resources — Show current CPU / RAM / VRAM headroom\n\n"
         "<b>Quality gate:</b>\n"
         "Papers are checked for venue/citation quality before processing.\n"
         "Brand-new preprints (published this year) always pass.\n"
         "Use <code>/force</code> to bypass for any paper."
     )
+
+
+async def cmd_resources(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    if not _is_allowed(update.effective_user.id):
+        await update.message.reply_text(_access_denied_text())
+        return
+    await update.message.reply_html(_resource_snapshot())
 
 
 async def cmd_status(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -315,6 +380,7 @@ def main() -> None:
     app.add_handler(CommandHandler("start", cmd_start))
     app.add_handler(CommandHandler("help", cmd_help))
     app.add_handler(CommandHandler("status", cmd_status))
+    app.add_handler(CommandHandler("resources", cmd_resources))
     app.add_handler(CommandHandler("force", cmd_force))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
