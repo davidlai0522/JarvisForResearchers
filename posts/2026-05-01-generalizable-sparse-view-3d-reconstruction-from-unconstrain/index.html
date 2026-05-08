@@ -11,7 +11,7 @@
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/jarvisforresearchers/posts/2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/">
       
       
         <link rel="prev" href="../2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/">
@@ -20,11 +20,8 @@
         <link rel="next" href="../2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/">
       
       
-        
-      
-      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.0">
     
     
       
@@ -32,10 +29,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.45e1311d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -56,10 +53,11 @@
     
       <link rel="stylesheet" href="../../assets/css/blog-filter.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
+    
     
     
   </head>
@@ -96,12 +94,12 @@
     <a href="../.." title="JarvisForResearchers" class="md-header__button md-logo" aria-label="JarvisForResearchers" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -125,34 +123,32 @@
     
     
     
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+      <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -163,7 +159,6 @@
     </div>
   </div>
 </div>
-      
     
     
   </nav>
@@ -184,11 +179,9 @@
   
   
   
-  
     <li class="md-tabs__item">
       <a href="../.." class="md-tabs__link">
         
-  
   
     
   
@@ -202,7 +195,6 @@
         
   
   
-  
     
   
   
@@ -211,7 +203,6 @@
       <li class="md-tabs__item md-tabs__item--active">
         <a href="../" class="md-tabs__link">
           
-  
   
     
   
@@ -227,11 +218,9 @@
   
   
   
-  
     <li class="md-tabs__item">
       <a href="../../digest/" class="md-tabs__link">
         
-  
   
     
   
@@ -246,11 +235,9 @@
   
   
   
-  
     <li class="md-tabs__item">
       <a href="../../tags/" class="md-tabs__link">
         
-  
   
     
   
@@ -286,7 +273,7 @@
     <a href="../.." title="JarvisForResearchers" class="md-nav__button md-logo" aria-label="JarvisForResearchers" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
     JarvisForResearchers
@@ -304,16 +291,9 @@
       <a href="../.." class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
-    
-  
     Home
-  
-
-    
   </span>
-  
   
 
       </a>
@@ -357,34 +337,26 @@
     
     
     
-      
-        
-        
-      
-      
     
+      
+      
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
+        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
+          
           
           <div class="md-nav__link md-nav__container">
             <a href="../" class="md-nav__link ">
               
   
-  
   <span class="md-ellipsis">
-    
-  
     Research Digest
-  
-
-    
   </span>
-  
   
 
             </a>
@@ -399,11 +371,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            
-  
-    Research Digest
-  
-
+            Research Digest
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -419,16 +387,9 @@
       <a href="../2026-05-07-audio-visual-intelligence-in-large-foundation-models/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
-    
-  
     Audio-Visual Intelligence in Large Foundation Models
-  
-
-    
   </span>
-  
   
 
       </a>
@@ -447,16 +408,9 @@
       <a href="../2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
-    
-  
     AlbumFill: Album-Guided Reasoning and Retrieval for Personalized Image Completion
-  
-
-    
   </span>
-  
   
 
       </a>
@@ -475,16 +429,9 @@
       <a href="../2026-05-05-posterior-augmented-flow-matching/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
-    
-  
     Posterior Augmented Flow Matching
-  
-
-    
   </span>
-  
   
 
       </a>
@@ -503,16 +450,9 @@
       <a href="../2026-05-04-0-a-vision-language-action-flow-model-for-general-robot-cont/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
-    
-  
     $π_0$: A Vision-Language-Action Flow Model for General Robot Control
-  
-
-    
   </span>
-  
   
 
       </a>
@@ -531,16 +471,9 @@
       <a href="../2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
-    
-  
     HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation
-  
-
-    
   </span>
-  
   
 
       </a>
@@ -559,16 +492,9 @@
       <a href="../2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
-    
-  
     GR00T N1: An Open Foundation Model for Generalist Humanoid Robots
-  
-
-    
   </span>
-  
   
 
       </a>
@@ -594,16 +520,9 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
-  
   <span class="md-ellipsis">
-    
-  
     Generalizable Sparse-View 3D Reconstruction from Unconstrained Images
-  
-
-    
   </span>
-  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -612,16 +531,9 @@
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
-  
   <span class="md-ellipsis">
-    
-  
     Generalizable Sparse-View 3D Reconstruction from Unconstrained Images
-  
-
-    
   </span>
-  
   
 
       </a>
@@ -642,9 +554,7 @@
         <li class="md-nav__item">
   <a href="#tldr" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        TL;DR
-      
+      TL;DR
     </span>
   </a>
   
@@ -653,9 +563,7 @@
         <li class="md-nav__item">
   <a href="#the-problem" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        The Problem
-      
+      The Problem
     </span>
   </a>
   
@@ -664,9 +572,7 @@
         <li class="md-nav__item">
   <a href="#key-contributions" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Key Contributions
-      
+      Key Contributions
     </span>
   </a>
   
@@ -675,9 +581,7 @@
         <li class="md-nav__item">
   <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        How It Works
-      
+      How It Works
     </span>
   </a>
   
@@ -687,9 +591,7 @@
           <li class="md-nav__item">
   <a href="#vggt-transformer-backbone-phi_theta" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        VGGT transformer backbone $\phi_\theta$
-      
+      VGGT transformer backbone \(\phi_\theta\)
     </span>
   </a>
   
@@ -698,9 +600,7 @@
           <li class="md-nav__item">
   <a href="#depth-head-h_d" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Depth Head $h_D$
-      
+      Depth Head \(h_D\)
     </span>
   </a>
   
@@ -709,9 +609,7 @@
           <li class="md-nav__item">
   <a href="#camera-head-h_c" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Camera Head $h_C$
-      
+      Camera Head \(h_C\)
     </span>
   </a>
   
@@ -720,9 +618,7 @@
           <li class="md-nav__item">
   <a href="#gaussian-head-h_textgauss" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Gaussian Head $h_{\text{gauss}}$
-      
+      Gaussian Head \(h_{\text{gauss}}\)
     </span>
   </a>
   
@@ -731,9 +627,7 @@
           <li class="md-nav__item">
   <a href="#light-encoder-textelight" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Light Encoder $\text{ELight}$
-      
+      Light Encoder \(\text{ELight}\)
     </span>
   </a>
   
@@ -742,9 +636,7 @@
           <li class="md-nav__item">
   <a href="#appearance-adapter-textflight" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Appearance Adapter ($\text{Flight}$)
-      
+      Appearance Adapter (\(\text{Flight}\))
     </span>
   </a>
   
@@ -753,9 +645,7 @@
           <li class="md-nav__item">
   <a href="#segmentation-network" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Segmentation Network
-      
+      Segmentation Network
     </span>
   </a>
   
@@ -764,9 +654,7 @@
           <li class="md-nav__item">
   <a href="#differentiable-rasterizer-mathcalr" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Differentiable Rasterizer $\mathcal{R}$
-      
+      Differentiable Rasterizer \(\mathcal{R}\)
     </span>
   </a>
   
@@ -780,9 +668,7 @@
         <li class="md-nav__item">
   <a href="#results" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Results
-      
+      Results
     </span>
   </a>
   
@@ -791,9 +677,7 @@
         <li class="md-nav__item">
   <a href="#why-this-matters" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Why This Matters
-      
+      Why This Matters
     </span>
   </a>
   
@@ -802,9 +686,7 @@
         <li class="md-nav__item">
   <a href="#limitations-open-questions" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
+      Limitations &amp; Open Questions
     </span>
   </a>
   
@@ -813,9 +695,7 @@
         <li class="md-nav__item">
   <a href="#citation" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Citation
-      
+      Citation
     </span>
   </a>
   
@@ -840,16 +720,9 @@
       <a href="../2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
-    
-  
     Eureka: Human-Level Reward Design via Coding Large Language Models
-  
-
-    
   </span>
-  
   
 
       </a>
@@ -868,16 +741,9 @@
       <a href="../2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
-    
-  
     An Adaptable, Safe, and Portable Robot-Assisted Feeding System
-  
-
-    
   </span>
-  
   
 
       </a>
@@ -905,16 +771,9 @@
       <a href="../../digest/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
-    
-  
     Weekly Digest
-  
-
-    
   </span>
-  
   
 
       </a>
@@ -932,16 +791,9 @@
       <a href="../../tags/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
-    
-  
     Tags
-  
-
-    
   </span>
-  
   
 
       </a>
@@ -976,9 +828,7 @@
         <li class="md-nav__item">
   <a href="#tldr" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        TL;DR
-      
+      TL;DR
     </span>
   </a>
   
@@ -987,9 +837,7 @@
         <li class="md-nav__item">
   <a href="#the-problem" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        The Problem
-      
+      The Problem
     </span>
   </a>
   
@@ -998,9 +846,7 @@
         <li class="md-nav__item">
   <a href="#key-contributions" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Key Contributions
-      
+      Key Contributions
     </span>
   </a>
   
@@ -1009,9 +855,7 @@
         <li class="md-nav__item">
   <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        How It Works
-      
+      How It Works
     </span>
   </a>
   
@@ -1021,9 +865,7 @@
           <li class="md-nav__item">
   <a href="#vggt-transformer-backbone-phi_theta" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        VGGT transformer backbone $\phi_\theta$
-      
+      VGGT transformer backbone \(\phi_\theta\)
     </span>
   </a>
   
@@ -1032,9 +874,7 @@
           <li class="md-nav__item">
   <a href="#depth-head-h_d" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Depth Head $h_D$
-      
+      Depth Head \(h_D\)
     </span>
   </a>
   
@@ -1043,9 +883,7 @@
           <li class="md-nav__item">
   <a href="#camera-head-h_c" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Camera Head $h_C$
-      
+      Camera Head \(h_C\)
     </span>
   </a>
   
@@ -1054,9 +892,7 @@
           <li class="md-nav__item">
   <a href="#gaussian-head-h_textgauss" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Gaussian Head $h_{\text{gauss}}$
-      
+      Gaussian Head \(h_{\text{gauss}}\)
     </span>
   </a>
   
@@ -1065,9 +901,7 @@
           <li class="md-nav__item">
   <a href="#light-encoder-textelight" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Light Encoder $\text{ELight}$
-      
+      Light Encoder \(\text{ELight}\)
     </span>
   </a>
   
@@ -1076,9 +910,7 @@
           <li class="md-nav__item">
   <a href="#appearance-adapter-textflight" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Appearance Adapter ($\text{Flight}$)
-      
+      Appearance Adapter (\(\text{Flight}\))
     </span>
   </a>
   
@@ -1087,9 +919,7 @@
           <li class="md-nav__item">
   <a href="#segmentation-network" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Segmentation Network
-      
+      Segmentation Network
     </span>
   </a>
   
@@ -1098,9 +928,7 @@
           <li class="md-nav__item">
   <a href="#differentiable-rasterizer-mathcalr" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Differentiable Rasterizer $\mathcal{R}$
-      
+      Differentiable Rasterizer \(\mathcal{R}\)
     </span>
   </a>
   
@@ -1114,9 +942,7 @@
         <li class="md-nav__item">
   <a href="#results" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Results
-      
+      Results
     </span>
   </a>
   
@@ -1125,9 +951,7 @@
         <li class="md-nav__item">
   <a href="#why-this-matters" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Why This Matters
-      
+      Why This Matters
     </span>
   </a>
   
@@ -1136,9 +960,7 @@
         <li class="md-nav__item">
   <a href="#limitations-open-questions" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
+      Limitations &amp; Open Questions
     </span>
   </a>
   
@@ -1147,9 +969,7 @@
         <li class="md-nav__item">
   <a href="#citation" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Citation
-      
+      Citation
     </span>
   </a>
   
@@ -1165,35 +985,31 @@
           
           
             <div class="md-content" data-md-component="content">
-              
               <article class="md-content__inner md-typeset">
                 
                   
-
-  <nav class="md-tags" >
+  
+<nav class="md-tags" >
+  
     
-      
-      
-      
-      
-        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
-      
     
-      
-      
-      
-      
-        <a href="../../tags/#tag:segmentation" class="md-tag">segmentation</a>
-      
     
-      
-      
-      
-      
-        <a href="../../tags/#tag:transformers" class="md-tag">transformers</a>
-      
+      <a href="../../tags/#computer-vision" class="md-tag">computer-vision</a>
     
-  </nav>
+  
+    
+    
+    
+      <a href="../../tags/#segmentation" class="md-tag">segmentation</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#transformers" class="md-tag">transformers</a>
+    
+  
+</nav>
 
 
 
@@ -1213,25 +1029,25 @@
 <em>Figure 1. GenWildSplat reconstructs 3D scenes from sparse, unposed images with varying illumination and transient objects in a single
 3-second feed-forward pass, and no per-scene optimization is required. Given 2–6 input views, our method predicts novel views under
 target lighting conditions while h</em></p>
-<p>GenWildSplat processes the input set of sparse, unposed multi-view images, $\mathcal{I}$, through a VGGT transformer backbone, $\phi_\theta$, to extract rich, multi-view features, $\mathbf{F}$. These features are then routed to specialized prediction heads: the Depth Head ($h_D$) predicts per-view depth maps ($\mathbf{D}$), the Camera Head ($h_C$) estimates the necessary camera parameters ($\mathbf{K}, \mathbf{E}$), and the Gaussian Head ($h_{\text{gauss}}$) outputs the appearance-independent properties and canonical Spherical Harmonic (SH) coefficients ($\mathbf{c} \in \mathbb{R}^{75}$) for the 3D Gaussians ($\mathbf{G}_c$).</p>
-<p>To handle illumination variation, a Light Encoder ($\text{ELight}$) processes each input image $I^{(i)}$ to derive a per-view light code, $\mathbf{L}<em l_i="l_i">i$, which is a 16-dimensional vector. This light code is then fed into the Appearance Adapter ($\text{Flight}$), an MLP, which modulates the canonical Gaussians $\mathbf{G}_c$ into target-lit Gaussians, $\mathbf{G}</em>$.</p>
-<p>To ensure robustness against dynamic elements, a pre-trained Segmentation Network provides binary occlusion masks, $\mathbf{S}$, identifying transient classes. The final reconstruction is achieved by using a Differentiable Rasterizer ($\mathcal{R}$) to project the transformed Gaussians $\mathbf{G}_{l_i}$ into a rendered image $\hat{I}_j$. The training objective incorporates a masked reconstruction loss, $\mathcal{L}$, which utilizes the occlusion masks $\mathbf{S}$ to enforce supervision only on static scene geometry and appearance. The entire training regimen is structured around a curriculum learning strategy across three distinct stages.</p>
-<h3 id="vggt-transformer-backbone-phi_theta">VGGT transformer backbone $\phi_\theta$</h3>
-<p>This component is responsible for extracting a unified, multi-view feature representation, $\mathbf{F}$, from the set of sparse, unposed input images, $\mathcal{I}$. It acts as the primary feature extractor, aggregating information across the input views to form a comprehensive scene representation that feeds into all subsequent prediction heads.</p>
-<h3 id="depth-head-h_d">Depth Head $h_D$</h3>
-<p>This head takes the extracted multi-view features, $\mathbf{F}$, and maps them to per-view depth maps, $\mathbf{D}$. This provides the initial geometric constraint necessary for 3D structure inference from the 2D inputs.</p>
-<h3 id="camera-head-h_c">Camera Head $h_C$</h3>
-<p>Utilizing the features $\mathbf{F}$, this head estimates the necessary camera parameters, specifically the intrinsic matrix ($\mathbf{K}$) and the extrinsic transformation ($\mathbf{E}$), for each input view. This allows for the geometric alignment required for consistent 3D reconstruction.</p>
-<h3 id="gaussian-head-h_textgauss">Gaussian Head $h_{\text{gauss}}$</h3>
-<p>This head operates on $\mathbf{F}$ to output the intrinsic properties of the 3D Gaussians. Crucially, it predicts appearance-independent Gaussian properties and the canonical SH coefficients ($\mathbf{c} \in \mathbb{R}^{75}$), representing the scene's geometry and base spectral signature before illumination adaptation.</p>
-<h3 id="light-encoder-textelight">Light Encoder $\text{ELight}$</h3>
-<p>This 2D CNN-based encoder processes each individual input image, $I^{(i)}$, to generate a compact, 16-dimensional lighting vector, $\mathbf{L}_i$. This vector serves as the explicit encoding of the scene's illumination state for that specific view.</p>
-<h3 id="appearance-adapter-textflight">Appearance Adapter ($\text{Flight}$)</h3>
-<p>This MLP serves as the mechanism for appearance adaptation. It takes the canonical Gaussian colors ($\mathbf{G}<em l_i="l_i">c$) and modulates them using the corresponding light code ($\mathbf{L}_i$) derived from $\text{ELight}$. The output is the target-lit Gaussian color, $\mathbf{G}</em>$, which is ready for rendering under the desired lighting conditions.</p>
+<p>GenWildSplat processes the input set of sparse, unposed multi-view images, <span class="arithmatex">\(\mathcal{I}\)</span>, through a VGGT transformer backbone, <span class="arithmatex">\(\phi_\theta\)</span>, to extract rich, multi-view features, <span class="arithmatex">\(\mathbf{F}\)</span>. These features are then routed to specialized prediction heads: the Depth Head (<span class="arithmatex">\(h_D\)</span>) predicts per-view depth maps (<span class="arithmatex">\(\mathbf{D}\)</span>), the Camera Head (<span class="arithmatex">\(h_C\)</span>) estimates the necessary camera parameters (<span class="arithmatex">\(\mathbf{K}, \mathbf{E}\)</span>), and the Gaussian Head (<span class="arithmatex">\(h_{\text{gauss}}\)</span>) outputs the appearance-independent properties and canonical Spherical Harmonic (SH) coefficients (<span class="arithmatex">\(\mathbf{c} \in \mathbb{R}^{75}\)</span>) for the 3D Gaussians (<span class="arithmatex">\(\mathbf{G}_c\)</span>).</p>
+<p>To handle illumination variation, a Light Encoder (<span class="arithmatex">\(\text{ELight}\)</span>) processes each input image <span class="arithmatex">\(I^{(i)}\)</span> to derive a per-view light code, <span class="arithmatex">\(\mathbf{L}_i\)</span>, which is a 16-dimensional vector. This light code is then fed into the Appearance Adapter (<span class="arithmatex">\(\text{Flight}\)</span>), an MLP, which modulates the canonical Gaussians <span class="arithmatex">\(\mathbf{G}_c\)</span> into target-lit Gaussians, <span class="arithmatex">\(\mathbf{G}_{l_i}\)</span>.</p>
+<p>To ensure robustness against dynamic elements, a pre-trained Segmentation Network provides binary occlusion masks, <span class="arithmatex">\(\mathbf{S}\)</span>, identifying transient classes. The final reconstruction is achieved by using a Differentiable Rasterizer (<span class="arithmatex">\(\mathcal{R}\)</span>) to project the transformed Gaussians <span class="arithmatex">\(\mathbf{G}_{l_i}\)</span> into a rendered image <span class="arithmatex">\(\hat{I}_j\)</span>. The training objective incorporates a masked reconstruction loss, <span class="arithmatex">\(\mathcal{L}\)</span>, which utilizes the occlusion masks <span class="arithmatex">\(\mathbf{S}\)</span> to enforce supervision only on static scene geometry and appearance. The entire training regimen is structured around a curriculum learning strategy across three distinct stages.</p>
+<h3 id="vggt-transformer-backbone-phi_theta">VGGT transformer backbone <span class="arithmatex">\(\phi_\theta\)</span></h3>
+<p>This component is responsible for extracting a unified, multi-view feature representation, <span class="arithmatex">\(\mathbf{F}\)</span>, from the set of sparse, unposed input images, <span class="arithmatex">\(\mathcal{I}\)</span>. It acts as the primary feature extractor, aggregating information across the input views to form a comprehensive scene representation that feeds into all subsequent prediction heads.</p>
+<h3 id="depth-head-h_d">Depth Head <span class="arithmatex">\(h_D\)</span></h3>
+<p>This head takes the extracted multi-view features, <span class="arithmatex">\(\mathbf{F}\)</span>, and maps them to per-view depth maps, <span class="arithmatex">\(\mathbf{D}\)</span>. This provides the initial geometric constraint necessary for 3D structure inference from the 2D inputs.</p>
+<h3 id="camera-head-h_c">Camera Head <span class="arithmatex">\(h_C\)</span></h3>
+<p>Utilizing the features <span class="arithmatex">\(\mathbf{F}\)</span>, this head estimates the necessary camera parameters, specifically the intrinsic matrix (<span class="arithmatex">\(\mathbf{K}\)</span>) and the extrinsic transformation (<span class="arithmatex">\(\mathbf{E}\)</span>), for each input view. This allows for the geometric alignment required for consistent 3D reconstruction.</p>
+<h3 id="gaussian-head-h_textgauss">Gaussian Head <span class="arithmatex">\(h_{\text{gauss}}\)</span></h3>
+<p>This head operates on <span class="arithmatex">\(\mathbf{F}\)</span> to output the intrinsic properties of the 3D Gaussians. Crucially, it predicts appearance-independent Gaussian properties and the canonical SH coefficients (<span class="arithmatex">\(\mathbf{c} \in \mathbb{R}^{75}\)</span>), representing the scene's geometry and base spectral signature before illumination adaptation.</p>
+<h3 id="light-encoder-textelight">Light Encoder <span class="arithmatex">\(\text{ELight}\)</span></h3>
+<p>This 2D CNN-based encoder processes each individual input image, <span class="arithmatex">\(I^{(i)}\)</span>, to generate a compact, 16-dimensional lighting vector, <span class="arithmatex">\(\mathbf{L}_i\)</span>. This vector serves as the explicit encoding of the scene's illumination state for that specific view.</p>
+<h3 id="appearance-adapter-textflight">Appearance Adapter (<span class="arithmatex">\(\text{Flight}\)</span>)</h3>
+<p>This MLP serves as the mechanism for appearance adaptation. It takes the canonical Gaussian colors (<span class="arithmatex">\(\mathbf{G}_c\)</span>) and modulates them using the corresponding light code (<span class="arithmatex">\(\mathbf{L}_i\)</span>) derived from <span class="arithmatex">\(\text{ELight}\)</span>. The output is the target-lit Gaussian color, <span class="arithmatex">\(\mathbf{G}_{l_i}\)</span>, which is ready for rendering under the desired lighting conditions.</p>
 <h3 id="segmentation-network">Segmentation Network</h3>
-<p>This component is a pre-trained network (specifically YOLOv8 Segmentation [13]) whose function is to identify and delineate transient objects within the input frames. It outputs binary occlusion masks, $\mathbf{S}$, which are used to mask out regions corresponding to moving or non-static elements during the loss calculation.</p>
-<h3 id="differentiable-rasterizer-mathcalr">Differentiable Rasterizer $\mathcal{R}$</h3>
-<p>This module takes the set of transformed, target-lit Gaussians, $\mathbf{G}_{l_i}$, and performs the projection and rendering operation to synthesize a predicted image, $\hat{I}_j$. Its differentiability is essential for backpropagating gradients through the rendering process to update the network weights.</p>
+<p>This component is a pre-trained network (specifically YOLOv8 Segmentation [13]) whose function is to identify and delineate transient objects within the input frames. It outputs binary occlusion masks, <span class="arithmatex">\(\mathbf{S}\)</span>, which are used to mask out regions corresponding to moving or non-static elements during the loss calculation.</p>
+<h3 id="differentiable-rasterizer-mathcalr">Differentiable Rasterizer <span class="arithmatex">\(\mathcal{R}\)</span></h3>
+<p>This module takes the set of transformed, target-lit Gaussians, <span class="arithmatex">\(\mathbf{G}_{l_i}\)</span>, and performs the projection and rendering operation to synthesize a predicted image, <span class="arithmatex">\(\hat{I}_j\)</span>. Its differentiability is essential for backpropagating gradients through the rendering process to update the network weights.</p>
 <h2 id="results">Results</h2>
 <table>
 <thead>
@@ -1303,7 +1119,7 @@ target lighting conditions while h</em></p>
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
   Back to top
 </button>
         
@@ -1333,13 +1149,14 @@ target lighting conditions while h</em></p>
     </div>
     
     
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "navigation.indexes", "navigation.expand", "content.code.copy", "search.highlight"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
       
+        <script src="../../assets/js/mathjax.js"></script>
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "navigation.indexes", "navigation.expand", "content.code.copy", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-    
-    
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="../../assets/js/blog-filter.js"></script>
       
