@@ -59,20 +59,21 @@ def send(text: str) -> bool:
         return False
 
 
-def notify_daily(paper: dict) -> None:
+def notify_daily(paper: dict, post_dest=None) -> None:
     """Send a 'daily paper posted' notification for the given paper dict."""
-    import datetime
-    import re
+    import pathlib
     from config import cfg
 
     title = paper.get("title", "Unknown title")
     arxiv_id = paper.get("id", "")
 
     url_part = ""
-    if cfg.blog.site_url:
-        slug = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")[:60]
-        date = datetime.date.today().isoformat()
-        url_part = f"\n\n🌐 <a href='{cfg.blog.site_url}/posts/{date}-{slug}/'>View on GitHub Pages</a>"
+    if post_dest is not None:
+        stem = pathlib.Path(post_dest).stem
+        if cfg.blog.site_url:
+            url_part = f"\n\n🌐 <a href='{cfg.blog.site_url}/posts/{stem}/'>View on GitHub Pages</a>"
+        else:
+            url_part = f"\n\n📄 Saved to <code>docs/posts/{stem}.md</code>"
 
     text = (
         f"📰 <b>Daily paper posted!</b>\n\n"

@@ -87,7 +87,15 @@ def _remove_paper(arxiv_id: str) -> None:
         cwd=repo_root, capture_output=True, text=True
     )
     if result.returncode == 0:
-        print(f"\n  ✅ Committed. Run 'git push' to update GitHub Pages.")
+        print(f"\n  ✅ Committed.")
+        has_remote = subprocess.run(
+            ["git", "remote"], cwd=repo_root, capture_output=True, text=True
+        )
+        if has_remote.stdout.strip():
+            subprocess.run(["git", "push"], cwd=repo_root, check=False)
+            print(f"  🌐 Pushed — post removed from GitHub Pages.")
+        else:
+            print(f"  ℹ️  No remote configured — skipping push.")
     else:
         print(f"\n  ⚠️  Nothing staged for git commit (docs changes may already be clean).")
 
@@ -154,7 +162,7 @@ def _run_pipeline(args) -> None:
     post = build_blog_post(paper, extraction, figures, mermaid, tokenizer, model)
 
     print("🚀 Publishing...")
-    publish(paper, post)
+    post_dest = publish(paper, post, overwrite=args.regenerate)
 
     # Record paper as processed so --daily skips it on future runs
     if paper.get("id"):
@@ -162,7 +170,7 @@ def _run_pipeline(args) -> None:
         print(f"  📝 Marked {paper['id']} as processed")
 
     if args.daily:
-        notify_daily(paper)
+        notify_daily(paper, post_dest=post_dest)
 
 
 def main():
@@ -182,6 +190,11 @@ def main():
         "--force",
         action="store_true",
         help="Skip quality gate",
+    )
+    parser.add_argument(
+        "--regenerate",
+        action="store_true",
+        help="Overwrite an existing blog post for this paper",
     )
     parser.add_argument(
         "--no-vision",

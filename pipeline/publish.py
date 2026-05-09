@@ -79,17 +79,35 @@ def _rebuild_posts_nav() -> None:
     pathlib.Path("docs/posts/index.md").write_text("".join(lines), encoding="utf-8")
 
 
-def publish(paper: dict, post_content: str):
-    """Write the blog post to docs/posts/ and push to GitHub."""
+def publish(paper: dict, post_content: str, overwrite: bool = False) -> pathlib.Path | None:
+    """Write the blog post to docs/posts/ and push to GitHub.
+
+    Returns the written post path, or None if skipped (already exists and not overwriting).
+    """
     slug = re.sub(r"[^a-z0-9]+", "-", paper["title"].lower()).strip("-")[:60]
     date = datetime.date.today().isoformat()
     filename = f"{date}-{slug}.md"
     dest = pathlib.Path("docs/posts") / filename
 
     dest.parent.mkdir(parents=True, exist_ok=True)
-    if dest.exists():
+
+    if dest.exists() and not overwrite:
         print(f"  (cached) Post already exists: {dest} — skipping commit")
-        return
+        return None
+
+    # When overwriting, remove any previous post for this paper (may have a different date prefix)
+    if overwrite and paper.get("id"):
+        arxiv_id = paper["id"]
+        for old_post in dest.parent.glob("*.md"):
+            if old_post.name == "index.md" or old_post == dest:
+                continue
+            try:
+                if arxiv_id in old_post.read_text(encoding="utf-8"):
+                    old_post.unlink()
+                    print(f"  Removed old post: {old_post}")
+            except Exception:
+                pass
+
     dest.write_text(post_content, encoding="utf-8")
     print(f"  Written: {dest}")
 
@@ -110,14 +128,15 @@ def publish(paper: dict, post_content: str):
             "  Then future runs will push automatically.\n"
             f"  Post is ready locally at: {dest}"
         )
-        return
+        return dest
 
     _git("push")
     site = cfg.blog.site_url
     if site:
-        print(f"✅ Live at: {site}/posts/{slug}/")
+        print(f"✅ Live at: {site}/posts/{dest.stem}/")
     else:
         print("✅ Pushed. Check your GitHub Pages URL for the live post.")
+    return dest
 
 
 def publish_digest(content: str) -> None:

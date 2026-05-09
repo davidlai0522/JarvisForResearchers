@@ -31,6 +31,8 @@ import subprocess
 import sys
 from typing import Optional
 
+import yaml
+
 import psutil
 
 # Load .env before anything else
@@ -41,10 +43,11 @@ try:
 except ImportError:
     pass  # python-dotenv not installed — rely on env vars being set in the shell
 
-from telegram import Update
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.constants import ParseMode
 from telegram.ext import (
     ApplicationBuilder,
+    CallbackQueryHandler,
     CommandHandler,
     ContextTypes,
     MessageHandler,
@@ -92,7 +95,72 @@ def _access_denied_text() -> str:
 
 
 # ── Pipeline runner ───────────────────────────────────────────────────────────
-async def _run_pipeline(arxiv_id: str, force: bool = False) -> dict:
+def _find_existing_post(arxiv_id: str) -> Optional[pathlib.Path]:
+    """Return the path to an existing blog post containing this arxiv_id, or None."""
+    posts_dir = REPO_ROOT / "docs" / "posts"
+    if not posts_dir.exists():
+        return None
+    for post_file in sorted(posts_dir.glob("*.md"), reverse=True):
+        if post_file.name == "index.md":
+            continue
+        try:
+            if arxiv_id in post_file.read_text(encoding="utf-8"):
+                return post_file
+        except Exception:
+            continue
+    return None
+
+
+def _list_posts() -> list[dict]:
+    """Return [{title, date, arxiv_id, stem}] for all posts, newest first."""
+    posts_dir = REPO_ROOT / "docs" / "posts"
+    results = []
+    if not posts_dir.exists():
+        return results
+    for post_file in sorted(posts_dir.glob("*.md"), reverse=True):
+        if post_file.name == "index.md":
+            continue
+        try:
+            text = post_file.read_text(encoding="utf-8")
+            fm: dict = {}
+            if text.startswith("---"):
+                end = text.index("---", 3)
+                fm = yaml.safe_load(text[3:end]) or {}
+            m = ARXIV_RE.search(text)
+            arxiv_id = m.group(1).split("v")[0] if m else ""
+            results.append({
+                "title": str(fm.get("title", post_file.stem)),
+                "date": str(fm.get("date", ""))[:10],
+                "arxiv_id": arxiv_id,
+                "stem": post_file.stem,
+            })
+        except Exception:
+            continue
+    return results
+
+
+async def _run_remove(arxiv_id: str) -> str:
+    """Run pipeline/run.py --remove as a subprocess. Returns an HTML status message."""
+    cmd = [sys.executable, str(PIPELINE_DIR / "run.py"), "--remove", arxiv_id]
+    log.info("Spawning remove: %s", " ".join(cmd))
+    proc = await asyncio.create_subprocess_exec(
+        *cmd,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.STDOUT,
+        cwd=str(REPO_ROOT),
+    )
+    stdout, _ = await proc.communicate()
+    output = stdout.decode(errors="replace")
+
+    if "Nothing found" in output:
+        return f"❓ No post found for <code>{arxiv_id}</code>."
+    if proc.returncode == 0:
+        return f"✅ <b>Removed <code>{arxiv_id}</code></b>\n\nGitHub Pages will update shortly."
+    tail = "\n".join(output.strip().splitlines()[-5:])
+    return f"💥 <b>Remove failed for <code>{arxiv_id}</code></b>\n\n<pre>{tail[:400]}</pre>"
+
+
+async def _run_pipeline(arxiv_id: str, force: bool = False, regenerate: bool = False) -> dict:
     """
     Run pipeline/run.py as a subprocess.
     Returns {"success": bool, "output": str, "post_path": str | None}.
@@ -102,6 +170,8 @@ async def _run_pipeline(arxiv_id: str, force: bool = False) -> dict:
     cmd = [sys.executable, str(PIPELINE_DIR / "run.py"), "--arxiv", arxiv_id]
     if force:
         cmd.append("--force")
+    if regenerate:
+        cmd.append("--regenerate")
 
     log.info("Spawning pipeline: %s", " ".join(cmd))
 
@@ -203,11 +273,12 @@ def _build_reply(arxiv_id: str, result: dict, force: bool) -> str:
                 break
 
         url_part = ""
-        if cfg.telegram.notify_with_url and cfg.blog.site_url and result["post_path"]:
-            fname = pathlib.Path(result["post_path"]).stem  # "2026-05-01-some-slug"
-            url_part = f"\n\n🌐 <a href='{cfg.blog.site_url}/posts/{fname}/'>View on GitHub Pages</a>"
-        elif result["post_path"]:
-            url_part = f"\n\n📄 Saved to <code>{result['post_path']}</code>"
+        if result["post_path"]:
+            stem = pathlib.Path(result["post_path"]).stem  # "2026-05-01-some-slug"
+            if cfg.blog.site_url:
+                url_part = f"\n\n🌐 <a href='{cfg.blog.site_url}/posts/{stem}/'>View on GitHub Pages</a>"
+            else:
+                url_part = f"\n\n📄 Saved to <code>docs/posts/{stem}.md</code>"
 
         return (
             f"✅ <b>Blog post generated for <code>{arxiv_id}</code>!</b>"
@@ -262,6 +333,8 @@ async def cmd_help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "• /start — Welcome message\n"
         "• /help — This message\n"
         "• /force <code>&lt;arxiv_id&gt;</code> — Skip quality gate\n"
+        "• /list — Browse and remove existing posts\n"
+        "• /remove <code>&lt;arxiv_id&gt;</code> — Remove a post by arXiv ID\n"
         "• /status — Check if pipeline is running\n"
         "• /resources — Show current CPU / RAM / VRAM headroom\n\n"
         "<b>Quality gate:</b>\n"
@@ -312,8 +385,123 @@ async def cmd_force(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         )
         return
 
-    arxiv_id = match.group(1)
+    arxiv_id = match.group(1).split("v")[0]
     await _process_arxiv(update, arxiv_id, force=True)
+
+
+async def cmd_list(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    if not _is_allowed(update.effective_user.id):
+        await update.message.reply_text(_access_denied_text())
+        return
+
+    posts = _list_posts()
+    if not posts:
+        await update.message.reply_text("No blog posts yet.")
+        return
+
+    rows = []
+    no_id_count = 0
+    for p in posts:
+        date = p["date"] or "?"
+        truncated = p["title"][:36] + ("…" if len(p["title"]) > 36 else "")
+        label = f"{date} · {truncated} 🗑️"
+        if p["arxiv_id"]:
+            rows.append([InlineKeyboardButton(label, callback_data=f"del_confirm:{p['arxiv_id']}")])
+        else:
+            no_id_count += 1
+
+    note = f"\n\n<i>{no_id_count} post(s) have no arXiv ID and must be removed manually.</i>" if no_id_count else ""
+    await update.message.reply_html(
+        f"📚 <b>Blog Posts ({len(posts)})</b>\n\nTap a post to remove it.{note}",
+        reply_markup=InlineKeyboardMarkup(rows),
+    )
+
+
+async def cmd_remove(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    if not _is_allowed(update.effective_user.id):
+        await update.message.reply_text(_access_denied_text())
+        return
+
+    args = context.args
+    if not args:
+        await update.message.reply_html(
+            "Usage: <code>/remove &lt;arxiv_id&gt;</code>\n"
+            "Example: <code>/remove 2310.12931</code>\n\n"
+            "Use /list to browse and remove posts interactively."
+        )
+        return
+
+    raw = args[0].strip()
+    m = ARXIV_RE.search(raw)
+    if not m:
+        await update.message.reply_text(f"❓ Couldn't parse an arXiv ID from: {raw!r}")
+        return
+
+    arxiv_id = m.group(1).split("v")[0]
+    existing = _find_existing_post(arxiv_id)
+    if not existing:
+        await update.message.reply_html(
+            f"❓ No blog post found for <code>{arxiv_id}</code>.\n\nUse /list to see all posts."
+        )
+        return
+
+    posts = _list_posts()
+    title = next((p["title"] for p in posts if p["arxiv_id"] == arxiv_id), arxiv_id)
+    keyboard = InlineKeyboardMarkup([[
+        InlineKeyboardButton("✅ Yes, remove", callback_data=f"del_yes:{arxiv_id}"),
+        InlineKeyboardButton("❌ Cancel", callback_data=f"del_no:{arxiv_id}"),
+    ]])
+    await update.message.reply_html(
+        f"🗑️ <b>Remove this post?</b>\n\n"
+        f"<i>{title}</i>\n"
+        f"arXiv: <code>{arxiv_id}</code>\n\n"
+        "This will delete the post and push to GitHub Pages.",
+        reply_markup=keyboard,
+    )
+
+
+async def handle_delete_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    query = update.callback_query
+    await query.answer()
+
+    if not _is_allowed(query.from_user.id):
+        await query.edit_message_text("⛔ Not authorised.")
+        return
+
+    data = query.data or ""
+
+    if data.startswith("del_confirm:"):
+        arxiv_id = data[len("del_confirm:"):]
+        posts = _list_posts()
+        title = next((p["title"] for p in posts if p["arxiv_id"] == arxiv_id), arxiv_id)
+        keyboard = InlineKeyboardMarkup([[
+            InlineKeyboardButton("✅ Yes, remove", callback_data=f"del_yes:{arxiv_id}"),
+            InlineKeyboardButton("❌ Cancel", callback_data=f"del_no:{arxiv_id}"),
+        ]])
+        await query.edit_message_text(
+            f"🗑️ <b>Remove this post?</b>\n\n"
+            f"<i>{title}</i>\n"
+            f"arXiv: <code>{arxiv_id}</code>\n\n"
+            "This will delete the post and push to GitHub Pages.",
+            parse_mode=ParseMode.HTML,
+            reply_markup=keyboard,
+        )
+
+    elif data.startswith("del_yes:"):
+        arxiv_id = data[len("del_yes:"):]
+        await query.edit_message_text(
+            f"🗑️ Removing post for <code>{arxiv_id}</code>…",
+            parse_mode=ParseMode.HTML,
+        )
+        result_msg = await _run_remove(arxiv_id)
+        await context.bot.send_message(
+            chat_id=query.message.chat_id,
+            text=result_msg,
+            parse_mode=ParseMode.HTML,
+        )
+
+    elif data.startswith("del_no:"):
+        await query.edit_message_text("👍 Removal cancelled.")
 
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -326,7 +514,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     if not match:
         return  # Not an arXiv link — ignore silently
 
-    arxiv_id = match.group(1)
+    arxiv_id = match.group(1).split("v")[0]
     await _process_arxiv(update, arxiv_id, force=False)
 
 
@@ -342,6 +530,27 @@ async def _process_arxiv(update: Update, arxiv_id: str, force: bool) -> None:
         )
         return
 
+    # Check for existing post when not forcing
+    if not force:
+        existing = _find_existing_post(arxiv_id)
+        if existing:
+            fname = existing.stem
+            if cfg.blog.site_url:
+                post_ref = f"<a href='{cfg.blog.site_url}/posts/{fname}/'>View existing post</a>"
+            else:
+                post_ref = f"<code>{existing.relative_to(REPO_ROOT)}</code>"
+            keyboard = InlineKeyboardMarkup([[
+                InlineKeyboardButton("✅ Yes, regenerate", callback_data=f"regen:yes:{arxiv_id}"),
+                InlineKeyboardButton("❌ No, keep it", callback_data=f"regen:no:{arxiv_id}"),
+            ]])
+            await update.message.reply_html(
+                f"📄 A blog post for <code>{arxiv_id}</code> already exists.\n\n"
+                f"🌐 {post_ref}\n\n"
+                "Do you want to regenerate it?",
+                reply_markup=keyboard,
+            )
+            return
+
     force_note = " (quality gate skipped)" if force else ""
     await update.message.reply_html(
         f"🔍 Found arXiv ID <code>{arxiv_id}</code>{force_note}\n\n"
@@ -355,6 +564,56 @@ async def _process_arxiv(update: Update, arxiv_id: str, force: bool) -> None:
 
     reply = _build_reply(arxiv_id, result, force)
     await update.message.reply_html(reply, disable_web_page_preview=False)
+
+
+async def handle_regenerate_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    query = update.callback_query
+    await query.answer()
+
+    if not _is_allowed(query.from_user.id):
+        await query.edit_message_text("⛔ Not authorised.")
+        return
+
+    parts = (query.data or "").split(":", 2)
+    if len(parts) != 3 or parts[0] != "regen":
+        return
+
+    choice, arxiv_id = parts[1], parts[2]
+
+    if choice == "no":
+        await query.edit_message_text(
+            f"👍 Keeping the existing post for <code>{arxiv_id}</code>.",
+            parse_mode=ParseMode.HTML,
+        )
+        return
+
+    # Yes — regenerate
+    if _running_paper:
+        await query.edit_message_text(
+            f"⏳ <b>Already processing <code>{_running_paper}</code></b>\n\n"
+            "Please wait until the current pipeline finishes, then try again.",
+            parse_mode=ParseMode.HTML,
+        )
+        return
+
+    await query.edit_message_text(
+        f"🔄 Regenerating post for <code>{arxiv_id}</code>…\n\n"
+        "⏳ <b>Starting pipeline…</b>\n"
+        "This typically takes 3–10 minutes (model load + inference).\n"
+        "I'll send a new message when it's done!",
+        parse_mode=ParseMode.HTML,
+    )
+
+    async with _running_lock:
+        result = await _run_pipeline(arxiv_id, force=True, regenerate=True)
+
+    reply = _build_reply(arxiv_id, result, force=True)
+    await context.bot.send_message(
+        chat_id=query.message.chat_id,
+        text=reply,
+        parse_mode=ParseMode.HTML,
+        disable_web_page_preview=False,
+    )
 
 
 # ── Entry point ───────────────────────────────────────────────────────────────
@@ -379,6 +638,10 @@ def main() -> None:
     app.add_handler(CommandHandler("status", cmd_status))
     app.add_handler(CommandHandler("resources", cmd_resources))
     app.add_handler(CommandHandler("force", cmd_force))
+    app.add_handler(CommandHandler("list", cmd_list))
+    app.add_handler(CommandHandler("remove", cmd_remove))
+    app.add_handler(CallbackQueryHandler(handle_regenerate_callback, pattern=r"^regen:"))
+    app.add_handler(CallbackQueryHandler(handle_delete_callback, pattern=r"^del_"))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
     print("🤖 JarvisForResearchers bot is running. Press Ctrl+C to stop.")
