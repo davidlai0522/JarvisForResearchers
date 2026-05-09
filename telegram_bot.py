@@ -204,11 +204,8 @@ def _build_reply(arxiv_id: str, result: dict, force: bool) -> str:
 
         url_part = ""
         if cfg.telegram.notify_with_url and cfg.blog.site_url and result["post_path"]:
-            # Derive slug from the filename: "2026-05-01-some-slug.md" → "some-slug"
             fname = pathlib.Path(result["post_path"]).stem  # "2026-05-01-some-slug"
-            parts = fname.split("-", 3)  # ["2026", "05", "01", "some-slug"]
-            slug = parts[3] if len(parts) >= 4 else fname
-            url_part = f"\n\n🌐 <a href='{cfg.blog.site_url}/posts/{slug}/'>View on GitHub Pages</a>"
+            url_part = f"\n\n🌐 <a href='{cfg.blog.site_url}/posts/{fname}/'>View on GitHub Pages</a>"
         elif result["post_path"]:
             url_part = f"\n\n📄 Saved to <code>{result['post_path']}</code>"
 
