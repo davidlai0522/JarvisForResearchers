@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [World Model for Robot Learning: A Comprehensive Survey](2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/)
+
+*2026-05-09*
+
+This survey provides a comprehensive, robot-learning-centered review of world models, detailing their coupling with robot policies, their function as simulators, and their application in robotic video generation.
+
 ## [ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation](2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/)
 
 *2026-05-09*
