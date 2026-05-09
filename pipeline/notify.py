@@ -61,6 +61,7 @@ def send(text: str) -> bool:
 
 def notify_daily(paper: dict) -> None:
     """Send a 'daily paper posted' notification for the given paper dict."""
+    import datetime
     import re
     from config import cfg
 
@@ -70,7 +71,8 @@ def notify_daily(paper: dict) -> None:
     url_part = ""
     if cfg.blog.site_url:
         slug = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")[:60]
-        url_part = f"\n\n🌐 <a href='{cfg.blog.site_url}/posts/{slug}/'>View on GitHub Pages</a>"
+        date = datetime.date.today().isoformat()
+        url_part = f"\n\n🌐 <a href='{cfg.blog.site_url}/posts/{date}-{slug}/'>View on GitHub Pages</a>"
 
     text = (
         f"📰 <b>Daily paper posted!</b>\n\n"
