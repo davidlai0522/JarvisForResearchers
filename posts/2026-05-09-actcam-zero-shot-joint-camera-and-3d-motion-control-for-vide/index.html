@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="HERMES++ is a unified driving world model that integrates 3D scene understanding and future geometry prediction within a single framework by leveraging a Bird’s-Eye View (BEV) representation and LLM-enhanced world queries.
+        <meta name="description" content="ActCam is a zero-shot, training-free framework that achieves joint control over character motion and camera trajectory in image-conditioned video generation by constructing camera-aligned pose and depth conditioning signals.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/">
       
       
-        <link rel="prev" href="../2026-05-04-0-a-vision-language-action-flow-model-for-general-robot-cont/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/">
+        <link rel="next" href="../2026-05-07-audio-visual-intelligence-in-large-foundation-models/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation - JarvisForResearchers</title>
+        <title>ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation
+              ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation
             
           </span>
         </div>
@@ -415,10 +415,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -434,6 +459,228 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference-image-i_ref" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference Image (\(I_{ref}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acting-video-v_act" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Acting Video (\(V_{act}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target-camera-trajectory-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Target Camera Trajectory (\(C\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monocular-depth-estimator-moge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monocular Depth Estimator (MoGe)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inpainting-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inpainting Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scene-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scene Transfer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4d-motion-recovery-gvhmr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4D Motion Recovery (GVHMR)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#character-3d-fitting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Character 3D Fitting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rasterization-operator-r_c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rasterization Operator (\(R_C\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-phase-conditioning-schedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two-Phase Conditioning Schedule
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -555,35 +802,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/" class="md-nav__link">
         
   
   
@@ -599,184 +821,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#bev-representation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BEV representation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#visual-tokenizer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visual Tokenizer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#llm-enhanced-world-queries" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LLM-enhanced world queries
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#current-to-future-link" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Current-to-Future Link
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#joint-geometric-optimization-strategy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Joint Geometric Optimization strategy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#differentiable-render" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        differentiable Render
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters-for-robotics" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters for Robotics
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1027,10 +1071,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#bev-representation" class="md-nav__link">
+  <a href="#reference-image-i_ref" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BEV representation
+        Reference Image (\(I_{ref}\))
       
     </span>
   </a>
@@ -1038,10 +1082,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#visual-tokenizer" class="md-nav__link">
+  <a href="#acting-video-v_act" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Visual Tokenizer
+        Acting Video (\(V_{act}\))
       
     </span>
   </a>
@@ -1049,10 +1093,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#llm-enhanced-world-queries" class="md-nav__link">
+  <a href="#target-camera-trajectory-c" class="md-nav__link">
     <span class="md-ellipsis">
       
-        LLM-enhanced world queries
+        Target Camera Trajectory (\(C\))
       
     </span>
   </a>
@@ -1060,10 +1104,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#current-to-future-link" class="md-nav__link">
+  <a href="#monocular-depth-estimator-moge" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Current-to-Future Link
+        Monocular Depth Estimator (MoGe)
       
     </span>
   </a>
@@ -1071,10 +1115,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#joint-geometric-optimization-strategy" class="md-nav__link">
+  <a href="#inpainting-process" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Joint Geometric Optimization strategy
+        Inpainting Process
       
     </span>
   </a>
@@ -1082,10 +1126,54 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#differentiable-render" class="md-nav__link">
+  <a href="#scene-transfer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        differentiable Render
+        Scene Transfer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4d-motion-recovery-gvhmr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4D Motion Recovery (GVHMR)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#character-3d-fitting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Character 3D Fitting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rasterization-operator-r_c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rasterization Operator (\(R_C\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-phase-conditioning-schedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two-Phase Conditioning Schedule
       
     </span>
   </a>
@@ -1109,10 +1197,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-this-matters-for-robotics" class="md-nav__link">
+  <a href="#why-this-matters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why This Matters for Robotics
+        Why This Matters
       
     </span>
   </a>
@@ -1162,66 +1250,73 @@
       
       
       
-        <a href="../../tags/#tag:ai" class="md-tag">AI</a>
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:diffusion-models" class="md-tag">diffusion-models</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
       
     
   </nav>
 
 
 
-  <h1>HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation</h1>
+  <h1>ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-01</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-05-09</em></p>
 </blockquote>
 <h2 id="tldr">TL;DR</h2>
-<p>HERMES++ establishes a unified driving world model by integrating 3D scene understanding and future geometry prediction within a single framework. This is achieved by leveraging a Bird’s-Eye View (BEV) representation and employing LLM-enhanced world queries to condition geometric evolution on semantic context, all while maintaining structural integrity via a Joint Geometric Optimization strategy.</p>
+<p>ActCam is a training-free framework that achieves joint control over character motion and camera trajectory in image-conditioned video generation by constructing camera-aligned pose and depth conditioning signals.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Existing driving world models exhibit a functional dichotomy. On one hand, many focus heavily on future scene generation, often neglecting a comprehensive, explicit understanding of the current 3D scene state. On the other hand, while Large Language Models (LLMs) excel at semantic interpretation, they inherently lack the capacity to predict the precise future geometric evolution of a physical scene. This creates a fundamental disconnect: we have sophisticated semantic interpreters that cannot predict physical outcomes, and geometric predictors that lack deep semantic grounding. Furthermore, supervision derived solely from future observations often imposes only explicit constraints, which is insufficient to guarantee the structural consistency of the predicted scene evolution.</p>
+<p>Controlling both the subject's acting performance and the camera movements (trajectory, parallax, viewpoint changes) simultaneously in video generation remains largely unexplored. Furthermore, existing 2D motion controls become ambiguous under moving cameras because the same 2D signal can correspond to multiple 3D motions. Prior work has shown that Uni3C requires custom architecture and ad-hoc finetuning, which is expensive and limitedly transferable. Crucially, most existing methods fail to solve the joint requirement of controlling an articulated performance while enforcing a non-trivial camera trajectory.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We contribute three primary advancements:
-1. Proposing a unified framework that effectively integrates 3D scene understanding and future geometry prediction using a unified representation.
-2. Devising a Joint Geometric Optimization strategy to enforce structural integrity by combining explicit geometric constraints with implicit geometric regularization on the latent manifold.
-3. Introducing LLM-enhanced world queries and Textual Injection to facilitate knowledge transfer, allowing semantic reasoning to directly guide future scene evolution.</p>
+<p>ActCam introduces three primary contributions:
+1. <strong>Zero-shot joint control:</strong> ActCam is a training-free method for joint acting-motion and camera-trajectory control in image-conditioned video generation.
+2. <strong>Condition construction for joint control:</strong> A novel geometry-grounded conditioning pipeline that aligns motion (pose) and scene geometry (depth) to the target camera while preventing static/dynamic interference via reference-character removal, geometry-aware placement, and depth alignment.
+3. <strong>Two-phase conditioning pipeline:</strong> A two-phase inference pipeline that adapts the conditioning information depending on the denoising step, leading to a flexible conditioning that preserves dynamic aspects of the scene.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Fig. 1: (a) Previous driving world models focus on generative scene evolution prediction. (b) Large language models for driving
-are limited to scene understanding. (c) The proposed framework unifies 3D scene understanding and scene evolution generation
-with the BEV representation. (d) Quantitative c" src="../../assets/figures/2604.28196/fig_p2_5.jpg" />
-<em>Fig. 1: (a) Previous driving world models focus on generative scene evolution prediction. (b) Large language models for driving
-are limited to scene understanding. (c) The proposed framework unifies 3D scene understanding and scene evolution generation
-with the BEV representation. (d) Quantitative c</em></p>
-<p><img alt="Fig. 1: (a) Previous driving world models focus on generative scene evolution prediction. (b) Large language models for driving
-are limited to scene understanding. (c) The proposed framework unifies 3D scene understanding and scene evolution generation
-with the BEV representation. (d) Quantitative c" src="../../assets/figures/2604.28196/fig_p2_7.jpg" />
-<em>Fig. 1: (a) Previous driving world models focus on generative scene evolution prediction. (b) Large language models for driving
-are limited to scene understanding. (c) The proposed framework unifies 3D scene understanding and scene evolution generation
-with the BEV representation. (d) Quantitative c</em></p>
-<p><img alt="Fig. 1: (a) Previous driving world models focus on generative scene evolution prediction. (b) Large language models for driving
-are limited to scene understanding. (c) The proposed framework unifies 3D scene understanding and scene evolution generation
-with the BEV representation. (d) Quantitative c" src="../../assets/figures/2604.28196/fig_p2_8.jpg" />
-<em>Fig. 1: (a) Previous driving world models focus on generative scene evolution prediction. (b) Large language models for driving
-are limited to scene understanding. (c) The proposed framework unifies 3D scene understanding and scene evolution generation
-with the BEV representation. (d) Quantitative c</em></p>
-<p>HERMES++ operates by first consolidating multi-view spatial information into a Bird’s-Eye View (BEV) representation, which serves as a structure amenable to interaction with LLMs. Semantic context is then injected into the temporal prediction pipeline via LLM-enhanced world queries. These queries aggregate rich world knowledge from text tokens and interact with BEV features through the Current-to-Future Link. This link is crucial as it conditions the geometric evolution on both semantic context (via Textual Injection) and ego-motion. Finally, the predicted latent representations are decoded into geometry using a differentiable renderer, with the entire process constrained by a Joint Geometric Optimization strategy that ensures geometric fidelity.</p>
-<h3 id="bev-representation">BEV representation</h3>
-<p>The BEV representation serves as the canonical, spatially coherent substrate for the entire model. It consolidates disparate multi-view spatial information into a unified grid structure. This transformation is executed by a Visual Tokenizer, which employs cross-attention mechanisms to map high-dimensional image inputs into the BEV space, thereby compressing the input while preserving necessary spatial relationships for downstream processing.</p>
-<h3 id="visual-tokenizer">Visual Tokenizer</h3>
-<p>The Visual Tokenizer is responsible for the initial spatial encoding. It takes multi-view images and transforms them into the BEV space. This transformation is achieved via cross-attention, which allows the model to fuse information across different camera perspectives into a single, unified spatial representation, effectively compressing the input while maintaining geometric fidelity.</p>
-<h3 id="llm-enhanced-world-queries">LLM-enhanced world queries</h3>
-<p>These queries are the mechanism for injecting high-level semantic knowledge into the geometric prediction pipeline. They leverage causal attention to aggregate rich world knowledge derived from input text tokens. By processing these tokens, the queries generate context-aware embeddings that represent the current semantic understanding of the scene, which is then utilized to guide the temporal evolution.</p>
-<h3 id="current-to-future-link">Current-to-Future Link</h3>
-<p>This component bridges the temporal gap between the current state and future timesteps. It propagates the encoded BEV features forward in time. Crucially, this propagation is conditioned not only on ego-motion but also on the enriched queries and text embeddings. The Textual Injection mechanism is embedded within this link, allowing the semantic context derived from the LLM to directly modulate how the geometry is predicted to change over time.</p>
-<h3 id="joint-geometric-optimization-strategy">Joint Geometric Optimization strategy</h3>
-<p>To prevent the predicted latent manifold from drifting into physically implausible configurations, this strategy enforces structural integrity. It operates by simultaneously minimizing two objectives: first, explicit geometric constraints applied directly to the reconstructed point clouds, and second, an implicit geometric regularization applied to the latent manifold itself. This dual constraint ensures that the predicted geometry adheres both to observable physical laws and to learned geometric priors.</p>
-<h3 id="differentiable-render">differentiable Render</h3>
-<p>The differentiable Render module serves as the geometric decoder. It takes the feature representations predicted by the temporal network and maps them back into a tangible geometric output, specifically point clouds. The differentiability of this module is essential, as it allows gradients from the geometric loss functions (like those in the Joint Geometric Optimization strategy) to flow back through the rendering process into the latent space, enabling end-to-end geometric training.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.06667/fig_p1_c1.jpg" />
+<em>Fig. 1. Overview. ActCam enables zero-shot joint control of acting motion and camera motion for single-image video generation from a reference image,
+assuming only widespread conditioning capability of the backbone model on depth and keypoints. Given a reference image, an acting video representing t</em></p>
+<p>ActCam operates entirely at inference time by constructing camera-aligned conditioning signals for a pretrained video diffusion backbone (such as VACE). The process begins by estimating a background-only depth map (<span class="arithmatex">\(D_{bg}\)</span>) by inpainting the character out of the reference image (<span class="arithmatex">\(I_{ref}\)</span>). A 3D background mesh is subsequently built from <span class="arithmatex">\(D_{bg}\)</span>. The dynamic actor motion is recovered from the acting video (<span class="arithmatex">\(V_{act}\)</span>) using a monocular 3D human motion estimator (GVHMR). Next, scene transfer aligns the character into the background 3D mesh using weighted centroids and an affine transformation. Finally, two control signals—a depth+pose condition and a pose-only condition—are rasterized under the target camera trajectory (<span class="arithmatex">\(C\)</span>). These signals are fed into the diffusion model using a two-phase conditioning schedule: early steps utilize depth+pose, and later steps use pose-only guidance.</p>
+<h3 id="reference-image-i_ref">Reference Image (<span class="arithmatex">\(I_{ref}\)</span>)</h3>
+<p>This input defines the target character identity and the environment appearance that the generated video must adhere to.</p>
+<h3 id="acting-video-v_act">Acting Video (<span class="arithmatex">\(V_{act}\)</span>)</h3>
+<p>This video provides the ground truth for the desired performance motion that the subject must exhibit in the output video.</p>
+<h3 id="target-camera-trajectory-c">Target Camera Trajectory (<span class="arithmatex">\(C\)</span>)</h3>
+<p>This is a per-frame sequence specifying the camera's intrinsic parameters (<span class="arithmatex">\(K_\tau\)</span>) and extrinsic parameters (<span class="arithmatex">\(R_\tau, t_\tau\)</span>) for every frame of the target video.</p>
+<h3 id="monocular-depth-estimator-moge">Monocular Depth Estimator (MoGe)</h3>
+<p>MoGe is employed to estimate the reference depth map (<span class="arithmatex">\(D_{ref}\)</span>) directly from the input reference image (<span class="arithmatex">\(I_{ref}\)</span>).</p>
+<h3 id="inpainting-process">Inpainting Process</h3>
+<p>This process is critical for disentangling the scene. It is used to remove the character from <span class="arithmatex">\(I_{ref}\)</span> to extract a background-only depth map (<span class="arithmatex">\(D_{bg}\)</span>), thereby isolating the static scene geometry.</p>
+<h3 id="scene-transfer">Scene Transfer</h3>
+<p>This component handles the integration of the character into the static environment. It aligns the character into the background 3D mesh by finding a new position while preserving pixel reprojection fidelity, utilizing an importance weighting function <span class="arithmatex">\(w(u, v) = \exp(-\text{dist}(x_{ref}^{u,v}, M))\)</span>.</p>
+<h3 id="4d-motion-recovery-gvhmr">4D Motion Recovery (GVHMR)</h3>
+<p>GVHMR is utilized to recover the articulated state <span class="arithmatex">\(S_\tau\)</span> from the input acting video (<span class="arithmatex">\(V_{act}\)</span>), providing the temporal evolution of the character's pose.</p>
+<h3 id="character-3d-fitting">Character 3D Fitting</h3>
+<p>This step aligns the dynamic poses <span class="arithmatex">\(S\)</span> recovered from <span class="arithmatex">\(V_{act}\)</span> with the assembled background 3D scene. This is achieved via a least squares estimation based on a rigid transformation applied at time <span class="arithmatex">\(\tau=0\)</span>.</p>
+<h3 id="rasterization-operator-r_c">Rasterization Operator (<span class="arithmatex">\(R_C\)</span>)</h3>
+<p>This operator is responsible for generating the dense control signals. It renders the animated skeleton (<span class="arithmatex">\(\hat{S}_\tau\)</span>) and the background 3D mesh under the specific target camera viewpoint <span class="arithmatex">\(C\)</span>.</p>
+<h3 id="two-phase-conditioning-schedule">Two-Phase Conditioning Schedule</h3>
+<p>This schedule dictates how the control signals are injected into the diffusion process. Early denoising steps condition on the combined depth+pose signal for strong camera control, while later steps transition to pose-only guidance for refinement.</p>
 <h2 id="results">Results</h2>
 <table>
 <thead>
@@ -1234,38 +1329,32 @@ with the BEV representation. (d) Quantitative c</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">3s point cloud generation error</td>
-<td style="text-align: left;">8.2% reduction</td>
-<td style="text-align: left;">DriveX [18]</td>
+<td style="text-align: left;">Camera adherence and motion fidelity</td>
+<td style="text-align: left;">Improves compared to pose-only control and other pose+camera methods</td>
+<td style="text-align: left;">Pose-only control and other pose+camera methods</td>
 <td style="text-align: left;">Abstract</td>
 </tr>
 <tr>
-<td style="text-align: left;">CIDEr metric (understanding task)</td>
-<td style="text-align: left;">9.2% outperformance</td>
-<td style="text-align: left;">Omni-Q [15]</td>
+<td style="text-align: left;">Preference in human evaluations</td>
+<td style="text-align: left;">Preferred</td>
+<td style="text-align: left;">Not specified</td>
 <td style="text-align: left;">Abstract</td>
-</tr>
-<tr>
-<td style="text-align: left;">generation error</td>
-<td style="text-align: left;">13.7% reduction</td>
-<td style="text-align: left;">conference version</td>
-<td style="text-align: left;">Section 3</td>
 </tr>
 </tbody>
 </table>
-<h2 id="why-this-matters-for-robotics">Why This Matters for Robotics</h2>
-<p>The integration demonstrated by HERMES++ addresses a critical bottleneck in deploying perception-to-action pipelines in autonomous systems. By unifying semantic understanding (the "what" and "why") with predictive geometry (the "where" and "how"), the model moves beyond mere scene reconstruction toward genuine world modeling. This capability is vital for robust planning, as a system can now reason about <em>why</em> a scene will evolve a certain way based on semantic cues (e.g., "the pedestrian will cross the street") and then predict the precise geometric trajectory required for safe navigation.</p>
+<h2 id="why-this-matters">Why This Matters</h2>
+<p>ActCam provides a practical solution for complex, multi-modal video synthesis tasks without incurring the high cost of model retraining. By systematically constructing camera-aligned conditioning signals—specifically by disentangling static scene geometry from dynamic character motion—it overcomes the ambiguity inherent in using 2D motion cues under arbitrary camera movements. The staged guidance approach further ensures that the diffusion model receives appropriate constraints at the right temporal stage, leading to more coherent and controllable outputs.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current formulation is constrained by its input modality, relying exclusively on multi-view images for scene input and producing point clouds as output. Furthermore, the paper does not explicitly detail limitations beyond the inherent challenges addressed by the proposed components, leaving open questions regarding the scalability of the LLM integration to extremely long-horizon predictions or the robustness of the Textual Injection mechanism under highly ambiguous semantic inputs.</p>
+<p>The method's efficacy is contingent upon the backbone model possessing robust conditioning capabilities for both depth maps and keypoints. Furthermore, the sequential nature of the pipeline, involving multiple estimation passes (such as <span class="arithmatex">\(D_{ref}\)</span> and <span class="arithmatex">\(D_{bg}\)</span>), introduces potential for 3D space inconsistencies if the scene transfer mechanism does not perfectly resolve these discrepancies.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2604.28196">2604.28196</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260428196</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Xin Zhou and Dingkang Liang and Xiwu Chen and Feiyang Tan and Dingyuan Zhang and Hengshuang Zhao et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2604.28196}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.06667">2605.06667</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260506667</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Omar El Khalifi and Thomas Rossi and Oscar Fossey and Thibault Fouque and Ulysse Mizrahi and Philip Torr et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.06667}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2604.28196}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.06667}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
