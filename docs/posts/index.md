@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation](2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/)
+
+*2026-05-09*
+
+ActCam is a zero-shot, training-free framework that achieves joint control over character motion and camera trajectory in image-conditioned video generation by constructing camera-aligned pose and depth conditioning signals.
+
 ## [Audio-Visual Intelligence in Large Foundation Models](2026-05-07-audio-visual-intelligence-in-large-foundation-models/)
 
 *2026-05-07*
