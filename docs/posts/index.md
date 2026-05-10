@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [BAMI: Training-Free Bias Mitigation in GUI Grounding](2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/)
+
+*2026-05-10*
+
+BAMI introduces a training-free inference framework that mitigates precision and ambiguity biases in GUI grounding by employing coarse-to-fine focus and candidate selection manipulations.
+
 ## [World Model for Robot Learning: A Comprehensive Survey](2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/)
 
 *2026-05-09*
@@ -33,12 +39,6 @@ AlbumFill is a training-free framework that uses vision-language reasoning to au
 *2026-05-05*
 
 Posterior-Augmented Flow Matching (PAFM) generalizes standard Flow Matching (FM) by replacing single-target supervision with an expectation over an approximate posterior of valid target completions, thereby reducing gradient variance.
-
-## [$π_0$: A Vision-Language-Action Flow Model for General Robot Control](2026-05-04-0-a-vision-language-action-flow-model-for-general-robot-cont/)
-
-*2026-05-04*
-
-π0 is a novel flow matching architecture built on a pre-trained Vision-Language Model (VLM) to create a generalist robot policy capable of performing complex, dexterous tasks via direct prompting or fine-tuning.
 
 ## [HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation](2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/)
 

@@ -6,12 +6,12 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "BAMI: Training-Free Bias Mitigation in GUI Grounding": posts/2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding.md
     - "World Model for Robot Learning: A Comprehensive Survey": posts/2026-05-09-world-model-for-robot-learning-a-comprehensive-survey.md
     - "ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation": posts/2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide.md
     - "Audio-Visual Intelligence in Large Foundation Models": posts/2026-05-07-audio-visual-intelligence-in-large-foundation-models.md
     - "AlbumFill: Album-Guided Reasoning and Retrieval for Personalized Image Completion": posts/2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali.md
     - "Posterior Augmented Flow Matching": posts/2026-05-05-posterior-augmented-flow-matching.md
-    - "$π_0$: A Vision-Language-Action Flow Model for General Robot Control": posts/2026-05-04-0-a-vision-language-action-flow-model-for-general-robot-cont.md
     - "HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation": posts/2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und.md
     - "GR00T N1: An Open Foundation Model for Generalist Humanoid Robots": posts/2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro.md
     - "Generalizable Sparse-View 3D Reconstruction from Unconstrained Images": posts/2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain.md
