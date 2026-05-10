@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="GR00T N1 is an open Vision-Language-Action (VLA) foundation model for humanoid robots featuring a dual-system architecture that integrates a Vision-Language Model (System 2) for reasoning and a Diffusion Transformer (System 1) for real-time motor action generation.
+        <meta name="description" content="π0 is a novel flow matching architecture built on a pre-trained Vision-Language Model (VLM) to create a generalist robot policy capable of performing complex, dexterous tasks via direct prompting or fine-tuning.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/">
       
       
-        <link rel="prev" href="../2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/">
+        <link rel="prev" href="../2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/">
       
       
-        <link rel="next" href="../2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/">
+        <link rel="next" href="../2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>GR00T N1: An Open Foundation Model for Generalist Humanoid Robots - JarvisForResearchers</title>
+        <title>$π_0$: A Vision-Language-Action Flow Model for General Robot Control - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GR00T N1: An Open Foundation Model for Generalist Humanoid Robots
+              $π_0$: A Vision-Language-Action Flow Model for General Robot Control
             
           </span>
         </div>
@@ -447,10 +447,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    $π_0$: A Vision-Language-Action Flow Model for General Robot Control
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -466,6 +491,162 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vlm-backbone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VLM backbone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action-expert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action expert
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observation-input-o_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observation input \(o_t\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action-chunk-a_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action chunk \(A_t\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -643,35 +824,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    GR00T N1: An Open Foundation Model for Generalist Humanoid Robots
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/" class="md-nav__link">
         
   
   
@@ -687,162 +843,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vision-language-module-system-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vision-Language Module (System 2)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#diffusion-transformer-module-system-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Diffusion Transformer Module (System 1)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#state-and-action-encoders" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        State and Action Encoders
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#action-decoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Action Decoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1065,10 +1065,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#vision-language-module-system-2" class="md-nav__link">
+  <a href="#vlm-backbone" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vision-Language Module (System 2)
+        VLM backbone
       
     </span>
   </a>
@@ -1076,10 +1076,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#diffusion-transformer-module-system-1" class="md-nav__link">
+  <a href="#action-expert" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Diffusion Transformer Module (System 1)
+        Action expert
       
     </span>
   </a>
@@ -1087,10 +1087,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#state-and-action-encoders" class="md-nav__link">
+  <a href="#observation-input-o_t" class="md-nav__link">
     <span class="md-ellipsis">
       
-        State and Action Encoders
+        Observation input \(o_t\)
       
     </span>
   </a>
@@ -1098,10 +1098,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#action-decoder" class="md-nav__link">
+  <a href="#action-chunk-a_t" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Action Decoder
+        Action chunk \(A_t\)
       
     </span>
   </a>
@@ -1178,14 +1178,14 @@
       
       
       
-        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
+        <a href="../../tags/#tag:foundation-models" class="md-tag">foundation-models</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:foundation-models" class="md-tag">foundation-models</a>
+        <a href="../../tags/#tag:generalization" class="md-tag">generalization</a>
       
     
       
@@ -1206,21 +1206,7 @@
       
       
       
-        <a href="../../tags/#tag:perception" class="md-tag">perception</a>
-      
-    
-      
-      
-      
-      
         <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:transformers" class="md-tag">transformers</a>
       
     
       
@@ -1234,34 +1220,36 @@
 
 
 
-  <h1>GR00T N1: An Open Foundation Model for Generalist Humanoid Robots</h1>
+  <h1>$π_0$: A Vision-Language-Action Flow Model for General Robot Control</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-01</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-05-10</em></p>
 </blockquote>
 <h2 id="tldr">TL;DR</h2>
-<p>GR00T N1 is an open Vision-Language-Action (VLA) foundation model for humanoid robots. It employs a dual-system architecture: a Vision-Language Model (System 2) handles high-level reasoning from visual input and language, while a Diffusion Transformer (System 1) generates real-time motor actions via flow-matching. Training is structured via a data pyramid to unify heterogeneous data sources, addressing the lack of large-scale humanoid robot datasets.</p>
+<p><span class="arithmatex">\(\pi_0\)</span> introduces a novel generalist robot policy architecture that integrates a pre-trained Vision-Language Model (VLM) backbone with a conditional flow matching mechanism. This design enables the policy to generate continuous, high-frequency action sequences directly from multimodal observations, allowing for complex, dexterous task execution via prompting or fine-tuning.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>The objective of creating autonomous robots capable of executing complex, everyday tasks in unstructured human environments necessitates a generalist robot model. Such a model must possess the capacity to reason about novel situations and robustly handle real-world variability. However, the current landscape suffers from a critical deficiency: the absence of large-scale, Internet-like datasets specifically curated for humanoid robots. This scarcity results in what we term an "archipelago of 'data islands'," where models are trained on isolated, non-transferable datasets. Furthermore, the inherent variability across different robot embodiments, sensor suites, actuator degrees of freedom, and control paradigms complicates the construction of a coherent, Internet-scale dataset. Consequently, there is a pressing need for a full-stack solution that integrates the necessary hardware, sophisticated models, and comprehensive data infrastructure to achieve human-level physical intelligence.</p>
+<p>The pursuit of generalist robot systems capable of operating effectively in unstructured, real-world environments is fundamentally constrained by limitations in data availability, generalization capacity, and operational robustness. Current methodologies often fail to capture the physically situated versatility inherent to human performance. Specifically, prior work has struggled with two critical issues: first, many Vision-Language Action (VLA) models rely on autoregressive discretization for action representation, which is inherently ill-suited for the high-frequency, continuous control signals required by dexterous manipulation; and second, existing large-scale robot learning efforts have generally operated on tasks of limited complexity or utilized datasets orders of magnitude smaller than those necessary to train foundation models capable of broad generalization. Furthermore, a unified framework combining a VLM backbone with flow matching for action generation in a VLA context has remained unexplored.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce GR00T N1, an open Vision-Language-Action (VLA) foundation model specifically designed for humanoid robots. Our primary architectural contribution is the adoption of a dual-system compositional architecture, which explicitly separates high-level cognitive processing from low-level motor control by integrating a Vision-Language Model (System 2) and a Diffusion Transformer (System 1). To overcome data limitations, we developed an effective co-training strategy structured around a data pyramid. This pyramid systematically unifies heterogeneous data sources, progressing from broad priors derived from Web Data and Human Videos, through synthetic data generation, and finally grounding the model in specific Real-World Data.</p>
+<p>We present three primary contributions to this field:
+1. A novel generalist robot policy architecture that synergistically leverages VLM pre-training and conditional flow matching.
+2. An empirical investigation into effective pre-training and post-training recipes necessary for realizing such robot foundation models.
+3. A demonstration of a level of dexterity and task generality that substantially surpasses the capabilities exhibited by previously reported robot foundation models.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2503.14734/fig_p2_c1.jpg" />
-<em>Figure 1: Data Pyramid for Robot Foundation Model
-Training. GR00T N1’s heterogeneous training corpora
-can be represented as a pyramid: data quantity de-
-creases, and embodiment-specificity increases, moving
-from the bottom to the top.</em></p>
-<p>GR00T N1 functions as a unified VLA model operating under a dual-system paradigm. System 2, which is a pre-trained Vision-Language Model (VLM) leveraging Eagle-2, is responsible for interpreting the environment state and the specified task goal, deriving this understanding from visual perception and natural language instructions at a frequency of 10Hz. Concurrently, System 1, a Diffusion Transformer (DiT) trained using action flow-matching, generates the requisite fluid motor actions at a higher frequency of 120Hz. These two modules are tightly coupled and subjected to end-to-end joint training. The training regimen capitalizes on the data pyramid, utilizing latent actions extracted from human videos and neural trajectories, alongside synthetic and real-robot data. This methodology ensures the model acquires broad visual and behavioral priors while maintaining strict grounding in executable, embodied actions.</p>
-<h3 id="vision-language-module-system-2">Vision-Language Module (System 2)</h3>
-<p>This component is instantiated as a pre-trained Vision-Language Model (VLM). Its function is to process the robot's visual perception stream and the accompanying language instruction to achieve a comprehensive interpretation of the current environment state and the overarching task objective. For the GR00T-N1-2B variant, we utilize Eagle-2 (Li et al., 2025) and specifically extract features from the 12th layer of this VLM for downstream processing by the action generation system.</p>
-<h3 id="diffusion-transformer-module-system-1">Diffusion Transformer Module (System 1)</h3>
-<p>This module is a specialized DiT variant engineered to generate closed-loop motor actions. It operates by employing flow-matching techniques during training. Crucially, this DiT cross-attends to the token outputs provided by the VLM (System 2), allowing the action generation process to be conditioned on the high-level reasoning derived from the language and vision inputs. Furthermore, it incorporates embodiment-specific encoders and decoders to manage the heterogeneity of physical platforms.</p>
-<h3 id="state-and-action-encoders">State and Action Encoders</h3>
-<p>To facilitate the integration of diverse physical inputs into the unified Transformer architecture, we employ dedicated Multi-Layer Perceptrons (MLPs) for each specific robot embodiment. These encoders are responsible for projecting the robot's state vectors and the action vectors—which can possess varying dimensionalities depending on the hardware—into a shared, consistent embedding dimension that the DiT can process effectively.</p>
-<h3 id="action-decoder">Action Decoder</h3>
-<p>Following the final processing block within the DiT, an MLP serves as the Action Decoder. This component takes the final set of <span class="arithmatex">\(H\)</span> tokens outputted by the Transformer and maps them back into the specific motor action space required by the robot hardware, thereby predicting the executable control signals.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2410.24164/fig_p1_c1.jpg" />
+<em>Fig. 1: Our generalist robot policy uses a pre-trained vision-language model (VLM) backbone, as well as a diverse cross-
+embodiment dataset with a variety of dexterous manipulation tasks. The model is adapted to robot control by adding a separate
+action expert that produces continuous actions via fl</em></p>
+<p><span class="arithmatex">\(\pi_0\)</span> is architected to inherit the vast semantic knowledge encoded within a pre-trained VLM while simultaneously modeling the continuous, high-dimensional distribution of physical actions. The policy processes a comprehensive observation <span class="arithmatex">\(o_t = [I^1_t, ..., I^n_t, \ell_t, q_t]\)</span>, which comprises multiple RGB images (<span class="arithmatex">\(I^i_t\)</span>), language tokens (<span class="arithmatex">\(\ell_t\)</span>), and the robot's proprioceptive state (<span class="arithmatex">\(q_t\)</span>). The objective is to predict an action chunk <span class="arithmatex">\(A_t = [a_t, ..., a_{t+H-1}]\)</span>, where <span class="arithmatex">\(H=50\)</span>. This prediction is framed as a continuous density estimation problem solved via conditional flow matching. The training objective minimizes the conditional flow matching loss: <span class="arithmatex">\(L_\tau(\theta) = \mathbb{E}_{p(A_t|o_t), q(A_\tau^t|A_t)||v_\theta(A_\tau^t, o_t) - u(A_\tau^t|A_t)||^2\)</span>. Inference proceeds by numerically integrating the learned vector field <span class="arithmatex">\(v_\theta\)</span> from the noise level <span class="arithmatex">\(\tau=0\)</span> to <span class="arithmatex">\(\tau=1\)</span>, typically employing the forward Euler integration rule.</p>
+<h3 id="vlm-backbone">VLM backbone</h3>
+<p>This component is initialized using PaliGemma, allowing <span class="arithmatex">\(\pi_0\)</span> to immediately benefit from the Internet-scale semantic knowledge acquired during its large-scale pre-training phase. It serves as the primary encoder for interpreting the multimodal observation <span class="arithmatex">\(o_t\)</span>.</p>
+<h3 id="action-expert">Action expert</h3>
+<p>This is a distinct module, parameterized with 300M parameters and initialized from scratch. Its role is to model the continuous distribution of actions conditioned on the VLM's encoded state. It implements the conditional flow matching mechanism necessary for generating high-fidelity, continuous action trajectories.</p>
+<h3 id="observation-input-o_t">Observation input <span class="arithmatex">\(o_t\)</span></h3>
+<p>The input vector <span class="arithmatex">\(o_t\)</span> is heterogeneous, comprising <span class="arithmatex">\(n\)</span> RGB images (<span class="arithmatex">\(I^1_t, ..., I^n_t\)</span>), a sequence of language tokens (<span class="arithmatex">\(\ell_t\)</span>), and the robot's proprioceptive state (<span class="arithmatex">\(q_t\)</span>). Crucially, the image and state data are projected into the embedding space compatible with the VLM's internal representations before being processed.</p>
+<h3 id="action-chunk-a_t">Action chunk <span class="arithmatex">\(A_t\)</span></h3>
+<p>The target output is the action chunk <span class="arithmatex">\(A_t\)</span>, defined as a sequence of <span class="arithmatex">\(H=50\)</span> future actions, <span class="arithmatex">\([a_t, ..., a_{t+H-1}]\)</span>. This fixed-length sequence allows the model to plan over a short horizon while maintaining the continuous nature of the action space.</p>
 <h2 id="results">Results</h2>
+<p>The empirical evaluation demonstrates the efficacy of the proposed training regimen:</p>
 <table>
 <thead>
 <tr>
@@ -1273,32 +1261,38 @@ from the bottom to the top.</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Performance on standard simulation benchmarks</td>
-<td style="text-align: left;">outperforms the state-of-the-art imitation learning baselines</td>
-<td style="text-align: left;">state-of-the-art imitation learning baselines</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">Pre-training data scale</td>
+<td style="text-align: left;">over 10,000 hours of robot data</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Section V</td>
 </tr>
 <tr>
-<td style="text-align: left;">Performance on language-conditioned bimanual manipulation tasks</td>
-<td style="text-align: left;">achieving strong performance with high data efficiency</td>
+<td style="text-align: left;">Robot configurations used in pre-training</td>
+<td style="text-align: left;">7 different robot configurations</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">Section III</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tasks in pre-training</td>
+<td style="text-align: left;">68 tasks</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Section III</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The GR00T N1 framework offers a tangible pathway toward realizing generalist robotics. The efficacy of the dual-system approach—decoupling complex, symbolic reasoning (VLM) from continuous, high-frequency control (DiT)—demonstrates a viable architectural pattern for complex embodied AI. Moreover, the data pyramid strategy provides a concrete methodology for mitigating the pervasive issue of data scarcity in robotics. By systematically structuring data acquisition across web-scale, synthetic, and real-world modalities, we show how to build robust behavioral priors that generalize across different physical instantiations, a critical step toward scalable, real-world deployment.</p>
+<p>The integration of VLM priors with flow matching addresses the core limitations of prior VLA approaches. By replacing discrete action sampling with continuous density modeling, <span class="arithmatex">\(\pi_0\)</span> is inherently better suited for the fine-grained, high-frequency control required for dexterous manipulation. The ability to leverage massive, general-purpose VLM knowledge allows the policy to generalize semantic instructions to novel physical scenarios, moving robotics closer to the level of versatility seen in human performance.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current implementation exhibits dependencies on external, pre-trained components, specifically the Eagle-2 VLM, which itself is finetuned from SmolLM2 and SigLIP-2. This introduces a dependency chain that requires careful management. Additionally, the training pipeline is inherently complex, necessitating sophisticated data generation infrastructure, including the processes for latent action extraction from human demonstrations and the synthesis of neural trajectories. Future work must focus on making the entire pipeline more self-contained and exploring methods to improve the robustness of the latent action space mapping across vastly different embodiments.</p>
+<p>A primary limitation is that the overall performance is highly contingent upon the effectiveness of the separation between the pre-training and post-training phases. Furthermore, the architectural complexity necessitates rigorous management of the interface and information flow between the VLM backbone and the specialized Action expert. Future work must investigate more robust methods for mitigating potential divergence during the integration of these two distinct learning paradigms.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2503.14734">2503.14734</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">250314734</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{GR00T N1: An Open Foundation Model for Generalist Humanoid Robots}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{NVIDIA and : and Johan Bjorck and Fernando Castañeda and Nikita Cherniadev and Xingye Da et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2503.14734}</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2025}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2503.14734}</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2410.24164">2410.24164</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">241024164</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{$π_0$: A Vision-Language-Action Flow Model for General Robot Control}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Kevin Black and Noah Brown and Danny Driess and Adnan Esmail and Michael Equi and Chelsea Finn et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2410.24164}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2024}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2410.24164}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
