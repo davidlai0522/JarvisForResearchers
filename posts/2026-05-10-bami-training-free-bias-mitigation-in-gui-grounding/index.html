@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This survey provides a comprehensive, robot-learning-centered review of world models, detailing their coupling with robot policies, their function as simulators, and their application in robotic video generation.
+        <meta name="description" content="BAMI introduces a training-free inference framework that mitigates precision and ambiguity biases in GUI grounding by employing coarse-to-fine focus and candidate selection manipulations.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/">
       
       
-        <link rel="prev" href="../2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/">
+        <link rel="next" href="../2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>World Model for Robot Learning: A Comprehensive Survey - JarvisForResearchers</title>
+        <title>BAMI: Training-Free Bias Mitigation in GUI Grounding - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              World Model for Robot Learning: A Comprehensive Survey
+              BAMI: Training-Free Bias Mitigation in GUI Grounding
             
           </span>
         </div>
@@ -417,34 +417,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    BAMI: Training-Free Bias Mitigation in GUI Grounding
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -462,7 +434,7 @@
   <span class="md-ellipsis">
     
   
-    World Model for Robot Learning: A Comprehensive Survey
+    BAMI: Training-Free Bias Mitigation in GUI Grounding
   
 
     
@@ -480,7 +452,7 @@
   <span class="md-ellipsis">
     
   
-    World Model for Robot Learning: A Comprehensive Survey
+    BAMI: Training-Free Bias Mitigation in GUI Grounding
   
 
     
@@ -549,10 +521,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#world-model" class="md-nav__link">
+  <a href="#masked-prediction-distribution-mpd" class="md-nav__link">
     <span class="md-ellipsis">
       
-        World Model
+        Masked Prediction Distribution (MPD)
       
     </span>
   </a>
@@ -560,10 +532,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#low-level-physical-actions-a" class="md-nav__link">
+  <a href="#coarse-to-fine-focus" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Low-level physical actions (a)
+        Coarse-to-Fine Focus
       
     </span>
   </a>
@@ -571,10 +543,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#high-level-language-or-task-actions-l" class="md-nav__link">
+  <a href="#candidate-selection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        High-level language or task actions (l)
+        Candidate Selection
       
     </span>
   </a>
@@ -582,32 +554,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#robot-policy" class="md-nav__link">
+  <a href="#correction-model-m" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Robot Policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#visuomotor-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visuomotor Policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vision-language-action-vla-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vision-Language-Action (VLA) Models
+        Correction Model (m)
       
     </span>
   </a>
@@ -667,6 +617,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    World Model for Robot Learning: A Comprehensive Survey
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1057,10 +1035,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#world-model" class="md-nav__link">
+  <a href="#masked-prediction-distribution-mpd" class="md-nav__link">
     <span class="md-ellipsis">
       
-        World Model
+        Masked Prediction Distribution (MPD)
       
     </span>
   </a>
@@ -1068,10 +1046,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#low-level-physical-actions-a" class="md-nav__link">
+  <a href="#coarse-to-fine-focus" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Low-level physical actions (a)
+        Coarse-to-Fine Focus
       
     </span>
   </a>
@@ -1079,10 +1057,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#high-level-language-or-task-actions-l" class="md-nav__link">
+  <a href="#candidate-selection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        High-level language or task actions (l)
+        Candidate Selection
       
     </span>
   </a>
@@ -1090,32 +1068,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#robot-policy" class="md-nav__link">
+  <a href="#correction-model-m" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Robot Policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#visuomotor-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visuomotor Policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vision-language-action-vla-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vision-Language-Action (VLA) Models
+        Correction Model (m)
       
     </span>
   </a>
@@ -1192,6 +1148,13 @@
       
       
       
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
+      
+    
+      
+      
+      
+      
         <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
@@ -1199,79 +1162,72 @@
       
       
       
-        <a href="../../tags/#tag:planning" class="md-tag">planning</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:reinforcement-learning" class="md-tag">reinforcement-learning</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
+        <a href="../../tags/#tag:manipulation" class="md-tag">manipulation</a>
       
     
   </nav>
 
 
 
-  <h1>World Model for Robot Learning: A Comprehensive Survey</h1>
+  <h1>BAMI: Training-Free Bias Mitigation in GUI Grounding</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-09</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-05-10</em></p>
 </blockquote>
 <h2 id="tldr">TL;DR</h2>
-<p>This survey provides a robot-learning-centered review of world models, detailing their coupling with robot policies, their function as simulators, and their application in robotic video generation. We establish a fine-grained taxonomy distinguishing major architectural paradigms and functional roles, clarifying how predictive structures enable long-horizon reasoning and data amplification for embodied agents.</p>
+<p>BAMI introduces a training-free inference framework that mitigates precision and ambiguity biases in GUI grounding by employing coarse-to-fine focus and candidate selection manipulations.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Purely reactive Vision-Language-Action (VLA) policies struggle with long-horizon reasoning, temporal credit assignment, and robustness under compounding errors in complex physical environments due to a lack of explicit predictive structure for anticipating world evolution. Without an internal model of dynamics, these policies are inherently brittle when the required sequence of actions extends beyond the immediate sensory horizon.</p>
-<p>The existing literature suffers from fragmentation across architectures, functional roles, and embodied application domains. Furthermore, prior surveys lacked a fine-grained view of major world-model paradigms, and previous work did not offer a clear robotics-centered definition of world models in relation to VLA policies and robot learning.</p>
+<p>Existing GUI grounding models exhibit suboptimal performance when evaluated on complex benchmarks such as ScreenSpot-Pro. This degradation is primarily attributable to two systematic biases: precision bias, which arises from the high resolution of input images, and ambiguity bias, which is exacerbated by the intricate nature of modern user interfaces.</p>
+<p>The limitations of current approaches are multifaceted. Traditional gradient-based attribution methods are fundamentally ill-suited for the discrete nature of the text-to-coordinate conversion task. Furthermore, while language-space enhancement techniques, such as Chain-of-Thought prompting, have been explored, they have demonstrated limited efficacy for achieving the necessary precision in GUI grounding. Fundamentally, the underlying Multimodal Large Language Models (MLLMs) often possess inherent inductive biases—namely precision bias and ambiguity bias—that constrain their capacity for robust spatial reasoning.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We present a policy-centric survey of world models for robot learning, focusing specifically on their coupling with VLA policies for action generation, planning, simulation, evaluation, and data generation. We provide a more fine-grained taxonomy by distinguishing major architectural paradigms and functional roles of world models. Finally, we offer a comprehensive and clearly defined treatment of robotic world models by clarifying their relationship to robot learning, VLA policies, video generation, and simulator-style usage.</p>
+<p>We present three primary contributions to address these limitations. First, we introduce the Masked Prediction Distribution (MPD) method, which serves as a diagnostic tool to categorize grounding failures into either knowledge deficiency or inductive bias. Second, we mitigate precision bias by reframing the single-step localization problem into a multi-step, progressive search mechanism via hierarchical coarse-to-fine focus. Third, we correct ambiguity bias by integrating an external Candidate Selection mechanism, which is guided by predefined prompt rules.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.00080/fig_p2_c1.jpg" />
-<em>Figure 1 Overview of the organization of this survey. Section 3 reviews how world models are coupled with robot policies
-from an architectural perspective. Section 4 examines world models as simulators from an application perspective.
-Section 5 focuses on robotic video world models and organizes the</em></p>
-<p>The survey adopts a robot-learning-centered view, defining a world model as a predictive model of agent-environment dynamics that captures how a robotic or embodied system evolves under actions. This model must provide foresight, imagination-driven planning, and data amplification to be actionable. We systematically examine how these predictive structures are coupled with robot policies, how they function as learned simulators for reinforcement learning and evaluation, and how robotic video world models progress from imagination-based generation to controllable, structured, and foundation-scale formulations. The focus remains on action-conditioned consistency, long-horizon reliability, and practical deployability in embodied tasks.</p>
-<h3 id="world-model">World Model</h3>
-<p>A <strong>World Model</strong> is defined as a predictive model of agent-environment dynamics that captures how a robotic or embodied system evolves under actions, typically modeling a state-transition process: <span class="arithmatex">\(p(x_{t+1:t+H} | x_t, a_{t:t+H-1}, l)\)</span>. This model is the core mechanism for enabling foresight.</p>
-<h3 id="low-level-physical-actions-a">Low-level physical actions (a)</h3>
-<p>These are the concrete physical actions executed by the agent, such as motor commands. They represent the direct interface between the agent's decision-making process and the physical environment.</p>
-<h3 id="high-level-language-or-task-actions-l">High-level language or task actions (l)</h3>
-<p>These are high-level semantic actions that specify what the future should be realized, such as a language instruction or goal description. They provide the necessary semantic grounding for long-horizon planning.</p>
-<h3 id="robot-policy">Robot Policy</h3>
-<p>The <strong>Robot Policy</strong> is a decision-making model that frames physical control as an action prediction task, mapping current environmental observations to future action trajectories: <span class="arithmatex">\(p(a_{t+1:t+k}|o_t, l)\)</span>. It dictates the agent's behavior based on its current state and goals.</p>
-<h3 id="visuomotor-policy">Visuomotor Policy</h3>
-<p>A <strong>Visuomotor Policy</strong> is a specialized, often lightweight, end-to-end network that establishes a direct mapping from raw states to the action space, typically via regression or generative models. It represents a direct, low-level control mapping without explicit internal world modeling.</p>
-<h3 id="vision-language-action-vla-models">Vision-Language-Action (VLA) Models</h3>
-<p><strong>Vision-Language-Action (VLA) Models</strong> are generalist models developed by fine-tuning large-scale Vision-Language Models (VLMs) on large scale robotic trajectory data to achieve cross-task and cross-embodiment generalization. They aim to unify perception, language understanding, and action generation.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.06664/fig_p1_c1.jpg" />
+<em>Figure 1. Compared with conventional grounding models, BAMI
+achieves accurate localization without additional training via struc-
+tured inference with bias-aware manipulations.</em></p>
+<p>BAMI reframes the standard one-step localization task into a recursive, multi-step structured inference process. The core strategy involves iterative refinement to combat precision bias and structured candidate generation followed by external validation to address ambiguity bias. This entire framework is designed to operate in a training-free manner, enabling direct application atop existing open-source backbone models.</p>
+<h3 id="masked-prediction-distribution-mpd">Masked Prediction Distribution (MPD)</h3>
+<p>The MPD method functions by systematically probing the model's focus. It achieves this by randomly occluding various regions of the input screenshot. The model's prediction frequencies are then aggregated across 300 distinct perturbations for each sample. This aggregation allows us to map the model's internal focus distribution, which is critical for diagnosing whether a failure is due to a lack of underlying knowledge or an artifact of the model's inherent inductive biases.</p>
+<h3 id="coarse-to-fine-focus">Coarse-to-Fine Focus</h3>
+<p>To counteract precision bias, we decompose the localization task into a hierarchy of steps. This process is implemented as a progressive search. In each iterative step, the candidate region identified in the preceding round is refined by cropping the original image. This cropping is performed at a scale factor <span class="arithmatex">\(\lambda &lt; 1\)</span>, effectively zooming into the area of interest and allowing for finer coordinate resolution in subsequent predictions.</p>
+<h3 id="candidate-selection">Candidate Selection</h3>
+<p>To resolve ambiguity bias, we move beyond relying on a single prediction. Instead, we generate multiple, mutually exclusive candidate bounding boxes. These candidates are produced through multi-round masked prediction operations. The subsequent selection of the optimal box is not left to the primary MLLM output; rather, it is delegated to an external mechanism guided by predefined prompt rules.</p>
+<h3 id="correction-model-m">Correction Model (m)</h3>
+<p>The Correction Model (<span class="arithmatex">\(m\)</span>) is the external component leveraged during the Candidate Selection phase. Its role is to rectify the erroneous selection preferences exhibited by the grounding model. It operates by evaluating the set of mutually exclusive candidates against a set of prompt rules that encode established GUI priors, such as expected functional features or common UI patterns, thereby selecting the most plausible box.</p>
 <h2 id="results">Results</h2>
-<p>(No quantitative results were provided in the outline.)</p>
+<p>The application of BAMI demonstrates a measurable improvement over established baselines on the ScreenSpot-Pro benchmark.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Baseline</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Accuracy on ScreenSpot-Pro benchmark</td>
+<td style="text-align: left;">57.8%</td>
+<td style="text-align: left;">51.9%</td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+</tbody>
+</table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>World models serve as a predictive bridge from semantic intent to physically realizable behavior, directly addressing the limitations inherent in purely reactive VLA policies. The functional role of a world model must be action-conditioned; visually plausible but action-inconsistent futures offer limited value for closed-loop decision making. Consequently, the field is trending towards tighter integration, moving from decoupled pipelines toward single-backbone, MoE/MoT, unified VLA, and latent world-modeling designs.</p>
+<p>The practitioner takeaways from this work are significant. First, BAMI demonstrates that inference-time reasoning design, as opposed to costly model retraining, can yield substantial performance gains in complex tasks like GUI grounding. Second, the systematic error diagnosis provided by MPD is a crucial methodological advance, enabling researchers to precisely differentiate between failures rooted in knowledge gaps versus those stemming from model inductive biases. Finally, for tasks involving high-resolution inputs, the decomposition strategy inherent in coarse-to-fine focus provides a viable, effective mechanism to circumvent the limitations imposed by discretization.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>It must be noted that this survey does not enforce a single narrow formal definition of a world model, acknowledging the diverse implementations in the literature. Furthermore, the focus is strictly on the functional role of world models for robot learning, which is a narrower scope than generic future prediction as studied in computer vision.</p>
+<p>We acknowledge specific limitations in the current formulation. The coarse-to-fine focus strategy necessitates a trade-off between the number of iterations performed and the chosen crop ratio (<span class="arithmatex">\(\lambda\)</span>). If the cropping is too aggressive, there is a risk of losing critical contextual information necessary for accurate localization. Furthermore, the efficacy of the entire ambiguity correction pipeline is contingent upon the quality and completeness of the prompt design utilized by the external Correction Model (<span class="arithmatex">\(m\)</span>). Future work must focus on optimizing this prompt engineering aspect.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.00080">2605.00080</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260500080</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{World Model for Robot Learning: A Comprehensive Survey}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Bohan Hou and Gen Li and Jindou Jia and Tuo An and Xinying Guo and Sicong Leng et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.00080}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.06664">2605.06664</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260506664</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{BAMI: Training-Free Bias Mitigation in GUI Grounding}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Borui Zhang and Bo Zhang and Bo Wang and Wenzhao Zheng and Yuhao Cheng and Liang Tang et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.06664}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.00080}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.06664}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
