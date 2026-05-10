@@ -7,6 +7,7 @@ nav:
   - Research Digest:
     - Overview: posts/index.md
     - "BAMI: Training-Free Bias Mitigation in GUI Grounding": posts/2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding.md
+    - "$π_0$: A Vision-Language-Action Flow Model for General Robot Control": posts/2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont.md
     - "World Model for Robot Learning: A Comprehensive Survey": posts/2026-05-09-world-model-for-robot-learning-a-comprehensive-survey.md
     - "ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation": posts/2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide.md
     - "Audio-Visual Intelligence in Large Foundation Models": posts/2026-05-07-audio-visual-intelligence-in-large-foundation-models.md

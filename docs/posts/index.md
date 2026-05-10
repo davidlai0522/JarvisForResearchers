@@ -10,6 +10,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 BAMI introduces a training-free inference framework that mitigates precision and ambiguity biases in GUI grounding by employing coarse-to-fine focus and candidate selection manipulations.
 
+## [$π_0$: A Vision-Language-Action Flow Model for General Robot Control](2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/)
+
+*2026-05-10*
+
+π0 is a novel flow matching architecture built on a pre-trained Vision-Language Model (VLM) to create a generalist robot policy capable of performing complex, dexterous tasks via direct prompting or fine-tuning.
+
 ## [World Model for Robot Learning: A Comprehensive Survey](2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/)
 
 *2026-05-09*
