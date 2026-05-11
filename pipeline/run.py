@@ -125,6 +125,7 @@ def _run_pipeline(args) -> None:
         args.force = False  # quality gate already passed inside pick_daily_paper
 
     # --- Quality gate ---
+    selection_reason: str | None = None
     if args.arxiv and not args.force:
         print("\n🔍 Quality gate...")
         result = check_quality(args.arxiv)
@@ -133,6 +134,7 @@ def _run_pipeline(args) -> None:
             print("  Use --force to override.")
             return
         print(f"  ✅ PASSED: {result['reason']}")
+        selection_reason = result["reason"]
 
     # --- Load model once, reuse for all LLM steps ---
     print("\n🤖 Loading Gemma 4 E4B...")
@@ -159,7 +161,7 @@ def _run_pipeline(args) -> None:
     mermaid = maybe_generate_mermaid(extraction, figures, tokenizer, model)
 
     print("✍️  Step 6/6 — Authoring blog post...")
-    post = build_blog_post(paper, extraction, figures, mermaid, tokenizer, model)
+    post = build_blog_post(paper, extraction, figures, mermaid, tokenizer, model, selection_reason=selection_reason)
 
     print("🚀 Publishing...")
     post_dest = publish(paper, post, overwrite=args.regenerate)

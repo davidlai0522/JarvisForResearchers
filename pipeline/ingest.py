@@ -3,6 +3,23 @@ import arxiv
 import fitz
 import json
 import pathlib
+import time
+
+
+def _fetch_arxiv_with_retry(arxiv_id: str, max_attempts: int = 6) -> arxiv.Result:
+    """Fetch an arXiv paper, retrying on HTTP 429 with exponential backoff."""
+    delay = 15
+    for attempt in range(1, max_attempts + 1):
+        try:
+            return next(arxiv.Client().results(arxiv.Search(id_list=[arxiv_id])))
+        except arxiv.HTTPError as e:
+            if e.status in (429, 503) and attempt < max_attempts:
+                reason = "rate-limited" if e.status == 429 else "unavailable"
+                print(f"  ⏳ arXiv {reason} (HTTP {e.status}) — waiting {delay}s (attempt {attempt}/{max_attempts})...")
+                time.sleep(delay)
+                delay = min(delay * 2, 120)
+            else:
+                raise
 
 
 def ingest_arxiv(arxiv_id: str) -> dict:
@@ -13,7 +30,7 @@ def ingest_arxiv(arxiv_id: str) -> dict:
         print("  (cached) Skipping ingest")
         return json.loads(cache_json.read_text())
 
-    paper = next(arxiv.Client().results(arxiv.Search(id_list=[arxiv_id])))
+    paper = _fetch_arxiv_with_retry(arxiv_id)
 
     pdf_path = pathlib.Path(f"cache/{arxiv_id}.pdf")
     paper.download_pdf(filename=str(pdf_path))
