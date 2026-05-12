@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="GR00T N1 is an open Vision-Language-Action (VLA) foundation model for humanoid robots featuring a dual-system architecture that integrates a Vision-Language Model (System 2) for reasoning and a Diffusion Transformer (System 1) for real-time motor action generation.
+        <meta name="description" content="Normalizing Trajectory Models (NTM) introduces a framework that models the non-Gaussian reverse conditional $p(x_s | x_t)$ as a conditional normalizing flow, enabling exact likelihood training for high-quality, few-step image generation.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-12-normalizing-trajectory-models/">
       
       
-        <link rel="prev" href="../2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/">
+        <link rel="next" href="../2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>GR00T N1: An Open Foundation Model for Generalist Humanoid Robots - JarvisForResearchers</title>
+        <title>Normalizing Trajectory Models - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GR00T N1: An Open Foundation Model for Generalist Humanoid Robots
+              Normalizing Trajectory Models
             
           </span>
         </div>
@@ -421,10 +421,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-05-12-normalizing-trajectory-models/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Normalizing Trajectory Models
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -440,6 +465,162 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shared-transporter-f_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared Transporter \(f_T\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stochastic-predictor-f_p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stochastic Predictor \(f_P\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ntm-loss-l_ntm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NTM Loss (\(L_{NTM}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learned-denoiser-g_phi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learned Denoiser \(g_\phi\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -673,35 +854,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    GR00T N1: An Open Foundation Model for Generalist Humanoid Robots
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/" class="md-nav__link">
         
   
   
@@ -717,162 +873,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vision-language-module-system-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vision-Language Module (System 2)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#diffusion-transformer-module-system-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Diffusion Transformer Module (System 1)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#state-and-action-encoders" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        State and Action Encoders
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#action-decoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Action Decoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1095,10 +1095,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#vision-language-module-system-2" class="md-nav__link">
+  <a href="#shared-transporter-f_t" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vision-Language Module (System 2)
+        Shared Transporter \(f_T\)
       
     </span>
   </a>
@@ -1106,10 +1106,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#diffusion-transformer-module-system-1" class="md-nav__link">
+  <a href="#stochastic-predictor-f_p" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Diffusion Transformer Module (System 1)
+        Stochastic Predictor \(f_P\)
       
     </span>
   </a>
@@ -1117,10 +1117,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#state-and-action-encoders" class="md-nav__link">
+  <a href="#ntm-loss-l_ntm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        State and Action Encoders
+        NTM Loss (\(L_{NTM}\))
       
     </span>
   </a>
@@ -1128,10 +1128,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#action-decoder" class="md-nav__link">
+  <a href="#learned-denoiser-g_phi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Action Decoder
+        Learned Denoiser \(g_\phi\)
       
     </span>
   </a>
@@ -1208,21 +1208,7 @@
       
       
       
-        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:foundation-models" class="md-tag">foundation-models</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:llm" class="md-tag">llm</a>
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
       
@@ -1232,65 +1218,41 @@
         <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
       
     
-      
-      
-      
-      
-        <a href="../../tags/#tag:perception" class="md-tag">perception</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:transformers" class="md-tag">transformers</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
-      
-    
   </nav>
 
 
 
-  <h1>GR00T N1: An Open Foundation Model for Generalist Humanoid Robots</h1>
+  <h1>Normalizing Trajectory Models</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-01</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-05-12</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>GR00T N1 is an open Vision-Language-Action (VLA) foundation model for humanoid robots. It employs a dual-system architecture: a Vision-Language Model (System 2) handles high-level reasoning from visual input and language, while a Diffusion Transformer (System 1) generates real-time motor actions via flow-matching. Training is structured via a data pyramid to unify heterogeneous data sources, addressing the lack of large-scale humanoid robot datasets.</p>
+<p>Normalizing Trajectory Models (NTM) reframes the diffusion reverse conditional <span class="arithmatex">\(p(x_s | x_t)\)</span> as a conditional normalizing flow. This allows for exact likelihood training, enabling high-quality image generation even when compressed to a few coarse transitions, overcoming the Gaussian assumption bottleneck inherent in standard diffusion models.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>The objective of creating autonomous robots capable of executing complex, everyday tasks in unstructured human environments necessitates a generalist robot model. Such a model must possess the capacity to reason about novel situations and robustly handle real-world variability. However, the current landscape suffers from a critical deficiency: the absence of large-scale, Internet-like datasets specifically curated for humanoid robots. This scarcity results in what we term an "archipelago of 'data islands'," where models are trained on isolated, non-transferable datasets. Furthermore, the inherent variability across different robot embodiments, sensor suites, actuator degrees of freedom, and control paradigms complicates the construction of a coherent, Internet-scale dataset. Consequently, there is a pressing need for a full-stack solution that integrates the necessary hardware, sophisticated models, and comprehensive data infrastructure to achieve human-level physical intelligence.</p>
+<p>Diffusion models fundamentally rely on approximating the reverse conditional probability <span class="arithmatex">\(p(x_s | x_t)\)</span> as Gaussian. This assumption is a significant constraint, particularly when the generative process is compressed—for instance, when reducing the number of required sampling steps from hundreds to just a few coarse transitions. When this compression occurs, the true reverse conditional distribution becomes highly non-Gaussian, causing the standard Gaussian approximation to fail and leading to a fundamental degradation in generation quality.</p>
+<p>The existing literature has attempted to address this: distillation methods and consistency models bypass the likelihood framework entirely. DDGAN replaces the Gaussian assumption with an implicit distribution learned adversarially, but this approach introduces known issues such as mode-seeking behavior and training instability. Critically, no prior work has successfully combined the requirement for few-step generation with the rigorous framework of an exact likelihood model for the reverse process.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce GR00T N1, an open Vision-Language-Action (VLA) foundation model specifically designed for humanoid robots. Our primary architectural contribution is the adoption of a dual-system compositional architecture, which explicitly separates high-level cognitive processing from low-level motor control by integrating a Vision-Language Model (System 2) and a Diffusion Transformer (System 1). To overcome data limitations, we developed an effective co-training strategy structured around a data pyramid. This pyramid systematically unifies heterogeneous data sources, progressing from broad priors derived from Web Data and Human Videos, through synthetic data generation, and finally grounding the model in specific Real-World Data.</p>
+<p>We introduce a framework that models the non-Gaussian reverse conditional <span class="arithmatex">\(p(x_s | x_t)\)</span> by employing an invertible transporter coupled with a Gaussian predictor. This design yields an exact log-likelihood while simultaneously bridging the gap between representation learning and rigorous probabilistic modeling. Furthermore, we provide a specific finetuning recipe that allows initialization from existing pretrained diffusion or flow-matching models using an identity transporter and zero-initialized scale correction, thereby preserving the quality of the prior training. Finally, we demonstrate a score-based trajectory denoising mechanism that leverages the exact likelihood and Markov covariance to jointly correct generated trajectories, which can then be distilled into a learned denoiser <span class="arithmatex">\(g_\phi\)</span> capable of achieving high quality in just four steps without requiring additional training data.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2503.14734/fig_p2_c1.jpg" />
-<em>Figure 1: Data Pyramid for Robot Foundation Model
-Training. GR00T N1’s heterogeneous training corpora
-can be represented as a pyramid: data quantity de-
-creases, and embodiment-specificity increases, moving
-from the bottom to the top.</em></p>
-<p>GR00T N1 functions as a unified VLA model operating under a dual-system paradigm. System 2, which is a pre-trained Vision-Language Model (VLM) leveraging Eagle-2, is responsible for interpreting the environment state and the specified task goal, deriving this understanding from visual perception and natural language instructions at a frequency of 10Hz. Concurrently, System 1, a Diffusion Transformer (DiT) trained using action flow-matching, generates the requisite fluid motor actions at a higher frequency of 120Hz. These two modules are tightly coupled and subjected to end-to-end joint training. The training regimen capitalizes on the data pyramid, utilizing latent actions extracted from human videos and neural trajectories, alongside synthetic and real-robot data. This methodology ensures the model acquires broad visual and behavioral priors while maintaining strict grounding in executable, embodied actions.</p>
-<h3 id="vision-language-module-system-2">Vision-Language Module (System 2)</h3>
-<p>This component is instantiated as a pre-trained Vision-Language Model (VLM). Its function is to process the robot's visual perception stream and the accompanying language instruction to achieve a comprehensive interpretation of the current environment state and the overarching task objective. For the GR00T-N1-2B variant, we utilize Eagle-2 (Li et al., 2025) and specifically extract features from the 12th layer of this VLM for downstream processing by the action generation system.</p>
-<h3 id="diffusion-transformer-module-system-1">Diffusion Transformer Module (System 1)</h3>
-<p>This module is a specialized DiT variant engineered to generate closed-loop motor actions. It operates by employing flow-matching techniques during training. Crucially, this DiT cross-attends to the token outputs provided by the VLM (System 2), allowing the action generation process to be conditioned on the high-level reasoning derived from the language and vision inputs. Furthermore, it incorporates embodiment-specific encoders and decoders to manage the heterogeneity of physical platforms.</p>
-<h3 id="state-and-action-encoders">State and Action Encoders</h3>
-<p>To facilitate the integration of diverse physical inputs into the unified Transformer architecture, we employ dedicated Multi-Layer Perceptrons (MLPs) for each specific robot embodiment. These encoders are responsible for projecting the robot's state vectors and the action vectors—which can possess varying dimensionalities depending on the hardware—into a shared, consistent embedding dimension that the DiT can process effectively.</p>
-<h3 id="action-decoder">Action Decoder</h3>
-<p>Following the final processing block within the DiT, an MLP serves as the Action Decoder. This component takes the final set of <span class="arithmatex">\(H\)</span> tokens outputted by the Transformer and maps them back into the specific motor action space required by the robot hardware, thereby predicting the executable control signals.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.08078/fig_p1_c1.jpg" />
+<em>Figure 1 Text-to-image generation with NTM with 4 denoising steps. We show samples from models trained
+from scratch at 256×256, and from models obtained by finetuning pretrained flow-matching checkpoints at 512×512.</em></p>
+<p>NTM operates by mapping both the target state <span class="arithmatex">\(x_s\)</span> and the noisy state <span class="arithmatex">\(x_t\)</span> into a shared, lower-dimensional latent <span class="arithmatex">\(u\)</span>-space via a shared invertible transporter, <span class="arithmatex">\(f_T\)</span>. Once in this latent space, a stochastic predictor, <span class="arithmatex">\(f_P\)</span>, generates an estimate <span class="arithmatex">\(\hat{u}_s\)</span> conditioned on the noisier representation <span class="arithmatex">\(u_t\)</span>, a standard Gaussian noise variable <span class="arithmatex">\(z \sim \mathcal{N}(0, I)\)</span>, and any conditioning information <span class="arithmatex">\(y\)</span>. By structuring <span class="arithmatex">\(f_T\)</span> as a stack of TarFlow blocks incorporating spatial NVP coupling, and defining <span class="arithmatex">\(f_P\)</span> as an affine map, the distributional distance <span class="arithmatex">\(D\)</span> between the true and predicted distributions is recast precisely as the negative log-likelihood, <span class="arithmatex">\(L_{NTM} = -\log p(x_s | x_t)\)</span>. This formulation permits end-to-end training by minimizing <span class="arithmatex">\(L_{NTM}\)</span>, which decomposes into a sum over trajectory steps, thus enabling high-fidelity generation with minimal steps.</p>
+<h3 id="shared-transporter-f_t">Shared Transporter <span class="arithmatex">\(f_T\)</span></h3>
+<p>The Shared Transporter <span class="arithmatex">\(f_T\)</span> is an invertible, same-dimensional mapping. It is implemented as a stack of TarFlow blocks utilizing spatial NVP coupling. Its function is to map the input data points, <span class="arithmatex">\(x_s\)</span> and <span class="arithmatex">\(x_t\)</span>, into corresponding latent representations, <span class="arithmatex">\(u_s\)</span> and <span class="arithmatex">\(u_t\)</span>, respectively. This transformation is crucial as it allows the subsequent predictor to operate in a space where the distributional properties are more amenable to tractable likelihood computation.</p>
+<h3 id="stochastic-predictor-f_p">Stochastic Predictor <span class="arithmatex">\(f_P\)</span></h3>
+<p>The Stochastic Predictor <span class="arithmatex">\(f_P\)</span> is responsible for estimating the target latent state. It generates <span class="arithmatex">\(\hat{u}_s\)</span> as a function of the noisy latent representation <span class="arithmatex">\(u_t\)</span>, an independent latent variable <span class="arithmatex">\(z\)</span> drawn from a standard normal distribution, and any provided condition <span class="arithmatex">\(y\)</span>. The functional form is <span class="arithmatex">\(\hat{u}_s = f_P(u_t, z, y)\)</span>. This predictor acts as the core generative step within the NTM framework.</p>
+<h3 id="ntm-loss-l_ntm">NTM Loss (<span class="arithmatex">\(L_{NTM}\)</span>)</h3>
+<p>The NTM Loss, <span class="arithmatex">\(L_{NTM}\)</span>, is defined as the exact negative log-likelihood of the trajectory. It is mathematically expressed as:
+$<span class="arithmatex">\(L_{NTM} = \sum_{k=1}^T \left( \frac{1}{2}\|z_k\|^2 + \sum_n \left( \log \sigma_P(k,n) + \sum_\ell \log \sigma(k,\ell,n)_T \right) \right)\)</span>$
+Minimizing this loss drives the model to accurately capture the true conditional probability <span class="arithmatex">\(p(x_s | x_t)\)</span> across the trajectory steps.</p>
+<h3 id="learned-denoiser-g_phi">Learned Denoiser <span class="arithmatex">\(g_\phi\)</span></h3>
+<p>The Learned Denoiser <span class="arithmatex">\(g_\phi\)</span> is a specialized, lightweight Transformer architecture. It is trained to amortize the complex, score-based trajectory denoising process into a single forward pass. It takes the initial latent state <span class="arithmatex">\(u_{t_0}\)</span> and the text embeddings <span class="arithmatex">\(y\)</span> as input to output an estimated clean sample <span class="arithmatex">\(\hat{x}_{den}^0\)</span>.</p>
 <h2 id="results">Results</h2>
 <table>
 <thead>
@@ -1303,32 +1265,38 @@ from the bottom to the top.</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Performance on standard simulation benchmarks</td>
-<td style="text-align: left;">outperforms the state-of-the-art imitation learning baselines</td>
-<td style="text-align: left;">state-of-the-art imitation learning baselines</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">GenEval</td>
+<td style="text-align: left;">0.82</td>
+<td style="text-align: left;">STARFlow (0.56)</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Performance on language-conditioned bimanual manipulation tasks</td>
-<td style="text-align: left;">achieving strong performance with high data efficiency</td>
+<td style="text-align: left;">DPG-Bench</td>
+<td style="text-align: left;">79.64</td>
+<td style="text-align: left;">STARFlow</td>
+<td style="text-align: left;">Table 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">GenEval</td>
+<td style="text-align: left;">0.76</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The GR00T N1 framework offers a tangible pathway toward realizing generalist robotics. The efficacy of the dual-system approach—decoupling complex, symbolic reasoning (VLM) from continuous, high-frequency control (DiT)—demonstrates a viable architectural pattern for complex embodied AI. Moreover, the data pyramid strategy provides a concrete methodology for mitigating the pervasive issue of data scarcity in robotics. By systematically structuring data acquisition across web-scale, synthetic, and real-world modalities, we show how to build robust behavioral priors that generalize across different physical instantiations, a critical step toward scalable, real-world deployment.</p>
+<p>NTM provides a significant advancement by achieving state-of-the-art performance in few-step generation while uniquely retaining the mathematical rigor of an exact likelihood over the entire generative trajectory. The framework's support for efficient initialization via the identity transporter allows researchers to leverage substantial prior investment in diffusion or flow-matching models. Furthermore, the ability to distill the multi-step trajectory score denoising into a single forward pass via <span class="arithmatex">\(g_\phi\)</span> offers a practical pathway to deploying high-quality generative models with low inference latency.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current implementation exhibits dependencies on external, pre-trained components, specifically the Eagle-2 VLM, which itself is finetuned from SmolLM2 and SigLIP-2. This introduces a dependency chain that requires careful management. Additionally, the training pipeline is inherently complex, necessitating sophisticated data generation infrastructure, including the processes for latent action extraction from human demonstrations and the synthesis of neural trajectories. Future work must focus on making the entire pipeline more self-contained and exploring methods to improve the robustness of the latent action space mapping across vastly different embodiments.</p>
+<p>A primary limitation of the standard NTM sampling procedure is that it necessitates <span class="arithmatex">\(T\)</span> sequential predictor steps, each requiring AR decoding, which inherently introduces significant latency into the inference pipeline. Additionally, the initial training phase requires the construction of a stochastic forward trajectory, as defined in Equation (2.3), to properly model the joint trajectory distribution, which is a non-trivial data generation step.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2503.14734">2503.14734</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">250314734</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{GR00T N1: An Open Foundation Model for Generalist Humanoid Robots}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{NVIDIA and : and Johan Bjorck and Fernando Castañeda and Nikita Cherniadev and Xingye Da et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2503.14734}</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2025}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2503.14734}</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.08078">2605.08078</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260508078</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Normalizing Trajectory Models}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Jiatao Gu and Tianrong Chen and Ying Shen and David Berthelot and Shuangfei Zhai and Josh Susskind}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.08078}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.08078}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
