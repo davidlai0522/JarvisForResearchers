@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Normalizing Trajectory Models](2026-05-12-normalizing-trajectory-models/)
+
+*2026-05-12*
+
+Normalizing Trajectory Models (NTM) introduces a framework that models the non-Gaussian reverse conditional $p(x_s | x_t)$ as a conditional normalizing flow, enabling exact likelihood training for high-quality, few-step image generation.
+
 ## [BAMI: Training-Free Bias Mitigation in GUI Grounding](2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/)
 
 *2026-05-10*
