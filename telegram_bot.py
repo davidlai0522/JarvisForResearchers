@@ -23,6 +23,7 @@ Commands:
   /resources      — Show current CPU / RAM / VRAM headroom
 """
 import asyncio
+import html
 import logging
 import os
 import pathlib
@@ -303,7 +304,7 @@ def _build_reply(arxiv_id: str, result: dict, force: bool) -> str:
     tail = "\n".join(output.strip().splitlines()[-8:])
     return (
         f"💥 <b>Pipeline failed for <code>{arxiv_id}</code></b>\n\n"
-        f"<pre>{tail[:800]}</pre>"
+        f"<pre>{html.escape(tail)[:800]}</pre>"
     )
 
 

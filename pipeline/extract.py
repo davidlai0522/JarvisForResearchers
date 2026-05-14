@@ -6,7 +6,7 @@ from llm import ask
 
 
 def _fix_json_escapes(s: str) -> str:
-    """
+    r"""
     Walk the string character-by-character and double any backslash that is
     not part of a valid JSON escape sequence:
       \" \\ \/ \b \f \n \r \t \uXXXX  (XXXX = exactly 4 hex digits)

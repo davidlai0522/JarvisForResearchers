@@ -62,11 +62,24 @@ def _fetch_recent(max_results: int | None = None) -> list[arxiv.Result]:
             sort_by=arxiv.SortCriterion.SubmittedDate,
             sort_order=arxiv.SortOrder.Descending,
         )
-        for paper in client.results(search):
-            pid = paper.get_short_id().split("v")[0]  # strip version suffix
-            if pid not in seen_ids:
-                seen_ids.add(pid)
-                results.append(paper)
+        for attempt in range(3):
+            try:
+                for paper in client.results(search):
+                    pid = paper.get_short_id().split("v")[0]  # strip version suffix
+                    if pid not in seen_ids:
+                        seen_ids.add(pid)
+                        results.append(paper)
+                break
+            except arxiv.HTTPError as exc:
+                if exc.status == 429 and attempt < 2:
+                    wait = 30 * (attempt + 1)
+                    print(f"  arXiv rate-limited (429) for {cat}, retrying in {wait}s…")
+                    time.sleep(wait)
+                else:
+                    raise
+        else:
+            continue
+        time.sleep(3)  # polite pause between category queries
 
     # Sort by submission date descending
     results.sort(key=lambda p: p.published, reverse=True)
