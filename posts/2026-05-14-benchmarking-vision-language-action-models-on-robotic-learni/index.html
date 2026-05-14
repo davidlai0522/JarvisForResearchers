@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="π0 is a novel flow matching architecture built on a pre-trained Vision-Language Model (VLM) to create a generalist robot policy capable of performing complex, dexterous tasks via direct prompting or fine-tuning.
+        <meta name="description" content="This work presents a comprehensive evaluation framework and benchmark suite, MultiNet v0.1, to systematically assess the capabilities and limitations of Vision-Language-Action (VLA) models like GPT-4o, OpenVLA, and JAT across 20 diverse real-world robotic tasks from the Open-X-Embodiment collection.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/">
       
       
-        <link rel="prev" href="../2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/">
+        <link rel="next" href="../2026-05-12-normalizing-trajectory-models/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>$π_0$: A Vision-Language-Action Flow Model for General Robot Control - JarvisForResearchers</title>
+        <title>Benchmarking Vision, Language, & Action Models on Robotic Learning Tasks - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              $π_0$: A Vision-Language-Action Flow Model for General Robot Control
+              Benchmarking Vision, Language, & Action Models on Robotic Learning Tasks
             
           </span>
         </div>
@@ -423,90 +423,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Benchmarking Vision, Language, & Action Models on Robotic Learning Tasks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../2026-05-12-normalizing-trajectory-models/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Normalizing Trajectory Models
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    BAMI: Training-Free Bias Mitigation in GUI Grounding
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -524,7 +440,7 @@
   <span class="md-ellipsis">
     
   
-    $π_0$: A Vision-Language-Action Flow Model for General Robot Control
+    Benchmarking Vision, Language, & Action Models on Robotic Learning Tasks
   
 
     
@@ -542,7 +458,7 @@
   <span class="md-ellipsis">
     
   
-    $π_0$: A Vision-Language-Action Flow Model for General Robot Control
+    Benchmarking Vision, Language, & Action Models on Robotic Learning Tasks
   
 
     
@@ -611,10 +527,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#vlm-backbone" class="md-nav__link">
+  <a href="#jat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        VLM backbone
+        JAT
       
     </span>
   </a>
@@ -622,10 +538,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#action-expert" class="md-nav__link">
+  <a href="#gpt-4o" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Action expert
+        GPT-4o
       
     </span>
   </a>
@@ -633,21 +549,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#observation-input-o_t" class="md-nav__link">
+  <a href="#openvla" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Observation input \(o_t\)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#action-chunk-a_t" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Action chunk \(A_t\)
+        OpenVLA
       
     </span>
   </a>
@@ -707,6 +612,90 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-05-12-normalizing-trajectory-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Normalizing Trajectory Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BAMI: Training-Free Bias Mitigation in GUI Grounding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    $π_0$: A Vision-Language-Action Flow Model for General Robot Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1125,10 +1114,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#vlm-backbone" class="md-nav__link">
+  <a href="#jat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        VLM backbone
+        JAT
       
     </span>
   </a>
@@ -1136,10 +1125,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#action-expert" class="md-nav__link">
+  <a href="#gpt-4o" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Action expert
+        GPT-4o
       
     </span>
   </a>
@@ -1147,21 +1136,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#observation-input-o_t" class="md-nav__link">
+  <a href="#openvla" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Observation input \(o_t\)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#action-chunk-a_t" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Action chunk \(A_t\)
+        OpenVLA
       
     </span>
   </a>
@@ -1238,6 +1216,13 @@
       
       
       
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+      
+    
+      
+      
+      
+      
         <a href="../../tags/#tag:foundation-models" class="md-tag">foundation-models</a>
       
     
@@ -1246,13 +1231,6 @@
       
       
         <a href="../../tags/#tag:generalization" class="md-tag">generalization</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:llm" class="md-tag">llm</a>
       
     
       
@@ -1280,36 +1258,38 @@
 
 
 
-  <h1>$π_0$: A Vision-Language-Action Flow Model for General Robot Control</h1>
+  <h1>Benchmarking Vision, Language, & Action Models on Robotic Learning Tasks</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-10</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-05-14</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>arXiv preprint with 22 citations (≥ 20)</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p><span class="arithmatex">\(\pi_0\)</span> introduces a novel generalist robot policy architecture that integrates a pre-trained Vision-Language Model (VLM) backbone with a conditional flow matching mechanism. This design enables the policy to generate continuous, high-frequency action sequences directly from multimodal observations, allowing for complex, dexterous task execution via prompting or fine-tuning.</p>
+<p>We introduce MultiNet v0.1, a systematic evaluation framework benchmarking three state-of-the-art Vision-Language-Action (VLA) models—JAT, GPT-4o, and OpenVLA—across 20 diverse, real-world robotic tasks sourced from the Open-X-Embodiment collection. The evaluation, conducted in a zero-shot setting using Mean Squared Error (MSE) as the primary metric, reveals that while these models show promise, they exhibit significant sensitivity to task complexity and environmental variance, particularly struggling with multi-step planning.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>The pursuit of generalist robot systems capable of operating effectively in unstructured, real-world environments is fundamentally constrained by limitations in data availability, generalization capacity, and operational robustness. Current methodologies often fail to capture the physically situated versatility inherent to human performance. Specifically, prior work has struggled with two critical issues: first, many Vision-Language Action (VLA) models rely on autoregressive discretization for action representation, which is inherently ill-suited for the high-frequency, continuous control signals required by dexterous manipulation; and second, existing large-scale robot learning efforts have generally operated on tasks of limited complexity or utilized datasets orders of magnitude smaller than those necessary to train foundation models capable of broad generalization. Furthermore, a unified framework combining a VLM backbone with flow matching for action generation in a VLA context has remained unexplored.</p>
+<p>The integration of foundation models into robotics promises a paradigm shift toward general-purpose robotic systems capable of interpreting high-level natural language instructions and executing complex actions. However, the current state of research suffers from a lack of systematic evaluation across diverse robotic tasks. Many existing methodologies constrain foundation models to supervisory roles, effectively treating them as advanced state machines whose outputs are executed by separate, low-level controllers. Furthermore, there is an insufficient, large-scale comparison of different Behavior Cloning (BC) architectures when tested against a heterogeneous set of real-world robotic challenges. This gap prevents a clear understanding of the true generalization capabilities and inherent limitations of contemporary VLA models.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We present three primary contributions to this field:
-1. A novel generalist robot policy architecture that synergistically leverages VLM pre-training and conditional flow matching.
-2. An empirical investigation into effective pre-training and post-training recipes necessary for realizing such robot foundation models.
-3. A demonstration of a level of dexterity and task generality that substantially surpasses the capabilities exhibited by previously reported robot foundation models.</p>
+<p>This work delivers three primary contributions to the field:
+1. Detailed profiling results for an initial set of VLM, VLA, and emerging "generalist" models, providing empirical insights into their operational capabilities and failure modes.
+2. A rigorous analysis of model generalization when applied to a diverse suite of real-world robotics datasets, encompassing a wide spectrum of tasks and environmental conditions.
+3. The establishment of a systematic set of evaluation splits and metrics specifically tailored for robotics learning tasks within the widely-utilized OpenX Dataset.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2410.24164/fig_p1_c1.jpg" />
-<em>Fig. 1: Our generalist robot policy uses a pre-trained vision-language model (VLM) backbone, as well as a diverse cross-
-embodiment dataset with a variety of dexterous manipulation tasks. The model is adapted to robot control by adding a separate
-action expert that produces continuous actions via fl</em></p>
-<p><span class="arithmatex">\(\pi_0\)</span> is architected to inherit the vast semantic knowledge encoded within a pre-trained VLM while simultaneously modeling the continuous, high-dimensional distribution of physical actions. The policy processes a comprehensive observation <span class="arithmatex">\(o_t = [I^1_t, ..., I^n_t, \ell_t, q_t]\)</span>, which comprises multiple RGB images (<span class="arithmatex">\(I^i_t\)</span>), language tokens (<span class="arithmatex">\(\ell_t\)</span>), and the robot's proprioceptive state (<span class="arithmatex">\(q_t\)</span>). The objective is to predict an action chunk <span class="arithmatex">\(A_t = [a_t, ..., a_{t+H-1}]\)</span>, where <span class="arithmatex">\(H=50\)</span>. This prediction is framed as a continuous density estimation problem solved via conditional flow matching. The training objective minimizes the conditional flow matching loss: <span class="arithmatex">\(L_\tau(\theta) = \mathbb{E}_{p(A_t|o_t), q(A_\tau^t|A_t)||v_\theta(A_\tau^t, o_t) - u(A_\tau^t|A_t)||^2\)</span>. Inference proceeds by numerically integrating the learned vector field <span class="arithmatex">\(v_\theta\)</span> from the noise level <span class="arithmatex">\(\tau=0\)</span> to <span class="arithmatex">\(\tau=1\)</span>, typically employing the forward Euler integration rule.</p>
-<h3 id="vlm-backbone">VLM backbone</h3>
-<p>This component is initialized using PaliGemma, allowing <span class="arithmatex">\(\pi_0\)</span> to immediately benefit from the Internet-scale semantic knowledge acquired during its large-scale pre-training phase. It serves as the primary encoder for interpreting the multimodal observation <span class="arithmatex">\(o_t\)</span>.</p>
-<h3 id="action-expert">Action expert</h3>
-<p>This is a distinct module, parameterized with 300M parameters and initialized from scratch. Its role is to model the continuous distribution of actions conditioned on the VLM's encoded state. It implements the conditional flow matching mechanism necessary for generating high-fidelity, continuous action trajectories.</p>
-<h3 id="observation-input-o_t">Observation input <span class="arithmatex">\(o_t\)</span></h3>
-<p>The input vector <span class="arithmatex">\(o_t\)</span> is heterogeneous, comprising <span class="arithmatex">\(n\)</span> RGB images (<span class="arithmatex">\(I^1_t, ..., I^n_t\)</span>), a sequence of language tokens (<span class="arithmatex">\(\ell_t\)</span>), and the robot's proprioceptive state (<span class="arithmatex">\(q_t\)</span>). Crucially, the image and state data are projected into the embedding space compatible with the VLM's internal representations before being processed.</p>
-<h3 id="action-chunk-a_t">Action chunk <span class="arithmatex">\(A_t\)</span></h3>
-<p>The target output is the action chunk <span class="arithmatex">\(A_t\)</span>, defined as a sequence of <span class="arithmatex">\(H=50\)</span> future actions, <span class="arithmatex">\([a_t, ..., a_{t+H-1}]\)</span>. This fixed-length sequence allows the model to plan over a short horizon while maintaining the continuous nature of the action space.</p>
+<p><img alt="Please provide the figure you would like me to analyze. I will then follow your instructions precisely." src="../assets/figures/2411.05821/fig_p2_c1.jpg" />
+<em>Figure 1: Multinet v0.1 overview. Benchmarking a SoTA VLM, SoTA VLA, and novel generalist model on 20
+real-world robotics datasets by comparing the action predicted by the models, with the ground truth action from the
+dataset, at every timestep.</em></p>
+<p>The evaluation framework leverages the Open X-Embodiment Dataset (OpenX), which aggregates over one million real robot trajectories captured across 22 distinct robot embodiments. We profile three state-of-the-art models—JAT, GPT-4o, and OpenVLA—across 20 selected datasets. Performance quantification relies primarily on Mean Squared Error (MSE), defined as <span class="arithmatex">\(\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2\)</span>, where <span class="arithmatex">\(y_i\)</span> is the ground truth action and <span class="arithmatex">\(\hat{y}_i\)</span> is the predicted action. We also report Average MSE (AMSE) and Normalized AMSE (NAMSE). All models are assessed in a zero-shot configuration, which necessitates specific input preprocessing; for instance, JAT requires 4-channel image inputs, and GPT-4o demands comprehensive prompt engineering.</p>
+<h3 id="jat">JAT</h3>
+<p>JAT is architecturally defined as a transformer-based model featuring 768-dimensional hidden states and 12 layers. Its operational mechanism incorporates a dual attention strategy: a global attention mechanism operating over a 512-token window, complemented by a local attention mechanism constrained to a 256-token window.</p>
+<h3 id="gpt-4o">GPT-4o</h3>
+<p>GPT-4o functions as an omni-modal model. Its defining characteristic is its capacity to ingest and process heterogeneous inputs—including text, audio, image, and video—while simultaneously generating multi-modal outputs.</p>
+<h3 id="openvla">OpenVLA</h3>
+<p>OpenVLA is an open-source VLA model parameterized by 7 billion parameters. Its structure integrates a 600-million-parameter visual encoder, which is built upon SigLIP and DinoV2 models, with a 7-billion-parameter Llama 2 language model backbone.</p>
 <h2 id="results">Results</h2>
-<p>The empirical evaluation demonstrates the efficacy of the proposed training regimen:</p>
+<p>The profiling across the 20 tasks yielded several observable trends regarding model robustness and capability.</p>
 <table>
 <thead>
 <tr>
@@ -1321,38 +1301,38 @@ action expert that produces continuous actions via fl</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Pre-training data scale</td>
-<td style="text-align: left;">over 10,000 hours of robot data</td>
+<td style="text-align: left;">Performance Consistency</td>
+<td style="text-align: left;">GPT-4o demonstrating the most consistent performance</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Section V</td>
+<td style="text-align: left;">Abstract</td>
 </tr>
 <tr>
-<td style="text-align: left;">Robot configurations used in pre-training</td>
-<td style="text-align: left;">7 different robot configurations</td>
+<td style="text-align: left;">Task Difficulty</td>
+<td style="text-align: left;">All models struggle with complex manipulation tasks requiring multi-step planning</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Section III</td>
+<td style="text-align: left;">Abstract</td>
 </tr>
 <tr>
-<td style="text-align: left;">Tasks in pre-training</td>
-<td style="text-align: left;">68 tasks</td>
+<td style="text-align: left;">Sensitivity</td>
+<td style="text-align: left;">Model performance is notably sensitive to action space characteristics and environmental factors</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Section III</td>
+<td style="text-align: left;">Abstract</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The integration of VLM priors with flow matching addresses the core limitations of prior VLA approaches. By replacing discrete action sampling with continuous density modeling, <span class="arithmatex">\(\pi_0\)</span> is inherently better suited for the fine-grained, high-frequency control required for dexterous manipulation. The ability to leverage massive, general-purpose VLM knowledge allows the policy to generalize semantic instructions to novel physical scenarios, moving robotics closer to the level of versatility seen in human performance.</p>
+<p>The findings underscore the critical need for systematic benchmarking when assessing the practical utility of generalist VLA models in robotics. The observed variance in performance across tasks and robot platforms confirms that a monolithic assessment is insufficient; task-specific evaluation is mandatory. Furthermore, the consistent difficulty observed in complex, multi-step planning highlights that current VLA architectures, despite their advanced perceptual and linguistic capabilities, have not yet overcome the fundamental challenge of robust, long-horizon sequential decision-making in unstructured environments.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>A primary limitation is that the overall performance is highly contingent upon the effectiveness of the separation between the pre-training and post-training phases. Furthermore, the architectural complexity necessitates rigorous management of the interface and information flow between the VLM backbone and the specialized Action expert. Future work must investigate more robust methods for mitigating potential divergence during the integration of these two distinct learning paradigms.</p>
+<p>The current evaluation is inherently constrained by its reliance on offline robotics trajectories; consequently, the models have not been tested on physical hardware. Additionally, certain datasets were necessarily excluded from the analysis due to technical barriers encountered during accessibility via the TensorFlow Datasets (TFDS) builder. Future work must address the transition from simulation/offline data to real-world deployment and explore architectural modifications to improve long-horizon planning capabilities.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2410.24164">2410.24164</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">241024164</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{$π_0$: A Vision-Language-Action Flow Model for General Robot Control}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Kevin Black and Noah Brown and Danny Driess and Adnan Esmail and Michael Equi and Chelsea Finn et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2410.24164}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2411.05821">2411.05821</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">241105821</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Benchmarking Vision, Language, &amp; Action Models on Robotic Learning Tasks}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Pranav Guruprasad and Harshvardhan Sikka and Jaewoo Song and Yangyue Wang and Paul Pu Liang}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2411.05821}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2024}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2410.24164}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2411.05821}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
