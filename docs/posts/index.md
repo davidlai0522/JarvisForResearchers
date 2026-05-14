@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Benchmarking Vision, Language, & Action Models on Robotic Learning Tasks](2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/)
+
+*2026-05-14*
+
+This work presents a comprehensive evaluation framework and benchmark suite, MultiNet v0.1, to systematically assess the capabilities and limitations of Vision-Language-Action (VLA) models like GPT-4o, OpenVLA, and JAT across 20 diverse real-world robotic tasks from the Open-X-Embodiment collection.
+
 ## [Normalizing Trajectory Models](2026-05-12-normalizing-trajectory-models/)
 
 *2026-05-12*
