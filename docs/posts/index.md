@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [EVA-Bench: A New End-to-end Framework for Evaluating Voice Agents](2026-05-15-eva-bench-a-new-end-to-end-framework-for-evaluating-voice-ag/)
+
+*2026-05-15*
+
+EVA-Bench is an end-to-end evaluation framework that addresses the dual challenges of generating realistic, validated bot-to-bot audio conversations and measuring voice agent quality across comprehensive, voice-specific failure modes using composite metrics EVA-A and EVA-X.
+
 ## [Benchmarking Vision, Language, & Action Models on Robotic Learning Tasks](2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/)
 
 *2026-05-14*
