@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This survey provides a comprehensive, robot-learning-centered review of world models, detailing their coupling with robot policies, their function as simulators, and their application in robotic video generation.
+        <meta name="description" content="EVA-Bench is an end-to-end evaluation framework that addresses the dual challenges of generating realistic, validated bot-to-bot audio conversations and measuring voice agent quality across comprehensive, voice-specific failure modes using composite metrics EVA-A and EVA-X.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-15-eva-bench-a-new-end-to-end-framework-for-evaluating-voice-ag/">
       
       
-        <link rel="prev" href="../2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/">
+        <link rel="next" href="../2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>World Model for Robot Learning: A Comprehensive Survey - JarvisForResearchers</title>
+        <title>EVA-Bench: A New End-to-end Framework for Evaluating Voice Agents - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              World Model for Robot Learning: A Comprehensive Survey
+              EVA-Bench: A New End-to-end Framework for Evaluating Voice Agents
             
           </span>
         </div>
@@ -425,10 +425,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-05-15-eva-bench-a-new-end-to-end-framework-for-evaluating-voice-ag/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EVA-Bench: A New End-to-end Framework for Evaluating Voice Agents
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -444,6 +469,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Simulator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-executor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Executor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulator-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simulator Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eva-a-accuracy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EVA-A (Accuracy)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eva-x-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EVA-X (Experience)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -565,35 +757,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    World Model for Robot Learning: A Comprehensive Survey
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/" class="md-nav__link">
         
   
   
@@ -609,184 +776,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#world-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        World Model
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#low-level-physical-actions-a" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Low-level physical actions (a)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#high-level-language-or-task-actions-l" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        High-level language or task actions (l)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#robot-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Robot Policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#visuomotor-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visuomotor Policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vision-language-action-vla-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vision-Language-Action (VLA) Models
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1177,10 +1166,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#world-model" class="md-nav__link">
+  <a href="#user-simulator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        World Model
+        User Simulator
       
     </span>
   </a>
@@ -1188,10 +1177,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#low-level-physical-actions-a" class="md-nav__link">
+  <a href="#tool-executor" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Low-level physical actions (a)
+        Tool Executor
       
     </span>
   </a>
@@ -1199,10 +1188,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#high-level-language-or-task-actions-l" class="md-nav__link">
+  <a href="#simulator-validation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        High-level language or task actions (l)
+        Simulator Validation
       
     </span>
   </a>
@@ -1210,10 +1199,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#robot-policy" class="md-nav__link">
+  <a href="#eva-a-accuracy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Robot Policy
+        EVA-A (Accuracy)
       
     </span>
   </a>
@@ -1221,21 +1210,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#visuomotor-policy" class="md-nav__link">
+  <a href="#eva-x-experience" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Visuomotor Policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vision-language-action-vla-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vision-Language-Action (VLA) Models
+        EVA-X (Experience)
       
     </span>
   </a>
@@ -1312,86 +1290,102 @@
       
       
       
-        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:planning" class="md-tag">planning</a>
+        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:reinforcement-learning" class="md-tag">reinforcement-learning</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
+        <a href="../../tags/#tag:nlp" class="md-tag">nlp</a>
       
     
   </nav>
 
 
 
-  <h1>World Model for Robot Learning: A Comprehensive Survey</h1>
+  <h1>EVA-Bench: A New End-to-end Framework for Evaluating Voice Agents</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-09</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-05-15</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>This survey provides a robot-learning-centered review of world models, detailing their coupling with robot policies, their function as simulators, and their application in robotic video generation. We establish a fine-grained taxonomy distinguishing major architectural paradigms and functional roles, clarifying how predictive structures enable long-horizon reasoning and data amplification for embodied agents.</p>
+<p>EVA-Bench is an end-to-end evaluation framework designed to address the shortcomings of existing voice agent evaluation methods. It generates realistic, validated bot-to-bot audio conversations across three enterprise domains, utilizing composite metrics EVA-A (Accuracy) and EVA-X (Experience) to surface nuanced, voice-specific failure modes that are missed by transcript-level analysis.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Purely reactive Vision-Language-Action (VLA) policies struggle with long-horizon reasoning, temporal credit assignment, and robustness under compounding errors in complex physical environments due to a lack of explicit predictive structure for anticipating world evolution. Without an internal model of dynamics, these policies are inherently brittle when the required sequence of actions extends beyond the immediate sensory horizon.</p>
-<p>The existing literature suffers from fragmentation across architectures, functional roles, and embodied application domains. Furthermore, prior surveys lacked a fine-grained view of major world-model paradigms, and previous work did not offer a clear robotics-centered definition of world models in relation to VLA policies and robot learning.</p>
+<p>Current evaluation paradigms for voice agents are fundamentally inadequate because they fail to address the complexity of real-world deployment. Specifically, they neglect two critical aspects: first, the generation of realistic simulated dialogues that accurately model acoustic variability and maintain multi-turn contextual coherence; and second, the comprehensive measurement of quality across the full spectrum of voice-specific failure modes. Prior work often isolates component performance (e.g., STT or TTS quality) rather than assessing holistic, end-to-end agent behavior. Furthermore, many simulation methodologies lack rigorous automated validation, meaning observed performance metrics can inadvertently reflect simulator variance rather than the true capability of the agent under test. Existing quality metrics are too coarse, failing to capture critical operational failures such as policy faithfulness, the fidelity of entities at the audio level, or the efficiency of conversational pacing.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We present a policy-centric survey of world models for robot learning, focusing specifically on their coupling with VLA policies for action generation, planning, simulation, evaluation, and data generation. We provide a more fine-grained taxonomy by distinguishing major architectural paradigms and functional roles of world models. Finally, we offer a comprehensive and clearly defined treatment of robotic world models by clarifying their relationship to robot learning, VLA policies, video generation, and simulator-style usage.</p>
+<p>We introduce EVA-Bench, an end-to-end evaluation framework capable of generating realistic bot-to-bot audio conversations. This framework incorporates validation-gated quality control and controlled acoustic perturbations to stress-test agent robustness. We define two novel, joint metrics: EVA-A (Accuracy) and EVA-X (Experience). These metrics are designed to surface failure modes that are opaque to conventional benchmarks and allow for direct, apples-to-apples comparison between agents implemented using audio-native versus cascade architectures. Finally, we provide three enterprise benchmark datasets, comprising 213 distinct scenarios, specifically engineered to probe these voice-specific failure modes.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.00080/fig_p2_c1.jpg" />
-<em>Figure 1 Overview of the organization of this survey. Section 3 reviews how world models are coupled with robot policies
-from an architectural perspective. Section 4 examines world models as simulators from an application perspective.
-Section 5 focuses on robotic video world models and organizes the</em></p>
-<p>The survey adopts a robot-learning-centered view, defining a world model as a predictive model of agent-environment dynamics that captures how a robotic or embodied system evolves under actions. This model must provide foresight, imagination-driven planning, and data amplification to be actionable. We systematically examine how these predictive structures are coupled with robot policies, how they function as learned simulators for reinforcement learning and evaluation, and how robotic video world models progress from imagination-based generation to controllable, structured, and foundation-scale formulations. The focus remains on action-conditioned consistency, long-horizon reliability, and practical deployability in embodied tasks.</p>
-<h3 id="world-model">World Model</h3>
-<p>A <strong>World Model</strong> is defined as a predictive model of agent-environment dynamics that captures how a robotic or embodied system evolves under actions, typically modeling a state-transition process: <span class="arithmatex">\(p(x_{t+1:t+H} | x_t, a_{t:t+H-1}, l)\)</span>. This model is the core mechanism for enabling foresight.</p>
-<h3 id="low-level-physical-actions-a">Low-level physical actions (a)</h3>
-<p>These are the concrete physical actions executed by the agent, such as motor commands. They represent the direct interface between the agent's decision-making process and the physical environment.</p>
-<h3 id="high-level-language-or-task-actions-l">High-level language or task actions (l)</h3>
-<p>These are high-level semantic actions that specify what the future should be realized, such as a language instruction or goal description. They provide the necessary semantic grounding for long-horizon planning.</p>
-<h3 id="robot-policy">Robot Policy</h3>
-<p>The <strong>Robot Policy</strong> is a decision-making model that frames physical control as an action prediction task, mapping current environmental observations to future action trajectories: <span class="arithmatex">\(p(a_{t+1:t+k}|o_t, l)\)</span>. It dictates the agent's behavior based on its current state and goals.</p>
-<h3 id="visuomotor-policy">Visuomotor Policy</h3>
-<p>A <strong>Visuomotor Policy</strong> is a specialized, often lightweight, end-to-end network that establishes a direct mapping from raw states to the action space, typically via regression or generative models. It represents a direct, low-level control mapping without explicit internal world modeling.</p>
-<h3 id="vision-language-action-vla-models">Vision-Language-Action (VLA) Models</h3>
-<p><strong>Vision-Language-Action (VLA) Models</strong> are generalist models developed by fine-tuning large-scale Vision-Language Models (VLMs) on large scale robotic trajectory data to achieve cross-task and cross-embodiment generalization. They aim to unify perception, language understanding, and action generation.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.13841/fig_p4_c1.jpg" />
+<em>Figure 1 EVA-Bench framework overview. The simulation orchestrates parallel per-scenario bot-to-bot audio sessions
+over WebSocket in which the User Simulator — configured with a scenario-specific goal, persona, and conversational
+TTS voice — interacts with the Voice Agent under test. The Tool Execut</em></p>
+<p>EVA-Bench operates by orchestrating fully automated, turn-based audio conversations between a User Simulator and the target agent across three defined enterprise domains: Customer Service Management (CSM), Human Resources Support Desk (HRSD), and IT Service Management (ITSM). The User Simulator is initialized with a specific goal, a defined persona, and a decision tree, allowing for scenario-specific interaction modeling. The simulation environment incorporates a controlled perturbation suite to test robustness against variations in accent and background noise. Crucially, before any quality scoring occurs, the conversation undergoes rigorous Simulator Validation. This validation employs both LLM-as-Judge and LALM-as-Judge checks to verify User Behavioral Fidelity and User Speech Fidelity, respectively. If these checks fail, the simulation is automatically regenerated. Quality assessment is then performed using two composite scores: EVA-A (Accuracy), which aggregates task completion, faithfulness, and speech fidelity; and EVA-X (Experience), which measures conversational progression, conciseness, and turn-taking timing. Aggregate performance is reported using standard statistical measures: pass@1, pass@k, and pass^k.</p>
+<h3 id="user-simulator">User Simulator</h3>
+<p>The User Simulator is constructed upon a high-quality cascade pipeline. It accepts the user's defined goal, the governing decision tree, and the persona profile as input. Its function is to drive the interaction by communicating with the target agent over a live audio WebSocket connection, ensuring the dialogue flows according to the prescribed scenario logic.</p>
+<h3 id="tool-executor">Tool Executor</h3>
+<p>The Tool Executor component is responsible for managing all interactions where the agent invokes external tools. This execution is performed deterministically within the simulation environment to ensure that the agent's decision-making process is evaluated against a consistent, predictable backend state.</p>
+<h3 id="simulator-validation">Simulator Validation</h3>
+<p>This component enforces the integrity of the simulation itself. It executes automated checks, specifically User Behavioral Fidelity, judged by an LLM-as-Judge, and User Speech Fidelity, judged by an LALM-as-Judge. The primary function of this stage is quality gating: any failure in these fidelity checks triggers an automatic regeneration of the conversation instance, ensuring that the subsequent quality scores reflect agent performance, not simulation artifacts.</p>
+<h3 id="eva-a-accuracy">EVA-A (Accuracy)</h3>
+<p>EVA-A is a composite metric designed to quantify the functional correctness of the agent's interaction. It integrates three sub-components: task completion (verified via binary hash comparison against the expected outcome), faithfulness (assessed by LLM-as-Judge), and speech fidelity (assessed by LALM-as-Judge).</p>
+<h3 id="eva-x-experience">EVA-X (Experience)</h3>
+<p>EVA-X quantifies the subjective quality and flow of the interaction. It is a composite metric derived from three factors: conversation progression (evaluated by LLM-as-Judge), conciseness (evaluated by LLM-as-Judge), and turn-taking timing (determined via timestamp analysis of the audio stream).</p>
 <h2 id="results">Results</h2>
-<p>(No quantitative results were provided in the outline.)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Baseline</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">EVA-Apass@1 and EVA-Xpass@1</td>
+<td style="text-align: left;">no system simultaneously exceeds 0.5</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Text</td>
+</tr>
+<tr>
+<td style="text-align: left;">median pass@k–pass^k gap on EVA-A</td>
+<td style="text-align: left;">0.44</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Text</td>
+</tr>
+<tr>
+<td style="text-align: left;">mean <span class="arithmatex">\(\epsilon\)</span> (robustness to perturbations)</td>
+<td style="text-align: left;">up to 0.314</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Text</td>
+</tr>
+</tbody>
+</table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>World models serve as a predictive bridge from semantic intent to physically realizable behavior, directly addressing the limitations inherent in purely reactive VLA policies. The functional role of a world model must be action-conditioned; visually plausible but action-inconsistent futures offer limited value for closed-loop decision making. Consequently, the field is trending towards tighter integration, moving from decoupled pipelines toward single-backbone, MoE/MoT, unified VLA, and latent world-modeling designs.</p>
+<p>The introduction of EVA-Bench shifts the evaluation paradigm from isolated component testing to holistic, end-to-end system assessment. By incorporating rigorous simulator validation and composite metrics like EVA-A and EVA-X, we provide a mechanism to quantify failure modes—such as conversational drift or poor pacing—that are entirely invisible to traditional transcript-based evaluation. This allows researchers and engineers to gain a much more accurate assessment of a voice agent's production readiness, particularly when comparing fundamentally different architectural approaches (e.g., cascade vs. end-to-end).</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>It must be noted that this survey does not enforce a single narrow formal definition of a world model, acknowledging the diverse implementations in the literature. Furthermore, the focus is strictly on the functional role of world models for robot learning, which is a narrower scope than generic future prediction as studied in computer vision.</p>
+<p>The current framework necessitates specific implementations for calculating metrics across audio-native and cascade systems, as the observable intermediate signals differ significantly between these architectures. Furthermore, for the purpose of feasibility in perturbation evaluation, we utilized a randomly sampled subset of 90 scenarios (30 per domain), which limits the scope of the robustness claims. Future work should address the generalization of metric definitions across all potential agent architectures and expand the perturbation testing suite to cover a larger fraction of the total scenario space.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.00080">2605.00080</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260500080</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{World Model for Robot Learning: A Comprehensive Survey}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Bohan Hou and Gen Li and Jindou Jia and Tuo An and Xinying Guo and Sicong Leng et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.00080}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.13841">2605.13841</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260513841</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{EVA-Bench: A New End-to-end Framework for Evaluating Voice Agents}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Tara Bogavelli and Gabrielle Gauthier Melançon and Katrina Stankiewicz and Oluwanifemi Bamgbose and Fanny Riols and Hoang H. Nguyen et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.13841}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.00080}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.13841}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
