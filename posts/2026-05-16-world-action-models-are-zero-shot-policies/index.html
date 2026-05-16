@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This paper presents an adaptable, safe, and portable robot-assisted feeding system designed to enable people with mobility impairments to feed themselves using multi-modal online learning for bite acquisition and real-time perception for bite transfer.
+        <meta name="description" content="DreamZero is a World Action Model (WAM) built on a pretrained video diffusion backbone that jointly predicts future video states and actions, enabling zero-shot generalization and efficient cross-embodiment transfer from diverse, non-repetitive data.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-16-world-action-models-are-zero-shot-policies/">
       
       
-        <link rel="prev" href="../2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../../digest/">
+        <link rel="next" href="../2026-05-16-entitybench-towards-entity-consistent-long-range-multi-shot-/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>An Adaptable, Safe, and Portable Robot-Assisted Feeding System - JarvisForResearchers</title>
+        <title>World Action Models are Zero-shot Policies - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              An Adaptable, Safe, and Portable Robot-Assisted Feeding System
+              World Action Models are Zero-shot Policies
             
           </span>
         </div>
@@ -429,10 +429,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-05-16-world-action-models-are-zero-shot-policies/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    World Action Models are Zero-shot Policies
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -448,6 +473,195 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#world-action-model-wam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        World Action Model (WAM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-context-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Context Encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#language-instruction-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Language Instruction Encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proprioceptive-state-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proprioceptive State Encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autoregressive-dit-backbone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoregressive DiT Backbone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#video-decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Video Decoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action-decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action Decoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -877,35 +1091,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    An Adaptable, Safe, and Portable Robot-Assisted Feeding System
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/" class="md-nav__link">
         
   
   
@@ -921,184 +1110,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#kinova-gen2-jaco" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Kinova Gen2 (JACO)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kinova-gen3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Kinova Gen3
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#custom-3d-printed-fork-assembly" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Custom, 3d-printed fork assembly
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lenovo-legion-5-laptop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Lenovo Legion 5 laptop
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#react-app" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        React app
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#watchdog-system" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Watchdog system
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1237,10 +1248,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#kinova-gen2-jaco" class="md-nav__link">
+  <a href="#world-action-model-wam" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Kinova Gen2 (JACO)
+        World Action Model (WAM)
       
     </span>
   </a>
@@ -1248,10 +1259,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#kinova-gen3" class="md-nav__link">
+  <a href="#visual-context-encoder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Kinova Gen3
+        Visual Context Encoder
       
     </span>
   </a>
@@ -1259,10 +1270,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#custom-3d-printed-fork-assembly" class="md-nav__link">
+  <a href="#language-instruction-encoder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom, 3d-printed fork assembly
+        Language Instruction Encoder
       
     </span>
   </a>
@@ -1270,10 +1281,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#lenovo-legion-5-laptop" class="md-nav__link">
+  <a href="#proprioceptive-state-encoder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lenovo Legion 5 laptop
+        Proprioceptive State Encoder
       
     </span>
   </a>
@@ -1281,10 +1292,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#react-app" class="md-nav__link">
+  <a href="#autoregressive-dit-backbone" class="md-nav__link">
     <span class="md-ellipsis">
       
-        React app
+        Autoregressive DiT Backbone
       
     </span>
   </a>
@@ -1292,10 +1303,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#watchdog-system" class="md-nav__link">
+  <a href="#video-decoder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Watchdog system
+        Video Decoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action-decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action Decoder
       
     </span>
   </a>
@@ -1372,14 +1394,21 @@
       
       
       
-        <a href="../../tags/#tag:multimodal" class="md-tag">multimodal</a>
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:perception" class="md-tag">perception</a>
+        <a href="../../tags/#tag:generalization" class="md-tag">generalization</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
       
     
       
@@ -1389,60 +1418,109 @@
         <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
       
     
+      
+      
+      
+      
+        <a href="../../tags/#tag:transformers" class="md-tag">transformers</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
+      
+    
   </nav>
 
 
 
-  <h1>An Adaptable, Safe, and Portable Robot-Assisted Feeding System</h1>
+  <h1>World Action Models are Zero-shot Policies</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-01</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-05-16</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Brand new preprint (2026) — accepted</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>We present a robot-assisted feeding system that integrates hardware (Kinova arms, Jetson Nano) with a ROS2 stack to enable self-feeding for mobility-impaired individuals. The system achieves adaptability to novel food textures via multi-modal online learning during bite acquisition and employs real-time, interaction-aware control for safe bite transfer into the mouth.</p>
+<p>DreamZero is a 14B World Action Model (WAM) built on a pretrained video diffusion backbone. It jointly predicts future video states and actions, enabling zero-shot generalization and efficient cross-embodiment transfer from diverse, non-repetitive robot data.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>A significant public health issue is the reliance on assistance for eating; in the United States alone, at least 1.8 million people require help with feeding. This dependency imposes substantial emotional burdens, specifically feelings of shame on the recipients, and creates a significant, time-intensive logistical burden on caregivers.</p>
+<p>State-of-the-art Vision-Language-Action (VLA) models exhibit strong semantic generalization capabilities but fundamentally fail when tasked with generalizing to novel physical motions within unseen environments. This deficiency stems from their lack of explicit representations concerning how actions must be executed with precise spatial awareness, dynamics, and motor control constraints.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>Our work makes three primary contributions:
-1. We deliver a robot-assisted feeding system that simultaneously embodies Safety, Portability, and User Control.
-2. We employ multi-modal online learning to ensure tractable adaptation when encountering unseen food types during the bite acquisition phase.
-3. We implement a bite transfer mechanism that utilizes real-time mouth perception coupled with an interaction-aware control strategy, leveraging multimodal sensing (visual and haptic).</p>
+<p>We introduce DreamZero, a 14B WAM that jointly predicts video and actions, facilitating effective learning from diverse, non-repetitive robot data. We demonstrate an improvement of over <span class="arithmatex">\(2\times\)</span> in zero-shot generalization to unseen verbs and motions when benchmarked against state-of-the-art VLAs. Furthermore, we present model and system optimizations that yield a <span class="arithmatex">\(38\times\)</span> inference speedup, which is sufficient to enable real-time closed-loop control at <span class="arithmatex">\(7\text{Hz}\)</span>.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2403.04134/fig_p2_c1.jpg" />
-<em>Figure 1: (Left) Diagram of the system logic. The user drives the app, which calls an API on the robot computer. (Right) Hardware system for
-both the Gen2 and Gen3 base. No external wires are needed.
-1.2
-Software
-Our software stack is built on ROS2 and the ros2-control frame-
-work2. We have configur</em></p>
-<p>The system architecture integrates specific hardware components with a robust ROS2 software framework. User interaction is mediated through a React web application, which drives a finite state machine implemented via ROS2 action servers, services, and topics. Bite acquisition is managed using a 26-dimensional interpretable acquisition schema, augmented by a contextual bandit framework that incorporates haptic post hoc context for online adaptation. Bite transfer is achieved by combining real-time mouth perception derived from multiple in-hand cameras with a physical interaction-aware control method that fuses visual and haptic data to navigate within the user's oral cavity.</p>
-<h3 id="kinova-gen2-jaco">Kinova Gen2 (JACO)</h3>
-<p>This is a 6-DOF robot arm. It has been modified to incorporate an eye-in-hand system, which permits continuous rotation of the wrist joint, providing necessary degrees of freedom for precise manipulation tasks.</p>
-<h3 id="kinova-gen3">Kinova Gen3</h3>
-<p>This 6-DOF robot arm is equipped with an additional camera and features an Nvidia Jetson Nano developer kit mounted on its wrist. This setup allows for localized, high-throughput perception processing, specifically managing an Intel Realsense D415 RGBD camera.</p>
-<h3 id="custom-3d-printed-fork-assembly">Custom, 3d-printed fork assembly</h3>
-<p>This assembly is held by the robot gripper. Crucially, it is instrumented with a 6-DOF ATI Nano25 force-torque transducer, providing direct, high-fidelity feedback on contact forces during interaction.</p>
-<h3 id="lenovo-legion-5-laptop">Lenovo Legion 5 laptop</h3>
-<p>This unit serves as the primary computational hub. It is equipped with an Nvidia RTX 3060 6GB GPU and is mounted externally on the user's wheelchair, facilitating the system's portability requirement.</p>
-<h3 id="react-app">React app</h3>
-<p>This application functions as the primary user interface, accessible via a standard web browser. It acts as the logical control 'seat' for the entire system, managing high-level state transitions and user commands.</p>
-<h3 id="watchdog-system">Watchdog system</h3>
-<p>This is a dedicated, single-node process responsible for enforcing hard safety constraints. It continuously verifies system invariants and issues an 'all-clear' signal, acting as a final layer of safety validation.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2602.15922/fig_p1_c1.jpg" />
+*Figure 1: Overview. By jointly predicting video and action, World Action Models (WAMs) inherit world physics
+priors that enable 1) effective learning from diverse, non-repetitive data, 2) open-world generalization, 3)
+cross-embodiment learning from video-only data, and 4) few-shot adaptation to new *</p>
+<p>DreamZero is structured as a 14B autoregressive diffusion transformer. It is trained using a teacher-forcing chunk-wise video denoising objective. The core innovation lies in training a single, end-to-end model capable of jointly denoising both video and action latents, thereby resolving the inherent alignment challenges present in bidirectional models. The architecture leverages an autoregressive approach for the video modality, which permits the utilization of KV-caching during inference. This design choice is critical as it preserves native frame rates and avoids modality alignment complexities. The model is conditioned on three primary inputs: the language instruction (<span class="arithmatex">\(\mathbf{c}\)</span>), the proprioceptive state (<span class="arithmatex">\(\mathbf{q}_l\)</span>), and the initial visual observation (<span class="arithmatex">\(\mathbf{o}_{0:l}\)</span>). To meet the demands of real-time control, we implemented several optimizations, including decoupled video and action denoising schedules (DreamZero-Flash), system-level parallelism, and quantization, culminating in the <span class="arithmatex">\(38\times\)</span> inference speedup necessary for <span class="arithmatex">\(7\text{Hz}\)</span> closed-loop operation.</p>
+<h3 id="world-action-model-wam">World Action Model (WAM)</h3>
+<p>The WAM serves as the foundational model. It is designed to predict both the subsequent actions and the corresponding future visual states in a tightly aligned manner. This capability is built directly upon a robust, pretrained video diffusion backbone.</p>
+<h3 id="visual-context-encoder">Visual Context Encoder</h3>
+<p>This component is responsible for encoding the visual context provided to the model. It achieves this encoding through the utilization of a Variational Autoencoder (VAE).</p>
+<h3 id="language-instruction-encoder">Language Instruction Encoder</h3>
+<p>This encoder processes the natural language instructions (<span class="arithmatex">\(\mathbf{c}\)</span>). It transforms the textual input into a rich, usable embedding space for conditioning the subsequent diffusion process.</p>
+<h3 id="proprioceptive-state-encoder">Proprioceptive State Encoder</h3>
+<p>This encoder handles the robot's internal state information, <span class="arithmatex">\(\mathbf{q}_l\)</span>. It maps the proprioceptive state into a feature representation that informs the model about the robot's current configuration.</p>
+<h3 id="autoregressive-dit-backbone">Autoregressive DiT Backbone</h3>
+<p>This is the central processing unit. It takes the encoded inputs and jointly predicts the future sequence of video frames and actions. This joint prediction is achieved via a flow matching mechanism within the diffusion transformer structure.</p>
+<h3 id="video-decoder">Video Decoder</h3>
+<p>The Video Decoder is tasked with synthesizing the future visual states, denoted as <span class="arithmatex">\(\mathbf{o}_{l:l+H}\)</span>. It reconstructs high-fidelity video frames from the latent space predicted by the backbone.</p>
+<h3 id="action-decoder">Action Decoder</h3>
+<p>The Action Decoder is responsible for predicting the sequence of future control actions, <span class="arithmatex">\(\mathbf{a}_{l:l+H}\)</span>, based on the model's internal state and the predicted video context.</p>
 <h2 id="results">Results</h2>
-<p>No quantitative results were provided in the outline.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Baseline</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Improvement in generalization to new tasks and environments</td>
+<td style="text-align: left;">over <span class="arithmatex">\(2\times\)</span></td>
+<td style="text-align: left;">state-of-the-art VLAs</td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+<tr>
+<td style="text-align: left;">Relative improvement on unseen task performance (video-only data)</td>
+<td style="text-align: left;">over <span class="arithmatex">\(42\%\)</span></td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+<tr>
+<td style="text-align: left;">Inference speedup</td>
+<td style="text-align: left;"><span class="arithmatex">\(38\times\)</span></td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+<tr>
+<td style="text-align: left;">Real-time control frequency</td>
+<td style="text-align: left;"><span class="arithmatex">\(7\text{Hz}\)</span></td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+</tbody>
+</table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The design explicitly addresses critical gaps in prior work. The system is engineered for portability, meaning it can operate using the battery power of any standard powered wheelchair without requiring dedicated, fixed wiring for the utensil. Furthermore, user agency is maintained because control is centralized in the web application, allowing the recipient to initiate, halt, or modify the system's operation at any point. Safety is not monolithic; it is enforced across four distinct layers: Compliant Hardware, Compliant Control, Software Anomaly Detection, and Emergency Intervention.</p>
+<p>The ability to learn physical dynamics priors directly from web-scale video data, as facilitated by leveraging video diffusion backbones, allows DreamZero to surpass the limitations inherent in VLAs trained solely on static image-text pairs. Furthermore, the adoption of an autoregressive architecture coupled with KV caching is shown to be a necessary design pattern for achieving high-fidelity, real-time closed-loop control when deploying diffusion-based policies. Critically, our findings underscore that the diversity of the training data is a more significant determinant of generalization capability than the sheer volume of repetitive demonstrations.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>Two primary limitations must be acknowledged. First, the system's usability is contingent on the user's capacity to interface with the web application using available assistive technologies. Second, the overall safety profile is fundamentally dependent on the operational integrity of the watchdog system and the reliability of the emergency stop mechanisms.</p>
+<p>The current work leaves open questions regarding a detailed comparison between WAMs and alternative world model architectures, such as those based on latent-space modeling or 3D point clouds, which is reserved for Appendix A of the source material. Additionally, the paper notes that the joint prediction of video and action can be conceptually decomposed into two distinct sub-problems: (1) autoregressive video prediction and (2) action prediction derived from an inverse-dynamics model (IDM).</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2403.04134">2403.04134</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">240304134</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{An Adaptable, Safe, and Portable Robot-Assisted Feeding System}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Ethan Kroll Gordon and Rajat Kumar Jenamani and Amal Nanavati and Ziang Liu and Haya Bolotski and Raida Karim et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2403.04134}</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2024}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2403.04134}</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2602.15922">2602.15922</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260215922</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{World Action Models are Zero-shot Policies}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Seonghyeon Ye and Yunhao Ge and Kaiyuan Zheng and Shenyuan Gao and Sihyun Yu and George Kurian et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2602.15922}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2602.15922}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
