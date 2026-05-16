@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [World Action Models are Zero-shot Policies](2026-05-16-world-action-models-are-zero-shot-policies/)
+
+*2026-05-16*
+
+DreamZero is a World Action Model (WAM) built on a pretrained video diffusion backbone that jointly predicts future video states and actions, enabling zero-shot generalization and efficient cross-embodiment transfer from diverse, non-repetitive data.
+
 ## [EntityBench: Towards Entity-Consistent Long-Range Multi-Shot Video Generation](2026-05-16-entitybench-towards-entity-consistent-long-range-multi-shot-/)
 
 *2026-05-16*
