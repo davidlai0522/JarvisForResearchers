@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning](2026-05-18-v-jepa-2-1-unlocking-dense-features-in-video-self-supervised/)
+
+*2026-05-18*
+
+V-JEPA 2.1 enhances self-supervised learning for dense visual understanding in images and videos by applying a Dense Predictive Loss across all tokens and incorporating Deep Self-Supervision.
+
 ## [ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both](2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/)
 
 *2026-05-17*
