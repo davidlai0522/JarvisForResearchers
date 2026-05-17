@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="EVA-Bench is an end-to-end evaluation framework that addresses the dual challenges of generating realistic, validated bot-to-bot audio conversations and measuring voice agent quality across comprehensive, voice-specific failure modes using composite metrics EVA-A and EVA-X.
+        <meta name="description" content="ATLAS is a framework that unifies agentic and latent visual reasoning by representing visual operations as discrete functional tokens within a standard autoregressive sequence, stabilized by Latent-Anchored GRPO (LA-GRPO) during RL training.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-15-eva-bench-a-new-end-to-end-framework-for-evaluating-voice-ag/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/">
       
       
-        <link rel="prev" href="../2026-05-16-entitybench-towards-entity-consistent-long-range-multi-shot-/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/">
+        <link rel="next" href="../2026-05-16-world-action-models-are-zero-shot-policies/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>EVA-Bench: A New End-to-end Framework for Evaluating Voice Agents - JarvisForResearchers</title>
+        <title>ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              EVA-Bench: A New End-to-end Framework for Evaluating Voice Agents
+              ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both
             
           </span>
         </div>
@@ -431,90 +431,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../2026-05-16-world-action-models-are-zero-shot-policies/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    World Action Models are Zero-shot Policies
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../2026-05-16-entitybench-towards-entity-consistent-long-range-multi-shot-/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    EntityBench: Towards Entity-Consistent Long-Range Multi-Shot Video Generation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -532,7 +448,7 @@
   <span class="md-ellipsis">
     
   
-    EVA-Bench: A New End-to-end Framework for Evaluating Voice Agents
+    ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both
   
 
     
@@ -550,7 +466,7 @@
   <span class="md-ellipsis">
     
   
-    EVA-Bench: A New End-to-end Framework for Evaluating Voice Agents
+    ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both
   
 
     
@@ -619,10 +535,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#user-simulator" class="md-nav__link">
+  <a href="#functional-token-textvfunc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        User Simulator
+        Functional Token (\(\text{Vfunc}\))
       
     </span>
   </a>
@@ -630,10 +546,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tool-executor" class="md-nav__link">
+  <a href="#atlas-178k" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tool Executor
+        ATLAS-178K
       
     </span>
   </a>
@@ -641,10 +557,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#simulator-validation" class="md-nav__link">
+  <a href="#standard-grpo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Simulator Validation
+        Standard GRPO
       
     </span>
   </a>
@@ -652,21 +568,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#eva-a-accuracy" class="md-nav__link">
+  <a href="#latent-anchored-grpo-la-grpo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        EVA-A (Accuracy)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#eva-x-experience" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        EVA-X (Experience)
+        Latent-Anchored GRPO (LA-GRPO)
       
     </span>
   </a>
@@ -726,6 +631,90 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-05-16-world-action-models-are-zero-shot-policies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    World Action Models are Zero-shot Policies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-05-16-entitybench-towards-entity-consistent-long-range-multi-shot-/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EntityBench: Towards Entity-Consistent Long-Range Multi-Shot Video Generation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-05-15-eva-bench-a-new-end-to-end-framework-for-evaluating-voice-ag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EVA-Bench: A New End-to-end Framework for Evaluating Voice Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1256,10 +1245,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#user-simulator" class="md-nav__link">
+  <a href="#functional-token-textvfunc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        User Simulator
+        Functional Token (\(\text{Vfunc}\))
       
     </span>
   </a>
@@ -1267,10 +1256,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tool-executor" class="md-nav__link">
+  <a href="#atlas-178k" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tool Executor
+        ATLAS-178K
       
     </span>
   </a>
@@ -1278,10 +1267,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#simulator-validation" class="md-nav__link">
+  <a href="#standard-grpo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Simulator Validation
+        Standard GRPO
       
     </span>
   </a>
@@ -1289,21 +1278,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#eva-a-accuracy" class="md-nav__link">
+  <a href="#latent-anchored-grpo-la-grpo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        EVA-A (Accuracy)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#eva-x-experience" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        EVA-X (Experience)
+        Latent-Anchored GRPO (LA-GRPO)
       
     </span>
   </a>
@@ -1387,7 +1365,14 @@
       
       
       
-        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:generalization" class="md-tag">generalization</a>
       
     
       
@@ -1401,37 +1386,36 @@
 
 
 
-  <h1>EVA-Bench: A New End-to-end Framework for Evaluating Voice Agents</h1>
+  <h1>ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-15</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-05-17</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
 <p>Not yet indexed in S2 — assumed brand-new preprint</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>EVA-Bench is an end-to-end evaluation framework designed to address the shortcomings of existing voice agent evaluation methods. It generates realistic, validated bot-to-bot audio conversations across three enterprise domains, utilizing composite metrics EVA-A (Accuracy) and EVA-X (Experience) to surface nuanced, voice-specific failure modes that are missed by transcript-level analysis.</p>
+<p>ATLAS unifies agentic and latent visual reasoning by encoding visual operations as discrete functional tokens (<span class="arithmatex">\(\text{Vfunc}\)</span>) within the standard autoregressive sequence. This approach avoids the computational burden of pixel-level generation and the latency of external tool calls, while LA-GRPO mitigates gradient dilution during RL fine-tuning.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Current evaluation paradigms for voice agents are fundamentally inadequate because they fail to address the complexity of real-world deployment. Specifically, they neglect two critical aspects: first, the generation of realistic simulated dialogues that accurately model acoustic variability and maintain multi-turn contextual coherence; and second, the comprehensive measurement of quality across the full spectrum of voice-specific failure modes. Prior work often isolates component performance (e.g., STT or TTS quality) rather than assessing holistic, end-to-end agent behavior. Furthermore, many simulation methodologies lack rigorous automated validation, meaning observed performance metrics can inadvertently reflect simulator variance rather than the true capability of the agent under test. Existing quality metrics are too coarse, failing to capture critical operational failures such as policy faithfulness, the fidelity of entities at the audio level, or the efficiency of conversational pacing.</p>
+<p>Visual reasoning tasks frequently require the agent to interact with or modify a visual state iteratively. Current paradigms face distinct bottlenecks. Models that generate pixel-level images directly suffer from prohibitive computational costs during both training and inference. Agentic frameworks, which rely on external execution environments (e.g., calling code interpreters or APIs), introduce significant context-switching latency. Conversely, latent-based methods, while efficient, often lack robust task generalization and introduce recurrent latent dependencies that fundamentally conflict with the parallelization capabilities of standard autoregressive training regimes.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce EVA-Bench, an end-to-end evaluation framework capable of generating realistic bot-to-bot audio conversations. This framework incorporates validation-gated quality control and controlled acoustic perturbations to stress-test agent robustness. We define two novel, joint metrics: EVA-A (Accuracy) and EVA-X (Experience). These metrics are designed to surface failure modes that are opaque to conventional benchmarks and allow for direct, apples-to-apples comparison between agents implemented using audio-native versus cascade architectures. Finally, we provide three enterprise benchmark datasets, comprising 213 distinct scenarios, specifically engineered to probe these voice-specific failure modes.</p>
+<p>We introduce ATLAS, a framework that represents visual operations as discrete functional tokens within the standard vocabulary. This design choice allows the entire reasoning trajectory to be modeled as a single, continuous autoregressive sequence, thereby circumventing the need for verbose intermediate visual states while maintaining compatibility with scalable autoregressive training pipelines. Furthermore, recognizing that sparse functional tokens suffer from gradient dilution during reinforcement learning, we propose Latent-Anchored GRPO (LA-GRPO), a token-anchored objective designed to stabilize and strengthen the optimization signal for these critical functional tokens. Finally, we demonstrate that ATLAS enables compact, single-token visual reasoning, achieving strong performance on complex benchmarks with substantially reduced operational overhead compared to prior methods.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.13841/fig_p4_c1.jpg" />
-<em>Figure 1 EVA-Bench framework overview. The simulation orchestrates parallel per-scenario bot-to-bot audio sessions
-over WebSocket in which the User Simulator — configured with a scenario-specific goal, persona, and conversational
-TTS voice — interacts with the Voice Agent under test. The Tool Execut</em></p>
-<p>EVA-Bench operates by orchestrating fully automated, turn-based audio conversations between a User Simulator and the target agent across three defined enterprise domains: Customer Service Management (CSM), Human Resources Support Desk (HRSD), and IT Service Management (ITSM). The User Simulator is initialized with a specific goal, a defined persona, and a decision tree, allowing for scenario-specific interaction modeling. The simulation environment incorporates a controlled perturbation suite to test robustness against variations in accent and background noise. Crucially, before any quality scoring occurs, the conversation undergoes rigorous Simulator Validation. This validation employs both LLM-as-Judge and LALM-as-Judge checks to verify User Behavioral Fidelity and User Speech Fidelity, respectively. If these checks fail, the simulation is automatically regenerated. Quality assessment is then performed using two composite scores: EVA-A (Accuracy), which aggregates task completion, faithfulness, and speech fidelity; and EVA-X (Experience), which measures conversational progression, conciseness, and turn-taking timing. Aggregate performance is reported using standard statistical measures: pass@1, pass@k, and pass^k.</p>
-<h3 id="user-simulator">User Simulator</h3>
-<p>The User Simulator is constructed upon a high-quality cascade pipeline. It accepts the user's defined goal, the governing decision tree, and the persona profile as input. Its function is to drive the interaction by communicating with the target agent over a live audio WebSocket connection, ensuring the dialogue flows according to the prescribed scenario logic.</p>
-<h3 id="tool-executor">Tool Executor</h3>
-<p>The Tool Executor component is responsible for managing all interactions where the agent invokes external tools. This execution is performed deterministically within the simulation environment to ensure that the agent's decision-making process is evaluated against a consistent, predictable backend state.</p>
-<h3 id="simulator-validation">Simulator Validation</h3>
-<p>This component enforces the integrity of the simulation itself. It executes automated checks, specifically User Behavioral Fidelity, judged by an LLM-as-Judge, and User Speech Fidelity, judged by an LALM-as-Judge. The primary function of this stage is quality gating: any failure in these fidelity checks triggers an automatic regeneration of the conversation instance, ensuring that the subsequent quality scores reflect agent performance, not simulation artifacts.</p>
-<h3 id="eva-a-accuracy">EVA-A (Accuracy)</h3>
-<p>EVA-A is a composite metric designed to quantify the functional correctness of the agent's interaction. It integrates three sub-components: task completion (verified via binary hash comparison against the expected outcome), faithfulness (assessed by LLM-as-Judge), and speech fidelity (assessed by LALM-as-Judge).</p>
-<h3 id="eva-x-experience">EVA-X (Experience)</h3>
-<p>EVA-X quantifies the subjective quality and flow of the interaction. It is a composite metric derived from three factors: conversation progression (evaluated by LLM-as-Judge), conciseness (evaluated by LLM-as-Judge), and turn-taking timing (determined via timestamp analysis of the audio stream).</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.15198/fig_p2_c1.jpg" />
+<em>Figure 1 Comparison of Visual Reasoning Paradigms. I: Unified models generate intermediate pixel-level images. II: Agentic
+methods rely on external code or tool execution. III: Latent methods conduct intermediate reasoning through latent
+embeddings. IV: ATLAS briges agentic and latent visual reasoni</em></p>
+<p>ATLAS achieves the unification of agentic and latent reasoning by fundamentally altering how visual actions are represented. Instead of generating continuous visual representations or invoking external functions, visual operations—such as drawing a line or placing a shape—are mapped to discrete functional tokens (<span class="arithmatex">\(\text{Vfunc}\)</span>). These <span class="arithmatex">\(\text{Vfunc}\)</span> tokens are integrated directly into the model's standard tokenizer vocabulary (<span class="arithmatex">\(\text{V} = \text{Vtext} \cup \text{Vspec} \cup \text{Vfunc}\)</span>). This architectural decision ensures the entire reasoning process remains confined within the discrete autoregressive sequence.</p>
+<p>The training procedure is bifurcated. Initially, the model undergoes Supervised Fine-Tuning (SFT) using the ATLAS-178K dataset to establish a baseline competency in invoking these functional tokens. Following SFT, the model is refined using reinforcement learning. While standard GRPO can be applied, the sparsity of <span class="arithmatex">\(\text{Vfunc}\)</span> tokens leads to gradient dilution. To counteract this, we employ Latent-Anchored GRPO (LA-GRPO), which augments the sequence-level GRPO objective with a dedicated token-level auxiliary loss (<span class="arithmatex">\(\mathcal{L}_{\text{token}}\)</span>) specifically applied at the positions corresponding to <span class="arithmatex">\(\text{Vfunc}\)</span>, thereby providing a persistent and targeted learning signal.</p>
+<h3 id="functional-token-textvfunc">Functional Token (<span class="arithmatex">\(\text{Vfunc}\)</span>)</h3>
+<p>The <span class="arithmatex">\(\text{Vfunc}\)</span> set comprises a compact vocabulary of discrete tokens, including <span class="arithmatex">\(\{\text{&lt;|Manip|&gt;}, \text{&lt;|Shape|&gt;}, \text{&lt;|Line|&gt;}, \text{&lt;|Arrow|&gt;}, \text{&lt;|Text|&gt;}\}\)</span>. These tokens function as abstract instructions, representing internalized visual operations. Crucially, they are treated identically to standard text or specification tokens within the model's tokenizer vocabulary, allowing the entire sequence to be processed uniformly by the autoregressive decoder.</p>
+<h3 id="atlas-178k">ATLAS-178K</h3>
+<p>ATLAS-178K serves as the foundational dataset for the initial SFT phase. It is a curated collection encompassing over 40 distinct visual reasoning tasks. Its purpose is to provide the model with a robust, pre-trained understanding of when and how to invoke the functional tokens, establishing the necessary cold start for subsequent RL optimization.</p>
+<h3 id="standard-grpo">Standard GRPO</h3>
+<p>The reinforcement learning optimization relies on the standard GRPO algorithm. The objective function is composite, designed to balance multiple objectives: <span class="arithmatex">\(r(o) = \lambda_{\text{acc}}r_{\text{acc}} + \lambda_{\text{func}}r_{\text{func}} + \lambda_{\text{fmtr}}r_{\text{fmt}} - \lambda_{\text{len}}p_{\text{len}} - \lambda_{\text{spam}}p_{\text{spam}}\)</span>. This formulation guides the agent toward high accuracy (<span class="arithmatex">\(r_{\text{acc}}\)</span>), effective use of functional operations (<span class="arithmatex">\(r_{\text{func}}\)</span>), and adherence to formatting constraints (<span class="arithmatex">\(r_{\text{fmt}}\)</span>), while penalizing excessive length (<span class="arithmatex">\(p_{\text{len}}\)</span>) and irrelevant output (<span class="arithmatex">\(p_{\text{spam}}\)</span>).</p>
+<h3 id="latent-anchored-grpo-la-grpo">Latent-Anchored GRPO (LA-GRPO)</h3>
+<p>LA-GRPO is the critical enhancement to the standard GRPO framework. It addresses the issue of gradient dilution inherent when optimizing for sparse, high-leverage tokens like <span class="arithmatex">\(\text{Vfunc}\)</span>. LA-GRPO achieves this by introducing a token-level auxiliary loss, <span class="arithmatex">\(\mathcal{L}_{\text{token}}\)</span>. This loss is explicitly anchored to the positions of the functional tokens, ensuring that even when the overall sequence reward is noisy or sparse, the functional tokens receive a consistent, targeted learning signal that strengthens their optimization trajectory.</p>
 <h2 id="results">Results</h2>
 <table>
 <thead>
@@ -1444,38 +1428,26 @@ TTS voice — interacts with the Voice Agent under test. The Tool Execut</em></p
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">EVA-Apass@1 and EVA-Xpass@1</td>
-<td style="text-align: left;">no system simultaneously exceeds 0.5</td>
+<td style="text-align: left;">Performance</td>
+<td style="text-align: left;">Superior performance</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Text</td>
-</tr>
-<tr>
-<td style="text-align: left;">median pass@k–pass^k gap on EVA-A</td>
-<td style="text-align: left;">0.44</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Text</td>
-</tr>
-<tr>
-<td style="text-align: left;">mean <span class="arithmatex">\(\epsilon\)</span> (robustness to perturbations)</td>
-<td style="text-align: left;">up to 0.314</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Text</td>
+<td style="text-align: left;">Extensive experiments and analyses</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The introduction of EVA-Bench shifts the evaluation paradigm from isolated component testing to holistic, end-to-end system assessment. By incorporating rigorous simulator validation and composite metrics like EVA-A and EVA-X, we provide a mechanism to quantify failure modes—such as conversational drift or poor pacing—that are entirely invisible to traditional transcript-based evaluation. This allows researchers and engineers to gain a much more accurate assessment of a voice agent's production readiness, particularly when comparing fundamentally different architectural approaches (e.g., cascade vs. end-to-end).</p>
+<p>The ATLAS framework provides a principled mechanism to bridge the gap between symbolic, agentic reasoning and continuous, latent visual processing within a single, scalable autoregressive model. By tokenizing operations, we effectively internalize the "tool-use" capability of agentic systems into the language model's generative capacity, eliminating the overhead associated with external execution environments. Furthermore, the LA-GRPO mechanism offers a concrete solution to a known theoretical challenge—gradient dilution—when applying RL to sparse, critical control tokens, thereby enabling more stable and effective fine-tuning for complex visual tasks.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current framework necessitates specific implementations for calculating metrics across audio-native and cascade systems, as the observable intermediate signals differ significantly between these architectures. Furthermore, for the purpose of feasibility in perturbation evaluation, we utilized a randomly sampled subset of 90 scenarios (30 per domain), which limits the scope of the robustness claims. Future work should address the generalization of metric definitions across all potential agent architectures and expand the perturbation testing suite to cover a larger fraction of the total scenario space.</p>
+<p>The current functional token taxonomy is not intended to be exhaustive; the scope of operations represented by <span class="arithmatex">\(\text{Vfunc}\)</span> is necessarily constrained by the initial design choices. Additionally, while LA-GRPO mitigates gradient dilution, the paper acknowledges that this issue remains a relevant consideration when employing standard GRPO in similar sparse token optimization scenarios.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.13841">2605.13841</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260513841</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{EVA-Bench: A New End-to-end Framework for Evaluating Voice Agents}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Tara Bogavelli and Gabrielle Gauthier Melançon and Katrina Stankiewicz and Oluwanifemi Bamgbose and Fanny Riols and Hoang H. Nguyen et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.13841}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.15198">2605.15198</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260515198</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Ziyu Guo and Rain Liu and Xinyan Chen and Pheng-Ann Heng}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.15198}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.13841}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.15198}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
