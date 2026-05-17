@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both](2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/)
+
+*2026-05-17*
+
+ATLAS is a framework that unifies agentic and latent visual reasoning by representing visual operations as discrete functional tokens within a standard autoregressive sequence, stabilized by Latent-Anchored GRPO (LA-GRPO) during RL training.
+
 ## [World Action Models are Zero-shot Policies](2026-05-16-world-action-models-are-zero-shot-policies/)
 
 *2026-05-16*
