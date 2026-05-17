@@ -139,6 +139,11 @@ digest:
   # Result: "This Week in Robotics — 2026, Week 18"
   title_prefix: "This Week in Robotics"
 
+  # When to run the weekly digest (cron syntax).
+  # Default: Sunday at 09:00, one hour after the daily run.
+  # Use https://crontab.guru to build your own schedule.
+  cron_schedule: "0 9 * * 0"
+
 # ── Vision figure descriptions ────────────────────────────────────────────────
 vision:
   # Set to false to skip vision inference entirely (faster runs, no image analysis).

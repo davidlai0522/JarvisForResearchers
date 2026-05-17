@@ -76,6 +76,43 @@ ARXIV_RE = re.compile(
     re.IGNORECASE,
 )
 
+# ── Topic presets ─────────────────────────────────────────────────────────────
+_TOPIC_PRESETS: dict[str, list[str]] = {
+    "robotics": ["cs.RO", "eess.SY", "cs.CV"],
+    "ai":       ["cs.AI", "cs.LG", "cs.CV", "cs.NE"],
+    "balanced": ["cs.RO", "cs.AI", "cs.LG", "cs.CV"],
+}
+
+_PRESET_LABELS = {
+    "robotics": "🤖 Robotics  (cs.RO, eess.SY, cs.CV)",
+    "ai":       "🧠 AI / ML   (cs.AI, cs.LG, cs.CV, cs.NE)",
+    "balanced": "⚖️ Balanced  (cs.RO, cs.AI, cs.LG, cs.CV)",
+}
+
+_CONFIG_PATH = REPO_ROOT / "config.yaml"
+
+
+def _read_current_categories() -> list[str]:
+    """Read discovery.categories fresh from config.yaml (bypasses the stale singleton)."""
+    if not _CONFIG_PATH.exists():
+        return ["cs.RO", "cs.AI", "cs.LG", "cs.CV"]
+    raw = yaml.safe_load(_CONFIG_PATH.read_text()) or {}
+    return raw.get("discovery", {}).get("categories", ["cs.RO", "cs.AI", "cs.LG", "cs.CV"])
+
+
+def _write_categories(cats: list[str]) -> None:
+    """Replace discovery.categories in config.yaml, preserving all other content and comments."""
+    text = _CONFIG_PATH.read_text(encoding="utf-8")
+    new_block = "  categories:\n" + "".join(f"  - {c}\n" for c in cats)
+    updated = re.sub(
+        r"  categories:\n(?:  - [^\n]*\n)*",
+        new_block,
+        text,
+        count=1,
+    )
+    _CONFIG_PATH.write_text(updated, encoding="utf-8")
+
+
 # ── Global state ──────────────────────────────────────────────────────────────
 # Tracks whether a pipeline subprocess is currently running.
 _running_lock = asyncio.Lock()
@@ -333,6 +370,7 @@ async def cmd_help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "<b>Commands:</b>\n"
         "• /start — Welcome message\n"
         "• /help — This message\n"
+        "• /topics — View or change arXiv topic categories\n"
         "• /force <code>&lt;arxiv_id&gt;</code> — Skip quality gate\n"
         "• /list — Browse and remove existing posts\n"
         "• /remove <code>&lt;arxiv_id&gt;</code> — Remove a post by arXiv ID\n"
@@ -505,6 +543,66 @@ async def handle_delete_callback(update: Update, context: ContextTypes.DEFAULT_T
         await query.edit_message_text("👍 Removal cancelled.")
 
 
+async def cmd_topics(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    if not _is_allowed(update.effective_user.id):
+        await update.message.reply_text(_access_denied_text())
+        return
+
+    current = _read_current_categories()
+    args = context.args
+
+    # Direct shortcut: /topics robotics  /topics ai  /topics balanced
+    if args and args[0].lower() in _TOPIC_PRESETS:
+        preset = args[0].lower()
+        cats = _TOPIC_PRESETS[preset]
+        _write_categories(cats)
+        await update.message.reply_html(
+            f"✅ <b>Topics set to {_PRESET_LABELS[preset]}</b>\n\n"
+            f"Active categories: <code>{', '.join(cats)}</code>\n\n"
+            "Takes effect on the next daily run."
+        )
+        return
+
+    # Show current categories + preset buttons
+    rows = [
+        [InlineKeyboardButton(_PRESET_LABELS[p], callback_data=f"topics:{p}")]
+        for p in _TOPIC_PRESETS
+    ]
+    await update.message.reply_html(
+        f"<b>Current topics:</b> <code>{', '.join(current)}</code>\n\n"
+        "Choose a preset, or use a command directly:\n"
+        "<code>/topics robotics</code> · <code>/topics ai</code> · <code>/topics balanced</code>",
+        reply_markup=InlineKeyboardMarkup(rows),
+    )
+
+
+async def handle_topics_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    query = update.callback_query
+    await query.answer()
+
+    if not _is_allowed(query.from_user.id):
+        await query.edit_message_text("⛔ Not authorised.")
+        return
+
+    data = query.data or ""
+    if not data.startswith("topics:"):
+        return
+
+    preset = data[len("topics:"):]
+    if preset not in _TOPIC_PRESETS:
+        await query.edit_message_text("❓ Unknown preset.")
+        return
+
+    cats = _TOPIC_PRESETS[preset]
+    _write_categories(cats)
+    await query.edit_message_text(
+        f"✅ <b>Topics set to {_PRESET_LABELS[preset]}</b>\n\n"
+        f"Active categories: <code>{', '.join(cats)}</code>\n\n"
+        "Takes effect on the next daily run.",
+        parse_mode=ParseMode.HTML,
+    )
+
+
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     if not _is_allowed(update.effective_user.id):
         await update.message.reply_text(_access_denied_text())
@@ -638,9 +736,11 @@ def main() -> None:
     app.add_handler(CommandHandler("help", cmd_help))
     app.add_handler(CommandHandler("status", cmd_status))
     app.add_handler(CommandHandler("resources", cmd_resources))
+    app.add_handler(CommandHandler("topics", cmd_topics))
     app.add_handler(CommandHandler("force", cmd_force))
     app.add_handler(CommandHandler("list", cmd_list))
     app.add_handler(CommandHandler("remove", cmd_remove))
+    app.add_handler(CallbackQueryHandler(handle_topics_callback, pattern=r"^topics:"))
     app.add_handler(CallbackQueryHandler(handle_regenerate_callback, pattern=r"^regen:"))
     app.add_handler(CallbackQueryHandler(handle_delete_callback, pattern=r"^del_"))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
