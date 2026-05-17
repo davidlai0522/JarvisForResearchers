@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="BAMI introduces a training-free inference framework that mitigates precision and ambiguity biases in GUI grounding by employing coarse-to-fine focus and candidate selection manipulations.
+        <meta name="description" content="V-JEPA 2.1 enhances self-supervised learning for dense visual understanding in images and videos by applying a Dense Predictive Loss across all tokens and incorporating Deep Self-Supervision.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-18-v-jepa-2-1-unlocking-dense-features-in-video-self-supervised/">
       
       
-        <link rel="prev" href="../2026-05-12-normalizing-trajectory-models/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/">
+        <link rel="next" href="../2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>BAMI: Training-Free Bias Mitigation in GUI Grounding - JarvisForResearchers</title>
+        <title>V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              BAMI: Training-Free Bias Mitigation in GUI Grounding
+              V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning
             
           </span>
         </div>
@@ -433,10 +433,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-05-18-v-jepa-2-1-unlocking-dense-features-in-video-self-supervised/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -452,6 +477,162 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#x-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        x-encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-level-predictor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-level predictor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modality-specific-patch-embedding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modality-specific patch embedding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context-loss-lctx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context loss (Lctx)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -629,35 +810,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    BAMI: Training-Free Bias Mitigation in GUI Grounding
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/" class="md-nav__link">
         
   
   
@@ -673,162 +829,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#masked-prediction-distribution-mpd" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Masked Prediction Distribution (MPD)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#coarse-to-fine-focus" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Coarse-to-Fine Focus
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#candidate-selection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Candidate Selection
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#correction-model-m" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Correction Model (m)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1275,10 +1275,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#masked-prediction-distribution-mpd" class="md-nav__link">
+  <a href="#x-encoder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Masked Prediction Distribution (MPD)
+        x-encoder
       
     </span>
   </a>
@@ -1286,10 +1286,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#coarse-to-fine-focus" class="md-nav__link">
+  <a href="#multi-level-predictor" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Coarse-to-Fine Focus
+        Multi-level predictor
       
     </span>
   </a>
@@ -1297,10 +1297,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#candidate-selection" class="md-nav__link">
+  <a href="#modality-specific-patch-embedding" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Candidate Selection
+        Modality-specific patch embedding
       
     </span>
   </a>
@@ -1308,10 +1308,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#correction-model-m" class="md-nav__link">
+  <a href="#context-loss-lctx" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Correction Model (m)
+        Context loss (Lctx)
       
     </span>
   </a>
@@ -1388,13 +1388,6 @@
       
       
       
-        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
-      
-    
-      
-      
-      
-      
         <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
@@ -1402,41 +1395,47 @@
       
       
       
-        <a href="../../tags/#tag:manipulation" class="md-tag">manipulation</a>
+        <a href="../../tags/#tag:multimodal" class="md-tag">multimodal</a>
       
     
   </nav>
 
 
 
-  <h1>BAMI: Training-Free Bias Mitigation in GUI Grounding</h1>
+  <h1>V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-10</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-05-18</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Brand new preprint (2026) — accepted</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>BAMI introduces a training-free inference framework that mitigates precision and ambiguity biases in GUI grounding by employing coarse-to-fine focus and candidate selection manipulations.</p>
+<p>V-JEPA 2.1 advances self-supervised learning for dense visual understanding in images and videos by implementing a Dense Predictive Loss across all tokens and integrating Deep Self-Supervision across multiple encoder layers. This framework yields improvements in localization, geometry, and high-level recognition tasks compared to prior methods.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Existing GUI grounding models exhibit suboptimal performance when evaluated on complex benchmarks such as ScreenSpot-Pro. This degradation is primarily attributable to two systematic biases: precision bias, which arises from the high resolution of input images, and ambiguity bias, which is exacerbated by the intricate nature of modern user interfaces.</p>
-<p>The limitations of current approaches are multifaceted. Traditional gradient-based attribution methods are fundamentally ill-suited for the discrete nature of the text-to-coordinate conversion task. Furthermore, while language-space enhancement techniques, such as Chain-of-Thought prompting, have been explored, they have demonstrated limited efficacy for achieving the necessary precision in GUI grounding. Fundamentally, the underlying Multimodal Large Language Models (MLLMs) often possess inherent inductive biases—namely precision bias and ambiguity bias—that constrain their capacity for robust spatial reasoning.</p>
+<p>Learning representations that simultaneously preserve dense spatio-temporal structure—which is necessary for tasks like localization, geometry estimation, and tracking—while also capturing the necessary dynamics and supporting global understanding for high-level recognition remains an open challenge in self-supervised learning (SSL) from video. Existing approaches exhibit specific limitations: V-JEPA family representations can sometimes lack the necessary fidelity for fine-grained local spatial structure extraction. Furthermore, while methods like DINO produce high-quality dense features, they are predominantly image-based and do not inherently model temporal dynamics from video data. Critically, the original V-JEPA 2 loss, which was restricted to masked tokens, failed to incentivize the model to encode rich local information within the context tokens.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We present three primary contributions to address these limitations. First, we introduce the Masked Prediction Distribution (MPD) method, which serves as a diagnostic tool to categorize grounding failures into either knowledge deficiency or inductive bias. Second, we mitigate precision bias by reframing the single-step localization problem into a multi-step, progressive search mechanism via hierarchical coarse-to-fine focus. Third, we correct ambiguity bias by integrating an external Candidate Selection mechanism, which is guided by predefined prompt rules.</p>
+<p>This work introduces three primary contributions:
+1. The introduction of V-JEPA 2.1, a unified self-supervised approach designed for learning robust representations across both image and video modalities.
+2. The implementation of a Dense Predictive Loss, which extends self-supervision to apply predictive constraints on both masked and unmasked tokens, thereby grounding every token in its spatio-temporal context.
+3. The incorporation of Deep Self-Supervision, achieved by applying the predictive loss hierarchically across multiple intermediate encoder layers via a multi-level predictor.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.06664/fig_p1_c1.jpg" />
-<em>Figure 1. Compared with conventional grounding models, BAMI
-achieves accurate localization without additional training via struc-
-tured inference with bias-aware manipulations.</em></p>
-<p>BAMI reframes the standard one-step localization task into a recursive, multi-step structured inference process. The core strategy involves iterative refinement to combat precision bias and structured candidate generation followed by external validation to address ambiguity bias. This entire framework is designed to operate in a training-free manner, enabling direct application atop existing open-source backbone models.</p>
-<h3 id="masked-prediction-distribution-mpd">Masked Prediction Distribution (MPD)</h3>
-<p>The MPD method functions by systematically probing the model's focus. It achieves this by randomly occluding various regions of the input screenshot. The model's prediction frequencies are then aggregated across 300 distinct perturbations for each sample. This aggregation allows us to map the model's internal focus distribution, which is critical for diagnosing whether a failure is due to a lack of underlying knowledge or an artifact of the model's inherent inductive biases.</p>
-<h3 id="coarse-to-fine-focus">Coarse-to-Fine Focus</h3>
-<p>To counteract precision bias, we decompose the localization task into a hierarchy of steps. This process is implemented as a progressive search. In each iterative step, the candidate region identified in the preceding round is refined by cropping the original image. This cropping is performed at a scale factor <span class="arithmatex">\(\lambda &lt; 1\)</span>, effectively zooming into the area of interest and allowing for finer coordinate resolution in subsequent predictions.</p>
-<h3 id="candidate-selection">Candidate Selection</h3>
-<p>To resolve ambiguity bias, we move beyond relying on a single prediction. Instead, we generate multiple, mutually exclusive candidate bounding boxes. These candidates are produced through multi-round masked prediction operations. The subsequent selection of the optimal box is not left to the primary MLLM output; rather, it is delegated to an external mechanism guided by predefined prompt rules.</p>
-<h3 id="correction-model-m">Correction Model (m)</h3>
-<p>The Correction Model (<span class="arithmatex">\(m\)</span>) is the external component leveraged during the Candidate Selection phase. Its role is to rectify the erroneous selection preferences exhibited by the grounding model. It operates by evaluating the set of mutually exclusive candidates against a set of prompt rules that encode established GUI priors, such as expected functional features or common UI patterns, thereby selecting the most plausible box.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2603.14482/fig_p1_c1.jpg" />
+*Figure 1 V-JEPA 2.1 unlocks high-quality dense features. We compute PCA on patch features extracted from the same
+image or video and map the top three components to RGB channels for both V-JEPA 2 (ViT-g) and V-JEPA 2.1
+(ViT-G). Our novel V-JEPA 2.1 produces dense representations with strong spatial *</p>
+<p>V-JEPA 2.1 extends the foundational V-JEPA framework by modifying the loss function to incorporate a Dense Predictive Loss, defined as <span class="arithmatex">\(L_{\text{dense}} = L_{\text{predict}} + L_{\text{ctx}}\)</span>. This loss is applied to both masked and unmasked tokens to ensure that every token is strongly constrained by its spatio-temporal location. Deep Self-Supervision is realized by employing a multi-level predictor that applies the loss hierarchically across several intermediate encoder layers. To maintain unified training across modalities, the architecture utilizes Multi-Modal Tokenizers, which provide modality-specific patch embeddings for both images and videos. The data flow begins with an x-encoder, which processes the input and outputs multi-level embeddings. These embeddings are then fused and concatenated with learnable mask tokens before being passed to the predictor network.</p>
+<h3 id="x-encoder">x-encoder</h3>
+<p>The x-encoder is responsible for processing the visible tokens from the input data. It is designed to output multi-level embeddings. These embeddings are formed by concatenating the normalized outputs derived from various intermediate encoder blocks, allowing for the extraction of features at different levels of abstraction.</p>
+<h3 id="multi-level-predictor">Multi-level predictor</h3>
+<p>The Multi-level predictor receives the combined sequence, which consists of the context tokens (from the x-encoder) and the learnable mask tokens. Its function is to generate multi-level predictions specifically targeting the masked tokens. These predictions are applied across several intermediate representation levels, facilitating the hierarchical application of the predictive loss.</p>
+<h3 id="modality-specific-patch-embedding">Modality-specific patch embedding</h3>
+<p>This component handles the initial projection of raw input data. It is responsible for projecting input images or videos into a sequence of embedding vectors, or tokens, prior to any mask corruption occurring in the subsequent stages.</p>
+<h3 id="context-loss-lctx">Context loss (Lctx)</h3>
+<p>The Context loss (<span class="arithmatex">\(L_{\text{ctx}}\)</span>) is a distance-weighted L1 loss. It is specifically designed to supervise the unmasked regions of the input. This supervision is achieved by leveraging the multi-level outputs generated by the y-encoder, explicitly guiding the model to maintain consistency within the unmasked context tokens.</p>
 <h2 id="results">Results</h2>
-<p>The application of BAMI demonstrates a measurable improvement over established baselines on the ScreenSpot-Pro benchmark.</p>
+<p>The empirical evaluation demonstrates the effectiveness of V-JEPA 2.1 across diverse downstream tasks:</p>
 <table>
 <thead>
 <tr>
@@ -1448,26 +1447,56 @@ tured inference with bias-aware manipulations.</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Accuracy on ScreenSpot-Pro benchmark</td>
-<td style="text-align: left;">57.8%</td>
-<td style="text-align: left;">51.9%</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">mAP on Ego4D for short-term object-interaction anticipation</td>
+<td style="text-align: left;">7.71</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Table 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Recall@5 on EPIC-KITCHENS for high-level action anticipation</td>
+<td style="text-align: left;">40.8</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Table 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Real-robot grasping success rate improvement</td>
+<td style="text-align: left;">20%</td>
+<td style="text-align: left;">VJEPA-2 AC</td>
+<td style="text-align: left;">Introduction</td>
+</tr>
+<tr>
+<td style="text-align: left;">ATE on Tartan Drive (robot navigation)</td>
+<td style="text-align: left;">5.687</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Introduction</td>
+</tr>
+<tr>
+<td style="text-align: left;">RMSE on NYUv2 (depth estimation)</td>
+<td style="text-align: left;">0.307</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Table 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Accuracy on Something-Something-V2 (global recognition)</td>
+<td style="text-align: left;">77.7%</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The practitioner takeaways from this work are significant. First, BAMI demonstrates that inference-time reasoning design, as opposed to costly model retraining, can yield substantial performance gains in complex tasks like GUI grounding. Second, the systematic error diagnosis provided by MPD is a crucial methodological advance, enabling researchers to precisely differentiate between failures rooted in knowledge gaps versus those stemming from model inductive biases. Finally, for tasks involving high-resolution inputs, the decomposition strategy inherent in coarse-to-fine focus provides a viable, effective mechanism to circumvent the limitations imposed by discretization.</p>
+<p>The findings confirm that extending the predictive loss to cover all tokens, including unmasked ones, is a critical mechanism for enhancing dense feature quality within SSL frameworks. Furthermore, the integration of Deep Self-Supervision, by applying the loss hierarchically, provides consistent and measurable performance gains across both dense localization tasks and broader global recognition objectives. The observed systematic performance improvements when scaling the model size (up to ViT-G) and increasing data diversity (using VisionMix 163M) underscore the robustness of this architectural design.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>We acknowledge specific limitations in the current formulation. The coarse-to-fine focus strategy necessitates a trade-off between the number of iterations performed and the chosen crop ratio (<span class="arithmatex">\(\lambda\)</span>). If the cropping is too aggressive, there is a risk of losing critical contextual information necessary for accurate localization. Furthermore, the efficacy of the entire ambiguity correction pipeline is contingent upon the quality and completeness of the prompt design utilized by the external Correction Model (<span class="arithmatex">\(m\)</span>). Future work must focus on optimizing this prompt engineering aspect.</p>
+<p>We note two primary limitations. First, the naive application of the <span class="arithmatex">\(L_{\text{ctx}}\)</span> loss can sometimes lead to suboptimal performance on tasks requiring high-level semantic reasoning, as the model may converge to trivial solutions within the context tokens. Second, the initial implementation of <span class="arithmatex">\(L_{\text{ctx}}\)</span> loss was observed to slightly reduce classification performance when evaluated on the Something-Something-V2 dataset. Future work should investigate more sophisticated weighting or regularization schemes for <span class="arithmatex">\(L_{\text{ctx}}\)</span> to mitigate these observed trade-offs.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.06664">2605.06664</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260506664</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{BAMI: Training-Free Bias Mitigation in GUI Grounding}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Borui Zhang and Bo Zhang and Bo Wang and Wenzhao Zheng and Yuhao Cheng and Liang Tang et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.06664}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2603.14482">2603.14482</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260314482</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Lorenzo Mur-Labadia and Matthew Muckley and Amir Bar and Mido Assran and Koustuv Sinha and Mike Rabbat et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2603.14482}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.06664}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2603.14482}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
