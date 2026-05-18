@@ -10,6 +10,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 V-JEPA 2.1 enhances self-supervised learning for dense visual understanding in images and videos by applying a Dense Predictive Loss across all tokens and incorporating Deep Self-Supervision.
 
+## [RefDecoder: Enhancing Visual Generation with Conditional Video Decoding](2026-05-18-refdecoder-enhancing-visual-generation-with-conditional-vide/)
+
+*2026-05-18*
+
+REFDECODER enhances visual generation by introducing a reference-conditioned video VAE decoder that injects high-fidelity reference image signals directly into the decoding process via reference attention, mitigating detail loss and inconsistency inherent in unconditional VAE decoders.
+
 ## [ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both](2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/)
 
 *2026-05-17*
