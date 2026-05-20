@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="DreamZero is a World Action Model (WAM) built on a pretrained video diffusion backbone that jointly predicts future video states and actions, enabling zero-shot generalization and efficient cross-embodiment transfer from diverse, non-repetitive data.
+        <meta name="description" content="This paper introduces SysCON3D, a controlled benchmark, and a parametric family of neural metrics to diagnose and improve the robustness of ground-truth-free multiview 3D consistency evaluators against geometric hallucinations.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-16-world-action-models-are-zero-shot-policies/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-20-can-these-views-be-one-scene-evaluating-multiview-3d-consist/">
       
       
-        <link rel="prev" href="../2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-16-entitybench-towards-entity-consistent-long-range-multi-shot-/">
+        <link rel="next" href="../2026-05-18-v-jepa-2-1-unlocking-dense-features-in-video-self-supervised/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>World Action Models are Zero-shot Policies - JarvisForResearchers</title>
+        <title>Can These Views Be One Scene? Evaluating Multiview 3D Consistency when 3D Foundation Models Hallucinate - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              World Action Models are Zero-shot Policies
+              Can These Views Be One Scene? Evaluating Multiview 3D Consistency when 3D Foundation Models Hallucinate
             
           </span>
         </div>
@@ -437,10 +437,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-05-20-can-these-views-be-one-scene-evaluating-multiview-3d-consist/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Can These Views Be One Scene? Evaluating Multiview 3D Consistency when 3D Foundation Models Hallucinate
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -456,6 +481,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reconstruction-backbone-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reconstruction Backbone (B)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#residual-function-rho" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Residual Function (\(\rho\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aggregation-function-mathcala" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aggregation Function (\(\mathcal{A}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syscon3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SysCON3D
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#colmap-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        COLMAP Metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -549,35 +741,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    World Action Models are Zero-shot Policies
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-16-world-action-models-are-zero-shot-policies/" class="md-nav__link">
         
   
   
@@ -593,195 +760,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#world-action-model-wam" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        World Action Model (WAM)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#visual-context-encoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visual Context Encoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#language-instruction-encoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Language Instruction Encoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#proprioceptive-state-encoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Proprioceptive State Encoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#autoregressive-dit-backbone" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Autoregressive DiT Backbone
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#video-decoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Video Decoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#action-decoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Action Decoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1368,10 +1346,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#world-action-model-wam" class="md-nav__link">
+  <a href="#reconstruction-backbone-b" class="md-nav__link">
     <span class="md-ellipsis">
       
-        World Action Model (WAM)
+        Reconstruction Backbone (B)
       
     </span>
   </a>
@@ -1379,10 +1357,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#visual-context-encoder" class="md-nav__link">
+  <a href="#residual-function-rho" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Visual Context Encoder
+        Residual Function (\(\rho\))
       
     </span>
   </a>
@@ -1390,10 +1368,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#language-instruction-encoder" class="md-nav__link">
+  <a href="#aggregation-function-mathcala" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Language Instruction Encoder
+        Aggregation Function (\(\mathcal{A}\))
       
     </span>
   </a>
@@ -1401,10 +1379,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#proprioceptive-state-encoder" class="md-nav__link">
+  <a href="#syscon3d" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Proprioceptive State Encoder
+        SysCON3D
       
     </span>
   </a>
@@ -1412,32 +1390,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#autoregressive-dit-backbone" class="md-nav__link">
+  <a href="#colmap-metrics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Autoregressive DiT Backbone
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#video-decoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Video Decoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#action-decoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Action Decoder
+        COLMAP Metrics
       
     </span>
   </a>
@@ -1517,85 +1473,53 @@
         <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
-      
-      
-      
-      
-        <a href="../../tags/#tag:generalization" class="md-tag">generalization</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:transformers" class="md-tag">transformers</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
-      
-    
   </nav>
 
 
 
-  <h1>World Action Models are Zero-shot Policies</h1>
+  <h1>Can These Views Be One Scene? Evaluating Multiview 3D Consistency when 3D Foundation Models Hallucinate</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-16</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-05-20</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
-<p>Brand new preprint (2026) — accepted</p>
+<p>Not yet indexed in S2 — assumed brand-new preprint</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>DreamZero is a 14B World Action Model (WAM) built on a pretrained video diffusion backbone. It jointly predicts future video states and actions, enabling zero-shot generalization and efficient cross-embodiment transfer from diverse, non-repetitive robot data.</p>
+<p>We introduce SysCON3D, a controlled benchmark, and a parametric family of neural metrics to diagnose and improve the robustness of ground-truth-free multiview 3D consistency evaluators against geometric hallucinations. By decomposing metrics into backbone, residual, and aggregation components, we show that distributional aggregation yields variants up to <span class="arithmatex">\(3\times\)</span> more robust than MEt3R. Furthermore, we present COLMAP-based, failure-aware metrics that achieve up to <span class="arithmatex">\(4\times\)</span> higher correlation with human judgments than MEt3R.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>State-of-the-art Vision-Language-Action (VLA) models exhibit strong semantic generalization capabilities but fundamentally fail when tasked with generalizing to novel physical motions within unseen environments. This deficiency stems from their lack of explicit representations concerning how actions must be executed with precise spatial awareness, dynamics, and motor control constraints.</p>
+<p>The prevailing paradigm in multiview 3D evaluation assumes that all input views are observations of a single, static 3D scene. This assumption is frequently violated in practical datasets, where inputs may contain artifacts, outlier frames, repeated views, or noise. When this assumption breaks down, learned consistency metrics—such as MEt3R—can report spuriously high 3D consistency scores, effectively masking underlying geometric inconsistencies.</p>
+<p>The gaps in current methodology are threefold: existing reference-based metrics necessitate ground truth, ground-truth-free metrics rely on learned reconstruction backbones whose failure modes are poorly characterized, and standard metrics (e.g., PSNR, SSIM, Chamfer distance) do not inherently quantify the mutual consistency across a generated set of views.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce DreamZero, a 14B WAM that jointly predicts video and actions, facilitating effective learning from diverse, non-repetitive robot data. We demonstrate an improvement of over <span class="arithmatex">\(2\times\)</span> in zero-shot generalization to unseen verbs and motions when benchmarked against state-of-the-art VLAs. Furthermore, we present model and system optimizations that yield a <span class="arithmatex">\(38\times\)</span> inference speedup, which is sufficient to enable real-time closed-loop control at <span class="arithmatex">\(7\text{Hz}\)</span>.</p>
+<p>This work makes three primary contributions:
+1. <strong>SysCON3D:</strong> We introduce SysCON3D, a controlled robustness benchmark specifically designed to test ground-truth-free multiview 3D consistency metrics under various corruption scenarios.
+2. <strong>Parametric Neural Metric Family:</strong> We develop a parametric family of neural metrics that systematically decomposes learned evaluators into a reconstruction backbone, a residual function, and an aggregation function. This decomposition allows us to generate variants that demonstrate up to <span class="arithmatex">\(3\times\)</span> greater robustness compared to MEt3R.
+3. <strong>Failure-Aware Classical Metrics:</strong> We propose COLMAP-based metrics that translate observable failures from classical Structure-from-Motion (SfM) and Multi-View Stereo (MVS) pipelines into interpretable 3D consistency scores, achieving up to <span class="arithmatex">\(4\times\)</span> higher correlation with human judgments than MEt3R.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2602.15922/fig_p1_c1.jpg" />
-*Figure 1: Overview. By jointly predicting video and action, World Action Models (WAMs) inherit world physics
-priors that enable 1) effective learning from diverse, non-repetitive data, 2) open-world generalization, 3)
-cross-embodiment learning from video-only data, and 4) few-shot adaptation to new *</p>
-<p>DreamZero is structured as a 14B autoregressive diffusion transformer. It is trained using a teacher-forcing chunk-wise video denoising objective. The core innovation lies in training a single, end-to-end model capable of jointly denoising both video and action latents, thereby resolving the inherent alignment challenges present in bidirectional models. The architecture leverages an autoregressive approach for the video modality, which permits the utilization of KV-caching during inference. This design choice is critical as it preserves native frame rates and avoids modality alignment complexities. The model is conditioned on three primary inputs: the language instruction (<span class="arithmatex">\(\mathbf{c}\)</span>), the proprioceptive state (<span class="arithmatex">\(\mathbf{q}_l\)</span>), and the initial visual observation (<span class="arithmatex">\(\mathbf{o}_{0:l}\)</span>). To meet the demands of real-time control, we implemented several optimizations, including decoupled video and action denoising schedules (DreamZero-Flash), system-level parallelism, and quantization, culminating in the <span class="arithmatex">\(38\times\)</span> inference speedup necessary for <span class="arithmatex">\(7\text{Hz}\)</span> closed-loop operation.</p>
-<h3 id="world-action-model-wam">World Action Model (WAM)</h3>
-<p>The WAM serves as the foundational model. It is designed to predict both the subsequent actions and the corresponding future visual states in a tightly aligned manner. This capability is built directly upon a robust, pretrained video diffusion backbone.</p>
-<h3 id="visual-context-encoder">Visual Context Encoder</h3>
-<p>This component is responsible for encoding the visual context provided to the model. It achieves this encoding through the utilization of a Variational Autoencoder (VAE).</p>
-<h3 id="language-instruction-encoder">Language Instruction Encoder</h3>
-<p>This encoder processes the natural language instructions (<span class="arithmatex">\(\mathbf{c}\)</span>). It transforms the textual input into a rich, usable embedding space for conditioning the subsequent diffusion process.</p>
-<h3 id="proprioceptive-state-encoder">Proprioceptive State Encoder</h3>
-<p>This encoder handles the robot's internal state information, <span class="arithmatex">\(\mathbf{q}_l\)</span>. It maps the proprioceptive state into a feature representation that informs the model about the robot's current configuration.</p>
-<h3 id="autoregressive-dit-backbone">Autoregressive DiT Backbone</h3>
-<p>This is the central processing unit. It takes the encoded inputs and jointly predicts the future sequence of video frames and actions. This joint prediction is achieved via a flow matching mechanism within the diffusion transformer structure.</p>
-<h3 id="video-decoder">Video Decoder</h3>
-<p>The Video Decoder is tasked with synthesizing the future visual states, denoted as <span class="arithmatex">\(\mathbf{o}_{l:l+H}\)</span>. It reconstructs high-fidelity video frames from the latent space predicted by the backbone.</p>
-<h3 id="action-decoder">Action Decoder</h3>
-<p>The Action Decoder is responsible for predicting the sequence of future control actions, <span class="arithmatex">\(\mathbf{a}_{l:l+H}\)</span>, based on the model's internal state and the predicted video context.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.18754/fig_p1_c1.jpg" />
+*Figure 1: Can these views be one scene? Unrelated scenes, repeated views, and Gaussian noise
+should be scored as 3D-inconsistent because they do not define a single static scene from multiple
+views. However, learned reconstruction backbones such as VGGT, MASt3R, DUSt3R, and Fast3R
+can still produce *</p>
+<p>The core of our analysis involves dissecting a general neural metric <span class="arithmatex">\(m(\mathcal{I})\)</span> into the functional form <span class="arithmatex">\(m(\mathcal{I}) = \mathcal{A}(\rho(B(\mathcal{I}), \phi(\mathcal{I})))\)</span>. This structure allows us to isolate and modify specific components to enhance robustness.</p>
+<h3 id="reconstruction-backbone-b">Reconstruction Backbone (B)</h3>
+<p>The <strong>Reconstruction Backbone (B)</strong> is responsible for inferring the underlying 3D structure and camera poses from the input image set <span class="arithmatex">\(\mathcal{I}\)</span>. It outputs a 3D point cloud <span class="arithmatex">\(X = \{x_n\}\)</span> and the corresponding camera parameters <span class="arithmatex">\(\{\Pi_k\}_{k=1}^K\)</span>. Examples of backbones studied include MASt3R, Fast3R, and VGGT. The quality and inherent biases of this backbone directly propagate into the final metric score.</p>
+<h3 id="residual-function-rho">Residual Function (<span class="arithmatex">\(\rho\)</span>)</h3>
+<p>The <strong>Residual Function (<span class="arithmatex">\(\rho\)</span>)</strong> quantifies the disagreement between views after the backbone has performed its reconstruction. It produces a set of non-negative cross-view feature disagreements, <span class="arithmatex">\(E = \{e_n\}_{n=1}^N\)</span>. We utilize two primary forms for this: Warp-based residuals, which measure cosine dissimilarity <span class="arithmatex">\(d_{ij}\)</span> between features across views, and Point-consistency (PC) residuals, denoted as <span class="arithmatex">\(\delta_n\)</span>.</p>
+<h3 id="aggregation-function-mathcala">Aggregation Function (<span class="arithmatex">\(\mathcal{A}\)</span>)</h3>
+<p>The <strong>Aggregation Function (<span class="arithmatex">\(\mathcal{A}\)</span>)</strong> takes the empirical residual distribution <span class="arithmatex">\(P\)</span> generated by <span class="arithmatex">\(\rho\)</span> and compares it against an ideal distribution <span class="arithmatex">\(\delta_0\)</span>. The choice of <span class="arithmatex">\(\mathcal{A}\)</span> is critical for robustness. We compare several options: Mean (used in the baseline MEt3R), Maximum Mean Discrepancy (MMD), Integrated Maximum Mean Discrepancy (IMQ), and Energy distance. The parametric family allows us to systematically test how different aggregation strategies affect metric stability.</p>
+<h3 id="syscon3d">SysCON3D</h3>
+<p><strong>SysCON3D</strong> serves as the controlled environment for empirical testing. It is a benchmark designed to systematically corrupt input views to test metric resilience. The corruption types include L1 (single-outlier injection), L2 (controlled mixture of outliers), L3 (random mixture of outliers), Patched Gaussian corruption, and general Gaussian noise.</p>
+<h3 id="colmap-metrics">COLMAP Metrics</h3>
+<p>The <strong>COLMAP Metrics</strong> represent a departure from purely learned evaluation. These are classical geometric verification metrics derived from standard SfM/MVS pipelines. They convert observable failures—such as registration errors or dense reconstruction failures—into quantifiable consistency scores. Specific metrics include Per-pixel agreement (<span class="arithmatex">\(vq_v\)</span>), Geometric–Photometric Consistency (<span class="arithmatex">\(\mathrm{GPC}_v\)</span>), Integrated Consistency Mass (<span class="arithmatex">\(\mathrm{ICM}\)</span>), and Coverage-weighted GPC (<span class="arithmatex">\(\mathrm{GPC}_\omega\)</span>).</p>
 <h2 id="results">Results</h2>
+<p>The empirical evaluation across SysCON3D demonstrates the efficacy of the proposed architectural modifications.</p>
 <table>
 <thead>
 <tr>
 <th style="text-align: left;">Metric</th>
+<th style="text-align: left;">Comparison</th>
 <th style="text-align: left;">Value</th>
 <th style="text-align: left;">Baseline</th>
 <th style="text-align: left;">Source</th>
@@ -1603,44 +1527,41 @@ cross-embodiment learning from video-only data, and 4) few-shot adaptation to ne
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Improvement in generalization to new tasks and environments</td>
-<td style="text-align: left;">over <span class="arithmatex">\(2\times\)</span></td>
-<td style="text-align: left;">state-of-the-art VLAs</td>
+<td style="text-align: left;">MASt3R-W-IMQ vs MEt3R</td>
+<td style="text-align: left;">Robustness</td>
+<td style="text-align: left;">up to <span class="arithmatex">\(3\times\)</span> more robust</td>
+<td style="text-align: left;">MEt3R</td>
+<td style="text-align: left;">Section 3.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">COLMAP-based metrics vs MEt3R</td>
+<td style="text-align: left;">Human Correlation</td>
+<td style="text-align: left;">up to <span class="arithmatex">\(4\times\)</span> higher correlation with human judgments</td>
+<td style="text-align: left;">MEt3R</td>
 <td style="text-align: left;">Abstract</td>
 </tr>
 <tr>
-<td style="text-align: left;">Relative improvement on unseen task performance (video-only data)</td>
-<td style="text-align: left;">over <span class="arithmatex">\(42\%\)</span></td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Abstract</td>
-</tr>
-<tr>
-<td style="text-align: left;">Inference speedup</td>
-<td style="text-align: left;"><span class="arithmatex">\(38\times\)</span></td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Abstract</td>
-</tr>
-<tr>
-<td style="text-align: left;">Real-time control frequency</td>
-<td style="text-align: left;"><span class="arithmatex">\(7\text{Hz}\)</span></td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">MEt3R vs Ours (W-GPC)</td>
+<td style="text-align: left;">Consistency Score</td>
+<td style="text-align: left;">ZERO</td>
+<td style="text-align: left;">MEt3R</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The ability to learn physical dynamics priors directly from web-scale video data, as facilitated by leveraging video diffusion backbones, allows DreamZero to surpass the limitations inherent in VLAs trained solely on static image-text pairs. Furthermore, the adoption of an autoregressive architecture coupled with KV caching is shown to be a necessary design pattern for achieving high-fidelity, real-time closed-loop control when deploying diffusion-based policies. Critically, our findings underscore that the diversity of the training data is a more significant determinant of generalization capability than the sheer volume of repetitive demonstrations.</p>
+<p>The findings underscore a critical vulnerability in current ground-truth-free 3D evaluation: learned metrics are highly sensitive to the failure modes of their underlying reconstruction backbones. By providing SysCON3D, we offer the community a standardized tool to stress-test these metrics. Furthermore, the decomposition framework provides a clear engineering path for improving these metrics—specifically, replacing simple mean aggregation with distributional measures like IMQ significantly enhances robustness. Finally, the success of COLMAP-based metrics validates the utility of grounding abstract consistency scores in verifiable, classical geometric constraints, leading to evaluations that align more closely with human perceptual judgment.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current work leaves open questions regarding a detailed comparison between WAMs and alternative world model architectures, such as those based on latent-space modeling or 3D point clouds, which is reserved for Appendix A of the source material. Additionally, the paper notes that the joint prediction of video and action can be conceptually decomposed into two distinct sub-problems: (1) autoregressive video prediction and (2) action prediction derived from an inverse-dynamics model (IDM).</p>
+<p>Two primary limitations must be acknowledged. First, the COLMAP metrics, while powerful for interpretability, inherit the inherent limitations and assumptions of classical SfM/MVS pipelines. Second, the parametric family of neural metrics is predicated on the assumption that any given metric <span class="arithmatex">\(m(\mathcal{I})\)</span> can be cleanly decomposed into the <span class="arithmatex">\(B \to \rho \to \mathcal{A}\)</span> structure; metrics that do not conform to this modularity cannot be analyzed using this framework. Future work should investigate metrics that exhibit non-separable functional dependencies.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2602.15922">2602.15922</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260215922</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{World Action Models are Zero-shot Policies}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Seonghyeon Ye and Yunhao Ge and Kaiyuan Zheng and Shenyuan Gao and Sihyun Yu and George Kurian et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2602.15922}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.18754">2605.18754</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260518754</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Can These Views Be One Scene? Evaluating Multiview 3D Consistency when 3D Foundation Models Hallucinate}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Soumava Paul and Prakhar Kaushik and Alan Yuille}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.18754}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2602.15922}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.18754}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
