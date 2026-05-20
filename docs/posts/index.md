@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Can These Views Be One Scene? Evaluating Multiview 3D Consistency when 3D Foundation Models Hallucinate](2026-05-20-can-these-views-be-one-scene-evaluating-multiview-3d-consist/)
+
+*2026-05-20*
+
+This paper introduces SysCON3D, a controlled benchmark, and a parametric family of neural metrics to diagnose and improve the robustness of ground-truth-free multiview 3D consistency evaluators against geometric hallucinations.
+
 ## [V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning](2026-05-18-v-jepa-2-1-unlocking-dense-features-in-video-self-supervised/)
 
 *2026-05-18*
