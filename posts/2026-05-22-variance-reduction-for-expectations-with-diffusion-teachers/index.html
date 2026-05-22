@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="GenWildSplat is a feed-forward framework that achieves generalizable 3D scene reconstruction from sparse, unposed images by integrating appearance adaptation and occlusion modeling without requiring per-scene optimization.
+        <meta name="description" content="CARV is a compute-aware variance-accounting framework that introduces a hierarchical Monte Carlo estimator by amortizing expensive upstream computations over cheap diffusion-noise resamples, sharpened by timestep importance sampling and stratified-inverse-CDF construction.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-22-variance-reduction-for-expectations-with-diffusion-teachers/">
       
       
-        <link rel="prev" href="../2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/">
+        <link rel="next" href="../2026-05-20-can-these-views-be-one-scene-evaluating-multiview-3d-consist/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Generalizable Sparse-View 3D Reconstruction from Unconstrained Images - JarvisForResearchers</title>
+        <title>Variance Reduction for Expectations with Diffusion Teachers - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Generalizable Sparse-View 3D Reconstruction from Unconstrained Images
+              Variance Reduction for Expectations with Diffusion Teachers
             
           </span>
         </div>
@@ -439,10 +439,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-05-22-variance-reduction-for-expectations-with-diffusion-teachers/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variance Reduction for Expectations with Diffusion Teachers
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -458,6 +483,162 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amortized-re-noising-of-cached-states" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amortized Re-noising of Cached States
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timestep-importance-sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timestep Importance Sampling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stratified-inverse-cdf-sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stratified-Inverse-CDF Sampling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compute-aware-variance-accounting-framework-carv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compute-aware Variance-Accounting Framework (CARV)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -971,35 +1152,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Generalizable Sparse-View 3D Reconstruction from Unconstrained Images
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/" class="md-nav__link">
         
   
   
@@ -1015,206 +1171,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vggt-transformer-backbone-phi_theta" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        VGGT transformer backbone \(\phi_\theta\)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#depth-head-h_d" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Depth Head \(h_D\)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#camera-head-h_c" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Camera Head \(h_C\)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gaussian-head-h_textgauss" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Gaussian Head \(h_{\text{gauss}}\)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#light-encoder-textelight" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Light Encoder \(\text{ELight}\)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#appearance-adapter-textflight" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Appearance Adapter (\(\text{Flight}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#segmentation-network" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Segmentation Network
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#differentiable-rasterizer-mathcalr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Differentiable Rasterizer \(\mathcal{R}\)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1409,10 +1365,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#vggt-transformer-backbone-phi_theta" class="md-nav__link">
+  <a href="#amortized-re-noising-of-cached-states" class="md-nav__link">
     <span class="md-ellipsis">
       
-        VGGT transformer backbone \(\phi_\theta\)
+        Amortized Re-noising of Cached States
       
     </span>
   </a>
@@ -1420,10 +1376,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#depth-head-h_d" class="md-nav__link">
+  <a href="#timestep-importance-sampling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Depth Head \(h_D\)
+        Timestep Importance Sampling
       
     </span>
   </a>
@@ -1431,10 +1387,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#camera-head-h_c" class="md-nav__link">
+  <a href="#stratified-inverse-cdf-sampling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Camera Head \(h_C\)
+        Stratified-Inverse-CDF Sampling
       
     </span>
   </a>
@@ -1442,54 +1398,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#gaussian-head-h_textgauss" class="md-nav__link">
+  <a href="#compute-aware-variance-accounting-framework-carv" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gaussian Head \(h_{\text{gauss}}\)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#light-encoder-textelight" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Light Encoder \(\text{ELight}\)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#appearance-adapter-textflight" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Appearance Adapter (\(\text{Flight}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#segmentation-network" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Segmentation Network
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#differentiable-rasterizer-mathcalr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Differentiable Rasterizer \(\mathcal{R}\)
+        Compute-aware Variance-Accounting Framework (CARV)
       
     </span>
   </a>
@@ -1566,6 +1478,13 @@
       
       
       
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
+      
+    
+      
+      
+      
+      
         <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
@@ -1573,55 +1492,53 @@
       
       
       
-        <a href="../../tags/#tag:segmentation" class="md-tag">segmentation</a>
+        <a href="../../tags/#tag:diffusion-models" class="md-tag">diffusion-models</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:transformers" class="md-tag">transformers</a>
+        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
       
     
   </nav>
 
 
 
-  <h1>Generalizable Sparse-View 3D Reconstruction from Unconstrained Images</h1>
+  <h1>Variance Reduction for Expectations with Diffusion Teachers</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-01</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-05-22</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>GenWildSplat is a feed-forward framework designed for generalizable 3D scene reconstruction from sparse, unposed images. It achieves this by decoupling geometry from illumination via an appearance adapter, allowing it to adapt to target lighting conditions, and by explicitly modeling occlusions using a pre-trained semantic segmentation network, thereby eliminating the need for per-scene optimization.</p>
+<p>CARV is a compute-aware variance-accounting framework that introduces a hierarchical Monte Carlo estimator by amortizing expensive upstream computations over cheap diffusion-noise resamples, sharpened by timestep importance sampling and stratified-inverse-CDF construction. This allows practitioners to optimize estimator variance relative to computational budget when upstream steps (like rendering) are prohibitively expensive.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Reconstructing a coherent 3D representation of a scene from a limited set of sparse, unposed input images presents significant challenges in real-world deployment. These challenges are exacerbated by environmental variability, specifically fluctuating illumination and the presence of transient occlusions (e.g., moving people or vehicles). Existing methodologies often necessitate scene-specific optimization loops, which are computationally prohibitive and fail when applied to novel or sparse input views. Furthermore, purely feed-forward models typically exhibit brittleness when faced with lighting conditions divergent from those encountered during training. Prior state-of-the-art methods struggle to generalize robustly across datasets characterized by high visual diversity, such as MegaScenes, due to the combined difficulties of sparse input, varied lighting, and heavy occlusion.</p>
+<p>When utilizing frozen pretrained diffusion models in downstream pipelines—such as text-to-3D generation or single-step distillation—the resulting gradients are inherently Monte Carlo expectations. These expectations are taken over the noise levels (<span class="arithmatex">\(t\)</span>) and the Gaussian noise samples (<span class="arithmatex">\(\epsilon\)</span>). The critical issue is that the variance of the estimator often dominates the total computational cost because the upstream components (e.g., rendering, complex simulation, or encoding) are computationally expensive.</p>
+<p>Current practices suffer from several deficiencies: downstream users often inherit the teacher's timestep distributions and resort to ad hoc averaging, which introduces bias and forces compute tuning without a principled understanding of where the variance originates. Furthermore, there is a lack of a principled framework to identify which specific estimator components contribute most significantly to the overall variance, and consequently, no principled method exists to trade off cheap operations (like noise sampling) against expensive ones (like rendering) under a fixed computational budget.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce GenWildSplat, a novel feed-forward framework that enables 3D scene reconstruction from sparse, unposed multi-view images without requiring any per-scene optimization. A core contribution is the integration of an appearance adapter, which modulates the intrinsic scene appearance based on a light code estimated by a dedicated light encoder, thereby enabling appearance adaptation to arbitrary target lighting. Furthermore, we leverage a pre-trained semantic segmentation network to generate explicit occlusion masks, which guides the reconstruction process to focus supervision solely on static scene content, mitigating the impact of transient objects.</p>
+<p>We introduce three primary mechanisms to address these gaps:
+1. <strong>Hierarchical Monte Carlo estimator via amortized resampling:</strong> This technique caches expensive upstream computations and then resamples the cheap diffusion noise multiple times to reduce within-render conditional variance.
+2. <strong>Timestep importance sampling:</strong> We leverage the explicit teacher weight, <span class="arithmatex">\(w_{SDS}(t)\)</span>, to construct a proposal distribution <span class="arithmatex">\(q(t) \propto p(t)w_{SDS}(t)\)</span>, which guides timestep sampling to reduce variance by tracking gradient norm dependence on <span class="arithmatex">\(t\)</span>.
+3. <strong>Stratified-inverse-CDF sampling:</strong> This method combines stratification with importance sampling by sampling in the proposal-quantile space, ensuring balanced coverage across the non-uniform noise levels dictated by the importance sampling proposal.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze. I will then follow your instructions precisely." src="../../assets/figures/2604.28193/fig_p1_c1.jpg" />
-<em>Figure 1. GenWildSplat reconstructs 3D scenes from sparse, unposed images with varying illumination and transient objects in a single
-3-second feed-forward pass, and no per-scene optimization is required. Given 2–6 input views, our method predicts novel views under
-target lighting conditions while h</em></p>
-<p>GenWildSplat processes the input set of sparse, unposed multi-view images, <span class="arithmatex">\(\mathcal{I}\)</span>, through a VGGT transformer backbone, <span class="arithmatex">\(\phi_\theta\)</span>, to extract rich, multi-view features, <span class="arithmatex">\(\mathbf{F}\)</span>. These features are then routed to specialized prediction heads: the Depth Head (<span class="arithmatex">\(h_D\)</span>) predicts per-view depth maps (<span class="arithmatex">\(\mathbf{D}\)</span>), the Camera Head (<span class="arithmatex">\(h_C\)</span>) estimates the necessary camera parameters (<span class="arithmatex">\(\mathbf{K}, \mathbf{E}\)</span>), and the Gaussian Head (<span class="arithmatex">\(h_{\text{gauss}}\)</span>) outputs the appearance-independent properties and canonical Spherical Harmonic (SH) coefficients (<span class="arithmatex">\(\mathbf{c} \in \mathbb{R}^{75}\)</span>) for the 3D Gaussians (<span class="arithmatex">\(\mathbf{G}_c\)</span>).</p>
-<p>To handle illumination variation, a Light Encoder (<span class="arithmatex">\(\text{ELight}\)</span>) processes each input image <span class="arithmatex">\(I^{(i)}\)</span> to derive a per-view light code, <span class="arithmatex">\(\mathbf{L}_i\)</span>, which is a 16-dimensional vector. This light code is then fed into the Appearance Adapter (<span class="arithmatex">\(\text{Flight}\)</span>), an MLP, which modulates the canonical Gaussians <span class="arithmatex">\(\mathbf{G}_c\)</span> into target-lit Gaussians, <span class="arithmatex">\(\mathbf{G}_{l_i}\)</span>.</p>
-<p>To ensure robustness against dynamic elements, a pre-trained Segmentation Network provides binary occlusion masks, <span class="arithmatex">\(\mathbf{S}\)</span>, identifying transient classes. The final reconstruction is achieved by using a Differentiable Rasterizer (<span class="arithmatex">\(\mathcal{R}\)</span>) to project the transformed Gaussians <span class="arithmatex">\(\mathbf{G}_{l_i}\)</span> into a rendered image <span class="arithmatex">\(\hat{I}_j\)</span>. The training objective incorporates a masked reconstruction loss, <span class="arithmatex">\(\mathcal{L}\)</span>, which utilizes the occlusion masks <span class="arithmatex">\(\mathbf{S}\)</span> to enforce supervision only on static scene geometry and appearance. The entire training regimen is structured around a curriculum learning strategy across three distinct stages.</p>
-<h3 id="vggt-transformer-backbone-phi_theta">VGGT transformer backbone <span class="arithmatex">\(\phi_\theta\)</span></h3>
-<p>This component is responsible for extracting a unified, multi-view feature representation, <span class="arithmatex">\(\mathbf{F}\)</span>, from the set of sparse, unposed input images, <span class="arithmatex">\(\mathcal{I}\)</span>. It acts as the primary feature extractor, aggregating information across the input views to form a comprehensive scene representation that feeds into all subsequent prediction heads.</p>
-<h3 id="depth-head-h_d">Depth Head <span class="arithmatex">\(h_D\)</span></h3>
-<p>This head takes the extracted multi-view features, <span class="arithmatex">\(\mathbf{F}\)</span>, and maps them to per-view depth maps, <span class="arithmatex">\(\mathbf{D}\)</span>. This provides the initial geometric constraint necessary for 3D structure inference from the 2D inputs.</p>
-<h3 id="camera-head-h_c">Camera Head <span class="arithmatex">\(h_C\)</span></h3>
-<p>Utilizing the features <span class="arithmatex">\(\mathbf{F}\)</span>, this head estimates the necessary camera parameters, specifically the intrinsic matrix (<span class="arithmatex">\(\mathbf{K}\)</span>) and the extrinsic transformation (<span class="arithmatex">\(\mathbf{E}\)</span>), for each input view. This allows for the geometric alignment required for consistent 3D reconstruction.</p>
-<h3 id="gaussian-head-h_textgauss">Gaussian Head <span class="arithmatex">\(h_{\text{gauss}}\)</span></h3>
-<p>This head operates on <span class="arithmatex">\(\mathbf{F}\)</span> to output the intrinsic properties of the 3D Gaussians. Crucially, it predicts appearance-independent Gaussian properties and the canonical SH coefficients (<span class="arithmatex">\(\mathbf{c} \in \mathbb{R}^{75}\)</span>), representing the scene's geometry and base spectral signature before illumination adaptation.</p>
-<h3 id="light-encoder-textelight">Light Encoder <span class="arithmatex">\(\text{ELight}\)</span></h3>
-<p>This 2D CNN-based encoder processes each individual input image, <span class="arithmatex">\(I^{(i)}\)</span>, to generate a compact, 16-dimensional lighting vector, <span class="arithmatex">\(\mathbf{L}_i\)</span>. This vector serves as the explicit encoding of the scene's illumination state for that specific view.</p>
-<h3 id="appearance-adapter-textflight">Appearance Adapter (<span class="arithmatex">\(\text{Flight}\)</span>)</h3>
-<p>This MLP serves as the mechanism for appearance adaptation. It takes the canonical Gaussian colors (<span class="arithmatex">\(\mathbf{G}_c\)</span>) and modulates them using the corresponding light code (<span class="arithmatex">\(\mathbf{L}_i\)</span>) derived from <span class="arithmatex">\(\text{ELight}\)</span>. The output is the target-lit Gaussian color, <span class="arithmatex">\(\mathbf{G}_{l_i}\)</span>, which is ready for rendering under the desired lighting conditions.</p>
-<h3 id="segmentation-network">Segmentation Network</h3>
-<p>This component is a pre-trained network (specifically YOLOv8 Segmentation [13]) whose function is to identify and delineate transient objects within the input frames. It outputs binary occlusion masks, <span class="arithmatex">\(\mathbf{S}\)</span>, which are used to mask out regions corresponding to moving or non-static elements during the loss calculation.</p>
-<h3 id="differentiable-rasterizer-mathcalr">Differentiable Rasterizer <span class="arithmatex">\(\mathcal{R}\)</span></h3>
-<p>This module takes the set of transformed, target-lit Gaussians, <span class="arithmatex">\(\mathbf{G}_{l_i}\)</span>, and performs the projection and rendering operation to synthesize a predicted image, <span class="arithmatex">\(\hat{I}_j\)</span>. Its differentiability is essential for backpropagating gradients through the rendering process to update the network weights.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.21489/fig_p2_c1.jpg" />
+*Figure 1: Importance sampling for timestep allocation: Left: Toy example showing a test function F,
+uniform proposal, oracle optimal proposal from Eq. 24, and a practical approximation adding a Gaussian at the
+peak. The oracle variance equals that of spending ∼3−4× the compute of uniform, while the *</p>
+<p>CARV operates by conceptually decoupling the expensive upstream operations (e.g., a single forward pass through a renderer or generator) from the cheap, high-frequency noise resampling steps (the choice of timestep <span class="arithmatex">\(t\)</span> and the Gaussian noise <span class="arithmatex">\(\epsilon\)</span>). The framework then applies three integrated strategies: compute reuse, guided importance sampling, and stratified sampling. These techniques are evaluated using the CARV measurement framework, which quantifies efficiency via the Effective Compute Multiplier (ECM) at iso-variance.</p>
+<h3 id="amortized-re-noising-of-cached-states">Amortized Re-noising of Cached States</h3>
+<p>This component addresses the high cost of the upstream computation, denoted as <span class="arithmatex">\(g(\theta, q^{(r)})\)</span>, where <span class="arithmatex">\(q^{(r)}\)</span> represents the state derived from the upstream process for a specific render <span class="arithmatex">\(R\)</span>. Instead of recomputing <span class="arithmatex">\(g(\theta, q^{(r)})\)</span> for every noise sample, we cache this expensive state. We then resample the cheap diffusion noise <span class="arithmatex">\((t^{(r,k)}, \epsilon^{(r,k)})\)</span> multiple times (<span class="arithmatex">\(K\)</span> noisings per render <span class="arithmatex">\(R\)</span>). This amortization strategy directly reduces the conditional variance associated with the fixed, expensive upstream result.</p>
+<h3 id="timestep-importance-sampling">Timestep Importance Sampling</h3>
+<p>The variance in diffusion model gradients is often highly dependent on the timestep <span class="arithmatex">\(t\)</span>. To mitigate this, we employ importance sampling. We define a proposal distribution <span class="arithmatex">\(q(t)\)</span> proportional to the true teacher distribution <span class="arithmatex">\(p(t)\)</span> weighted by the explicit teacher weight <span class="arithmatex">\(w_{SDS}(t)\)</span>: <span class="arithmatex">\(q(t) \propto p(t)w_{SDS}(t)\)</span>. By using this weighted proposal and applying the necessary likelihood-ratio correction, we steer the sampling towards timesteps where the gradient norm exhibits the most significant variation, thereby reducing overall variance.</p>
+<h3 id="stratified-inverse-cdf-sampling">Stratified-Inverse-CDF Sampling</h3>
+<p>When using importance sampling, the resulting proposal distribution <span class="arithmatex">\(q(t)\)</span> is non-uniform. Simple sampling from <span class="arithmatex">\(q(t)\)</span> might lead to poor coverage of the distribution's tails. To counteract this, we implement stratified sampling in the proposal-quantile space. We define the proposal-quantile <span class="arithmatex">\(u^{(r)}_b = (b-1+\xi^{(r)}_b)/B\)</span>, where <span class="arithmatex">\(B\)</span> is the number of strata and <span class="arithmatex">\(\xi^{(r)}_b\)</span> is a uniform random variable. We then sample the timestep <span class="arithmatex">\(t^{(r)}_b\)</span> by inverting the cumulative distribution function (CDF) of the proposal <span class="arithmatex">\(q\)</span>: <span class="arithmatex">\(t^{(r)}_b = \text{CDF}^{-1}_q(u^{(r)}_b)\)</span>. This ensures that each stratum receives a representative sample across the entire range of <span class="arithmatex">\(q\)</span>-quantiles.</p>
+<h3 id="compute-aware-variance-accounting-framework-carv">Compute-aware Variance-Accounting Framework (CARV)</h3>
+<p>CARV provides the necessary meta-framework for evaluating the effectiveness of the variance reduction techniques. It utilizes Welford's online algorithm to estimate the variance of the gradients iteratively. Crucially, it reports efficiency not just by variance reduction, but by the Effective Compute Multiplier (ECM) achieved at a fixed level of variance. This allows for a direct, principled comparison between estimators based on their computational cost versus their variance reduction capability.</p>
 <h2 id="results">Results</h2>
 <table>
 <thead>
@@ -1634,38 +1551,44 @@ target lighting conditions while h</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Inference Time</td>
-<td style="text-align: left;">3 seconds</td>
-<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Effective Compute Multipliers (ECM)</td>
+<td style="text-align: left;">2-3<span class="arithmatex">\(\times\)</span></td>
+<td style="text-align: left;">uniform-IID with K = 1</td>
 <td style="text-align: left;">Abstract</td>
 </tr>
 <tr>
-<td style="text-align: left;">Performance on PhotoTourism</td>
-<td style="text-align: left;">State-of-the-art feed-forward rendering quality</td>
-<td style="text-align: left;">Optimization-based methods [16, 36, 54]</td>
+<td style="text-align: left;">Additional Variance Reduction from IS+stratification</td>
+<td style="text-align: left;"><span class="arithmatex">\(\ge 25\%\)</span></td>
+<td style="text-align: left;">Amortized reuse alone</td>
 <td style="text-align: left;">Abstract</td>
 </tr>
 <tr>
-<td style="text-align: left;">Performance on MegaScenes</td>
-<td style="text-align: left;">Generates clean and consistent renderings across diverse scenes</td>
-<td style="text-align: left;">Prior SOTA methods</td>
-<td style="text-align: left;">Figure 6</td>
+<td style="text-align: left;">Gradient Variance Reduction (Single-Step Distillation)</td>
+<td style="text-align: left;">an order of magnitude</td>
+<td style="text-align: left;">Standard MC estimator</td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+<tr>
+<td style="text-align: left;">Variance Reduction (Importance Sampling)</td>
+<td style="text-align: left;"><span class="arithmatex">\(\ge 1.2\times\)</span></td>
+<td style="text-align: left;">Uniform sampling</td>
+<td style="text-align: left;">Table 2</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The introduction of GenWildSplat addresses a critical bottleneck in real-world robotics and computer vision: the dependency on computationally expensive, iterative optimization for 3D reconstruction. By establishing a robust, feed-forward pipeline, we enable rapid, deployable 3D scene understanding from unconstrained inputs. The decoupling of geometry from illumination via the Appearance Adapter provides a mechanism for controllable appearance transfer, which is vital for tasks requiring scene understanding under varying environmental conditions. Finally, the integration of external priors, such as semantic segmentation, provides a principled method for filtering out noise introduced by dynamic elements, leading to more stable and geometrically accurate reconstructions.</p>
+<p>For researchers operating at the intersection of generative AI and complex simulation (e.g., physics-informed generation or high-fidelity 3D synthesis), the computational bottleneck is rarely the forward pass itself, but the variance reduction required to achieve a stable, low-variance gradient estimate. CARV provides a formal methodology to move beyond heuristic tuning. By quantifying the trade-off between the cost of generating a state (rendering/encoding) and the cost of sampling noise, practitioners can systematically deploy compute reuse, importance sampling, and stratification to achieve target variance levels with the minimum necessary computational expenditure.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current formulation is not explicitly trained to render novel views or lighting conditions that are entirely outside the distribution observed during training, despite demonstrating strong generalization to unseen views. Furthermore, the training process necessitates a carefully constructed curriculum learning strategy to effectively manage the inherent ill-posed nature of simultaneously inferring geometry, illumination, and occlusion from sparse observations. Future work should investigate methods to further decouple these factors or develop more robust regularization schemes that reduce the reliance on the curriculum structure.</p>
+<p>One observed limitation is that in the specific context of single-step distillation, the variance reduction achieved by CARV does not translate into a measurable improvement in the downstream FID score, suggesting that the variance reduction might be localized to the gradient estimation process rather than the final sample quality. Furthermore, the theoretically optimal proposal distribution, <span class="arithmatex">\(q^\star(t)\)</span>, which would minimize variance, is practically infeasible to compute because it requires estimating the gradient norms across all possible renders and noise configurations for every timestep.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2604.28193">2604.28193</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260428193</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Generalizable Sparse-View 3D Reconstruction from Unconstrained Images}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Vinayak Gupta and Chih-Hao Lin and Shenlong Wang and Anand Bhattad and Jia-Bin Huang}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2604.28193}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.21489">2605.21489</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260521489</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Variance Reduction for Expectations with Diffusion Teachers}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Jesse Bettencourt and Xindi Wu and Matan Atzmon and James Lucas and Jonathan Lorraine}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.21489}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2604.28193}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.21489}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
