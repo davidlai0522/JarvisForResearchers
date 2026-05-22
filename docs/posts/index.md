@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Variance Reduction for Expectations with Diffusion Teachers](2026-05-22-variance-reduction-for-expectations-with-diffusion-teachers/)
+
+*2026-05-22*
+
+CARV is a compute-aware variance-accounting framework that introduces a hierarchical Monte Carlo estimator by amortizing expensive upstream computations over cheap diffusion-noise resamples, sharpened by timestep importance sampling and stratified-inverse-CDF construction.
+
 ## [Can These Views Be One Scene? Evaluating Multiview 3D Consistency when 3D Foundation Models Hallucinate](2026-05-20-can-these-views-be-one-scene-evaluating-multiview-3d-consist/)
 
 *2026-05-20*
