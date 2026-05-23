@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This survey provides a comprehensive, robot-learning-centered review of world models, detailing their coupling with robot policies, their function as simulators, and their application in robotic video generation.
+        <meta name="description" content="ConvexTok formulates tokeniser construction as a linear program relaxation of an NP-hard integer program, allowing for the computation of near-optimal tokenisers and providing lower bounds on compression.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-23-tokenisation-via-convex-relaxations/">
       
       
-        <link rel="prev" href="../2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/">
+        <link rel="next" href="../2026-05-22-variance-reduction-for-expectations-with-diffusion-teachers/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>World Model for Robot Learning: A Comprehensive Survey - JarvisForResearchers</title>
+        <title>Tokenisation via Convex Relaxations - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              World Model for Robot Learning: A Comprehensive Survey
+              Tokenisation via Convex Relaxations
             
           </span>
         </div>
@@ -441,10 +441,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-05-23-tokenisation-via-convex-relaxations/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tokenisation via Convex Relaxations
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -460,6 +485,162 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tokenisation-graph-langle-v-e_all-c-rangle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tokenisation Graph \(\langle V, E_{all}, C \rangle\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integer-program-ip-qip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integer Program (IP) \(QIP\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tokenisation-polytope-lp-q" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tokenisation Polytope (LP) \(Q\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rounding-schemes-det-bias-int" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rounding Schemes (Det, Bias, Int)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -805,35 +986,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    World Model for Robot Learning: A Comprehensive Survey
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/" class="md-nav__link">
         
   
   
@@ -849,184 +1005,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#world-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        World Model
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#low-level-physical-actions-a" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Low-level physical actions (a)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#high-level-language-or-task-actions-l" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        High-level language or task actions (l)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#robot-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Robot Policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#visuomotor-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visuomotor Policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vision-language-action-vla-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vision-Language-Action (VLA) Models
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1417,10 +1395,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#world-model" class="md-nav__link">
+  <a href="#tokenisation-graph-langle-v-e_all-c-rangle" class="md-nav__link">
     <span class="md-ellipsis">
       
-        World Model
+        Tokenisation Graph \(\langle V, E_{all}, C \rangle\)
       
     </span>
   </a>
@@ -1428,10 +1406,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#low-level-physical-actions-a" class="md-nav__link">
+  <a href="#integer-program-ip-qip" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Low-level physical actions (a)
+        Integer Program (IP) \(QIP\)
       
     </span>
   </a>
@@ -1439,10 +1417,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#high-level-language-or-task-actions-l" class="md-nav__link">
+  <a href="#tokenisation-polytope-lp-q" class="md-nav__link">
     <span class="md-ellipsis">
       
-        High-level language or task actions (l)
+        Tokenisation Polytope (LP) \(Q\)
       
     </span>
   </a>
@@ -1450,32 +1428,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#robot-policy" class="md-nav__link">
+  <a href="#rounding-schemes-det-bias-int" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Robot Policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#visuomotor-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visuomotor Policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vision-language-action-vla-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vision-Language-Action (VLA) Models
+        Rounding Schemes (Det, Bias, Int)
       
     </span>
   </a>
@@ -1552,86 +1508,101 @@
       
       
       
-        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:planning" class="md-tag">planning</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:reinforcement-learning" class="md-tag">reinforcement-learning</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
+        <a href="../../tags/#tag:nlp" class="md-tag">nlp</a>
       
     
   </nav>
 
 
 
-  <h1>World Model for Robot Learning: A Comprehensive Survey</h1>
+  <h1>Tokenisation via Convex Relaxations</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-09</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-05-23</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>This survey provides a robot-learning-centered review of world models, detailing their coupling with robot policies, their function as simulators, and their application in robotic video generation. We establish a fine-grained taxonomy distinguishing major architectural paradigms and functional roles, clarifying how predictive structures enable long-horizon reasoning and data amplification for embodied agents.</p>
+<p>ConvexTok reframes the NP-hard problem of finding a compression-optimal tokeniser as a Linear Program (LP) relaxation of an equivalent Integer Program (IP). This allows for the computation of near-optimal tokenisers and provides a quantifiable lower bound on compression achievable by any tokeniser derived from the LP solution.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Purely reactive Vision-Language-Action (VLA) policies struggle with long-horizon reasoning, temporal credit assignment, and robustness under compounding errors in complex physical environments due to a lack of explicit predictive structure for anticipating world evolution. Without an internal model of dynamics, these policies are inherently brittle when the required sequence of actions extends beyond the immediate sensory horizon.</p>
-<p>The existing literature suffers from fragmentation across architectures, functional roles, and embodied application domains. Furthermore, prior surveys lacked a fine-grained view of major world-model paradigms, and previous work did not offer a clear robotics-centered definition of world models in relation to VLA policies and robot learning.</p>
+<p>The objective of constructing a compression-optimal tokeniser is to minimize the total number of bits required to represent a given corpus, which is equivalent to maximizing the compression ratio. However, finding this globally optimal tokeniser is NP-hard. Existing heuristic approaches, such as Byte Pair Encoding (BPE) or Unigram Language Model tokenizers, operate greedily. They make locally optimal decisions based on immediate frequency gains without considering the global structure of the resulting vocabulary, meaning they cannot guarantee optimality. Prior work has relied on minor modifications to these greedy algorithms, failing to address the fundamental combinatorial complexity of the problem.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We present a policy-centric survey of world models for robot learning, focusing specifically on their coupling with VLA policies for action generation, planning, simulation, evaluation, and data generation. We provide a more fine-grained taxonomy by distinguishing major architectural paradigms and functional roles of world models. Finally, we offer a comprehensive and clearly defined treatment of robotic world models by clarifying their relationship to robot learning, VLA policies, video generation, and simulator-style usage.</p>
+<p>We introduce three primary contributions to address these limitations:
+1. Formulating tokeniser construction as a Linear Program (LP) derived from an equivalent Integer Program (IP).
+2. Proposing three distinct rounding schemes—Deterministic (Det), Biased (Bias), and Integral-only (Int)—to discretize the continuous LP solution into a functional tokeniser.
+3. Providing users with the ability to certify the theoretical proximity of their resulting tokeniser to the true optimum via a lower bound derived directly from the LP solution.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.00080/fig_p2_c1.jpg" />
-<em>Figure 1 Overview of the organization of this survey. Section 3 reviews how world models are coupled with robot policies
-from an architectural perspective. Section 4 examines world models as simulators from an application perspective.
-Section 5 focuses on robotic video world models and organizes the</em></p>
-<p>The survey adopts a robot-learning-centered view, defining a world model as a predictive model of agent-environment dynamics that captures how a robotic or embodied system evolves under actions. This model must provide foresight, imagination-driven planning, and data amplification to be actionable. We systematically examine how these predictive structures are coupled with robot policies, how they function as learned simulators for reinforcement learning and evaluation, and how robotic video world models progress from imagination-based generation to controllable, structured, and foundation-scale formulations. The focus remains on action-conditioned consistency, long-horizon reliability, and practical deployability in embodied tasks.</p>
-<h3 id="world-model">World Model</h3>
-<p>A <strong>World Model</strong> is defined as a predictive model of agent-environment dynamics that captures how a robotic or embodied system evolves under actions, typically modeling a state-transition process: <span class="arithmatex">\(p(x_{t+1:t+H} | x_t, a_{t:t+H-1}, l)\)</span>. This model is the core mechanism for enabling foresight.</p>
-<h3 id="low-level-physical-actions-a">Low-level physical actions (a)</h3>
-<p>These are the concrete physical actions executed by the agent, such as motor commands. They represent the direct interface between the agent's decision-making process and the physical environment.</p>
-<h3 id="high-level-language-or-task-actions-l">High-level language or task actions (l)</h3>
-<p>These are high-level semantic actions that specify what the future should be realized, such as a language instruction or goal description. They provide the necessary semantic grounding for long-horizon planning.</p>
-<h3 id="robot-policy">Robot Policy</h3>
-<p>The <strong>Robot Policy</strong> is a decision-making model that frames physical control as an action prediction task, mapping current environmental observations to future action trajectories: <span class="arithmatex">\(p(a_{t+1:t+k}|o_t, l)\)</span>. It dictates the agent's behavior based on its current state and goals.</p>
-<h3 id="visuomotor-policy">Visuomotor Policy</h3>
-<p>A <strong>Visuomotor Policy</strong> is a specialized, often lightweight, end-to-end network that establishes a direct mapping from raw states to the action space, typically via regression or generative models. It represents a direct, low-level control mapping without explicit internal world modeling.</p>
-<h3 id="vision-language-action-vla-models">Vision-Language-Action (VLA) Models</h3>
-<p><strong>Vision-Language-Action (VLA) Models</strong> are generalist models developed by fine-tuning large-scale Vision-Language Models (VLMs) on large scale robotic trajectory data to achieve cross-task and cross-embodiment generalization. They aim to unify perception, language understanding, and action generation.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.22821/fig_p3_c1.jpg" />
+<em>Figure 1: Tokenisation graph con-
+structed from D = {abaa, aba}.
+Black edges represent Ebyte and
+others represent Etok.</em></p>
+<p>ConvexTok operates by translating the tokenisation problem into a graph structure, which is then modeled as an optimization problem.</p>
+<h3 id="tokenisation-graph-langle-v-e_all-c-rangle">Tokenisation Graph <span class="arithmatex">\(\langle V, E_{all}, C \rangle\)</span></h3>
+<p>The process begins by constructing a Tokenisation Graph <span class="arithmatex">\(\langle V, E_{all}, C \rangle\)</span> from the input dataset <span class="arithmatex">\(D\)</span>. The vertex set <span class="arithmatex">\(V\)</span> comprises nodes representing every possible position boundary between bytes in the corpus. The edge set <span class="arithmatex">\(E_{all}\)</span> is composed of two types: <span class="arithmatex">\(E_{byte}\)</span>, which connects adjacent vertices within a single byte-string, and <span class="arithmatex">\(E_{tok}\)</span>, which connects non-adjacent vertices, representing potential token boundaries. This graph structure encodes all possible segmentation choices.</p>
+<h3 id="integer-program-ip-qip">Integer Program (IP) <span class="arithmatex">\(QIP\)</span></h3>
+<p>The compression-optimal tokeniser problem is formalized as an Integer Program, denoted <span class="arithmatex">\(QIP\)</span> (Eq. 5). This formulation utilizes binary decision variables: <span class="arithmatex">\(f \in \{0, 1\}^F\)</span> indicates whether a specific feature (e.g., a byte sequence) is included in the vocabulary, <span class="arithmatex">\(p \in \{0, 1\}^P\)</span> relates to prefix constraints, and <span class="arithmatex">\(c \in \{0, 1\}^C\)</span> represents the selection of specific token candidates. The objective function seeks to minimize <span class="arithmatex">\(\langle 1, p \rangle + \langle 1, f \rangle\)</span>, subject to constraints (5) that enforce valid tokenisation flow and budget limitations.</p>
+<h3 id="tokenisation-polytope-lp-q">Tokenisation Polytope (LP) <span class="arithmatex">\(Q\)</span></h3>
+<p>Since <span class="arithmatex">\(QIP\)</span> is NP-hard, we relax the integer constraints on <span class="arithmatex">\(f, p,\)</span> and <span class="arithmatex">\(c\)</span> to allow them to take continuous values within <span class="arithmatex">\([0, 1]\)</span>. This relaxation yields the Tokenisation Polytope, <span class="arithmatex">\(Q\)</span> (Eq. 6). By solving this LP using standard solvers, we obtain a fractional solution that defines the convex hull of all feasible tokeniser configurations.</p>
+<h3 id="rounding-schemes-det-bias-int">Rounding Schemes (Det, Bias, Int)</h3>
+<p>The fractional solution obtained from <span class="arithmatex">\(Q\)</span> must be converted back into a discrete, functional tokeniser vocabulary. We employ three distinct rounding schemes:
+1. <strong>Deterministic (Det):</strong> This scheme selects the top <span class="arithmatex">\(K\)</span> token candidates based on the continuous values derived from the LP solution.
+2. <strong>Biased (Bias):</strong> This method ranks token candidates based on the ratio <span class="arithmatex">\(c/\text{length}(c)\)</span>, providing a weighted selection criterion.
+3. <strong>Integral-only (Int):</strong> This scheme enforces a strict threshold, selecting only those token candidates where the continuous value <span class="arithmatex">\(c\)</span> is greater than or equal to <span class="arithmatex">\(0.999\)</span>.</p>
 <h2 id="results">Results</h2>
-<p>(No quantitative results were provided in the outline.)</p>
+<p>The empirical evaluation demonstrates the efficacy of the ConvexTok framework across various metrics:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Baseline</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Lower Bound Accuracy</td>
+<td style="text-align: left;">within 1% of optimal</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Empirical finding</td>
+</tr>
+<tr>
+<td style="text-align: left;">Intrinsic Metrics Performance</td>
+<td style="text-align: left;">consistently outperforms all other tokenisers</td>
+<td style="text-align: left;">Other tokenisers</td>
+<td style="text-align: left;">Evaluation using compression rate, vocabulary utilisation, and Rényi entropy</td>
+</tr>
+<tr>
+<td style="text-align: left;">Bits-per-Byte (BpB)</td>
+<td style="text-align: left;">consistently performed best</td>
+<td style="text-align: left;">BPE</td>
+<td style="text-align: left;">Downstream language modelling experiments</td>
+</tr>
+</tbody>
+</table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>World models serve as a predictive bridge from semantic intent to physically realizable behavior, directly addressing the limitations inherent in purely reactive VLA policies. The functional role of a world model must be action-conditioned; visually plausible but action-inconsistent futures offer limited value for closed-loop decision making. Consequently, the field is trending towards tighter integration, moving from decoupled pipelines toward single-backbone, MoE/MoT, unified VLA, and latent world-modeling designs.</p>
+<p>ConvexTok provides a mathematically rigorous framework for tokeniser design. By framing the problem as an optimization task, we move beyond heuristic search. Crucially, the LP relaxation allows us to quantify the quality of any resulting tokeniser; the solution to the LP provides a verifiable lower bound on the achievable compression. Furthermore, the flexibility in choosing between the Deterministic, Biased, or Integral-only rounding schemes allows practitioners to tune the trade-off between theoretical optimality and practical implementation constraints.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>It must be noted that this survey does not enforce a single narrow formal definition of a world model, acknowledging the diverse implementations in the literature. Furthermore, the focus is strictly on the functional role of world models for robot learning, which is a narrower scope than generic future prediction as studied in computer vision.</p>
+<p>The primary limitation stems from the necessary discretization step. Converting the continuous LP solution back into a discrete tokeniser via rounding inherently introduces approximation error. While ConvexTok shows strong performance on intrinsic metrics, its consistency in improving performance on downstream (CORE) tasks is less robust compared to its superior performance on Bits-per-Byte (BpB) metrics. Future work must investigate rounding schemes that minimize the gap between the LP relaxation and the true integer optimum.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.00080">2605.00080</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260500080</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{World Model for Robot Learning: A Comprehensive Survey}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Bohan Hou and Gen Li and Jindou Jia and Tuo An and Xinying Guo and Sicong Leng et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.00080}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.22821">2605.22821</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260522821</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Tokenisation via Convex Relaxations}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Jan Tempus and Philip Whittington and Craig W. Schmidt and Dennis Komm and Tiago Pimentel}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.22821}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.00080}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.22821}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
