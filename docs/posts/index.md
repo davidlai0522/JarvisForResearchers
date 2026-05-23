@@ -10,6 +10,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ConvexTok formulates tokeniser construction as a linear program relaxation of an NP-hard integer program, allowing for the computation of near-optimal tokenisers and providing lower bounds on compression.
 
+## [Explicit Stair Geometry Conditioning for Robust Humanoid Locomotion](2026-05-23-explicit-stair-geometry-conditioning-for-robust-humanoid-loc/)
+
+*2026-05-23*
+
+This paper introduces an explicit stair geometry conditioning framework that uses interpretable parameters like step height, step depth, and current yaw angle to condition a PPO-based locomotion policy for robust humanoid stair climbing.
+
 ## [Variance Reduction for Expectations with Diffusion Teachers](2026-05-22-variance-reduction-for-expectations-with-diffusion-teachers/)
 
 *2026-05-22*
