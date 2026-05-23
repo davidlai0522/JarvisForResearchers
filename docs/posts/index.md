@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Tokenisation via Convex Relaxations](2026-05-23-tokenisation-via-convex-relaxations/)
+
+*2026-05-23*
+
+ConvexTok formulates tokeniser construction as a linear program relaxation of an NP-hard integer program, allowing for the computation of near-optimal tokenisers and providing lower bounds on compression.
+
 ## [Variance Reduction for Expectations with Diffusion Teachers](2026-05-22-variance-reduction-for-expectations-with-diffusion-teachers/)
 
 *2026-05-22*
