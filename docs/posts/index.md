@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Which Way Did It Move? Diagnosing and Overcoming Directional Motion Blindness in Video-LLMs](2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/)
+
+*2026-05-24*
+
+The paper introduces MODIRECT and DeltaDirect to diagnose and overcome directional motion blindness in Video-LLMs, which stems from a direction binding gap where motion signals are present but not reliably linked to verbal answers.
+
 ## [Tokenisation via Convex Relaxations](2026-05-23-tokenisation-via-convex-relaxations/)
 
 *2026-05-23*
