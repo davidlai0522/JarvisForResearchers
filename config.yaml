@@ -52,16 +52,16 @@ quality:
   # Add or remove entries to match your field.
   # (Case-insensitive substring match — "NeurIPS" also matches "NeurIPS 2024")
   top_venues:
-  # Machine Learning
-  - NeurIPS
-  - ICML
-  - ICLR
-  - AAAI
-  - JMLR
-  # Computer Vision
-  - CVPR
-  - ICCV
-  - ECCV
+  # # Machine Learning
+  # - NeurIPS
+  # - ICML
+  # - ICLR
+  # - AAAI
+  # - JMLR
+  # # Computer Vision
+  # - CVPR
+  # - ICCV
+  # - ECCV
   # Robotics
   - ICRA
   - IROS
@@ -73,7 +73,6 @@ quality:
   - ACL
   - EMNLP
   - NAACL
-
   # Minimum citation counts for arXiv preprints based on paper age.
   # Papers from top venues above bypass these checks entirely.
   # Set any threshold to 0 to accept all papers of that age.
@@ -98,7 +97,6 @@ discovery:
   - cs.AI # Artificial Intelligence
   - cs.LG # Machine Learning
   - cs.CV # Computer Vision
-
   # How many recent papers to fetch per category on each daily run.
   # Higher values = more candidates to evaluate, but slower to start.
   fetch_per_category: 30
