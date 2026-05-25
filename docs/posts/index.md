@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Integrable Elasticity via Neural Demand Potentials](2026-05-25-integrable-elasticity-via-neural-demand-potentials/)
+
+*2026-05-25*
+
+The Integrable Context-Dependent Demand Network (ICDN) is a demand-first neural model that represents log-demand as a smooth, context-conditioned function of log-prices, allowing elasticities to be derived exactly as derivatives of the learned demand surface.
+
 ## [Which Way Did It Move? Diagnosing and Overcoming Directional Motion Blindness in Video-LLMs](2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/)
 
 *2026-05-24*
