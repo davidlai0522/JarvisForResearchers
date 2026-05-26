@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This work presents a comprehensive evaluation framework and benchmark suite, MultiNet v0.1, to systematically assess the capabilities and limitations of Vision-Language-Action (VLA) models like GPT-4o, OpenVLA, and JAT across 20 diverse real-world robotic tasks from the Open-X-Embodiment collection.
+        <meta name="description" content="SkillOpt introduces a systematic, controllable text-space optimizer that treats agent skills as an external state, allowing for deep-learning-style optimization of procedural knowledge without modifying the frozen target model weights.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/">
       
       
-        <link rel="prev" href="../2026-05-15-eva-bench-a-new-end-to-end-framework-for-evaluating-voice-ag/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-12-normalizing-trajectory-models/">
+        <link rel="next" href="../2026-05-25-integrable-elasticity-via-neural-demand-potentials/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Benchmarking Vision, Language, & Action Models on Robotic Learning Tasks - JarvisForResearchers</title>
+        <title>SkillOpt: Executive Strategy for Self-Evolving Agent Skills - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Benchmarking Vision, Language, & Action Models on Robotic Learning Tasks
+              SkillOpt: Executive Strategy for Self-Evolving Agent Skills
             
           </span>
         </div>
@@ -449,10 +449,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SkillOpt: Executive Strategy for Self-Evolving Agent Skills
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -468,6 +493,217 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frozen-target-model-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frozen Target Model (M)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill-document-s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill Document (s)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontier-optimizer-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontier Optimizer Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollout-batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollout Batch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reflection-minibatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflection Minibatch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-budget-mathbfl_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edit Budget (\(\mathbf{L}_t\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#held-out-validation-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Held-out Validation Gate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rejected-edit-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rejected-Edit Buffer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#epoch-wise-slowmeta-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Epoch-Wise Slow/Meta Update
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -813,35 +1049,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Benchmarking Vision, Language, & Action Models on Robotic Learning Tasks
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/" class="md-nav__link">
         
   
   
@@ -857,151 +1068,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#jat" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        JAT
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gpt-4o" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GPT-4o
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#openvla" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OpenVLA
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1504,10 +1570,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#jat" class="md-nav__link">
+  <a href="#frozen-target-model-m" class="md-nav__link">
     <span class="md-ellipsis">
       
-        JAT
+        Frozen Target Model (M)
       
     </span>
   </a>
@@ -1515,10 +1581,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#gpt-4o" class="md-nav__link">
+  <a href="#skill-document-s" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GPT-4o
+        Skill Document (s)
       
     </span>
   </a>
@@ -1526,10 +1592,76 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#openvla" class="md-nav__link">
+  <a href="#frontier-optimizer-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        OpenVLA
+        Frontier Optimizer Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollout-batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollout Batch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reflection-minibatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflection Minibatch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-budget-mathbfl_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edit Budget (\(\mathbf{L}_t\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#held-out-validation-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Held-out Validation Gate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rejected-edit-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rejected-Edit Buffer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#epoch-wise-slowmeta-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Epoch-Wise Slow/Meta Update
       
     </span>
   </a>
@@ -1606,80 +1738,60 @@
       
       
       
-        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:foundation-models" class="md-tag">foundation-models</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:generalization" class="md-tag">generalization</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
+        <a href="../../tags/#tag:nlp" class="md-tag">nlp</a>
       
     
   </nav>
 
 
 
-  <h1>Benchmarking Vision, Language, & Action Models on Robotic Learning Tasks</h1>
+  <h1>SkillOpt: Executive Strategy for Self-Evolving Agent Skills</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-14</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-05-26</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
-<p>arXiv preprint with 22 citations (≥ 20)</p>
+<p>Not yet indexed in S2 — assumed brand-new preprint</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>We introduce MultiNet v0.1, a systematic evaluation framework benchmarking three state-of-the-art Vision-Language-Action (VLA) models—JAT, GPT-4o, and OpenVLA—across 20 diverse, real-world robotic tasks sourced from the Open-X-Embodiment collection. The evaluation, conducted in a zero-shot setting using Mean Squared Error (MSE) as the primary metric, reveals that while these models show promise, they exhibit significant sensitivity to task complexity and environmental variance, particularly struggling with multi-step planning.</p>
+<p>SkillOpt formalizes agent skill refinement as optimization over an external natural-language state, allowing for systematic, deep-learning-style improvement of procedural knowledge for frozen target models. It achieves this via a structured optimization loop involving rollout evidence, reflection minibatches, and a strict held-out validation gate, yielding significant gains across diverse benchmarks.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>The integration of foundation models into robotics promises a paradigm shift toward general-purpose robotic systems capable of interpreting high-level natural language instructions and executing complex actions. However, the current state of research suffers from a lack of systematic evaluation across diverse robotic tasks. Many existing methodologies constrain foundation models to supervisory roles, effectively treating them as advanced state machines whose outputs are executed by separate, low-level controllers. Furthermore, there is an insufficient, large-scale comparison of different Behavior Cloning (BC) architectures when tested against a heterogeneous set of real-world robotic challenges. This gap prevents a clear understanding of the true generalization capabilities and inherent limitations of contemporary VLA models.</p>
+<p>Current methodologies for equipping autonomous agents with procedural knowledge—such as hand-crafting instructions, generating single-shot prompts, or employing rudimentary self-revision—suffer from inherent fragility. These approaches fail to reliably improve performance under iterative feedback, particularly when the underlying large language model (LLM) serving as the agent is a closed frontier model whose weights cannot be adapted. The gap lies in the lack of a systematic, controllable mechanism to train a compact, reusable domain skill artifact that can surpass its initial state without modifying the frozen target model weights.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>This work delivers three primary contributions to the field:
-1. Detailed profiling results for an initial set of VLM, VLA, and emerging "generalist" models, providing empirical insights into their operational capabilities and failure modes.
-2. A rigorous analysis of model generalization when applied to a diverse suite of real-world robotics datasets, encompassing a wide spectrum of tasks and environmental conditions.
-3. The establishment of a systematic set of evaluation splits and metrics specifically tailored for robotics learning tasks within the widely-utilized OpenX Dataset.</p>
+<p>We introduce SkillOpt, a framework that treats the agent's skill document as an external, optimizable state. This framework incorporates several novel elements: a harness-agnostic optimizer utilizing rollout batches, structured reflection minibatches, and a defined set of edit operations (add/delete/replace). Crucially, we implement textual learning rates and schedules, coupled with a strict held-out acceptance mechanism and a rejected-edit buffer. Furthermore, we integrate an epoch-wise slow/meta update to capture long-horizon regularities. Empirically, SkillOpt demonstrates superior or tied-superior performance across 52 out of 52 tested configurations (six benchmarks, seven target models, three execution harnesses). Finally, we validate the design through ablation studies and demonstrate the portability of the resulting skill artifact across different models and harnesses.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze. I will then follow your instructions precisely." src="../assets/figures/2411.05821/fig_p2_c1.jpg" />
-<em>Figure 1: Multinet v0.1 overview. Benchmarking a SoTA VLM, SoTA VLA, and novel generalist model on 20
-real-world robotics datasets by comparing the action predicted by the models, with the ground truth action from the
-dataset, at every timestep.</em></p>
-<p>The evaluation framework leverages the Open X-Embodiment Dataset (OpenX), which aggregates over one million real robot trajectories captured across 22 distinct robot embodiments. We profile three state-of-the-art models—JAT, GPT-4o, and OpenVLA—across 20 selected datasets. Performance quantification relies primarily on Mean Squared Error (MSE), defined as <span class="arithmatex">\(\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2\)</span>, where <span class="arithmatex">\(y_i\)</span> is the ground truth action and <span class="arithmatex">\(\hat{y}_i\)</span> is the predicted action. We also report Average MSE (AMSE) and Normalized AMSE (NAMSE). All models are assessed in a zero-shot configuration, which necessitates specific input preprocessing; for instance, JAT requires 4-channel image inputs, and GPT-4o demands comprehensive prompt engineering.</p>
-<h3 id="jat">JAT</h3>
-<p>JAT is architecturally defined as a transformer-based model featuring 768-dimensional hidden states and 12 layers. Its operational mechanism incorporates a dual attention strategy: a global attention mechanism operating over a 512-token window, complemented by a local attention mechanism constrained to a 256-token window.</p>
-<h3 id="gpt-4o">GPT-4o</h3>
-<p>GPT-4o functions as an omni-modal model. Its defining characteristic is its capacity to ingest and process heterogeneous inputs—including text, audio, image, and video—while simultaneously generating multi-modal outputs.</p>
-<h3 id="openvla">OpenVLA</h3>
-<p>OpenVLA is an open-source VLA model parameterized by 7 billion parameters. Its structure integrates a 600-million-parameter visual encoder, which is built upon SigLIP and DinoV2 models, with a 7-billion-parameter Llama 2 language model backbone.</p>
+<p><img alt="Please provide the figure you would like me to analyze. I will then follow your instructions precisely." src="../../assets/figures/2605.23904/fig_p2_c1.jpg" />
+*Figure 1 Overview of SkillOpt. The target model executes tasks with a current skill, an additional
+frontier optimizer model converts trajectories into bounded add/delete/replace skill edits, and a held-out
+gate accepts only edits that improve validation performance. Accepted edits are exported as a *</p>
+<p>SkillOpt operates by decoupling the optimization process from the target model's internal parameters. The <strong>Skill Document (<span class="arithmatex">\(\mathbf{s}\)</span>)</strong> serves as the trainable external state. The process begins by generating <strong>Rollout Batches</strong> by executing tasks from the training set (<span class="arithmatex">\(\mathcal{D}_{tr}\)</span>) using the current skill <span class="arithmatex">\(\mathbf{s}\)</span> on the <strong>Frozen Target Model (<span class="arithmatex">\(\mathbf{M}\)</span>)</strong>. The <strong>Frontier Optimizer Model</strong> then analyzes these trajectories, partitioning them into <strong>Reflection Minibatches</strong> (successes and failures) to propose structured edits (<span class="arithmatex">\(\text{add/delete/replace}\)</span>) to <span class="arithmatex">\(\mathbf{s}\)</span>. These proposed edits are governed by an <strong>Edit Budget (<span class="arithmatex">\(\mathbf{L}_t\)</span>)</strong>, which acts as the textual learning rate. Before application, every candidate skill resulting from an edit is evaluated by the <strong>Held-out Validation Gate</strong> on the validation set (<span class="arithmatex">\(\mathcal{D}_{sel}\)</span>); only edits that yield a strict improvement in validation score are accepted. Edits that fail validation are logged in the <strong>Rejected-Edit Buffer</strong> for subsequent negative feedback. To prevent catastrophic forgetting and capture durable knowledge, an <strong>Epoch-Wise Slow/Meta Update</strong> summarizes long-term trends into a protected field within <span class="arithmatex">\(\mathbf{s}\)</span>.</p>
+<h3 id="frozen-target-model-m">Frozen Target Model (M)</h3>
+<p>This is the LLM whose operational behavior is being refined. Its weights are fixed throughout the entire optimization lifecycle, ensuring that the optimization process remains external to the model's parameter space.</p>
+<h3 id="skill-document-s">Skill Document (s)</h3>
+<p>This is the core artifact of SkillOpt. It is a portable, natural-language document that encapsulates the agent's procedural knowledge. It functions as the external state that the optimizer manipulates.</p>
+<h3 id="frontier-optimizer-model">Frontier Optimizer Model</h3>
+<p>This is a separate, dedicated model responsible for the inference and reasoning over the collected execution data. Its function is to translate raw trajectory evidence from the <strong>Rollout Batch</strong> into discrete, actionable, and structured edits (<span class="arithmatex">\(\text{add/delete/replace}\)</span>) targeting the <strong>Skill Document (<span class="arithmatex">\(\mathbf{s}\)</span>)</strong>.</p>
+<h3 id="rollout-batch">Rollout Batch</h3>
+<p>This constitutes the primary evidence unit. It is generated by running the <strong>Frozen Target Model (<span class="arithmatex">\(\mathbf{M}\)</span>)</strong> on a subset of the training data (<span class="arithmatex">\(\mathcal{D}_{tr}\)</span>) using the current version of the <strong>Skill Document (<span class="arithmatex">\(\mathbf{s}\)</span>)</strong>.</p>
+<h3 id="reflection-minibatch">Reflection Minibatch</h3>
+<p>These are curated subsets of the trajectories derived from the <strong>Rollout Batch</strong>. They are specifically partitioned to isolate instances of success or failure, providing the <strong>Frontier Optimizer Model</strong> with focused evidence for proposing targeted procedural corrections.</p>
+<h3 id="edit-budget-mathbfl_t">Edit Budget (<span class="arithmatex">\(\mathbf{L}_t\)</span>)</h3>
+<p>This parameter functions analogously to a learning rate in gradient descent. It constrains the optimization step size by defining the maximum number of structural edits that can be applied to <span class="arithmatex">\(\mathbf{s}\)</span> at time step <span class="arithmatex">\(t\)</span>.</p>
+<h3 id="held-out-validation-gate">Held-out Validation Gate</h3>
+<p>This mechanism enforces conservative optimization. It evaluates the performance of any proposed skill modification on a separate, unseen validation set (<span class="arithmatex">\(\mathcal{D}_{sel}\)</span>). Acceptance is conditional on a <em>strict</em> improvement in the validation score, preventing the optimization from chasing spurious local optima.</p>
+<h3 id="rejected-edit-buffer">Rejected-Edit Buffer</h3>
+<p>This buffer serves as a repository for edits that were proposed but subsequently rejected by the <strong>Held-out Validation Gate</strong>. It allows the <strong>Frontier Optimizer Model</strong> to incorporate negative feedback—i.e., learning what <em>not</em> to do—in subsequent reflection steps.</p>
+<h3 id="epoch-wise-slowmeta-update">Epoch-Wise Slow/Meta Update</h3>
+<p>This process occurs periodically (at the end of an epoch). It is designed to distill high-level, durable insights from the entire epoch's learning into a protected section of the <strong>Skill Document (<span class="arithmatex">\(\mathbf{s}\)</span>)</strong>, providing a stable, long-horizon regularization signal that is distinct from the rapid, step-wise edits.</p>
 <h2 id="results">Results</h2>
-<p>The profiling across the 20 tasks yielded several observable trends regarding model robustness and capability.</p>
 <table>
 <thead>
 <tr>
@@ -1691,38 +1803,44 @@ dataset, at every timestep.</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Performance Consistency</td>
-<td style="text-align: left;">GPT-4o demonstrating the most consistent performance</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">Average gain over no skill (GPT-5.5, direct chat)</td>
+<td style="text-align: left;">+23.5 points</td>
+<td style="text-align: left;">no skill</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Task Difficulty</td>
-<td style="text-align: left;">All models struggle with complex manipulation tasks requiring multi-step planning</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">Average gain over no skill (GPT-5.5, Codex agentic loop)</td>
+<td style="text-align: left;">+24.8 points</td>
+<td style="text-align: left;">no skill</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Sensitivity</td>
-<td style="text-align: left;">Model performance is notably sensitive to action space characteristics and environmental factors</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">Average gain over no skill (GPT-5.5, Claude Code harness)</td>
+<td style="text-align: left;">+19.1 points</td>
+<td style="text-align: left;">no skill</td>
+<td style="text-align: left;">Table 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Average gain over strongest per-cell baseline (GPT-5.5)</td>
+<td style="text-align: left;">+5.4 points</td>
+<td style="text-align: left;">human-written, one-shot LLM, Trace2Skill, TextGrad, GEPA, and EvoSkill skills</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The findings underscore the critical need for systematic benchmarking when assessing the practical utility of generalist VLA models in robotics. The observed variance in performance across tasks and robot platforms confirms that a monolithic assessment is insufficient; task-specific evaluation is mandatory. Furthermore, the consistent difficulty observed in complex, multi-step planning highlights that current VLA architectures, despite their advanced perceptual and linguistic capabilities, have not yet overcome the fundamental challenge of robust, long-horizon sequential decision-making in unstructured environments.</p>
+<p>SkillOpt provides a rigorous, principled framework for enhancing agent capabilities without requiring access to the proprietary or computationally prohibitive weight space of frontier models. By externalizing the procedural knowledge into a structured, optimizable text artifact, we bridge the gap between the high-capacity, static knowledge of LLMs and the need for dynamic, iterative procedural refinement. The demonstrated portability and performance across heterogeneous environments confirm that the skill artifact is not merely a prompt engineering trick but a compact, reusable, and systematically trained piece of domain knowledge.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current evaluation is inherently constrained by its reliance on offline robotics trajectories; consequently, the models have not been tested on physical hardware. Additionally, certain datasets were necessarily excluded from the analysis due to technical barriers encountered during accessibility via the TensorFlow Datasets (TFDS) builder. Future work must address the transition from simulation/offline data to real-world deployment and explore architectural modifications to improve long-horizon planning capabilities.</p>
+<p>The current design necessitates the presence of an external <strong>Frontier Optimizer Model</strong>, which introduces a dependency and potential source of error into the overall pipeline. Furthermore, the <strong>Epoch-Wise Slow/Meta Update</strong> is implemented solely within the optimization framework and does not result in any modification to the <strong>Frozen Target Model (<span class="arithmatex">\(\mathbf{M}\)</span>)</strong>, meaning the durable knowledge captured is confined to the skill artifact itself. Future work should investigate methods to distill the meta-knowledge from the skill artifact back into the target model's context window or latent space more effectively.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2411.05821">2411.05821</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">241105821</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Benchmarking Vision, Language, &amp; Action Models on Robotic Learning Tasks}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Pranav Guruprasad and Harshvardhan Sikka and Jaewoo Song and Yangyue Wang and Paul Pu Liang}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2411.05821}</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2024}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2411.05821}</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.23904">2605.23904</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260523904</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{SkillOpt: Executive Strategy for Self-Evolving Agent Skills}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Yifan Yang and Ziyang Gong and Weiquan Huang and Qihao Yang and Ziwei Zhou and Zisu Huang et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.23904}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.23904}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
