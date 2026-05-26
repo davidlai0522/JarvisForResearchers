@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [SkillOpt: Executive Strategy for Self-Evolving Agent Skills](2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/)
+
+*2026-05-26*
+
+SkillOpt introduces a systematic, controllable text-space optimizer that treats agent skills as an external state, allowing for deep-learning-style optimization of procedural knowledge without modifying the frozen target model weights.
+
 ## [Integrable Elasticity via Neural Demand Potentials](2026-05-25-integrable-elasticity-via-neural-demand-potentials/)
 
 *2026-05-25*
