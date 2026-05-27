@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [TriSplat: Simulation-Ready Feed-Forward 3D Scene Reconstruction](2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi/)
+
+*2026-05-27*
+
+TriSplat is a feed-forward 3D scene reconstruction network that uses oriented triangle primitives to directly export simulation-ready mesh scenes from sparse, unposed images in a single forward pass.
+
 ## [SkillOpt: Executive Strategy for Self-Evolving Agent Skills](2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/)
 
 *2026-05-26*

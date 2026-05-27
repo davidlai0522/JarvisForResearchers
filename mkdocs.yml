@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "TriSplat: Simulation-Ready Feed-Forward 3D Scene Reconstruction": posts/2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi.md
     - "SkillOpt: Executive Strategy for Self-Evolving Agent Skills": posts/2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills.md
     - "Integrable Elasticity via Neural Demand Potentials": posts/2026-05-25-integrable-elasticity-via-neural-demand-potentials.md
     - "Which Way Did It Move? Diagnosing and Overcoming Directional Motion Blindness in Video-LLMs": posts/2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-.md
