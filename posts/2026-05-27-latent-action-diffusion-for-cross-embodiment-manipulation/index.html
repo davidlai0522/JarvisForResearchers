@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ATLAS is a framework that unifies agentic and latent visual reasoning by representing visual operations as discrete functional tokens within a standard autoregressive sequence, stabilized by Latent-Anchored GRPO (LA-GRPO) during RL training.
+        <meta name="description" content="This paper introduces Latent Action Diffusion to unify diverse end-effector action spaces into a semantically aligned latent space, enabling cross-embodiment policy learning for multi-robot control and skill transfer.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-27-latent-action-diffusion-for-cross-embodiment-manipulation/">
       
       
-        <link rel="prev" href="../2026-05-18-refdecoder-enhancing-visual-generation-with-conditional-vide/">
+        <link rel="prev" href="../2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi/">
       
       
-        <link rel="next" href="../2026-05-16-world-action-models-are-zero-shot-policies/">
+        <link rel="next" href="../2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both - JarvisForResearchers</title>
+        <title>Latent Action Diffusion for Cross-Embodiment Manipulation - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both
+              Latent Action Diffusion for Cross-Embodiment Manipulation
             
           </span>
         </div>
@@ -481,10 +481,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-05-27-latent-action-diffusion-for-cross-embodiment-manipulation/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Latent Action Diffusion for Cross-Embodiment Manipulation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -500,6 +525,162 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#action-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action Encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action-decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action Decoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#joint-latent-action-space-via-contrastive-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Joint Latent Action Space via Contrastive Loss
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diffusion-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diffusion Policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -761,35 +942,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/" class="md-nav__link">
         
   
   
@@ -805,162 +961,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#functional-token-textvfunc" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Functional Token (\(\text{Vfunc}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#atlas-178k" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ATLAS-178K
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#standard-grpo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Standard GRPO
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#latent-anchored-grpo-la-grpo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Latent-Anchored GRPO (LA-GRPO)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1575,10 +1575,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#functional-token-textvfunc" class="md-nav__link">
+  <a href="#action-encoder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Functional Token (\(\text{Vfunc}\))
+        Action Encoder
       
     </span>
   </a>
@@ -1586,10 +1586,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#atlas-178k" class="md-nav__link">
+  <a href="#action-decoder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ATLAS-178K
+        Action Decoder
       
     </span>
   </a>
@@ -1597,10 +1597,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#standard-grpo" class="md-nav__link">
+  <a href="#joint-latent-action-space-via-contrastive-loss" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Standard GRPO
+        Joint Latent Action Space via Contrastive Loss
       
     </span>
   </a>
@@ -1608,10 +1608,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#latent-anchored-grpo-la-grpo" class="md-nav__link">
+  <a href="#diffusion-policy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Latent-Anchored GRPO (LA-GRPO)
+        Diffusion Policy
       
     </span>
   </a>
@@ -1688,65 +1688,60 @@
       
       
       
-        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
+        <a href="../../tags/#tag:diffusion-models" class="md-tag">diffusion-models</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+        <a href="../../tags/#tag:manipulation" class="md-tag">manipulation</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:generalization" class="md-tag">generalization</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:nlp" class="md-tag">nlp</a>
+        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
       
     
   </nav>
 
 
 
-  <h1>ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both</h1>
+  <h1>Latent Action Diffusion for Cross-Embodiment Manipulation</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-17</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-05-27</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
-<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+<p>Quality gate skipped (S2 unreachable, manual override)</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>ATLAS unifies agentic and latent visual reasoning by encoding visual operations as discrete functional tokens (<span class="arithmatex">\(\text{Vfunc}\)</span>) within the standard autoregressive sequence. This approach avoids the computational burden of pixel-level generation and the latency of external tool calls, while LA-GRPO mitigates gradient dilution during RL fine-tuning.</p>
+<p>Latent Action Diffusion introduces a framework to unify heterogeneous end-effector action spaces into a semantically aligned latent space using contrastive learning. This allows for the training of a single, embodiment-agnostic Diffusion Policy, which can then control multiple robot morphologies via dedicated action decoders, enabling robust cross-embodiment skill transfer.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Visual reasoning tasks frequently require the agent to interact with or modify a visual state iteratively. Current paradigms face distinct bottlenecks. Models that generate pixel-level images directly suffer from prohibitive computational costs during both training and inference. Agentic frameworks, which rely on external execution environments (e.g., calling code interpreters or APIs), introduce significant context-switching latency. Conversely, latent-based methods, while efficient, often lack robust task generalization and introduce recurrent latent dependencies that fundamentally conflict with the parallelization capabilities of standard autoregressive training regimes.</p>
+<p>End-to-end learning in robotic manipulation is fundamentally constrained by two factors: data scarcity and the inherent heterogeneity of action spaces across different robot embodiments. This disparity creates a significant "embodiment gap," which severely impedes the development of policies capable of generalized cross-embodiment learning and effective skill transfer between robots of differing morphologies.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce ATLAS, a framework that represents visual operations as discrete functional tokens within the standard vocabulary. This design choice allows the entire reasoning trajectory to be modeled as a single, continuous autoregressive sequence, thereby circumventing the need for verbose intermediate visual states while maintaining compatibility with scalable autoregressive training pipelines. Furthermore, recognizing that sparse functional tokens suffer from gradient dilution during reinforcement learning, we propose Latent-Anchored GRPO (LA-GRPO), a token-anchored objective designed to stabilize and strengthen the optimization signal for these critical functional tokens. Finally, we demonstrate that ATLAS enables compact, single-token visual reasoning, achieving strong performance on complex benchmarks with substantially reduced operational overhead compared to prior methods.</p>
+<p>We present three primary contributions to address this challenge. First, we introduce a general framework that successfully unifies diverse end-effector action spaces into a single, semantically aligned latent space through the application of contrastive learning. Second, we demonstrate that factorizing the diffusion policy into a latent, embodiment-agnostic policy and corresponding embodiment-specific action decoders is a viable mechanism for achieving multi-robot control across substantially different robot morphologies. Finally, we provide empirical evidence of substantial real-world performance gains, achieving up to a 25.3% success rate improvement when utilizing cross-embodiment co-training compared to single-embodiment diffusion policies.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.15198/fig_p2_c1.jpg" />
-<em>Figure 1 Comparison of Visual Reasoning Paradigms. I: Unified models generate intermediate pixel-level images. II: Agentic
-methods rely on external code or tool execution. III: Latent methods conduct intermediate reasoning through latent
-embeddings. IV: ATLAS briges agentic and latent visual reasoni</em></p>
-<p>ATLAS achieves the unification of agentic and latent reasoning by fundamentally altering how visual actions are represented. Instead of generating continuous visual representations or invoking external functions, visual operations—such as drawing a line or placing a shape—are mapped to discrete functional tokens (<span class="arithmatex">\(\text{Vfunc}\)</span>). These <span class="arithmatex">\(\text{Vfunc}\)</span> tokens are integrated directly into the model's standard tokenizer vocabulary (<span class="arithmatex">\(\text{V} = \text{Vtext} \cup \text{Vspec} \cup \text{Vfunc}\)</span>). This architectural decision ensures the entire reasoning process remains confined within the discrete autoregressive sequence.</p>
-<p>The training procedure is bifurcated. Initially, the model undergoes Supervised Fine-Tuning (SFT) using the ATLAS-178K dataset to establish a baseline competency in invoking these functional tokens. Following SFT, the model is refined using reinforcement learning. While standard GRPO can be applied, the sparsity of <span class="arithmatex">\(\text{Vfunc}\)</span> tokens leads to gradient dilution. To counteract this, we employ Latent-Anchored GRPO (LA-GRPO), which augments the sequence-level GRPO objective with a dedicated token-level auxiliary loss (<span class="arithmatex">\(\mathcal{L}_{\text{token}}\)</span>) specifically applied at the positions corresponding to <span class="arithmatex">\(\text{Vfunc}\)</span>, thereby providing a persistent and targeted learning signal.</p>
-<h3 id="functional-token-textvfunc">Functional Token (<span class="arithmatex">\(\text{Vfunc}\)</span>)</h3>
-<p>The <span class="arithmatex">\(\text{Vfunc}\)</span> set comprises a compact vocabulary of discrete tokens, including <span class="arithmatex">\(\{\text{&lt;|Manip|&gt;}, \text{&lt;|Shape|&gt;}, \text{&lt;|Line|&gt;}, \text{&lt;|Arrow|&gt;}, \text{&lt;|Text|&gt;}\}\)</span>. These tokens function as abstract instructions, representing internalized visual operations. Crucially, they are treated identically to standard text or specification tokens within the model's tokenizer vocabulary, allowing the entire sequence to be processed uniformly by the autoregressive decoder.</p>
-<h3 id="atlas-178k">ATLAS-178K</h3>
-<p>ATLAS-178K serves as the foundational dataset for the initial SFT phase. It is a curated collection encompassing over 40 distinct visual reasoning tasks. Its purpose is to provide the model with a robust, pre-trained understanding of when and how to invoke the functional tokens, establishing the necessary cold start for subsequent RL optimization.</p>
-<h3 id="standard-grpo">Standard GRPO</h3>
-<p>The reinforcement learning optimization relies on the standard GRPO algorithm. The objective function is composite, designed to balance multiple objectives: <span class="arithmatex">\(r(o) = \lambda_{\text{acc}}r_{\text{acc}} + \lambda_{\text{func}}r_{\text{func}} + \lambda_{\text{fmtr}}r_{\text{fmt}} - \lambda_{\text{len}}p_{\text{len}} - \lambda_{\text{spam}}p_{\text{spam}}\)</span>. This formulation guides the agent toward high accuracy (<span class="arithmatex">\(r_{\text{acc}}\)</span>), effective use of functional operations (<span class="arithmatex">\(r_{\text{func}}\)</span>), and adherence to formatting constraints (<span class="arithmatex">\(r_{\text{fmt}}\)</span>), while penalizing excessive length (<span class="arithmatex">\(p_{\text{len}}\)</span>) and irrelevant output (<span class="arithmatex">\(p_{\text{spam}}\)</span>).</p>
-<h3 id="latent-anchored-grpo-la-grpo">Latent-Anchored GRPO (LA-GRPO)</h3>
-<p>LA-GRPO is the critical enhancement to the standard GRPO framework. It addresses the issue of gradient dilution inherent when optimizing for sparse, high-leverage tokens like <span class="arithmatex">\(\text{Vfunc}\)</span>. LA-GRPO achieves this by introducing a token-level auxiliary loss, <span class="arithmatex">\(\mathcal{L}_{\text{token}}\)</span>. This loss is explicitly anchored to the positions of the functional tokens, ensuring that even when the overall sequence reward is noisy or sparse, the functional tokens receive a consistent, targeted learning signal that strengthens their optimization trajectory.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2506.14608/fig_p1_c1.jpg" />
+<em>Fig. 1: Overview of our approach. Left: We construct a semantically aligned latent action space by training modality-specific
+encoders and decoders with a contrastive loss on retargeted end-effector (EEF) pose data from diverse end-effectors (dexterous
+hands, parallel gripper). Right: A single diffu</em></p>
+<p>The overall framework operates by first establishing a common, semantically aligned latent action space. This is achieved by training modality-specific encoders and decoders using a contrastive loss applied to retargeted end-effector (EEF) pose data sourced from various end-effectors. Paired action data is generated using established retargeting functions, such as those derived from keyvectors, to facilitate this alignment.</p>
+<p>The learning process for the latent action space proceeds in two distinct stages. Initially, the encoders are trained using a pairwise InfoNCE loss. Subsequently, the decoders are trained to minimize the reconstruction loss (<span class="arithmatex">\(L_{recon}\)</span>). The total objective function governing this alignment is defined as <span class="arithmatex">\(L_{total} = L_{recon} + \lambda L_{contrastive}\)</span>.</p>
+<p>Once this shared latent space is established, a Diffusion Policy is trained exclusively within this latent domain. Crucially, during this final policy training phase, the modality-specific encoders and decoders are frozen. This freezing allows a single, embodiment-agnostic policy to govern the control, which then interfaces with multiple robot morphologies via their respective, pre-trained embodiment-specific action decoders.</p>
+<h3 id="action-encoder">Action Encoder</h3>
+<p>The Action Encoder is responsible for projecting the raw actions originating from each input modality (<span class="arithmatex">\(x_m\)</span>) into the shared, unified latent space (<span class="arithmatex">\(q_{m,m}\)</span>).</p>
+<h3 id="action-decoder">Action Decoder</h3>
+<p>The Action Decoder is tasked with the inverse mapping: learning to reconstruct the original ground truth actions (<span class="arithmatex">\(\hat{x}_i\)</span>) from the latent representations (<span class="arithmatex">\(p_{m,m}\)</span>) provided by the latent space.</p>
+<h3 id="joint-latent-action-space-via-contrastive-loss">Joint Latent Action Space via Contrastive Loss</h3>
+<p>This component enforces the necessary cross-modal alignment within the training batch. It utilizes the pairwise InfoNCE loss (<span class="arithmatex">\(L_{contrastive}\)</span>) to ensure that latent representations corresponding to semantically equivalent actions, even if derived from different physical embodiments, are pulled closer in the latent manifold.</p>
+<h3 id="diffusion-policy">Diffusion Policy</h3>
+<p>The Diffusion Policy operates in the shared latent space. Its function is to map shared observational inputs across different datasets to the target latent end-effector actions and any non-latent wrist poses. This policy is trained specifically on the denoised latent actions.</p>
 <h2 id="results">Results</h2>
+<p>The efficacy of the cross-embodiment co-training approach was quantified against established baselines.</p>
 <table>
 <thead>
 <tr>
@@ -1758,26 +1753,26 @@ embeddings. IV: ATLAS briges agentic and latent visual reasoni</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Performance</td>
-<td style="text-align: left;">Superior performance</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Extensive experiments and analyses</td>
+<td style="text-align: left;">Manipulation Success Rate Improvement</td>
+<td style="text-align: left;">up to 25.3%</td>
+<td style="text-align: left;">single-embodiment diffusion policies</td>
+<td style="text-align: left;">Fig. 4</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The ATLAS framework provides a principled mechanism to bridge the gap between symbolic, agentic reasoning and continuous, latent visual processing within a single, scalable autoregressive model. By tokenizing operations, we effectively internalize the "tool-use" capability of agentic systems into the language model's generative capacity, eliminating the overhead associated with external execution environments. Furthermore, the LA-GRPO mechanism offers a concrete solution to a known theoretical challenge—gradient dilution—when applying RL to sparse, critical control tokens, thereby enabling more stable and effective fine-tuning for complex visual tasks.</p>
+<p>This work provides a principled methodology for mitigating the embodiment gap in robotic skill transfer. By decoupling the policy's decision-making process (the latent policy) from the physical actuation mechanism (the embodiment-specific decoders), we enable the transfer of high-level skills across robots with fundamentally different kinematics and end-effector geometries. The utilization of contrastive learning offers a data-efficient mechanism to bridge these heterogeneous action spaces without requiring exhaustive, embodiment-specific retraining.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current functional token taxonomy is not intended to be exhaustive; the scope of operations represented by <span class="arithmatex">\(\text{Vfunc}\)</span> is necessarily constrained by the initial design choices. Additionally, while LA-GRPO mitigates gradient dilution, the paper acknowledges that this issue remains a relevant consideration when employing standard GRPO in similar sparse token optimization scenarios.</p>
+<p>A primary limitation of the current methodology is its reliance on predefined retargeting functions to establish the initial alignment between disparate action spaces. The quality of the latent space is thus partially dependent on the fidelity of these retargeting functions. Furthermore, the demonstrated performance gains are currently validated across a specific set of tasks, namely Block Stacking, Block Pick &amp; Place, and Plush Toy Pick &amp; Place. Future work should investigate the robustness of this framework when applied to tasks requiring fine-grained, non-geometric interaction.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.15198">2605.15198</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260515198</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Ziyu Guo and Rain Liu and Xinyan Chen and Pheng-Ann Heng}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.15198}</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.15198}</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2506.14608">2506.14608</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">250614608</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Latent Action Diffusion for Cross-Embodiment Manipulation}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Erik Bauer and Elvis Nava and Robert K. Katzschmann}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2506.14608}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2025}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2506.14608}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
