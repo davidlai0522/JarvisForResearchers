@@ -10,6 +10,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 TriSplat is a feed-forward 3D scene reconstruction network that uses oriented triangle primitives to directly export simulation-ready mesh scenes from sparse, unposed images in a single forward pass.
 
+## [Latent Action Diffusion for Cross-Embodiment Manipulation](2026-05-27-latent-action-diffusion-for-cross-embodiment-manipulation/)
+
+*2026-05-27*
+
+This paper introduces Latent Action Diffusion to unify diverse end-effector action spaces into a semantically aligned latent space, enabling cross-embodiment policy learning for multi-robot control and skill transfer.
+
 ## [SkillOpt: Executive Strategy for Self-Evolving Agent Skills](2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/)
 
 *2026-05-26*
