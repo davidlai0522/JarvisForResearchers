@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Algorithmic Monocultures in Hiring](2026-05-28-algorithmic-monocultures-in-hiring/)
+
+*2026-05-28*
+
+This study investigates algorithmic monoculture in hiring by analyzing a novel dataset from the vendor pymetrics, finding clear racial disparities and systemic rejection patterns when examining hiring decisions on a per-position basis.
+
 ## [TriSplat: Simulation-Ready Feed-Forward 3D Scene Reconstruction](2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi/)
 
 *2026-05-27*
