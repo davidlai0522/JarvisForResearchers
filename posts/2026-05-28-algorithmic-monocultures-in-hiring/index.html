@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="BAMI introduces a training-free inference framework that mitigates precision and ambiguity biases in GUI grounding by employing coarse-to-fine focus and candidate selection manipulations.
+        <meta name="description" content="This study investigates algorithmic monoculture in hiring by analyzing a novel dataset from the vendor pymetrics, finding clear racial disparities and systemic rejection patterns when examining hiring decisions on a per-position basis.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-28-algorithmic-monocultures-in-hiring/">
       
       
-        <link rel="prev" href="../2026-05-12-normalizing-trajectory-models/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/">
+        <link rel="next" href="../2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>BAMI: Training-Free Bias Mitigation in GUI Grounding - JarvisForResearchers</title>
+        <title>Algorithmic Monocultures in Hiring - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              BAMI: Training-Free Bias Mitigation in GUI Grounding
+              Algorithmic Monocultures in Hiring
             
           </span>
         </div>
@@ -455,10 +455,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-05-28-algorithmic-monocultures-in-hiring/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithmic Monocultures in Hiring
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -474,6 +499,162 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pymetrics-machine-learning-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pymetrics machine learning model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment-games" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assessment Games
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#probabilistic-score-p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Probabilistic Score (\(p\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binary-outcome-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Binary Outcome (\(y\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -959,35 +1140,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    BAMI: Training-Free Bias Mitigation in GUI Grounding
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/" class="md-nav__link">
         
   
   
@@ -1003,162 +1159,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#masked-prediction-distribution-mpd" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Masked Prediction Distribution (MPD)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#coarse-to-fine-focus" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Coarse-to-Fine Focus
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#candidate-selection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Candidate Selection
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#correction-model-m" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Correction Model (m)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1605,10 +1605,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#masked-prediction-distribution-mpd" class="md-nav__link">
+  <a href="#pymetrics-machine-learning-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Masked Prediction Distribution (MPD)
+        pymetrics machine learning model
       
     </span>
   </a>
@@ -1616,10 +1616,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#coarse-to-fine-focus" class="md-nav__link">
+  <a href="#assessment-games" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Coarse-to-Fine Focus
+        Assessment Games
       
     </span>
   </a>
@@ -1627,10 +1627,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#candidate-selection" class="md-nav__link">
+  <a href="#probabilistic-score-p" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Candidate Selection
+        Probabilistic Score (\(p\))
       
     </span>
   </a>
@@ -1638,10 +1638,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#correction-model-m" class="md-nav__link">
+  <a href="#binary-outcome-y" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Correction Model (m)
+        Binary Outcome (\(y\))
       
     </span>
   </a>
@@ -1721,52 +1721,44 @@
         <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
       
     
-      
-      
-      
-      
-        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:manipulation" class="md-tag">manipulation</a>
-      
-    
   </nav>
 
 
 
-  <h1>BAMI: Training-Free Bias Mitigation in GUI Grounding</h1>
+  <h1>Algorithmic Monocultures in Hiring</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-10</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-05-28</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Brand new preprint (2026) — accepted</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>BAMI introduces a training-free inference framework that mitigates precision and ambiguity biases in GUI grounding by employing coarse-to-fine focus and candidate selection manipulations.</p>
+<p>This study analyzes a large-scale dataset from the pymetrics vendor to demonstrate that reliance on a single algorithmic hiring system (algorithmic monoculture) results in measurable racial disparities and systemic rejection patterns when evaluated on a per-position basis.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Existing GUI grounding models exhibit suboptimal performance when evaluated on complex benchmarks such as ScreenSpot-Pro. This degradation is primarily attributable to two systematic biases: precision bias, which arises from the high resolution of input images, and ambiguity bias, which is exacerbated by the intricate nature of modern user interfaces.</p>
-<p>The limitations of current approaches are multifaceted. Traditional gradient-based attribution methods are fundamentally ill-suited for the discrete nature of the text-to-coordinate conversion task. Furthermore, while language-space enhancement techniques, such as Chain-of-Thought prompting, have been explored, they have demonstrated limited efficacy for achieving the necessary precision in GUI grounding. Fundamentally, the underlying Multimodal Large Language Models (MLLMs) often possess inherent inductive biases—namely precision bias and ambiguity bias—that constrain their capacity for robust spatial reasoning.</p>
+<p>Many organizations utilize hiring algorithms sourced from a limited set of third-party vendors. This reliance establishes an algorithmic monoculture. We hypothesize that this homogeneity in deployed models can lead to homogeneous, and potentially discriminatory, hiring outcomes, disproportionately affecting certain demographic groups. Prior research has shown no significant differences when analyzing aggregate selection rates across all applications from pymetrics. Furthermore, previous studies have been limited by the inability to observe cross-employer rejection patterns or to analyze outcomes as they occur in deployment.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We present three primary contributions to address these limitations. First, we introduce the Masked Prediction Distribution (MPD) method, which serves as a diagnostic tool to categorize grounding failures into either knowledge deficiency or inductive bias. Second, we mitigate precision bias by reframing the single-step localization problem into a multi-step, progressive search mechanism via hierarchical coarse-to-fine focus. Third, we correct ambiguity bias by integrating an external Candidate Selection mechanism, which is guided by predefined prompt rules.</p>
+<p>This work makes three primary contributions:
+1. It presents the first empirical study observing deployed algorithmic hiring decisions across multiple employers utilizing a single vendor.
+2. It provides quantitative evidence of systemic rejections occurring at scale due to the operational deployment of these hiring algorithms.
+3. It introduces methodological approaches that leverage the deterministic replicability of the underlying algorithms to generate robust counterfactual outcome simulations.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.06664/fig_p1_c1.jpg" />
-<em>Figure 1. Compared with conventional grounding models, BAMI
-achieves accurate localization without additional training via struc-
-tured inference with bias-aware manipulations.</em></p>
-<p>BAMI reframes the standard one-step localization task into a recursive, multi-step structured inference process. The core strategy involves iterative refinement to combat precision bias and structured candidate generation followed by external validation to address ambiguity bias. This entire framework is designed to operate in a training-free manner, enabling direct application atop existing open-source backbone models.</p>
-<h3 id="masked-prediction-distribution-mpd">Masked Prediction Distribution (MPD)</h3>
-<p>The MPD method functions by systematically probing the model's focus. It achieves this by randomly occluding various regions of the input screenshot. The model's prediction frequencies are then aggregated across 300 distinct perturbations for each sample. This aggregation allows us to map the model's internal focus distribution, which is critical for diagnosing whether a failure is due to a lack of underlying knowledge or an artifact of the model's inherent inductive biases.</p>
-<h3 id="coarse-to-fine-focus">Coarse-to-Fine Focus</h3>
-<p>To counteract precision bias, we decompose the localization task into a hierarchy of steps. This process is implemented as a progressive search. In each iterative step, the candidate region identified in the preceding round is refined by cropping the original image. This cropping is performed at a scale factor <span class="arithmatex">\(\lambda &lt; 1\)</span>, effectively zooming into the area of interest and allowing for finer coordinate resolution in subsequent predictions.</p>
-<h3 id="candidate-selection">Candidate Selection</h3>
-<p>To resolve ambiguity bias, we move beyond relying on a single prediction. Instead, we generate multiple, mutually exclusive candidate bounding boxes. These candidates are produced through multi-round masked prediction operations. The subsequent selection of the optimal box is not left to the primary MLLM output; rather, it is delegated to an external mechanism guided by predefined prompt rules.</p>
-<h3 id="correction-model-m">Correction Model (m)</h3>
-<p>The Correction Model (<span class="arithmatex">\(m\)</span>) is the external component leveraged during the Candidate Selection phase. Its role is to rectify the erroneous selection preferences exhibited by the grounding model. It operates by evaluating the set of mutually exclusive candidates against a set of prompt rules that encode established GUI priors, such as expected functional features or common UI patterns, thereby selecting the most plausible box.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.27371/fig_p2_c1.jpg" />
+<em>Fig. 1. The pymetrics process. Stage 1: Applicants apply to positions. Stage 2: Applicants are directed to the pymetrics
+platform to play assessment games. Stage 3: pymetrics algorithms use applicant gameplay features to recommend 58.2%
+of applicants per position on average. Stage 4: Employers decid</em></p>
+<p>The analysis utilized a dataset comprising 4,197,168 job applications submitted by 3,372,132 applicants across 1,746 distinct positions, all processed by pymetrics' machine learning model. The model outputs a probabilistic score, <span class="arithmatex">\(p \in [0, 1]\)</span>, which is subsequently binarized at a threshold <span class="arithmatex">\(t=0.5\)</span> to yield the final recommendation, <span class="arithmatex">\(y\)</span>. To move beyond the limitations of aggregate analysis, the study rigorously re-examined adverse impact metrics on a per-position basis. Crucially, the deterministic nature of the algorithms allowed us to simulate counterfactual scenarios, determining the outcome an applicant would have received if they had applied to every available position.</p>
+<h3 id="pymetrics-machine-learning-model">pymetrics machine learning model</h3>
+<p>This component functions as a binary classifier, trained specifically for each client organization. Its input features are derived from the applicants' performance within the Assessment Games. The training process is supervised, where positive examples are defined as the gameplay features exhibited by at least 50 current employees within that specific role.</p>
+<h3 id="assessment-games">Assessment Games</h3>
+<p>These are 16 proprietary online games developed by pymetrics. Their function is to quantify various cognitive traits in the applicants, including measures of risk propensity, processing speed, trust, altruism, and planning ability. These gameplay metrics serve as the input features for the downstream classification model.</p>
+<h3 id="probabilistic-score-p">Probabilistic Score (<span class="arithmatex">\(p\)</span>)</h3>
+<p>This is the direct output of the trained machine learning model for any given applicant's set of gameplay features. It represents the model's estimated probability, <span class="arithmatex">\(p \in [0, 1]\)</span>, that the applicant meets the criteria for a positive recommendation for the specific role.</p>
+<h3 id="binary-outcome-y">Binary Outcome (<span class="arithmatex">\(y\)</span>)</h3>
+<p>This is the final, actionable decision. It is derived by applying a fixed threshold, <span class="arithmatex">\(t=0.5\)</span>, to the probabilistic score <span class="arithmatex">\(p\)</span>. If <span class="arithmatex">\(p \ge 0.5\)</span>, the outcome is <span class="arithmatex">\(y=1\)</span> ('recommend'); otherwise, <span class="arithmatex">\(y=0\)</span> ('do not recommend').</p>
 <h2 id="results">Results</h2>
-<p>The application of BAMI demonstrates a measurable improvement over established baselines on the ScreenSpot-Pro benchmark.</p>
+<p>The analysis revealed significant disparities when examining outcomes at the granular, per-position level.</p>
 <table>
 <thead>
 <tr>
@@ -1778,26 +1770,50 @@ tured inference with bias-aware manipulations.</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Accuracy on ScreenSpot-Pro benchmark</td>
-<td style="text-align: left;">57.8%</td>
-<td style="text-align: left;">51.9%</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">Adverse Impact against Black applicants (per position)</td>
+<td style="text-align: left;">10.62%</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Section 3.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Percentage of Black applicants applying to at least one adversely impacting position</td>
+<td style="text-align: left;">30.70%</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Section 3.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Percentage of all applications submitted by Black applicants to adversely impacting positions</td>
+<td style="text-align: left;">25.87%</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Section 3.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Systemic rejection rate (applicants applying to 10 positions rejected from all)</td>
+<td style="text-align: left;">4%</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Section 3.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Exponential decay rate for systemic rejection</td>
+<td style="text-align: left;"><span class="arithmatex">\(R^2 = 0.984\)</span></td>
+<td style="text-align: left;">Predicted by chance</td>
+<td style="text-align: left;">Section 3.1</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The practitioner takeaways from this work are significant. First, BAMI demonstrates that inference-time reasoning design, as opposed to costly model retraining, can yield substantial performance gains in complex tasks like GUI grounding. Second, the systematic error diagnosis provided by MPD is a crucial methodological advance, enabling researchers to precisely differentiate between failures rooted in knowledge gaps versus those stemming from model inductive biases. Finally, for tasks involving high-resolution inputs, the decomposition strategy inherent in coarse-to-fine focus provides a viable, effective mechanism to circumvent the limitations imposed by discretization.</p>
+<p>The findings underscore a critical vulnerability in modern talent acquisition pipelines: algorithmic monoculture. The evidence demonstrates that relying on a single vendor's model, even when applied across different client organizations, can lead to systemic rejection. The observation of a <span class="arithmatex">\(4\%\)</span> systemic rejection rate, coupled with an exponential decay rate of <span class="arithmatex">\(R^2 = 0.984\)</span>, suggests that once an applicant is flagged by the model for a specific set of traits, they face a high probability of rejection across multiple roles evaluated by the same system. This necessitates a shift in focus from aggregate compliance metrics to granular, per-position auditing of vendor-mediated systems.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>We acknowledge specific limitations in the current formulation. The coarse-to-fine focus strategy necessitates a trade-off between the number of iterations performed and the chosen crop ratio (<span class="arithmatex">\(\lambda\)</span>). If the cropping is too aggressive, there is a risk of losing critical contextual information necessary for accurate localization. Furthermore, the efficacy of the entire ambiguity correction pipeline is contingent upon the quality and completeness of the prompt design utilized by the external Correction Model (<span class="arithmatex">\(m\)</span>). Future work must focus on optimizing this prompt engineering aspect.</p>
+<p>The current study has two primary limitations. First, it does not provide any assessment regarding the validity or predictive accuracy of the features derived from the Assessment Games themselves. Second, the analysis is constrained by the data provided by pymetrics, which is subject to non-disclosure agreements concerning proprietary information related to the client companies. Future work must address the causal validity of the input features and explore mechanisms for independent, external validation of these vendor systems.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.06664">2605.06664</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260506664</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{BAMI: Training-Free Bias Mitigation in GUI Grounding}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Borui Zhang and Bo Zhang and Bo Wang and Wenzhao Zheng and Yuhao Cheng and Liang Tang et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.06664}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.27371">2605.27371</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260527371</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Algorithmic Monocultures in Hiring}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Rishi Bommasani and Sarah H. Bana and Kathleen A. Creel and Dan Jurafsky and Percy Liang}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.27371}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.06664}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.27371}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
