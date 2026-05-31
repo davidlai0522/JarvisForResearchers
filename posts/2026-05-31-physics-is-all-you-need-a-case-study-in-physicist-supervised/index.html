@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="EUREKA is a novel reward design algorithm powered by coding Large Language Models (LLMs) that autonomously generates human-level reward functions for complex reinforcement learning tasks through evolutionary optimization.
+        <meta name="description" content="This case study details how a physicist supervised an AI coding agent (Claude Code, Sonnet, and Opus) over 12 work days and 57 sessions to build a differentiable one-loop perturbation theory module (CLAX-PT §), demonstrating that the supervision protocol, not model capability, was key to achieving trustworthy scientific software.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised/">
       
       
-        <link rel="prev" href="../2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/">
+        <link rel="next" href="../2026-05-28-algorithmic-monocultures-in-hiring/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Eureka: Human-Level Reward Design via Coding Large Language Models - JarvisForResearchers</title>
+        <title>Physics Is All You Need? A Case Study in Physicist-Supervised AI Development of Scientific Software - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Eureka: Human-Level Reward Design via Coding Large Language Models
+              Physics Is All You Need? A Case Study in Physicist-Supervised AI Development of Scientific Software
             
           </span>
         </div>
@@ -457,10 +457,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics Is All You Need? A Case Study in Physicist-Supervised AI Development of Scientific Software
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -476,6 +501,162 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ai-coding-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Coding Agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clax-pt-s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLAX-PT \(\S\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-pt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLASS-PT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supervision-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supervision Protocol
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1269,35 +1450,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Eureka: Human-Level Reward Design via Coding Large Language Models
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/" class="md-nav__link">
         
   
   
@@ -1313,151 +1469,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#environment-as-context" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Environment as Context
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#evolutionary-search" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Evolutionary Search
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reward-reflection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reward Reflection
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters-for-robotics" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters for Robotics
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1624,10 +1635,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#environment-as-context" class="md-nav__link">
+  <a href="#ai-coding-agent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Environment as Context
+        AI Coding Agent
       
     </span>
   </a>
@@ -1635,10 +1646,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#evolutionary-search" class="md-nav__link">
+  <a href="#clax-pt-s" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Evolutionary Search
+        CLAX-PT \(\S\)
       
     </span>
   </a>
@@ -1646,10 +1657,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#reward-reflection" class="md-nav__link">
+  <a href="#class-pt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reward Reflection
+        CLASS-PT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supervision-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supervision Protocol
       
     </span>
   </a>
@@ -1673,10 +1695,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-this-matters-for-robotics" class="md-nav__link">
+  <a href="#why-this-matters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why This Matters for Robotics
+        Why This Matters
       
     </span>
   </a>
@@ -1726,64 +1748,46 @@
       
       
       
-        <a href="../../tags/#tag:ai" class="md-tag">AI</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
       
     
   </nav>
 
 
 
-  <h1>Eureka: Human-Level Reward Design via Coding Large Language Models</h1>
+  <h1>Physics Is All You Need? A Case Study in Physicist-Supervised AI Development of Scientific Software</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-01</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-05-31</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Brand new preprint (2026) — accepted</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>EUREKA is a novel reward design algorithm powered by coding Large Language Models (LLMs) that autonomously generates human-level reward functions for complex reinforcement learning tasks through evolutionary optimization.</p>
+<p>This case study documents the supervised construction of a differentiable one-loop perturbation theory module (<span class="arithmatex">\(\text{CLAX-PT}\S\)</span>) by a physicist guiding an AI coding agent over 12 work days and 57 sessions. The primary finding is that the efficacy of the resulting scientific software hinges on the rigor of the supervision protocol—specifically, enforcing diverse parameter testing and prohibiting unphysical numerical fixes—rather than solely on the inherent capabilities of the underlying language models (Claude Code, Sonnet, and Opus).</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Harnessing Large Language Models (LLMs) to learn complex low-level manipulation tasks remains an open problem. Concurrently, designing effective reward functions for Reinforcement Learning (RL) is notoriously difficult. Empirical data suggests this difficulty is significant: 92% of polled RL researchers report relying on manual trial-and-error for reward design, and 89% indicate that the rewards they design are sub-optimal.</p>
-<p>Prior efforts have shown limitations. Existing attempts to leverage LLMs for low-level manipulation tasks often necessitate substantial domain expertise to construct appropriate task prompts or are restricted to learning only simple skills. Furthermore, prior work such as L2R (Yu et al., 2023) is constrained by its reliance on templated rewards, lacking the expressivity afforded by EUREKA's free-form generation capabilities. Ultimately, manual reward engineering is a tedious process that frequently yields sub-optimal rewards, leading to undesirable emergent behaviors in the trained policy.</p>
+<p>The validation of scientific software demands a standard of correctness defined by adherence to underlying physical laws, a criterion fundamentally distinct from mere syntactic compilation or the passage of unit tests. Existing automated benchmarks fail to capture this physical correctness. Furthermore, while fully autonomous multi-agent systems are being explored, they currently lack the sustained, domain-specific human oversight necessary to validate complex scientific implementations against established physical principles. A critical gap remains in equipping AI agents to differentiate between a model that is merely predictive (passes tests) and one that is explanatorily correct (derives from sound physics), especially when confronted with structural incompatibilities in physical models.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We present three primary contributions. First, EUREKA achieves human-level performance in reward design across a diverse suite of 29 open-sourced RL environments, which encompass 10 distinct robot morphologies. Crucially, it outperforms expert human rewards on 83% of these tasks, achieving an average normalized improvement of 52%. Second, EUREKA successfully solves dexterous manipulation tasks, such as pen spinning, for which manual reward engineering has historically been infeasible. This was demonstrated using a simulated Shadow Hand within a curriculum learning framework. Third, the framework enables a novel gradient-free in-context learning approach to Reinforcement Learning from Human Feedback (RLHF). This approach generates more performant and human-aligned reward functions based on various forms of human input without requiring any underlying model updating.</p>
+<p>We present a quantified case study (<span class="arithmatex">\(N=1\)</span>) detailing the process of a physicist supervising an AI coding agent to construct <span class="arithmatex">\(\text{CLAX-PT}\S\)</span>. Crucially, we demonstrate that the supervision protocol implemented was the dominant factor determining the trustworthiness of the agent's final output, superseding the raw capability of the models employed. This work formalizes and applies three essential supervision practices: testing the code across a diverse set of parameter points, maintaining a shared, explicit changelog, and enforcing a strict rule against introducing unphysical numerical patches.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Figure 1: EUREKA generates human-level reward functions across diverse robots and tasks. Combined with
-curriculum learning, EUREKA for the first time, unlocks rapid pen-spinning capabilities on an anthropomorphic
-five-finger hand." src="../../assets/figures/2310.12931/fig_p1_0.jpg" />
-<em>Figure 1: EUREKA generates human-level reward functions across diverse robots and tasks. Combined with
-curriculum learning, EUREKA for the first time, unlocks rapid pen-spinning capabilities on an anthropomorphic
-five-finger hand.</em></p>
-<p><img alt="Figure 2: EUREKA takes unmodified environment source code and language task description as context to
-zero-shot generate executable reward functions from a coding LLM. Then, it iterates between reward sampling,
-GPU-accelerated reward evaluation, and reward reflection to progressively improve its rew" src="../../assets/figures/2310.12931/fig_p2_0.jpg" />
-<em>Figure 2: EUREKA takes unmodified environment source code and language task description as context to
-zero-shot generate executable reward functions from a coding LLM. Then, it iterates between reward sampling,
-GPU-accelerated reward evaluation, and reward reflection to progressively improve its rew</em></p>
-<p><img alt="Figure 3: EUREKA can zero-shot generate executable rewards and then flexibly improve them with many distinct
-types of free-form modification, such as (1) changing the hyperparameter of existing reward components, (2)
-changing the functional form of existing reward components, and (3) introducing new" src="../../assets/figures/2310.12931/fig_p4_0.jpg" />
-<em>Figure 3: EUREKA can zero-shot generate executable rewards and then flexibly improve them with many distinct
-types of free-form modification, such as (1) changing the hyperparameter of existing reward components, (2)
-changing the functional form of existing reward components, and (3) introducing new</em></p>
-<p><img alt="Figure 4: EUREKA outperforms Human and L2R across all tasks. In particular, EUREKA realizes much greater
-gains on high-dimensional dexterity environments." src="../../assets/figures/2310.12931/fig_p6_0.jpg" />
-<em>Figure 4: EUREKA outperforms Human and L2R across all tasks. In particular, EUREKA realizes much greater
-gains on high-dimensional dexterity environments.</em></p>
-<p>EUREKA operates by employing a coding LLM, such as GPT-4, to zero-shot generate executable reward functions. This generation process is conditioned on the raw source code of the target environment, which is provided as context. This initial generation is not the final step; it is followed by an iterative evolutionary search process. In each iteration, reward candidates are sampled, evaluated using GPU-accelerated distributed RL running on IsaacGym, and subsequently refined via a mechanism termed reward reflection. Reward reflection serves to provide automated, textual feedback that summarizes the policy training dynamics. This feedback allows for targeted editing and progressive improvement of the reward code directly within the LLM's context window.</p>
-<h3 id="environment-as-context">Environment as Context</h3>
-<p>This component involves directly feeding the raw source code of the RL environment—specifically excluding the existing reward code—to the LLM. This architectural choice enables the LLM to perform zero-shot generation of executable reward functions tailored precisely to the environment's dynamics and state representation.</p>
-<h3 id="evolutionary-search">Evolutionary Search</h3>
-<p>The evolutionary search mechanism drives the refinement process. It iteratively proposes and refines reward candidates by sampling independent outputs from the LLM. The process incorporates in-context reward mutation, where the best-performing reward from the preceding iteration is used to guide the generation of the next set of candidates.</p>
-<h3 id="reward-reflection">Reward Reflection</h3>
-<p>Reward reflection functions as an automated feedback loop. It summarizes the policy training dynamics into a textual format by tracking scalar values associated with all reward components and the overall task fitness function at various intermediate policy checkpoints during training. This textual summary is then fed back into the LLM context to guide targeted reward code editing.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.30353/fig_p3_c1.jpg" />
+<em>Figure 1. Issue taxonomy for the CLAX-PT v0.1.0 development. Of
+15 documented supervision events, 10 were resolved autonomously
+by the agent iterating against oracle tests; 2 were accelerated by the
+physicist’s domain knowledge (unit-magnitude and dimensional
+discrepancies invisible to shape-based c</em></p>
+<p>The methodology involved adapting a supervision framework, inspired by Anthropic's C-compiler agent project, where the established <span class="arithmatex">\(\text{CLASS-PT}\)</span> code served as the ground-truth oracle. The AI agent, utilizing Claude Code, Sonnet, and Opus models, iteratively developed <span class="arithmatex">\(\text{CLAX-PT}\S\)</span> in JAX over 57 discrete sessions. The protocol was structured around four core infrastructure elements designed to manage state and context effectively. Success was heavily reliant on two explicit, high-level rules enforced by the supervisor: the prohibition of "fudge factors" and the requirement to "test at multiple parameter points." While the agent autonomously resolved 10 of the 15 identified issues, the physicist's interventions—specifically an architectural redesign and the rejection of a proposed fudge factor—were indispensable for resolving issues that were undetectable by the oracle testing alone.</p>
+<h3 id="ai-coding-agent">AI Coding Agent</h3>
+<p>The agent utilized a suite of models—Claude Code, Sonnet, and Opus—to perform the iterative coding and refinement tasks required for building the <span class="arithmatex">\(\text{CLAX-PT}\S\)</span> module. The selection and deployment of these models constituted the primary computational resource for the software generation process.</p>
+<h3 id="clax-pt-s">CLAX-PT <span class="arithmatex">\(\S\)</span></h3>
+<p>This is the target artifact: a differentiable one-loop perturbation theory module implemented in JAX. Its function is to compute next-to-leading-order predictions relevant to galaxy clustering, requiring high fidelity to established physical theory.</p>
+<h3 id="class-pt">CLASS-PT</h3>
+<p><span class="arithmatex">\(\text{CLASS-PT}\)</span> functions as the external, authoritative oracle. It is the established C reference code against which the correctness of the AI-generated <span class="arithmatex">\(\text{CLAX-PT}\S\)</span> was rigorously benchmarked.</p>
+<h3 id="supervision-protocol">Supervision Protocol</h3>
+<p>This encompasses the entire scaffolding around the agent. It includes the use of <span class="arithmatex">\(\text{CLASS-PT}\)</span> as the oracle, the <span class="arithmatex">\(\text{CHANGELOG}\)</span> as a shared, persistent memory mechanism, a <code>--fast</code> flag employed for managing context-window hygiene during long sessions, and the use of parallel agent sessions managed via git worktrees. The protocol's success was gated by the two critical rules mentioned above.</p>
 <h2 id="results">Results</h2>
-<p>The empirical evaluation demonstrates the efficacy of the EUREKA framework across varied robotic tasks.</p>
+<p>The evaluation against the established reference code yielded a high degree of fidelity. The agent demonstrated capability in autonomous debugging, though human oversight was required for deeper structural issues.</p>
 <table>
 <thead>
 <tr>
@@ -1795,38 +1799,38 @@ gains on high-dimensional dexterity environments.</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Outperformance on Isaac tasks</td>
-<td style="text-align: left;">Exceeds or performs on par to human level</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: left;">Figure 4</td>
+<td style="text-align: left;">Accuracy against CLASS-PT</td>
+<td style="text-align: left;"><span class="arithmatex">\(\ge 1\%\)</span></td>
+<td style="text-align: left;">CLASS-PT (Chudaykin et al., 2021)</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Outperformance on Dexterity tasks</td>
-<td style="text-align: left;">Outperforms human level on 15 out of 20 tasks</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: left;">Figure 4</td>
+<td style="text-align: left;">Autonomous Issue Resolution</td>
+<td style="text-align: left;">10/15</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Figure 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Average normalized improvement</td>
-<td style="text-align: left;">52%</td>
-<td style="text-align: left;">Human experts</td>
+<td style="text-align: left;">Sessions spent in wrong architecture</td>
+<td style="text-align: left;">33 of 57 sessions</td>
+<td style="text-align: left;">N/A</td>
 <td style="text-align: left;">Abstract</td>
 </tr>
 </tbody>
 </table>
-<h2 id="why-this-matters-for-robotics">Why This Matters for Robotics</h2>
-<p>The ability to autonomously generate high-quality, task-specific reward functions addresses a fundamental bottleneck in applying RL to complex robotic systems. By treating the LLM as a universal reward programming algorithm, EUREKA removes the necessity for extensive, expert-driven reward engineering. This capability is particularly transformative for dexterous manipulation, where defining a precise reward function is often intractable. Furthermore, by enabling a gradient-free RLHF paradigm, EUREKA allows for the incorporation of nuanced human preferences into the reward structure without the computational overhead or stability concerns associated with full model fine-tuning.</p>
+<h2 id="why-this-matters">Why This Matters</h2>
+<p>This work shifts the focus in AI-driven scientific computation from merely assessing model performance metrics (e.g., perplexity or token generation quality) to rigorously evaluating the <em>process</em> of scientific validation. It provides empirical evidence that for high-stakes domains like theoretical physics, the engineering of the supervision loop—the constraints, the oracle, and the human feedback mechanism—is the primary determinant of trustworthy output, not just the size or sophistication of the underlying LLM. The practitioner takeaways underscore that domain-specific constraints must be formalized into the agent's operational rules.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>Two primary limitations warrant discussion. First, there is a possibility that the initial reward function generated by the LLM may not always be syntactically or semantically executable, even if the LLM's generation appears plausible. Second, the performance of EUREKA exhibits a measurable degradation when GPT-4 is replaced by GPT-3.5, which strongly suggests a dependency on the advanced coding and reasoning capabilities inherent in high-quality, large-scale LLMs. Future work must address robustness against non-executable outputs and explore methods to mitigate the reliance on the largest available proprietary models.</p>
+<p>A significant limitation observed is that the agent operated strictly within a prescribed architectural framework; it lacked the capacity to autonomously propose or justify fundamental architectural alternatives to the supervisor. Furthermore, the system, despite its rigorous testing, could not inherently distinguish between a result that was merely predictive (i.e., passed the <span class="arithmatex">\(\text{CLASS-PT}\)</span> tests) and one that possessed true explanatory correctness derived from first principles. Future work must address how to integrate symbolic reasoning or formal proof checking to bridge this gap between empirical adequacy and theoretical soundness.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2310.12931">2310.12931</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">231012931</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Eureka: Human-Level Reward Design via Coding Large Language Models}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Yecheng Jason Ma and William Liang and Guanzhi Wang and De-An Huang and Osbert Bastani and Dinesh Jayaraman et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2310.12931}</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2023}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2310.12931}</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.30353">2605.30353</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260530353</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Physics Is All You Need? A Case Study in Physicist-Supervised AI Development of Scientific Software}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Nhat-Minh Nguyen}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.30353}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.30353}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
