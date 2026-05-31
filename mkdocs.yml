@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "Physics Is All You Need? A Case Study in Physicist-Supervised AI Development of Scientific Software": posts/2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised.md
     - "Algorithmic Monocultures in Hiring": posts/2026-05-28-algorithmic-monocultures-in-hiring.md
     - "TriSplat: Simulation-Ready Feed-Forward 3D Scene Reconstruction": posts/2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi.md
     - "Latent Action Diffusion for Cross-Embodiment Manipulation": posts/2026-05-27-latent-action-diffusion-for-cross-embodiment-manipulation.md

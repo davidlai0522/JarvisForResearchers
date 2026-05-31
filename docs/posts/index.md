@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Physics Is All You Need? A Case Study in Physicist-Supervised AI Development of Scientific Software](2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised/)
+
+*2026-05-31*
+
+This case study details how a physicist supervised an AI coding agent (Claude Code, Sonnet, and Opus) over 12 work days and 57 sessions to build a differentiable one-loop perturbation theory module (CLAX-PT §), demonstrating that the supervision protocol, not model capability, was key to achieving trustworthy scientific software.
+
 ## [Algorithmic Monocultures in Hiring](2026-05-28-algorithmic-monocultures-in-hiring/)
 
 *2026-05-28*
