@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This paper presents an adaptable, safe, and portable robot-assisted feeding system designed to enable people with mobility impairments to feed themselves using multi-modal online learning for bite acquisition and real-time perception for bite transfer.
+        <meta name="description" content="Representation Forcing (RF) is a technique that enables bottleneck-free unified multimodal models by forcing the decoder to autoregressively predict visual representations as intermediate tokens, guiding pixel diffusion within the same backbone.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-02-representation-forcing-for-bottleneck-free-unified-multimoda/">
       
       
-        <link rel="prev" href="../2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../../digest/">
+        <link rel="next" href="../2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>An Adaptable, Safe, and Portable Robot-Assisted Feeding System - JarvisForResearchers</title>
+        <title>Representation Forcing for Bottleneck-Free Unified Multimodal Models - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              An Adaptable, Safe, and Portable Robot-Assisted Feeding System
+              Representation Forcing for Bottleneck-Free Unified Multimodal Models
             
           </span>
         </div>
@@ -459,10 +459,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-06-02-representation-forcing-for-bottleneck-free-unified-multimoda/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Representation Forcing for Bottleneck-Free Unified Multimodal Models
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -478,6 +503,184 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transformer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Text head
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rep-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rep head
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pixel-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pixel head
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codebook
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1327,35 +1530,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    An Adaptable, Safe, and Portable Robot-Assisted Feeding System
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/" class="md-nav__link">
         
   
   
@@ -1371,184 +1549,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#kinova-gen2-jaco" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Kinova Gen2 (JACO)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kinova-gen3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Kinova Gen3
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#custom-3d-printed-fork-assembly" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Custom, 3d-printed fork assembly
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lenovo-legion-5-laptop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Lenovo Legion 5 laptop
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#react-app" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        React app
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#watchdog-system" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Watchdog system
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1687,10 +1687,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#kinova-gen2-jaco" class="md-nav__link">
+  <a href="#transformer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Kinova Gen2 (JACO)
+        Transformer
       
     </span>
   </a>
@@ -1698,10 +1698,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#kinova-gen3" class="md-nav__link">
+  <a href="#text-head" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Kinova Gen3
+        Text head
       
     </span>
   </a>
@@ -1709,10 +1709,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#custom-3d-printed-fork-assembly" class="md-nav__link">
+  <a href="#rep-head" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom, 3d-printed fork assembly
+        Rep head
       
     </span>
   </a>
@@ -1720,10 +1720,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#lenovo-legion-5-laptop" class="md-nav__link">
+  <a href="#pixel-head" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lenovo Legion 5 laptop
+        Pixel head
       
     </span>
   </a>
@@ -1731,10 +1731,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#react-app" class="md-nav__link">
+  <a href="#image-encoder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        React app
+        Image encoder
       
     </span>
   </a>
@@ -1742,10 +1742,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#watchdog-system" class="md-nav__link">
+  <a href="#codebook" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Watchdog system
+        Codebook
       
     </span>
   </a>
@@ -1822,6 +1822,13 @@
       
       
       
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+      
+    
+      
+      
+      
+      
         <a href="../../tags/#tag:multimodal" class="md-tag">multimodal</a>
       
     
@@ -1836,63 +1843,87 @@
       
       
       
-        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
+        <a href="../../tags/#tag:transformers" class="md-tag">transformers</a>
       
     
   </nav>
 
 
 
-  <h1>An Adaptable, Safe, and Portable Robot-Assisted Feeding System</h1>
+  <h1>Representation Forcing for Bottleneck-Free Unified Multimodal Models</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-01</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-06-02</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Brand new preprint (2026) — accepted</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>We present a robot-assisted feeding system that integrates hardware (Kinova arms, Jetson Nano) with a ROS2 stack to enable self-feeding for mobility-impaired individuals. The system achieves adaptability to novel food textures via multi-modal online learning during bite acquisition and employs real-time, interaction-aware control for safe bite transfer into the mouth.</p>
+<p>Representation Forcing (RF) enables bottleneck-free unified multimodal models by compelling the decoder to autoregressively predict visual representations as intermediate tokens. These predicted tokens then guide pixel diffusion within the shared backbone, allowing high-quality image generation directly in pixel space without relying on a frozen, external VAE.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>A significant public health issue is the reliance on assistance for eating; in the United States alone, at least 1.8 million people require help with feeding. This dependency imposes substantial emotional burdens, specifically feelings of shame on the recipients, and creates a significant, time-intensive logistical burden on caregivers.</p>
+<p>Existing Unified Multimodal Models (UMMs) face a fundamental structural limitation: they typically rely on a separately pretrained and frozen Variational Autoencoder (VAE) for image generation. This VAE acts as a bottleneck, constraining the model's generative capacity. If one attempts to bypass this VAE and generate directly in pixel space, the resulting quality suffers significantly. This degradation stems from the model needing to simultaneously learn both the high-level semantic structure and the fine-grained, low-level details directly from raw pixel signals, a task that is inherently more complex than operating within a pre-defined latent space. Furthermore, prior representation learning methods have generally been confined to operating within these externally defined, frozen representation spaces.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>Our work makes three primary contributions:
-1. We deliver a robot-assisted feeding system that simultaneously embodies Safety, Portability, and User Control.
-2. We employ multi-modal online learning to ensure tractable adaptation when encountering unseen food types during the bite acquisition phase.
-3. We implement a bite transfer mechanism that utilizes real-time mouth perception coupled with an interaction-aware control strategy, leveraging multimodal sensing (visual and haptic).</p>
+<p>We introduce Representation Forcing (RF), a mechanism that effectively closes the quality gap associated with pixel-space image generation in UMMs, thereby eliminating the necessity for any pretrained VAE. We demonstrate that RF provides synergistic benefits to both image generation and multimodal understanding, irrespective of whether the model operates in pixel space or utilizes a VAE-based latent space. Notably, the pixel-space model augmented with RF achieves generation quality comparable to its VAE-based counterpart while exhibiting superior performance in understanding tasks. This work advocates for the paradigm shift toward UMMs where perception and generation are unified within a single, end-to-end-learned representation space.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2403.04134/fig_p2_c1.jpg" />
-<em>Figure 1: (Left) Diagram of the system logic. The user drives the app, which calls an API on the robot computer. (Right) Hardware system for
-both the Gen2 and Gen3 base. No external wires are needed.
-1.2
-Software
-Our software stack is built on ROS2 and the ros2-control frame-
-work2. We have configur</em></p>
-<p>The system architecture integrates specific hardware components with a robust ROS2 software framework. User interaction is mediated through a React web application, which drives a finite state machine implemented via ROS2 action servers, services, and topics. Bite acquisition is managed using a 26-dimensional interpretable acquisition schema, augmented by a contextual bandit framework that incorporates haptic post hoc context for online adaptation. Bite transfer is achieved by combining real-time mouth perception derived from multiple in-hand cameras with a physical interaction-aware control method that fuses visual and haptic data to navigate within the user's oral cavity.</p>
-<h3 id="kinova-gen2-jaco">Kinova Gen2 (JACO)</h3>
-<p>This is a 6-DOF robot arm. It has been modified to incorporate an eye-in-hand system, which permits continuous rotation of the wrist joint, providing necessary degrees of freedom for precise manipulation tasks.</p>
-<h3 id="kinova-gen3">Kinova Gen3</h3>
-<p>This 6-DOF robot arm is equipped with an additional camera and features an Nvidia Jetson Nano developer kit mounted on its wrist. This setup allows for localized, high-throughput perception processing, specifically managing an Intel Realsense D415 RGBD camera.</p>
-<h3 id="custom-3d-printed-fork-assembly">Custom, 3d-printed fork assembly</h3>
-<p>This assembly is held by the robot gripper. Crucially, it is instrumented with a 6-DOF ATI Nano25 force-torque transducer, providing direct, high-fidelity feedback on contact forces during interaction.</p>
-<h3 id="lenovo-legion-5-laptop">Lenovo Legion 5 laptop</h3>
-<p>This unit serves as the primary computational hub. It is equipped with an Nvidia RTX 3060 6GB GPU and is mounted externally on the user's wheelchair, facilitating the system's portability requirement.</p>
-<h3 id="react-app">React app</h3>
-<p>This application functions as the primary user interface, accessible via a standard web browser. It acts as the logical control 'seat' for the entire system, managing high-level state transitions and user commands.</p>
-<h3 id="watchdog-system">Watchdog system</h3>
-<p>This is a dedicated, single-node process responsible for enforcing hard safety constraints. It continuously verifies system invariants and issues an 'all-clear' signal, acting as a final layer of safety validation.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.31604/fig_p2_c1.jpg" />
+<em>Figure 1 Architectural comparison. (a) Prevailing UMMs rely on a frozen VAE encoder and decoder for image
+generation, creating a structural bottleneck. (b) Naively removing the VAE and generating directly in pixel space
+eliminates this bottleneck but loses structural guidance, leading to a quality g</em></p>
+<p>Representation Forcing (RF) operates by grounding the high-level visual representation directly within the decoder itself. This is achieved by training the decoder to autoregressively predict the visual representations that are extracted by the understanding encoder. The objective function mirrors that of language modeling: next-token prediction. These predicted representations then serve as the necessary in-context structural guidance for the pixel-space diffusion process occurring within the shared transformer backbone.</p>
+<p>The process involves several integrated components:</p>
+<h3 id="transformer">Transformer</h3>
+<p>The Transformer serves as the shared backbone, processing unified sequences comprising text tokens (<span class="arithmatex">\(\text{T}\)</span>), representation tokens (<span class="arithmatex">\(\text{R}\)</span>), and pixel patches (<span class="arithmatex">\(\text{P}\)</span>). This shared architecture is central to achieving unified representation learning.</p>
+<h3 id="text-head">Text head</h3>
+<p>The <span class="arithmatex">\(\text{Text head}\)</span> is responsible for calculating the cross-entropy loss (<span class="arithmatex">\(\mathcal{L}_{LM}\)</span>) pertaining to the prediction of the next text token.</p>
+<h3 id="rep-head">Rep head</h3>
+<p>The <span class="arithmatex">\(\text{Rep head}\)</span> is tasked with calculating the cross-entropy loss (<span class="arithmatex">\(\mathcal{L}_{Rep}\)</span>) associated with the prediction of the representation tokens. This is where the core forcing mechanism is implemented.</p>
+<h3 id="pixel-head">Pixel head</h3>
+<p>The <span class="arithmatex">\(\text{Pixel head}\)</span> manages the pixel diffusion process. This is executed via flow matching, specifically utilizing the <span class="arithmatex">\(x\)</span>-prediction formulation and associated velocity loss (<span class="arithmatex">\(\mathcal{L}_{FM}\)</span>).</p>
+<h3 id="image-encoder">Image encoder</h3>
+<p>The <span class="arithmatex">\(\text{Image encoder}\)</span> is implemented as a DINOv3 ViT-H+/16 [40] augmented with NaViT-style variable-resolution support [9]. Crucially, this encoder is jointly trained alongside the rest of the model, ensuring its features are optimized for the unified task.</p>
+<h3 id="codebook">Codebook</h3>
+<p>The <span class="arithmatex">\(\text{Codebook}\)</span> consists of <span class="arithmatex">\(K=16,384\)</span> learnable prototype embeddings. These are employed to perform online vector quantization on the patch-level features extracted by the encoder, providing a discrete representation space. The Sinkhorn–Knopp balancing technique is applied during this quantization step.</p>
+<p>During the generation phase, the decoder is conditioned solely on the text prompt to predict the necessary representation tokens. These predicted tokens subsequently condition the pixel generation process through the flow matching mechanism.</p>
 <h2 id="results">Results</h2>
-<p>No quantitative results were provided in the outline.</p>
+<p>The quantitative evaluation demonstrates the efficacy of the RF approach:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Baseline</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">GenEval Overall</td>
+<td style="text-align: left;">0.84</td>
+<td style="text-align: left;">BAGEL baseline (0.82)</td>
+<td style="text-align: left;">Table 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">GenEval Overall (with LLM rewriter)</td>
+<td style="text-align: left;">0.88</td>
+<td style="text-align: left;">State-of-the-art among unified models</td>
+<td style="text-align: left;">Table 1</td>
+</tr>
+</tbody>
+</table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The design explicitly addresses critical gaps in prior work. The system is engineered for portability, meaning it can operate using the battery power of any standard powered wheelchair without requiring dedicated, fixed wiring for the utensil. Furthermore, user agency is maintained because control is centralized in the web application, allowing the recipient to initiate, halt, or modify the system's operation at any point. Safety is not monolithic; it is enforced across four distinct layers: Compliant Hardware, Compliant Control, Software Anomaly Detection, and Emergency Intervention.</p>
+<p>The practitioner takeaways highlight several significant implications. First, RF facilitates the construction of truly end-to-end UMMs by internalizing the latent space, thereby removing the dependency on external, pre-trained VAEs. Second, the model exhibits dual benefits: it improves both understanding and generation capabilities. Furthermore, the empirical evidence suggests that pixel-space generation, when augmented with RF, is more inherently compatible with the unified modeling framework than generation conditioned on a VAE-derived latent space. Finally, the combination of autoregressive prediction for structural guidance (RF) and diffusion for rendering establishes a robust and coherent mechanism for high-fidelity pixel-space generation.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>Two primary limitations must be acknowledged. First, the system's usability is contingent on the user's capacity to interface with the web application using available assistive technologies. Second, the overall safety profile is fundamentally dependent on the operational integrity of the watchdog system and the reliability of the emergency stop mechanisms.</p>
+<p>Despite these advancements, the current implementation imposes certain constraints. The method necessitates a specific three-stage training regimen: initial alignment, subsequent joint pre-training, and a final continued training phase. Additionally, the architecture relies on a Mixture-of-Transformers (MoT) structure, specifically utilizing three distinct groups of experts. Future work should investigate the necessity of the MoT structure and explore training strategies that might reduce the required training stages.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2403.04134">2403.04134</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">240304134</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{An Adaptable, Safe, and Portable Robot-Assisted Feeding System}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Ethan Kroll Gordon and Rajat Kumar Jenamani and Amal Nanavati and Ziang Liu and Haya Bolotski and Raida Karim et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2403.04134}</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2024}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2403.04134}</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.31604">2605.31604</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260531604</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Representation Forcing for Bottleneck-Free Unified Multimodal Models}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Yuqing Wang and Zhijie Lin and Ceyuan Yang and Yang Zhao and Fei Xiao and Hao He et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.31604}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.31604}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
