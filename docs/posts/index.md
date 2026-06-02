@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Representation Forcing for Bottleneck-Free Unified Multimodal Models](2026-06-02-representation-forcing-for-bottleneck-free-unified-multimoda/)
+
+*2026-06-02*
+
+Representation Forcing (RF) is a technique that enables bottleneck-free unified multimodal models by forcing the decoder to autoregressively predict visual representations as intermediate tokens, guiding pixel diffusion within the same backbone.
+
 ## [Physics Is All You Need? A Case Study in Physicist-Supervised AI Development of Scientific Software](2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised/)
 
 *2026-05-31*
