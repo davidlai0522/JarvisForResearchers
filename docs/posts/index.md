@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Thinking in Blender: Staged Executable Inverse Graphics with Vision-Language Models](2026-06-03-thinking-in-blender-staged-executable-inverse-graphics-with-/)
+
+*2026-06-03*
+
+SEIG is a Staged Executable Inverse Graphics framework that reconstructs editable 3D scenes from a single image by progressively refining scene factors—geometry, materials, composition, and lighting—directly within executable Blender code space using a pretrained Vision-Language Model (VLM).
+
 ## [Representation Forcing for Bottleneck-Free Unified Multimodal Models](2026-06-02-representation-forcing-for-bottleneck-free-unified-multimoda/)
 
 *2026-06-02*
