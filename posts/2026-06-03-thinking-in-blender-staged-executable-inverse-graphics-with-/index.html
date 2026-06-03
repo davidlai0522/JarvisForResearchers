@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="The Integrable Context-Dependent Demand Network (ICDN) is a demand-first neural model that represents log-demand as a smooth, context-conditioned function of log-prices, allowing elasticities to be derived exactly as derivatives of the learned demand surface.
+        <meta name="description" content="SEIG is a Staged Executable Inverse Graphics framework that reconstructs editable 3D scenes from a single image by progressively refining scene factors—geometry, materials, composition, and lighting—directly within executable Blender code space using a pretrained Vision-Language Model (VLM).
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-25-integrable-elasticity-via-neural-demand-potentials/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-03-thinking-in-blender-staged-executable-inverse-graphics-with-/">
       
       
-        <link rel="prev" href="../2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/">
+        <link rel="next" href="../2026-06-02-representation-forcing-for-bottleneck-free-unified-multimoda/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Integrable Elasticity via Neural Demand Potentials - JarvisForResearchers</title>
+        <title>Thinking in Blender: Staged Executable Inverse Graphics with Vision-Language Models - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Integrable Elasticity via Neural Demand Potentials
+              Thinking in Blender: Staged Executable Inverse Graphics with Vision-Language Models
             
           </span>
         </div>
@@ -461,10 +461,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-06-03-thinking-in-blender-staged-executable-inverse-graphics-with-/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thinking in Blender: Staged Executable Inverse Graphics with Vision-Language Models
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -480,6 +505,206 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pretrained-vision-language-model-vlm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pretrained Vision-Language Model (VLM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scene-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scene Graph
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scene-initialization-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scene Initialization Stage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geometry-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometry Stage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Material Stage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composition-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Composition Stage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lighting-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lighting Stage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generator-verifier-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generator-Verifier Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -657,35 +882,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Integrable Elasticity via Neural Demand Potentials
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-25-integrable-elasticity-via-neural-demand-potentials/" class="md-nav__link">
         
   
   
@@ -701,151 +901,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#shared-encoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Shared Encoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#own-price-response-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Own-price Response Structure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#directed-cross-price-response-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Directed Cross-price Response Structure
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1684,10 +1739,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#shared-encoder" class="md-nav__link">
+  <a href="#pretrained-vision-language-model-vlm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Shared Encoder
+        Pretrained Vision-Language Model (VLM)
       
     </span>
   </a>
@@ -1695,10 +1750,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#own-price-response-structure" class="md-nav__link">
+  <a href="#scene-graph" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Own-price Response Structure
+        Scene Graph
       
     </span>
   </a>
@@ -1706,10 +1761,65 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#directed-cross-price-response-structure" class="md-nav__link">
+  <a href="#scene-initialization-stage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Directed Cross-price Response Structure
+        Scene Initialization Stage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geometry-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometry Stage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Material Stage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composition-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Composition Stage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lighting-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lighting Stage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generator-verifier-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generator-Verifier Loop
       
     </span>
   </a>
@@ -1786,82 +1896,90 @@
       
       
       
-        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:foundation-models" class="md-tag">foundation-models</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:llm" class="md-tag">llm</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
       
     
   </nav>
 
 
 
-  <h1>Integrable Elasticity via Neural Demand Potentials</h1>
+  <h1>Thinking in Blender: Staged Executable Inverse Graphics with Vision-Language Models</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-25</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-06-03</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
-<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+<p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>The Integrable Context-Dependent Demand Network (ICDN) reframes multiproduct retail demand estimation as learning a smooth, context-conditioned demand surface. This formulation allows for the exact derivation of elasticities as derivatives of the learned surface, circumventing the instability and computational overhead associated with post-hoc numerical differentiation of complex ML models.</p>
+<p>SEIG introduces an agentic framework for Staged Executable Inverse Graphics, leveraging a pretrained Vision-Language Model (VLM) to reconstruct editable 3D scenes from a single image. It achieves this by decomposing the inverse graphics problem into sequential stages—Geometry, Material, Composition, and Lighting—each governed by a generator-verifier loop that iteratively refines the scene within an executable Blender environment.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Learning stable and reproducible elasticities at scale in multiproduct retail demand is challenging. The core difficulty arises because minor irregularities in the estimated demand surface can propagate into significant, spurious fluctuations in the calculated elasticities. This instability is particularly pronounced when cross-price effects are weak or when pricing decisions across products are highly correlated. Existing approaches suffer from limitations: simple log-log Ordinary Least Squares (OLS) models impose overly restrictive, globally constant price effects, failing to capture the heterogeneous and state-dependent substitution patterns observed in reality. Furthermore, while some machine learning methods attempt to recover elasticities, they often treat this as a secondary, post-hoc analysis, lacking an explicit, analytically tractable representation of demand as a function of price. Deep learning models that rely on numerical differentiation to extract elasticities are often computationally prohibitive at scale and offer limited direct control over the implied structure of the demand function and its derivatives.</p>
+<p>Inverse graphics is fundamentally an ill-posed problem: reconstructing a complex, editable 3D scene from a single 2D observation. The goal is not merely to generate a novel view, but to produce a structured, manipulable scene representation (e.g., in Blender) that accurately reproduces the input image. The primary challenge is achieving this reconstruction using only the inherent priors of a general-purpose pretrained VLM, deliberately avoiding specialized 2D or 3D foundation models, differentiable rendering pipelines, or multi-view supervision.</p>
+<p>Existing neural scene representations, such as NeRFs or 3D Gaussian Splatting, encode scene factors within continuous latent spaces. These representations are powerful for rendering but lack the explicit, structured nature required for direct, symbolic editing—they are not inherently executable graphics programs. Furthermore, prior VLM-based approaches have struggled to manage the joint inference of geometry, material properties, composition, and lighting simultaneously within a single, entangled generation step.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We make three primary contributions to this domain:
-1. We formulate multiproduct elasticity estimation as a demand-first problem, where log-demand is modeled as a smooth surface, enabling the derivation of integrable elasticities directly as derivatives of this surface.
-2. We introduce ICDN, a structured neural demand model designed to decompose price responses into distinct components: linear own-price effects, directed cross-price interactions, and spline-based nonlinear refinements.
-3. We leverage the analytic derivatives inherent in product-specific spline bases to compute both own- and cross-price elasticities efficiently, entirely avoiding the need for dense Jacobian or Hessian evaluations.</p>
+<p>We introduce SEIG, an agentic framework specifically designed for Staged Executable Inverse Graphics, built atop a pretrained VLM. Our key contributions are threefold:
+1. The introduction of SEIG, an agentic framework that orchestrates the reconstruction process using a pretrained VLM as the primary reasoning engine.
+2. The decomposition of the monolithic inverse graphics task into a sequence of semantically meaningful stages—Geometry, Material, Composition, and Lighting—mirroring the iterative workflow employed by professional 3D artists.
+3. The implementation of a robust generator-verifier loop within each stage, where the verifier enforces convergence by requiring an explicit approval checklist before allowing progression to the next refinement step.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.22820/fig_p15_c2.jpg" />
-*Figure 2 summarizes the forward pass of ICDN. The architecture is built around three components. First,
-a context branch constructs one contextual token per SKU and maps these tokens into product-specific
-latent representations. Second, an attention-based sparse neighbor selector identifies a small *</p>
-<p>ICDN models the log-demand as a smooth function of log-prices and various contextual covariates. The structural design ensures that the resulting elasticities are exact derivatives of this underlying surface. The model achieves this by decomposing the price effects across three structural components:</p>
-<h3 id="shared-encoder">Shared Encoder</h3>
-<p>The <strong>Shared Encoder</strong> is responsible for mapping the contextual information associated with each Stock Keeping Unit (SKU) into a product-specific latent representation, denoted <span class="arithmatex">\(h_i\)</span>. This latent vector serves to modulate the parameters of the subsequent demand response structures, allowing the model to capture context-dependent demand behavior.</p>
-<h3 id="own-price-response-structure">Own-price Response Structure</h3>
-<p>The response to a product's own price is modeled using a combination of two terms. The first is a locally linear log-log term, <span class="arithmatex">\(\beta_{ii}(x)u_i\)</span>, which captures the baseline price sensitivity. This is augmented by a nonlinear spline component, <span class="arithmatex">\(w_{ii}(x)^\top B_i(u_i)\)</span>, where <span class="arithmatex">\(B_i(u_i)\)</span> is the basis function expansion for product <span class="arithmatex">\(i\)</span>.</p>
-<h3 id="directed-cross-price-response-structure">Directed Cross-price Response Structure</h3>
-<p>The interaction between products <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> is modeled more intricately to capture directional substitution. This structure comprises three parts: a linear component, <span class="arithmatex">\(\beta_{ij}(x)u_j\)</span>, capturing the basic cross-price effect; a nonlinear univariate refinement, <span class="arithmatex">\(w_{ij}(x)^\top B_j(u_j)\)</span>, which refines the effect of <span class="arithmatex">\(u_j\)</span> on product <span class="arithmatex">\(i\)</span>; and critically, a spline-spline interaction term, <span class="arithmatex">\(B_i(u_i)^\top U_{(ij)}(x)B_j(u_j)\)</span>, which models the joint non-linear influence of both prices.</p>
-<p>The overall log-demand surface is constructed by summing these structured components, modulated by the latent representations derived from the <strong>Shared Encoder</strong>. The use of spline bases is key, as it provides the necessary mathematical structure to derive closed-form expressions for the required partial derivatives (elasticities).</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.02580/fig_p1_c1.jpg" />
+<em>Fig. 1. From a single reference image (leftmost inset), SEIG reconstructs an editable Blender scene through a staged generator–verifier loop driven entirely by
+a pretrained VLM. As the output is a structured Blender program, our approach directly supports novel-view synthesis, editing, and relightin</em></p>
+<p>SEIG operates as a multi-stage, additive pipeline initiated by a single reference image. The process begins with the VLM interpreting the input image to generate a hierarchical Scene Graph. This graph dictates the initial structure, which is then materialized into a coarse 3D scaffold via the Scene Initialization Stage. The reconstruction then proceeds sequentially through the defined refinement stages: Geometry Refinement, Material Refinement, Composition Refinement, and Lighting Refinement.</p>
+<p>The core mechanism driving refinement within each stage is the Generator-Verifier Loop. In this loop, the VLM acts as the generator, producing executable Blender code to modify the current scene state. The verifier then executes the resulting render and compares it against the original reference image. Progression to the next iteration or stage is contingent upon the verifier returning an explicit approval checklist, ensuring that the modifications made are demonstrably improving the match to the target image. This staged disentanglement effectively reduces the complexity of the coupled inverse graphics problem, allowing the VLM to build a fully editable Blender scene incrementally.</p>
+<h3 id="pretrained-vision-language-model-vlm">Pretrained Vision-Language Model (VLM)</h3>
+<p>The VLM serves as the central reasoning agent. Its function is to interpret the visual semantics of the input image, reason about the necessary scene structure, and translate these high-level concepts into concrete, executable commands targeted at the Blender environment via tool calls.</p>
+<h3 id="scene-graph">Scene Graph</h3>
+<p>The Scene Graph provides the structured intermediate representation of the scene. It is hierarchical, encompassing all discernible objects. For each node, it stores descriptive metadata, including visual attributes, an approximation of its geometry, its material appearance, its spatial relationships to other objects, and a defined strategy for how it should be reconstructed within Blender.</p>
+<h3 id="scene-initialization-stage">Scene Initialization Stage</h3>
+<p>This stage is responsible for translating the abstract Scene Graph into a tangible, albeit coarse, 3D model. It instantiates the initial Blender scaffold. The process employs a rollout sampling strategy guided by a rollout selector to select the most plausible and complete initial configuration based on the scene graph's directives.</p>
+<h3 id="geometry-stage">Geometry Stage</h3>
+<p>This stage focuses exclusively on refining the shape of the objects. Refinements are achieved through local shape edits, applying geometric transformations, or performing structural modifications to the mesh representations. The VLM utilizes interaction tools to inspect and iteratively edit the geometry until the shape aligns with the visual evidence.</p>
+<h3 id="material-stage">Material Stage</h3>
+<p>Once the geometry is sufficiently defined, the Material Stage addresses surface appearance. It replaces the initial coarse textures with detailed, physically based rendering (PBR) materials within Blender. This involves targeted edits to surface properties such as base color, roughness, specular intensity, metallic values, alpha transparency, and the application of bump or normal maps.</p>
+<h3 id="composition-stage">Composition Stage</h3>
+<p>This stage handles the spatial arrangement of the finalized objects. The objective is to match the layout of the reference image by adjusting the object transforms—specifically scale, position, and rotation—while strictly preserving the geometry and material properties established in the preceding stages.</p>
+<h3 id="lighting-stage">Lighting Stage</h3>
+<p>As the final refinement step, the Lighting Stage optimizes the scene's illumination. The VLM adjusts various lighting parameters, including light type (e.g., area, point), its precise position and direction, energy output, color temperature, size, softness, and the contribution of ambient lighting, to achieve a photorealistic match to the reference image.</p>
+<h3 id="generator-verifier-loop">Generator-Verifier Loop</h3>
+<p>This mechanism is the engine of iterative refinement within any given stage. The generator (VLM) proposes a change by writing a segment of Blender code. The verifier then executes this code, renders the resulting scene, and compares the output against the reference image. Crucially, the verifier does not simply return a pass/fail; it returns an explicit, actionable checklist detailing necessary modifications for the generator to address, thereby guiding the refinement process toward convergence.</p>
 <h2 id="results">Results</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Metric</th>
-<th style="text-align: left;">Value</th>
-<th style="text-align: left;">Baseline</th>
-<th style="text-align: left;">Source</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Out-of-sample generalization</td>
-<td style="text-align: left;">Improves over a directed log-log benchmark</td>
-<td style="text-align: left;">Directed log-log benchmark</td>
-<td style="text-align: left;">Abstract</td>
-</tr>
-<tr>
-<td style="text-align: left;">Elasticity estimates</td>
-<td style="text-align: left;">More stable, economically plausible</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Abstract</td>
-</tr>
-</tbody>
-</table>
+<p>No quantitative results were provided in the outline.</p>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>ICDN provides a robust framework for moving beyond simple parametric assumptions in demand modeling. By deriving elasticities exactly from a single, smooth demand surface, it significantly enhances the analytical tractability of the model. Furthermore, the structured approach allows the model to capture heterogeneous and directional cross-price responses by constructing them from ordered product pairs <span class="arithmatex">\((h_i, h_j)\)</span> independently. The ability to enforce economic coherence during training via regularization techniques—such as soft penalties on positive own-price elasticities and soft elasticity-band penalties on cross-price responses—makes the model more reliable for practical inference.</p>
+<p>The SEIG framework demonstrates that general-purpose VLMs, when structured within a disciplined, staged, and executable pipeline, can tackle highly complex, underconstrained inverse graphics problems without requiring specialized, domain-specific 3D foundation models. The decomposition strategy proves that breaking down the problem into sequential, semantically coherent steps (geometry <span class="arithmatex">\(\rightarrow\)</span> material <span class="arithmatex">\(\rightarrow\)</span> composition <span class="arithmatex">\(\rightarrow\)</span> lighting) is a viable pathway for enabling general-purpose AI to perform structured 3D scene reconstruction. Furthermore, the resulting output is not just a rendered image, but a fully editable Blender scene, enabling immediate downstream applications such as relighting, scene manipulation, and physics simulation.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>It must be noted that the elasticities derived by ICDN should not be interpreted as fully identified causal effects of price interventions, given that the empirical application relies on observational scanner data. Additionally, the model's validity is contingent upon the mathematical coherence requirement: the local price responses must be compatible with a single, globally defined demand surface. Future work should investigate the robustness of the model when this integrability assumption is severely violated by underlying market dynamics.</p>
+<p>The current framework operates on a staged, greedy paradigm. This sequential nature implies that the solution found at any stage is locally optimal relative to the previous stages, and there is no guarantee that this greedy path leads to the globally optimal scene configuration. Additionally, if the stage-specific maximum round budget is exhausted before the verifier's checklist is satisfied, the framework must rely on the verifier selecting the best attempt made within that budget, which introduces a potential sub-optimality ceiling. Future work must address the potential for non-monotonic improvements across stages.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.22820">2605.22820</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260522820</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Integrable Elasticity via Neural Demand Potentials}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Carlos Heredia and Daniel Roncel}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.22820}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.02580">2606.02580</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260602580</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Thinking in Blender: Staged Executable Inverse Graphics with Vision-Language Models}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Guangzhao He and Rundong Luo and Wei-Chiu Ma and Hadar Averbuch-Elor}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.02580}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.22820}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.02580}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
