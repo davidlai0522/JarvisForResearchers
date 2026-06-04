@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="The paper introduces MODIRECT and DeltaDirect to diagnose and overcome directional motion blindness in Video-LLMs, which stems from a direction binding gap where motion signals are present but not reliably linked to verbal answers.
+        <meta name="description" content="This paper introduces a plug-and-play recipe that significantly boosts Lidar Semantic Scene Completion (SSC) performance by augmenting input point clouds with semantic pseudo-labels and visibility information derived from off-the-shelf techniques.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-04-exploring-easy-boosts-for-lidar-semantic-scene-completion/">
       
       
-        <link rel="prev" href="../2026-05-25-integrable-elasticity-via-neural-demand-potentials/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-23-tokenisation-via-convex-relaxations/">
+        <link rel="next" href="../2026-06-03-thinking-in-blender-staged-executable-inverse-graphics-with-/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Which Way Did It Move? Diagnosing and Overcoming Directional Motion Blindness in Video-LLMs - JarvisForResearchers</title>
+        <title>Exploring Easy Boosts for Lidar Semantic Scene Completion - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Which Way Did It Move? Diagnosing and Overcoming Directional Motion Blindness in Video-LLMs
+              Exploring Easy Boosts for Lidar Semantic Scene Completion
             
           </span>
         </div>
@@ -463,10 +463,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-06-04-exploring-easy-boosts-for-lidar-semantic-scene-completion/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exploring Easy Boosts for Lidar Semantic Scene Completion
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -482,6 +507,195 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-tensor-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input Tensor V
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semantic-prior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantic Prior
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visibility-prior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visibility Prior
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lmscnet-ss-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LMSCNet-SS [4]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semcity-ae-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SemCity-AE [12]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssa-sc-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSA-SC [6]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js3c-net-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JS3C-Net [7]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -715,35 +929,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Which Way Did It Move? Diagnosing and Overcoming Directional Motion Blindness in Video-LLMs
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/" class="md-nav__link">
         
   
   
@@ -759,173 +948,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vision-encoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vision Encoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#projector" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Projector
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#llm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LLM
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#readout-token-h_textout" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Readout Token (\(h_\text{out}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deltadirect" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DeltaDirect
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1736,10 +1758,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#vision-encoder" class="md-nav__link">
+  <a href="#input-tensor-v" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vision Encoder
+        Input Tensor V
       
     </span>
   </a>
@@ -1747,10 +1769,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#projector" class="md-nav__link">
+  <a href="#semantic-prior" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Projector
+        Semantic Prior
       
     </span>
   </a>
@@ -1758,10 +1780,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#llm" class="md-nav__link">
+  <a href="#visibility-prior" class="md-nav__link">
     <span class="md-ellipsis">
       
-        LLM
+        Visibility Prior
       
     </span>
   </a>
@@ -1769,10 +1791,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#readout-token-h_textout" class="md-nav__link">
+  <a href="#lmscnet-ss-4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Readout Token (\(h_\text{out}\))
+        LMSCNet-SS [4]
       
     </span>
   </a>
@@ -1780,10 +1802,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#deltadirect" class="md-nav__link">
+  <a href="#semcity-ae-12" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DeltaDirect
+        SemCity-AE [12]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssa-sc-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSA-SC [6]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js3c-net-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JS3C-Net [7]
       
     </span>
   </a>
@@ -1867,51 +1911,65 @@
       
       
       
-        <a href="../../tags/#tag:generalization" class="md-tag">generalization</a>
+        <a href="../../tags/#tag:point-cloud" class="md-tag">point-cloud</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
       
     
   </nav>
 
 
 
-  <h1>Which Way Did It Move? Diagnosing and Overcoming Directional Motion Blindness in Video-LLMs</h1>
+  <h1>Exploring Easy Boosts for Lidar Semantic Scene Completion</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-24</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-06-04</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
-<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+<p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>This work introduces MODIRECT and DeltaDirect to address directional motion blindness in Video-LLMs. This blindness arises from a direction binding gap where motion signals are present but fail to reliably map to verbal outputs. DeltaDirect is a projector-level objective that forces the visual features to encode strong, signed 2-D motion vectors, leading to significant performance gains on motion direction tasks.</p>
+<p>We introduce a plug-and-play recipe that significantly boosts Lidar Semantic Scene Completion (SSC) performance by augmenting input point clouds with semantic pseudo-labels and visibility information derived from off-the-shelf techniques. This demonstrates that simple, external priors can substantially improve the performance of existing SSC architectures.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>A critical failure mode observed in many Video-LLMs is directional motion blindness. This manifests as near-chance performance on tasks requiring the perception of signed image-plane motion direction, even when the necessary motion information is linearly accessible throughout the model's processing pipeline.</p>
-<p>The limitations of prior work are threefold. First, existing benchmarks often conflate the target motion direction with confounding factors such as camera motion, object identity, scene layout, scale changes, and event semantics. Second, while instruction tuning can successfully close the direction binding gap within the source domain, it fails to instill a robust, domain-invariant motion direction signal, resulting in a significant out-of-domain generalization gap. Crucially, the failure mode is not merely an absence of motion direction geometry, but rather a deficit in the <em>magnitude</em> of the motion direction concept vector when generalizing across domains.</p>
+<p>Lidar Semantic Scene Completion (SSC) from a single lidar scan is challenging because lidar provides accurate but sparse geometry and lacks dense colorimetric information, which is a major cue for semantic estimation. The inherent sparsity and lack of rich feature data limit the ability of standard SSC networks to accurately infer the complete semantic structure of the scene.</p>
+<p>The prior art exhibits several gaps:
+1. The impact of various additional priors (semantic or visibility) on SSC performance has not been systematically evaluated.
+2. The contribution of different priors to the final SSC performance is unclear.
+3. Existing methods often derive priors concurrently or rely on specific, unquantified prior types.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We make three primary contributions:
-1. We formally identify directional motion blindness in Video-LLMs, diagnosing its root cause as a direction binding gap.
-2. We demonstrate that while instruction tuning resolves the direction binding gap in the source domain, it fails to produce a sufficiently strong, domain-invariant motion direction signal, leading to an out-of-domain generalization deficit.
-3. We introduce MODIRECT, a controlled dataset family designed to isolate motion direction, and DeltaDirect, a training-only projector-level objective that explicitly predicts normalized 2-D motion vectors from adjacent-frame feature deltas.</p>
+<p>Our work makes three primary contributions:
+1. We demonstrate that endowing input point clouds with semantic pseudo-labels from off-the-shelf segmentors significantly improves SSC performance.
+2. We equip the input lidar scan with visibility information to distinguish between empty and unknown spaces, providing a secondary performance boost.
+3. We show that combining semantic and visibility priors is complementary, boosting performance even further across tested architectures.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.22823/fig_p2_c1.jpg" />
-<em>Figure 1: Directional motion blindness in Video-LLMs. (a) Given a simple synthetic video of a
-yellow circle moving from left to right, recent Video-LLMs correctly identify the object’s color but
-answer the wrong motion direction. (b) Across Video-LLMs, appearance recognition is high, yet
-signed moti</em></p>
-<p>The diagnostic process involves tracing motion direction signals through the Video-LLM architecture to pinpoint the 'direction binding gap' at the readout position. To mitigate this, we employ DeltaDirect. This objective supervises the output of the <strong>Projector</strong> by training it to predict normalized 2-D motion vectors. These target vectors are derived directly from the feature deltas between adjacent frames. By imposing this low-level, signed displacement constraint at the projector level, we force the visual features to carry a stronger, more explicit signed displacement signal before they are integrated into the <strong>LLM</strong>.</p>
-<h3 id="vision-encoder">Vision Encoder</h3>
-<p>The <strong>Vision Encoder</strong> processes <span class="arithmatex">\(T\)</span> sampled frames, outputting visual features <span class="arithmatex">\(V \in \mathbb{R}^{T \times M \times D_v}\)</span>. Here, <span class="arithmatex">\(M\)</span> denotes the number of patch tokens per frame, and <span class="arithmatex">\(D_v\)</span> is the embedding dimension.</p>
-<h3 id="projector">Projector</h3>
-<p>The <strong>Projector</strong> serves as the interface between the vision and language modalities. It maps the high-dimensional visual features into the LLM's embedding space, yielding visual tokens <span class="arithmatex">\(F \in \mathbb{R}^{T \times N \times D}\)</span>, where <span class="arithmatex">\(N \le M\)</span> reflects any spatial pooling applied, and <span class="arithmatex">\(D\)</span> is the LLM hidden dimension.</p>
-<h3 id="llm">LLM</h3>
-<p>The <strong>LLM</strong> is an <span class="arithmatex">\(L\)</span>-layer transformer that processes the sequence of visual tokens <span class="arithmatex">\(F\)</span> alongside text tokens. It generates an answer by tracking hidden states <span class="arithmatex">\(z_i^t\)</span> at the visual-token positions.</p>
-<h3 id="readout-token-h_textout">Readout Token (<span class="arithmatex">\(h_\text{out}\)</span>)</h3>
-<p>The <strong>Readout Token</strong> is the hidden state corresponding to the final token position at layer <span class="arithmatex">\(L\)</span>. This state, <span class="arithmatex">\(h_L\)</span>, is subsequently mapped to the output vocabulary logits to facilitate next-token prediction.</p>
-<h3 id="deltadirect">DeltaDirect</h3>
-<p><strong>DeltaDirect</strong> is a training-only objective applied at the <strong>Projector</strong> level. It directly supervises the projector's output by requiring it to predict normalized 2-D motion vectors. These target vectors are computed from the feature deltas between adjacent frames, effectively training the projector to encode explicit motion kinematics.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.03992/fig_p1_c1.jpg" />
+<em>Fig. 1. Impact of input priors. We compare the baseline
+models against their versions endowed with our recipe. It
+yields consistent gains across all backbones, propelling SSA-
+SC [6] to 28.8 mIoU.</em></p>
+<p>The core methodology involves augmenting the input 3D volume tensor <span class="arithmatex">\(V \in \{0, 1\}^{X \times Y \times Z \times (C+2)}\)</span> provided to existing SSC networks. This augmentation process introduces two distinct types of priors: the semantic prior and the visibility prior. These priors are then combined and applied to four established SSC architectures: LMSCNet-SS [4], SemCity-AE [12], SSA-SC [6], and JS3C-Net [7].</p>
+<h3 id="input-tensor-v">Input Tensor V</h3>
+<p>The input tensor <span class="arithmatex">\(V\)</span> is a 4D tensor constructed on a grid of voxels. It encodes information using one-hot vectors, indicating whether a voxel is empty, unknown, or occupied (and, if occupied, what its assigned semantic pseudo-label is). This structure allows the augmented information to be integrated directly into the network's input representation.</p>
+<h3 id="semantic-prior">Semantic Prior</h3>
+<p>The semantic prior is derived from external, off-the-shelf point cloud segmentors. For each voxel, the semantic label is determined by majority voting among all points contained within that voxel. This process effectively injects semantic context into the geometric representation where raw lidar data is ambiguous.</p>
+<h3 id="visibility-prior">Visibility Prior</h3>
+<p>The visibility prior addresses the ambiguity between empty and unknown spaces. This is achieved by ray casting from the lidar center <span class="arithmatex">\(o\)</span> to sample points <span class="arithmatex">\(q_i\)</span> at regular intervals, specifically <span class="arithmatex">\(\delta = 20 \text{ cm}\)</span>, along each ray. Voxels containing such sampled points are explicitly labeled as empty. Furthermore, a safety volume surrounding occupied voxels is utilized to assign the unknown label to neighboring voxels, refining the boundary delineation.</p>
+<h3 id="lmscnet-ss-4">LMSCNet-SS [4]</h3>
+<p>This network serves as a baseline SSC architecture. To incorporate our augmented input, LMSCNet-SS [4] was adapted by modifying its initial network layer. This modification ensures the input layer can correctly process the augmented tensor <span class="arithmatex">\(V\)</span>, which now possesses <span class="arithmatex">\((C+2) \cdot Z\)</span> channels.</p>
+<h3 id="semcity-ae-12">SemCity-AE [12]</h3>
+<p>SemCity-AE [12], a lightweight autoencoder, was repurposed for SSC. It accepts the augmented sparse tensor <span class="arithmatex">\(V\)</span> as its input. The necessary adaptation involved modifying the embedding layer size to accommodate the richer feature set provided by the augmented input.</p>
+<h3 id="ssa-sc-6">SSA-SC [6]</h3>
+<p>In the SSA-SC [6] architecture, the input width of the BEV U-Net required modification. It was changed from the original <span class="arithmatex">\(32+32\)</span> to <span class="arithmatex">\((C+2) \cdot 32 + 32\)</span>. This adjustment allows the network to ingest the one-hot encoded semantics alongside the empty and unknown class indicators.</p>
+<h3 id="js3c-net-7">JS3C-Net [7]</h3>
+<p>JS3C-Net [7] required two specific updates to integrate the priors. First, one-hot encoded semantic pseudo-labels were concatenated to the per-point input features used for semantic segmentation. Second, the input to the SSC module itself was enhanced to explicitly incorporate the visibility information derived from the ray casting process.</p>
 <h2 id="results">Results</h2>
-<p>The efficacy of DeltaDirect is demonstrated across controlled and real-world benchmarks.</p>
+<p>The empirical evaluation across various architectures demonstrates the efficacy of this augmentation strategy.</p>
 <table>
 <thead>
 <tr>
@@ -1923,38 +1981,50 @@ signed moti</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Motion direction accuracy (MODIRECT-SYNBENCH)</td>
-<td style="text-align: left;">85.4%</td>
-<td style="text-align: left;">25.9%</td>
+<td style="text-align: left;">mIoU</td>
+<td style="text-align: left;">28.8 mIoU</td>
+<td style="text-align: left;">DiffSSC [5] and DPS2CNet [24] (both at 26.7 mIoU)</td>
+<td style="text-align: left;">Table 3</td>
+</tr>
+<tr>
+<td style="text-align: left;">mIoU</td>
+<td style="text-align: left;">33.5 mIoU</td>
+<td style="text-align: left;">SemCity-AE [12] <span class="arithmatex">\(\checkmark\)</span>WI-TTA <span class="arithmatex">\(\text{+25.7 mIoU}\)</span></td>
+<td style="text-align: left;">Table 3</td>
+</tr>
+<tr>
+<td style="text-align: left;">mIoU</td>
+<td style="text-align: left;">40.1 mIoU</td>
+<td style="text-align: left;">SSA-SC [6] <span class="arithmatex">\(\checkmark\)</span>Oracle <span class="arithmatex">\(\text{+28.8 mIoU}\)</span></td>
+<td style="text-align: left;">Table 3</td>
+</tr>
+<tr>
+<td style="text-align: left;">mIoU</td>
+<td style="text-align: left;">+13.8 mIoU pts</td>
+<td style="text-align: left;">LMSCNet-SS [4] (without GT semantic input)</td>
 <td style="text-align: left;">Table 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Real-world motion direction accuracy improvement (MODIRECT-REALBENCH)</td>
-<td style="text-align: left;">21.9 points</td>
-<td style="text-align: left;">vanilla baseline</td>
-<td style="text-align: left;">Abstract</td>
-</tr>
-<tr>
-<td style="text-align: left;">Instruction tuning MCQ accuracy (Primitive-on-Syn)</td>
-<td style="text-align: left;">99.5%</td>
-<td style="text-align: left;">27.6%</td>
-<td style="text-align: left;">Figure 4</td>
+<td style="text-align: left;">IoU</td>
+<td style="text-align: left;">+2.4 points</td>
+<td style="text-align: left;">SemCity-AE [12] (without visibility prior)</td>
+<td style="text-align: left;">Table 2</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>This work establishes that directional motion blindness is not merely a data scarcity issue but a fundamental representational bottleneck localized at the visual-language interface. By introducing DeltaDirect, we provide a mechanism to explicitly inject low-level, signed motion information into the model's latent space during training. The substantial gains observed on MODIRECT-SYNBENCH (from 25.9% to 85.4%) confirm that strengthening the motion signal magnitude at the projector level is a viable strategy to overcome this binding gap. Furthermore, the improvement on MODIRECT-REALBENCH suggests that this approach yields benefits that extend beyond synthetic, controlled environments.</p>
+<p>The practitioner takeaways from this work are significant for applied robotics and AI engineering. First, this research establishes that relatively simple input augmentations—namely semantic pseudo-labels and visibility information—can elevate the performance of established SSC models to levels competitive with more complex, state-of-the-art systems. Second, it underscores that the quality of the semantic segmentation prior is a critical bottleneck; leveraging advances in off-the-shelf point semantic segmentation directly translates to substantial gains in scene completion. Finally, the visibility information provides a measurable, "free" boost to occupancy estimation by explicitly resolving the ambiguity between empty and unknown voxels.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>A key limitation remains the out-of-domain failure mode, which persists even after applying instruction tuning. This strongly suggests that the generalization gap is rooted in an inherent magnitude deficit in the motion direction representations when moving from the source to target domains. Additionally, it must be noted that the auxiliary branch utilized by DeltaDirect is discarded post-training; therefore, the test-time input format remains unchanged from the standard Video-LLM setup. Future work should investigate methods to enforce domain-invariant signal magnitudes rather than relying solely on task-specific supervision.</p>
+<p>It is important to note that this study is fundamentally an empirical investigation focused on demonstrating the efficacy of input augmentation rather than proposing a novel, end-to-end architectural paradigm. Furthermore, the reproducibility of some state-of-the-art methods cited in the literature is hampered by them being closed-source, non-reproducible, or relying on multi-frame test-time optimization procedures, which limits a direct, apples-to-apples comparison in all scenarios.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.22823">2605.22823</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260522823</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Which Way Did It Move? Diagnosing and Overcoming Directional Motion Blindness in Video-LLMs}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Jongseo Lee and Hyuntak Lee and Sunghun Kim and Sooa Kim and Jihoon Chung and Jinwoo Choi}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.22823}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.03992">2606.03992</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260603992</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Exploring Easy Boosts for Lidar Semantic Scene Completion}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Tetiana Martyniuk and Jonathan Seele and Alexandre Boulch and Gilles Puy and Renaud Marlet and Raoul de Charette}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.03992}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.22823}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.03992}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
