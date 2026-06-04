@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Exploring Easy Boosts for Lidar Semantic Scene Completion](2026-06-04-exploring-easy-boosts-for-lidar-semantic-scene-completion/)
+
+*2026-06-04*
+
+This paper introduces a plug-and-play recipe that significantly boosts Lidar Semantic Scene Completion (SSC) performance by augmenting input point clouds with semantic pseudo-labels and visibility information derived from off-the-shelf techniques.
+
 ## [Thinking in Blender: Staged Executable Inverse Graphics with Vision-Language Models](2026-06-03-thinking-in-blender-staged-executable-inverse-graphics-with-/)
 
 *2026-06-03*
