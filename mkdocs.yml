@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "TailLoR: Protecting Principal Components in Parameter-Efficient Continual Learning": posts/2026-06-06-taillor-protecting-principal-components-in-parameter-efficie.md
     - "Exploring Easy Boosts for Lidar Semantic Scene Completion": posts/2026-06-04-exploring-easy-boosts-for-lidar-semantic-scene-completion.md
     - "Thinking in Blender: Staged Executable Inverse Graphics with Vision-Language Models": posts/2026-06-03-thinking-in-blender-staged-executable-inverse-graphics-with-.md
     - "Representation Forcing for Bottleneck-Free Unified Multimodal Models": posts/2026-06-02-representation-forcing-for-bottleneck-free-unified-multimoda.md

@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [TailLoR: Protecting Principal Components in Parameter-Efficient Continual Learning](2026-06-06-taillor-protecting-principal-components-in-parameter-efficie/)
+
+*2026-06-06*
+
+TailLoR is a geometrically aware low-rank adaptation method that uses a soft spectral penalty to protect the dominant singular components of pre-trained weights, thereby routing new task adaptations into the underutilized spectral 'tail' to mitigate interference in continual learning.
+
 ## [Exploring Easy Boosts for Lidar Semantic Scene Completion](2026-06-04-exploring-easy-boosts-for-lidar-semantic-scene-completion/)
 
 *2026-06-04*
