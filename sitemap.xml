@@ -2,170 +2,174 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/tags/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/digest/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/digest/this-week-in-robotics--2026-week-17/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/digest/this-week-in-robotics--2026-week-20/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/digest/this-week-in-robotics--2026-week-21/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-05-posterior-augmented-flow-matching/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-07-audio-visual-intelligence-in-large-foundation-models/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-12-normalizing-trajectory-models/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-15-eva-bench-a-new-end-to-end-framework-for-evaluating-voice-ag/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-16-entitybench-towards-entity-consistent-long-range-multi-shot-/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-16-world-action-models-are-zero-shot-policies/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-18-refdecoder-enhancing-visual-generation-with-conditional-vide/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-18-v-jepa-2-1-unlocking-dense-features-in-video-self-supervised/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-20-can-these-views-be-one-scene-evaluating-multiview-3d-consist/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-22-variance-reduction-for-expectations-with-diffusion-teachers/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-23-explicit-stair-geometry-conditioning-for-robust-humanoid-loc/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-23-tokenisation-via-convex-relaxations/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-25-integrable-elasticity-via-neural-demand-potentials/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-27-latent-action-diffusion-for-cross-embodiment-manipulation/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-28-algorithmic-monocultures-in-hiring/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-02-representation-forcing-for-bottleneck-free-unified-multimoda/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-03-thinking-in-blender-staged-executable-inverse-graphics-with-/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-04-exploring-easy-boosts-for-lidar-semantic-scene-completion/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
+    </url>
+    <url>
+         <loc>https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-06-taillor-protecting-principal-components-in-parameter-efficie/</loc>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://davidlai0522.github.io/JarvisForResearchers/digest/archive/2026/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
 </urlset>
