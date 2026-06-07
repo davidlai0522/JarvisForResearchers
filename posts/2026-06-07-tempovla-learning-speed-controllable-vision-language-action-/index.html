@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This paper presents an adaptable, safe, and portable robot-assisted feeding system designed to enable people with mobility impairments to feed themselves using multi-modal online learning for bite acquisition and real-time perception for bite transfer.
+        <meta name="description" content="TempoVLA introduces a framework to give existing Vision-Language-Action (VLA) models explicit, bidirectional control over execution speed by combining Variable-Speed Trajectory Augmentation (VSTA) on the data side and speed conditioning on the model side.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-07-tempovla-learning-speed-controllable-vision-language-action-/">
       
       
-        <link rel="prev" href="../2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../../digest/">
+        <link rel="next" href="../2026-06-06-taillor-protecting-principal-components-in-parameter-efficie/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>An Adaptable, Safe, and Portable Robot-Assisted Feeding System - JarvisForResearchers</title>
+        <title>TempoVLA: Learning Speed-Controllable Vision-Language-Action Policies - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              An Adaptable, Safe, and Portable Robot-Assisted Feeding System
+              TempoVLA: Learning Speed-Controllable Vision-Language-Action Policies
             
           </span>
         </div>
@@ -467,10 +467,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-06-07-tempovla-learning-speed-controllable-vision-language-action-/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TempoVLA: Learning Speed-Controllable Vision-Language-Action Policies
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -486,6 +511,184 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variable-speed-trajectory-augmentation-vsta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable-Speed Trajectory Augmentation (VSTA)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#speed-conditioned-policy-pi_thetao_t-s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Speed-Conditioned Policy \(\pi_\theta(o_t, s)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#textual-prefix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Textual prefix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#speed-modulated-rmsnorm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Speed-modulated RMSNorm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soft-prompt-with-speed-anchors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Soft prompt with speed anchors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlm-scheduler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VLM Scheduler
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1447,35 +1650,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    An Adaptable, Safe, and Portable Robot-Assisted Feeding System
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/" class="md-nav__link">
         
   
   
@@ -1491,184 +1669,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#kinova-gen2-jaco" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Kinova Gen2 (JACO)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kinova-gen3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Kinova Gen3
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#custom-3d-printed-fork-assembly" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Custom, 3d-printed fork assembly
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lenovo-legion-5-laptop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Lenovo Legion 5 laptop
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#react-app" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        React app
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#watchdog-system" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Watchdog system
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1807,10 +1807,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#kinova-gen2-jaco" class="md-nav__link">
+  <a href="#variable-speed-trajectory-augmentation-vsta" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Kinova Gen2 (JACO)
+        Variable-Speed Trajectory Augmentation (VSTA)
       
     </span>
   </a>
@@ -1818,10 +1818,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#kinova-gen3" class="md-nav__link">
+  <a href="#speed-conditioned-policy-pi_thetao_t-s" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Kinova Gen3
+        Speed-Conditioned Policy \(\pi_\theta(o_t, s)\)
       
     </span>
   </a>
@@ -1829,10 +1829,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#custom-3d-printed-fork-assembly" class="md-nav__link">
+  <a href="#textual-prefix" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom, 3d-printed fork assembly
+        Textual prefix
       
     </span>
   </a>
@@ -1840,10 +1840,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#lenovo-legion-5-laptop" class="md-nav__link">
+  <a href="#speed-modulated-rmsnorm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lenovo Legion 5 laptop
+        Speed-modulated RMSNorm
       
     </span>
   </a>
@@ -1851,10 +1851,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#react-app" class="md-nav__link">
+  <a href="#soft-prompt-with-speed-anchors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        React app
+        Soft prompt with speed anchors
       
     </span>
   </a>
@@ -1862,10 +1862,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#watchdog-system" class="md-nav__link">
+  <a href="#vlm-scheduler" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Watchdog system
+        VLM Scheduler
       
     </span>
   </a>
@@ -1942,14 +1942,14 @@
       
       
       
-        <a href="../../tags/#tag:multimodal" class="md-tag">multimodal</a>
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:perception" class="md-tag">perception</a>
+        <a href="../../tags/#tag:manipulation" class="md-tag">manipulation</a>
       
     
       
@@ -1959,60 +1959,104 @@
         <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
       
     
+      
+      
+      
+      
+        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
+      
+    
   </nav>
 
 
 
-  <h1>An Adaptable, Safe, and Portable Robot-Assisted Feeding System</h1>
+  <h1>TempoVLA: Learning Speed-Controllable Vision-Language-Action Policies</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-01</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-06-07</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Brand new preprint (2026) — accepted</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>We present a robot-assisted feeding system that integrates hardware (Kinova arms, Jetson Nano) with a ROS2 stack to enable self-feeding for mobility-impaired individuals. The system achieves adaptability to novel food textures via multi-modal online learning during bite acquisition and employs real-time, interaction-aware control for safe bite transfer into the mouth.</p>
+<p>TempoVLA introduces a framework to give existing Vision-Language-Action (VLA) models explicit, bidirectional control over execution speed by combining Variable-Speed Trajectory Augmentation (VSTA) on the data side and speed conditioning on the model side. This allows existing VLAs to handle tasks requiring both rapid transit and slow, precise manipulation without requiring full retraining.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>A significant public health issue is the reliance on assistance for eating; in the United States alone, at least 1.8 million people require help with feeding. This dependency imposes substantial emotional burdens, specifically feelings of shame on the recipients, and creates a significant, time-intensive logistical burden on caregivers.</p>
+<p>Existing Vision-Language-Action models (VLAs) inherently operate at a single, fixed execution speed dictated by the distribution of their training demonstrations. This uniformity is fundamentally inadequate for complex, real-world manipulation tasks. Such tasks necessitate dynamic temporal behavior, requiring the agent to transition fluidly between high-speed transit phases—where efficiency is paramount—and low-speed, high-precision contact stages, such as delicate insertion or fragile object handover.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>Our work makes three primary contributions:
-1. We deliver a robot-assisted feeding system that simultaneously embodies Safety, Portability, and User Control.
-2. We employ multi-modal online learning to ensure tractable adaptation when encountering unseen food types during the bite acquisition phase.
-3. We implement a bite transfer mechanism that utilizes real-time mouth perception coupled with an interaction-aware control strategy, leveraging multimodal sensing (visual and haptic).</p>
+<p>We make three primary contributions to this domain:
+1. We propose VSTA alongside speed conditioning, a lightweight data-and-model pair that equips existing VLAs with bidirectional speed control without necessitating new data collection.
+2. We demonstrate that variable-speed training functions as an effective augmentation, consistently elevating the default 1x success rate both in simulation and in the physical world.
+3. We show that this design generalizes to VLM-driven dynamic speed scheduling, effectively transforming execution speed into a novel control channel usable by higher-level reasoning modules.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2403.04134/fig_p2_c1.jpg" />
-<em>Figure 1: (Left) Diagram of the system logic. The user drives the app, which calls an API on the robot computer. (Right) Hardware system for
-both the Gen2 and Gen3 base. No external wires are needed.
-1.2
-Software
-Our software stack is built on ROS2 and the ros2-control frame-
-work2. We have configur</em></p>
-<p>The system architecture integrates specific hardware components with a robust ROS2 software framework. User interaction is mediated through a React web application, which drives a finite state machine implemented via ROS2 action servers, services, and topics. Bite acquisition is managed using a 26-dimensional interpretable acquisition schema, augmented by a contextual bandit framework that incorporates haptic post hoc context for online adaptation. Bite transfer is achieved by combining real-time mouth perception derived from multiple in-hand cameras with a physical interaction-aware control method that fuses visual and haptic data to navigate within the user's oral cavity.</p>
-<h3 id="kinova-gen2-jaco">Kinova Gen2 (JACO)</h3>
-<p>This is a 6-DOF robot arm. It has been modified to incorporate an eye-in-hand system, which permits continuous rotation of the wrist joint, providing necessary degrees of freedom for precise manipulation tasks.</p>
-<h3 id="kinova-gen3">Kinova Gen3</h3>
-<p>This 6-DOF robot arm is equipped with an additional camera and features an Nvidia Jetson Nano developer kit mounted on its wrist. This setup allows for localized, high-throughput perception processing, specifically managing an Intel Realsense D415 RGBD camera.</p>
-<h3 id="custom-3d-printed-fork-assembly">Custom, 3d-printed fork assembly</h3>
-<p>This assembly is held by the robot gripper. Crucially, it is instrumented with a 6-DOF ATI Nano25 force-torque transducer, providing direct, high-fidelity feedback on contact forces during interaction.</p>
-<h3 id="lenovo-legion-5-laptop">Lenovo Legion 5 laptop</h3>
-<p>This unit serves as the primary computational hub. It is equipped with an Nvidia RTX 3060 6GB GPU and is mounted externally on the user's wheelchair, facilitating the system's portability requirement.</p>
-<h3 id="react-app">React app</h3>
-<p>This application functions as the primary user interface, accessible via a standard web browser. It acts as the logical control 'seat' for the entire system, managing high-level state transitions and user commands.</p>
-<h3 id="watchdog-system">Watchdog system</h3>
-<p>This is a dedicated, single-node process responsible for enforcing hard safety constraints. It continuously verifies system invariants and issues an 'all-clear' signal, acting as a final layer of safety validation.</p>
+<p><img alt="Please provide the figure you would like me to analyze. I will then follow your instructions precisely." src="../../assets/figures/2606.06491/fig_p1_c1.jpg" />
+*Figure 1: TempoVLA: a speed-controllable VLA framework. (a) VSTA re-times any demon-
+stration to a target speed by selectively merging consecutive actions to speed up or splitting them to
+slow down, while preserving motion semantics. (b) The policy takes a scalar speed s as an explicit
+conditioning *</p>
+<p>TempoVLA addresses the challenge of speed control through the coupling of two distinct mechanisms. On the data side, <strong>Variable-Speed Trajectory Augmentation (VSTA)</strong> re-times any existing demonstration to an arbitrary target speed <span class="arithmatex">\(s \in \mathbb{R}^+\)</span>. This is achieved by either merging consecutive actions to accelerate the trajectory (<span class="arithmatex">\(q&gt;p\)</span>) or by splitting actions to decelerate (<span class="arithmatex">\(q&lt;p\)</span>), all while rigorously preserving the underlying motion semantics. On the model side, the scalar speed <span class="arithmatex">\(s\)</span> is explicitly injected into the policy <span class="arithmatex">\(\pi_\theta(o_t, s)\)</span> through one of three proposed, lightweight conditioning schemes: textual prefix, speed-modulated RMSNorm, or soft prompt with speed anchors. Crucially, the low-level controller remains unmodified. This architecture enables the policy to scale its predicted action magnitudes proportionally to <span class="arithmatex">\(s\)</span>, thereby facilitating flexible speed control in both acceleration and deceleration regimes.</p>
+<h3 id="variable-speed-trajectory-augmentation-vsta">Variable-Speed Trajectory Augmentation (VSTA)</h3>
+<p>VSTA is an online data augmentation strategy. It takes a trajectory recorded at an original speed <span class="arithmatex">\(p\)</span> and transforms it to a target speed <span class="arithmatex">\(s\)</span>. The process involves motion-consistent segmentation of the trajectory, followed by a chunk-level speed transform. This transformation ensures that the kinematic and dynamic relationships between consecutive actions are maintained, even when the temporal spacing between them is altered.</p>
+<h3 id="speed-conditioned-policy-pi_thetao_t-s">Speed-Conditioned Policy <span class="arithmatex">\(\pi_\theta(o_t, s)\)</span></h3>
+<p>This is the core VLA policy that has been trained on the augmented dataset <span class="arithmatex">\(e_D\)</span>. It is designed to accept the scalar speed <span class="arithmatex">\(s\)</span> as an explicit conditioning input alongside the observation <span class="arithmatex">\(o_t\)</span>. The policy learns to map the state and the desired speed to the appropriate action distribution.</p>
+<h3 id="textual-prefix">Textual prefix</h3>
+<p>This is one of the three injection methods. It involves prepending a short, descriptive phrase, such as 'Perform the task at <span class="arithmatex">\(\langle s \rangle\)</span>x speed,' directly to the original natural language instruction <span class="arithmatex">\(\ell\)</span> before it enters the VLA encoder.</p>
+<h3 id="speed-modulated-rmsnorm">Speed-modulated RMSNorm</h3>
+<p>This scheme introduces a small two-layer MLP, <span class="arithmatex">\(\phi_{mod}(s)\)</span>, which embeds the scalar speed <span class="arithmatex">\(s\)</span>. The output of this MLP is then used to modulate the Root Mean Square Normalization (RMSNorm) applied within each expert layer of the policy. The modulation is defined as <span class="arithmatex">\(\text{adaRMSNorm}(\cdot) = \gamma(\sigma_{ts} + \phi_{mod}(s)) \odot x / \|x\|_{\text{RMS}}\)</span>.</p>
+<h3 id="soft-prompt-with-speed-anchors">Soft prompt with speed anchors</h3>
+<p>This method utilizes a learnable tensor, <span class="arithmatex">\(P \in \mathbb{R}^{K \times P \times d_{emb}}\)</span>, which stores embedding tokens corresponding to <span class="arithmatex">\(K\)</span> predefined training-speed anchors <span class="arithmatex">\(s_k \in S\)</span>. These tokens are inserted at the input layer of the VLA encoder, allowing the model to condition on the desired speed via these learned representations.</p>
+<h3 id="vlm-scheduler">VLM Scheduler</h3>
+<p>This component operates at the deployment level, above the core VLA. It is a high-level Vision-Language Model (VLM) tasked with observing the current scene state and predicting the appropriate speed <span class="arithmatex">\(s_t\)</span> for the subsequent sequence of action chunks. This enables the system to execute dynamic speed scheduling based on environmental context.</p>
 <h2 id="results">Results</h2>
-<p>No quantitative results were provided in the outline.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Baseline</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Replay success rate (SR) at 1x</td>
+<td style="text-align: left;">97.6%</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Table 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Motion Err. at 1.25x</td>
+<td style="text-align: left;">1.1E-8</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Table 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Overall SR (Textual Prefix)</td>
+<td style="text-align: left;">96.8</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Table 2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Peak success rate (7-speed range)</td>
+<td style="text-align: left;">97.4</td>
+<td style="text-align: left;">96.7 (single-speed baseline)</td>
+<td style="text-align: left;">Table 3</td>
+</tr>
+</tbody>
+</table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The design explicitly addresses critical gaps in prior work. The system is engineered for portability, meaning it can operate using the battery power of any standard powered wheelchair without requiring dedicated, fixed wiring for the utensil. Furthermore, user agency is maintained because control is centralized in the web application, allowing the recipient to initiate, halt, or modify the system's operation at any point. Safety is not monolithic; it is enforced across four distinct layers: Compliant Hardware, Compliant Control, Software Anomaly Detection, and Emergency Intervention.</p>
+<p>The ability to decouple execution speed from the core policy weights is a significant engineering advance for embodied AI. As demonstrated by the comparable performance across the three speed injection schemes, speed control can be integrated into existing, pre-trained VLAs with minimal architectural overhead. Furthermore, the textual prefix method offers the most straightforward deployment path, requiring no modification to the model's internal structure or the maintenance of fixed anchor sets. Beyond enabling speed control, the VSTA process itself acts as a robust data augmentation technique, consistently improving baseline performance. Finally, the integration with a VLM Scheduler opens the door for truly adaptive, context-aware robotic behavior where speed is managed as a strategic control variable.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>Two primary limitations must be acknowledged. First, the system's usability is contingent on the user's capacity to interface with the web application using available assistive technologies. Second, the overall safety profile is fundamentally dependent on the operational integrity of the watchdog system and the reliability of the emergency stop mechanisms.</p>
+<p>The implementation of VSTA is constrained by the reliance on motion-consistent segmentation, which is predicated on specific thresholds (<span class="arithmatex">\(\tau_{dir}\)</span>). Furthermore, this segmentation assumes that the underlying actions are closed under addition, such as Cartesian translations in <span class="arithmatex">\(\mathbb{R}^3\)</span> or axis-angle vectors in <span class="arithmatex">\(\text{so}(3)\)</span>. For the soft prompt scheme, inference requires selecting the nearest anchor <span class="arithmatex">\(k^\star = \arg \min_k |s - s_k|\)</span>, which inherently introduces a quantization error relative to the continuous target speed <span class="arithmatex">\(s\)</span>. Future work should investigate more robust segmentation methods for non-additive action spaces and explore continuous interpolation techniques for the soft prompt conditioning to mitigate quantization artifacts.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2403.04134">2403.04134</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">240304134</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{An Adaptable, Safe, and Portable Robot-Assisted Feeding System}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Ethan Kroll Gordon and Rajat Kumar Jenamani and Amal Nanavati and Ziang Liu and Haya Bolotski and Raida Karim et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2403.04134}</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2024}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2403.04134}</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.06491">2606.06491</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260606491</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{TempoVLA: Learning Speed-Controllable Vision-Language-Action Policies}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Dong Jing and Jingchen Nie and Tianqi Zhang and Jiaqi Liu and Huaxiu Yao and Zhiwu Lu et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.06491}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.06491}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
