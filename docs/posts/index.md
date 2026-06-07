@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [TempoVLA: Learning Speed-Controllable Vision-Language-Action Policies](2026-06-07-tempovla-learning-speed-controllable-vision-language-action-/)
+
+*2026-06-07*
+
+TempoVLA introduces a framework to give existing Vision-Language-Action (VLA) models explicit, bidirectional control over execution speed by combining Variable-Speed Trajectory Augmentation (VSTA) on the data side and speed conditioning on the model side.
+
 ## [TailLoR: Protecting Principal Components in Parameter-Efficient Continual Learning](2026-06-06-taillor-protecting-principal-components-in-parameter-efficie/)
 
 *2026-06-06*
