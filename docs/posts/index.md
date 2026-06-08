@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [HANDOFF: Humanoid Agentic Task-Space Whole-Body Control via Distilled Complementary Teachers](2026-06-08-handoff-humanoid-agentic-task-space-whole-body-control-via-d/)
+
+*2026-06-08*
+
+HANDOFF is a task-space whole-body humanoid controller distilled from three complementary specialists—motion tracking, locomotion, and fall-recovery—to accept a compact, explicit 10-D planner-facing command.
+
 ## [TempoVLA: Learning Speed-Controllable Vision-Language-Action Policies](2026-06-07-tempovla-learning-speed-controllable-vision-language-action-/)
 
 *2026-06-07*

@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "HANDOFF: Humanoid Agentic Task-Space Whole-Body Control via Distilled Complementary Teachers": posts/2026-06-08-handoff-humanoid-agentic-task-space-whole-body-control-via-d.md
     - "TempoVLA: Learning Speed-Controllable Vision-Language-Action Policies": posts/2026-06-07-tempovla-learning-speed-controllable-vision-language-action-.md
     - "TailLoR: Protecting Principal Components in Parameter-Efficient Continual Learning": posts/2026-06-06-taillor-protecting-principal-components-in-parameter-efficie.md
     - "Exploring Easy Boosts for Lidar Semantic Scene Completion": posts/2026-06-04-exploring-easy-boosts-for-lidar-semantic-scene-completion.md
