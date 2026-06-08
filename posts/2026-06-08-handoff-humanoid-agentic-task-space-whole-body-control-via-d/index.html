@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ActCam is a zero-shot, training-free framework that achieves joint control over character motion and camera trajectory in image-conditioned video generation by constructing camera-aligned pose and depth conditioning signals.
+        <meta name="description" content="HANDOFF is a task-space whole-body humanoid controller distilled from three complementary specialists—motion tracking, locomotion, and fall-recovery—to accept a compact, explicit 10-D planner-facing command.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-08-handoff-humanoid-agentic-task-space-whole-body-control-via-d/">
       
       
-        <link rel="prev" href="../2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-07-audio-visual-intelligence-in-large-foundation-models/">
+        <link rel="next" href="../2026-06-07-tempovla-learning-speed-controllable-vision-language-action-/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation - JarvisForResearchers</title>
+        <title>HANDOFF: Humanoid Agentic Task-Space Whole-Body Control via Distilled Complementary Teachers - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation
+              HANDOFF: Humanoid Agentic Task-Space Whole-Body Control via Distilled Complementary Teachers
             
           </span>
         </div>
@@ -469,10 +469,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-06-08-handoff-humanoid-agentic-task-space-whole-body-control-via-d/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HANDOFF: Humanoid Agentic Task-Space Whole-Body Control via Distilled Complementary Teachers
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -488,6 +513,184 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whole-body-motion-tracking-teacher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Whole-Body Motion-Tracking Teacher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#locomotion-teacher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Locomotion Teacher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fall-recovery-teacher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fall-Recovery Teacher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#student-policy-mixture-of-experts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Student Policy (Mixture-of-Experts)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context-signal-mathbfx_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context Signal \(\mathbf{x}_t\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agentic-planner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agentic Planner
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1253,35 +1456,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/" class="md-nav__link">
         
   
   
@@ -1297,228 +1475,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#reference-image-i_ref" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reference Image (\(I_{ref}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#acting-video-v_act" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Acting Video (\(V_{act}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#target-camera-trajectory-c" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Target Camera Trajectory (\(C\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#monocular-depth-estimator-moge" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Monocular Depth Estimator (MoGe)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inpainting-process" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Inpainting Process
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scene-transfer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scene Transfer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4d-motion-recovery-gvhmr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4D Motion Recovery (GVHMR)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#character-3d-fitting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Character 3D Fitting
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rasterization-operator-r_c" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rasterization Operator (\(R_C\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#two-phase-conditioning-schedule" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Two-Phase Conditioning Schedule
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1881,10 +1837,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#reference-image-i_ref" class="md-nav__link">
+  <a href="#whole-body-motion-tracking-teacher" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reference Image (\(I_{ref}\))
+        Whole-Body Motion-Tracking Teacher
       
     </span>
   </a>
@@ -1892,10 +1848,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#acting-video-v_act" class="md-nav__link">
+  <a href="#locomotion-teacher" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Acting Video (\(V_{act}\))
+        Locomotion Teacher
       
     </span>
   </a>
@@ -1903,10 +1859,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#target-camera-trajectory-c" class="md-nav__link">
+  <a href="#fall-recovery-teacher" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Target Camera Trajectory (\(C\))
+        Fall-Recovery Teacher
       
     </span>
   </a>
@@ -1914,10 +1870,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#monocular-depth-estimator-moge" class="md-nav__link">
+  <a href="#student-policy-mixture-of-experts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Monocular Depth Estimator (MoGe)
+        Student Policy (Mixture-of-Experts)
       
     </span>
   </a>
@@ -1925,10 +1881,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#inpainting-process" class="md-nav__link">
+  <a href="#context-signal-mathbfx_t" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Inpainting Process
+        Context Signal \(\mathbf{x}_t\)
       
     </span>
   </a>
@@ -1936,54 +1892,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#scene-transfer" class="md-nav__link">
+  <a href="#agentic-planner" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scene Transfer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4d-motion-recovery-gvhmr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4D Motion Recovery (GVHMR)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#character-3d-fitting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Character 3D Fitting
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rasterization-operator-r_c" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rasterization Operator (\(R_C\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#two-phase-conditioning-schedule" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Two-Phase Conditioning Schedule
+        Agentic Planner
       
     </span>
   </a>
@@ -2067,14 +1979,14 @@
       
       
       
-        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+        <a href="../../tags/#tag:humanoid" class="md-tag">humanoid</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:diffusion-models" class="md-tag">diffusion-models</a>
+        <a href="../../tags/#tag:locomotion" class="md-tag">locomotion</a>
       
     
       
@@ -2084,50 +1996,53 @@
         <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
       
     
+      
+      
+      
+      
+        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
+      
+    
   </nav>
 
 
 
-  <h1>ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation</h1>
+  <h1>HANDOFF: Humanoid Agentic Task-Space Whole-Body Control via Distilled Complementary Teachers</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-09</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-06-08</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Brand new preprint (2026) — accepted</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>ActCam is a training-free framework that achieves joint control over character motion and camera trajectory in image-conditioned video generation by constructing camera-aligned pose and depth conditioning signals.</p>
+<p>HANDOFF introduces a unified, task-space whole-body humanoid controller that accepts a compact 10-D command. It achieves this by distilling knowledge from three specialized teachers—motion tracking, locomotion, and fall-recovery—using a context-conditioned Mixture-of-Experts architecture. This design allows high-level, semantic planners (like VLM-driven agents) to control complex dynamics without needing to synthesize dense kinematic references.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Controlling both the subject's acting performance and the camera movements (trajectory, parallax, viewpoint changes) simultaneously in video generation remains largely unexplored. Furthermore, existing 2D motion controls become ambiguous under moving cameras because the same 2D signal can correspond to multiple 3D motions. Prior work has shown that Uni3C requires custom architecture and ad-hoc finetuning, which is expensive and limitedly transferable. Crucially, most existing methods fail to solve the joint requirement of controlling an articulated performance while enforcing a non-trivial camera trajectory.</p>
+<p>Current state-of-the-art whole-body controllers often necessitate dense kinematic or spatial references as input. This requirement imposes a significant bottleneck on high-level task planners, forcing them to operate as mere data-replay engines tied to specific, pre-recorded demonstrations. The existing architectural paradigms present specific limitations: motion-tracking expressiveness typically demands controller-specific, dense interfaces; split-architecture controllers offer compact locomotion commands but require explicit per-joint arm references; and latent-action interfaces sacrifice the modularity required for robust planner design.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>ActCam introduces three primary contributions:
-1. <strong>Zero-shot joint control:</strong> ActCam is a training-free method for joint acting-motion and camera-trajectory control in image-conditioned video generation.
-2. <strong>Condition construction for joint control:</strong> A novel geometry-grounded conditioning pipeline that aligns motion (pose) and scene geometry (depth) to the target camera while preventing static/dynamic interference via reference-character removal, geometry-aware placement, and depth alignment.
-3. <strong>Two-phase conditioning pipeline:</strong> A two-phase inference pipeline that adapts the conditioning information depending on the denoising step, leading to a flexible conditioning that preserves dynamic aspects of the scene.</p>
+<p>We introduce HANDOFF, a novel single humanoid whole-body controller designed to accept a compact, explicit 10-D planner-facing command. Our primary technical contribution is the distillation process, where we fuse the knowledge of three complementary specialists—a motion tracking teacher, a locomotion teacher, and a fall-recovery teacher—via multi-teacher KL distillation governed by a context-conditioned gating scheme. Furthermore, we demonstrate the hardware feasibility of this approach by successfully integrating it with a VLM-driven agentic planner without requiring any task-specific data or fine-tuning of the controller itself.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.06667/fig_p1_c1.jpg" />
-<em>Fig. 1. Overview. ActCam enables zero-shot joint control of acting motion and camera motion for single-image video generation from a reference image,
-assuming only widespread conditioning capability of the backbone model on depth and keypoints. Given a reference image, an acting video representing t</em></p>
-<p>ActCam operates entirely at inference time by constructing camera-aligned conditioning signals for a pretrained video diffusion backbone (such as VACE). The process begins by estimating a background-only depth map (<span class="arithmatex">\(D_{bg}\)</span>) by inpainting the character out of the reference image (<span class="arithmatex">\(I_{ref}\)</span>). A 3D background mesh is subsequently built from <span class="arithmatex">\(D_{bg}\)</span>. The dynamic actor motion is recovered from the acting video (<span class="arithmatex">\(V_{act}\)</span>) using a monocular 3D human motion estimator (GVHMR). Next, scene transfer aligns the character into the background 3D mesh using weighted centroids and an affine transformation. Finally, two control signals—a depth+pose condition and a pose-only condition—are rasterized under the target camera trajectory (<span class="arithmatex">\(C\)</span>). These signals are fed into the diffusion model using a two-phase conditioning schedule: early steps utilize depth+pose, and later steps use pose-only guidance.</p>
-<h3 id="reference-image-i_ref">Reference Image (<span class="arithmatex">\(I_{ref}\)</span>)</h3>
-<p>This input defines the target character identity and the environment appearance that the generated video must adhere to.</p>
-<h3 id="acting-video-v_act">Acting Video (<span class="arithmatex">\(V_{act}\)</span>)</h3>
-<p>This video provides the ground truth for the desired performance motion that the subject must exhibit in the output video.</p>
-<h3 id="target-camera-trajectory-c">Target Camera Trajectory (<span class="arithmatex">\(C\)</span>)</h3>
-<p>This is a per-frame sequence specifying the camera's intrinsic parameters (<span class="arithmatex">\(K_\tau\)</span>) and extrinsic parameters (<span class="arithmatex">\(R_\tau, t_\tau\)</span>) for every frame of the target video.</p>
-<h3 id="monocular-depth-estimator-moge">Monocular Depth Estimator (MoGe)</h3>
-<p>MoGe is employed to estimate the reference depth map (<span class="arithmatex">\(D_{ref}\)</span>) directly from the input reference image (<span class="arithmatex">\(I_{ref}\)</span>).</p>
-<h3 id="inpainting-process">Inpainting Process</h3>
-<p>This process is critical for disentangling the scene. It is used to remove the character from <span class="arithmatex">\(I_{ref}\)</span> to extract a background-only depth map (<span class="arithmatex">\(D_{bg}\)</span>), thereby isolating the static scene geometry.</p>
-<h3 id="scene-transfer">Scene Transfer</h3>
-<p>This component handles the integration of the character into the static environment. It aligns the character into the background 3D mesh by finding a new position while preserving pixel reprojection fidelity, utilizing an importance weighting function <span class="arithmatex">\(w(u, v) = \exp(-\text{dist}(x_{ref}^{u,v}, M))\)</span>.</p>
-<h3 id="4d-motion-recovery-gvhmr">4D Motion Recovery (GVHMR)</h3>
-<p>GVHMR is utilized to recover the articulated state <span class="arithmatex">\(S_\tau\)</span> from the input acting video (<span class="arithmatex">\(V_{act}\)</span>), providing the temporal evolution of the character's pose.</p>
-<h3 id="character-3d-fitting">Character 3D Fitting</h3>
-<p>This step aligns the dynamic poses <span class="arithmatex">\(S\)</span> recovered from <span class="arithmatex">\(V_{act}\)</span> with the assembled background 3D scene. This is achieved via a least squares estimation based on a rigid transformation applied at time <span class="arithmatex">\(\tau=0\)</span>.</p>
-<h3 id="rasterization-operator-r_c">Rasterization Operator (<span class="arithmatex">\(R_C\)</span>)</h3>
-<p>This operator is responsible for generating the dense control signals. It renders the animated skeleton (<span class="arithmatex">\(\hat{S}_\tau\)</span>) and the background 3D mesh under the specific target camera viewpoint <span class="arithmatex">\(C\)</span>.</p>
-<h3 id="two-phase-conditioning-schedule">Two-Phase Conditioning Schedule</h3>
-<p>This schedule dictates how the control signals are injected into the diffusion process. Early denoising steps condition on the combined depth+pose signal for strong camera control, while later steps transition to pose-only guidance for refinement.</p>
+<p><img alt="Please provide the figure you would like me to analyze. I will then follow your instructions precisely." src="../../assets/figures/2606.06493/fig_p1_c1.jpg" />
+<em>Figure 1: HANDOFF is a whole-body controller distilled from multiple teachers that accepts a
+compact, explicit 10-D planner-facing command. We demonstrate its effectiveness using a VLM-
+powered agentic planner that does not need extensive demonstration collection or model fine-tuning.</em></p>
+<p>HANDOFF operates as a Mixture-of-Experts (MoE) student policy. This student policy ingests the 10-D command <span class="arithmatex">\(\mathbf{c}_t = [v_x, v_y, \omega_z, z, pP_L, pP_R]\)</span> alongside an 11-frame proprioception history. The policy outputs 29-DoF actions, which are decomposed into a body slice action <span class="arithmatex">\(\mathbf{a}_B\)</span> and an arm slice action <span class="arithmatex">\(\mathbf{a}_A\)</span>.</p>
+<p>The supervision signal is managed by the Context Signal <span class="arithmatex">\(\mathbf{x}_t = (\|\mathbf{cvel}_t\|, recover_t)\)</span>. This signal dictates the blending of supervisory signals: a continuous gate <span class="arithmatex">\(\alpha\)</span> modulates the supervision between the Whole-Body Motion-Tracking Teacher and the Locomotion Teacher for the body slice <span class="arithmatex">\(\mathbf{a}_B\)</span>, while a binary mask routes the supervision to the Fall-Recovery Teacher.</p>
+<h3 id="whole-body-motion-tracking-teacher">Whole-Body Motion-Tracking Teacher</h3>
+<p>This specialist is a 29-DoF policy trained using asymmetric actor-critic PPO. Its training data consists of retargeted human motion clips, and its stability is enforced by correcting the policy output using a closed-form Control Barrier Function (CBF) projection applied to the static Center of Pressure (CoP) margin.</p>
+<h3 id="locomotion-teacher">Locomotion Teacher</h3>
+<p>This teacher is a 15-DoF policy focused exclusively on the body slice (legs and waist). It was trained specifically on flat terrain data, with a design constraint ensuring robustness against CoM shifts induced by arm movements.</p>
+<h3 id="fall-recovery-teacher">Fall-Recovery Teacher</h3>
+<p>This 29-DoF teacher was trained on a curated dataset comprising both standard locomotion sequences and paired fall-and-recovery trajectories. The training utilized an Adversarial Motion Prior (AMP) to enhance the robustness of the recovery maneuvers.</p>
+<h3 id="student-policy-mixture-of-experts">Student Policy (Mixture-of-Experts)</h3>
+<p>The core of HANDOFF is the MoE head. This head maps the input state (<span class="arithmatex">\(\mathbf{c}_t\)</span> and proprioception history) to the final 29-DoF action. It employs one expert corresponding to each of the three teachers. The context signal <span class="arithmatex">\(\mathbf{x}_t\)</span> dynamically weights the contribution of these experts during the distillation phase, allowing the student to synthesize a coherent action from the specialized knowledge bases.</p>
+<h3 id="context-signal-mathbfx_t">Context Signal <span class="arithmatex">\(\mathbf{x}_t\)</span></h3>
+<p>The regime signal <span class="arithmatex">\(\mathbf{x}_t\)</span> is defined as the tuple <span class="arithmatex">\((|\mathbf{cvel}_t|, recover_t)\)</span>. This signal acts as the runtime switch: the continuous gate <span class="arithmatex">\(\alpha\)</span> uses this signal to interpolate between the motion-tracking and locomotion supervision for <span class="arithmatex">\(\mathbf{a}_B\)</span>, while the binary mask determines if the fall-recovery teacher's supervision is active.</p>
+<h3 id="agentic-planner">Agentic Planner</h3>
+<p>This component is external to the controller but critical for demonstration. It is a modular stack comprising a regex parser, an LLM fallback mechanism, a Vision-Language Model (VLM), a waypoint tracker, and a skill selector. Its sole function is to interpret high-level goals and emit the required, compact 10-D command <span class="arithmatex">\(\mathbf{c}_t\)</span> to HANDOFF.</p>
 <h2 id="results">Results</h2>
+<p>The performance metrics against the FALCON baseline demonstrate competitive performance across key dynamic tasks:</p>
 <table>
 <thead>
 <tr>
@@ -2139,32 +2054,44 @@ assuming only widespread conditioning capability of the backbone model on depth 
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Camera adherence and motion fidelity</td>
-<td style="text-align: left;">Improves compared to pose-only control and other pose+camera methods</td>
-<td style="text-align: left;">Pose-only control and other pose+camera methods</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">$</td>
+<td style="text-align: left;">\Delta v_x</td>
+<td style="text-align: left;">$</td>
+<td style="text-align: left;">0.06</td>
 </tr>
 <tr>
-<td style="text-align: left;">Preference in human evaluations</td>
-<td style="text-align: left;">Preferred</td>
-<td style="text-align: left;">Not specified</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">$</td>
+<td style="text-align: left;">\Delta v_y</td>
+<td style="text-align: left;">$</td>
+<td style="text-align: left;">0.18</td>
+</tr>
+<tr>
+<td style="text-align: left;">$</td>
+<td style="text-align: left;">\Delta \omega_z</td>
+<td style="text-align: left;">$</td>
+<td style="text-align: left;">0.06</td>
+</tr>
+<tr>
+<td style="text-align: left;">Robust WS (<span class="arithmatex">\(\text{m}^3\)</span>)</td>
+<td style="text-align: left;">0.31</td>
+<td style="text-align: left;">FALCON [17]</td>
+<td style="text-align: left;">Table 2(b)</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>ActCam provides a practical solution for complex, multi-modal video synthesis tasks without incurring the high cost of model retraining. By systematically constructing camera-aligned conditioning signals—specifically by disentangling static scene geometry from dynamic character motion—it overcomes the ambiguity inherent in using 2D motion cues under arbitrary camera movements. The staged guidance approach further ensures that the diffusion model receives appropriate constraints at the right temporal stage, leading to more coherent and controllable outputs.</p>
+<p>The introduction of HANDOFF shifts the interface paradigm from demanding dense kinematic trajectories to accepting a compact, explicit 10-D command. This abstraction is crucial because it decouples the high-level reasoning capabilities of modern AI planners (such as those based on VLMs) from the low-level, high-dimensional control requirements of the physical robot. By distilling specialized skills into a generalist controller, we create a robust system where the planner can focus on <em>what</em> to do, and the controller handles <em>how</em> to do it across diverse dynamic regimes.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The method's efficacy is contingent upon the backbone model possessing robust conditioning capabilities for both depth maps and keypoints. Furthermore, the sequential nature of the pipeline, involving multiple estimation passes (such as <span class="arithmatex">\(D_{ref}\)</span> and <span class="arithmatex">\(D_{bg}\)</span>), introduces potential for 3D space inconsistencies if the scene transfer mechanism does not perfectly resolve these discrepancies.</p>
+<p>One observed limitation is that the Locomotion Teacher's behavior is inherently anchored to the specific motion data it was trained on, which limits its reliability when tasked as a pure velocity tracker in isolation. Furthermore, the Adversarial Motion Prior (AMP) teacher, while crucial for fall recovery, was not modified or fine-tuned during the distillation process, suggesting its training regime remains fixed and potentially suboptimal for novel recovery scenarios. Future work should investigate methods for dynamically updating or fine-tuning the teacher models during the distillation process.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.06667">2605.06667</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260506667</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Omar El Khalifi and Thomas Rossi and Oscar Fossey and Thibault Fouque and Ulysse Mizrahi and Philip Torr et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.06667}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.06493">2606.06493</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260606493</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{HANDOFF: Humanoid Agentic Task-Space Whole-Body Control via Distilled Complementary Teachers}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Lizhi Yang and Junheng Li and Nehar Poddar and Yiling Hou and Gio Huh and Robert Griffin et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.06493}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.06667}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.06493}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
