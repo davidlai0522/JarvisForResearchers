@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [UniSHARP: Universal Sharp Monocular View Synthesis](2026-06-09-unisharp-universal-sharp-monocular-view-synthesis/)
+
+*2026-06-09*
+
+UniSHARP extends SHARP for universal monocular novel view synthesis by aligning images in a unified omnidirectional latent space, enabling rendering across perspective, wide-FoV, fisheye, and panoramic camera systems.
+
 ## [HANDOFF: Humanoid Agentic Task-Space Whole-Body Control via Distilled Complementary Teachers](2026-06-08-handoff-humanoid-agentic-task-space-whole-body-control-via-d/)
 
 *2026-06-08*
