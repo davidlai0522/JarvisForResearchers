@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Latent Spatial Memory for Video World Models](2026-06-10-latent-spatial-memory-for-video-world-models/)
+
+*2026-06-10*
+
+Mirage introduces latent spatial memory, a persistent 3D cache storing scene information directly in the diffusion latent space, to enable geometrically consistent video world models while avoiding the computational and representational bottlenecks of traditional RGB point-cloud memories.
+
 ## [UniSHARP: Universal Sharp Monocular View Synthesis](2026-06-09-unisharp-universal-sharp-monocular-view-synthesis/)
 
 *2026-06-09*
