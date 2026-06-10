@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="BAMI introduces a training-free inference framework that mitigates precision and ambiguity biases in GUI grounding by employing coarse-to-fine focus and candidate selection manipulations.
+        <meta name="description" content="Mirage introduces latent spatial memory, a persistent 3D cache storing scene information directly in the diffusion latent space, to enable geometrically consistent video world models while avoiding the computational and representational bottlenecks of traditional RGB point-cloud memories.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-10-latent-spatial-memory-for-video-world-models/">
       
       
-        <link rel="prev" href="../2026-05-12-normalizing-trajectory-models/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/">
+        <link rel="next" href="../2026-06-09-unisharp-universal-sharp-monocular-view-synthesis/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>BAMI: Training-Free Bias Mitigation in GUI Grounding - JarvisForResearchers</title>
+        <title>Latent Spatial Memory for Video World Models - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              BAMI: Training-Free Bias Mitigation in GUI Grounding
+              Latent Spatial Memory for Video World Models
             
           </span>
         </div>
@@ -473,10 +473,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-06-10-latent-spatial-memory-for-video-world-models/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Latent Spatial Memory for Video World Models
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -492,6 +517,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#latent-spatial-memory-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Latent Spatial Memory (M)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#depth-guided-back-projection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Depth-guided back-projection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#latent-space-memory-readout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Latent-space Memory Readout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlnet-style-side-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet-style side branch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autoregressive-3d-cache-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoregressive 3D Cache Update
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1229,35 +1421,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    BAMI: Training-Free Bias Mitigation in GUI Grounding
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/" class="md-nav__link">
         
   
   
@@ -1273,162 +1440,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#masked-prediction-distribution-mpd" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Masked Prediction Distribution (MPD)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#coarse-to-fine-focus" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Coarse-to-Fine Focus
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#candidate-selection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Candidate Selection
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#correction-model-m" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Correction Model (m)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1875,10 +1886,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#masked-prediction-distribution-mpd" class="md-nav__link">
+  <a href="#latent-spatial-memory-m" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Masked Prediction Distribution (MPD)
+        Latent Spatial Memory (M)
       
     </span>
   </a>
@@ -1886,10 +1897,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#coarse-to-fine-focus" class="md-nav__link">
+  <a href="#depth-guided-back-projection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Coarse-to-Fine Focus
+        Depth-guided back-projection
       
     </span>
   </a>
@@ -1897,10 +1908,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#candidate-selection" class="md-nav__link">
+  <a href="#latent-space-memory-readout" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Candidate Selection
+        Latent-space Memory Readout
       
     </span>
   </a>
@@ -1908,10 +1919,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#correction-model-m" class="md-nav__link">
+  <a href="#controlnet-style-side-branch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Correction Model (m)
+        ControlNet-style side branch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autoregressive-3d-cache-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoregressive 3D Cache Update
       
     </span>
   </a>
@@ -1988,13 +2010,6 @@
       
       
       
-        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
-      
-    
-      
-      
-      
-      
         <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
@@ -2002,41 +2017,45 @@
       
       
       
-        <a href="../../tags/#tag:manipulation" class="md-tag">manipulation</a>
+        <a href="../../tags/#tag:point-cloud" class="md-tag">point-cloud</a>
       
     
   </nav>
 
 
 
-  <h1>BAMI: Training-Free Bias Mitigation in GUI Grounding</h1>
+  <h1>Latent Spatial Memory for Video World Models</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-10</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-06-10</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>BAMI introduces a training-free inference framework that mitigates precision and ambiguity biases in GUI grounding by employing coarse-to-fine focus and candidate selection manipulations.</p>
+<p>Mirage introduces latent spatial memory, a persistent 3D cache storing scene information directly in the diffusion latent space, to enable geometrically consistent video world models while avoiding the computational and representational bottlenecks of traditional RGB point-cloud memories.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Existing GUI grounding models exhibit suboptimal performance when evaluated on complex benchmarks such as ScreenSpot-Pro. This degradation is primarily attributable to two systematic biases: precision bias, which arises from the high resolution of input images, and ambiguity bias, which is exacerbated by the intricate nature of modern user interfaces.</p>
-<p>The limitations of current approaches are multifaceted. Traditional gradient-based attribution methods are fundamentally ill-suited for the discrete nature of the text-to-coordinate conversion task. Furthermore, while language-space enhancement techniques, such as Chain-of-Thought prompting, have been explored, they have demonstrated limited efficacy for achieving the necessary precision in GUI grounding. Fundamentally, the underlying Multimodal Large Language Models (MLLMs) often possess inherent inductive biases—namely precision bias and ambiguity bias—that constrain their capacity for robust spatial reasoning.</p>
+<p>Video world models that maintain 3D spatial consistency typically rely on explicit point cloud memory constructed in RGB space. This approach suffers from significant drawbacks. First, it is computationally expensive because it necessitates repeated rendering and VAE encoding at every generation step. Second, it is inherently lossy. The required round trip through pixel space discards rich feature information contained within the learned latent representation. Prior world-generation systems maintain an explicit point cloud in RGB space, requiring repeated rendering and re-encoding at every step. Furthermore, the RGB detour in prior methods does not preserve the model’s native latent conditioning features, leading to distortion from VAE reconstruction error, rasterization artifacts, and distribution mismatch. Existing spatial memory designs operate entirely in RGB pixel space, which is both computation-intensive and vulnerable to accumulated errors in repeated encoding-decoding operations.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We present three primary contributions to address these limitations. First, we introduce the Masked Prediction Distribution (MPD) method, which serves as a diagnostic tool to categorize grounding failures into either knowledge deficiency or inductive bias. Second, we mitigate precision bias by reframing the single-step localization problem into a multi-step, progressive search mechanism via hierarchical coarse-to-fine focus. Third, we correct ambiguity bias by integrating an external Candidate Selection mechanism, which is guided by predefined prompt rules.</p>
+<p>We introduce three primary contributions. First, we propose the introduction of latent spatial memory, a 3D memory structure for video world models that operates entirely in latent space, thereby circumventing the need for pixel-space conversion. Second, we present Mirage, a video world model architected around this latent spatial memory. Mirage incorporates depth-guided back-projection for memory construction, occlusion-aware readout performed at latent resolution, and iterative refinement facilitated by dynamic object exclusion. Finally, Mirage achieves state-of-the-art world generation on WorldScore and demonstrates competitive novel view synthesis performance on RealEstate10K, realizing up to <span class="arithmatex">\(10.57\times\)</span> in end-to-end speedup and <span class="arithmatex">\(55\times\)</span> in memory reduction compared to RGB-based methods.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.06664/fig_p1_c1.jpg" />
-<em>Figure 1. Compared with conventional grounding models, BAMI
-achieves accurate localization without additional training via struc-
-tured inference with bias-aware manipulations.</em></p>
-<p>BAMI reframes the standard one-step localization task into a recursive, multi-step structured inference process. The core strategy involves iterative refinement to combat precision bias and structured candidate generation followed by external validation to address ambiguity bias. This entire framework is designed to operate in a training-free manner, enabling direct application atop existing open-source backbone models.</p>
-<h3 id="masked-prediction-distribution-mpd">Masked Prediction Distribution (MPD)</h3>
-<p>The MPD method functions by systematically probing the model's focus. It achieves this by randomly occluding various regions of the input screenshot. The model's prediction frequencies are then aggregated across 300 distinct perturbations for each sample. This aggregation allows us to map the model's internal focus distribution, which is critical for diagnosing whether a failure is due to a lack of underlying knowledge or an artifact of the model's inherent inductive biases.</p>
-<h3 id="coarse-to-fine-focus">Coarse-to-Fine Focus</h3>
-<p>To counteract precision bias, we decompose the localization task into a hierarchy of steps. This process is implemented as a progressive search. In each iterative step, the candidate region identified in the preceding round is refined by cropping the original image. This cropping is performed at a scale factor <span class="arithmatex">\(\lambda &lt; 1\)</span>, effectively zooming into the area of interest and allowing for finer coordinate resolution in subsequent predictions.</p>
-<h3 id="candidate-selection">Candidate Selection</h3>
-<p>To resolve ambiguity bias, we move beyond relying on a single prediction. Instead, we generate multiple, mutually exclusive candidate bounding boxes. These candidates are produced through multi-round masked prediction operations. The subsequent selection of the optimal box is not left to the primary MLLM output; rather, it is delegated to an external mechanism guided by predefined prompt rules.</p>
-<h3 id="correction-model-m">Correction Model (m)</h3>
-<p>The Correction Model (<span class="arithmatex">\(m\)</span>) is the external component leveraged during the Candidate Selection phase. Its role is to rectify the erroneous selection preferences exhibited by the grounding model. It operates by evaluating the set of mutually exclusive candidates against a set of prompt rules that encode established GUI priors, such as expected functional features or common UI patterns, thereby selecting the most plausible box.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.09828/fig_p1_c1.jpg" />
+<em>Figure 1 Geometrically consistent videos generated by Mirage with latent spatial memory. Given a single input image and a
+user-specified camera trajectory (left), Mirage preserves spatial consistency by caching 3D information directly in the latent
+space, rather than as an RGB-colored point cloud. T</em></p>
+<p>Mirage utilizes a persistent latent cache <span class="arithmatex">\(M\)</span>, which is represented as a collection of latent-attributed 3D points: <span class="arithmatex">\(M = \{(p_i, f_i)\}\)</span>, where <span class="arithmatex">\(p_i\)</span> is a world-space coordinate and <span class="arithmatex">\(f_i\)</span> is a latent feature vector. The initialization phase involves encoding the initial frame <span class="arithmatex">\(I_0\)</span> and subsequently lifting its latent tokens into 3D space via depth-guided back-projection. For subsequent video generation, the cache <span class="arithmatex">\(M\)</span> is queried by projecting all stored memory points onto the target camera grid at the latent resolution. The frontmost point is retrieved using a z-buffering mechanism to construct the target-view latent feature tensors, denoted <span class="arithmatex">\(\hat{z}_t\)</span>. These tensors are then injected into the diffusion backbone via a ControlNet-style side branch. Following the generation of a new frame chunk, the resulting frames are re-encoded and back-projected to update <span class="arithmatex">\(M\)</span>. This update process explicitly excludes dynamic objects and sky regions to preserve overall geometric coherence.</p>
+<h3 id="latent-spatial-memory-m">Latent Spatial Memory (M)</h3>
+<p><span class="arithmatex">\(M\)</span> functions as the persistent 3D cache. It stores scene information not as pixel data, but as latent-attributed 3D points, <span class="arithmatex">\(M = \{(p_i, f_i)\}\)</span>, where <span class="arithmatex">\(p_i \in \mathbb{R}^3\)</span> defines the world-space location and <span class="arithmatex">\(f_i \in \mathbb{R}^C\)</span> is the associated latent feature vector.</p>
+<h3 id="depth-guided-back-projection">Depth-guided back-projection</h3>
+<p>This mechanism is employed during the memory construction phase. It takes 2D latent tokens derived from an image and lifts them into accurate 3D world space coordinates, leveraging depth information to establish the <span class="arithmatex">\(p_i\)</span> component of the memory entry.</p>
+<h3 id="latent-space-memory-readout">Latent-space Memory Readout</h3>
+<p>To generate a view at a target camera pose, we query <span class="arithmatex">\(M\)</span>. This involves projecting every point <span class="arithmatex">\((p_i, f_i) \in M\)</span> onto the target camera grid at the latent resolution. A z-buffer is then employed to select only the frontmost projected point for each pixel location, yielding the target-view latent feature tensors <span class="arithmatex">\(\hat{z}_t\)</span>.</p>
+<h3 id="controlnet-style-side-branch">ControlNet-style side branch</h3>
+<p>This component serves as the interface between the memory and the generative model. The latent memory readouts (<span class="arithmatex">\(\hat{z}_t\)</span>) and corresponding visibility masks (<span class="arithmatex">\(m_t\)</span>) are injected into the video diffusion backbone through a structure analogous to a ControlNet, conditioning the generation process on the stored scene geometry.</p>
+<h3 id="autoregressive-3d-cache-update">Autoregressive 3D Cache Update</h3>
+<p>After a new frame chunk is generated, the process updates <span class="arithmatex">\(M\)</span>. This involves re-encoding the generated frames, estimating their depth, and back-projecting the resulting latent tokens into <span class="arithmatex">\(M\)</span>. Crucially, this update step incorporates filtering to exclude content identified as dynamic objects or sky regions, which is necessary to maintain long-term geometric coherence.</p>
 <h2 id="results">Results</h2>
-<p>The application of BAMI demonstrates a measurable improvement over established baselines on the ScreenSpot-Pro benchmark.</p>
 <table>
 <thead>
 <tr>
@@ -2048,26 +2067,44 @@ tured inference with bias-aware manipulations.</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Accuracy on ScreenSpot-Pro benchmark</td>
-<td style="text-align: left;">57.8%</td>
-<td style="text-align: left;">51.9%</td>
+<td style="text-align: left;">Average Score (WorldScore)</td>
+<td style="text-align: left;">70.36</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Table 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">End-to-end video generation speedup</td>
+<td style="text-align: left;"><span class="arithmatex">\(10.57\times\)</span> faster</td>
+<td style="text-align: left;">RGB point-cloud readout</td>
 <td style="text-align: left;">Abstract</td>
+</tr>
+<tr>
+<td style="text-align: left;">GPU memory reduction</td>
+<td style="text-align: left;"><span class="arithmatex">\(55\times\)</span> lower</td>
+<td style="text-align: left;">RGB point-cloud readout</td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+<tr>
+<td style="text-align: left;">PSNR (RealEstate10K)</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">SEVA [49]</td>
+<td style="text-align: left;">Table 2</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The practitioner takeaways from this work are significant. First, BAMI demonstrates that inference-time reasoning design, as opposed to costly model retraining, can yield substantial performance gains in complex tasks like GUI grounding. Second, the systematic error diagnosis provided by MPD is a crucial methodological advance, enabling researchers to precisely differentiate between failures rooted in knowledge gaps versus those stemming from model inductive biases. Finally, for tasks involving high-resolution inputs, the decomposition strategy inherent in coarse-to-fine focus provides a viable, effective mechanism to circumvent the limitations imposed by discretization.</p>
+<p>The shift from RGB-based memory to latent-space memory is a critical advancement for scalable 3D generative modeling. By operating entirely in the latent domain, Mirage bypasses the computational overhead associated with repeated rasterization and VAE encoding/decoding cycles inherent in RGB-cache methods. This results in substantial gains in both speed and memory efficiency. Furthermore, by preserving the rich feature representations within the latent space, the model avoids the geometric and feature degradation caused by the pixel-space detour, leading to more faithful and geometrically consistent world models.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>We acknowledge specific limitations in the current formulation. The coarse-to-fine focus strategy necessitates a trade-off between the number of iterations performed and the chosen crop ratio (<span class="arithmatex">\(\lambda\)</span>). If the cropping is too aggressive, there is a risk of losing critical contextual information necessary for accurate localization. Furthermore, the efficacy of the entire ambiguity correction pipeline is contingent upon the quality and completeness of the prompt design utilized by the external Correction Model (<span class="arithmatex">\(m\)</span>). Future work must focus on optimizing this prompt engineering aspect.</p>
+<p>The current implementation relies on a feed-forward reconstructor for estimating depth and camera parameters during the cache update phase, which represents a dependency. Additionally, the cache update procedure necessitates filtering out transient or geometrically unreliable content, specifically dynamic objects and sky regions, which requires robust external segmentation and entity extraction capabilities.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.06664">2605.06664</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260506664</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{BAMI: Training-Free Bias Mitigation in GUI Grounding}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Borui Zhang and Bo Zhang and Bo Wang and Wenzhao Zheng and Yuhao Cheng and Liang Tang et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.06664}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.09828">2606.09828</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260609828</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Latent Spatial Memory for Video World Models}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Weijie Wang and Haoyu Zhao and Yifan Yang and Feng Chen and Zeyu Zhang and Yefei He et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.09828}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.06664}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.09828}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
