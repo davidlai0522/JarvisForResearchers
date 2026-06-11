@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [When to Align, When to Predict: A Phase Diagram for Multimodal Learning](2026-06-11-when-to-align-when-to-predict-a-phase-diagram-for-multimodal/)
+
+*2026-06-11*
+
+This paper develops a unified linear framework and phase diagram to systematically determine when Cross-modal Alignment (CA) or Cross-modal Prediction (CP) succeeds or fails in multimodal representation learning under a spiked signal-plus-noise model with structured cross-modal nuisance correlation.
+
 ## [Latent Spatial Memory for Video World Models](2026-06-10-latent-spatial-memory-for-video-world-models/)
 
 *2026-06-10*

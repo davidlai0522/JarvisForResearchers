@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "When to Align, When to Predict: A Phase Diagram for Multimodal Learning": posts/2026-06-11-when-to-align-when-to-predict-a-phase-diagram-for-multimodal.md
     - "Latent Spatial Memory for Video World Models": posts/2026-06-10-latent-spatial-memory-for-video-world-models.md
     - "UniSHARP: Universal Sharp Monocular View Synthesis": posts/2026-06-09-unisharp-universal-sharp-monocular-view-synthesis.md
     - "HANDOFF: Humanoid Agentic Task-Space Whole-Body Control via Distilled Complementary Teachers": posts/2026-06-08-handoff-humanoid-agentic-task-space-whole-body-control-via-d.md
