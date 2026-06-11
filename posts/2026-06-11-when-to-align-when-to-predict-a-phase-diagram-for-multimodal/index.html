@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="AlbumFill is a training-free framework that uses vision-language reasoning to automatically retrieve identity-consistent reference images from personal photo albums to guide personalized image completion.
+        <meta name="description" content="This paper develops a unified linear framework and phase diagram to systematically determine when Cross-modal Alignment (CA) or Cross-modal Prediction (CP) succeeds or fails in multimodal representation learning under a spiked signal-plus-noise model with structured cross-modal nuisance correlation.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-11-when-to-align-when-to-predict-a-phase-diagram-for-multimodal/">
       
       
-        <link rel="prev" href="../2026-05-07-audio-visual-intelligence-in-large-foundation-models/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-05-posterior-augmented-flow-matching/">
+        <link rel="next" href="../2026-06-10-latent-spatial-memory-for-video-world-models/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>AlbumFill: Album-Guided Reasoning and Retrieval for Personalized Image Completion - JarvisForResearchers</title>
+        <title>When to Align, When to Predict: A Phase Diagram for Multimodal Learning - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AlbumFill: Album-Guided Reasoning and Retrieval for Personalized Image Completion
+              When to Align, When to Predict: A Phase Diagram for Multimodal Learning
             
           </span>
         </div>
@@ -475,10 +475,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-06-11-when-to-align-when-to-predict-a-phase-diagram-for-multimodal/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    When to Align, When to Predict: A Phase Diagram for Multimodal Learning
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -494,6 +519,151 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cross-alignment-ca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-alignment (CA)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-prediction-cp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-prediction (CP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spiked-model-covariances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spiked Model Covariances
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1399,35 +1569,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AlbumFill: Album-Guided Reasoning and Retrieval for Personalized Image Completion
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/" class="md-nav__link">
         
   
   
@@ -1443,162 +1588,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vision-language-model-vlm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vision-Language Model (VLM)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clip-style-joint-vision-language-encoder-f_textclip" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CLIP-style joint vision-language encoder (\(f_{\text{CLIP}}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#composed-image-retrieval-cir-module" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Composed Image Retrieval (CIR) module
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reference-based-diffusion-inpainting-model-mathcalg" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reference-based diffusion inpainting model (\(\mathcal{G}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1905,10 +1894,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#vision-language-model-vlm" class="md-nav__link">
+  <a href="#cross-alignment-ca" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vision-Language Model (VLM)
+        Cross-alignment (CA)
       
     </span>
   </a>
@@ -1916,10 +1905,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#clip-style-joint-vision-language-encoder-f_textclip" class="md-nav__link">
+  <a href="#cross-prediction-cp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CLIP-style joint vision-language encoder (\(f_{\text{CLIP}}\))
+        Cross-prediction (CP)
       
     </span>
   </a>
@@ -1927,21 +1916,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#composed-image-retrieval-cir-module" class="md-nav__link">
+  <a href="#spiked-model-covariances" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Composed Image Retrieval (CIR) module
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reference-based-diffusion-inpainting-model-mathcalg" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reference-based diffusion inpainting model (\(\mathcal{G}\))
+        Spiked Model Covariances
       
     </span>
   </a>
@@ -2018,14 +1996,7 @@
       
       
       
-        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:llm" class="md-tag">llm</a>
+        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
       
     
       
@@ -2035,79 +2006,83 @@
         <a href="../../tags/#tag:multimodal" class="md-tag">multimodal</a>
       
     
-      
-      
-      
-      
-        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
-      
-    
   </nav>
 
 
 
-  <h1>AlbumFill: Album-Guided Reasoning and Retrieval for Personalized Image Completion</h1>
+  <h1>When to Align, When to Predict: A Phase Diagram for Multimodal Learning</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-06</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-06-11</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Brand new preprint (2026) — accepted</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>AlbumFill is a training-free framework that uses vision-language reasoning to automatically retrieve identity-consistent reference images from personal photo albums to guide personalized image completion.</p>
+<p>We introduce a unified linear framework and phase diagram to systematically delineate the conditions under which Cross-modal Alignment (CA) or Cross-modal Prediction (CP) succeeds or fails in multimodal representation learning. By analyzing these objectives under a spiked signal-plus-noise model incorporating structured cross-modal nuisance correlation, we derive separation ratios (<span class="arithmatex">\(\Delta_{CA}, \Delta_{CP}\)</span>) that partition the problem space into four distinct regimes: Both, CA only, CP only, and Neither. This allows for a diagnostic procedure to select the appropriate cross-modal objective prior to training.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Existing image completion methods suffer from a critical dichotomy. Either they employ generic inpainting models that lack the necessary mechanisms to maintain identity consistency across the synthesized region, or they mandate that a suitable reference image be explicitly provided. The latter assumption is often violated in practical, real-world scenarios involving large, unstructured personal photo collections. Furthermore, naive similarity-based retrieval methods are insufficient for personal albums because candidates may vary significantly in identity, pose, or clothing, leading to poor reference selection.</p>
+<p>The utility of cross-modal learning paradigms—specifically Cross-modal Alignment (CA) and Cross-modal Prediction (CP)—remains largely empirical. There is a significant gap in the theoretical understanding regarding the precise conditions under which these methods succeed, fail, or when the introduction of cross-modal supervision is detrimental. In complex, heterogeneous scientific domains, practitioners lack a systematic diagnostic tool to ascertain why standard multimodal methods underperform, especially when facing modality-specific noise, nuisance features, or rank deficiencies inherent in real-world data.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce AlbumFill, a framework designed to address these limitations by leveraging vision-language reasoning to guide the reference retrieval process, thereby enabling identity-consistent image completion. We also introduce a new benchmark specifically tailored for album-based personalized completion, comprising 54K human-centric samples to rigorously evaluate both retrieval and completion quality. Finally, our work demonstrates empirically that the inclusion of identity-consistent references is a critical factor for achieving high-fidelity personalized image completion, thereby justifying the necessity of automated reference retrieval from personal archives.</p>
+<p>Our primary contributions are threefold:
+1. We provide a unified linear analysis of CA and CP, deriving the separation ratios <span class="arithmatex">\(\Delta_{CA}\)</span> and <span class="arithmatex">\(\Delta_{CP}\)</span> within the context of a spiked signal-plus-noise model that explicitly accounts for cross-modal nuisance correlation.
+2. We construct a phase diagram that partitions the space of multimodal problems into four mutually exclusive regimes: Both, CA only, CP only, and Neither.
+3. We propose a data-driven procedure that enables practitioners to locate a real-world dataset within this phase diagram using only a small labeled sub-sample, prior to initiating any cross-modal training.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.02892/fig_p2_c1.jpg" />
-<em>Fig. 1: Comparison between previous reference-based image completion and
-our framework. (a) Previous methods assume that a suitable reference image is
-provided by the user, limiting their applicability when references are unavailable. (b)
-Our framework automatically retrieves identity-consistent ref</em></p>
-<p>AlbumFill operates through three sequential, training-free stages. The process begins with <strong>Masked Visual Reasoning</strong>, where a Vision-Language Model (VLM) analyzes the incomplete input image <span class="arithmatex">\(I_m\)</span> to infer the semantic content of the occluded region, yielding a reasoning hypothesis <span class="arithmatex">\(T_r\)</span>. Next, <strong>Album Retrieval</strong> constructs a multimodal query embedding <span class="arithmatex">\(q\)</span> by fusing the visible region <span class="arithmatex">\(I_m^{vis}\)</span> and the inferred text <span class="arithmatex">\(T_r\)</span>. This query <span class="arithmatex">\(q\)</span> is then used to compute cosine similarity against the pre-encoded embeddings <span class="arithmatex">\(v_i\)</span> of all candidate album images, selecting the top-<span class="arithmatex">\(k\)</span> references <span class="arithmatex">\(\mathcal{R}\)</span>. The final stage, <strong>Reference-based Completion</strong>, utilizes a diffusion inpainting model <span class="arithmatex">\(\mathcal{G}\)</span> to synthesize the output <span class="arithmatex">\(I_{out} = \mathcal{G}(I_m, I_{ref})\)</span>, conditioning the synthesis on both the masked input <span class="arithmatex">\(I_m\)</span> and the selected reference image <span class="arithmatex">\(I_{ref}\)</span>.</p>
-<h3 id="vision-language-model-vlm">Vision-Language Model (VLM)</h3>
-<p>The VLM is instantiated within the Masked Visual Reasoning stage. Its function is to process the visible context of the masked image <span class="arithmatex">\(I_m\)</span> and generate a descriptive reasoning hypothesis <span class="arithmatex">\(T_r\)</span>. This hypothesis serves as a semantic guide, effectively predicting the necessary content for the missing region based on the visual evidence available.</p>
-<h3 id="clip-style-joint-vision-language-encoder-f_textclip">CLIP-style joint vision-language encoder (<span class="arithmatex">\(f_{\text{CLIP}}\)</span>)</h3>
-<p>This encoder is employed in two distinct capacities. First, it is used to generate the composed query embedding <span class="arithmatex">\(q\)</span> by jointly encoding the visible region <span class="arithmatex">\(I_m^{vis}\)</span> and the reasoning text <span class="arithmatex">\(T_r\)</span>. Second, it is used to encode each candidate album image <span class="arithmatex">\(I_i\)</span> into a fixed-dimensional embedding <span class="arithmatex">\(v_i\)</span>, which is necessary for the subsequent similarity search.</p>
-<h3 id="composed-image-retrieval-cir-module">Composed Image Retrieval (CIR) module</h3>
-<p>The CIR module executes the search mechanism. It computes the cosine similarity <span class="arithmatex">\(s_i = \cos(q, v_i)\)</span> between the multimodal query embedding <span class="arithmatex">\(q\)</span> and the embedding <span class="arithmatex">\(v_i\)</span> of every candidate image in the album. The resulting scores are used to select the set of top-<span class="arithmatex">\(k\)</span> most relevant references, denoted as <span class="arithmatex">\(\mathcal{R}\)</span>.</p>
-<h3 id="reference-based-diffusion-inpainting-model-mathcalg">Reference-based diffusion inpainting model (<span class="arithmatex">\(\mathcal{G}\)</span>)</h3>
-<p>This is the generative core of the framework. The diffusion inpainting model <span class="arithmatex">\(\mathcal{G}\)</span> synthesizes the final restored image <span class="arithmatex">\(I_{out}\)</span>. Crucially, this synthesis is conditioned not only on the masked input <span class="arithmatex">\(I_m\)</span> but also on the identity and style information embedded within the retrieved reference image <span class="arithmatex">\(I_{ref} \in \mathcal{R}\)</span>.</p>
+<p><img alt="Please provide the figure you would like me to analyze. I will then follow your instructions precisely." src="../../assets/figures/2606.11190/fig_p3_c1.jpg" />
+<em>Figure 1 illustrates the two paradigms.</em></p>
+<p>The framework operates by mapping the optimization objectives of CA and CP onto established linear algebraic problems—Canonical Correlation Analysis (CCA) for CA, and truncated Reduced-Rank Regression (RRR) for CP—under a specific structured noise model.</p>
+<h3 id="cross-alignment-ca">Cross-alignment (CA)</h3>
+<p>The CA objective, defined as <span class="arithmatex">\(\min_{f_X, f_Y} \frac{1}{nP} \sum_i \|f_X(x_i) - f_Y(y_i)\|^2\)</span> subject to <span class="arithmatex">\(\frac{1}{nP} \sum_i f_X(x_i) f_Y(y_i)^\top = I_k\)</span>, aims to find a common embedding space for paired samples. In the linear regime, this is equivalent to projecting data onto the leading singular directions of the cross-covariance matrix <span class="arithmatex">\(C = S_x^{-1/2} S_{xy} S_y^{-1/2}\)</span>. The success of this alignment is quantified by the separation ratio <span class="arithmatex">\(\Delta_{CA} = \min \rho_i / \max_j \nu_j\)</span>.</p>
+<h3 id="cross-prediction-cp">Cross-prediction (CP)</h3>
+<p>The CP objective, <span class="arithmatex">\(\min_{f_X, f_D} \frac{1}{nP} \sum_i \|y_i - f_D(f_X(x_i))\|^2\)</span>, seeks to reconstruct one modality (<span class="arithmatex">\(y\)</span>) from the representation of the other (<span class="arithmatex">\(x\)</span>) via an encoder-decoder factorization. This is equivalent to finding the leading singular directions of the matrix <span class="arithmatex">\(A = S_{yx} S_x^{-1/2}\)</span>. The recovery condition for CP is governed by the separation ratio <span class="arithmatex">\(\Delta_{CP} = \min \tau_i / \max_j \xi_j\)</span>.</p>
+<h3 id="spiked-model-covariances">Spiked Model Covariances</h3>
+<p>We model the data covariance structure using a spiked signal-plus-noise framework. The covariances are block diagonal: <span class="arithmatex">\(S_{xx} = \text{diag}(\kappa_i^2 + \Gamma(s)_x, \Gamma(n)_x)\)</span>, <span class="arithmatex">\(S_{yy} = \text{diag}(\kappa_i^2 + \Gamma(s)_y, \Gamma(n)_y)\)</span>, and <span class="arithmatex">\(S_{xy} = \text{diag}(\kappa_i^2, \Gamma_{xy})\)</span>. Crucially, <span class="arithmatex">\(\Gamma_{xy} = \text{diag}(\eta_1, \dots, \eta_{d-k})\)</span> explicitly encodes the structured cross-modal nuisance correlation, allowing us to analyze how this correlation affects the recovery conditions for both CA and CP.</p>
 <h2 id="results">Results</h2>
+<p>The analysis yields distinct performance characteristics for the two objectives under varying noise and correlation structures.</p>
 <table>
 <thead>
 <tr>
 <th style="text-align: left;">Metric</th>
 <th style="text-align: left;">Value</th>
+<th style="text-align: left;">Baseline</th>
+<th style="text-align: left;">Source</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Retrieval Accuracy (Top-1)</td>
-<td style="text-align: left;">0.78</td>
+<td style="text-align: left;">Subspace distance (CP failure)</td>
+<td style="text-align: left;"><span class="arithmatex">\(\nu \approx 0.15\)</span></td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Figure 3</td>
 </tr>
 <tr>
-<td style="text-align: left;">Completion FID Score</td>
-<td style="text-align: left;">12.4</td>
+<td style="text-align: left;">Subspace distance (CA robustness)</td>
+<td style="text-align: left;"><span class="arithmatex">\(\nu \approx 0.75\)</span></td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Figure 3</td>
 </tr>
 <tr>
-<td style="text-align: left;">Identity Preservation Score</td>
-<td style="text-align: left;">0.89</td>
+<td style="text-align: left;">Theoretical separation ratio threshold (<span class="arithmatex">\(\Delta=1\)</span>)</td>
+<td style="text-align: left;"><span class="arithmatex">\(\Delta_{CP}\)</span> crosses threshold at noise correlation roughly <span class="arithmatex">\(5\times\)</span> lower than <span class="arithmatex">\(\Delta_{CA}\)</span></td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Figure 3</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The findings underscore a fundamental shift required in personalized image restoration: reliance solely on local context priors is insufficient. For tasks requiring semantic coherence and identity preservation, integrating identity-aware retrieval mechanisms is paramount. Furthermore, the successful deployment of AlbumFill demonstrates that training-free architectures, when augmented with powerful pre-trained VLMs, can effectively bridge the gap between ambiguous, incomplete visual input and the structured semantic guidance required for high-quality synthesis. The AlbumFill Benchmark provides a necessary, realistic evaluation platform for assessing reasoning-guided retrieval within the complex domain of personal photo collections.</p>
+<p>This work moves the field beyond heuristic application. The derived phase diagram provides a rigorous, quantitative tool for practitioners. Specifically, if nuisance correlation is moderate and modality-specific noise is high, CA is theoretically favored. Conversely, if the underlying signal is strong and the target modality noise is low, CP may be superior, provided the source-target orientation is correct. Most importantly, the framework identifies the 'Neither' regime, where applying cross-modal supervision actively degrades performance, allowing researchers to avoid wasted computational effort.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current framework's efficacy is contingent upon the availability and quality of large-scale, pre-trained vision-language and generative models. A practical limitation is that the retrieval stage may present the entire candidate set <span class="arithmatex">\(\mathcal{R}\)</span> to the user if the automatic retrieval mechanism yields ambiguous results, suggesting a potential need for an integrated manual selection interface in deployment scenarios.</p>
+<p>The current analysis is strictly confined to the linear regime. While we observe that the derived theoretical predictions transfer reasonably well to nonlinear experimental settings, a full characterization of the nonlinear recovery boundaries remains an open problem. Furthermore, the proposed data-driven procedure necessitates the acquisition of a small labeled subsample to accurately estimate the separation ratios, which introduces a practical dependency on initial labeling effort.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.02892">2605.02892</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260502892</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{AlbumFill: Album-Guided Reasoning and Retrieval for Personalized Image Completion}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Yu-Ju Tsai and Brian Price and Qing Liu and Luis Figueroa and Daniil Pakhomov and Zhihong Ding et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.02892}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.11190">2606.11190</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260611190</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{When to Align, When to Predict: A Phase Diagram for Multimodal Learning}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Ilay Kamai and Hugues Van Assel and Aviv Regev and Hagai B. Perets and Randall Balestriero}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.11190}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.02892}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.11190}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
