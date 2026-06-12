@@ -95,7 +95,6 @@ discovery:
   categories:
   - cs.RO # Robotics
   - cs.AI # Artificial Intelligence
-  - cs.LG # Machine Learning
   - cs.CV # Computer Vision
   # How many recent papers to fetch per category on each daily run.
   # Higher values = more candidates to evaluate, but slower to start.
