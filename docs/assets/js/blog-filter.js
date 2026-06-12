@@ -244,7 +244,6 @@
         <button class="rl-sort-btn" data-sort="date-asc">Date ↑</button>
         <button class="rl-sort-btn" data-sort="alpha-asc">A → Z</button>
         <button class="rl-sort-btn" data-sort="alpha-desc">Z → A</button>
-        <button class="rl-sort-btn" data-sort="cat">Category</button>
       </div>
     `;
 
