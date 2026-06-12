@@ -53,6 +53,7 @@ def _rebuild_posts_nav() -> None:
         "    - Overview: posts/index.md\n"
         + "\n".join(entries)
         + "\n  - Weekly Digest: digest/index.md\n"
+        "  - Notes: notes/index.md\n"
         "  - Tags: tags.md\n"
     )
 

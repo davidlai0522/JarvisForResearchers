@@ -48,6 +48,7 @@ nav:
     - "Eureka: Human-Level Reward Design via Coding Large Language Models": posts/2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m.md
     - "An Adaptable, Safe, and Portable Robot-Assisted Feeding System": posts/2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system.md
   - Weekly Digest: digest/index.md
+  - Notes: notes/index.md
   - Tags: tags.md
 
 theme:

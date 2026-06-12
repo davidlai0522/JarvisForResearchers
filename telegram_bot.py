@@ -371,6 +371,7 @@ async def cmd_help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "• /start — Welcome message\n"
         "• /help — This message\n"
         "• /topics — View or change arXiv topic categories\n"
+        "• /note — Publish an HTML note to the Notes tab\n"
         "• /force <code>&lt;arxiv_id&gt;</code> — Skip quality gate\n"
         "• /list — Browse and remove existing posts\n"
         "• /remove <code>&lt;arxiv_id&gt;</code> — Remove a post by arXiv ID\n"
@@ -603,9 +604,116 @@ async def handle_topics_callback(update: Update, context: ContextTypes.DEFAULT_T
     )
 
 
+# ── Notes ─────────────────────────────────────────────────────────────────────
+async def _run_publish_note(title: str, html_body: str) -> dict:
+    """Run notes.publish_note off the event loop (it does blocking git I/O)."""
+    import notes  # pipeline/notes.py — on sys.path
+    return await asyncio.to_thread(notes.publish_note, title, html_body)
+
+
+async def cmd_note(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    if not _is_allowed(update.effective_user.id):
+        await update.message.reply_text(_access_denied_text())
+        return
+
+    body = (update.message.text or "")[len("/note"):].lstrip()
+    if not body:
+        await update.message.reply_html(
+            "📝 <b>Add a note</b>\n\n"
+            "Send <code>/note</code> followed by your HTML, e.g.\n"
+            "<code>/note &lt;h2&gt;Hello&lt;/h2&gt;&lt;p&gt;World&lt;/p&gt;</code>\n\n"
+            "…or send me an <code>.html</code> file.\n\n"
+            "I'll ask you for a title afterwards."
+        )
+        return
+
+    context.user_data["pending_note_html"] = body
+    context.user_data.pop("pending_note_suggested_title", None)
+    await update.message.reply_html("📝 Got it. What should I title this note?")
+
+
+async def handle_document(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    if not _is_allowed(update.effective_user.id):
+        await update.message.reply_text(_access_denied_text())
+        return
+
+    doc = update.message.document
+    if not doc:
+        return
+
+    fname = doc.file_name or "note.html"
+    if not fname.lower().endswith((".html", ".htm")):
+        await update.message.reply_text(
+            "Please send an .html file, or use /note with inline HTML."
+        )
+        return
+
+    tg_file = await doc.get_file()
+    data = await tg_file.download_as_bytearray()
+    html_body = bytes(data).decode("utf-8", errors="replace")
+
+    suggested = pathlib.Path(fname).stem.replace("-", " ").replace("_", " ").strip()
+    context.user_data["pending_note_html"] = html_body
+    context.user_data["pending_note_suggested_title"] = suggested
+    await update.message.reply_html(
+        f"📝 Received <code>{html.escape(fname)}</code> ({len(html_body)} chars).\n\n"
+        f"What should I title this note? "
+        f"Send <code>.</code> to use “{html.escape(suggested)}”."
+    )
+
+
+async def _finalize_note(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """The user just sent the title for a pending note — publish it."""
+    title = (update.message.text or "").strip()
+    html_body = context.user_data.pop("pending_note_html", "")
+    suggested = context.user_data.pop("pending_note_suggested_title", "")
+
+    if title == "." and suggested:
+        title = suggested
+    if not title:
+        await update.message.reply_text("⚠️ Title can't be empty — note discarded.")
+        return
+    if not html_body.strip():
+        await update.message.reply_text("⚠️ Note body was empty — note discarded.")
+        return
+
+    if _running_paper:
+        await update.message.reply_html(
+            "⏳ A paper is being processed right now — "
+            "I'll publish your note as soon as it finishes."
+        )
+    await update.message.reply_html(f"📤 Publishing note <b>{html.escape(title)}</b>…")
+
+    # Guard the git push against an in-flight pipeline that also commits/pushes.
+    async with _running_lock:
+        result = await _run_publish_note(title, html_body)
+
+    if result["url"]:
+        msg = (
+            f"✅ <b>Note published!</b>\n\n"
+            f"<b>{html.escape(title)}</b>\n\n"
+            f"🌐 <a href='{result['url']}'>View on GitHub Pages</a>\n\n"
+            "<i>GitHub Pages will update in a minute or two.</i>"
+        )
+    else:
+        stem = pathlib.Path(result["path"]).stem
+        msg = (
+            f"✅ <b>Note saved!</b>\n\n"
+            f"<b>{html.escape(title)}</b>\n\n"
+            f"📄 Saved to <code>docs/notes/{stem}.md</code>\n"
+            "<i>No git remote configured — not pushed.</i>"
+        )
+    await update.message.reply_html(msg, disable_web_page_preview=False)
+
+
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     if not _is_allowed(update.effective_user.id):
         await update.message.reply_text(_access_denied_text())
+        return
+
+    # If a note is waiting for a title, treat this message as the title.
+    if "pending_note_html" in context.user_data:
+        await _finalize_note(update, context)
         return
 
     text = update.message.text or ""
@@ -740,9 +848,11 @@ def main() -> None:
     app.add_handler(CommandHandler("force", cmd_force))
     app.add_handler(CommandHandler("list", cmd_list))
     app.add_handler(CommandHandler("remove", cmd_remove))
+    app.add_handler(CommandHandler("note", cmd_note))
     app.add_handler(CallbackQueryHandler(handle_topics_callback, pattern=r"^topics:"))
     app.add_handler(CallbackQueryHandler(handle_regenerate_callback, pattern=r"^regen:"))
     app.add_handler(CallbackQueryHandler(handle_delete_callback, pattern=r"^del_"))
+    app.add_handler(MessageHandler(filters.Document.ALL, handle_document))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
     print("🤖 JarvisForResearchers bot is running. Press Ctrl+C to stop.")
