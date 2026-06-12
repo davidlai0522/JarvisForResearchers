@@ -13,3 +13,7 @@ Hand-written notes and write-ups.
 
 *2026-06-13*
 
+## [Actuator Design](2026-06-13-actuator-design/)
+
+*2026-06-13*
+
