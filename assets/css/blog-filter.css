@@ -116,6 +116,57 @@
   margin-left: auto;
 }
 
+/* ── Sort bar (posts/index.md) ──────────────────────────────────────────── */
+#rl-sort-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.6rem;
+  padding: 0.55rem 0.9rem;
+  background: var(--md-code-bg-color);
+  border-radius: 0.35rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.rl-sort-label {
+  font-size: 0.78rem;
+  color: var(--md-default-fg-color--light);
+  white-space: nowrap;
+  margin-right: 0.2rem;
+}
+
+.rl-sort-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.rl-sort-btn {
+  padding: 0.28rem 0.65rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 1rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color--light);
+  font-family: var(--md-text-font-family);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+
+.rl-sort-btn:hover {
+  border-color: var(--md-accent-fg-color);
+  color: var(--md-accent-fg-color);
+}
+
+.rl-sort-btn.active {
+  background: var(--md-accent-fg-color--transparent, rgba(0, 150, 136, 0.12));
+  border-color: var(--md-accent-fg-color);
+  color: var(--md-accent-fg-color);
+  font-weight: 600;
+}
+
 /* Responsive: stack on narrow screens */
 @media (max-width: 480px) {
   #rl-filter-bar {
