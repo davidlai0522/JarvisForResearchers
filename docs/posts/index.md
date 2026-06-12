@@ -4,6 +4,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Reroute, Don't Remove: Recoverable Visual Token Routing for Vision-Language Models](2026-06-12-reroute-don-t-remove-recoverable-visual-token-routing-for-vi/)
+
+*2026-06-12*
+
+Reroute introduces a training-free plug-in that replaces irreversible visual token removal in Vision-Language Models (VLMs) with recoverable routing, allowing deferred tokens to re-enter the candidate pool at subsequent decoder stages.
+
 ## [When to Align, When to Predict: A Phase Diagram for Multimodal Learning](2026-06-11-when-to-align-when-to-predict-a-phase-diagram-for-multimodal/)
 
 *2026-06-11*
