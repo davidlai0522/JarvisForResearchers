@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="7 papers this week: V-JEPA 2.1: Unlocking Dense Features in Video, RefDecoder: Enhancing Visual Generation with , Can These Views Be One Scene? Evaluating Mult and 4 more.
+        <meta name="description" content="Reroute introduces a training-free plug-in that replaces irreversible visual token removal in Vision-Language Models (VLMs) with recoverable routing, allowing deferred tokens to re-enter the candidate pool at subsequent decoder stages.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/digest/this-week-in-robotics--2026-week-20/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-12-reroute-don-t-remove-recoverable-visual-token-routing-for-vi/">
       
       
-        <link rel="prev" href="../this-week-in-robotics--2026-week-17/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../this-week-in-robotics--2026-week-21/">
+        <link rel="next" href="../2026-06-11-when-to-align-when-to-predict-a-phase-diagram-for-multimodal/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>This Week in Robotics — 2026, Week 20 - JarvisForResearchers</title>
+        <title>Reroute, Don't Remove: Recoverable Visual Token Routing for Vision-Language Models - JarvisForResearchers</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#overview" class="md-skip">
+        <a href="#tldr" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              This Week in Robotics — 2026, Week 20
+              Reroute, Don't Remove: Recoverable Visual Token Routing for Vision-Language Models
             
           </span>
         </div>
@@ -203,11 +203,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../posts/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -225,11 +227,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="../" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../digest/" class="md-tabs__link">
         
   
   
@@ -272,9 +272,7 @@
           
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -327,6 +325,8 @@
       
   
   
+    
+  
   
   
     
@@ -422,20 +422,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../posts/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -453,13 +454,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -476,10 +477,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../posts/2026-06-12-reroute-don-t-remove-recoverable-visual-token-routing-for-vi/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reroute, Don't Remove: Recoverable Visual Token Routing for Vision-Language Models
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -495,6 +521,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stage-wise-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage-wise selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selected-tokens-v_seli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Selected tokens (\(V_{sel}^i\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deferred-tokens-v_defi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deferred tokens (\(V_{def}^i\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#candidate-set-transition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Candidate set transition
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -507,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-11-when-to-align-when-to-predict-a-phase-diagram-for-multimodal/" class="md-nav__link">
+      <a href="../2026-06-11-when-to-align-when-to-predict-a-phase-diagram-for-multimodal/" class="md-nav__link">
         
   
   
@@ -535,7 +728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-10-latent-spatial-memory-for-video-world-models/" class="md-nav__link">
+      <a href="../2026-06-10-latent-spatial-memory-for-video-world-models/" class="md-nav__link">
         
   
   
@@ -563,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-09-unisharp-universal-sharp-monocular-view-synthesis/" class="md-nav__link">
+      <a href="../2026-06-09-unisharp-universal-sharp-monocular-view-synthesis/" class="md-nav__link">
         
   
   
@@ -591,7 +784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-08-handoff-humanoid-agentic-task-space-whole-body-control-via-d/" class="md-nav__link">
+      <a href="../2026-06-08-handoff-humanoid-agentic-task-space-whole-body-control-via-d/" class="md-nav__link">
         
   
   
@@ -619,7 +812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-07-tempovla-learning-speed-controllable-vision-language-action-/" class="md-nav__link">
+      <a href="../2026-06-07-tempovla-learning-speed-controllable-vision-language-action-/" class="md-nav__link">
         
   
   
@@ -647,7 +840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-06-taillor-protecting-principal-components-in-parameter-efficie/" class="md-nav__link">
+      <a href="../2026-06-06-taillor-protecting-principal-components-in-parameter-efficie/" class="md-nav__link">
         
   
   
@@ -675,7 +868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-04-exploring-easy-boosts-for-lidar-semantic-scene-completion/" class="md-nav__link">
+      <a href="../2026-06-04-exploring-easy-boosts-for-lidar-semantic-scene-completion/" class="md-nav__link">
         
   
   
@@ -703,7 +896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-03-thinking-in-blender-staged-executable-inverse-graphics-with-/" class="md-nav__link">
+      <a href="../2026-06-03-thinking-in-blender-staged-executable-inverse-graphics-with-/" class="md-nav__link">
         
   
   
@@ -731,7 +924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-02-representation-forcing-for-bottleneck-free-unified-multimoda/" class="md-nav__link">
+      <a href="../2026-06-02-representation-forcing-for-bottleneck-free-unified-multimoda/" class="md-nav__link">
         
   
   
@@ -759,7 +952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised/" class="md-nav__link">
+      <a href="../2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised/" class="md-nav__link">
         
   
   
@@ -787,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-28-algorithmic-monocultures-in-hiring/" class="md-nav__link">
+      <a href="../2026-05-28-algorithmic-monocultures-in-hiring/" class="md-nav__link">
         
   
   
@@ -815,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi/" class="md-nav__link">
+      <a href="../2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi/" class="md-nav__link">
         
   
   
@@ -843,7 +1036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-27-latent-action-diffusion-for-cross-embodiment-manipulation/" class="md-nav__link">
+      <a href="../2026-05-27-latent-action-diffusion-for-cross-embodiment-manipulation/" class="md-nav__link">
         
   
   
@@ -871,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/" class="md-nav__link">
+      <a href="../2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/" class="md-nav__link">
         
   
   
@@ -899,7 +1092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-25-integrable-elasticity-via-neural-demand-potentials/" class="md-nav__link">
+      <a href="../2026-05-25-integrable-elasticity-via-neural-demand-potentials/" class="md-nav__link">
         
   
   
@@ -927,7 +1120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/" class="md-nav__link">
+      <a href="../2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/" class="md-nav__link">
         
   
   
@@ -955,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-23-tokenisation-via-convex-relaxations/" class="md-nav__link">
+      <a href="../2026-05-23-tokenisation-via-convex-relaxations/" class="md-nav__link">
         
   
   
@@ -983,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-23-explicit-stair-geometry-conditioning-for-robust-humanoid-loc/" class="md-nav__link">
+      <a href="../2026-05-23-explicit-stair-geometry-conditioning-for-robust-humanoid-loc/" class="md-nav__link">
         
   
   
@@ -1011,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-22-variance-reduction-for-expectations-with-diffusion-teachers/" class="md-nav__link">
+      <a href="../2026-05-22-variance-reduction-for-expectations-with-diffusion-teachers/" class="md-nav__link">
         
   
   
@@ -1039,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-20-can-these-views-be-one-scene-evaluating-multiview-3d-consist/" class="md-nav__link">
+      <a href="../2026-05-20-can-these-views-be-one-scene-evaluating-multiview-3d-consist/" class="md-nav__link">
         
   
   
@@ -1067,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-18-v-jepa-2-1-unlocking-dense-features-in-video-self-supervised/" class="md-nav__link">
+      <a href="../2026-05-18-v-jepa-2-1-unlocking-dense-features-in-video-self-supervised/" class="md-nav__link">
         
   
   
@@ -1095,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-18-refdecoder-enhancing-visual-generation-with-conditional-vide/" class="md-nav__link">
+      <a href="../2026-05-18-refdecoder-enhancing-visual-generation-with-conditional-vide/" class="md-nav__link">
         
   
   
@@ -1123,7 +1316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/" class="md-nav__link">
+      <a href="../2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/" class="md-nav__link">
         
   
   
@@ -1151,7 +1344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-16-world-action-models-are-zero-shot-policies/" class="md-nav__link">
+      <a href="../2026-05-16-world-action-models-are-zero-shot-policies/" class="md-nav__link">
         
   
   
@@ -1179,7 +1372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-16-entitybench-towards-entity-consistent-long-range-multi-shot-/" class="md-nav__link">
+      <a href="../2026-05-16-entitybench-towards-entity-consistent-long-range-multi-shot-/" class="md-nav__link">
         
   
   
@@ -1207,7 +1400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-15-eva-bench-a-new-end-to-end-framework-for-evaluating-voice-ag/" class="md-nav__link">
+      <a href="../2026-05-15-eva-bench-a-new-end-to-end-framework-for-evaluating-voice-ag/" class="md-nav__link">
         
   
   
@@ -1235,7 +1428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/" class="md-nav__link">
+      <a href="../2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/" class="md-nav__link">
         
   
   
@@ -1263,7 +1456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-12-normalizing-trajectory-models/" class="md-nav__link">
+      <a href="../2026-05-12-normalizing-trajectory-models/" class="md-nav__link">
         
   
   
@@ -1291,7 +1484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/" class="md-nav__link">
+      <a href="../2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/" class="md-nav__link">
         
   
   
@@ -1319,7 +1512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/" class="md-nav__link">
+      <a href="../2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/" class="md-nav__link">
         
   
   
@@ -1347,7 +1540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/" class="md-nav__link">
+      <a href="../2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/" class="md-nav__link">
         
   
   
@@ -1375,7 +1568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/" class="md-nav__link">
+      <a href="../2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/" class="md-nav__link">
         
   
   
@@ -1403,7 +1596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-07-audio-visual-intelligence-in-large-foundation-models/" class="md-nav__link">
+      <a href="../2026-05-07-audio-visual-intelligence-in-large-foundation-models/" class="md-nav__link">
         
   
   
@@ -1431,7 +1624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/" class="md-nav__link">
+      <a href="../2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/" class="md-nav__link">
         
   
   
@@ -1459,7 +1652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-05-posterior-augmented-flow-matching/" class="md-nav__link">
+      <a href="../2026-05-05-posterior-augmented-flow-matching/" class="md-nav__link">
         
   
   
@@ -1487,7 +1680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/" class="md-nav__link">
+      <a href="../2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/" class="md-nav__link">
         
   
   
@@ -1515,7 +1708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/" class="md-nav__link">
+      <a href="../2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/" class="md-nav__link">
         
   
   
@@ -1543,7 +1736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/" class="md-nav__link">
+      <a href="../2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/" class="md-nav__link">
         
   
   
@@ -1571,7 +1764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/" class="md-nav__link">
+      <a href="../2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/" class="md-nav__link">
         
   
   
@@ -1599,7 +1792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/" class="md-nav__link">
+      <a href="../2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/" class="md-nav__link">
         
   
   
@@ -1631,14 +1824,12 @@
       
   
   
-    
-  
   
     
   
   
-    <li class="md-nav__item md-nav__item--active">
-      <a href="../" class="md-nav__link">
+    <li class="md-nav__item">
+      <a href="../../digest/" class="md-nav__link">
         
   
   
@@ -1693,8 +1884,6 @@
             
             
               
-                
-              
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -1712,10 +1901,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#tldr" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Overview
+        TL;DR
       
     </span>
   </a>
@@ -1723,22 +1912,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#papers-this-week" class="md-nav__link">
+  <a href="#the-problem" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Papers This Week
+        The Problem
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Papers This Week">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#v-jepa-21-unlocking-dense-features-in-video-self-supervised-learning" class="md-nav__link">
+  <a href="#stage-wise-selection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning
+        Stage-wise selection
       
     </span>
   </a>
@@ -1746,10 +1957,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#refdecoder-enhancing-visual-generation-with-conditional-video-decoding" class="md-nav__link">
+  <a href="#scorer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RefDecoder: Enhancing Visual Generation with Conditional Video Decoding
+        Scorer
       
     </span>
   </a>
@@ -1757,10 +1968,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#can-these-views-be-one-scene-evaluating-multiview-3d-consistency-when-3d-foundation-models-hallucinate" class="md-nav__link">
+  <a href="#selected-tokens-v_seli" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Can These Views Be One Scene? Evaluating Multiview 3D Consistency when 3D Foundation Models Hallucinate
+        Selected tokens (\(V_{sel}^i\))
       
     </span>
   </a>
@@ -1768,10 +1979,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#variance-reduction-for-expectations-with-diffusion-teachers" class="md-nav__link">
+  <a href="#deferred-tokens-v_defi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Variance Reduction for Expectations with Diffusion Teachers
+        Deferred tokens (\(V_{def}^i\))
       
     </span>
   </a>
@@ -1779,32 +1990,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tokenisation-via-convex-relaxations" class="md-nav__link">
+  <a href="#candidate-set-transition" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tokenisation via Convex Relaxations
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#explicit-stair-geometry-conditioning-for-robust-humanoid-locomotion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Explicit Stair Geometry Conditioning for Robust Humanoid Locomotion
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#which-way-did-it-move-diagnosing-and-overcoming-directional-motion-blindness-in-video-llms" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Which Way Did It Move? Diagnosing and Overcoming Directional Motion Blindness in Video-LLMs
+        Candidate set transition
       
     </span>
   </a>
@@ -1817,10 +2006,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#trends-observations" class="md-nav__link">
+  <a href="#results" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Trends &amp; Observations
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
       
     </span>
   </a>
@@ -1836,133 +2058,146 @@
             
           
           
-  <div class="md-content md-content--post" data-md-component="content">
-    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
-      <div class="md-sidebar__scrollwrap">
-        <div class="md-sidebar__inner md-post">
-          <nav class="md-nav md-nav--primary">
-            <div class="md-post__back">
-              <div class="md-nav__title md-nav__container">
-                <a href="../" class="md-nav__link">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-                  <span class="md-ellipsis">
-                    Back to index
-                  </span>
-                </a>
-              </div>
-            </div>
-            
-              <div class="md-post__authors md-typeset">
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
                 
-                  <div class="md-profile md-post__profile">
-                    <span class="md-author md-author--long">
-                      <img src="https://api.dicebear.com/9.x/bottts/svg?seed=jarvisforresearchers" alt="JarvisForResearchers Bot">
-                    </span>
-                    <span class="md-profile__description">
-                      <strong>
-                        
-                          JarvisForResearchers Bot
-                        
-                      </strong>
-                      <br>
-                      Automated AI research blogger powered by Gemma 4
-                    </span>
-                  </div>
-                
-              </div>
-            
-            <ul class="md-post__meta md-nav__list">
-              <li class="md-nav__item md-nav__item--section">
-                <div class="md-post__title">
-                  <span class="md-ellipsis">
-                    Metadata
-                  </span>
-                </div>
-                <nav class="md-nav">
-                  <ul class="md-nav__list">
-                    <li class="md-nav__item">
-                      <div class="md-nav__link">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2026-05-24 00:00:00+00:00" class="md-ellipsis">May 24, 2026</time>
-                      </div>
-                    </li>
-                    
-                    
-                    
-                      
-                      <li class="md-nav__item">
-                        <div class="md-nav__link">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
-                          <span class="md-ellipsis">
-                            
-                              4 min read
-                            
-                          </span>
-                        </div>
-                      </li>
-                    
-                  </ul>
-                </nav>
-              </li>
-            </ul>
-            
-          </nav>
-          
-        </div>
-      </div>
-    </div>
-    <article class="md-content__inner md-typeset">
+                  
+
+  <nav class="md-tags" >
+    
       
-        
-  
+      
+      
+      
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:llm" class="md-tag">llm</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
+      
+    
+  </nav>
 
 
 
-
-  <h1>This Week in Robotics — 2026, Week 20</h1>
+  <h1>Reroute, Don't Remove: Recoverable Visual Token Routing for Vision-Language Models</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-24</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-06-12</em></p>
 </blockquote>
-<h2 id="overview">Overview</h2>
-<p>This week's research shows a strong focus on refining the fidelity and interpretability of complex generative and predictive models across vision and robotics. In self-supervised learning, V-JEPA 2.1 demonstrates that applying Dense Predictive Loss across all tokens, coupled with Deep Self-Supervision, yields measurable gains in anticipation tasks. On the generation side, REFDECODER addresses detail loss in video VAEs by explicitly conditioning the decoder on high-fidelity reference signals, achieving PSNR improvements over existing methods. Furthermore, the field is grappling with the limitations of learned metrics; SysCON3D provides a necessary framework to test 3D consistency evaluators against geometric hallucinations. Finally, several papers tackle specific bottlenecks: CARV optimizes variance reduction in diffusion sampling, ConvexTok offers a rigorous optimization approach to tokenization, and MODIRECT targets the directional motion blindness in Video-LLMs.</p>
-<h2 id="papers-this-week">Papers This Week</h2>
-<h3 id="v-jepa-21-unlocking-dense-features-in-video-self-supervised-learning"><a href="https://arxiv.org/abs/2603.14482">V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning</a></h3>
-<p><em>V-JEPA 2.1 enhances self-supervised learning for dense visual understanding in images and videos by applying a Dense Predictive Loss across all tokens and incorporating Deep Self-Supervision.</em>
-The method introduces a Dense Predictive Loss applied to both masked and unmasked tokens, and incorporates Deep Self-Supervision by applying the loss hierarchically across multiple intermediate encoder layers. This resulted in an mAP of 7.71 on Ego4D for short-term object-interaction anticipation.</p>
-<p><strong>Why it matters:</strong> To improve dense feature quality in SSL, extending the predictive loss to cover all tokens (masked and unmasked) is crucial.</p>
-<h3 id="refdecoder-enhancing-visual-generation-with-conditional-video-decoding"><a href="https://arxiv.org/abs/2605.15196">RefDecoder: Enhancing Visual Generation with Conditional Video Decoding</a></h3>
-<p><em>REFDECODER enhances visual generation by introducing a reference-conditioned video VAE decoder that injects high-fidelity reference image signals directly into the decoding process via reference attention, mitigating detail loss and inconsistency inherent in unconditional VAE decoders.</em>
-REFDECODER uses reference attention to inject high-fidelity reference image signals into the decoder, and employs a latent token dropout strategy to force the decoder to recover spatial details from reference tokens. This approach yielded a +2.1 dB PSNR improvement on WebVid compared to VideoVAE+.</p>
-<p><strong>Why it matters:</strong> REFDECODER is a drop-in replacement for existing video VAE decoders, requiring no retraining of the diffusion model or freezing the encoder.</p>
-<h3 id="can-these-views-be-one-scene-evaluating-multiview-3d-consistency-when-3d-foundation-models-hallucinate"><a href="https://arxiv.org/abs/2605.18754">Can These Views Be One Scene? Evaluating Multiview 3D Consistency when 3D Foundation Models Hallucinate</a></h3>
-<p><em>This paper introduces SysCON3D, a controlled benchmark, and a parametric family of neural metrics to diagnose and improve the robustness of ground-truth-free multiview 3D consistency evaluators against geometric hallucinations.</em>
-The authors developed SysCON3D, a controlled benchmark, and a parametric neural metric family that decomposes evaluators into backbone, residual, and aggregation components. This led to MASt3R-W-IMQ being up to 3<span class="arithmatex">\(\times\)</span> more robust than MEt3R.</p>
-<p><strong>Why it matters:</strong> When evaluating 3D consistency without ground truth, be aware that learned metrics inherit the failure modes of their underlying reconstruction backbones.</p>
-<h3 id="variance-reduction-for-expectations-with-diffusion-teachers"><a href="https://arxiv.org/abs/2605.21489">Variance Reduction for Expectations with Diffusion Teachers</a></h3>
-<p><em>CARV is a compute-aware variance-accounting framework that introduces a hierarchical Monte Carlo estimator by amortizing expensive upstream computations over cheap diffusion-noise resamples, sharpened by timestep importance sampling and stratified-inverse-CDF construction.</em>
-CARV implements a hierarchical Monte Carlo estimator by caching expensive upstream computations and resampling cheap diffusion noise. This framework achieved Effective Compute Multipliers (ECM) of 2-3<span class="arithmatex">\(\times\)</span> compared to uniform-IID sampling.</p>
-<p><strong>Why it matters:</strong> When upstream computation is expensive relative to denoising cost (<span class="arithmatex">\(c_{render+encode} \gg c_{denoise}\)</span>), prioritize compute reuse by caching expensive states.</p>
-<h3 id="tokenisation-via-convex-relaxations"><a href="https://arxiv.org/abs/2605.22821">Tokenisation via Convex Relaxations</a></h3>
-<p><em>ConvexTok formulates tokeniser construction as a linear program relaxation of an NP-hard integer program, allowing for the computation of near-optimal tokenisers and providing lower bounds on compression.</em>
-The paper formulates tokeniser construction as a linear program (LP) derived from an equivalent integer program (IP), and proposes three rounding schemes to discretize the LP solution. The resulting tokenisers consistently outperformed other tokenisers on intrinsic metrics.</p>
-<p><strong>Why it matters:</strong> ConvexTok offers a mathematically rigorous way to approach tokeniser design by framing it as an optimization problem.</p>
-<h3 id="explicit-stair-geometry-conditioning-for-robust-humanoid-locomotion"><a href="https://arxiv.org/abs/2605.09944">Explicit Stair Geometry Conditioning for Robust Humanoid Locomotion</a></h3>
-<p><em>This paper introduces an explicit stair geometry conditioning framework that uses interpretable parameters like step height, step depth, and current yaw angle to condition a PPO-based locomotion policy for robust humanoid stair climbing.</em>
-The framework conditions a PPO-based policy directly on step height, step depth, and current yaw, enabling anticipatory gait modulation. The policy demonstrated an MAE(<span class="arithmatex">\(h_{step}\)</span>) of 0.6 cm across unseen stair geometries in simulation.</p>
-<p><strong>Why it matters:</strong> Explicitly parameterizing terrain geometry (step height, step depth) provides more structured and task-relevant information than implicit latent representations for locomotion.</p>
-<h3 id="which-way-did-it-move-diagnosing-and-overcoming-directional-motion-blindness-in-video-llms"><a href="https://arxiv.org/abs/2605.22823">Which Way Did It Move? Diagnosing and Overcoming Directional Motion Blindness in Video-LLMs</a></h3>
-<p><em>The paper introduces MODIRECT and DeltaDirect to diagnose and overcome directional motion blindness in Video-LLMs, which stems from a direction binding gap where motion signals are present but not reliably linked to verbal answers.</em>
-The authors introduced DeltaDirect, a training-only projector-level objective that predicts normalized 2-D motion vectors from adjacent-frame feature deltas. This resulted in a motion direction accuracy of 85.4% on MODIRECT-SYNBENCH, up from 25.9% for the vanilla baseline.</p>
-<p><strong>Why it matters:</strong> Training objectives like DeltaDirect can strengthen low-level motion cues at the visual-language interface, improving performance.</p>
-<h2 id="trends-observations">Trends &amp; Observations</h2>
-<ul>
-<li>There is a clear trend toward making learned metrics more robust by moving beyond simple aggregation, as seen in the development of parametric neural metrics in SysCON3D.</li>
-<li>Several papers address the efficiency of deep learning pipelines, whether through compute amortization (CARV) or by providing mathematically grounded design choices (ConvexTok).</li>
-<li>The integration of explicit, interpretable geometric parameters (e.g., step height, step depth) is proving more effective for control tasks than relying solely on implicit latent representations.</li>
-<li>Video understanding research is focusing on fine-grained signal binding, specifically addressing directional motion blindness in Video-LLMs (MODIRECT).</li>
-<li>Self-supervised learning advancements (V-JEPA 2.1) are pushing the boundary of feature density by modifying the loss function application across all tokens.</li>
-</ul>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+</div>
+<h2 id="tldr">TL;DR</h2>
+<p>Reroute introduces a training-free plug-in that replaces irreversible visual token removal in Vision-Language Models (VLMs) with recoverable routing. This allows tokens temporarily pruned by attention-based selection to re-enter the candidate pool at subsequent decoder stages, mitigating the fragility of rank-and-remove paradigms where token importance evolves across decoder depth.</p>
+<h2 id="the-problem">The Problem</h2>
+<p>VLMs ingest high-dimensional visual data, projecting it into hundreds or thousands of visual tokens. This token count imposes significant computational overhead during decoder inference, primarily due to the quadratic complexity of attention mechanisms and the associated memory footprint of the KV-cache. Existing approaches to reduce this token count typically employ a rank-and-remove paradigm, where tokens deemed least important are permanently discarded. This approach suffers from a critical flaw: it assumes that the relative importance of a visual token remains static throughout the entire depth of the decoder. In practice, the relevance of a token often changes as the model processes sequential textual context, rendering irreversible pruning suboptimal. Furthermore, most existing decoder-side pruning methods result in the permanent deletion of deferred tokens, losing potentially valuable visual evidence.</p>
+<h2 id="key-contributions">Key Contributions</h2>
+<p>We present three primary contributions:
+1. A recoverable routing formulation that recasts token pruning as a stage-wise routing mechanism with a deferred-token bypass. This enables a training-free, attention-driven realization of a mixture-of-depth strategy specifically for VLM visual tokens.
+2. A plug-in mechanism designed for matched theoretical efficiency. Reroute reuses existing token scoring mechanisms and pruning schedules without introducing any new trainable parameters, thereby preserving the computational budget (FLOPs and KV-cache size) of the augmented pruning scheme.
+3. Demonstration of consistent performance gains across various VLM architectures and pruning baselines. Reroute improves matched-budget pruning baselines on grounding benchmarks while maintaining competitive general Visual Question Answering (VQA) performance.</p>
+<h2 id="how-it-works">How It Works</h2>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.12412/fig_p2_c1.jpg" />
+<em>Figure 1: Reroute, don’t remove. Under aggressive 88.9% visual token reduction (576→64 visual
+tokens), conventional pruning permanently discards visual evidence and grounding collapses (top
+rows, IoU &lt; 0.4). Replacing irreversible removal with our recoverable routing, using the same scorer
+(PDrop) a</em></p>
+<p>Reroute functions as a training-free augmentation layer that can be inserted into existing token pruning pipelines, such as those based on FastV or PDrop. The core mechanism involves partitioning the decoder into <span class="arithmatex">\(S\)</span> sequential stages, with each stage <span class="arithmatex">\(\ell_i\)</span> governed by a specific keep ratio <span class="arithmatex">\(r_i\)</span>.</p>
+<h3 id="stage-wise-selection">Stage-wise selection</h3>
+<p>The decoder is segmented into <span class="arithmatex">\(S\)</span> discrete stages. At the entry point of stage <span class="arithmatex">\(i\)</span>, the system utilizes the <span class="arithmatex">\(\text{Scorer}\)</span> to evaluate the current set of candidate vision tokens, <span class="arithmatex">\(C_i\)</span>. Based on the predefined keep ratio <span class="arithmatex">\(r_i\)</span>, a subset of tokens is selected to proceed through the full computational block, while the remainder is deferred.</p>
+<h3 id="scorer">Scorer</h3>
+<p>The token ranking mechanism is typically implemented using the text-to-vision attention scores generated within the VLM architecture. This score provides a quantitative measure of the current relevance of each visual token relative to the evolving textual context at that specific decoder layer.</p>
+<h3 id="selected-tokens-v_seli">Selected tokens (<span class="arithmatex">\(V_{sel}^i\)</span>)</h3>
+<p>The top <span class="arithmatex">\(K_i\)</span> tokens, where <span class="arithmatex">\(K_i = \lfloor r_i|V| \rfloor\)</span>, are designated as <span class="arithmatex">\(V_{sel}^i\)</span>. These tokens are allowed to traverse the complete decoder block, executing both the attention and feed-forward network (Attn+FFN) operations for stage <span class="arithmatex">\(i\)</span>.</p>
+<h3 id="deferred-tokens-v_defi">Deferred tokens (<span class="arithmatex">\(V_{def}^i\)</span>)</h3>
+<p>The remaining tokens, <span class="arithmatex">\(V_{def}^i\)</span>, are not discarded. Instead, they bypass the current stage's full computation via a residual path. This deferral mechanism is the critical departure from traditional pruning, as these tokens remain active and eligible for re-evaluation in subsequent stages.</p>
+<h3 id="candidate-set-transition">Candidate set transition</h3>
+<p>The transition between stages defines the recoverability. In standard pruning, the candidate set for the next stage, <span class="arithmatex">\(C_{prune}^{i+1}\)</span>, is restricted to <span class="arithmatex">\(V_{sel}^i\)</span>. In Reroute, the candidate set is restored to the full set of original visual tokens, <span class="arithmatex">\(C_{reroute}^{i+1}=V\)</span>. This restoration ensures that tokens deferred in stage <span class="arithmatex">\(i\)</span> can be re-selected in stage <span class="arithmatex">\(i+1\)</span> if their importance increases due to subsequent contextual processing.</p>
+<h2 id="results">Results</h2>
+<p>The efficacy of Reroute is demonstrated across various VLM backbones under aggressive token reduction regimes.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Baseline</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">IoU (LLaVA-1.5-7B, 88.9% reduction)</td>
+<td style="text-align: left;">0.80 <span class="arithmatex">\(\checkmark\)</span></td>
+<td style="text-align: left;">PDrop (IoU 0.38 <span class="arithmatex">\(\times\)</span>)</td>
+<td style="text-align: left;">Figure 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">IoU (Qwen2.5-VL-7B, 88.9% reduction)</td>
+<td style="text-align: left;">0.88 <span class="arithmatex">\(\checkmark\)</span></td>
+<td style="text-align: left;">PDrop (IoU 0.21 <span class="arithmatex">\(\times\)</span>)</td>
+<td style="text-align: left;">Figure 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">IoU (Qwen3.5-9B, 88.9% reduction)</td>
+<td style="text-align: left;">0.72 <span class="arithmatex">\(\checkmark\)</span></td>
+<td style="text-align: left;">PDrop (IoU 0.22 <span class="arithmatex">\(\times\)</span>)</td>
+<td style="text-align: left;">Figure 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">RefCOCO (Avg Token 192, HuggingFace format)</td>
+<td style="text-align: left;">59.2%</td>
+<td style="text-align: left;">FastV (45.5%)</td>
+<td style="text-align: left;">Table 1 (b)</td>
+</tr>
+<tr>
+<td style="text-align: left;">RefCOCO (Avg Token 192, HuggingFace format)</td>
+<td style="text-align: left;">82.3%</td>
+<td style="text-align: left;">PDrop (71.3%)</td>
+<td style="text-align: left;">Table 1 (b)</td>
+</tr>
+<tr>
+<td style="text-align: left;">RefCOCO (Avg Token 64, HuggingFace format)</td>
+<td style="text-align: left;">34.0%</td>
+<td style="text-align: left;">PDrop (22.2%)</td>
+<td style="text-align: left;">Table 1 (b)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="why-this-matters">Why This Matters</h2>
+<p>The ability to recover pruned visual tokens addresses a fundamental limitation in current efficient VLM inference. By transforming irreversible deletion into recoverable deferral, Reroute allows the model to dynamically adjust its reliance on visual evidence as the textual prompt is processed. This is particularly impactful under aggressive token reduction, where the risk of discarding a critical token early in the decoding process is high. Since Reroute is a training-free plug-in, it offers a low-cost path to significantly improving the performance of existing, large-scale VLM deployments without requiring costly fine-tuning.</p>
+<h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
+<p>The current implementation of Reroute is not a general-purpose Mixture-of-Depth (MoD) architecture; rather, it is a specialized instantiation tailored for the visual-token pruning problem within VLMs. Furthermore, the practical inference latency still carries overhead associated with the necessary gather/scatter operations required to manage the dynamic candidate sets and the underlying KV-cache management across stages. Future work should investigate the optimal scheduling of <span class="arithmatex">\(r_i\)</span> across different VLM architectures to further optimize the trade-off between computational savings and information retention.</p>
+<hr />
+<h2 id="citation">Citation</h2>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.12412">2606.12412</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260612412</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Reroute, Don&#39;t Remove: Recoverable Visual Token Routing for Vision-Language Models}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Cheng-Yu Yang and Shao-Yuan Lo and Yu-Lun Liu}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.12412}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.12412}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</code></pre></div>
 
 
 
@@ -1976,14 +2211,12 @@ The authors introduced DeltaDirect, a training-only projector-level objective th
 
 
 
-  
 
 
-
-      
-    </article>
-  </div>
-
+                
+              </article>
+            </div>
+          
           
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
