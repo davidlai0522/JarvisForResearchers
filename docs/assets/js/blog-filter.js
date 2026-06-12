@@ -206,22 +206,94 @@
     document.getElementById("rl-year").addEventListener("change", applyFilter);
   }
 
+  // ── Static post index sorting (posts/index.md) ──────────────────────────
+  function initStaticIndex() {
+    const content = document.querySelector(".md-content__inner");
+    if (!content) return;
+
+    // Only activate on the generated posts index (h2 headings have data-date)
+    const headings = Array.from(content.querySelectorAll("h2[data-date]"));
+    if (headings.length < 2) return;
+
+    if (document.getElementById("rl-sort-bar")) return;
+
+    // Group each h2 with its following siblings until the next h2
+    const groups = headings.map((h2, i) => {
+      const nextH2 = headings[i + 1] || null;
+      const nodes = [h2];
+      let el = h2.nextElementSibling;
+      while (el && el !== nextH2) {
+        nodes.push(el);
+        el = el.nextElementSibling;
+      }
+      return {
+        nodes,
+        date: h2.getAttribute("data-date") || "",
+        cat: h2.getAttribute("data-cat") || "",
+        title: h2.textContent.trim(),
+      };
+    });
+
+    // Build sort bar
+    const bar = document.createElement("div");
+    bar.id = "rl-sort-bar";
+    bar.innerHTML = `
+      <span class="rl-sort-label">Sort by</span>
+      <div class="rl-sort-btns" role="group" aria-label="Sort order">
+        <button class="rl-sort-btn active" data-sort="date-desc">Date ↓</button>
+        <button class="rl-sort-btn" data-sort="date-asc">Date ↑</button>
+        <button class="rl-sort-btn" data-sort="alpha-asc">A → Z</button>
+        <button class="rl-sort-btn" data-sort="alpha-desc">Z → A</button>
+        <button class="rl-sort-btn" data-sort="cat">Category</button>
+      </div>
+    `;
+
+    // Insert after the first <hr> (separates intro from post list)
+    const hr = content.querySelector("hr");
+    (hr || headings[0]).after(bar);
+
+    function applySort(key) {
+      // Detach all post nodes
+      groups.forEach((g) => g.nodes.forEach((n) => n.remove()));
+
+      // Sort
+      const sorted = [...groups];
+      if (key === "date-desc") sorted.sort((a, b) => b.date.localeCompare(a.date));
+      else if (key === "date-asc") sorted.sort((a, b) => a.date.localeCompare(b.date));
+      else if (key === "alpha-asc") sorted.sort((a, b) => a.title.localeCompare(b.title));
+      else if (key === "alpha-desc") sorted.sort((a, b) => b.title.localeCompare(a.title));
+      else if (key === "cat") sorted.sort((a, b) => a.cat.localeCompare(b.cat) || b.date.localeCompare(a.date));
+
+      // Re-append after sort bar
+      sorted.forEach((g) => g.nodes.forEach((n) => content.appendChild(n)));
+    }
+
+    bar.querySelectorAll(".rl-sort-btn").forEach((btn) => {
+      btn.addEventListener("click", function () {
+        bar.querySelectorAll(".rl-sort-btn").forEach((b) => b.classList.remove("active"));
+        this.classList.add("active");
+        applySort(this.dataset.sort);
+      });
+    });
+  }
+
   // Initial load
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
+    document.addEventListener("DOMContentLoaded", function () { init(); initStaticIndex(); });
   } else {
     init();
+    initStaticIndex();
   }
 
   // MkDocs Material instant navigation — document$ is an RxJS observable
   // exposed on window after the theme JS loads.
   if (typeof window.document$ !== "undefined") {
-    window.document$.subscribe(init);
+    window.document$.subscribe(function () { init(); initStaticIndex(); });
   } else {
     // Fallback: wait for the theme to expose document$ then subscribe
     window.addEventListener("load", function () {
       if (typeof window.document$ !== "undefined") {
-        window.document$.subscribe(init);
+        window.document$.subscribe(function () { init(); initStaticIndex(); });
       }
     });
   }

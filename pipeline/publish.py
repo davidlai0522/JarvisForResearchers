@@ -41,8 +41,10 @@ def _rebuild_posts_nav() -> None:
         description = fm.get("description", "")
         if isinstance(description, str):
             description = description.strip()
+        categories_raw = fm.get("categories", [])
+        category = (categories_raw[0] if categories_raw else "").strip().replace('"', "")
         entries.append(f'    - "{title}": posts/{post_file.name}')
-        post_meta.append({"title": title, "date": str(date), "description": description, "file": post_file.name})
+        post_meta.append({"title": title, "date": str(date), "description": description, "file": post_file.name, "category": category})
 
     new_nav = (
         "nav:\n"
@@ -66,12 +68,13 @@ def _rebuild_posts_nav() -> None:
     yml_path.write_text(updated, encoding="utf-8")
 
     # Regenerate docs/posts/index.md with a post listing
-    lines = ["# Research Digest\n\n"]
+    lines = ["---\nhide:\n  - toc\n---\n\n"]
+    lines.append("# Research Digest\n\n")
     lines.append("AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running locally.\n\n")
     lines.append("---\n\n")
     for m in post_meta:
-        slug = re.sub(r"[^a-z0-9]+", "-", m["title"].lower()).strip("-")
-        lines.append(f'## [{m["title"]}]({m["file"].replace(".md", "/")})\n\n')
+        attr = f'{{ data-cat="{m["category"]}" data-date="{m["date"]}" }}'
+        lines.append(f'## [{m["title"]}]({m["file"].replace(".md", "/")}){" " + attr}\n\n')
         if m["date"]:
             lines.append(f'*{m["date"]}*\n\n')
         if m["description"]:
