@@ -65,28 +65,28 @@ def _rebuild_notes_index() -> None:
     (notes_dir / "index.md").write_text("".join(lines), encoding="utf-8")
 
 
-# Injected into every note page.  Only activates under MkDocs Material's slate
-# (dark) scheme; light mode sees the note's own CSS unchanged.
-_DARK_WRAP_OPEN = """\
-<style>
-[data-md-color-scheme=slate] body{background:var(--md-default-bg-color)!important;color:var(--md-default-fg-color)!important}
-[data-md-color-scheme=slate] .rl-note-html{filter:invert(1) hue-rotate(180deg);display:block;border-radius:.4rem;overflow:hidden}
-[data-md-color-scheme=slate] .rl-note-html img,[data-md-color-scheme=slate] .rl-note-html video{filter:invert(1) hue-rotate(180deg)}
-</style>
-<div class="rl-note-html">
-"""
-_DARK_WRAP_CLOSE = "\n</div>"
-
-
 def publish_note(title: str, html_body: str) -> dict:
     """Write an HTML note page, regenerate the index, commit and push.
+
+    The raw HTML is saved as a static asset under docs/notes/html/ and loaded
+    inside an <iframe> on the note's MkDocs page.  This fully isolates the
+    note's CSS from the rest of the site.
 
     Returns {"path": Path, "pushed": bool, "url": str | None}.
     """
     title = title.strip()
     date = datetime.date.today().isoformat()
-    filename = f"{date}-{_slugify(title)}.md"
-    dest = pathlib.Path("docs/notes") / filename
+    stem = f"{date}-{_slugify(title)}"
+
+    # Save the raw HTML as a static asset (copied as-is by MkDocs)
+    html_dir = pathlib.Path("docs/notes/html")
+    html_dir.mkdir(parents=True, exist_ok=True)
+    (html_dir / f"{stem}.html").write_text(html_body.strip(), encoding="utf-8")
+
+    # Write the .md page — just an iframe pointing at the static HTML file.
+    # The iframe is same-origin on GitHub Pages so the resize script can read
+    # contentDocument.documentElement.scrollHeight without CORS issues.
+    dest = pathlib.Path("docs/notes") / f"{stem}.md"
     dest.parent.mkdir(parents=True, exist_ok=True)
 
     front_matter = yaml.safe_dump(
@@ -94,9 +94,23 @@ def publish_note(title: str, html_body: str) -> dict:
         sort_keys=False,
         allow_unicode=True,
     ).strip()
-    wrapped = _DARK_WRAP_OPEN + html_body.strip() + _DARK_WRAP_CLOSE
-    content = f"---\n{front_matter}\n---\n\n# {title}\n\n{wrapped}\n"
-    dest.write_text(content, encoding="utf-8")
+
+    iframe = (
+        f'<iframe src="../html/{stem}.html" '
+        f'style="width:100%;border:none;display:block;" '
+        f'id="rl-note-frame" scrolling="no"></iframe>\n'
+        f'<script>\n'
+        f'(function(){{\n'
+        f'  var f = document.getElementById("rl-note-frame");\n'
+        f'  f.addEventListener("load", function(){{\n'
+        f'    try {{ f.style.height = f.contentDocument.documentElement.scrollHeight + "px"; }}\n'
+        f'    catch(e) {{ f.style.height = "1200px"; }}\n'
+        f'  }});\n'
+        f'}})();\n'
+        f'</script>\n'
+    )
+
+    dest.write_text(f"---\n{front_matter}\n---\n\n{iframe}", encoding="utf-8")
 
     _rebuild_notes_index()
     _git("add", "docs/notes/")
@@ -106,5 +120,5 @@ def publish_note(title: str, html_body: str) -> dict:
         return {"path": dest, "pushed": False, "url": None}
 
     _git("push")
-    url = f"{cfg.blog.site_url}/notes/{dest.stem}/" if cfg.blog.site_url else None
+    url = f"{cfg.blog.site_url}/notes/{stem}/" if cfg.blog.site_url else None
     return {"path": dest, "pushed": True, "url": url}
