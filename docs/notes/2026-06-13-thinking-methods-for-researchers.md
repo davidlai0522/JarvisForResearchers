@@ -1,9 +1,9 @@
 ---
-title: to use "Thinking Methods for Researchers".
+title: Thinking Methods for Researchers
 date: '2026-06-13'
 ---
 
-# to use "Thinking Methods for Researchers".
+# Thinking Methods for Researchers
 
 <!DOCTYPE html>
 <html lang="en">

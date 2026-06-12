@@ -656,9 +656,10 @@ async def handle_document(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     context.user_data["pending_note_html"] = html_body
     context.user_data["pending_note_suggested_title"] = suggested
     await update.message.reply_html(
-        f"📝 Received <code>{html.escape(fname)}</code> ({len(html_body)} chars).\n\n"
-        f"What should I title this note? "
-        f"Send <code>.</code> to use “{html.escape(suggested)}”."
+        f”📝 Received <code>{html.escape(fname)}</code> ({len(html_body)} chars).\n\n”
+        f”What should I title this note?\n\n”
+        f”💡 Suggested: <b>{html.escape(suggested)}</b>\n”
+        f”Reply with your title, or send <code>.</code> to use the suggestion.”
     )
 
 
