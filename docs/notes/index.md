@@ -9,4 +9,7 @@ Hand-written notes and write-ups.
 
 ---
 
-*No notes yet. Send one to the Telegram bot with `/note` or an `.html` file.*
+## [to use "Thinking Methods for Researchers".](2026-06-13-to-use-thinking-methods-for-researchers/)
+
+*2026-06-13*
+
