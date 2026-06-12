@@ -65,6 +65,19 @@ def _rebuild_notes_index() -> None:
     (notes_dir / "index.md").write_text("".join(lines), encoding="utf-8")
 
 
+# Injected into every note page.  Only activates under MkDocs Material's slate
+# (dark) scheme; light mode sees the note's own CSS unchanged.
+_DARK_WRAP_OPEN = """\
+<style>
+[data-md-color-scheme=slate] body{background:var(--md-default-bg-color)!important;color:var(--md-default-fg-color)!important}
+[data-md-color-scheme=slate] .rl-note-html{filter:invert(1) hue-rotate(180deg);display:block;border-radius:.4rem;overflow:hidden}
+[data-md-color-scheme=slate] .rl-note-html img,[data-md-color-scheme=slate] .rl-note-html video{filter:invert(1) hue-rotate(180deg)}
+</style>
+<div class="rl-note-html">
+"""
+_DARK_WRAP_CLOSE = "\n</div>"
+
+
 def publish_note(title: str, html_body: str) -> dict:
     """Write an HTML note page, regenerate the index, commit and push.
 
@@ -81,7 +94,8 @@ def publish_note(title: str, html_body: str) -> dict:
         sort_keys=False,
         allow_unicode=True,
     ).strip()
-    content = f"---\n{front_matter}\n---\n\n# {title}\n\n{html_body.strip()}\n"
+    wrapped = _DARK_WRAP_OPEN + html_body.strip() + _DARK_WRAP_CLOSE
+    content = f"---\n{front_matter}\n---\n\n# {title}\n\n{wrapped}\n"
     dest.write_text(content, encoding="utf-8")
 
     _rebuild_notes_index()

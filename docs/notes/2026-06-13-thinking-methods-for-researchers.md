@@ -5,6 +5,13 @@ date: '2026-06-13'
 
 # Thinking Methods for Researchers
 
+<style>
+[data-md-color-scheme=slate] body{background:var(--md-default-bg-color)!important;color:var(--md-default-fg-color)!important}
+[data-md-color-scheme=slate] .rl-note-html{filter:invert(1) hue-rotate(180deg);display:block;border-radius:.4rem;overflow:hidden}
+[data-md-color-scheme=slate] .rl-note-html img,[data-md-color-scheme=slate] .rl-note-html video{filter:invert(1) hue-rotate(180deg)}
+</style>
+<div class="rl-note-html">
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -798,3 +805,4 @@ a{color:var(--teal)}
 </div>
 </body>
 </html>
+</div>
