@@ -47,6 +47,9 @@ Description=JarvisForResearchers Telegram Bot
 Documentation=https://github.com/davidlai0522/jarvisforresearchers
 After=network-online.target
 Wants=network-online.target
+# Restart throttle: max 5 restarts in 2 minutes
+StartLimitBurst=5
+StartLimitIntervalSec=120
 
 [Service]
 Type=simple
@@ -54,9 +57,10 @@ WorkingDirectory=${REPO_DIR}
 ExecStart=${UV} run python telegram_bot.py
 Restart=on-failure
 RestartSec=15s
-# Avoid a tight restart loop (max 5 restarts in 2 minutes)
-StartLimitBurst=5
-StartLimitIntervalSec=120
+# Kill the entire cgroup so the uv launcher and its Python child both die
+KillMode=control-group
+# Give the process 10 s to exit gracefully, then SIGKILL
+TimeoutStopSec=10
 StandardOutput=journal
 StandardError=journal
 # Load TELEGRAM_BOT_TOKEN and other secrets from .env
