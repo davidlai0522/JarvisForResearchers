@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [InterleaveThinker: Reinforcing Agentic Interleaved Generation](2026-06-13-interleavethinker-reinforcing-agentic-interleaved-generation/) { data-cat="Computer Vision" data-date="2026-06-13" }
+
+*2026-06-13*
+
+InterleaveThinker is a novel multi-agent pipeline that endows any existing image generator with strong interleaved generation capabilities by employing a Planner agent to sequence instructions and a Critic agent to enforce step-wise correction.
+
 ## [Reroute, Don't Remove: Recoverable Visual Token Routing for Vision-Language Models](2026-06-12-reroute-don-t-remove-recoverable-visual-token-routing-for-vi/) { data-cat="Computer Vision" data-date="2026-06-12" }
 
 *2026-06-12*
