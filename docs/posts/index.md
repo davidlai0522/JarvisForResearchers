@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Learning to Reason by Analogy via Retrieval-Augmented Reinforcement Fine-Tuning](2026-06-14-learning-to-reason-by-analogy-via-retrieval-augmented-reinfo/) { data-cat="NLP" data-date="2026-06-14" }
+
+*2026-06-14*
+
+RA-RFT is a post-training framework that enhances language model reasoning by using gold-relevance distillation to train a retriever that selects reasoning-analogous examples, which are then used to fine-tune the policy model via reinforcement learning.
+
 ## [InterleaveThinker: Reinforcing Agentic Interleaved Generation](2026-06-13-interleavethinker-reinforcing-agentic-interleaved-generation/) { data-cat="Computer Vision" data-date="2026-06-13" }
 
 *2026-06-13*

@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "Learning to Reason by Analogy via Retrieval-Augmented Reinforcement Fine-Tuning": posts/2026-06-14-learning-to-reason-by-analogy-via-retrieval-augmented-reinfo.md
     - "InterleaveThinker: Reinforcing Agentic Interleaved Generation": posts/2026-06-13-interleavethinker-reinforcing-agentic-interleaved-generation.md
     - "Reroute, Don't Remove: Recoverable Visual Token Routing for Vision-Language Models": posts/2026-06-12-reroute-don-t-remove-recoverable-visual-token-routing-for-vi.md
     - "When to Align, When to Predict: A Phase Diagram for Multimodal Learning": posts/2026-06-11-when-to-align-when-to-predict-a-phase-diagram-for-multimodal.md
