@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="The Integrable Context-Dependent Demand Network (ICDN) is a demand-first neural model that represents log-demand as a smooth, context-conditioned function of log-prices, allowing elasticities to be derived exactly as derivatives of the learned demand surface.
+        <meta name="description" content="RA-RFT is a post-training framework that enhances language model reasoning by using gold-relevance distillation to train a retriever that selects reasoning-analogous examples, which are then used to fine-tune the policy model via reinforcement learning.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-25-integrable-elasticity-via-neural-demand-potentials/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-14-learning-to-reason-by-analogy-via-retrieval-augmented-reinfo/">
       
       
-        <link rel="prev" href="../2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/">
+        <link rel="next" href="../2026-06-13-interleavethinker-reinforcing-agentic-interleaved-generation/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Integrable Elasticity via Neural Demand Potentials - JarvisForResearchers</title>
+        <title>Learning to Reason by Analogy via Retrieval-Augmented Reinforcement Fine-Tuning - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Integrable Elasticity via Neural Demand Potentials
+              Learning to Reason by Analogy via Retrieval-Augmented Reinforcement Fine-Tuning
             
           </span>
         </div>
@@ -500,10 +500,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-06-14-learning-to-reason-by-analogy-via-retrieval-augmented-reinfo/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning to Reason by Analogy via Retrieval-Augmented Reinforcement Fine-Tuning
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -519,6 +544,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#training-set-d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Training Set \(D\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#corpus-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Corpus \(C\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#judge-model-m_judge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Judge Model \(M_{judge}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reasoning-aware-retriever-r_theta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reasoning-Aware Retriever \(R_\theta\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target-model-m_phi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Target Model \(M_\phi\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -976,35 +1168,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Integrable Elasticity via Neural Demand Potentials
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-25-integrable-elasticity-via-neural-demand-potentials/" class="md-nav__link">
         
   
   
@@ -1020,151 +1187,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#shared-encoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Shared Encoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#own-price-response-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Own-price Response Structure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#directed-cross-price-response-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Directed Cross-price Response Structure
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2030,10 +2052,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#shared-encoder" class="md-nav__link">
+  <a href="#training-set-d" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Shared Encoder
+        Training Set \(D\)
       
     </span>
   </a>
@@ -2041,10 +2063,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#own-price-response-structure" class="md-nav__link">
+  <a href="#corpus-c" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Own-price Response Structure
+        Corpus \(C\)
       
     </span>
   </a>
@@ -2052,10 +2074,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#directed-cross-price-response-structure" class="md-nav__link">
+  <a href="#judge-model-m_judge" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Directed Cross-price Response Structure
+        Judge Model \(M_{judge}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reasoning-aware-retriever-r_theta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reasoning-Aware Retriever \(R_\theta\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target-model-m_phi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Target Model \(M_\phi\)
       
     </span>
   </a>
@@ -2132,45 +2176,70 @@
       
       
       
-        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:llm" class="md-tag">llm</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:nlp" class="md-tag">nlp</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:reinforcement-learning" class="md-tag">reinforcement-learning</a>
       
     
   </nav>
 
 
 
-  <h1>Integrable Elasticity via Neural Demand Potentials</h1>
+  <h1>Learning to Reason by Analogy via Retrieval-Augmented Reinforcement Fine-Tuning</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-25</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-06-14</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
-<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+<p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>The Integrable Context-Dependent Demand Network (ICDN) reframes multiproduct retail demand estimation as learning a smooth, context-conditioned demand surface. This formulation allows for the exact derivation of elasticities as derivatives of the learned surface, circumventing the instability and computational overhead associated with post-hoc numerical differentiation of complex ML models.</p>
+<p>RA-RFT is a post-training framework that enhances language model reasoning by using gold-relevance distillation to train a retriever that selects reasoning-analogous examples, which are then used to fine-tune the policy model via reinforcement learning.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Learning stable and reproducible elasticities at scale in multiproduct retail demand is challenging. The core difficulty arises because minor irregularities in the estimated demand surface can propagate into significant, spurious fluctuations in the calculated elasticities. This instability is particularly pronounced when cross-price effects are weak or when pricing decisions across products are highly correlated. Existing approaches suffer from limitations: simple log-log Ordinary Least Squares (OLS) models impose overly restrictive, globally constant price effects, failing to capture the heterogeneous and state-dependent substitution patterns observed in reality. Furthermore, while some machine learning methods attempt to recover elasticities, they often treat this as a secondary, post-hoc analysis, lacking an explicit, analytically tractable representation of demand as a function of price. Deep learning models that rely on numerical differentiation to extract elasticities are often computationally prohibitive at scale and offer limited direct control over the implied structure of the demand function and its derivatives.</p>
+<p>Conventional retrieval methods based on lexical or semantic similarity are poorly suited for complex reasoning tasks. The fundamental issue is that semantic similarity does not guarantee functional similarity in problem-solving. Specifically, a problem that is semantically similar to the query may necessitate an entirely different solution strategy, whereas a problem that is superficially different might share the exact underlying reasoning pattern required for a successful solution.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We make three primary contributions to this domain:
-1. We formulate multiproduct elasticity estimation as a demand-first problem, where log-demand is modeled as a smooth surface, enabling the derivation of integrable elasticities directly as derivatives of this surface.
-2. We introduce ICDN, a structured neural demand model designed to decompose price responses into distinct components: linear own-price effects, directed cross-price interactions, and spline-based nonlinear refinements.
-3. We leverage the analytic derivatives inherent in product-specific spline bases to compute both own- and cross-price elasticities efficiently, entirely avoiding the need for dense Jacobian or Hessian evaluations.</p>
+<p>We present three primary contributions:
+1. Proposing Retrieval-Augmented Reinforcement Fine-Tuning (RA-RFT), a post-training framework designed to teach language models to reason by analogy.
+2. Utilizing gold-relevance distillation to train a retriever that ranks contexts based on expected reasoning benefit rather than mere semantic overlap.
+3. Fine-tuning the policy model via reinforcement fine-tuning methods, incorporating retrieved analogous demonstrations under verifiable outcome rewards.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.22820/fig_p15_c2.jpg" />
-*Figure 2 summarizes the forward pass of ICDN. The architecture is built around three components. First,
-a context branch constructs one contextual token per SKU and maps these tokens into product-specific
-latent representations. Second, an attention-based sparse neighbor selector identifies a small *</p>
-<p>ICDN models the log-demand as a smooth function of log-prices and various contextual covariates. The structural design ensures that the resulting elasticities are exact derivatives of this underlying surface. The model achieves this by decomposing the price effects across three structural components:</p>
-<h3 id="shared-encoder">Shared Encoder</h3>
-<p>The <strong>Shared Encoder</strong> is responsible for mapping the contextual information associated with each Stock Keeping Unit (SKU) into a product-specific latent representation, denoted <span class="arithmatex">\(h_i\)</span>. This latent vector serves to modulate the parameters of the subsequent demand response structures, allowing the model to capture context-dependent demand behavior.</p>
-<h3 id="own-price-response-structure">Own-price Response Structure</h3>
-<p>The response to a product's own price is modeled using a combination of two terms. The first is a locally linear log-log term, <span class="arithmatex">\(\beta_{ii}(x)u_i\)</span>, which captures the baseline price sensitivity. This is augmented by a nonlinear spline component, <span class="arithmatex">\(w_{ii}(x)^\top B_i(u_i)\)</span>, where <span class="arithmatex">\(B_i(u_i)\)</span> is the basis function expansion for product <span class="arithmatex">\(i\)</span>.</p>
-<h3 id="directed-cross-price-response-structure">Directed Cross-price Response Structure</h3>
-<p>The interaction between products <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> is modeled more intricately to capture directional substitution. This structure comprises three parts: a linear component, <span class="arithmatex">\(\beta_{ij}(x)u_j\)</span>, capturing the basic cross-price effect; a nonlinear univariate refinement, <span class="arithmatex">\(w_{ij}(x)^\top B_j(u_j)\)</span>, which refines the effect of <span class="arithmatex">\(u_j\)</span> on product <span class="arithmatex">\(i\)</span>; and critically, a spline-spline interaction term, <span class="arithmatex">\(B_i(u_i)^\top U_{(ij)}(x)B_j(u_j)\)</span>, which models the joint non-linear influence of both prices.</p>
-<p>The overall log-demand surface is constructed by summing these structured components, modulated by the latent representations derived from the <strong>Shared Encoder</strong>. The use of spline bases is key, as it provides the necessary mathematical structure to derive closed-form expressions for the required partial derivatives (elasticities).</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.13680/fig_p2_c1.jpg" />
+<em>Figure 1 Motivation of RA-RFT. Left: A training query may be retrieved with a surface-similar but reasoning-irrelevant
+exemplar (E1, which could be easily solved by direct substitution) or a superficially different but reasoning-analogous
+exemplar (E2, which shares the same binomial identity strateg</em></p>
+<p>RA-RFT operates through a three-stage pipeline. The first stage involves gold-relevance distillation, where a judge model assigns binary relevance labels (<span class="arithmatex">\(y_{i,c} \in \{0, 1\}\)</span>) to query-context pairs. This label indicates whether the trace exhibits a transferable reasoning pattern relevant to the query. Second, a dense retriever, <span class="arithmatex">\(R_\theta\)</span>, is trained using these utility-based annotations via contrastive learning. This allows <span class="arithmatex">\(R_\theta\)</span> to surface problems that are structurally analogous. Third, the target model, <span class="arithmatex">\(M_\phi\)</span>, is fine-tuned using reinforcement fine-tuning. During this phase, the retrieved reasoning traces <span class="arithmatex">\(\\{c_1, \dots, c_k\\}\)</span> condition the sampling of responses <span class="arithmatex">\(\hat{a}_g \sim M_\phi(\cdot | q, \\{c_j\\})\)</span>, enabling the policy to learn to exploit these retrieved analogies while optimizing against outcome rewards.</p>
+<h3 id="training-set-d">Training Set <span class="arithmatex">\(D\)</span></h3>
+<p>The training set <span class="arithmatex">\(D\)</span> comprises the set of reasoning problems <span class="arithmatex">\(D = \{(q_i, a_i)\\}_{i=1}^N\)</span>, where each problem <span class="arithmatex">\(q_i\)</span> is paired with a verifiable correct answer <span class="arithmatex">\(a_i\)</span>.</p>
+<h3 id="corpus-c">Corpus <span class="arithmatex">\(C\)</span></h3>
+<p>The external corpus <span class="arithmatex">\(C\)</span> consists of <span class="arithmatex">\(C = \{(p_j, t_j)\\}_{j=1}^M\)</span>, which is a collection of problems <span class="arithmatex">\(p_j\)</span> paired with detailed reasoning traces <span class="arithmatex">\(t_j\)</span> generated by a high-capability teacher model.</p>
+<h3 id="judge-model-m_judge">Judge Model <span class="arithmatex">\(M_{judge}\)</span></h3>
+<p>The Judge Model, <span class="arithmatex">\(M_{judge}\)</span>, is a strong, pre-existing model (such as GPT-4o). Its role is critical in the distillation phase: it directly assesses the reasoning relevance of candidate traces for a given query, assigning the binary relevance label <span class="arithmatex">\(y_{i,c}\)</span>.</p>
+<h3 id="reasoning-aware-retriever-r_theta">Reasoning-Aware Retriever <span class="arithmatex">\(R_\theta\)</span></h3>
+<p>This dense retriever, <span class="arithmatex">\(R_\theta\)</span>, is trained using contrastive learning. Its objective is to rank candidate traces based on their inferred reasoning utility, optimizing the InfoNCE objective <span class="arithmatex">\(L_{retrieval}\)</span> derived from the gold-relevance labels provided by <span class="arithmatex">\(M_{judge}\)</span>.</p>
+<h3 id="target-model-m_phi">Target Model <span class="arithmatex">\(M_\phi\)</span></h3>
+<p>The Target Model, <span class="arithmatex">\(M_\phi\)</span>, is the language model under investigation. It is fine-tuned using reinforcement learning. Crucially, during the policy update phase, the sampling of actions is conditioned on the set of retrieved reasoning traces <span class="arithmatex">\(\\{c_1, \dots, c_k\\}\)</span>, allowing the policy to learn from external expertise.</p>
 <h2 id="results">Results</h2>
+<p>The performance gains observed across various benchmarks are summarized below.</p>
 <table>
 <thead>
 <tr>
@@ -2182,32 +2251,38 @@ latent representations. Second, an attention-based sparse neighbor selector iden
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Out-of-sample generalization</td>
-<td style="text-align: left;">Improves over a directed log-log benchmark</td>
-<td style="text-align: left;">Directed log-log benchmark</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">AIME 2025 average@32 accuracy</td>
+<td style="text-align: left;">7.1 points</td>
+<td style="text-align: left;">GRPO</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Elasticity estimates</td>
-<td style="text-align: left;">More stable, economically plausible</td>
+<td style="text-align: left;">AIME 2025 average@32 accuracy</td>
+<td style="text-align: left;">2.8 points</td>
+<td style="text-align: left;">GRPO</td>
+<td style="text-align: left;">Table 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Overall average gain across all four benchmarks</td>
+<td style="text-align: left;">4.1 and 2.6 points</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">Section 4.2</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>ICDN provides a robust framework for moving beyond simple parametric assumptions in demand modeling. By deriving elasticities exactly from a single, smooth demand surface, it significantly enhances the analytical tractability of the model. Furthermore, the structured approach allows the model to capture heterogeneous and directional cross-price responses by constructing them from ordered product pairs <span class="arithmatex">\((h_i, h_j)\)</span> independently. The ability to enforce economic coherence during training via regularization techniques—such as soft penalties on positive own-price elasticities and soft elasticity-band penalties on cross-price responses—makes the model more reliable for practical inference.</p>
+<p>The RA-RFT framework provides a principled method for injecting external, high-quality reasoning expertise into language models during the fine-tuning phase. The practitioner takeaways highlight that for complex reasoning tasks, grounding retrieval in 'reasoning utility'—analogical fit—is demonstrably more effective than relying on surface-level semantic similarity. Furthermore, RA-RFT demonstrates that retrieval augmentation can serve as an orthogonal axis of improvement to existing reward design or training curricula in Reinforcement Learning from Human Feedback (RLHF) variants. By conditioning the policy on retrieved traces, the framework facilitates a denser and more informative reward signal during exploration.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>It must be noted that the elasticities derived by ICDN should not be interpreted as fully identified causal effects of price interventions, given that the empirical application relies on observational scanner data. Additionally, the model's validity is contingent upon the mathematical coherence requirement: the local price responses must be compatible with a single, globally defined demand surface. Future work should investigate the robustness of the model when this integrability assumption is severely violated by underlying market dynamics.</p>
+<p>Two primary limitations must be acknowledged. First, the precise computation of true reasoning relevance is intractable in practice; therefore, we must approximate this concept using the judgment of a strong, external model, <span class="arithmatex">\(M_{judge}\)</span>. Second, the entire methodology is contingent upon the availability of a sufficiently large and high-quality corpus <span class="arithmatex">\(C\)</span> containing problems paired with detailed, step-by-step reasoning traces. Future work must address the scalability and robustness of the judge model approximation.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.22820">2605.22820</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260522820</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Integrable Elasticity via Neural Demand Potentials}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Carlos Heredia and Daniel Roncel}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.22820}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.13680">2606.13680</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260613680</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Learning to Reason by Analogy via Retrieval-Augmented Reinforcement Fine-Tuning}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Zilin Xiao and Qi Ma and Chun-cheng Jason Chen and Xintao Chen and Avinash Atreya and Hanjie Chen et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.13680}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.22820}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.13680}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
