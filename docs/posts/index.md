@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Mana: Dexterous Manipulation of Articulated Tools](2026-06-15-mana-dexterous-manipulation-of-articulated-tools/) { data-cat="Robotics" data-date="2026-06-15" }
+
+*2026-06-15*
+
+MANA (Manipulation Animator) is a general sim-to-real framework that reinterprets dexterous articulated tool manipulation as a coarse-to-fine animation problem to achieve zero-shot transfer.
+
 ## [Learning to Reason by Analogy via Retrieval-Augmented Reinforcement Fine-Tuning](2026-06-14-learning-to-reason-by-analogy-via-retrieval-augmented-reinfo/) { data-cat="NLP" data-date="2026-06-14" }
 
 *2026-06-14*
