@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="InterleaveThinker is a novel multi-agent pipeline that endows any existing image generator with strong interleaved generation capabilities by employing a Planner agent to sequence instructions and a Critic agent to enforce step-wise correction.
+        <meta name="description" content="MANA (Manipulation Animator) is a general sim-to-real framework that reinterprets dexterous articulated tool manipulation as a coarse-to-fine animation problem to achieve zero-shot transfer.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-13-interleavethinker-reinforcing-agentic-interleaved-generation/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-15-mana-dexterous-manipulation-of-articulated-tools/">
       
       
-        <link rel="prev" href="../2026-06-14-learning-to-reason-by-analogy-via-retrieval-augmented-reinfo/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-06-12-reroute-don-t-remove-recoverable-visual-token-routing-for-vi/">
+        <link rel="next" href="../2026-06-14-learning-to-reason-by-analogy-via-retrieval-augmented-reinfo/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>InterleaveThinker: Reinforcing Agentic Interleaved Generation - JarvisForResearchers</title>
+        <title>Mana: Dexterous Manipulation of Articulated Tools - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              InterleaveThinker: Reinforcing Agentic Interleaved Generation
+              Mana: Dexterous Manipulation of Articulated Tools
             
           </span>
         </div>
@@ -502,62 +502,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../2026-06-15-mana-dexterous-manipulation-of-articulated-tools/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Mana: Dexterous Manipulation of Articulated Tools
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../2026-06-14-learning-to-reason-by-analogy-via-retrieval-augmented-reinfo/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Learning to Reason by Analogy via Retrieval-Augmented Reinforcement Fine-Tuning
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -575,7 +519,7 @@
   <span class="md-ellipsis">
     
   
-    InterleaveThinker: Reinforcing Agentic Interleaved Generation
+    Mana: Dexterous Manipulation of Articulated Tools
   
 
     
@@ -593,7 +537,7 @@
   <span class="md-ellipsis">
     
   
-    InterleaveThinker: Reinforcing Agentic Interleaved Generation
+    Mana: Dexterous Manipulation of Articulated Tools
   
 
     
@@ -662,10 +606,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#planner-agent" class="md-nav__link">
+  <a href="#grasp-generator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Planner Agent
+        Grasp Generator
       
     </span>
   </a>
@@ -673,10 +617,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#generator" class="md-nav__link">
+  <a href="#keyframe-planner" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Generator
+        Keyframe Planner
       
     </span>
   </a>
@@ -684,10 +628,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#critic-agent" class="md-nav__link">
+  <a href="#trajectory-generator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Critic Agent
+        Trajectory Generator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#point-cloud-conditioned-diffusion-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Point-Cloud-Conditioned Diffusion Policy
       
     </span>
   </a>
@@ -747,6 +702,62 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-06-14-learning-to-reason-by-analogy-via-retrieval-augmented-reinfo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning to Reason by Analogy via Retrieval-Augmented Reinforcement Fine-Tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-06-13-interleavethinker-reinforcing-agentic-interleaved-generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InterleaveThinker: Reinforcing Agentic Interleaved Generation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2060,10 +2071,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#planner-agent" class="md-nav__link">
+  <a href="#grasp-generator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Planner Agent
+        Grasp Generator
       
     </span>
   </a>
@@ -2071,10 +2082,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#generator" class="md-nav__link">
+  <a href="#keyframe-planner" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Generator
+        Keyframe Planner
       
     </span>
   </a>
@@ -2082,10 +2093,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#critic-agent" class="md-nav__link">
+  <a href="#trajectory-generator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Critic Agent
+        Trajectory Generator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#point-cloud-conditioned-diffusion-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Point-Cloud-Conditioned Diffusion Policy
       
     </span>
   </a>
@@ -2162,7 +2184,28 @@
       
       
       
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
+      
+    
+      
+      
+      
+      
         <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:diffusion-models" class="md-tag">diffusion-models</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
       
     
       
@@ -2176,40 +2219,59 @@
       
       
       
-        <a href="../../tags/#tag:multimodal" class="md-tag">multimodal</a>
+        <a href="../../tags/#tag:reinforcement-learning" class="md-tag">reinforcement-learning</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:sim-to-real" class="md-tag">sim-to-real</a>
       
     
   </nav>
 
 
 
-  <h1>InterleaveThinker: Reinforcing Agentic Interleaved Generation</h1>
+  <h1>Mana: Dexterous Manipulation of Articulated Tools</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-06-13</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-06-15</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
 <p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>InterleaveThinker is a novel multi-agent pipeline that endows any existing image generator with strong interleaved generation capabilities by employing a Planner agent to sequence instructions and a Critic agent to enforce step-wise correction. This framework addresses the limitations of single-shot image generation and the error accumulation inherent in standard Unified Multimodal Models (UMMs) during sequential tasks.</p>
+<p>MANA (Manipulation Animator) reframes dexterous articulated tool manipulation as a coarse-to-fine motion synthesis problem, enabling zero-shot sim-to-real transfer. It synthesizes diverse, physically plausible trajectories from sparse human annotations and trains a point-cloud-conditioned transformer diffusion policy to execute these sequences from RGB-D observations.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Existing image generators are fundamentally constrained to single-image generation or editing tasks. This architecture prevents them from natively supporting interleaved generation—the generation of a coherent text-image sequence. Such sequential capability is critical for applications requiring visual narratives, guided procedural generation, or embodied manipulation where the output must evolve over time. Furthermore, when UMMs are applied to long-horizon tasks, they exhibit two primary deficiencies: visual over-reliance, where the model prematurely converges on an intermediate state that superficially resembles the final goal, and step-wise error accumulation, stemming from a lack of a stable mechanism for self-correction during the generation process.</p>
+<p>Articulated tool manipulation presents a significant hurdle in dexterous robotics. The complexity arises from the necessity to manage the internal degrees of freedom of the tool itself while simultaneously managing the external, contact-rich interactions required to perform the task. Successful execution demands the robot not only to stabilize the tool but also to apply precise, functional actuation forces through its end-effector.</p>
+<p>Existing approaches suffer from several limitations. Prior work has predominantly addressed manipulation involving rigid objects, leaving the physical intricacies of articulated tool use largely unexplored. Furthermore, current teleoperation paradigms are typically position-based, which is insufficient for generating the nuanced, sufficient pinch forces required to maintain stable contact on stiff tool joints. Finally, attempting end-to-end sim-to-real reinforcement learning for long-horizon tasks involving articulated tools is prohibitively difficult, primarily due to the inherent challenge of discovering precise functional contacts and learning to generate large, task-specific actuation forces from a random initialization.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce InterleaveThinker, the first multi-agent framework designed to retrofit any fixed image generator with robust interleaved generation capabilities via a Planner-Gen-Critic workflow. To support this, we constructed three high-quality datasets: Interleave-Planner-SFT-80k, Interleave-Critic-SFT-112k, and Interleave-Critic-RL-13k. Finally, we designed a novel dual-reward strategy, combining an accuracy reward and a step-wise reward, which enables trajectory-level alignment through efficient single-step Reinforcement Learning (RL) utilizing GRPO.</p>
+<p>We introduce MANA (Manipulation Animator), a general sim-to-real framework that successfully casts the problem of articulated tool use as a coarse-to-fine motion synthesis challenge. We developed a novel data generation pipeline that leverages minimal human input—specifically, a few mouse clicks specifying functional affordances—to synthesize a large, diverse set of grasp keyframes. Crucially, we train a point-cloud-conditioned transformer diffusion policy capable of mapping raw object observations directly to wrist and finger actions, thereby achieving zero-shot transfer from simulation to the physical world.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.13679/fig_p1_c1.jpg" />
-<em>Figure 1: Capabilities of InterleaveThinker, consisting of interleaved generation with various types inputs, real-world action
-interaction, and robotic manipulation. Gray: inputs, blue: outputs.</em></p>
-<p>InterleaveThinker functions as a closed-loop, multi-agent pipeline comprising a Planner, a Generator, and a Critic. The process begins when the Planner analyzes the input sequence <span class="arithmatex">\(S\)</span> and decomposes it into an <span class="arithmatex">\(N\)</span>-step execution plan. For each step <span class="arithmatex">\(i\)</span>, the Planner outputs a specific instruction <span class="arithmatex">\(u_i\)</span>, an initial prompt <span class="arithmatex">\(p_i\)</span>, and auxiliary text <span class="arithmatex">\(a_i\)</span>. The Generator then synthesizes the image <span class="arithmatex">\(I_t^i\)</span>, conditioned on the current refined prompt <span class="arithmatex">\(r_t^i\)</span> and the preceding image <span class="arithmatex">\(I_{i-1}\)</span>. Subsequently, the Critic Agent evaluates the transition from <span class="arithmatex">\(I_{i-1}\)</span> to <span class="arithmatex">\(I_t^i\)</span> against the target <span class="arithmatex">\(p_i\)</span>. The Critic outputs a binary judgment <span class="arithmatex">\(j_t^i\)</span>, a refined prompt <span class="arithmatex">\(r_{t+1}^i\)</span> for the next iteration, and a detailed reasoning process <span class="arithmatex">\(R_t^i\)</span>. This generation-evaluation loop continues iteratively until the Critic yields a positive judgment or the maximum iteration count <span class="arithmatex">\(T_{max}\)</span> is reached, thereby enforcing strict adherence to the global plan.</p>
-<h3 id="planner-agent">Planner Agent</h3>
-<p>The Planner Agent is responsible for the high-level decomposition of the input sequence <span class="arithmatex">\(S\)</span>. Its function is to translate the abstract sequence into a concrete, actionable <span class="arithmatex">\(N\)</span>-step execution plan. For each step <span class="arithmatex">\(i\)</span> in the plan, it generates the requisite tuple <span class="arithmatex">\((u_i, p_i, a_i)\)</span>, effectively providing the necessary scaffolding for the subsequent generation and evaluation steps.</p>
-<h3 id="generator">Generator</h3>
-<p>The Generator component is the core image synthesis module. It operates iteratively, taking two primary inputs: the current refined prompt <span class="arithmatex">\(r_t^i\)</span> and the image state from the previous step, <span class="arithmatex">\(I_{i-1}\)</span>. Its output is the newly generated image <span class="arithmatex">\(I_t^i\)</span>, which represents the state after the application of the instruction <span class="arithmatex">\(u_i\)</span>.</p>
-<h3 id="critic-agent">Critic Agent</h3>
-<p>The Critic Agent serves as the supervisory and refinement mechanism. It evaluates the transition from <span class="arithmatex">\(I_{i-1}\)</span> to <span class="arithmatex">\(I_t^i\)</span> by comparing it against the step-specific target <span class="arithmatex">\(p_i\)</span> and the current prompt <span class="arithmatex">\(r_t^i\)</span>. Its output is multifaceted: a binary judgment <span class="arithmatex">\(j_t^i\)</span> indicating success or failure for that step, a refined prompt <span class="arithmatex">\(r_{t+1}^i\)</span> designed to steer the Generator toward correction, and a reasoning process <span class="arithmatex">\(R_t^i\)</span> detailing the evaluation.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.13677/fig_p1_c1.jpg" />
+<em>Figure 1: Mana (Manipulation Animator) is a framework for learning dexterous manipulation of
+articulated tools with zero-shot sim-to-real transfer. Our system can grasp and manipulate 4 types of
+tools of different challenging shapes, scales, and joint properties, including tongs, pliers, clothespins</em></p>
+<p>MANA operates via a structured coarse-to-fine pipeline. The process begins by converting sparse functional affordance annotations into a dense set of grasp keyframes across all relevant tool configurations. These keyframes establish the structural skeleton of the desired manipulation sequence. Subsequently, the Trajectory Generator connects these discrete keyframes into a continuous, executable trajectory. This connection process is decomposed: pre-grasping is handled by GPU-accelerated RRT-Connect for collision avoidance, grasping utilizes procedural methods, and the critical in-hand tool actuation is learned via reinforcement learning. The final stage involves training a Point-Cloud-Conditioned Diffusion Policy on these synthesized simulation trajectories. This policy is designed to interpret RGB-D observations from the real world and generate the necessary low-level actions.</p>
+<h3 id="grasp-generator">Grasp Generator</h3>
+<p>The Grasp Generator is responsible for translating high-level, sparse functional affordance annotations—provided by the user—into a dense set of physically viable grasp and actuation states. It achieves this by optimizing the precise fingertip contact locations within the defined contact domains of the articulated tool.</p>
+<h3 id="keyframe-planner">Keyframe Planner</h3>
+<p>The Keyframe Planner samples a comprehensive, dense set of grasp states. These states are strategically chosen across the functional contact regions and across the various relevant configurations of the tool. These sampled states effectively define the discrete nodes within the overall Mana trajectory graph.</p>
+<h3 id="trajectory-generator">Trajectory Generator</h3>
+<p>The Trajectory Generator bridges the gap between the discrete keyframes generated by the Keyframe Planner and a continuous, executable motion plan. It decomposes the entire manipulation episode into three distinct phases: pre-grasping, which employs RRT-Connect for collision-free pathfinding; grasping, which relies on procedural methods; and in-hand tool actuation, which is learned using reinforcement learning.</p>
+<h3 id="point-cloud-conditioned-diffusion-policy">Point-Cloud-Conditioned Diffusion Policy</h3>
+<p>This is the execution policy. It accepts two primary inputs: the segmented point cloud of the tool, expressed in the wrist frame, and the robot's proprioceptive state. It utilizes a Perceiver-style transformer architecture to effectively encode the high-dimensional point cloud data. This encoded representation is then fed into a lightweight, transformer-based diffusion model head, which is responsible for generating the requisite control actions.</p>
 <h2 id="results">Results</h2>
+<p>The performance of the zero-shot transfer policy was evaluated against established baselines.</p>
 <table>
 <thead>
 <tr>
@@ -2221,32 +2283,26 @@ interaction, and robotic manipulation. Gray: inputs, blue: outputs.</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">WISE</td>
-<td style="text-align: left;">0.73</td>
-<td style="text-align: left;">0.47</td>
-<td style="text-align: left;">Abstract</td>
-</tr>
-<tr>
-<td style="text-align: left;">RISE</td>
-<td style="text-align: left;">28.9</td>
-<td style="text-align: left;">13.3</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">Success Rate (Grasping and In-hand Manipulation)</td>
+<td style="text-align: left;">approximately 70%</td>
+<td style="text-align: left;">open-loop Mana policy and teleoperation</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The findings demonstrate that multi-agent frameworks can effectively retrofit existing, frozen image generators to handle complex sequential tasks, such as generating visual narratives. By decoupling the planning function (handled by the Planner) from the execution and evaluation functions (handled by the Generator and Critic), we establish a robust strategy to mitigate the known issues of visual over-reliance and error accumulation in long-horizon generation tasks common to UMMs. Furthermore, the implementation of a dual-reward strategy—combining accuracy and step-wise rewards—provides a computationally efficient pathway to guide long trajectories using single-step Reinforcement Learning (RL).</p>
+<p>The MANA framework demonstrates that for tasks characterized by complex, contact-rich interactions, such as articulated tool use, decomposing the problem into a sequence of discrete, well-defined keyframes (the coarse-to-fine approach) offers a more scalable and tractable paradigm than attempting a monolithic end-to-end reinforcement learning solution. Furthermore, the success of zero-shot sim-to-real transfer, achieved by training policies on structured simulation data synthesized by MANA, validates the utility of structured data synthesis in bridging the reality gap for complex manipulation. The findings also underscore the necessity of specialized hardware, such as compliant fingertips, when dealing with the delicate geometries of articulated tools.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>A significant limitation is the computational cost associated with optimizing the entire interleaved generation trajectory end-to-end, particularly as trajectories can involve over 25 generator calls. Additionally, the current framework's reliance on constructing high-quality training data necessitates the use of advanced proprietary models, specifically Gemini 2.5 Pro and Nano Banana Pro. Future work must address the scalability of the data generation pipeline and explore more efficient trajectory optimization methods.</p>
+<p>A primary limitation of the current system is its dependency on the quality of the initial functional affordance annotation provided by the human operator; errors in this sparse input propagate through the entire pipeline. Additionally, the policy's final execution relies on a low-level Proportional-Derivative (PD) controller for hand actuation, meaning the system's performance is ultimately constrained by the fidelity and limitations of the underlying hardware control loop. Future work should investigate methods to refine the trajectory generation process to be less reliant on the initial keyframe sampling density.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.13679">2606.13679</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260613679</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{InterleaveThinker: Reinforcing Agentic Interleaved Generation}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Dian Zheng and Harry Lee and Manyuan Zhang and Kaituo Feng and Zoey Guo and Ray Zhang et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.13679}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.13677">2606.13677</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260613677</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Mana: Dexterous Manipulation of Articulated Tools}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Zhao-Heng Yin and Guanya Shi and Pieter Abbeel and C. Karen Liu}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.13677}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.13679}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.13677}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
