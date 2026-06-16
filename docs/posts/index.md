@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [SIMMER: Benchmarking Latent Failures in LLM Executable Planning with a World Model](2026-06-16-simmer-benchmarking-latent-failures-in-llm-executable-planni/) { data-cat="NLP" data-date="2026-06-16" }
+
+*2026-06-16*
+
+SIMMER is a new benchmark that evaluates latent failures in LLM executable planning by grounding execution against a symbolic world model derived from real-world cooking scripts.
+
 ## [Mana: Dexterous Manipulation of Articulated Tools](2026-06-15-mana-dexterous-manipulation-of-articulated-tools/) { data-cat="Robotics" data-date="2026-06-15" }
 
 *2026-06-15*
