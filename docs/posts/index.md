@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [T-Rex: Tactile-Reactive Dexterous Manipulation](2026-06-17-t-rex-tactile-reactive-dexterous-manipulation/) { data-cat="Robotics" data-date="2026-06-17" }
+
+*2026-06-17*
+
+T-Rex is a tactile-reactive dexterous manipulation framework utilizing a variable-rate Mixture-of-Transformer-Experts (MoT) architecture, trained on a 100-hour tactile-rich dataset, to achieve high success rates in contact-rich tasks.
+
 ## [SIMMER: Benchmarking Latent Failures in LLM Executable Planning with a World Model](2026-06-16-simmer-benchmarking-latent-failures-in-llm-executable-planni/) { data-cat="NLP" data-date="2026-06-16" }
 
 *2026-06-16*
