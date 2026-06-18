@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification](2026-06-18-unified-multimodal-autoregressive-modeling-with-shared-conte/) { data-cat="Computer Vision" data-date="2026-06-18" }
+
+*2026-06-18*
+
+UniAR is a unified autoregressive framework that uses a single discrete visual tokenizer, leveraging multi-level feature fusion and lookup-free bitwise quantization, to integrate visual understanding and generation in a shared context.
+
 ## [T-Rex: Tactile-Reactive Dexterous Manipulation](2026-06-17-t-rex-tactile-reactive-dexterous-manipulation/) { data-cat="Robotics" data-date="2026-06-17" }
 
 *2026-06-17*

@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification": posts/2026-06-18-unified-multimodal-autoregressive-modeling-with-shared-conte.md
     - "T-Rex: Tactile-Reactive Dexterous Manipulation": posts/2026-06-17-t-rex-tactile-reactive-dexterous-manipulation.md
     - "SIMMER: Benchmarking Latent Failures in LLM Executable Planning with a World Model": posts/2026-06-16-simmer-benchmarking-latent-failures-in-llm-executable-planni.md
     - "Mana: Dexterous Manipulation of Articulated Tools": posts/2026-06-15-mana-dexterous-manipulation-of-articulated-tools.md
