@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This study investigates algorithmic monoculture in hiring by analyzing a novel dataset from the vendor pymetrics, finding clear racial disparities and systemic rejection patterns when examining hiring decisions on a per-position basis.
+        <meta name="description" content="UniAR is a unified autoregressive framework that uses a single discrete visual tokenizer, leveraging multi-level feature fusion and lookup-free bitwise quantization, to integrate visual understanding and generation in a shared context.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-28-algorithmic-monocultures-in-hiring/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-18-unified-multimodal-autoregressive-modeling-with-shared-conte/">
       
       
-        <link rel="prev" href="../2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi/">
+        <link rel="next" href="../2026-06-17-t-rex-tactile-reactive-dexterous-manipulation/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Algorithmic Monocultures in Hiring - JarvisForResearchers</title>
+        <title>Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Algorithmic Monocultures in Hiring
+              Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification
             
           </span>
         </div>
@@ -508,10 +508,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-06-18-unified-multimodal-autoregressive-modeling-with-shared-conte/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -527,6 +552,151 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unified-visual-tokenizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unified Visual Tokenizer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unified-auto-regressive-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unified Auto-Regressive Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dit-based-visual-decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DiT-based Visual Decoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -984,35 +1154,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Algorithmic Monocultures in Hiring
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-28-algorithmic-monocultures-in-hiring/" class="md-nav__link">
         
   
   
@@ -1028,162 +1173,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pymetrics-machine-learning-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        pymetrics machine learning model
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#assessment-games" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Assessment Games
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#probabilistic-score-p" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Probabilistic Score (\(p\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#binary-outcome-y" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Binary Outcome (\(y\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2161,10 +2150,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pymetrics-machine-learning-model" class="md-nav__link">
+  <a href="#unified-visual-tokenizer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        pymetrics machine learning model
+        Unified Visual Tokenizer
       
     </span>
   </a>
@@ -2172,10 +2161,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#assessment-games" class="md-nav__link">
+  <a href="#unified-auto-regressive-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Assessment Games
+        Unified Auto-Regressive Model
       
     </span>
   </a>
@@ -2183,21 +2172,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#probabilistic-score-p" class="md-nav__link">
+  <a href="#dit-based-visual-decoder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Probabilistic Score (\(p\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#binary-outcome-y" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Binary Outcome (\(y\))
+        DiT-based Visual Decoder
       
     </span>
   </a>
@@ -2274,47 +2252,51 @@
       
       
       
-        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:multimodal" class="md-tag">multimodal</a>
       
     
   </nav>
 
 
 
-  <h1>Algorithmic Monocultures in Hiring</h1>
+  <h1>Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-28</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-06-18</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
-<p>Brand new preprint (2026) — accepted</p>
+<p>Not yet indexed in S2 — assumed brand-new preprint</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>This study analyzes a large-scale dataset from the pymetrics vendor to demonstrate that reliance on a single algorithmic hiring system (algorithmic monoculture) results in measurable racial disparities and systemic rejection patterns when evaluated on a per-position basis.</p>
+<p>UniAR introduces a unified autoregressive framework that resolves the representation split inherent in existing Unified Multimodal Models (UMMs). It achieves this via a single discrete visual tokenizer, leveraging Binary Spherical Quantization (BSQ) for implicit vocabulary scaling, and integrates this stream into a unified autoregressive model that employs parallel bitwise prediction. This architecture, coupled with a DiT-based decoder, enables high-fidelity image generation within a shared context.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Many organizations utilize hiring algorithms sourced from a limited set of third-party vendors. This reliance establishes an algorithmic monoculture. We hypothesize that this homogeneity in deployed models can lead to homogeneous, and potentially discriminatory, hiring outcomes, disproportionately affecting certain demographic groups. Prior research has shown no significant differences when analyzing aggregate selection rates across all applications from pymetrics. Furthermore, previous studies have been limited by the inability to observe cross-employer rejection patterns or to analyze outcomes as they occur in deployment.</p>
+<p>Existing Unified Multimodal Models (UMMs) suffer from a fundamental architectural impedance mismatch: they typically employ two disparate visual tokenizers. This separation forces the representation space for visual understanding and visual generation to be distinct. Consequently, when an image needs to be interpreted by the understanding component, the generated image must first be re-encoded by the understanding tokenizer. This necessary re-encoding step fundamentally violates the goal of maintaining a truly 'shared context' across the multimodal pipeline.</p>
+<p>The gaps in prior art are threefold:
+1. Most existing works rely on two separate visual tokenizers, thereby segmenting the representation space for understanding and generation.
+2. Unified tokenizer approaches face significant engineering hurdles in designing tokens that simultaneously satisfy the requirements of both generation and understanding, while also managing the cost associated with scaling the tokenizer vocabulary.
+3. Previous attempts at unified models often lack the necessary architectural synergy between their understanding and generation components, or they rely on training objectives that are inherently divergent.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>This work makes three primary contributions:
-1. It presents the first empirical study observing deployed algorithmic hiring decisions across multiple employers utilizing a single vendor.
-2. It provides quantitative evidence of systemic rejections occurring at scale due to the operational deployment of these hiring algorithms.
-3. It introduces methodological approaches that leverage the deterministic replicability of the underlying algorithms to generate robust counterfactual outcome simulations.</p>
+<p>We introduce UniAR, a unified autoregressive framework designed around a single discrete visual tokenizer to achieve genuine unified modeling, augmented by multi-level feature fusion and lookup-free bitwise quantization. Furthermore, we present a unified autoregressive modeling paradigm that utilizes parallel bitwise prediction alongside a DiT-based decoder equipped with resolution upsampling, facilitating efficient high-resolution generation from compact visual sequences. Finally, we validate UniAR's efficacy, demonstrating state-of-the-art image generation performance while maintaining competitiveness on standard multimodal understanding benchmarks.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.27371/fig_p2_c1.jpg" />
-<em>Fig. 1. The pymetrics process. Stage 1: Applicants apply to positions. Stage 2: Applicants are directed to the pymetrics
-platform to play assessment games. Stage 3: pymetrics algorithms use applicant gameplay features to recommend 58.2%
-of applicants per position on average. Stage 4: Employers decid</em></p>
-<p>The analysis utilized a dataset comprising 4,197,168 job applications submitted by 3,372,132 applicants across 1,746 distinct positions, all processed by pymetrics' machine learning model. The model outputs a probabilistic score, <span class="arithmatex">\(p \in [0, 1]\)</span>, which is subsequently binarized at a threshold <span class="arithmatex">\(t=0.5\)</span> to yield the final recommendation, <span class="arithmatex">\(y\)</span>. To move beyond the limitations of aggregate analysis, the study rigorously re-examined adverse impact metrics on a per-position basis. Crucially, the deterministic nature of the algorithms allowed us to simulate counterfactual scenarios, determining the outcome an applicant would have received if they had applied to every available position.</p>
-<h3 id="pymetrics-machine-learning-model">pymetrics machine learning model</h3>
-<p>This component functions as a binary classifier, trained specifically for each client organization. Its input features are derived from the applicants' performance within the Assessment Games. The training process is supervised, where positive examples are defined as the gameplay features exhibited by at least 50 current employees within that specific role.</p>
-<h3 id="assessment-games">Assessment Games</h3>
-<p>These are 16 proprietary online games developed by pymetrics. Their function is to quantify various cognitive traits in the applicants, including measures of risk propensity, processing speed, trust, altruism, and planning ability. These gameplay metrics serve as the input features for the downstream classification model.</p>
-<h3 id="probabilistic-score-p">Probabilistic Score (<span class="arithmatex">\(p\)</span>)</h3>
-<p>This is the direct output of the trained machine learning model for any given applicant's set of gameplay features. It represents the model's estimated probability, <span class="arithmatex">\(p \in [0, 1]\)</span>, that the applicant meets the criteria for a positive recommendation for the specific role.</p>
-<h3 id="binary-outcome-y">Binary Outcome (<span class="arithmatex">\(y\)</span>)</h3>
-<p>This is the final, actionable decision. It is derived by applying a fixed threshold, <span class="arithmatex">\(t=0.5\)</span>, to the probabilistic score <span class="arithmatex">\(p\)</span>. If <span class="arithmatex">\(p \ge 0.5\)</span>, the outcome is <span class="arithmatex">\(y=1\)</span> ('recommend'); otherwise, <span class="arithmatex">\(y=0\)</span> ('do not recommend').</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.18249/fig_p2_c1.jpg" />
+<em>Figure 1 Visual content generated by UniAR. UniAR produces high-fidelity visual content with demonstrated efficacy
+in instruction-following and text rendering, alongside versatile image editing capabilities.</em></p>
+<p>UniAR operates by establishing a single, shared discrete representation for visual information. This is achieved by adapting continuous features extracted from a pre-trained vision encoder using Binary Spherical Quantization (BSQ) with a parameter setting of <span class="arithmatex">\(dBSQ = 64\)</span>. This quantization scheme implicitly defines a vocabulary of <span class="arithmatex">\(2^{64}\)</span> tokens. To enrich the representation quality, multi-level feature fusion is implemented, incorporating three intermediate layers alongside the final layer output. This resulting discrete token stream is fed into a unified autoregressive model. This model jointly models text and visual tokens via a next-token prediction paradigm, specifically utilizing parallel bitwise prediction (LAR). The final stage involves a DiT-based visual decoder, which reconstructs high-fidelity images from the predicted tokens, conditioned exclusively on the visual signal <span class="arithmatex">\(f_v\)</span> and employing resolution upsampling.</p>
+<h3 id="unified-visual-tokenizer">Unified Visual Tokenizer</h3>
+<p>This component is responsible for mapping continuous visual features into a discrete, shared token space. It operates by applying Binary Spherical Quantization (BSQ) to the feature maps derived from a pre-trained Large Multimodal Model's (LMM) vision encoder. Crucially, it incorporates multi-level feature fusion across multiple intermediate layers of the encoder, ensuring that the resulting tokens are semantically rich and capture information from various scales within the input image.</p>
+<h3 id="unified-auto-regressive-model">Unified Auto-Regressive Model</h3>
+<p>Built upon a pre-trained Large Language Model (LLM) backbone, this model serves as the central predictor. It jointly models the sequence of visual and text tokens using a standard next-token prediction framework. A key innovation here is the implementation of parallel bitwise prediction, which allows the model to predict the discrete visual tokens in parallel with the text tokens, significantly improving efficiency compared to sequential prediction.</p>
+<h3 id="dit-based-visual-decoder">DiT-based Visual Decoder</h3>
+<p>This component is responsible for the final pixel-space reconstruction. It utilizes a Diffusion Transformer (DiT) architecture. The decoding process is governed by Conditional Flow Matching (CFM) and is conditioned <em>solely</em> on the visual conditioning signal <span class="arithmatex">\(f_v\)</span>. To achieve high-resolution output efficiently, the decoder incorporates resolution upsampling mechanisms.</p>
 <h2 id="results">Results</h2>
-<p>The analysis revealed significant disparities when examining outcomes at the granular, per-position level.</p>
 <table>
 <thead>
 <tr>
@@ -2326,50 +2308,38 @@ of applicants per position on average. Stage 4: Employers decid</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Adverse Impact against Black applicants (per position)</td>
-<td style="text-align: left;">10.62%</td>
+<td style="text-align: left;">Overall (GenEval)</td>
+<td style="text-align: left;">0.85</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Section 3.1</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Percentage of Black applicants applying to at least one adversely impacting position</td>
-<td style="text-align: left;">30.70%</td>
+<td style="text-align: left;">Single (GenEval)</td>
+<td style="text-align: left;">1.00</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Section 3.1</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Percentage of all applications submitted by Black applicants to adversely impacting positions</td>
-<td style="text-align: left;">25.87%</td>
+<td style="text-align: left;">Two (GenEval)</td>
+<td style="text-align: left;">0.95</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Section 3.1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Systemic rejection rate (applicants applying to 10 positions rejected from all)</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Section 3.1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Exponential decay rate for systemic rejection</td>
-<td style="text-align: left;"><span class="arithmatex">\(R^2 = 0.984\)</span></td>
-<td style="text-align: left;">Predicted by chance</td>
-<td style="text-align: left;">Section 3.1</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The findings underscore a critical vulnerability in modern talent acquisition pipelines: algorithmic monoculture. The evidence demonstrates that relying on a single vendor's model, even when applied across different client organizations, can lead to systemic rejection. The observation of a <span class="arithmatex">\(4\%\)</span> systemic rejection rate, coupled with an exponential decay rate of <span class="arithmatex">\(R^2 = 0.984\)</span>, suggests that once an applicant is flagged by the model for a specific set of traits, they face a high probability of rejection across multiple roles evaluated by the same system. This necessitates a shift in focus from aggregate compliance metrics to granular, per-position auditing of vendor-mediated systems.</p>
+<p>The core implication of UniAR is the realization of a true shared context in multimodal AI. By enforcing a single discrete token representation for both visual understanding and generation, we eliminate the representational bottleneck and the computational overhead associated with re-encoding between separate visual spaces. The use of lookup-free bitwise quantization provides a scalable mechanism to expand the effective vocabulary size without incurring the memory or computational cost of maintaining large, explicit codebooks. Furthermore, the parallel bitwise prediction mechanism in the autoregressive model directly addresses the sequential bottleneck in generative modeling, leading to accelerated inference.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current study has two primary limitations. First, it does not provide any assessment regarding the validity or predictive accuracy of the features derived from the Assessment Games themselves. Second, the analysis is constrained by the data provided by pymetrics, which is subject to non-disclosure agreements concerning proprietary information related to the client companies. Future work must address the causal validity of the input features and explore mechanisms for independent, external validation of these vendor systems.</p>
+<p>We must note two specific limitations of the current implementation. First, the visual decoder is only introduced during the reinforcement learning phase to facilitate the acquisition of reward signals during the initial training stages; it is not necessarily part of the inference path in its full capacity. Second, the visual decoder is strictly conditioned only on the visual signal <span class="arithmatex">\(f_v\)</span> and does not incorporate any textual prompt information during the reconstruction process. Future work should investigate methods to integrate textual conditioning into the decoder while maintaining the benefits of the unified token stream.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.27371">2605.27371</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260527371</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Algorithmic Monocultures in Hiring}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Rishi Bommasani and Sarah H. Bana and Kathleen A. Creel and Dan Jurafsky and Percy Liang}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.27371}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.18249">2606.18249</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260618249</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Wujian Peng and Lingchen Meng and Yuxuan Cai and Xianwei Zhuang and Yuhuan Yang and Rongyao Fang et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.18249}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.27371}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.18249}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
