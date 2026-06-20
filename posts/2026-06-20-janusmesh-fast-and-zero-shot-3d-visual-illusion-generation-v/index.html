@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This paper introduces an explicit stair geometry conditioning framework that uses interpretable parameters like step height, step depth, and current yaw angle to condition a PPO-based locomotion policy for robust humanoid stair climbing.
+        <meta name="description" content="JanusMesh presents a fast and training-free framework that generates text-driven 3D visual illusions by decoupling the process into a cross-space dual-branch denoising stage for geometry and a view-conditioned texture synthesis stage for appearance.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-23-explicit-stair-geometry-conditioning-for-robust-humanoid-loc/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-20-janusmesh-fast-and-zero-shot-3d-visual-illusion-generation-v/">
       
       
-        <link rel="prev" href="../2026-05-23-tokenisation-via-convex-relaxations/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-22-variance-reduction-for-expectations-with-diffusion-teachers/">
+        <link rel="next" href="../2026-06-18-unified-multimodal-autoregressive-modeling-with-shared-conte/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Explicit Stair Geometry Conditioning for Robust Humanoid Locomotion - JarvisForResearchers</title>
+        <title>JanusMesh: Fast and Zero-Shot 3D Visual Illusion Generation via Cross-Space Denoising - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Explicit Stair Geometry Conditioning for Robust Humanoid Locomotion
+              JanusMesh: Fast and Zero-Shot 3D Visual Illusion Generation via Cross-Space Denoising
             
           </span>
         </div>
@@ -510,10 +510,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-06-20-janusmesh-fast-and-zero-shot-3d-visual-illusion-generation-v/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JanusMesh: Fast and Zero-Shot 3D Visual Illusion Generation via Cross-Space Denoising
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -529,6 +554,195 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trellis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TRELLIS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dual-branch-denoising" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dual-Branch Denoising
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sdf-blending" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SDF Blending
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clip-guided-orientation-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLIP-guided Orientation Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-conditioned-texture-synthesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View-conditioned Texture Synthesis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#noise-blending-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Noise Blending Guidance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#space-control-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Space Control Guidance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1210,35 +1424,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Explicit Stair Geometry Conditioning for Robust Humanoid Locomotion
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-23-explicit-stair-geometry-conditioning-for-robust-humanoid-loc/" class="md-nav__link">
         
   
   
@@ -1254,173 +1443,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#bev-based-terrain-perception-network" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BEV-based terrain perception network
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bev-terrain-encoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BEV Terrain Encoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#explicit-stair-geometry-representation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Explicit Stair Geometry Representation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ppo-based-actor-critic-locomotion-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PPO-based actor-critic locomotion policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#privileged-terrain-teacher" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Privileged terrain teacher
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2202,10 +2224,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#bev-based-terrain-perception-network" class="md-nav__link">
+  <a href="#trellis" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BEV-based terrain perception network
+        TRELLIS
       
     </span>
   </a>
@@ -2213,10 +2235,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bev-terrain-encoder" class="md-nav__link">
+  <a href="#dual-branch-denoising" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BEV Terrain Encoder
+        Dual-Branch Denoising
       
     </span>
   </a>
@@ -2224,10 +2246,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#explicit-stair-geometry-representation" class="md-nav__link">
+  <a href="#sdf-blending" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Explicit Stair Geometry Representation
+        SDF Blending
       
     </span>
   </a>
@@ -2235,10 +2257,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ppo-based-actor-critic-locomotion-policy" class="md-nav__link">
+  <a href="#clip-guided-orientation-search" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PPO-based actor-critic locomotion policy
+        CLIP-guided Orientation Search
       
     </span>
   </a>
@@ -2246,10 +2268,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#privileged-terrain-teacher" class="md-nav__link">
+  <a href="#view-conditioned-texture-synthesis" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Privileged terrain teacher
+        View-conditioned Texture Synthesis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#noise-blending-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Noise Blending Guidance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#space-control-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Space Control Guidance
       
     </span>
   </a>
@@ -2326,85 +2370,62 @@
       
       
       
-        <a href="../../tags/#tag:generalization" class="md-tag">generalization</a>
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:humanoid" class="md-tag">humanoid</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:locomotion" class="md-tag">locomotion</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:perception" class="md-tag">perception</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:point-cloud" class="md-tag">point-cloud</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
+        <a href="../../tags/#tag:object-detection" class="md-tag">object-detection</a>
       
     
   </nav>
 
 
 
-  <h1>Explicit Stair Geometry Conditioning for Robust Humanoid Locomotion</h1>
+  <h1>JanusMesh: Fast and Zero-Shot 3D Visual Illusion Generation via Cross-Space Denoising</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-23</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-06-20</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
-<p>Quality gate skipped (S2 unreachable, manual override)</p>
+<p>Not yet indexed in S2 — assumed brand-new preprint</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>We introduce an explicit stair geometry conditioning framework that utilizes interpretable parameters—step height, step depth, and current yaw angle—to condition a PPO-based locomotion policy, resulting in robust humanoid stair climbing across varying geometries.</p>
+<p>JanusMesh provides a training-free framework for generating text-driven 3D visual illusions. It achieves this by separating the generation into two stages: a cross-space dual-branch denoising stage for geometry, which uses SDF blending for seamless fusion, and a view-conditioned texture synthesis stage for appearance, which ensures dual-semantic coherency.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Robust humanoid stair climbing presents significant challenges stemming from inherent geometric discontinuities, high sensitivity to variations in step height, and uncertainty in real-world perception. Existing learning-based locomotion policies frequently fail to generalize because they rely on either implicit terrain representations or purely blind proprioceptive feedback. Prior work suffers from several limitations: existing policies often rely on implicit terrain representations or blind proprioceptive feedback, limiting generalization across varying stair geometries. Furthermore, perception-aware methods typically encode terrain implicitly as high-dimensional latent features, rendering them sensitive to perception noise and difficult to interpret. Crucially, there is an absence of explicit geometric conditioning in prior work, despite stair traversal fundamentally depending on quantifiable metrics such as step height and step depth.</p>
+<p>Creating 3D visual illusions—a single 3D mesh that presents entirely different semantics depending on the viewing angle—is inherently difficult. Existing methodologies present distinct limitations. Optimization-based approaches, such as Shape From Semantics, are computationally prohibitive, requiring approximately 40 minutes per shape and frequently resulting in severe color over-saturation. Conversely, naive stitching methods, which combine separately generated objects, introduce unnatural geometric seams and visible semantic leakage. Furthermore, many current techniques assume fixed viewpoints, failing to adequately handle the significant orientation differences required when synthesizing multi-view illusions.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>Our work makes three primary contributions. First, we propose an explicit stair geometry conditioning framework that represents the local stair structure using compact and interpretable geometric parameters fed directly into the policy input. Second, we develop a PPO-based humanoid locomotion policy that is directly conditioned on the measured step height, step depth, and current yaw, enabling anticipatory gait modulation during the climbing process. Finally, we demonstrate superior generalization across unseen stair geometries both in simulation and during real-world deployment, successfully traversing 33 consecutive outdoor steps.</p>
+<p>We introduce several key advancements:
+1. A zero-shot framework that extends the concept of generative multi-view illusions from 2D representations to fully textured 3D meshes.
+2. A training-free, two-stage architecture. This architecture incorporates dual-branch denoising with SDF blending and CLIP-guided alignment to maintain geometric integrity, coupled with view-conditioned texturing to ensure dual-semantic coherency.
+3. A rigorous evaluation protocol that integrates CLIP, GPT-4.1-mini, FID/KID, and a novel Object Detection metric. Experiments validate the superiority of our method over existing baselines and demonstrate scalability to three-object illusions.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.09944/fig_p1_c1.jpg" />
-<em>Fig. 1: Explicit stair geometry conditioning for robust
-humanoid locomotion. The local stair structure is parame-
-terized by step height hstep, step depth dstep, and current yaw
-angle θcurrent
-yaw
-defined relative to the robot heading direction.
-These explicit geometric parameters directly condition</em></p>
-<p>The framework operates by first processing local environmental data to extract structured geometric information, which is then used to modulate a standard reinforcement learning policy. This process involves several distinct architectural components working in sequence.</p>
-<h3 id="bev-based-terrain-perception-network">BEV-based terrain perception network</h3>
-<p>The input to this network is a local point cloud, <span class="arithmatex">\(P = \{p_i\}_{i=1}^N\)</span>. This cloud is processed by projecting it onto a fixed-size Bird's Eye View (BEV) grid, specifically <span class="arithmatex">\(3\text{m} \times 3\text{m}\)</span> with a resolution of <span class="arithmatex">\(0.05\text{m}\)</span>. For each cell in this BEV grid, we compute several Z-axis statistics: <span class="arithmatex">\(\max(z)\)</span>, <span class="arithmatex">\(\min(z)\)</span>, <span class="arithmatex">\(\text{mean}(z)\)</span>, the range (<span class="arithmatex">\(\max(z) - \min(z)\)</span>), the standard deviation (<span class="arithmatex">\(\text{std}(z)\)</span>), and a normalized point density measure. These statistics collectively form the initial BEV feature map.</p>
-<h3 id="bev-terrain-encoder">BEV Terrain Encoder</h3>
-<p>This component is a convolutional neural network (CNN) that operates on the BEV feature map generated by the perception network. The CNN processes this map to distill the raw spatial data into a set of high-level spatial features, denoted as <span class="arithmatex">\(F_{enc} \in \mathbb{R}^{C' \times H' \times W'}\)</span>. In our implementation, the configuration used is <span class="arithmatex">\(C' = 128\)</span> channels with spatial dimensions <span class="arithmatex">\(H' = W' = 8\)</span>.</p>
-<h3 id="explicit-stair-geometry-representation">Explicit Stair Geometry Representation</h3>
-<p>The high-level features <span class="arithmatex">\(F_{enc}\)</span> are utilized by the perception network to predict several critical, interpretable parameters. Specifically, the network outputs the terrain class (<span class="arithmatex">\(st \in \{\text{flat, stairs-up, stairs-down}\}\)</span>), the step height (<span class="arithmatex">\(h_{step} \in \mathbb{R}\)</span>), the step depth (<span class="arithmatex">\(d_{step} \in \mathbb{R}\)</span>), and the agent's current yaw angle (<span class="arithmatex">\(\theta_t \in (-\pi, \pi)\)</span>). These four values are concatenated to form the structured terrain token, <span class="arithmatex">\(z_t = [st, h_{step}, d_{step}, \theta_t]^T \in \mathbb{R}^4\)</span>. This token encapsulates the necessary geometric context for the policy.</p>
-<h3 id="ppo-based-actor-critic-locomotion-policy">PPO-based actor-critic locomotion policy</h3>
-<p>The core decision-making module is a PPO-based actor-critic policy, <span class="arithmatex">\(\pi_\theta(a_t|o_t)\)</span>. This policy is optimized via Proximal Policy Optimization to maximize the expected discounted return. Critically, the policy is conditioned on the observation <span class="arithmatex">\(o_t = \{\text{oprop}_t, z_t\}\)</span>, where <span class="arithmatex">\(\text{oprop}_t\)</span> represents the agent's proprioceptive state and <span class="arithmatex">\(z_t\)</span> is the structured terrain token derived from the perception pipeline. This conditioning allows the policy to proactively modulate its gait based on the anticipated geometry.</p>
-<h3 id="privileged-terrain-teacher">Privileged terrain teacher</h3>
-<p>This component is strictly utilized during the simulation training phase. It serves to provide the student encoder with ground-truth terrain classes and the precise geometric parameters (<span class="arithmatex">\(h_{step}, d_{step}, \theta_t\)</span>). This supervision signal is necessary to train the perception network to accurately estimate these parameters before deployment, where this teacher is absent.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.20563/fig_p1_c1.jpg" />
+<em>Fig. 1: Zero-shot 3D Visual Illusion Generation. Given two different text
+prompts, our method creates a single 3D mesh that embodies a dual-semantic visual
+illusion. The generated shape appears unrecognizable from arbitrary viewpoints, but
+it perfectly reveals the two target semantics (e.g., a peaco</em></p>
+<p>JanusMesh operates sequentially across two distinct stages.</p>
+<p>Stage 1 focuses on geometry synthesis and fusion. This stage utilizes a cross-space dual-branch denoising process, built upon the Rectified Flow framework of TRELLIS. Two independent branches are conditioned on the respective semantic prompts, <span class="arithmatex">\(y_1\)</span> and <span class="arithmatex">\(y_2\)</span>. These branches estimate clean latent representations, which are subsequently decoded into voxel space. Geometric fusion is managed by converting these voxels into Signed Distance Fields (SDFs). The fusion is performed via element-wise averaging of the SDFs, followed by binarization using a threshold <span class="arithmatex">\(\tau\)</span> to yield the blended geometry, <span class="arithmatex">\(\hat{x}_{1|t}\)</span>.</p>
+<p>Stage 2 addresses appearance synthesis. This stage employs view-conditioned texturing. We leverage a depth-conditioned ControlNet (based on Stable Diffusion) to predict clean images, <span class="arithmatex">\(\hat{x}_{1|t}\)</span>, corresponding to the target viewpoints <span class="arithmatex">\(\theta_1\)</span> and <span class="arithmatex">\(\theta_2\)</span>. These synthesized images are then aggregated onto the fused mesh from Stage 1 using cosine-weighted blending.</p>
+<h3 id="trellis">TRELLIS</h3>
+<p>TRELLIS serves as the foundational 3D generator, implemented as a two-stage Rectified Flow [73] generator. Crucially, the geometric blending operation is integrated directly into this initial structural generation stage.</p>
+<h3 id="dual-branch-denoising">Dual-Branch Denoising</h3>
+<p>This component consists of two independent denoising branches. Each branch is conditioned on a distinct semantic input, <span class="arithmatex">\(y_1\)</span> or <span class="arithmatex">\(y_2\)</span>. Both branches initiate their denoising process from a shared initial noise vector, <span class="arithmatex">\(z_t\)</span>.</p>
+<h3 id="sdf-blending">SDF Blending</h3>
+<p>To ensure seamless geometric fusion, the voxel representations from the two branches are first converted into Signed Distance Fields (SDFs). The fusion mechanism involves performing an element-wise average across the corresponding SDFs, which is then binarized using the threshold <span class="arithmatex">\(\tau\)</span>. This procedure guarantees geometric continuity during the merging of divergent semantic structures.</p>
+<h3 id="clip-guided-orientation-search">CLIP-guided Orientation Search</h3>
+<p>This mechanism addresses the alignment problem in multi-object setups. It employs CLIP text-image similarity to adaptively search for the optimal fusion orientation, <span class="arithmatex">\(\theta^*_2\)</span>. This selection is made by matching the silhouette derived from the second object's latent representation, <span class="arithmatex">\(\hat{v}_2\)</span>, against the representative view, <span class="arithmatex">\(I_1\)</span>, of the first object's latent representation, <span class="arithmatex">\(\hat{v}_1\)</span>.</p>
+<h3 id="view-conditioned-texture-synthesis">View-conditioned Texture Synthesis</h3>
+<p>This constitutes Stage 2. A depth-conditioned ControlNet is utilized to predict the clean target images, <span class="arithmatex">\(\hat{x}_{1|t}\)</span>, corresponding to the specified viewpoints <span class="arithmatex">\(\theta_1\)</span> and <span class="arithmatex">\(\theta_2\)</span>. These predicted images are subsequently aggregated onto the geometry produced in Stage 1 via a Mesh Texture Aggregation process.</p>
+<h3 id="noise-blending-guidance">Noise Blending Guidance</h3>
+<p>When scaling to more complex scenarios, such as three-object illusions, this strategy is employed. It dictates that the initial denoising latent, <span class="arithmatex">\(z_{\text{init}}\)</span>, is constructed as a weighted sum between the encoder output derived from a designated guidance voxel, <span class="arithmatex">\(v_{\text{guide}}\)</span>, and pure Gaussian noise. The weighting factor is controlled by the parameter <span class="arithmatex">\(\alpha\)</span>.</p>
+<h3 id="space-control-guidance">Space Control Guidance</h3>
+<p>This is another strategy used for scaling complexity. It involves interpolating the latent representation between the guidance latent, <span class="arithmatex">\(\text{Encoder}(v_{\text{guide}})\)</span>, and pure noise at a specific, predetermined timestep <span class="arithmatex">\(t_0\)</span>.</p>
 <h2 id="results">Results</h2>
-<p>The performance metrics demonstrate the efficacy of the explicit conditioning approach.</p>
 <table>
 <thead>
 <tr>
@@ -2416,56 +2437,32 @@ These explicit geometric parameters directly condition</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">MAE(<span class="arithmatex">\(h_{step}\)</span>)</td>
-<td style="text-align: left;">0.6 cm</td>
+<td style="text-align: left;">Runtime (Case 1 &amp; 2)</td>
+<td style="text-align: left;">~3 min</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: left;">TABLE II</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">MAE(<span class="arithmatex">\(d_{step}\)</span>)</td>
-<td style="text-align: left;">0.7 cm</td>
+<td style="text-align: left;">Runtime (Case 3 w/ CLIP search)</td>
+<td style="text-align: left;">~5 min</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: left;">TABLE II</td>
-</tr>
-<tr>
-<td style="text-align: left;">MAE(<span class="arithmatex">\(\theta_{current\_yaw}\)</span>)</td>
-<td style="text-align: left;"><span class="arithmatex">\(1.8^\circ\)</span></td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">TABLE II</td>
-</tr>
-<tr>
-<td style="text-align: left;">State Acc (%) (Simulation)</td>
-<td style="text-align: left;">99.1</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">TABLE II</td>
-</tr>
-<tr>
-<td style="text-align: left;">Success (%) (Ours vs HeightMap-PPO)</td>
-<td style="text-align: left;"><span class="arithmatex">\(96 \pm 2\)</span></td>
-<td style="text-align: left;"><span class="arithmatex">\(88 \pm 3\)</span></td>
-<td style="text-align: left;">TABLE I</td>
-</tr>
-<tr>
-<td style="text-align: left;">Mreward (Ours vs HeightMap-PPO)</td>
-<td style="text-align: left;">45.10</td>
-<td style="text-align: left;">32.23</td>
-<td style="text-align: left;">TABLE I</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The practitioner takeaways highlight the significance of this approach. Explicitly parameterizing terrain geometry (step height, step depth) provides a more structured and task-relevant information stream compared to relying on implicit latent representations for locomotion control. Conditioning the policy directly on these interpretable geometric features leads to demonstrably faster convergence and superior asymptotic performance when compared to methods that rely solely on raw elevation maps. Furthermore, the framework proves its practical deployability, evidenced by the successful traversal of 33 consecutive steps in challenging outdoor environments.</p>
+<p>The decoupling strategy employed by JanusMesh—separating geometry synthesis via cross-space denoising from appearance synthesis via view-conditioned diffusion—is critical for achieving coherent 3D illusions. Furthermore, the use of SDF blending, as opposed to simpler occupancy grid averaging, is necessary to maintain strict geometric continuity when fusing objects with conflicting semantic definitions. Finally, the integration of CLIP-guided orientation search automates the complex alignment problem, thereby preventing the geometric mismatches that typically lead to SDF fusion failures in multi-object constructions.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>We acknowledge two primary limitations. First, the reliance on a privileged terrain teacher during simulation training is a necessary artifact of the current training paradigm and must be entirely removed for real-world deployment. Second, while our explicit method mitigates sensitivity to perception noise, the performance of the comparative HeightMap-PPO method remains demonstrably sensitive to perception noise and discretization artifacts. Future work should investigate methods to improve the robustness of the parameter estimation under severe sensor noise conditions.</p>
+<p>The current implementation necessitates the use of specific guidance strategies, namely Noise Blending or Space Control, when the system is scaled to three-object illusions due to the increased potential for geometric conflicts. Additionally, the texture synthesis stage is inherently dependent on the ability to render the fused Stage 1 mesh from the target viewpoints <span class="arithmatex">\(\theta_1\)</span> and <span class="arithmatex">\(\theta_2\)</span> to provide the necessary depth conditioning for the ControlNet.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.09944">2605.09944</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260509944</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Explicit Stair Geometry Conditioning for Robust Humanoid Locomotion}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Jianguo Zhang and Wentai Xu and Shusheng Ye and Yuxiang He and Weimin Qi and Qinbo Sun et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.09944}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.20563">2606.20563</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260620563</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{JanusMesh: Fast and Zero-Shot 3D Visual Illusion Generation via Cross-Space Denoising}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Siang-Ling Zhang and Huai-Hsun Cheng and Tsung-Ju Yang and Yu-Lun Liu}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.20563}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.09944}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.20563}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
