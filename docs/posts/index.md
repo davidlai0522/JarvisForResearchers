@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [JanusMesh: Fast and Zero-Shot 3D Visual Illusion Generation via Cross-Space Denoising](2026-06-20-janusmesh-fast-and-zero-shot-3d-visual-illusion-generation-v/) { data-cat="Computer Vision" data-date="2026-06-20" }
+
+*2026-06-20*
+
+JanusMesh presents a fast and training-free framework that generates text-driven 3D visual illusions by decoupling the process into a cross-space dual-branch denoising stage for geometry and a view-conditioned texture synthesis stage for appearance.
+
 ## [Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification](2026-06-18-unified-multimodal-autoregressive-modeling-with-shared-conte/) { data-cat="Computer Vision" data-date="2026-06-18" }
 
 *2026-06-18*
