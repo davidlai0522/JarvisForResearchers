@@ -25,6 +25,18 @@ jobs:
       - name: Install MkDocs Material
         run: pip install mkdocs-material
 
+      - name: Check notes are HTML-isolated
+        # Notes must embed raw HTML via an <iframe> to docs/notes/html/*.html
+        # (see pipeline/notes.py). A note page with HTML pasted directly into
+        # the .md breaks the site's CSS/layout — fail the build if that happens.
+        run: |
+          violations=$(grep -ril -E '<!DOCTYPE|<html[ >]|<head[ >]|<style[ >]|<body[ >]' docs/notes/*.md 2>/dev/null | grep -v 'docs/notes/index.md' || true)
+          if [ -n "$violations" ]; then
+            echo "::error::Found note(s) with raw HTML inlined instead of using the iframe pattern:"
+            echo "$violations"
+            exit 1
+          fi
+
       - name: Deploy to GitHub Pages
         # --force rewrites the gh-pages branch with the built site.
         # mkdocs gh-deploy already adds .nojekyll to the gh-pages branch,
