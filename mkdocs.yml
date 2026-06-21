@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "MemoryWAM: Efficient World Action Modeling with Persistent Memory": posts/2026-06-21-memorywam-efficient-world-action-modeling-with-persistent-me.md
     - "JanusMesh: Fast and Zero-Shot 3D Visual Illusion Generation via Cross-Space Denoising": posts/2026-06-20-janusmesh-fast-and-zero-shot-3d-visual-illusion-generation-v.md
     - "Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification": posts/2026-06-18-unified-multimodal-autoregressive-modeling-with-shared-conte.md
     - "T-Rex: Tactile-Reactive Dexterous Manipulation": posts/2026-06-17-t-rex-tactile-reactive-dexterous-manipulation.md

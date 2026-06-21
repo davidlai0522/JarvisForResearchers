@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [MemoryWAM: Efficient World Action Modeling with Persistent Memory](2026-06-21-memorywam-efficient-world-action-modeling-with-persistent-me/) { data-cat="Robotics" data-date="2026-06-21" }
+
+*2026-06-21*
+
+MemoryWAM introduces a hybrid memory mechanism combining sliding-window context, event-boundary anchor frames, and compact gist tokens to enable efficient persistent memory in World Action Models, reducing complexity from O(N) to O(N/d).
+
 ## [JanusMesh: Fast and Zero-Shot 3D Visual Illusion Generation via Cross-Space Denoising](2026-06-20-janusmesh-fast-and-zero-shot-3d-visual-illusion-generation-v/) { data-cat="Computer Vision" data-date="2026-06-20" }
 
 *2026-06-20*
