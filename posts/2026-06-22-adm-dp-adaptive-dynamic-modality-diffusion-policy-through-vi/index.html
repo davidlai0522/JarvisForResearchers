@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This paper introduces an explicit stair geometry conditioning framework that uses interpretable parameters like step height, step depth, and current yaw angle to condition a PPO-based locomotion policy for robust humanoid stair climbing.
+        <meta name="description" content="ADM-DP is a framework that integrates vision, tactile, and graph-based modalities using an Adaptive Modality Attention Mechanism (AMAM) to achieve coordinated control in multi-agent robotic manipulation.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-23-explicit-stair-geometry-conditioning-for-robust-humanoid-loc/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-22-adm-dp-adaptive-dynamic-modality-diffusion-policy-through-vi/">
       
       
-        <link rel="prev" href="../2026-05-23-tokenisation-via-convex-relaxations/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-22-variance-reduction-for-expectations-with-diffusion-teachers/">
+        <link rel="next" href="../2026-06-21-memorywam-efficient-world-action-modeling-with-persistent-me/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Explicit Stair Geometry Conditioning for Robust Humanoid Locomotion - JarvisForResearchers</title>
+        <title>ADM-DP: Adaptive Dynamic Modality Diffusion Policy through Vision-Tactile-Graph Fusion for Multi-Agent Manipulation - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Explicit Stair Geometry Conditioning for Robust Humanoid Locomotion
+              ADM-DP: Adaptive Dynamic Modality Diffusion Policy through Vision-Tactile-Graph Fusion for Multi-Agent Manipulation
             
           </span>
         </div>
@@ -514,10 +514,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-06-22-adm-dp-adaptive-dynamic-modality-diffusion-policy-through-vi/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADM-DP: Adaptive Dynamic Modality Diffusion Policy through Vision-Tactile-Graph Fusion for Multi-Agent Manipulation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -533,6 +558,184 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vision-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vision Encoding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tactile-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tactile Encoding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-based-collision-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Graph-based Collision Encoding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adaptive-modality-attention-mechanism-amam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adaptive Modality Attention Mechanism (AMAM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conditional-feature-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditional Feature Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diffusion-based-action-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diffusion-based Action Generation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1270,35 +1473,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Explicit Stair Geometry Conditioning for Robust Humanoid Locomotion
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-23-explicit-stair-geometry-conditioning-for-robust-humanoid-loc/" class="md-nav__link">
         
   
   
@@ -1314,173 +1492,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#bev-based-terrain-perception-network" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BEV-based terrain perception network
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bev-terrain-encoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BEV Terrain Encoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#explicit-stair-geometry-representation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Explicit Stair Geometry Representation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ppo-based-actor-critic-locomotion-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PPO-based actor-critic locomotion policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#privileged-terrain-teacher" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Privileged terrain teacher
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2262,10 +2273,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#bev-based-terrain-perception-network" class="md-nav__link">
+  <a href="#vision-encoding" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BEV-based terrain perception network
+        Vision Encoding
       
     </span>
   </a>
@@ -2273,10 +2284,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bev-terrain-encoder" class="md-nav__link">
+  <a href="#tactile-encoding" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BEV Terrain Encoder
+        Tactile Encoding
       
     </span>
   </a>
@@ -2284,10 +2295,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#explicit-stair-geometry-representation" class="md-nav__link">
+  <a href="#graph-based-collision-encoding" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Explicit Stair Geometry Representation
+        Graph-based Collision Encoding
       
     </span>
   </a>
@@ -2295,10 +2306,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ppo-based-actor-critic-locomotion-policy" class="md-nav__link">
+  <a href="#adaptive-modality-attention-mechanism-amam" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PPO-based actor-critic locomotion policy
+        Adaptive Modality Attention Mechanism (AMAM)
       
     </span>
   </a>
@@ -2306,10 +2317,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#privileged-terrain-teacher" class="md-nav__link">
+  <a href="#conditional-feature-integration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Privileged terrain teacher
+        Conditional Feature Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diffusion-based-action-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diffusion-based Action Generation
       
     </span>
   </a>
@@ -2386,28 +2408,21 @@
       
       
       
-        <a href="../../tags/#tag:generalization" class="md-tag">generalization</a>
+        <a href="../../tags/#tag:grasping" class="md-tag">grasping</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:humanoid" class="md-tag">humanoid</a>
+        <a href="../../tags/#tag:manipulation" class="md-tag">manipulation</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:locomotion" class="md-tag">locomotion</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:perception" class="md-tag">perception</a>
+        <a href="../../tags/#tag:multimodal" class="md-tag">multimodal</a>
       
     
       
@@ -2428,43 +2443,38 @@
 
 
 
-  <h1>Explicit Stair Geometry Conditioning for Robust Humanoid Locomotion</h1>
+  <h1>ADM-DP: Adaptive Dynamic Modality Diffusion Policy through Vision-Tactile-Graph Fusion for Multi-Agent Manipulation</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-23</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-06-22</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
-<p>Quality gate skipped (S2 unreachable, manual override)</p>
+<p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>We introduce an explicit stair geometry conditioning framework that utilizes interpretable parameters—step height, step depth, and current yaw angle—to condition a PPO-based locomotion policy, resulting in robust humanoid stair climbing across varying geometries.</p>
+<p>ADM-DP is a framework that integrates vision, tactile, and graph-based modalities using an Adaptive Modality Attention Mechanism (AMAM) to achieve coordinated control in multi-agent robotic manipulation.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Robust humanoid stair climbing presents significant challenges stemming from inherent geometric discontinuities, high sensitivity to variations in step height, and uncertainty in real-world perception. Existing learning-based locomotion policies frequently fail to generalize because they rely on either implicit terrain representations or purely blind proprioceptive feedback. Prior work suffers from several limitations: existing policies often rely on implicit terrain representations or blind proprioceptive feedback, limiting generalization across varying stair geometries. Furthermore, perception-aware methods typically encode terrain implicitly as high-dimensional latent features, rendering them sensitive to perception noise and difficult to interpret. Crucially, there is an absence of explicit geometric conditioning in prior work, despite stair traversal fundamentally depending on quantifiable metrics such as step height and step depth.</p>
+<p>Multi-agent robotic manipulation presents significant challenges stemming from the simultaneous requirements of achieving coordinated action, ensuring grasp stability, and maintaining collision avoidance within a shared operational workspace. These difficulties are compounded by the inherent limitations of traditional static multi-modal fusion strategies. Specifically, vision-centric methods are largely confined to single-agent scenarios, failing to address the complexities of multi-agent coordination or robust multi-sensory integration. Furthermore, centralized multi-agent control schemes are computationally intractable due to the exponential growth of the state space. Finally, most existing multi-modal approaches utilize static fusion, applying uniform weights across modalities irrespective of the current task phase, which results in both computational inefficiency and the introduction of noise into the decision-making process.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>Our work makes three primary contributions. First, we propose an explicit stair geometry conditioning framework that represents the local stair structure using compact and interpretable geometric parameters fed directly into the policy input. Second, we develop a PPO-based humanoid locomotion policy that is directly conditioned on the measured step height, step depth, and current yaw, enabling anticipatory gait modulation during the climbing process. Finally, we demonstrate superior generalization across unseen stair geometries both in simulation and during real-world deployment, successfully traversing 33 consecutive outdoor steps.</p>
+<p>This work introduces three primary contributions to address these gaps. First, we propose a tactile-guided grasping strategy that utilizes Force Sensing Resistor (FSR) feedback to enable policies to detect insufficient contact and subsequently execute corrective grasp refinement. Second, we develop Multi-modal Encoding for Complementary Sensing, which employs FiLM modulation to effectively merge RGB and point-cloud features, while simultaneously using a Graph Attention Network (GAT) to process shared TCP positions specifically for collision avoidance. Third, we introduce Dynamic Modality Fusion via AMAM, which dynamically re-weights the importance of each modality based on the immediate task context using learnable importance weights, further stabilized by entropy regularization.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.09944/fig_p1_c1.jpg" />
-<em>Fig. 1: Explicit stair geometry conditioning for robust
-humanoid locomotion. The local stair structure is parame-
-terized by step height hstep, step depth dstep, and current yaw
-angle θcurrent
-yaw
-defined relative to the robot heading direction.
-These explicit geometric parameters directly condition</em></p>
-<p>The framework operates by first processing local environmental data to extract structured geometric information, which is then used to modulate a standard reinforcement learning policy. This process involves several distinct architectural components working in sequence.</p>
-<h3 id="bev-based-terrain-perception-network">BEV-based terrain perception network</h3>
-<p>The input to this network is a local point cloud, <span class="arithmatex">\(P = \{p_i\}_{i=1}^N\)</span>. This cloud is processed by projecting it onto a fixed-size Bird's Eye View (BEV) grid, specifically <span class="arithmatex">\(3\text{m} \times 3\text{m}\)</span> with a resolution of <span class="arithmatex">\(0.05\text{m}\)</span>. For each cell in this BEV grid, we compute several Z-axis statistics: <span class="arithmatex">\(\max(z)\)</span>, <span class="arithmatex">\(\min(z)\)</span>, <span class="arithmatex">\(\text{mean}(z)\)</span>, the range (<span class="arithmatex">\(\max(z) - \min(z)\)</span>), the standard deviation (<span class="arithmatex">\(\text{std}(z)\)</span>), and a normalized point density measure. These statistics collectively form the initial BEV feature map.</p>
-<h3 id="bev-terrain-encoder">BEV Terrain Encoder</h3>
-<p>This component is a convolutional neural network (CNN) that operates on the BEV feature map generated by the perception network. The CNN processes this map to distill the raw spatial data into a set of high-level spatial features, denoted as <span class="arithmatex">\(F_{enc} \in \mathbb{R}^{C' \times H' \times W'}\)</span>. In our implementation, the configuration used is <span class="arithmatex">\(C' = 128\)</span> channels with spatial dimensions <span class="arithmatex">\(H' = W' = 8\)</span>.</p>
-<h3 id="explicit-stair-geometry-representation">Explicit Stair Geometry Representation</h3>
-<p>The high-level features <span class="arithmatex">\(F_{enc}\)</span> are utilized by the perception network to predict several critical, interpretable parameters. Specifically, the network outputs the terrain class (<span class="arithmatex">\(st \in \{\text{flat, stairs-up, stairs-down}\}\)</span>), the step height (<span class="arithmatex">\(h_{step} \in \mathbb{R}\)</span>), the step depth (<span class="arithmatex">\(d_{step} \in \mathbb{R}\)</span>), and the agent's current yaw angle (<span class="arithmatex">\(\theta_t \in (-\pi, \pi)\)</span>). These four values are concatenated to form the structured terrain token, <span class="arithmatex">\(z_t = [st, h_{step}, d_{step}, \theta_t]^T \in \mathbb{R}^4\)</span>. This token encapsulates the necessary geometric context for the policy.</p>
-<h3 id="ppo-based-actor-critic-locomotion-policy">PPO-based actor-critic locomotion policy</h3>
-<p>The core decision-making module is a PPO-based actor-critic policy, <span class="arithmatex">\(\pi_\theta(a_t|o_t)\)</span>. This policy is optimized via Proximal Policy Optimization to maximize the expected discounted return. Critically, the policy is conditioned on the observation <span class="arithmatex">\(o_t = \{\text{oprop}_t, z_t\}\)</span>, where <span class="arithmatex">\(\text{oprop}_t\)</span> represents the agent's proprioceptive state and <span class="arithmatex">\(z_t\)</span> is the structured terrain token derived from the perception pipeline. This conditioning allows the policy to proactively modulate its gait based on the anticipated geometry.</p>
-<h3 id="privileged-terrain-teacher">Privileged terrain teacher</h3>
-<p>This component is strictly utilized during the simulation training phase. It serves to provide the student encoder with ground-truth terrain classes and the precise geometric parameters (<span class="arithmatex">\(h_{step}, d_{step}, \theta_t\)</span>). This supervision signal is necessary to train the perception network to accurately estimate these parameters before deployment, where this teacher is absent.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2602.21622/fig_p1_c1.jpg" />
+<em>Fig. 1. The overview pipline of our method framework.</em></p>
+<p>ADM-DP operates under a decoupled training paradigm where <span class="arithmatex">\(n\)</span> agents learn independent policies, <span class="arithmatex">\(\pi_i: O_i \rightarrow A_i\)</span>. The observation <span class="arithmatex">\(O_i\)</span> for each agent aggregates local sensory data (<span class="arithmatex">\(I_i, P_i, T_i, q_i, L_i\)</span>) alongside shared TCP positions (<span class="arithmatex">\(O_{shared}\)</span>). Specialized encoders process these heterogeneous inputs into modality-specific feature vectors: <span class="arithmatex">\(\\{f_v, f_t, f_g\\}\)</span>. The Adaptive Modality Attention Mechanism (AMAM) then computes context-dependent importance weights <span class="arithmatex">\(\alpha\)</span>, fusing these features into a unified representation <span class="arithmatex">\(f_{vtg}\)</span>. This fused representation is subsequently conditioned on the language instruction <span class="arithmatex">\(L_i\)</span> via FiLM modulation to produce <span class="arithmatex">\(f_{cond}\)</span>, which serves as the input guiding a Diffusion Probabilistic Model (DDPM) for trajectory generation.</p>
+<h3 id="vision-encoding">Vision Encoding</h3>
+<p>This component handles the processing of visual data. RGB images <span class="arithmatex">\(I_i \in \mathbb{R}^{H \times W \times 3}\)</span> are passed through a ResNet architecture to yield a feature vector <span class="arithmatex">\(f_{img} \in \mathbb{R}^{512}\)</span>. Concurrently, point clouds <span class="arithmatex">\(P_i \in \mathbb{R}^{N \times 6}\)</span> are processed by a modified PointNet to produce <span class="arithmatex">\(f_{pc} \in \mathbb{R}^{1024}\)</span>. These two features are then integrated using FiLM modulation to produce the final vision feature representation, <span class="arithmatex">\(f_v \in \mathbb{R}^{512}\)</span>.</p>
+<h3 id="tactile-encoding">Tactile Encoding</h3>
+<p>The tactile readings <span class="arithmatex">\(T_i \in \mathbb{R}^{32}\)</span>, derived from a <span class="arithmatex">\(4 \times 4\)</span> array of FSR sensors, are processed by incorporating positional encoding followed by 1D convolutions. The resulting convolutional features are then fused with explicit contact dynamics information (specifically, resultant and differential force measurements) to yield the tactile feature vector, <span class="arithmatex">\(f_t \in \mathbb{R}^{64}\)</span>.</p>
+<h3 id="graph-based-collision-encoding">Graph-based Collision Encoding</h3>
+<p>To manage inter-agent spatial relationships, this component utilizes a Graph Attention Network (GAT). The input is the set of shared TCP positions, <span class="arithmatex">\(O_{shared} = \{p_{tcp}^1, \dots, p_{tcp}^n\}\)</span>. Edge weights <span class="arithmatex">\(e_{ij}\)</span> are defined based on the inverse squared distance between agents: <span class="arithmatex">\(e_{ij} = 1 / (\|p_{tcp}^i - p_{tcp}^j\|^2 + \epsilon)\)</span>. The GAT processes these positions and edge weights to generate a concise graph feature representation, <span class="arithmatex">\(f_g \in \mathbb{R}^{64}\)</span>.</p>
+<h3 id="adaptive-modality-attention-mechanism-amam">Adaptive Modality Attention Mechanism (AMAM)</h3>
+<p>The AMAM is responsible for dynamic feature weighting. It computes importance weights <span class="arithmatex">\(\alpha\)</span> by applying a softmax function over the output of a Multi-Layer Perceptron (MLP) applied to the concatenated features <span class="arithmatex">\([f_v; f_t; f_g]\)</span>, scaled by a temperature parameter <span class="arithmatex">\(\tau\)</span>: <span class="arithmatex">\(\alpha = \text{softmax}(\text{MLP}([f_v; f_t; f_g])/\tau)\)</span>. The final fused feature <span class="arithmatex">\(f_{vtg}\)</span> is a weighted sum: <span class="arithmatex">\(f_{vtg} = \alpha_v \cdot f_v + \alpha_t \cdot f_t + \alpha_g \cdot f_g\)</span>. This process is regularized by an entropy term, <span class="arithmatex">\(L_{reg} = -\lambda \sum_{m \in \{v,t,g\}} \alpha_m \log(\alpha_m)\)</span>, to encourage diverse attention distributions.</p>
+<h3 id="conditional-feature-integration">Conditional Feature Integration</h3>
+<p>This stage integrates the fused sensory information with the agent's internal state and task context. The fused feature <span class="arithmatex">\(f_{vtg}\)</span> is concatenated with the agent's proprioceptive joint states <span class="arithmatex">\(q_i\)</span> to form the observation feature <span class="arithmatex">\(f_{obs} = [f_{vtg}; q_i]\)</span>. This <span class="arithmatex">\(f_{obs}\)</span> is then modulated by the language instruction embedding <span class="arithmatex">\(f_l = \text{CLIP}(L_i)\)</span> using FiLM modulation, resulting in the final context-aware feature vector, <span class="arithmatex">\(f_{cond}\)</span>.</p>
+<h3 id="diffusion-based-action-generation">Diffusion-based Action Generation</h3>
+<p>The policy utilizes a conditional diffusion model following the DDPM framework. The action generation is achieved by modeling the reverse diffusion process, <span class="arithmatex">\(p_\theta(a_{k-1}|a_k, f_{cond})\)</span>. This reverse transition is parameterized by a U-Net architecture. The model is trained by minimizing the standard diffusion loss, <span class="arithmatex">\(L_{diff} = E_{k,\epsilon,a_0} [\|\epsilon - \epsilon_\theta(a_k, k, f_{cond})\|^2]\)</span>, where <span class="arithmatex">\(\epsilon\)</span> is the noise added at time step <span class="arithmatex">\(k\)</span>.</p>
 <h2 id="results">Results</h2>
-<p>The performance metrics demonstrate the efficacy of the explicit conditioning approach.</p>
 <table>
 <thead>
 <tr>
@@ -2476,56 +2486,26 @@ These explicit geometric parameters directly condition</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">MAE(<span class="arithmatex">\(h_{step}\)</span>)</td>
-<td style="text-align: left;">0.6 cm</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">TABLE II</td>
-</tr>
-<tr>
-<td style="text-align: left;">MAE(<span class="arithmatex">\(d_{step}\)</span>)</td>
-<td style="text-align: left;">0.7 cm</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">TABLE II</td>
-</tr>
-<tr>
-<td style="text-align: left;">MAE(<span class="arithmatex">\(\theta_{current\_yaw}\)</span>)</td>
-<td style="text-align: left;"><span class="arithmatex">\(1.8^\circ\)</span></td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">TABLE II</td>
-</tr>
-<tr>
-<td style="text-align: left;">State Acc (%) (Simulation)</td>
-<td style="text-align: left;">99.1</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">TABLE II</td>
-</tr>
-<tr>
-<td style="text-align: left;">Success (%) (Ours vs HeightMap-PPO)</td>
-<td style="text-align: left;"><span class="arithmatex">\(96 \pm 2\)</span></td>
-<td style="text-align: left;"><span class="arithmatex">\(88 \pm 3\)</span></td>
-<td style="text-align: left;">TABLE I</td>
-</tr>
-<tr>
-<td style="text-align: left;">Mreward (Ours vs HeightMap-PPO)</td>
-<td style="text-align: left;">45.10</td>
-<td style="text-align: left;">32.23</td>
-<td style="text-align: left;">TABLE I</td>
+<td style="text-align: left;">Performance Gain</td>
+<td style="text-align: left;">12-25%</td>
+<td style="text-align: left;">state-of-the-art baselines</td>
+<td style="text-align: left;">Abstract</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The practitioner takeaways highlight the significance of this approach. Explicitly parameterizing terrain geometry (step height, step depth) provides a more structured and task-relevant information stream compared to relying on implicit latent representations for locomotion control. Conditioning the policy directly on these interpretable geometric features leads to demonstrably faster convergence and superior asymptotic performance when compared to methods that rely solely on raw elevation maps. Furthermore, the framework proves its practical deployability, evidenced by the successful traversal of 33 consecutive steps in challenging outdoor environments.</p>
+<p>The introduction of AMAM moves the field beyond the limitations of static fusion, providing a mechanism where the system can intelligently prioritize the most reliable or relevant sensory input based on the immediate operational context—for instance, prioritizing tactile feedback during contact establishment versus prioritizing vision during path planning. Furthermore, the tactile-guided refinement loop provides a direct, closed-loop mechanism for improving manipulation success rates by actively correcting sub-optimal grasps. The decoupled training structure facilitates the scaling of the system to larger multi-agent teams without incurring the prohibitive computational overhead associated with fully centralized state representations.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>We acknowledge two primary limitations. First, the reliance on a privileged terrain teacher during simulation training is a necessary artifact of the current training paradigm and must be entirely removed for real-world deployment. Second, while our explicit method mitigates sensitivity to perception noise, the performance of the comparative HeightMap-PPO method remains demonstrably sensitive to perception noise and discretization artifacts. Future work should investigate methods to improve the robustness of the parameter estimation under severe sensor noise conditions.</p>
+<p>The current formulation does not explicitly detail the computational complexity scaling beyond the benefits afforded by the decoupled training paradigm. Additionally, the specific hyperparameter values for the regularization coefficient <span class="arithmatex">\(\lambda\)</span> within <span class="arithmatex">\(L_{reg}\)</span> and the temperature <span class="arithmatex">\(\tau\)</span> within the AMAM are not provided in the presented work.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.09944">2605.09944</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260509944</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Explicit Stair Geometry Conditioning for Robust Humanoid Locomotion}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Jianguo Zhang and Wentai Xu and Shusheng Ye and Yuxiang He and Weimin Qi and Qinbo Sun et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.09944}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2602.21622">2602.21622</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260221622</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{ADM-DP: Adaptive Dynamic Modality Diffusion Policy through Vision-Tactile-Graph Fusion for Multi-Agent Manipulation}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Enyi Wang and Wen Fan and Dandan Zhang}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2602.21622}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.09944}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2602.21622}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
