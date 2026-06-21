@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [ADM-DP: Adaptive Dynamic Modality Diffusion Policy through Vision-Tactile-Graph Fusion for Multi-Agent Manipulation](2026-06-22-adm-dp-adaptive-dynamic-modality-diffusion-policy-through-vi/) { data-cat="Robotics" data-date="2026-06-22" }
+
+*2026-06-22*
+
+ADM-DP is a framework that integrates vision, tactile, and graph-based modalities using an Adaptive Modality Attention Mechanism (AMAM) to achieve coordinated control in multi-agent robotic manipulation.
+
 ## [MemoryWAM: Efficient World Action Modeling with Persistent Memory](2026-06-21-memorywam-efficient-world-action-modeling-with-persistent-me/) { data-cat="Robotics" data-date="2026-06-21" }
 
 *2026-06-21*
