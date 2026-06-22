@@ -6,13 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="High-quality robotics & AI research — explained locally with Gemma 4">
+        <meta name="description" content="TIMEPROVE is a cost-efficient hybrid framework that uses lightweight modules to generate action-grounded answer-evidence hypotheses from long videos, subsequently invoking an expensive VLM only for targeted verification.
+">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/notes/2026-06-13-actuator-design/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-22-timeprove-propose-then-verify-for-efficient-long-video-tempo/">
       
       
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../2026-06-22-adm-dp-adaptive-dynamic-modality-diffusion-policy-through-vi/">
       
       
         
@@ -23,7 +28,7 @@
     
     
       
-        <title>Actuator Design - JarvisForResearchers</title>
+        <title>TimeProVe: Propose, then Verify for Efficient Long Video Temporal Reasoning in Activities of Daily Living - JarvisForResearchers</title>
       
     
     
@@ -73,6 +78,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#tldr" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -103,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Actuator Design
+              TimeProVe: Propose, then Verify for Efficient Long Video Temporal Reasoning in Activities of Daily Living
             
           </span>
         </div>
@@ -193,11 +203,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../posts/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -236,7 +248,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link">
+      <a href="../../notes/" class="md-tabs__link">
         
   
   
@@ -332,6 +344,8 @@
       
   
   
+    
+  
   
   
     
@@ -447,20 +461,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../posts/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -478,13 +493,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -501,10 +516,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../posts/2026-06-22-timeprove-propose-then-verify-for-efficient-long-video-tempo/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TimeProVe: Propose, then Verify for Efficient Long Video Temporal Reasoning in Activities of Daily Living
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -520,6 +560,162 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#action-detector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action Detector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-conditioned-proposal-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query-conditioned Proposal Generator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scoring-reranking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scoring &amp; Reranking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Temporal Verifier
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -532,7 +728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-22-adm-dp-adaptive-dynamic-modality-diffusion-policy-through-vi/" class="md-nav__link">
+      <a href="../2026-06-22-adm-dp-adaptive-dynamic-modality-diffusion-policy-through-vi/" class="md-nav__link">
         
   
   
@@ -560,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-21-memorywam-efficient-world-action-modeling-with-persistent-me/" class="md-nav__link">
+      <a href="../2026-06-21-memorywam-efficient-world-action-modeling-with-persistent-me/" class="md-nav__link">
         
   
   
@@ -588,7 +784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-20-janusmesh-fast-and-zero-shot-3d-visual-illusion-generation-v/" class="md-nav__link">
+      <a href="../2026-06-20-janusmesh-fast-and-zero-shot-3d-visual-illusion-generation-v/" class="md-nav__link">
         
   
   
@@ -616,7 +812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-18-unified-multimodal-autoregressive-modeling-with-shared-conte/" class="md-nav__link">
+      <a href="../2026-06-18-unified-multimodal-autoregressive-modeling-with-shared-conte/" class="md-nav__link">
         
   
   
@@ -644,7 +840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-17-t-rex-tactile-reactive-dexterous-manipulation/" class="md-nav__link">
+      <a href="../2026-06-17-t-rex-tactile-reactive-dexterous-manipulation/" class="md-nav__link">
         
   
   
@@ -672,7 +868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-16-simmer-benchmarking-latent-failures-in-llm-executable-planni/" class="md-nav__link">
+      <a href="../2026-06-16-simmer-benchmarking-latent-failures-in-llm-executable-planni/" class="md-nav__link">
         
   
   
@@ -700,7 +896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-15-mana-dexterous-manipulation-of-articulated-tools/" class="md-nav__link">
+      <a href="../2026-06-15-mana-dexterous-manipulation-of-articulated-tools/" class="md-nav__link">
         
   
   
@@ -728,7 +924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-14-learning-to-reason-by-analogy-via-retrieval-augmented-reinfo/" class="md-nav__link">
+      <a href="../2026-06-14-learning-to-reason-by-analogy-via-retrieval-augmented-reinfo/" class="md-nav__link">
         
   
   
@@ -756,7 +952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-13-interleavethinker-reinforcing-agentic-interleaved-generation/" class="md-nav__link">
+      <a href="../2026-06-13-interleavethinker-reinforcing-agentic-interleaved-generation/" class="md-nav__link">
         
   
   
@@ -784,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-12-reroute-don-t-remove-recoverable-visual-token-routing-for-vi/" class="md-nav__link">
+      <a href="../2026-06-12-reroute-don-t-remove-recoverable-visual-token-routing-for-vi/" class="md-nav__link">
         
   
   
@@ -812,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-11-when-to-align-when-to-predict-a-phase-diagram-for-multimodal/" class="md-nav__link">
+      <a href="../2026-06-11-when-to-align-when-to-predict-a-phase-diagram-for-multimodal/" class="md-nav__link">
         
   
   
@@ -840,7 +1036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-10-latent-spatial-memory-for-video-world-models/" class="md-nav__link">
+      <a href="../2026-06-10-latent-spatial-memory-for-video-world-models/" class="md-nav__link">
         
   
   
@@ -868,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-09-unisharp-universal-sharp-monocular-view-synthesis/" class="md-nav__link">
+      <a href="../2026-06-09-unisharp-universal-sharp-monocular-view-synthesis/" class="md-nav__link">
         
   
   
@@ -896,7 +1092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-08-handoff-humanoid-agentic-task-space-whole-body-control-via-d/" class="md-nav__link">
+      <a href="../2026-06-08-handoff-humanoid-agentic-task-space-whole-body-control-via-d/" class="md-nav__link">
         
   
   
@@ -924,7 +1120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-07-tempovla-learning-speed-controllable-vision-language-action-/" class="md-nav__link">
+      <a href="../2026-06-07-tempovla-learning-speed-controllable-vision-language-action-/" class="md-nav__link">
         
   
   
@@ -952,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-06-taillor-protecting-principal-components-in-parameter-efficie/" class="md-nav__link">
+      <a href="../2026-06-06-taillor-protecting-principal-components-in-parameter-efficie/" class="md-nav__link">
         
   
   
@@ -980,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-04-exploring-easy-boosts-for-lidar-semantic-scene-completion/" class="md-nav__link">
+      <a href="../2026-06-04-exploring-easy-boosts-for-lidar-semantic-scene-completion/" class="md-nav__link">
         
   
   
@@ -1008,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-03-thinking-in-blender-staged-executable-inverse-graphics-with-/" class="md-nav__link">
+      <a href="../2026-06-03-thinking-in-blender-staged-executable-inverse-graphics-with-/" class="md-nav__link">
         
   
   
@@ -1036,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-02-representation-forcing-for-bottleneck-free-unified-multimoda/" class="md-nav__link">
+      <a href="../2026-06-02-representation-forcing-for-bottleneck-free-unified-multimoda/" class="md-nav__link">
         
   
   
@@ -1064,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised/" class="md-nav__link">
+      <a href="../2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised/" class="md-nav__link">
         
   
   
@@ -1092,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-28-algorithmic-monocultures-in-hiring/" class="md-nav__link">
+      <a href="../2026-05-28-algorithmic-monocultures-in-hiring/" class="md-nav__link">
         
   
   
@@ -1120,7 +1316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi/" class="md-nav__link">
+      <a href="../2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi/" class="md-nav__link">
         
   
   
@@ -1148,7 +1344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-27-latent-action-diffusion-for-cross-embodiment-manipulation/" class="md-nav__link">
+      <a href="../2026-05-27-latent-action-diffusion-for-cross-embodiment-manipulation/" class="md-nav__link">
         
   
   
@@ -1176,7 +1372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/" class="md-nav__link">
+      <a href="../2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/" class="md-nav__link">
         
   
   
@@ -1204,7 +1400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-25-integrable-elasticity-via-neural-demand-potentials/" class="md-nav__link">
+      <a href="../2026-05-25-integrable-elasticity-via-neural-demand-potentials/" class="md-nav__link">
         
   
   
@@ -1232,7 +1428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/" class="md-nav__link">
+      <a href="../2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/" class="md-nav__link">
         
   
   
@@ -1260,7 +1456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-23-tokenisation-via-convex-relaxations/" class="md-nav__link">
+      <a href="../2026-05-23-tokenisation-via-convex-relaxations/" class="md-nav__link">
         
   
   
@@ -1288,7 +1484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-23-explicit-stair-geometry-conditioning-for-robust-humanoid-loc/" class="md-nav__link">
+      <a href="../2026-05-23-explicit-stair-geometry-conditioning-for-robust-humanoid-loc/" class="md-nav__link">
         
   
   
@@ -1316,7 +1512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-22-variance-reduction-for-expectations-with-diffusion-teachers/" class="md-nav__link">
+      <a href="../2026-05-22-variance-reduction-for-expectations-with-diffusion-teachers/" class="md-nav__link">
         
   
   
@@ -1344,7 +1540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-20-can-these-views-be-one-scene-evaluating-multiview-3d-consist/" class="md-nav__link">
+      <a href="../2026-05-20-can-these-views-be-one-scene-evaluating-multiview-3d-consist/" class="md-nav__link">
         
   
   
@@ -1372,7 +1568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-18-v-jepa-2-1-unlocking-dense-features-in-video-self-supervised/" class="md-nav__link">
+      <a href="../2026-05-18-v-jepa-2-1-unlocking-dense-features-in-video-self-supervised/" class="md-nav__link">
         
   
   
@@ -1400,7 +1596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-18-refdecoder-enhancing-visual-generation-with-conditional-vide/" class="md-nav__link">
+      <a href="../2026-05-18-refdecoder-enhancing-visual-generation-with-conditional-vide/" class="md-nav__link">
         
   
   
@@ -1428,7 +1624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/" class="md-nav__link">
+      <a href="../2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/" class="md-nav__link">
         
   
   
@@ -1456,7 +1652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-16-world-action-models-are-zero-shot-policies/" class="md-nav__link">
+      <a href="../2026-05-16-world-action-models-are-zero-shot-policies/" class="md-nav__link">
         
   
   
@@ -1484,7 +1680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-16-entitybench-towards-entity-consistent-long-range-multi-shot-/" class="md-nav__link">
+      <a href="../2026-05-16-entitybench-towards-entity-consistent-long-range-multi-shot-/" class="md-nav__link">
         
   
   
@@ -1512,7 +1708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-15-eva-bench-a-new-end-to-end-framework-for-evaluating-voice-ag/" class="md-nav__link">
+      <a href="../2026-05-15-eva-bench-a-new-end-to-end-framework-for-evaluating-voice-ag/" class="md-nav__link">
         
   
   
@@ -1540,7 +1736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/" class="md-nav__link">
+      <a href="../2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/" class="md-nav__link">
         
   
   
@@ -1568,7 +1764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-12-normalizing-trajectory-models/" class="md-nav__link">
+      <a href="../2026-05-12-normalizing-trajectory-models/" class="md-nav__link">
         
   
   
@@ -1596,7 +1792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/" class="md-nav__link">
+      <a href="../2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/" class="md-nav__link">
         
   
   
@@ -1624,7 +1820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/" class="md-nav__link">
+      <a href="../2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/" class="md-nav__link">
         
   
   
@@ -1652,7 +1848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/" class="md-nav__link">
+      <a href="../2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/" class="md-nav__link">
         
   
   
@@ -1680,7 +1876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/" class="md-nav__link">
+      <a href="../2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/" class="md-nav__link">
         
   
   
@@ -1708,7 +1904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-07-audio-visual-intelligence-in-large-foundation-models/" class="md-nav__link">
+      <a href="../2026-05-07-audio-visual-intelligence-in-large-foundation-models/" class="md-nav__link">
         
   
   
@@ -1736,7 +1932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/" class="md-nav__link">
+      <a href="../2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/" class="md-nav__link">
         
   
   
@@ -1764,7 +1960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-05-posterior-augmented-flow-matching/" class="md-nav__link">
+      <a href="../2026-05-05-posterior-augmented-flow-matching/" class="md-nav__link">
         
   
   
@@ -1792,7 +1988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/" class="md-nav__link">
+      <a href="../2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/" class="md-nav__link">
         
   
   
@@ -1820,7 +2016,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/" class="md-nav__link">
+      <a href="../2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/" class="md-nav__link">
         
   
   
@@ -1848,7 +2044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/" class="md-nav__link">
+      <a href="../2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/" class="md-nav__link">
         
   
   
@@ -1876,7 +2072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/" class="md-nav__link">
+      <a href="../2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/" class="md-nav__link">
         
   
   
@@ -1904,7 +2100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/" class="md-nav__link">
+      <a href="../2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/" class="md-nav__link">
         
   
   
@@ -1968,7 +2164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../notes/" class="md-nav__link">
         
   
   
@@ -2033,6 +2229,152 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#action-detector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action Detector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-conditioned-proposal-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query-conditioned Proposal Generator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scoring-reranking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scoring &amp; Reranking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Temporal Verifier
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2046,20 +2388,101 @@
                 
                   
 
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+      
+    
+  </nav>
 
 
-  <h1>Actuator Design</h1>
 
-<iframe src="../html/2026-06-13-actuator-design.html" style="width:100%;border:none;display:block;" id="rl-note-frame" scrolling="no"></iframe>
-<script>
-(function(){
-  var f = document.getElementById("rl-note-frame");
-  f.addEventListener("load", function(){
-    try { f.style.height = f.contentDocument.documentElement.scrollHeight + "px"; }
-    catch(e) { f.style.height = "1200px"; }
-  });
-})();
-</script>
+  <h1>TimeProVe: Propose, then Verify for Efficient Long Video Temporal Reasoning in Activities of Daily Living</h1>
+
+<blockquote>
+<p><em>Generated by JarvisForResearchers Bot on 2026-06-22</em></p>
+</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+</div>
+<h2 id="tldr">TL;DR</h2>
+<p>TIMEPROVE introduces a hybrid framework to address the computational bottleneck in Long Video Question Answering (LVQA). It leverages lightweight modules to generate action-grounded answer-evidence hypotheses from long videos, subsequently invoking an expensive Vision-Language Model (VLM) only for targeted verification, achieving significant cost reduction.</p>
+<h2 id="the-problem">The Problem</h2>
+<p>Long Video Question Answering (LVQA) necessitates the identification of sparse, query-relevant evidence embedded within videos that can span hours. Current methodologies suffer from a fundamental trade-off: either they process the entire video densely using large VLMs, leading to prohibitive computational overhead due to context window limitations, or they rely on sparse caption-based reasoning. The latter approach frequently fails because sparse captions lack the necessary temporal grounding, subtle motion cues, or fine-grained detail required to answer complex questions about activities in the real world (ADL QA). Furthermore, existing agentic frameworks often select frames based on LLM reasoning over sparse captions, decoupling this selection from any learned visual prior regarding the occurrence of actions.</p>
+<h2 id="key-contributions">Key Contributions</h2>
+<p>We introduce TIMEPROVE, a novel hybrid framework designed to mitigate the cost of dense video processing. This framework performs lightweight long-video temporal reasoning to generate action-grounded hypotheses, subsequently verifying only sparse RGB evidence using an expensive VLM. A core component is the Action-based Candidate Evidence (ACE) module, which transforms detected actions into query-conditioned answer-evidence candidates via lightweight LLM reasoning and structured reranking. Finally, we present OPENTSUBENCH (OTB), an open-ended benchmark specifically designed for temporally grounded LVQA using real-world, untrimmed ADL videos.</p>
+<h2 id="how-it-works">How It Works</h2>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.20561/fig_p1_c1.jpg" />
+<em>Figure 1: TIMEPROVE reduces long-video LVQA cost
+by proposing query-relevant evidence locally before
+VLM verification. Instead of processing the full video,
+it sends only short targeted clips to the cloud VLM.</em></p>
+<p>TIMEPROVE operates in a two-stage pipeline. The first stage utilizes the ACE module to process the full video using computationally inexpensive models. This begins with an Action Detector, which produces a sparse temporal action timeline. This timeline is then fed into a Query-conditioned Proposal Generator, which employs an edge LLM to convert the action timeline and the query (<span class="arithmatex">\(q\)</span>) into a set of query-conditioned hypotheses, <span class="arithmatex">\(H_q = \{(a_i, w_i)\}_{i=1}^M\)</span>. Here, <span class="arithmatex">\(w_i\)</span> represents evidence windows derived either from atomic events or merged events. These hypotheses are then locally ranked using a score <span class="arithmatex">\(R(w|q)\)</span> that aggregates temporal, semantic, coverage, and length criteria. The second stage, the Temporal Verifier, selectively invokes the expensive cloud VLM only on the short RGB evidence clip, <span class="arithmatex">\(e_{V_t}\)</span>, corresponding to the highest-ranked unverified hypothesis <span class="arithmatex">\((a_t, w_t)\)</span>, to confirm if sufficient visual evidence supports the hypothesis and yield the final answer.</p>
+<h3 id="action-detector">Action Detector</h3>
+<p>The Action Detector performs a single pass over the input video. It utilizes a frozen visual backbone, such as I3D or CLIP, to predict action probabilities, <span class="arithmatex">\(P = \text{fact}(v) \in [0, 1]^{T \times |C|}\)</span>, across temporal segments. These raw probabilities are then decoded into a discrete event timeline, <span class="arithmatex">\(A = \{(c_i, s_i, e_i)\}_{i=1}^N\)</span>, representing detected actions with their start and end times.</p>
+<h3 id="query-conditioned-proposal-generator">Query-conditioned Proposal Generator</h3>
+<p>This module leverages an edge LLM to perform reasoning over the generated event timeline <span class="arithmatex">\(A\)</span> and the input query <span class="arithmatex">\(q\)</span>. Its function is to propose candidate answers (<span class="arithmatex">\(a_i\)</span>) and their corresponding evidence windows (<span class="arithmatex">\(w_i = [s_i, e_i]\)</span>). The generator outputs both atomic windows (<span class="arithmatex">\(W_{\text{atom}}\)</span>) corresponding to individual detected events and merged windows (<span class="arithmatex">\(W_{\text{merge}}\)</span>) that aggregate temporally proximate or semantically related events.</p>
+<h3 id="scoring-reranking">Scoring &amp; Reranking</h3>
+<p>This component executes a local ranking step to prioritize the most promising hypotheses. It computes a composite score <span class="arithmatex">\(R(w|q) = R_{\text{tmp}}(w, q) + R_{\text{sem}}(w, q) + R_{\text{cov}}(w, q) - R_{\text{len}}(w)\)</span>. This structured scoring mechanism allows for the intelligent selection of the top-ranked hypothesis, <span class="arithmatex">\(H^*_q\)</span>, which is then passed forward for verification.</p>
+<h3 id="temporal-verifier">Temporal Verifier</h3>
+<p>The Temporal Verifier is the gatekeeper for the expensive VLM. It is invoked exclusively on the short RGB evidence clip, <span class="arithmatex">\(e_{V_t}\)</span>, associated with the highest-ranked unverified hypothesis <span class="arithmatex">\((a_t, w_t)\)</span>. Its sole purpose is to determine if the visual evidence within <span class="arithmatex">\(e_{V_t}\)</span> sufficiently supports the hypothesis. If verified, it returns the final answer <span class="arithmatex">\((a^*, S^*, V^*)\)</span>.</p>
+<h2 id="results">Results</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Baseline</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Outperformance on OTB</td>
+<td style="text-align: left;">7.3%</td>
+<td style="text-align: left;">strongest baseline</td>
+<td style="text-align: left;">Empirical results</td>
+</tr>
+<tr>
+<td style="text-align: left;">Reduction in VLM calls</td>
+<td style="text-align: left;">75%</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Figure 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Reduction in inference cost</td>
+<td style="text-align: left;">93%</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Figure 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Performance on CHARADES-STA</td>
+<td style="text-align: left;">competitive performance</td>
+<td style="text-align: left;">specialized temporal grounding VLMs</td>
+<td style="text-align: left;">Empirical results</td>
+</tr>
+</tbody>
+</table>
+<h2 id="why-this-matters">Why This Matters</h2>
+<p>The TIMEPROVE framework provides a viable pathway to deploying high-accuracy LVQA systems in real-world, long-form video analysis without incurring the prohibitive operational costs associated with dense VLM inference. By strategically decoupling the temporal proposal generation—a task amenable to lightweight, local reasoning—from the fine-grained visual verification, we achieve substantial efficiency gains. Furthermore, the introduction of OPENTSUBENCH establishes a necessary, rigorous evaluation standard for assessing true temporal grounding capabilities in complex ADL scenarios.</p>
+<h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
+<p>The efficacy of TIMEPROVE is inherently dependent on two factors: the fidelity of the initial action detection performed by the Action Detector, and the LLM's capacity within the Query-conditioned Proposal Generator to correctly aggregate atomic windows into contextually coherent merged windows. Additionally, the current pipeline terminates either upon successful verification of a candidate or when the predefined verification budget is exhausted, which may preclude finding the optimal answer if the initial hypotheses are systematically flawed.</p>
+<hr />
+<h2 id="citation">Citation</h2>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.20561">2606.20561</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260620561</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{TimeProVe: Propose, then Verify for Efficient Long Video Temporal Reasoning in Activities of Daily Living}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Arkaprava Sinha and Dominick Reilly and Siddharth Krishnan and Hieu Le and Srijan Das}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.20561}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.20561}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</code></pre></div>
 
 
 
