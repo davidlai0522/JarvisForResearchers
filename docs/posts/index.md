@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [TimeProVe: Propose, then Verify for Efficient Long Video Temporal Reasoning in Activities of Daily Living](2026-06-22-timeprove-propose-then-verify-for-efficient-long-video-tempo/) { data-cat="Computer Vision" data-date="2026-06-22" }
+
+*2026-06-22*
+
+TIMEPROVE is a cost-efficient hybrid framework that uses lightweight modules to generate action-grounded answer-evidence hypotheses from long videos, subsequently invoking an expensive VLM only for targeted verification.
+
 ## [ADM-DP: Adaptive Dynamic Modality Diffusion Policy through Vision-Tactile-Graph Fusion for Multi-Agent Manipulation](2026-06-22-adm-dp-adaptive-dynamic-modality-diffusion-policy-through-vi/) { data-cat="Robotics" data-date="2026-06-22" }
 
 *2026-06-22*
