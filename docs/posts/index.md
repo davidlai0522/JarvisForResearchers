@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [How Transparent is DiffusionGemma?](2026-06-23-how-transparent-is-diffusiongemma/) { data-cat="Machine Learning" data-date="2026-06-23" }
+
+*2026-06-23*
+
+This paper investigates the transparency of DiffusionGemma, a text diffusion model, by decomposing transparency into variable and algorithmic components, showing that information flow can be mapped through an interpretable token bottleneck without performance loss.
+
 ## [TimeProVe: Propose, then Verify for Efficient Long Video Temporal Reasoning in Activities of Daily Living](2026-06-22-timeprove-propose-then-verify-for-efficient-long-video-tempo/) { data-cat="Computer Vision" data-date="2026-06-22" }
 
 *2026-06-22*
