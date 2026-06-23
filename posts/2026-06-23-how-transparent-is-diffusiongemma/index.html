@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="EUREKA is a novel reward design algorithm powered by coding Large Language Models (LLMs) that autonomously generates human-level reward functions for complex reinforcement learning tasks through evolutionary optimization.
+        <meta name="description" content="This paper investigates the transparency of DiffusionGemma, a text diffusion model, by decomposing transparency into variable and algorithmic components, showing that information flow can be mapped through an interpretable token bottleneck without performance loss.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-23-how-transparent-is-diffusiongemma/">
       
       
-        <link rel="prev" href="../2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/">
+        <link rel="next" href="../2026-06-22-timeprove-propose-then-verify-for-efficient-long-video-tempo/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Eureka: Human-Level Reward Design via Coding Large Language Models - JarvisForResearchers</title>
+        <title>How Transparent is DiffusionGemma? - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Eureka: Human-Level Reward Design via Coding Large Language Models
+              How Transparent is DiffusionGemma?
             
           </span>
         </div>
@@ -518,10 +518,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-06-23-how-transparent-is-diffusiongemma/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How Transparent is DiffusionGemma?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -537,6 +562,162 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canvas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self-conditioning-matrix-s_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-conditioning matrix \(S_t\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#denoising-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Denoising Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logit-modification-functions-f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logit modification functions \(f\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1918,35 +2099,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Eureka: Human-Level Reward Design via Coding Large Language Models
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/" class="md-nav__link">
         
   
   
@@ -1962,151 +2118,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#environment-as-context" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Environment as Context
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#evolutionary-search" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Evolutionary Search
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reward-reflection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reward Reflection
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters-for-robotics" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters for Robotics
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2300,10 +2311,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#environment-as-context" class="md-nav__link">
+  <a href="#canvas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Environment as Context
+        Canvas
       
     </span>
   </a>
@@ -2311,10 +2322,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#evolutionary-search" class="md-nav__link">
+  <a href="#self-conditioning-matrix-s_t" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Evolutionary Search
+        Self-conditioning matrix \(S_t\)
       
     </span>
   </a>
@@ -2322,10 +2333,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#reward-reflection" class="md-nav__link">
+  <a href="#denoising-loop" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reward Reflection
+        Denoising Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logit-modification-functions-f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logit modification functions \(f\)
       
     </span>
   </a>
@@ -2349,10 +2371,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-this-matters-for-robotics" class="md-nav__link">
+  <a href="#why-this-matters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why This Matters for Robotics
+        Why This Matters
       
     </span>
   </a>
@@ -2402,64 +2424,63 @@
       
       
       
-        <a href="../../tags/#tag:ai" class="md-tag">AI</a>
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
+        <a href="../../tags/#tag:diffusion-models" class="md-tag">diffusion-models</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
       
     
   </nav>
 
 
 
-  <h1>Eureka: Human-Level Reward Design via Coding Large Language Models</h1>
+  <h1>How Transparent is DiffusionGemma?</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-01</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-06-23</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>EUREKA is a novel reward design algorithm powered by coding Large Language Models (LLMs) that autonomously generates human-level reward functions for complex reinforcement learning tasks through evolutionary optimization.</p>
+<p>This work establishes that the information flow within DiffusionGemma, a text diffusion model, can be constrained through an interpretable token bottleneck without incurring performance degradation. By restricting the self-conditioning matrix <span class="arithmatex">\(S_t\)</span> to a small set of tokens via logit modification functions, the opaque serial depth is reduced from a factor of 28.6X relative to Gemma 4 to 1.1X, while maintaining baseline performance. This suggests a pathway toward greater transparency in continuous latent space models.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Harnessing Large Language Models (LLMs) to learn complex low-level manipulation tasks remains an open problem. Concurrently, designing effective reward functions for Reinforcement Learning (RL) is notoriously difficult. Empirical data suggests this difficulty is significant: 92% of polled RL researchers report relying on manual trial-and-error for reward design, and 89% indicate that the rewards they design are sub-optimal.</p>
-<p>Prior efforts have shown limitations. Existing attempts to leverage LLMs for low-level manipulation tasks often necessitate substantial domain expertise to construct appropriate task prompts or are restricted to learning only simple skills. Furthermore, prior work such as L2R (Yu et al., 2023) is constrained by its reliance on templated rewards, lacking the expressivity afforded by EUREKA's free-form generation capabilities. Ultimately, manual reward engineering is a tedious process that frequently yields sub-optimal rewards, leading to undesirable emergent behaviors in the trained policy.</p>
+<p>The interpretability of Large Language Models (LLMs) is a critical concern for deployment in safety-critical or high-stakes applications. While autoregressive models have established methods for analyzing sequential decision-making, the transparency of models operating in continuous latent spaces, such as DiffusionGemma, remains poorly understood. Specifically, the inherent structure of diffusion models presents unique challenges: the serial depth is often significantly higher than that of comparable autoregressive models, and the nature of token prediction changes dynamically across every denoising step, complicating static analysis of information flow.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We present three primary contributions. First, EUREKA achieves human-level performance in reward design across a diverse suite of 29 open-sourced RL environments, which encompass 10 distinct robot morphologies. Crucially, it outperforms expert human rewards on 83% of these tasks, achieving an average normalized improvement of 52%. Second, EUREKA successfully solves dexterous manipulation tasks, such as pen spinning, for which manual reward engineering has historically been infeasible. This was demonstrated using a simulated Shadow Hand within a curriculum learning framework. Third, the framework enables a novel gradient-free in-context learning approach to Reinforcement Learning from Human Feedback (RLHF). This approach generates more performant and human-aligned reward functions based on various forms of human input without requiring any underlying model updating.</p>
+<p>We present three primary contributions to this area:
+1. We demonstrate that the information exchanged between denoising steps in DiffusionGemma can be successfully mapped through an interpretable token bottleneck without any measurable decrease in downstream performance.
+2. We successfully reduce the opaque serial depth from <span class="arithmatex">\(28.6\text{X}\)</span> relative to Gemma 4 to <span class="arithmatex">\(1.1\text{X}\)</span> relative to Gemma 4 by treating the intermediate states as interpretable via bottlenecking.
+3. We provide initial empirical evidence suggesting novel, diffusion-specific reasoning phenomena, including non-chronological reasoning, token and sequence smearing, and intermediate-context reasoning.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Figure 1: EUREKA generates human-level reward functions across diverse robots and tasks. Combined with
-curriculum learning, EUREKA for the first time, unlocks rapid pen-spinning capabilities on an anthropomorphic
-five-finger hand." src="../../assets/figures/2310.12931/fig_p1_0.jpg" />
-<em>Figure 1: EUREKA generates human-level reward functions across diverse robots and tasks. Combined with
-curriculum learning, EUREKA for the first time, unlocks rapid pen-spinning capabilities on an anthropomorphic
-five-finger hand.</em></p>
-<p><img alt="Figure 2: EUREKA takes unmodified environment source code and language task description as context to
-zero-shot generate executable reward functions from a coding LLM. Then, it iterates between reward sampling,
-GPU-accelerated reward evaluation, and reward reflection to progressively improve its rew" src="../../assets/figures/2310.12931/fig_p2_0.jpg" />
-<em>Figure 2: EUREKA takes unmodified environment source code and language task description as context to
-zero-shot generate executable reward functions from a coding LLM. Then, it iterates between reward sampling,
-GPU-accelerated reward evaluation, and reward reflection to progressively improve its rew</em></p>
-<p><img alt="Figure 3: EUREKA can zero-shot generate executable rewards and then flexibly improve them with many distinct
-types of free-form modification, such as (1) changing the hyperparameter of existing reward components, (2)
-changing the functional form of existing reward components, and (3) introducing new" src="../../assets/figures/2310.12931/fig_p4_0.jpg" />
-<em>Figure 3: EUREKA can zero-shot generate executable rewards and then flexibly improve them with many distinct
-types of free-form modification, such as (1) changing the hyperparameter of existing reward components, (2)
-changing the functional form of existing reward components, and (3) introducing new</em></p>
-<p><img alt="Figure 4: EUREKA outperforms Human and L2R across all tasks. In particular, EUREKA realizes much greater
-gains on high-dimensional dexterity environments." src="../../assets/figures/2310.12931/fig_p6_0.jpg" />
-<em>Figure 4: EUREKA outperforms Human and L2R across all tasks. In particular, EUREKA realizes much greater
-gains on high-dimensional dexterity environments.</em></p>
-<p>EUREKA operates by employing a coding LLM, such as GPT-4, to zero-shot generate executable reward functions. This generation process is conditioned on the raw source code of the target environment, which is provided as context. This initial generation is not the final step; it is followed by an iterative evolutionary search process. In each iteration, reward candidates are sampled, evaluated using GPU-accelerated distributed RL running on IsaacGym, and subsequently refined via a mechanism termed reward reflection. Reward reflection serves to provide automated, textual feedback that summarizes the policy training dynamics. This feedback allows for targeted editing and progressive improvement of the reward code directly within the LLM's context window.</p>
-<h3 id="environment-as-context">Environment as Context</h3>
-<p>This component involves directly feeding the raw source code of the RL environment—specifically excluding the existing reward code—to the LLM. This architectural choice enables the LLM to perform zero-shot generation of executable reward functions tailored precisely to the environment's dynamics and state representation.</p>
-<h3 id="evolutionary-search">Evolutionary Search</h3>
-<p>The evolutionary search mechanism drives the refinement process. It iteratively proposes and refines reward candidates by sampling independent outputs from the LLM. The process incorporates in-context reward mutation, where the best-performing reward from the preceding iteration is used to guide the generation of the next set of candidates.</p>
-<h3 id="reward-reflection">Reward Reflection</h3>
-<p>Reward reflection functions as an automated feedback loop. It summarizes the policy training dynamics into a textual format by tracking scalar values associated with all reward components and the overall task fitness function at various intermediate policy checkpoints during training. This textual summary is then fed back into the LLM context to guide targeted reward code editing.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.20560/fig_p3_c1.jpg" />
+<em>Figure 1 | A simplified architecture diagram of DiffusionGemma, with the first two denoising steps
+shown; see Section 2.1 for an in-depth description of DiffusionGemma’s architecture and sampling.
+We additionally show the path with the largest opaque serial depth with and without the assumption
+that</em></p>
+<p>The methodology employed decomposes the concept of transparency into variable and algorithmic components. For DiffusionGemma, the primary focus is on quantifying the opaque serial depth, which is dictated by the <span class="arithmatex">\(T\)</span> iterations of the denoising loop. Initially, the unconstrained information flow within the self-conditioning mechanism results in an opaque serial depth that is substantially larger than that observed in Gemma 4.</p>
+<p>To address this, we introduce a mechanism to constrain the information content of the self-conditioning matrix <span class="arithmatex">\(S_t \in \mathbb{R}^{C \times d_{model}}\)</span>. This matrix, which is passed between denoising steps, is derived from the softmax of the predicted logits <span class="arithmatex">\(\hat{\ell}_t\)</span> multiplied by a weight matrix <span class="arithmatex">\(W_E\)</span>. We apply logit modification functions, such as <span class="arithmatex">\(f_p\)</span> or <span class="arithmatex">\(f_k\)</span>, to <span class="arithmatex">\(\hat{\ell}_{t_i}\)</span>. These functions effectively restrict the information carried by <span class="arithmatex">\(S_t\)</span> to only <span class="arithmatex">\(k\)</span> salient tokens, yielding a modified matrix <span class="arithmatex">\(S'_t\)</span>. This targeted restriction successfully lowers the serial depth while preserving predictive capability.</p>
+<h3 id="canvas">Canvas</h3>
+<p>The Canvas structure is defined by two primary components: <span class="arithmatex">\(C_{tokens}\)</span> and <span class="arithmatex">\(C_{self-conditioning vectors}\)</span>. This structure dictates the dimensionality and composition of the information being processed across the latent space during the diffusion process.</p>
+<h3 id="self-conditioning-matrix-s_t">Self-conditioning matrix <span class="arithmatex">\(S_t\)</span></h3>
+<p><span class="arithmatex">\(S_t\)</span> is a matrix of dimension <span class="arithmatex">\(\mathbb{R}^{C \times d_{model}}\)</span> that mediates information transfer between successive denoising steps. Its construction, <span class="arithmatex">\(S_t = \text{softmax}(\hat{\ell}_t) \cdot W_E\)</span>, means it encapsulates the model's current predictive state, which is the target for our interpretability intervention.</p>
+<h3 id="denoising-loop">Denoising Loop</h3>
+<p>The core computational process involves the Denoising Loop, which executes for <span class="arithmatex">\(T_{denoising}\)</span> steps. Each iteration involves a forward pass through the diffusion model architecture followed by a sampling step, where the state is refined toward the final output.</p>
+<h3 id="logit-modification-functions-f">Logit modification functions <span class="arithmatex">\(f\)</span></h3>
+<p>These functions, exemplified by <span class="arithmatex">\(f_p\)</span> or <span class="arithmatex">\(f_k\)</span>, are applied directly to the logits <span class="arithmatex">\(\hat{\ell}_{t_i}\)</span> at specific time steps <span class="arithmatex">\(t_i\)</span>. Their purpose is to act as a filter, ensuring that the subsequent construction of <span class="arithmatex">\(S_t\)</span> only incorporates information relevant to a restricted set of <span class="arithmatex">\(k\)</span> tokens, thereby creating the interpretable bottleneck.</p>
 <h2 id="results">Results</h2>
-<p>The empirical evaluation demonstrates the efficacy of the EUREKA framework across varied robotic tasks.</p>
+<p>The quantitative analysis of the serial depth reduction and performance retention is summarized below.</p>
 <table>
 <thead>
 <tr>
@@ -2471,38 +2492,38 @@ gains on high-dimensional dexterity environments.</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Outperformance on Isaac tasks</td>
-<td style="text-align: left;">Exceeds or performs on par to human level</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: left;">Figure 4</td>
+<td style="text-align: left;">Empirical opaque serial depth (Uninterpretable Bottleneck)</td>
+<td style="text-align: left;">608,016</td>
+<td style="text-align: left;">21,235 (Gemma 4 26B A4B)</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Outperformance on Dexterity tasks</td>
-<td style="text-align: left;">Outperforms human level on 15 out of 20 tasks</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: left;">Figure 4</td>
+<td style="text-align: left;">Empirical opaque serial depth (Interpretable Bottleneck)</td>
+<td style="text-align: left;">23,571</td>
+<td style="text-align: left;">21,235 (Gemma 4 26B A4B)</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Average normalized improvement</td>
-<td style="text-align: left;">52%</td>
-<td style="text-align: left;">Human experts</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">Performance (Top-K Ablation <span class="arithmatex">\(k=8\)</span> vs Baseline)</td>
+<td style="text-align: left;">Same performance as the baseline</td>
+<td style="text-align: left;">Baseline</td>
+<td style="text-align: left;">Figure 2</td>
 </tr>
 </tbody>
 </table>
-<h2 id="why-this-matters-for-robotics">Why This Matters for Robotics</h2>
-<p>The ability to autonomously generate high-quality, task-specific reward functions addresses a fundamental bottleneck in applying RL to complex robotic systems. By treating the LLM as a universal reward programming algorithm, EUREKA removes the necessity for extensive, expert-driven reward engineering. This capability is particularly transformative for dexterous manipulation, where defining a precise reward function is often intractable. Furthermore, by enabling a gradient-free RLHF paradigm, EUREKA allows for the incorporation of nuanced human preferences into the reward structure without the computational overhead or stability concerns associated with full model fine-tuning.</p>
+<h2 id="why-this-matters">Why This Matters</h2>
+<p>The findings suggest a viable architectural pathway toward achieving greater transparency in complex generative models operating in continuous latent spaces. By demonstrating that the critical information flow can be channeled through a constrained, token-based bottleneck (<span class="arithmatex">\(S'_t\)</span>), we move beyond the purely opaque nature of diffusion processes. Furthermore, the observation that the restricted top tokens often correspond to the final token identities provides a concrete, actionable insight into the model's decision-making process at intermediate stages. The discovery of phenomena like non-chronological reasoning also opens new avenues for AI safety research, requiring us to develop diagnostic tools specific to diffusion dynamics.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>Two primary limitations warrant discussion. First, there is a possibility that the initial reward function generated by the LLM may not always be syntactically or semantically executable, even if the LLM's generation appears plausible. Second, the performance of EUREKA exhibits a measurable degradation when GPT-4 is replaced by GPT-3.5, which strongly suggests a dependency on the advanced coding and reasoning capabilities inherent in high-quality, large-scale LLMs. Future work must address robustness against non-executable outputs and explore methods to mitigate the reliance on the largest available proprietary models.</p>
+<p>The current results are intrinsically tied to the specific architectural parameters and training regime of DiffusionGemma. It is not guaranteed that this bottlenecking strategy generalizes perfectly to all diffusion model variants. A significant open question remains whether this interpretability gain persists when latent reasoning models are trained using fundamentally different paradigms, such as outcome-based Reinforcement Learning, which might induce even more opaque latent representations.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2310.12931">2310.12931</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">231012931</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Eureka: Human-Level Reward Design via Coding Large Language Models}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Yecheng Jason Ma and William Liang and Guanzhi Wang and De-An Huang and Osbert Bastani and Dinesh Jayaraman et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2310.12931}</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2023}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2310.12931}</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.20560">2606.20560</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260620560</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{How Transparent is DiffusionGemma?}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Joshua Engels and Callum McDougall and Bilal Chughtai and Janos Kramar and Senthoran Rajamanoharan and Cindy Wu et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.20560}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.20560}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
