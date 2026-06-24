@@ -6,13 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="High-quality robotics & AI research — explained locally with Gemma 4">
+        <meta name="description" content="AutoDex is an automated real-world data-collection system that validates generated dexterous grasp candidates on physical hardware, providing a reusable database of physically labeled grasp trials without human intervention.
+">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/notes/2026-06-13-thinking-methods-for-researchers/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-24-autodex-an-automated-real-world-system-for-dexterous-graspin/">
       
       
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../2026-06-23-how-transparent-is-diffusiongemma/">
       
       
         
@@ -23,7 +28,7 @@
     
     
       
-        <title>Thinking Methods for Researchers - JarvisForResearchers</title>
+        <title>AutoDex: An Automated Real-World System for Dexterous Grasping Data Collection - JarvisForResearchers</title>
       
     
     
@@ -73,6 +78,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#tldr" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -103,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Thinking Methods for Researchers
+              AutoDex: An Automated Real-World System for Dexterous Grasping Data Collection
             
           </span>
         </div>
@@ -193,11 +203,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../posts/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -236,7 +248,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link">
+      <a href="../../notes/" class="md-tabs__link">
         
   
   
@@ -332,6 +344,8 @@
       
   
   
+    
+  
   
   
     
@@ -451,20 +465,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../posts/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -482,13 +497,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -505,10 +520,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../posts/2026-06-24-autodex-an-automated-real-world-system-for-dexterous-graspin/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AutoDex: An Automated Real-World System for Dexterous Grasping Data Collection
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -524,6 +564,162 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dense-20-camera-perception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dense 20-camera perception
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collision-monitored-motion-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collision-monitored motion execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physical-successfailure-labeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Physical success/failure labeling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#active-object-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Active object reset
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -536,7 +732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-23-how-transparent-is-diffusiongemma/" class="md-nav__link">
+      <a href="../2026-06-23-how-transparent-is-diffusiongemma/" class="md-nav__link">
         
   
   
@@ -564,7 +760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-22-timeprove-propose-then-verify-for-efficient-long-video-tempo/" class="md-nav__link">
+      <a href="../2026-06-22-timeprove-propose-then-verify-for-efficient-long-video-tempo/" class="md-nav__link">
         
   
   
@@ -592,7 +788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-22-adm-dp-adaptive-dynamic-modality-diffusion-policy-through-vi/" class="md-nav__link">
+      <a href="../2026-06-22-adm-dp-adaptive-dynamic-modality-diffusion-policy-through-vi/" class="md-nav__link">
         
   
   
@@ -620,7 +816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-21-memorywam-efficient-world-action-modeling-with-persistent-me/" class="md-nav__link">
+      <a href="../2026-06-21-memorywam-efficient-world-action-modeling-with-persistent-me/" class="md-nav__link">
         
   
   
@@ -648,7 +844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-20-janusmesh-fast-and-zero-shot-3d-visual-illusion-generation-v/" class="md-nav__link">
+      <a href="../2026-06-20-janusmesh-fast-and-zero-shot-3d-visual-illusion-generation-v/" class="md-nav__link">
         
   
   
@@ -676,7 +872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-18-unified-multimodal-autoregressive-modeling-with-shared-conte/" class="md-nav__link">
+      <a href="../2026-06-18-unified-multimodal-autoregressive-modeling-with-shared-conte/" class="md-nav__link">
         
   
   
@@ -704,7 +900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-17-t-rex-tactile-reactive-dexterous-manipulation/" class="md-nav__link">
+      <a href="../2026-06-17-t-rex-tactile-reactive-dexterous-manipulation/" class="md-nav__link">
         
   
   
@@ -732,7 +928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-16-simmer-benchmarking-latent-failures-in-llm-executable-planni/" class="md-nav__link">
+      <a href="../2026-06-16-simmer-benchmarking-latent-failures-in-llm-executable-planni/" class="md-nav__link">
         
   
   
@@ -760,7 +956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-15-mana-dexterous-manipulation-of-articulated-tools/" class="md-nav__link">
+      <a href="../2026-06-15-mana-dexterous-manipulation-of-articulated-tools/" class="md-nav__link">
         
   
   
@@ -788,7 +984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-14-learning-to-reason-by-analogy-via-retrieval-augmented-reinfo/" class="md-nav__link">
+      <a href="../2026-06-14-learning-to-reason-by-analogy-via-retrieval-augmented-reinfo/" class="md-nav__link">
         
   
   
@@ -816,7 +1012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-13-interleavethinker-reinforcing-agentic-interleaved-generation/" class="md-nav__link">
+      <a href="../2026-06-13-interleavethinker-reinforcing-agentic-interleaved-generation/" class="md-nav__link">
         
   
   
@@ -844,7 +1040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-12-reroute-don-t-remove-recoverable-visual-token-routing-for-vi/" class="md-nav__link">
+      <a href="../2026-06-12-reroute-don-t-remove-recoverable-visual-token-routing-for-vi/" class="md-nav__link">
         
   
   
@@ -872,7 +1068,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-11-when-to-align-when-to-predict-a-phase-diagram-for-multimodal/" class="md-nav__link">
+      <a href="../2026-06-11-when-to-align-when-to-predict-a-phase-diagram-for-multimodal/" class="md-nav__link">
         
   
   
@@ -900,7 +1096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-10-latent-spatial-memory-for-video-world-models/" class="md-nav__link">
+      <a href="../2026-06-10-latent-spatial-memory-for-video-world-models/" class="md-nav__link">
         
   
   
@@ -928,7 +1124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-09-unisharp-universal-sharp-monocular-view-synthesis/" class="md-nav__link">
+      <a href="../2026-06-09-unisharp-universal-sharp-monocular-view-synthesis/" class="md-nav__link">
         
   
   
@@ -956,7 +1152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-08-handoff-humanoid-agentic-task-space-whole-body-control-via-d/" class="md-nav__link">
+      <a href="../2026-06-08-handoff-humanoid-agentic-task-space-whole-body-control-via-d/" class="md-nav__link">
         
   
   
@@ -984,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-07-tempovla-learning-speed-controllable-vision-language-action-/" class="md-nav__link">
+      <a href="../2026-06-07-tempovla-learning-speed-controllable-vision-language-action-/" class="md-nav__link">
         
   
   
@@ -1012,7 +1208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-06-taillor-protecting-principal-components-in-parameter-efficie/" class="md-nav__link">
+      <a href="../2026-06-06-taillor-protecting-principal-components-in-parameter-efficie/" class="md-nav__link">
         
   
   
@@ -1040,7 +1236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-04-exploring-easy-boosts-for-lidar-semantic-scene-completion/" class="md-nav__link">
+      <a href="../2026-06-04-exploring-easy-boosts-for-lidar-semantic-scene-completion/" class="md-nav__link">
         
   
   
@@ -1068,7 +1264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-03-thinking-in-blender-staged-executable-inverse-graphics-with-/" class="md-nav__link">
+      <a href="../2026-06-03-thinking-in-blender-staged-executable-inverse-graphics-with-/" class="md-nav__link">
         
   
   
@@ -1096,7 +1292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-02-representation-forcing-for-bottleneck-free-unified-multimoda/" class="md-nav__link">
+      <a href="../2026-06-02-representation-forcing-for-bottleneck-free-unified-multimoda/" class="md-nav__link">
         
   
   
@@ -1124,7 +1320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised/" class="md-nav__link">
+      <a href="../2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised/" class="md-nav__link">
         
   
   
@@ -1152,7 +1348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-28-algorithmic-monocultures-in-hiring/" class="md-nav__link">
+      <a href="../2026-05-28-algorithmic-monocultures-in-hiring/" class="md-nav__link">
         
   
   
@@ -1180,7 +1376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi/" class="md-nav__link">
+      <a href="../2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi/" class="md-nav__link">
         
   
   
@@ -1208,7 +1404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-27-latent-action-diffusion-for-cross-embodiment-manipulation/" class="md-nav__link">
+      <a href="../2026-05-27-latent-action-diffusion-for-cross-embodiment-manipulation/" class="md-nav__link">
         
   
   
@@ -1236,7 +1432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/" class="md-nav__link">
+      <a href="../2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/" class="md-nav__link">
         
   
   
@@ -1264,7 +1460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-25-integrable-elasticity-via-neural-demand-potentials/" class="md-nav__link">
+      <a href="../2026-05-25-integrable-elasticity-via-neural-demand-potentials/" class="md-nav__link">
         
   
   
@@ -1292,7 +1488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/" class="md-nav__link">
+      <a href="../2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/" class="md-nav__link">
         
   
   
@@ -1320,7 +1516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-23-tokenisation-via-convex-relaxations/" class="md-nav__link">
+      <a href="../2026-05-23-tokenisation-via-convex-relaxations/" class="md-nav__link">
         
   
   
@@ -1348,7 +1544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-23-explicit-stair-geometry-conditioning-for-robust-humanoid-loc/" class="md-nav__link">
+      <a href="../2026-05-23-explicit-stair-geometry-conditioning-for-robust-humanoid-loc/" class="md-nav__link">
         
   
   
@@ -1376,7 +1572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-22-variance-reduction-for-expectations-with-diffusion-teachers/" class="md-nav__link">
+      <a href="../2026-05-22-variance-reduction-for-expectations-with-diffusion-teachers/" class="md-nav__link">
         
   
   
@@ -1404,7 +1600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-20-can-these-views-be-one-scene-evaluating-multiview-3d-consist/" class="md-nav__link">
+      <a href="../2026-05-20-can-these-views-be-one-scene-evaluating-multiview-3d-consist/" class="md-nav__link">
         
   
   
@@ -1432,7 +1628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-18-v-jepa-2-1-unlocking-dense-features-in-video-self-supervised/" class="md-nav__link">
+      <a href="../2026-05-18-v-jepa-2-1-unlocking-dense-features-in-video-self-supervised/" class="md-nav__link">
         
   
   
@@ -1460,7 +1656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-18-refdecoder-enhancing-visual-generation-with-conditional-vide/" class="md-nav__link">
+      <a href="../2026-05-18-refdecoder-enhancing-visual-generation-with-conditional-vide/" class="md-nav__link">
         
   
   
@@ -1488,7 +1684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/" class="md-nav__link">
+      <a href="../2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/" class="md-nav__link">
         
   
   
@@ -1516,7 +1712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-16-world-action-models-are-zero-shot-policies/" class="md-nav__link">
+      <a href="../2026-05-16-world-action-models-are-zero-shot-policies/" class="md-nav__link">
         
   
   
@@ -1544,7 +1740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-16-entitybench-towards-entity-consistent-long-range-multi-shot-/" class="md-nav__link">
+      <a href="../2026-05-16-entitybench-towards-entity-consistent-long-range-multi-shot-/" class="md-nav__link">
         
   
   
@@ -1572,7 +1768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-15-eva-bench-a-new-end-to-end-framework-for-evaluating-voice-ag/" class="md-nav__link">
+      <a href="../2026-05-15-eva-bench-a-new-end-to-end-framework-for-evaluating-voice-ag/" class="md-nav__link">
         
   
   
@@ -1600,7 +1796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/" class="md-nav__link">
+      <a href="../2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/" class="md-nav__link">
         
   
   
@@ -1628,7 +1824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-12-normalizing-trajectory-models/" class="md-nav__link">
+      <a href="../2026-05-12-normalizing-trajectory-models/" class="md-nav__link">
         
   
   
@@ -1656,7 +1852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/" class="md-nav__link">
+      <a href="../2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/" class="md-nav__link">
         
   
   
@@ -1684,7 +1880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/" class="md-nav__link">
+      <a href="../2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/" class="md-nav__link">
         
   
   
@@ -1712,7 +1908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/" class="md-nav__link">
+      <a href="../2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/" class="md-nav__link">
         
   
   
@@ -1740,7 +1936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/" class="md-nav__link">
+      <a href="../2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/" class="md-nav__link">
         
   
   
@@ -1768,7 +1964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-07-audio-visual-intelligence-in-large-foundation-models/" class="md-nav__link">
+      <a href="../2026-05-07-audio-visual-intelligence-in-large-foundation-models/" class="md-nav__link">
         
   
   
@@ -1796,7 +1992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/" class="md-nav__link">
+      <a href="../2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/" class="md-nav__link">
         
   
   
@@ -1824,7 +2020,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-05-posterior-augmented-flow-matching/" class="md-nav__link">
+      <a href="../2026-05-05-posterior-augmented-flow-matching/" class="md-nav__link">
         
   
   
@@ -1852,7 +2048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/" class="md-nav__link">
+      <a href="../2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/" class="md-nav__link">
         
   
   
@@ -1880,7 +2076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/" class="md-nav__link">
+      <a href="../2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/" class="md-nav__link">
         
   
   
@@ -1908,7 +2104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/" class="md-nav__link">
+      <a href="../2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/" class="md-nav__link">
         
   
   
@@ -1936,7 +2132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/" class="md-nav__link">
+      <a href="../2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/" class="md-nav__link">
         
   
   
@@ -1964,7 +2160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/" class="md-nav__link">
+      <a href="../2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/" class="md-nav__link">
         
   
   
@@ -2028,7 +2224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../notes/" class="md-nav__link">
         
   
   
@@ -2093,6 +2289,152 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dense-20-camera-perception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dense 20-camera perception
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collision-monitored-motion-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collision-monitored motion execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physical-successfailure-labeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Physical success/failure labeling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#active-object-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Active object reset
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2106,20 +2448,118 @@
                 
                   
 
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:grasping" class="md-tag">grasping</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:perception" class="md-tag">perception</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:pose-estimation" class="md-tag">pose-estimation</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
+      
+    
+  </nav>
 
 
-  <h1>Thinking Methods for Researchers</h1>
 
-<iframe src="../html/2026-06-13-thinking-methods-for-researchers.html" style="width:100%;border:none;display:block;" id="rl-note-frame" scrolling="no"></iframe>
-<script>
-(function(){
-  var f = document.getElementById("rl-note-frame");
-  f.addEventListener("load", function(){
-    try { f.style.height = f.contentDocument.documentElement.scrollHeight + "px"; }
-    catch(e) { f.style.height = "1200px"; }
-  });
-})();
-</script>
+  <h1>AutoDex: An Automated Real-World System for Dexterous Grasping Data Collection</h1>
+
+<blockquote>
+<p><em>Generated by JarvisForResearchers Bot on 2026-06-24</em></p>
+</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+</div>
+<h2 id="tldr">TL;DR</h2>
+<p>AutoDex is an end-to-end automated system designed to populate a database of physically validated dexterous grasp trials without continuous human intervention. It integrates candidate generation, dense multi-view perception, collision-monitored execution, automated labeling, and active object resetting to achieve high throughput and reliable real-world data collection for complex grasping tasks.</p>
+<h2 id="the-problem">The Problem</h2>
+<p>The development of robust dexterous grasping policies is fundamentally constrained by the availability of high-quality, physically labeled real-world interaction data. Current methodologies present a dichotomy: simulation offers high-throughput data generation but lacks the fidelity to certify real-world contact validity, while manual teleoperation provides ground truth but is inherently slow, subject to operator fatigue, and prone to bias. Scaling hardware validation—the only path to true physical validity—requires automating the entire data collection loop, encompassing perception, execution, labeling, and state reset, without human oversight.</p>
+<h2 id="key-contributions">Key Contributions</h2>
+<p>We introduce AutoDex, an end-to-end automated system capable of executing and labeling generated dexterous grasp candidates directly on physical hardware. This system has yielded a substantial real-world grasp-trial database, cataloging successes and failures across 100 distinct objects, complete with synchronized multi-view observations and robot-state trajectories. Furthermore, we provide a system-level evaluation demonstrating the throughput gains over teleoperation, the achieved real-world success rate against a model-screened baseline, the efficacy of autonomous reset across challenging pose transitions, and the impact of dense multi-view perception on collection reliability.</p>
+<h2 id="how-it-works">How It Works</h2>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.23689/fig_p2_c1.jpg" />
+<em>Figure 1: The AutoDex pipeline. AutoDex builds a database of physically labeled dexterous-grasp
+trials by executing generated candidates in a multi-camera workcell, labeling lift-and-hold success
+or failure, and resetting the object between trials. At deployment, downstream systems retrieve
+successf</em></p>
+<p>AutoDex functions as a closed-loop, automated data acquisition pipeline. The process initiates by receiving candidate grasp proposals from a modular candidate generator (specifically, BODex). These candidates are then subjected to initial object pose estimation and continuous execution-time tracking using dense multi-view perception. Viable candidates are selected and tested on a physical multi-finger robot hand within a calibrated workcell. Trial outcomes are determined automatically via a lift-and-hold criterion. Upon completion of a trial, an active reset module is engaged to transition the object to a new stable pose, enabling continuous, unattended data collection if unattempted candidates remain at the current location.</p>
+<h3 id="dense-20-camera-perception">Dense 20-camera perception</h3>
+<p>This component is responsible for maintaining state awareness throughout the execution phase. It provides the necessary input for both the initial estimation of the object's pose and for tracking the object's state dynamically during the grasp attempt, even when occluded by the robot hand.</p>
+<h3 id="collision-monitored-motion-execution">Collision-monitored motion execution</h3>
+<p>Execution is performed unattended using a learned residual-torque monitor. This monitor, implemented as <span class="arithmatex">\(\hat{\tau}_{\theta} = MLP_{\theta}(q, \dot{q})\)</span>, calculates the expected torque based on the current state <span class="arithmatex">\((q, \dot{q})\)</span>. The residual torque, <span class="arithmatex">\(\tau_{res} = \hat{\tau}_{\theta} - \tau_{motor}\)</span>, is used to detect unexpected physical contacts that deviate from the model's prediction, ensuring safe operation during unsupervised attempts.</p>
+<h3 id="physical-successfailure-labeling">Physical success/failure labeling</h3>
+<p>The ground truth for each trial is established autonomously. The system employs a lift-and-hold criterion: a trial is classified as a success if the tracked object maintains a vertical separation of at least 5 cm from its initial height for a duration of 3 seconds.</p>
+<h3 id="active-object-reset">Active object reset</h3>
+<p>When the set of candidates for the current object pose is exhausted, this module takes over. It executes collision-free reset grasps to move the object from its current stable pose (<span class="arithmatex">\(P_i\)</span>) to a new, distinct stable pose (<span class="arithmatex">\(P_j\)</span>), thereby facilitating the exploration of the candidate space across multiple configurations without human intervention.</p>
+<h2 id="results">Results</h2>
+<p>The implementation of the AutoDex pipeline yielded significant improvements in data collection efficiency and quality compared to manual methods.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Baseline</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Throughput Improvement</td>
+<td style="text-align: left;">4.8<span class="arithmatex">\(\times\)</span></td>
+<td style="text-align: left;">49.4 h (teleoperation)</td>
+<td style="text-align: left;">Figure 4 (left)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Real-world Success Rate</td>
+<td style="text-align: left;">76%</td>
+<td style="text-align: left;">34%</td>
+<td style="text-align: left;">Figure 4 (right)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="why-this-matters">Why This Matters</h2>
+<p>For tasks involving high-dimensional manipulation, such as dexterous grasping, the bottleneck shifts from algorithmic design to data acquisition. AutoDex demonstrates that end-to-end automation is a necessary paradigm shift to bridge the gap between the scalability of simulation and the necessary reliability of real-world contact validation. The integration of dense multi-view perception with learned residual-torque monitoring provides a viable framework for safe, unsupervised execution in complex physical environments. Furthermore, the inclusion of an active reset mechanism proves critical for efficiently sampling the entire configuration space of an object.</p>
+<h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
+<p>A primary limitation is that the system relies on the modular candidate generator (BODex), which only guarantees kinematic and geometric feasibility; it does not inherently guarantee stability under the full spectrum of real contact dynamics. Additionally, the current reset module for flat objects may necessitate relaxing the placement endpoint constraint, allowing release at a height <span class="arithmatex">\(h\)</span> above the target pose, which introduces a descent constraint that requires further investigation.</p>
+<hr />
+<h2 id="citation">Citation</h2>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.23689">2606.23689</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260623689</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{AutoDex: An Automated Real-World System for Dexterous Grasping Data Collection}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Mingi Choi and Gunhee Kim and Jisoo Kim and Taeksoo Kim and Taeyun Ha and Jongbin Lim et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.23689}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.23689}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</code></pre></div>
 
 
 
