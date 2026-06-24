@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [AutoDex: An Automated Real-World System for Dexterous Grasping Data Collection](2026-06-24-autodex-an-automated-real-world-system-for-dexterous-graspin/) { data-cat="Robotics" data-date="2026-06-24" }
+
+*2026-06-24*
+
+AutoDex is an automated real-world data-collection system that validates generated dexterous grasp candidates on physical hardware, providing a reusable database of physically labeled grasp trials without human intervention.
+
 ## [How Transparent is DiffusionGemma?](2026-06-23-how-transparent-is-diffusiongemma/) { data-cat="Machine Learning" data-date="2026-06-23" }
 
 *2026-06-23*
