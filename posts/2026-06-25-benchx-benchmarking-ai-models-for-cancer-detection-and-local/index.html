@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ActCam is a zero-shot, training-free framework that achieves joint control over character motion and camera trajectory in image-conditioned video generation by constructing camera-aligned pose and depth conditioning signals.
+        <meta name="description" content="BenchX is a large-scale, open benchmark of 85,355 CT scans designed to systematically evaluate 12 tumor-detection AI models for performance inconsistencies across demographic and imaging protocol biases.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-25-benchx-benchmarking-ai-models-for-cancer-detection-and-local/">
       
       
-        <link rel="prev" href="../2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-07-audio-visual-intelligence-in-large-foundation-models/">
+        <link rel="next" href="../2026-06-24-autodex-an-automated-real-world-system-for-dexterous-graspin/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation - JarvisForResearchers</title>
+        <title>BenchX: Benchmarking AI Models for Cancer Detection and Localization with Demographic and Protocol Biases - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation
+              BenchX: Benchmarking AI Models for Cancer Detection and Localization with Demographic and Protocol Biases
             
           </span>
         </div>
@@ -522,10 +522,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-06-25-benchx-benchmarking-ai-models-for-cancer-detection-and-local/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BenchX: Benchmarking AI Models for Cancer Detection and Localization with Demographic and Protocol Biases
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -541,6 +566,151 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#benchx-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BenchX Dataset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llm-metadata-extraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLM Metadata Extraction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consistency-check-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consistency-Check Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1782,35 +1952,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/" class="md-nav__link">
         
   
   
@@ -1826,228 +1971,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#reference-image-i_ref" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reference Image (\(I_{ref}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#acting-video-v_act" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Acting Video (\(V_{act}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#target-camera-trajectory-c" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Target Camera Trajectory (\(C\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#monocular-depth-estimator-moge" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Monocular Depth Estimator (MoGe)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inpainting-process" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Inpainting Process
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scene-transfer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scene Transfer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4d-motion-recovery-gvhmr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4D Motion Recovery (GVHMR)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#character-3d-fitting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Character 3D Fitting
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rasterization-operator-r_c" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rasterization Operator (\(R_C\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#two-phase-conditioning-schedule" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Two-Phase Conditioning Schedule
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2437,10 +2360,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#reference-image-i_ref" class="md-nav__link">
+  <a href="#benchx-dataset" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reference Image (\(I_{ref}\))
+        BenchX Dataset
       
     </span>
   </a>
@@ -2448,10 +2371,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#acting-video-v_act" class="md-nav__link">
+  <a href="#llm-metadata-extraction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Acting Video (\(V_{act}\))
+        LLM Metadata Extraction
       
     </span>
   </a>
@@ -2459,87 +2382,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#target-camera-trajectory-c" class="md-nav__link">
+  <a href="#consistency-check-loop" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Target Camera Trajectory (\(C\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#monocular-depth-estimator-moge" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Monocular Depth Estimator (MoGe)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inpainting-process" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Inpainting Process
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scene-transfer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scene Transfer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4d-motion-recovery-gvhmr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4D Motion Recovery (GVHMR)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#character-3d-fitting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Character 3D Fitting
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rasterization-operator-r_c" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rasterization Operator (\(R_C\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#two-phase-conditioning-schedule" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Two-Phase Conditioning Schedule
+        Consistency-Check Loop
       
     </span>
   </a>
@@ -2616,13 +2462,6 @@
       
       
       
-        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
-      
-    
-      
-      
-      
-      
         <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
@@ -2630,60 +2469,60 @@
       
       
       
-        <a href="../../tags/#tag:diffusion-models" class="md-tag">diffusion-models</a>
+        <a href="../../tags/#tag:generalization" class="md-tag">generalization</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
+        <a href="../../tags/#tag:llm" class="md-tag">llm</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:segmentation" class="md-tag">segmentation</a>
       
     
   </nav>
 
 
 
-  <h1>ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation</h1>
+  <h1>BenchX: Benchmarking AI Models for Cancer Detection and Localization with Demographic and Protocol Biases</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-09</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-06-25</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>ActCam is a training-free framework that achieves joint control over character motion and camera trajectory in image-conditioned video generation by constructing camera-aligned pose and depth conditioning signals.</p>
+<p>BenchX is a large-scale, open benchmark comprising 85,355 abdominal CT scans. It systematically evaluates 12 tumor-detection AI models to expose performance inconsistencies arising from demographic variations and imaging protocol biases, leveraging LLMs for scalable, fine-grained metadata extraction.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Controlling both the subject's acting performance and the camera movements (trajectory, parallax, viewpoint changes) simultaneously in video generation remains largely unexplored. Furthermore, existing 2D motion controls become ambiguous under moving cameras because the same 2D signal can correspond to multiple 3D motions. Prior work has shown that Uni3C requires custom architecture and ad-hoc finetuning, which is expensive and limitedly transferable. Crucially, most existing methods fail to solve the joint requirement of controlling an articulated performance while enforcing a non-trivial camera trajectory.</p>
+<p>Current state-of-the-art AI models deployed for tumor detection frequently exhibit performance degradation when encountering real-world clinical variations, specifically those related to patient demographics and differing CT imaging protocols. The existing evaluation infrastructure is insufficient because most benchmarks report only aggregate accuracy metrics, thereby obscuring critical biases stemming from population or protocol differences. Furthermore, many existing benchmarks are limited to single or few clinical sites and lack the necessary rich metadata required for systematic, granular bias analysis. Existing mitigation strategies, such as domain adaptation, often rely on narrow datasets and fail to provide a systematic assessment of group-wise performance disparities.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>ActCam introduces three primary contributions:
-1. <strong>Zero-shot joint control:</strong> ActCam is a training-free method for joint acting-motion and camera-trajectory control in image-conditioned video generation.
-2. <strong>Condition construction for joint control:</strong> A novel geometry-grounded conditioning pipeline that aligns motion (pose) and scene geometry (depth) to the target camera while preventing static/dynamic interference via reference-character removal, geometry-aware placement, and depth alignment.
-3. <strong>Two-phase conditioning pipeline:</strong> A two-phase inference pipeline that adapts the conditioning information depending on the denoising step, leading to a flexible conditioning that preserves dynamic aspects of the scene.</p>
+<p>We introduce BenchX, a large-scale benchmark featuring fine-grained demographic and protocol annotations designed to systematically expose fairness and domain-generalization gaps in tumor detection and localization models. Our comprehensive evaluation yielded five critical observations: (i) demonstrable demographic disparities across age, sex, and race; (ii) measurable performance degradation contingent upon CT imaging protocols; (iii) amplified detection challenges associated with small tumor sizes and specific tumor locations; (iv) the identification of consistent failure patterns across multiple state-of-the-art models; and (v) validation of these findings across six distinct external cohorts, confirming generalizability. A key methodological contribution is the utilization of large language models (LLMs) to efficiently extract and structure subgroup information from unstructured clinical reports, ensuring the scalability and reproducibility of the analysis.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.06667/fig_p1_c1.jpg" />
-<em>Fig. 1. Overview. ActCam enables zero-shot joint control of acting motion and camera motion for single-image video generation from a reference image,
-assuming only widespread conditioning capability of the backbone model on depth and keypoints. Given a reference image, an acting video representing t</em></p>
-<p>ActCam operates entirely at inference time by constructing camera-aligned conditioning signals for a pretrained video diffusion backbone (such as VACE). The process begins by estimating a background-only depth map (<span class="arithmatex">\(D_{bg}\)</span>) by inpainting the character out of the reference image (<span class="arithmatex">\(I_{ref}\)</span>). A 3D background mesh is subsequently built from <span class="arithmatex">\(D_{bg}\)</span>. The dynamic actor motion is recovered from the acting video (<span class="arithmatex">\(V_{act}\)</span>) using a monocular 3D human motion estimator (GVHMR). Next, scene transfer aligns the character into the background 3D mesh using weighted centroids and an affine transformation. Finally, two control signals—a depth+pose condition and a pose-only condition—are rasterized under the target camera trajectory (<span class="arithmatex">\(C\)</span>). These signals are fed into the diffusion model using a two-phase conditioning schedule: early steps utilize depth+pose, and later steps use pose-only guidance.</p>
-<h3 id="reference-image-i_ref">Reference Image (<span class="arithmatex">\(I_{ref}\)</span>)</h3>
-<p>This input defines the target character identity and the environment appearance that the generated video must adhere to.</p>
-<h3 id="acting-video-v_act">Acting Video (<span class="arithmatex">\(V_{act}\)</span>)</h3>
-<p>This video provides the ground truth for the desired performance motion that the subject must exhibit in the output video.</p>
-<h3 id="target-camera-trajectory-c">Target Camera Trajectory (<span class="arithmatex">\(C\)</span>)</h3>
-<p>This is a per-frame sequence specifying the camera's intrinsic parameters (<span class="arithmatex">\(K_\tau\)</span>) and extrinsic parameters (<span class="arithmatex">\(R_\tau, t_\tau\)</span>) for every frame of the target video.</p>
-<h3 id="monocular-depth-estimator-moge">Monocular Depth Estimator (MoGe)</h3>
-<p>MoGe is employed to estimate the reference depth map (<span class="arithmatex">\(D_{ref}\)</span>) directly from the input reference image (<span class="arithmatex">\(I_{ref}\)</span>).</p>
-<h3 id="inpainting-process">Inpainting Process</h3>
-<p>This process is critical for disentangling the scene. It is used to remove the character from <span class="arithmatex">\(I_{ref}\)</span> to extract a background-only depth map (<span class="arithmatex">\(D_{bg}\)</span>), thereby isolating the static scene geometry.</p>
-<h3 id="scene-transfer">Scene Transfer</h3>
-<p>This component handles the integration of the character into the static environment. It aligns the character into the background 3D mesh by finding a new position while preserving pixel reprojection fidelity, utilizing an importance weighting function <span class="arithmatex">\(w(u, v) = \exp(-\text{dist}(x_{ref}^{u,v}, M))\)</span>.</p>
-<h3 id="4d-motion-recovery-gvhmr">4D Motion Recovery (GVHMR)</h3>
-<p>GVHMR is utilized to recover the articulated state <span class="arithmatex">\(S_\tau\)</span> from the input acting video (<span class="arithmatex">\(V_{act}\)</span>), providing the temporal evolution of the character's pose.</p>
-<h3 id="character-3d-fitting">Character 3D Fitting</h3>
-<p>This step aligns the dynamic poses <span class="arithmatex">\(S\)</span> recovered from <span class="arithmatex">\(V_{act}\)</span> with the assembled background 3D scene. This is achieved via a least squares estimation based on a rigid transformation applied at time <span class="arithmatex">\(\tau=0\)</span>.</p>
-<h3 id="rasterization-operator-r_c">Rasterization Operator (<span class="arithmatex">\(R_C\)</span>)</h3>
-<p>This operator is responsible for generating the dense control signals. It renders the animated skeleton (<span class="arithmatex">\(\hat{S}_\tau\)</span>) and the background 3D mesh under the specific target camera viewpoint <span class="arithmatex">\(C\)</span>.</p>
-<h3 id="two-phase-conditioning-schedule">Two-Phase Conditioning Schedule</h3>
-<p>This schedule dictates how the control signals are injected into the diffusion process. Early denoising steps condition on the combined depth+pose signal for strong camera control, while later steps transition to pose-only guidance for refinement.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.24883/fig_p2_c1.jpg" />
+<em>Fig. 1: Existing tumor-detection models,
+including top leaderboard performers [4,7],
+show inconsistent performance across pa-
+tient demographics (age, race, sex) and
+imaging protocols (contrast phases). This
+benchmark (BenchX) systematically mea-
+sures and exposes these performance gaps.</em></p>
+<p>BenchX aggregates a dataset of 85,355 abdominal CT scans sourced from six distinct clinical cohorts: E-Coast, Merlin, PanTS, N-California, S. Europe, and N-Europe. To achieve the necessary fine-grained annotation, a semi-automated pipeline is employed. Tumor annotations are curated through a consistency-check loop, where only cases exhibiting discordant predictions between segmentation and detection models are escalated for expert review by radiologists, thereby ensuring expert-level ground truth. Crucially, a pre-trained LLM is tasked with extracting structured attributes—such as age, sex, race, and contrast phase—from the unstructured clinical reports, followed by a rigorous two-stage quality control protocol. Model evaluation is performed on this dataset using standard scan-level detection metrics (sensitivity, specificity, AUC, F1-score) without any prior fine-tuning of the evaluated models on BenchX.</p>
+<h3 id="benchx-dataset">BenchX Dataset</h3>
+<p>This component constitutes the core resource: a large-scale benchmark comprising 85,355 abdominal CT scans. These scans are meticulously annotated with fine-grained metadata covering both patient demographics and specific acquisition protocols across the six contributing clinical cohorts.</p>
+<h3 id="llm-metadata-extraction">LLM Metadata Extraction</h3>
+<p>This component details the automated parsing mechanism. A pre-trained LLM is employed to convert unstructured clinical reports into a structured attribute set, adhering to a fixed schema. This process allows for the systematic extraction of variables such as race and contrast phase at scale.</p>
+<h3 id="consistency-check-loop">Consistency-Check Loop</h3>
+<p>This mechanism ensures annotation fidelity. It operates by filtering predictions: only instances where the segmentation model and the detection model yield discordant results trigger a manual review by a radiologist, thereby maintaining high-quality, expert-verified ground truth for tumor annotations.</p>
 <h2 id="results">Results</h2>
+<p>The evaluation revealed significant performance heterogeneity across subgroups. The observed F1 score drop when comparing Arterial vs. Non-contrast to Venous CT was between 15–30%. Furthermore, performance for minority groups on the Merlin cohort was observed as low as 2.5%. When examining top-1 subgroup F1 scores, the E-Coast, PanTS, and N-Europe cohorts showed scores between <span class="arithmatex">\(\ge 70\%\)</span> and <span class="arithmatex">\(74\%\)</span>, whereas the Merlin, N-California, and S-Europe cohorts exhibited scores between <span class="arithmatex">\(\ge 30\%\)</span> and <span class="arithmatex">\(35\%\)</span>.</p>
 <table>
 <thead>
 <tr>
@@ -2695,32 +2534,44 @@ assuming only widespread conditioning capability of the backbone model on depth 
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Camera adherence and motion fidelity</td>
-<td style="text-align: left;">Improves compared to pose-only control and other pose+camera methods</td>
-<td style="text-align: left;">Pose-only control and other pose+camera methods</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">F1 score drop (Arterial/Non-contrast vs Venous)</td>
+<td style="text-align: left;">15–30%</td>
+<td style="text-align: left;">Venous CT</td>
+<td style="text-align: left;">Section 4.2</td>
 </tr>
 <tr>
-<td style="text-align: left;">Preference in human evaluations</td>
-<td style="text-align: left;">Preferred</td>
-<td style="text-align: left;">Not specified</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">F1 score (Minority groups on Merlin)</td>
+<td style="text-align: left;">as low as 2.5%</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Section 1 (Abstract)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Top-1 subgroup F1 (E-Coast, PanTS, N-Europe)</td>
+<td style="text-align: left;"><span class="arithmatex">\(\ge 70\%\)</span>–74%</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Section 4.2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Top-1 subgroup F1 (Merlin, N-California, S-Europe)</td>
+<td style="text-align: left;"><span class="arithmatex">\(\ge 30\%\)</span>–35%</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Section 4.2</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>ActCam provides a practical solution for complex, multi-modal video synthesis tasks without incurring the high cost of model retraining. By systematically constructing camera-aligned conditioning signals—specifically by disentangling static scene geometry from dynamic character motion—it overcomes the ambiguity inherent in using 2D motion cues under arbitrary camera movements. The staged guidance approach further ensures that the diffusion model receives appropriate constraints at the right temporal stage, leading to more coherent and controllable outputs.</p>
+<p>The findings underscore that relying solely on the overall average accuracy metric in the evaluation of medical AI systems is fundamentally misleading, as it effectively masks substantial failures occurring within specific demographic or protocol subgroups. This work establishes that rigorous, subgroup-level evaluation—spanning diverse patient demographics (age, sex, race) and varied imaging protocols (arterial, non-contrast, venous, delayed)—is not merely beneficial but critical for engineering truly robust and clinically trustworthy AI systems. Moreover, the successful application of LLMs demonstrates a viable pathway for scaling the curation of complex, fine-grained metadata from otherwise inaccessible unstructured clinical reports.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The method's efficacy is contingent upon the backbone model possessing robust conditioning capabilities for both depth maps and keypoints. Furthermore, the sequential nature of the pipeline, involving multiple estimation passes (such as <span class="arithmatex">\(D_{ref}\)</span> and <span class="arithmatex">\(D_{bg}\)</span>), introduces potential for 3D space inconsistencies if the scene transfer mechanism does not perfectly resolve these discrepancies.</p>
+<p>A primary limitation of this study is that the benchmark evaluation was conducted without applying any additional fine-tuning of the evaluated models specifically on the BenchX dataset. Additionally, when calculating subgroup-specific metrics, cases where the attribute was labeled as "Unknown" (e.g., for race or contrast phase) were necessarily excluded from the computation. Future work should investigate the impact of targeted domain adaptation strategies when applied to BenchX, and explore methods to impute or handle missing attribute labels more robustly within the subgroup analysis framework.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.06667">2605.06667</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260506667</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Omar El Khalifi and Thomas Rossi and Oscar Fossey and Thibault Fouque and Ulysse Mizrahi and Philip Torr et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.06667}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.24883">2606.24883</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260624883</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{BenchX: Benchmarking AI Models for Cancer Detection and Localization with Demographic and Protocol Biases}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Qi Chen and Wenxuan Li and Pedro R. A. S. Bassi and Xinze Zhou and Jakob Wasserthal and Ibrahim Ethem Hamamci et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.24883}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.06667}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.24883}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
