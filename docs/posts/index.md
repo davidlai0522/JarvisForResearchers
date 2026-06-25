@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [BenchX: Benchmarking AI Models for Cancer Detection and Localization with Demographic and Protocol Biases](2026-06-25-benchx-benchmarking-ai-models-for-cancer-detection-and-local/) { data-cat="Computer Vision" data-date="2026-06-25" }
+
+*2026-06-25*
+
+BenchX is a large-scale, open benchmark of 85,355 CT scans designed to systematically evaluate 12 tumor-detection AI models for performance inconsistencies across demographic and imaging protocol biases.
+
 ## [AutoDex: An Automated Real-World System for Dexterous Grasping Data Collection](2026-06-24-autodex-an-automated-real-world-system-for-dexterous-graspin/) { data-cat="Robotics" data-date="2026-06-24" }
 
 *2026-06-24*
