@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Learning Action Priors for Cross-embodiment Robot Manipulation](2026-06-26-learning-action-priors-for-cross-embodiment-robot-manipulati/) { data-cat="Robotics" data-date="2026-06-26" }
+
+*2026-06-26*
+
+This work proposes a two-stage training framework to inject explicit temporal motion priors into Vision-Language-Action (VLA) models by pretraining an action module solely on unconditioned action trajectories before cross-modal VLA alignment.
+
 ## [BenchX: Benchmarking AI Models for Cancer Detection and Localization with Demographic and Protocol Biases](2026-06-25-benchx-benchmarking-ai-models-for-cancer-detection-and-local/) { data-cat="Computer Vision" data-date="2026-06-25" }
 
 *2026-06-25*
