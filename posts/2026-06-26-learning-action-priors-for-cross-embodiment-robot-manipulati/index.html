@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This survey provides the first comprehensive review of Audio-Visual Intelligence (AVI) within the paradigm of large foundation models, unifying perception, generation, and interaction research under a coherent framework.
+        <meta name="description" content="This work proposes a two-stage training framework to inject explicit temporal motion priors into Vision-Language-Action (VLA) models by pretraining an action module solely on unconditioned action trajectories before cross-modal VLA alignment.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-07-audio-visual-intelligence-in-large-foundation-models/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-26-learning-action-priors-for-cross-embodiment-robot-manipulati/">
       
       
-        <link rel="prev" href="../2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/">
+        <link rel="next" href="../2026-06-25-benchx-benchmarking-ai-models-for-cancer-detection-and-local/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Audio-Visual Intelligence in Large Foundation Models - JarvisForResearchers</title>
+        <title>Learning Action Priors for Cross-embodiment Robot Manipulation - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Audio-Visual Intelligence in Large Foundation Models
+              Learning Action Priors for Cross-embodiment Robot Manipulation
             
           </span>
         </div>
@@ -524,10 +524,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-06-26-learning-action-priors-for-cross-embodiment-robot-manipulati/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Action Priors for Cross-embodiment Robot Manipulation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -543,6 +568,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#action-encoder-e_phi_enc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action Encoder (\(E_{\phi_{enc}}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flow-matching-action-decoder-d_phi_dec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flow-matching Action Decoder (\(D_{\phi_{dec}}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlm-backbone-theta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VLM Backbone (\(\theta\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action-module-stage-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action Module (Stage 1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#history-compressor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        History Compressor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1840,35 +2032,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Audio-Visual Intelligence in Large Foundation Models
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-07-audio-visual-intelligence-in-large-foundation-models/" class="md-nav__link">
         
   
   
@@ -1884,184 +2051,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#audio-modality" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Audio Modality
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#visual-modality" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visual Modality
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cross-modal-fusion-and-alignment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cross-Modal Fusion and Alignment
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#autoregressive-generation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Autoregressive Generation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#diffusion-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Diffusion Models
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#llm-centric-methods" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LLM-Centric Methods
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2423,10 +2412,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#audio-modality" class="md-nav__link">
+  <a href="#action-encoder-e_phi_enc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Audio Modality
+        Action Encoder (\(E_{\phi_{enc}}\))
       
     </span>
   </a>
@@ -2434,10 +2423,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#visual-modality" class="md-nav__link">
+  <a href="#flow-matching-action-decoder-d_phi_dec" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Visual Modality
+        Flow-matching Action Decoder (\(D_{\phi_{dec}}\))
       
     </span>
   </a>
@@ -2445,10 +2434,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cross-modal-fusion-and-alignment" class="md-nav__link">
+  <a href="#vlm-backbone-theta" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cross-Modal Fusion and Alignment
+        VLM Backbone (\(\theta\))
       
     </span>
   </a>
@@ -2456,10 +2445,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#autoregressive-generation" class="md-nav__link">
+  <a href="#action-module-stage-1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Autoregressive Generation
+        Action Module (Stage 1)
       
     </span>
   </a>
@@ -2467,21 +2456,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#diffusion-models" class="md-nav__link">
+  <a href="#history-compressor" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Diffusion Models
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#llm-centric-methods" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LLM-Centric Methods
+        History Compressor
       
     </span>
   </a>
@@ -2558,6 +2536,13 @@
       
       
       
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
+      
+    
+      
+      
+      
+      
         <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
@@ -2565,76 +2550,99 @@
       
       
       
-        <a href="../../tags/#tag:diffusion-models" class="md-tag">diffusion-models</a>
+        <a href="../../tags/#tag:llm" class="md-tag">llm</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:foundation-models" class="md-tag">foundation-models</a>
+        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:perception" class="md-tag">perception</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:transformers" class="md-tag">transformers</a>
+        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
       
     
   </nav>
 
 
 
-  <h1>Audio-Visual Intelligence in Large Foundation Models</h1>
+  <h1>Learning Action Priors for Cross-embodiment Robot Manipulation</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-07</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-06-26</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>This survey provides the first comprehensive review of Audio-Visual Intelligence (AVI) within the paradigm of large foundation models, unifying perception, generation, and interaction research under a coherent framework. It establishes a principled taxonomy and consolidates the methodological foundations necessary for systematic progress in this rapidly evolving domain.</p>
+<p>We introduce a two-stage training paradigm for Vision-Language-Action (VLA) models. Stage 1 pretrains a flow-matching encoder-decoder action module exclusively on unconditioned robot action trajectories to distill explicit temporal motion priors. Stage 2 transfers these priors to the VLA framework via decoder reuse, latent distillation, and history compression, decoupling motion dynamics learning from cross-modal alignment to stabilize training and enhance policy performance across diverse embodiments.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>The literature on Audio-Visual Intelligence (AVI) is fragmented, spanning diverse tasks, inconsistent taxonomies, and heterogeneous evaluation practices, which impedes systematic comparison and knowledge integration. Specifically, the existing body of work suffers from several critical issues: the literature remains fragmented across subcommunities with overlapping definitions, inconsistent terminology, and divergent taxonomies that hinder cumulative understanding; evaluation practices vary widely in datasets, metrics, and protocols, especially for open-ended generation, alignment quality, temporal coherence, and human-centric judgments, which complicates reproducibility and benchmarking; and safety and governance concerns, such as privacy in audio/video, consent for speech and music, watermarking and provenance, and the energy footprint of foundation-scale training, are increasingly consequential yet unevenly addressed.</p>
+<p>Standard VLA architectures typically leverage a pre-trained Vision-Language Model (VLM) backbone, inheriting robust priors regarding visual semantics and linguistic understanding. However, the associated action module is often tasked with learning the underlying physics of motion almost from scratch. This forces the optimization process to simultaneously solve two complex, coupled problems: discovering the latent temporal dynamics of physical action and achieving effective cross-modal alignment between vision/language and action. This joint optimization is inherently unstable, particularly when deploying the system across different robotic embodiments where the action space and dynamics vary significantly.</p>
+<p>The gaps in prior work are threefold: first, most VLA models neglect to explicitly pretrain the action module on raw motion data. Second, existing approaches that integrate action modules into foundation VLMs often optimize the entire system end-to-end via imitation learning, resulting in unstable gradients originating from an insufficiently trained action head. Third, most prior attempts to inject action priors rely on visual observations, future-state prediction, or vision-action policy learning, rather than leveraging the raw, unconditioned robot action trajectories themselves.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>This work makes three primary contributions. First, it provides the first systematic and in-depth survey of Audio-Visual Intelligence within the paradigm of large foundation models, unifying perception, generation, and interaction research under a coherent framework. Second, it establishes a principled taxonomy that organizes the diverse audio-visual tasks—covering speech, music, sound events, video, and open-world understanding, generation, and interaction—while clarifying task scope, assumptions, and relationships among subproblems. Third, it consolidates the methodological foundations of AVI, including audio/visual tokenization, cross-modal fusion, autoregressive and diffusion-based generation, instruction alignment, and large-scale pretraining strategies.</p>
+<p>This work makes three primary contributions. First, we propose a novel two-stage training framework that efficiently isolates and learns action-centric robot motion dynamics prior to the computationally intensive cross-modal VLA alignment phase. Second, we introduce a flow-matching encoder-decoder action module capable of learning compact, motion-aware embeddings, which are then effectively transferred as action priors into the VLA training pipeline, yielding a crucial history context token. Third, we validate this approach across 13 distinct cross-embodiment tasks, demonstrating measurable improvements in convergence speed, final success rates, enhanced stability in long-tail scenarios, and favorable scaling behavior as the volume of available action data increases.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.04045/fig_p1_u0.jpg" />
-<em>Please provide the figure you would like me to analyze.</em></p>
-<p>The survey synthesizes methodological foundations for AVI, which build upon modality-specific encoders or tokenizers for audio and vision, followed by cross-modal fusion and alignment techniques. Generative capabilities are addressed using autoregressive transformers for sequence modeling or diffusion models for high-fidelity synthesis, often adapted via cross-attention and guidance mechanisms. Furthermore, LLM-centric methods are synthesized, including Encoder+LLM for perception, LLM+Generator for generation, and unified models for joint perception and generation, all tailored for instruction alignment and preference optimization.</p>
-<h3 id="audio-modality">Audio Modality</h3>
-<p>The Audio Modality originates from physical vibrations, captured as 1D time-series digital signals (waveform, <span class="arithmatex">\(a \in \mathbb{R}^L\)</span>) or transformed into time-frequency representations (spectrograms). The choice of representation dictates the subsequent processing pipeline, often requiring specialized feature extractors to capture relevant acoustic invariants.</p>
-<h3 id="visual-modality">Visual Modality</h3>
-<p>The Visual Modality is data represented as images or video, processed through unimodal representations before cross-modal integration. Standard computer vision backbones are employed here, but the complexity scales significantly when dealing with temporal dependencies inherent in video streams.</p>
-<h3 id="cross-modal-fusion-and-alignment">Cross-Modal Fusion and Alignment</h3>
-<p>Cross-Modal Fusion and Alignment techniques are employed to align and integrate representations from the audio and visual modalities. This step is crucial for enabling joint reasoning, ensuring that semantic correspondences between auditory and visual events are preserved across the latent space.</p>
-<h3 id="autoregressive-generation">Autoregressive Generation</h3>
-<p>Autoregressive Generation utilizes transformers driving sequence modeling for speech, music, and video tokens, enabling conditional decoding and instruction following at scale. This paradigm is fundamentally sequential, making it suitable for modeling temporal dependencies inherent in generative tasks.</p>
-<h3 id="diffusion-models">Diffusion Models</h3>
-<p>Diffusion Models provide high-fidelity synthesis and flexible editing, increasingly adapted to multimodal control via cross-attention and guidance mechanisms. Their strength lies in generating samples that adhere closely to complex, learned data distributions, often surpassing the fidelity limits of purely autoregressive approaches in certain domains.</p>
-<h3 id="llm-centric-methods">LLM-Centric Methods</h3>
-<p>LLM-Centric Methods encompass architectures utilizing Large Language Models. These include Encoder+LLM for Multimodal Perception, where the LLM interprets fused sensory data, and LLM+Generator for Multimodal Generation, where the LLM guides the synthesis process of a separate generative module.</p>
+<p><img alt="Please provide the figure you would like me to analyze. I will then follow your instructions precisely." src="../../assets/figures/2606.26095/fig_p2_c1.jpg" />
+<em>Fig. 1: Illustration of motivation: a policy should first learn to move, and then learn to see and act. (a) In Stage 1, the
+action module is trained purely on action trajectories, without any visual observation or language instruction, to efficiently
+acquire a general action prior. (b) In Stage 2, t</em></p>
+<p>The methodology is structured around a sequential, two-stage training process.</p>
+<p>In Stage 1, the core objective is to imbue the action module with a strong understanding of temporal motion structure independent of visual or linguistic context. A lightweight, flow-matching-based encoder-decoder action module is trained exclusively on unconditioned action trajectories. The training minimizes an action reconstruction objective, forcing the system to learn a compact representation of the trajectory. The encoder compresses the entire trajectory sequence into a single, dense latent embedding, while the decoder is trained to reconstruct the original action chunk conditioned on this latent state.</p>
+<p>In Stage 2, this learned motion prior is injected into the VLA training loop through three distinct mechanisms: decoder reuse, early-stage latent distillation, and history compression. The decoder from Stage 1 is repurposed as the VLA action head. Furthermore, we supervise the VLM's predicted action feature by distilling knowledge from the encoder's structured embedding during early training. Finally, the encoder is utilized as a History Compressor, mapping sequences of past state-action trajectories into a single, temporally rich context token that is fed into the VLM. This decoupling strategy ensures that the difficult task of learning physical dynamics is solved before the complexities of cross-modal alignment are introduced, leading to smoother policy rollouts and accelerated convergence.</p>
+<h3 id="action-encoder-e_phi_enc">Action Encoder (<span class="arithmatex">\(E_{\phi_{enc}}\)</span>)</h3>
+<p>The Action Encoder is a Transformer-based architecture designed for trajectory summarization. It accepts a low-level trajectory <span class="arithmatex">\(\tau = [s_t, a_t, s_{t+1}, a_{t+1}, \dots]\)</span> as input. To generate a fixed-size, representative embedding, it prepends a learnable summary token, <span class="arithmatex">\(cls\)</span>, alongside dataset-specific embeddings <span class="arithmatex">\(p_k\)</span>. The output is a single dense latent embedding <span class="arithmatex">\(z = E_{\phi_{enc}}(cls, p_k, \tau)\)</span>, which serves as the compressed representation of the entire input sequence.</p>
+<h3 id="flow-matching-action-decoder-d_phi_dec">Flow-matching Action Decoder (<span class="arithmatex">\(D_{\phi_{dec}}\)</span>)</h3>
+<p>The Flow-matching Action Decoder is conditioned directly on the latent embedding <span class="arithmatex">\(z\)</span> produced by the encoder. Its function is to model the continuous action distribution. It reconstructs the original action chunk <span class="arithmatex">\(a\)</span> by optimizing a flow-matching objective. This objective ensures that the decoder accurately maps the compressed latent state back to the high-dimensional, continuous action space.</p>
+<h3 id="vlm-backbone-theta">VLM Backbone (<span class="arithmatex">\(\theta\)</span>)</h3>
+<p>The VLM Backbone (<span class="arithmatex">\(\theta\)</span>) constitutes the foundation model responsible for integrating high-level semantic information. It processes the multimodal inputs: visual observations (<span class="arithmatex">\(o_t\)</span>), linguistic instructions (<span class="arithmatex">\(l_t\)</span>), and the temporal context token derived from the History Compressor. This backbone is the primary policy network that utilizes the motion priors provided by the action module.</p>
+<h3 id="action-module-stage-1">Action Module (Stage 1)</h3>
+<p>This component is the standalone system trained in the initial phase. It consists of the Action Encoder and the Flow-matching Action Decoder. Its sole objective is to acquire the Action Prior by minimizing the action reconstruction loss on raw, unconditioned action trajectories. This phase effectively disentangles the learning of temporal dynamics from the semantic grounding required for VLA.</p>
+<h3 id="history-compressor">History Compressor</h3>
+<p>In Stage 2, the Action Encoder is repurposed as the History Compressor. Its role is to ingest sequences of past state-action trajectories and distill them into a single, fixed-size latent token, <span class="arithmatex">\(z_{hist}\)</span>. This token encapsulates the necessary temporal context from the history, allowing the VLM to maintain a memory of past actions and states without requiring an exponentially growing input sequence length.</p>
 <h2 id="results">Results</h2>
-<p>(No quantitative results were provided in the outline.)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Baseline</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Convergence/Success Rates</td>
+<td style="text-align: left;">Faster convergence, higher success rates</td>
+<td style="text-align: left;">VLA training without action priors</td>
+<td style="text-align: left;">Figure 1(c)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Long-tail Stability</td>
+<td style="text-align: left;">Improved long-tail stability</td>
+<td style="text-align: left;">From-scratch VLA training</td>
+<td style="text-align: left;">Textual description</td>
+</tr>
+</tbody>
+</table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The structured review provided by this survey offers practitioners a clear roadmap for research focus. The field is structured into three main pillars: Perception (Section 5), Generation (Section 6), and Interaction (Section 7), providing a clear roadmap for research focus. Furthermore, the consolidation of key technical components—modality tokenization, cross-modal fusion, and the application of both autoregressive and diffusion-based generation—provides a necessary reference point for engineering design. Ultimately, this synthesis highlights that future research must address open challenges such as temporal synchronization, spatial audio reasoning, and multimodal controllability to advance the state-of-the-art in AVI.</p>
+<p>The decoupling of motion learning from cross-modal alignment is a critical architectural advancement for robust embodied AI. By pretraining the action module on raw dynamics, we provide the VLA system with a structurally sound, physics-informed prior before it encounters the noise and ambiguity of real-world visual and linguistic data. This stabilization translates directly into faster training schedules and higher reliability, especially when deploying models across heterogeneous robotic platforms (cross-embodiment settings). The use of flow-matching provides a mathematically rigorous way to handle the continuous nature of physical actions while the History Compressor offers an efficient mechanism for long-horizon planning within the VLM's context window.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The primary limitations identified in the current literature are that the literature remains fragmented across subcommunities with overlapping definitions, inconsistent terminology, and divergent taxonomies. Concurrently, evaluation practices vary widely in datasets, metrics, and protocols, complicating reproducibility and benchmarking.</p>
+<p>The current methodology necessitates a two-stage training process. This sequential dependency requires careful management of data pipelines and hyperparameter scheduling between the action prior learning phase and the subsequent VLA alignment phase. Furthermore, the latent distillation mechanism in Stage 2 involves gradually relaxing the constraint imposed by the encoder's structured embedding onto the VLM's predicted action feature. The precise rate and schedule of this relaxation remain an area for further investigation to optimize the transfer efficiency without introducing unnecessary noise.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.04045">2605.04045</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260504045</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Audio-Visual Intelligence in Large Foundation Models}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{You Qin and Kai Liu and Shengqiong Wu and Kai Wang and Shijian Deng and Yapeng Tian et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.04045}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.26095">2606.26095</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260626095</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Learning Action Priors for Cross-embodiment Robot Manipulation}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Dong Jing and Tianqi Zhang and Jiaqi Liu and Jinman Zhao and Zelong Sun and Li Erran Li et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.26095}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.04045}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.26095}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
