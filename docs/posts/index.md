@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Scalable Behavior Cloning with Open Data, Training, and Evaluation](2026-06-27-scalable-behavior-cloning-with-open-data-training-and-evalua/) { data-cat="Robotics" data-date="2026-06-27" }
+
+*2026-06-27*
+
+ABC introduces a fully open-source stack for behavior cloning in robot manipulation, centered around the ABC-130K dataset, allowing for reproducible exploration of model architectures and training recipes.
+
 ## [Learning Action Priors for Cross-embodiment Robot Manipulation](2026-06-26-learning-action-priors-for-cross-embodiment-robot-manipulati/) { data-cat="Robotics" data-date="2026-06-26" }
 
 *2026-06-26*
