@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This work presents a comprehensive evaluation framework and benchmark suite, MultiNet v0.1, to systematically assess the capabilities and limitations of Vision-Language-Action (VLA) models like GPT-4o, OpenVLA, and JAT across 20 diverse real-world robotic tasks from the Open-X-Embodiment collection.
+        <meta name="description" content="DanceOPD is an on-policy generative field distillation framework for flow-matching models that resolves multi-capability composition challenges by hard-routing samples to specific capability fields, querying these fields on student-induced states, and using a simple velocity MSE objective.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-28-danceopd-on-policy-generative-field-distillation/">
       
       
-        <link rel="prev" href="../2026-05-15-eva-bench-a-new-end-to-end-framework-for-evaluating-voice-ag/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-12-normalizing-trajectory-models/">
+        <link rel="next" href="../2026-06-27-scalable-behavior-cloning-with-open-data-training-and-evalua/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Benchmarking Vision, Language, & Action Models on Robotic Learning Tasks - JarvisForResearchers</title>
+        <title>DanceOPD: On-Policy Generative Field Distillation - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Benchmarking Vision, Language, & Action Models on Robotic Learning Tasks
+              DanceOPD: On-Policy Generative Field Distillation
             
           </span>
         </div>
@@ -528,10 +528,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-06-28-danceopd-on-policy-generative-field-distillation/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DanceOPD: On-Policy Generative Field Distillation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -547,6 +572,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trainable-student-textv_theta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trainable Student (\(\text{v}_\theta\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frozen-capability-sources-textv_m_m1m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frozen Capability Sources (\(\{\text{v}_m\}_{m=1}^M\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hard-routed-sample-wise-field-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hard-Routed Sample-Wise Field Matching
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-policy-field-querying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On-Policy Field Querying
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semantic-side-single-query" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantic-Side Single Query
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1732,35 +1924,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Benchmarking Vision, Language, & Action Models on Robotic Learning Tasks
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/" class="md-nav__link">
         
   
   
@@ -1776,151 +1943,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#jat" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        JAT
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gpt-4o" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GPT-4o
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#openvla" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OpenVLA
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2450,10 +2472,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#jat" class="md-nav__link">
+  <a href="#trainable-student-textv_theta" class="md-nav__link">
     <span class="md-ellipsis">
       
-        JAT
+        Trainable Student (\(\text{v}_\theta\))
       
     </span>
   </a>
@@ -2461,10 +2483,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#gpt-4o" class="md-nav__link">
+  <a href="#frozen-capability-sources-textv_m_m1m" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GPT-4o
+        Frozen Capability Sources (\(\{\text{v}_m\}_{m=1}^M\))
       
     </span>
   </a>
@@ -2472,10 +2494,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#openvla" class="md-nav__link">
+  <a href="#hard-routed-sample-wise-field-matching" class="md-nav__link">
     <span class="md-ellipsis">
       
-        OpenVLA
+        Hard-Routed Sample-Wise Field Matching
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-policy-field-querying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On-Policy Field Querying
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semantic-side-single-query" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantic-Side Single Query
       
     </span>
   </a>
@@ -2559,20 +2603,6 @@
       
       
       
-        <a href="../../tags/#tag:foundation-models" class="md-tag">foundation-models</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:generalization" class="md-tag">generalization</a>
-      
-    
-      
-      
-      
-      
         <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
       
     
@@ -2580,52 +2610,52 @@
       
       
       
-        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
+        <a href="../../tags/#tag:nlp" class="md-tag">nlp</a>
       
     
   </nav>
 
 
 
-  <h1>Benchmarking Vision, Language, & Action Models on Robotic Learning Tasks</h1>
+  <h1>DanceOPD: On-Policy Generative Field Distillation</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-14</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-06-28</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
-<p>arXiv preprint with 22 citations (≥ 20)</p>
+<p>Not yet indexed in S2 — assumed brand-new preprint</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>We introduce MultiNet v0.1, a systematic evaluation framework benchmarking three state-of-the-art Vision-Language-Action (VLA) models—JAT, GPT-4o, and OpenVLA—across 20 diverse, real-world robotic tasks sourced from the Open-X-Embodiment collection. The evaluation, conducted in a zero-shot setting using Mean Squared Error (MSE) as the primary metric, reveals that while these models show promise, they exhibit significant sensitivity to task complexity and environmental variance, particularly struggling with multi-step planning.</p>
+<p>DanceOPD introduces an on-policy generative field distillation framework for flow-matching models. It addresses capability interference in multi-capability generation by hard-routing samples to specific, frozen capability fields, querying these fields on student-induced states, and minimizing velocity MSE. This approach effectively manages target-field ambiguity, state-distribution mismatch, and trajectory-query correlation inherent in composing diverse generative tasks.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>The integration of foundation models into robotics promises a paradigm shift toward general-purpose robotic systems capable of interpreting high-level natural language instructions and executing complex actions. However, the current state of research suffers from a lack of systematic evaluation across diverse robotic tasks. Many existing methodologies constrain foundation models to supervisory roles, effectively treating them as advanced state machines whose outputs are executed by separate, low-level controllers. Furthermore, there is an insufficient, large-scale comparison of different Behavior Cloning (BC) architectures when tested against a heterogeneous set of real-world robotic challenges. This gap prevents a clear understanding of the true generalization capabilities and inherent limitations of contemporary VLA models.</p>
+<p>Modern generative models are increasingly expected to serve as unified platforms capable of executing diverse functions—such as text-to-image synthesis (T2I), local image editing, and global style transfer—within a single deployed instance. However, when optimizing a single model to accommodate these disparate capabilities, the underlying optimization objectives often conflict. Capabilities are rarely naturally aligned in the parameter space, and attempting to unify them through standard joint training or parameter merging typically results in capability interference, where the model performs sub-optimally across all intended functions.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>This work delivers three primary contributions to the field:
-1. Detailed profiling results for an initial set of VLM, VLA, and emerging "generalist" models, providing empirical insights into their operational capabilities and failure modes.
-2. A rigorous analysis of model generalization when applied to a diverse suite of real-world robotics datasets, encompassing a wide spectrum of tasks and environmental conditions.
-3. The establishment of a systematic set of evaluation splits and metrics specifically tailored for robotics learning tasks within the widely-utilized OpenX Dataset.</p>
+<p>We present DanceOPD, a novel framework that reframes multi-capability image generation as an on-policy generative field distillation problem. Our primary contributions are:</p>
+<ol>
+<li>Formulating multi-capability image generation as on-policy generative field distillation and introducing DanceOPD, a hard-routed, semantic-side velocity-matching method applied to states visited by the student model.</li>
+<li>Systematically identifying three critical query-induced alignment challenges—target-field ambiguity, state-distribution mismatch, and trajectory-query correlation—and demonstrating how the architecture is specifically designed to mitigate each.</li>
+<li>Empirically confirming the efficacy of DanceOPD across complex composition tasks, including T2I and editing composition, as well as its ability to absorb realism and classifier-free guidance (CFG) properties.</li>
+</ol>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze. I will then follow your instructions precisely." src="../assets/figures/2411.05821/fig_p2_c1.jpg" />
-<em>Figure 1: Multinet v0.1 overview. Benchmarking a SoTA VLM, SoTA VLA, and novel generalist model on 20
-real-world robotics datasets by comparing the action predicted by the models, with the ground truth action from the
-dataset, at every timestep.</em></p>
-<p>The evaluation framework leverages the Open X-Embodiment Dataset (OpenX), which aggregates over one million real robot trajectories captured across 22 distinct robot embodiments. We profile three state-of-the-art models—JAT, GPT-4o, and OpenVLA—across 20 selected datasets. Performance quantification relies primarily on Mean Squared Error (MSE), defined as <span class="arithmatex">\(\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2\)</span>, where <span class="arithmatex">\(y_i\)</span> is the ground truth action and <span class="arithmatex">\(\hat{y}_i\)</span> is the predicted action. We also report Average MSE (AMSE) and Normalized AMSE (NAMSE). All models are assessed in a zero-shot configuration, which necessitates specific input preprocessing; for instance, JAT requires 4-channel image inputs, and GPT-4o demands comprehensive prompt engineering.</p>
-<h3 id="jat">JAT</h3>
-<p>JAT is architecturally defined as a transformer-based model featuring 768-dimensional hidden states and 12 layers. Its operational mechanism incorporates a dual attention strategy: a global attention mechanism operating over a 512-token window, complemented by a local attention mechanism constrained to a 256-token window.</p>
-<h3 id="gpt-4o">GPT-4o</h3>
-<p>GPT-4o functions as an omni-modal model. Its defining characteristic is its capacity to ingest and process heterogeneous inputs—including text, audio, image, and video—while simultaneously generating multi-modal outputs.</p>
-<h3 id="openvla">OpenVLA</h3>
-<p>OpenVLA is an open-source VLA model parameterized by 7 billion parameters. Its structure integrates a 600-million-parameter visual encoder, which is built upon SigLIP and DinoV2 models, with a 7-billion-parameter Llama 2 language model backbone.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.27377/fig_p1_c1.jpg" />
+<em>Figure 1 DanceOPD Improves Multi-Capability Composition. Left: Per-metric performance for the two composition
+settings, compared with representative baselines. Right: Editing×T2I capability space for their composition, with
+marker size denoting per-step training cost. DanceOPD achieves a better comp</em></p>
+<p>DanceOPD operates by treating each distinct, frozen capability source as a specialized velocity field defined over a shared generative state space. The core innovation lies in how supervision is applied to the student model (<span class="arithmatex">\(\text{v}_\theta\)</span>) using these expert fields.</p>
+<h3 id="trainable-student-textv_theta">Trainable Student (<span class="arithmatex">\(\text{v}_\theta\)</span>)</h3>
+<p>The student model is the target of the distillation process. Its parameters are iteratively updated to assimilate the diverse capabilities encoded in the frozen sources. It operates within the shared generative state space, evolving according to the flow dynamics.</p>
+<h3 id="frozen-capability-sources-textv_m_m1m">Frozen Capability Sources (<span class="arithmatex">\(\{\text{v}_m\}_{m=1}^M\)</span>)</h3>
+<p>We maintain a set of <span class="arithmatex">\(M \ge 2\)</span> frozen models, <span class="arithmatex">\(\{\text{v}_m\}_{m=1}^M\)</span>. Each <span class="arithmatex">\(\text{v}_m\)</span> is pre-trained to excel at a specific capability (e.g., T2I, inpainting). Each <span class="arithmatex">\(\text{v}_m\)</span> defines a capability-specific velocity field <span class="arithmatex">\(\text{v}_m(z_t, t, c)\)</span> over the shared state space, where <span class="arithmatex">\(c\)</span> represents capability-specific conditioning.</p>
+<h3 id="hard-routed-sample-wise-field-matching">Hard-Routed Sample-Wise Field Matching</h3>
+<p>To resolve the <strong>target-field ambiguity</strong>—the problem of which expert field should supervise a given sample—we employ hard-routing. Each training sample is deterministically dispatched to exactly one capability field <span class="arithmatex">\(\text{v}_m\)</span>. This ensures that the semantic identity of the sample is preserved during the distillation step, preventing the averaging or dilution of distinct capabilities that occurs in soft-mixing approaches.</p>
+<h3 id="on-policy-field-querying">On-Policy Field Querying</h3>
+<p>To address <strong>state-distribution mismatch</strong>, we must ensure the supervision aligns with the state distribution the student model actually traverses during its rollout. Instead of querying the expert field on a fixed, pre-defined state, we query the selected field <span class="arithmatex">\(\text{v}_m\)</span> on a stop-gradient state <span class="arithmatex">\(z'_t\)</span> that is drawn directly from the current student rollout. This grounds the supervision in the student's own visitation distribution.</p>
+<h3 id="semantic-side-single-query">Semantic-Side Single Query</h3>
+<p>To mitigate <strong>trajectory-query correlation</strong>, which arises when multiple samples along a single trajectory are correlated, we enforce the use of a single, low-noise query per sample. This query is strategically placed on the semantic side of the noise schedule, corresponding to the regime where the capability-specific information encoded in the expert fields is most concentrated, thereby maximizing the signal-to-noise ratio for the distillation objective.</p>
+<p>The student is trained using a standard velocity Mean Squared Error (MSE) loss, <span class="arithmatex">\(\mathcal{L}_{\text{MSE}} = \mathbb{E}_{t, z_t, c} [ \| \text{v}_\theta(z_t, t, c) - \text{v}_m(z'_t, t, c) \|^2 ]\)</span>, where the routing and querying mechanisms define the specific <span class="arithmatex">\(\text{v}_m\)</span> and <span class="arithmatex">\(z'_t\)</span> used for that sample. This simple objective naturally subsumes operator-defined guidance mechanisms, such as Classifier-Free Guidance (CFG).</p>
 <h2 id="results">Results</h2>
-<p>The profiling across the 20 tasks yielded several observable trends regarding model robustness and capability.</p>
+<p>The empirical evaluation demonstrates the effectiveness of the DanceOPD framework across various composition tasks and absorption capabilities.</p>
 <table>
 <thead>
 <tr>
@@ -2637,38 +2667,62 @@ dataset, at every timestep.</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Performance Consistency</td>
-<td style="text-align: left;">GPT-4o demonstrating the most consistent performance</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">GEditBench (T2I and editing composition)</td>
+<td style="text-align: left;">8.1% improvement over the best reproduced OPD baseline</td>
+<td style="text-align: left;">Best reproduced OPD baseline</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Task Difficulty</td>
-<td style="text-align: left;">All models struggle with complex manipulation tasks requiring multi-step planning</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">GEditBench (T2I and editing composition)</td>
+<td style="text-align: left;">8.5% improvement over the edit source</td>
+<td style="text-align: left;">Edit source</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Sensitivity</td>
-<td style="text-align: left;">Model performance is notably sensitive to action space characteristics and environmental factors</td>
+<td style="text-align: left;">Improvement over best competing composition baseline (local and global edit composition)</td>
+<td style="text-align: left;">16.1%</td>
+<td style="text-align: left;">Best competing composition baseline</td>
+<td style="text-align: left;">Table 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Improvement over local edit source (local and global edit composition)</td>
+<td style="text-align: left;">7.9%</td>
+<td style="text-align: left;">Local edit source</td>
+<td style="text-align: left;">Table 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Realism reward improvement (realism-field absorption)</td>
+<td style="text-align: left;">9.9%</td>
+<td style="text-align: left;">Off-policy distillation</td>
+<td style="text-align: left;">Table 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Student-to-teacher reward gap closure (realism-field absorption)</td>
+<td style="text-align: left;">85.3%</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">Table 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Improvement over train-only absorption (CFG absorption)</td>
+<td style="text-align: left;">7.6%</td>
+<td style="text-align: left;">Train-only absorption</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The findings underscore the critical need for systematic benchmarking when assessing the practical utility of generalist VLA models in robotics. The observed variance in performance across tasks and robot platforms confirms that a monolithic assessment is insufficient; task-specific evaluation is mandatory. Furthermore, the consistent difficulty observed in complex, multi-step planning highlights that current VLA architectures, despite their advanced perceptual and linguistic capabilities, have not yet overcome the fundamental challenge of robust, long-horizon sequential decision-making in unstructured environments.</p>
+<p>DanceOPD provides a principled methodology for constructing highly capable, unified generative models without suffering from the inherent trade-offs of joint optimization. By decoupling the capability expertise into frozen fields and using a targeted, on-policy distillation strategy, we achieve superior performance in complex compositional tasks compared to existing methods that rely on soft mixing or external composition mechanisms. This framework moves the composition logic from an external inference-time procedure into the training objective itself, leading to a more robust and integrated final model.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current evaluation is inherently constrained by its reliance on offline robotics trajectories; consequently, the models have not been tested on physical hardware. Additionally, certain datasets were necessarily excluded from the analysis due to technical barriers encountered during accessibility via the TensorFlow Datasets (TFDS) builder. Future work must address the transition from simulation/offline data to real-world deployment and explore architectural modifications to improve long-horizon planning capabilities.</p>
+<p>It must be noted that DanceOPD does not claim global Pareto optimality across the entire space of possible training mixtures; the routing strategy is heuristic based on semantic identity. Furthermore, the current analysis does not fully explore the stress case where the inherent decorrelation provided by SDE-style noise injection only partially mitigates the challenges, suggesting avenues for future investigation into more robust state-space regularization.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2411.05821">2411.05821</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">241105821</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Benchmarking Vision, Language, &amp; Action Models on Robotic Learning Tasks}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Pranav Guruprasad and Harshvardhan Sikka and Jaewoo Song and Yangyue Wang and Paul Pu Liang}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2411.05821}</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2024}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2411.05821}</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.27377">2606.27377</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260627377</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{DanceOPD: On-Policy Generative Field Distillation}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Wei Zhou and Xiongwei Zhu and Zelin Xu and Bo Dong and Lixue Gong and Yongyuan Liang et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.27377}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.27377}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
