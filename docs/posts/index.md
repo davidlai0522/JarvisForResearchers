@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [DanceOPD: On-Policy Generative Field Distillation](2026-06-28-danceopd-on-policy-generative-field-distillation/) { data-cat="Computer Vision" data-date="2026-06-28" }
+
+*2026-06-28*
+
+DanceOPD is an on-policy generative field distillation framework for flow-matching models that resolves multi-capability composition challenges by hard-routing samples to specific capability fields, querying these fields on student-induced states, and using a simple velocity MSE objective.
+
 ## [Scalable Behavior Cloning with Open Data, Training, and Evaluation](2026-06-27-scalable-behavior-cloning-with-open-data-training-and-evalua/) { data-cat="Robotics" data-date="2026-06-27" }
 
 *2026-06-27*
