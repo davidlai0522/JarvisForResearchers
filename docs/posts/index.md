@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [World Action Models Enable Continual Imitation Learning with Recurrent Generative Replays](2026-06-29-world-action-models-enable-continual-imitation-learning-with/) { data-cat="Robotics" data-date="2026-06-29" }
+
+*2026-06-29*
+
+Recurrent Generative Replay (REGEN) is a continual imitation learning framework that leverages World Action Models (WAMs) to synthesize pseudo-replay trajectories, enabling policy rehearsal without storing original human demonstrations.
+
 ## [DanceOPD: On-Policy Generative Field Distillation](2026-06-28-danceopd-on-policy-generative-field-distillation/) { data-cat="Computer Vision" data-date="2026-06-28" }
 
 *2026-06-28*
