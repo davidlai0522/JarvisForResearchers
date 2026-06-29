@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="GR00T N1 is an open Vision-Language-Action (VLA) foundation model for humanoid robots featuring a dual-system architecture that integrates a Vision-Language Model (System 2) for reasoning and a Diffusion Transformer (System 1) for real-time motor action generation.
+        <meta name="description" content="Recurrent Generative Replay (REGEN) is a continual imitation learning framework that leverages World Action Models (WAMs) to synthesize pseudo-replay trajectories, enabling policy rehearsal without storing original human demonstrations.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-29-world-action-models-enable-continual-imitation-learning-with/">
       
       
-        <link rel="prev" href="../2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/">
+        <link rel="next" href="../2026-06-28-danceopd-on-policy-generative-field-distillation/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>GR00T N1: An Open Foundation Model for Generalist Humanoid Robots - JarvisForResearchers</title>
+        <title>World Action Models Enable Continual Imitation Learning with Recurrent Generative Replays - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GR00T N1: An Open Foundation Model for Generalist Humanoid Robots
+              World Action Models Enable Continual Imitation Learning with Recurrent Generative Replays
             
           </span>
         </div>
@@ -530,10 +530,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-06-29-world-action-models-enable-continual-imitation-learning-with/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    World Action Models Enable Continual Imitation Learning with Recurrent Generative Replays
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -549,6 +574,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#world-action-model-wam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        World Action Model (WAM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recurrent-generative-replay-regen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recurrent Generative Replay (REGEN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialization-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initialization Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recurrent-generation-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recurrent Generation Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#termination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Termination
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2042,35 +2234,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    GR00T N1: An Open Foundation Model for Generalist Humanoid Robots
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/" class="md-nav__link">
         
   
   
@@ -2086,162 +2253,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vision-language-module-system-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vision-Language Module (System 2)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#diffusion-transformer-module-system-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Diffusion Transformer Module (System 1)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#state-and-action-encoders" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        State and Action Encoders
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#action-decoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Action Decoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2491,10 +2502,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#vision-language-module-system-2" class="md-nav__link">
+  <a href="#world-action-model-wam" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vision-Language Module (System 2)
+        World Action Model (WAM)
       
     </span>
   </a>
@@ -2502,10 +2513,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#diffusion-transformer-module-system-1" class="md-nav__link">
+  <a href="#recurrent-generative-replay-regen" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Diffusion Transformer Module (System 1)
+        Recurrent Generative Replay (REGEN)
       
     </span>
   </a>
@@ -2513,10 +2524,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#state-and-action-encoders" class="md-nav__link">
+  <a href="#initialization-phase" class="md-nav__link">
     <span class="md-ellipsis">
       
-        State and Action Encoders
+        Initialization Phase
       
     </span>
   </a>
@@ -2524,10 +2535,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#action-decoder" class="md-nav__link">
+  <a href="#recurrent-generation-phase" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Action Decoder
+        Recurrent Generation Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#termination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Termination
       
     </span>
   </a>
@@ -2604,35 +2626,21 @@
       
       
       
-        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:foundation-models" class="md-tag">foundation-models</a>
+        <a href="../../tags/#tag:imitation-learning" class="md-tag">imitation-learning</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:llm" class="md-tag">llm</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:perception" class="md-tag">perception</a>
+        <a href="../../tags/#tag:manipulation" class="md-tag">manipulation</a>
       
     
       
@@ -2642,51 +2650,45 @@
         <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
       
     
-      
-      
-      
-      
-        <a href="../../tags/#tag:transformers" class="md-tag">transformers</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
-      
-    
   </nav>
 
 
 
-  <h1>GR00T N1: An Open Foundation Model for Generalist Humanoid Robots</h1>
+  <h1>World Action Models Enable Continual Imitation Learning with Recurrent Generative Replays</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-01</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-06-29</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>GR00T N1 is an open Vision-Language-Action (VLA) foundation model for humanoid robots. It employs a dual-system architecture: a Vision-Language Model (System 2) handles high-level reasoning from visual input and language, while a Diffusion Transformer (System 1) generates real-time motor actions via flow-matching. Training is structured via a data pyramid to unify heterogeneous data sources, addressing the lack of large-scale humanoid robot datasets.</p>
+<p>Recurrent Generative Replay (REGEN) is a continual imitation learning framework that leverages World Action Models (WAMs) to synthesize pseudo-replay trajectories, enabling policy rehearsal without storing original human demonstrations.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>The objective of creating autonomous robots capable of executing complex, everyday tasks in unstructured human environments necessitates a generalist robot model. Such a model must possess the capacity to reason about novel situations and robustly handle real-world variability. However, the current landscape suffers from a critical deficiency: the absence of large-scale, Internet-like datasets specifically curated for humanoid robots. This scarcity results in what we term an "archipelago of 'data islands'," where models are trained on isolated, non-transferable datasets. Furthermore, the inherent variability across different robot embodiments, sensor suites, actuator degrees of freedom, and control paradigms complicates the construction of a coherent, Internet-scale dataset. Consequently, there is a pressing need for a full-stack solution that integrates the necessary hardware, sophisticated models, and comprehensive data infrastructure to achieve human-level physical intelligence.</p>
+<p>World Action Models (WAMs) are effective generative frameworks for robot imitation learning. However, when these WAMs are subjected to sequential fine-tuning across a sequence of tasks, they exhibit catastrophic forgetting. Furthermore, established replay-based mitigation strategies fundamentally require access to ground-truth demonstrations from all prior tasks. In modern, memory-constrained robotics deployments, maintaining and replaying large buffers of historical, task-specific demonstrations is often infeasible.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce GR00T N1, an open Vision-Language-Action (VLA) foundation model specifically designed for humanoid robots. Our primary architectural contribution is the adoption of a dual-system compositional architecture, which explicitly separates high-level cognitive processing from low-level motor control by integrating a Vision-Language Model (System 2) and a Diffusion Transformer (System 1). To overcome data limitations, we developed an effective co-training strategy structured around a data pyramid. This pyramid systematically unifies heterogeneous data sources, progressing from broad priors derived from Web Data and Human Videos, through synthetic data generation, and finally grounding the model in specific Real-World Data.</p>
+<p>We introduce Recurrent Generative Replay (REGEN), which is the first replay-based continual imitation learning framework to utilize the generative capabilities of WAMs to synthesize replay trajectories without requiring the storage of real demonstrations from previous tasks. We demonstrate that REGEN substantially mitigates catastrophic forgetting in both simulated and real-world manipulation settings while maintaining strong forward transfer capabilities. Finally, we identify the primary limitations preventing generated replay from perfectly matching real experience replay: namely, long-horizon degradation in visual generation and inconsistencies between predicted observations and actions.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2503.14734/fig_p2_c1.jpg" />
-<em>Figure 1: Data Pyramid for Robot Foundation Model
-Training. GR00T N1’s heterogeneous training corpora
-can be represented as a pyramid: data quantity de-
-creases, and embodiment-specificity increases, moving
-from the bottom to the top.</em></p>
-<p>GR00T N1 functions as a unified VLA model operating under a dual-system paradigm. System 2, which is a pre-trained Vision-Language Model (VLM) leveraging Eagle-2, is responsible for interpreting the environment state and the specified task goal, deriving this understanding from visual perception and natural language instructions at a frequency of 10Hz. Concurrently, System 1, a Diffusion Transformer (DiT) trained using action flow-matching, generates the requisite fluid motor actions at a higher frequency of 120Hz. These two modules are tightly coupled and subjected to end-to-end joint training. The training regimen capitalizes on the data pyramid, utilizing latent actions extracted from human videos and neural trajectories, alongside synthetic and real-robot data. This methodology ensures the model acquires broad visual and behavioral priors while maintaining strict grounding in executable, embodied actions.</p>
-<h3 id="vision-language-module-system-2">Vision-Language Module (System 2)</h3>
-<p>This component is instantiated as a pre-trained Vision-Language Model (VLM). Its function is to process the robot's visual perception stream and the accompanying language instruction to achieve a comprehensive interpretation of the current environment state and the overarching task objective. For the GR00T-N1-2B variant, we utilize Eagle-2 (Li et al., 2025) and specifically extract features from the 12th layer of this VLM for downstream processing by the action generation system.</p>
-<h3 id="diffusion-transformer-module-system-1">Diffusion Transformer Module (System 1)</h3>
-<p>This module is a specialized DiT variant engineered to generate closed-loop motor actions. It operates by employing flow-matching techniques during training. Crucially, this DiT cross-attends to the token outputs provided by the VLM (System 2), allowing the action generation process to be conditioned on the high-level reasoning derived from the language and vision inputs. Furthermore, it incorporates embodiment-specific encoders and decoders to manage the heterogeneity of physical platforms.</p>
-<h3 id="state-and-action-encoders">State and Action Encoders</h3>
-<p>To facilitate the integration of diverse physical inputs into the unified Transformer architecture, we employ dedicated Multi-Layer Perceptrons (MLPs) for each specific robot embodiment. These encoders are responsible for projecting the robot's state vectors and the action vectors—which can possess varying dimensionalities depending on the hardware—into a shared, consistent embedding dimension that the DiT can process effectively.</p>
-<h3 id="action-decoder">Action Decoder</h3>
-<p>Following the final processing block within the DiT, an MLP serves as the Action Decoder. This component takes the final set of <span class="arithmatex">\(H\)</span> tokens outputted by the Transformer and maps them back into the specific motor action space required by the robot hardware, thereby predicting the executable control signals.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.27374/fig_p2_c1.jpg" />
+<em>Figure 1: Overview of REGEN. Sequential fine-
+tuning of WAMs leads to catastrophic forgetting
+(top). REGEN leverages the WAM’s generative
+capabilities to hallucinate pseudo-demonstrations
+of previously learned tasks, replaying them along-
+side new task data to mitigate forgetting without
+storing any</em></p>
+<p>REGEN adapts a pre-trained WAM policy, <span class="arithmatex">\(\pi_{\theta_0}\)</span>, to a novel task <span class="arithmatex">\(T_k\)</span> while ensuring performance retention on previously learned tasks <span class="arithmatex">\(T_{prev}\)</span>. The core mechanism involves generating synthetic demonstrations for each <span class="arithmatex">\(T_i \in T_{prev}\)</span>. This generation is conditioned on the task instruction <span class="arithmatex">\(\ell_i\)</span> and is initialized using a real observation sampled from the current task <span class="arithmatex">\(T_k\)</span>. The process proceeds through initialization, recurrent generation, and termination. These synthetic trajectories (<span class="arithmatex">\(\tilde{\tau}_i\)</span>) are aggregated into a replay buffer <span class="arithmatex">\(R_k\)</span>. The policy is then updated via behavioral cloning on the combined dataset <span class="arithmatex">\(D_k \cup R_k\)</span>, utilizing the loss: <span class="arithmatex">\(\min_{\theta} E_{(o_t, a_t, \ell) \sim D_k \cup R_k} [L_{BC} (\pi_{\theta}(o_t, \ell), a_t)]\)</span>.</p>
+<h3 id="world-action-model-wam">World Action Model (WAM)</h3>
+<p>The WAM serves as the generative core. It is a framework designed to jointly model future actions (<span class="arithmatex">\(\tilde{a}_{t:t+H}\)</span>), future visual observations (<span class="arithmatex">\(\tilde{o}_{t+H}\)</span>), and task progress (<span class="arithmatex">\(\tilde{r}_t\)</span>). This modeling is conditioned on the language instruction (<span class="arithmatex">\(\ell\)</span>) and the current observation (<span class="arithmatex">\(o_t\)</span>): <span class="arithmatex">\((\tilde{a}_{t:t+H}, \tilde{o}_{t+H}, \tilde{r}_t) \sim \pi_{\theta} (\cdot | o_t, \ell)\)</span>.</p>
+<h3 id="recurrent-generative-replay-regen">Recurrent Generative Replay (REGEN)</h3>
+<p>REGEN is the overarching framework that orchestrates the replay mechanism. It recursively queries the WAM to synthesize pseudo-replay trajectories. Crucially, these trajectories are conditioned only on the prior task instructions (<span class="arithmatex">\(\ell_i\)</span>) and observations sampled from the <em>current</em> task (<span class="arithmatex">\(T_k\)</span>), thereby eliminating the dependency on storing the original demonstrations from <span class="arithmatex">\(T_i\)</span>.</p>
+<h3 id="initialization-phase">Initialization Phase</h3>
+<p>The rollout process begins with an Initialization Phase. This phase seeds the generative process by using one full action chunk derived from the current-task demonstrations (<span class="arithmatex">\(D_k\)</span>). Specifically, the rollout is initialized using real observations sampled from <span class="arithmatex">\(D_k\)</span> for the time steps <span class="arithmatex">\(0 \le t &lt; H\)</span>.</p>
+<h3 id="recurrent-generation-phase">Recurrent Generation Phase</h3>
+<p>Following initialization, the model enters the Recurrent Generation Phase. Here, the model recursively conditions on its own previously generated observations to produce a fully generative rollout. The state transition is defined as: <span class="arithmatex">\(o_{i}^{t} = (\tilde{o}_{i}^{t-H:t}, \tilde{o}_{i}^{t}) \sim \pi_{\theta} (\cdot | o_{i}^{t-H}, \ell_i)\)</span> for <span class="arithmatex">\(H \le t \le T_{max}\)</span>. This self-referential generation allows the model to simulate extended sequences based on the learned dynamics.</p>
+<h3 id="termination">Termination</h3>
+<p>Trajectory generation is governed by a specific Termination criterion. The synthetic trajectory generation halts when the predicted goal reward <span class="arithmatex">\(\tilde{r}_t\)</span> meets two conditions simultaneously: it must exceed <span class="arithmatex">\(0.99\)</span> for three consecutive rollout steps, and it must attain a value of <span class="arithmatex">\(1.0\)</span> at least once within that three-step interval.</p>
 <h2 id="results">Results</h2>
 <table>
 <thead>
@@ -2699,32 +2701,44 @@ from the bottom to the top.</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Performance on standard simulation benchmarks</td>
-<td style="text-align: left;">outperforms the state-of-the-art imitation learning baselines</td>
-<td style="text-align: left;">state-of-the-art imitation learning baselines</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">NBT (LIBERO-Object)</td>
+<td style="text-align: left;">26.1</td>
+<td style="text-align: left;">Seq-FT [13]</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Performance on language-conditioned bimanual manipulation tasks</td>
-<td style="text-align: left;">achieving strong performance with high data efficiency</td>
-<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">NBT (LIBERO-Goal)</td>
+<td style="text-align: left;">38.7</td>
+<td style="text-align: left;">Cosmos-Policy [2] Seq-FT</td>
+<td style="text-align: left;">Table 2</td>
+</tr>
+<tr>
+<td style="text-align: left;">NBT (Real-World)</td>
+<td style="text-align: left;">60.5</td>
+<td style="text-align: left;">Seq-FT</td>
+<td style="text-align: left;">Table 3</td>
+</tr>
+<tr>
+<td style="text-align: left;">Reduction in Forgetting (Real-World)</td>
+<td style="text-align: left;">up to 50%</td>
+<td style="text-align: left;">sequential fine-tuning</td>
 <td style="text-align: left;">Abstract</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The GR00T N1 framework offers a tangible pathway toward realizing generalist robotics. The efficacy of the dual-system approach—decoupling complex, symbolic reasoning (VLM) from continuous, high-frequency control (DiT)—demonstrates a viable architectural pattern for complex embodied AI. Moreover, the data pyramid strategy provides a concrete methodology for mitigating the pervasive issue of data scarcity in robotics. By systematically structuring data acquisition across web-scale, synthetic, and real-world modalities, we show how to build robust behavioral priors that generalize across different physical instantiations, a critical step toward scalable, real-world deployment.</p>
+<p>The introduction of REGEN provides a novel pathway to continual learning within the context of generative world models. By providing a generative interface to simulate past tasks, it bypasses the significant memory overhead associated with storing large buffers of real demonstrations. The empirical results demonstrate that REGEN significantly reduces catastrophic forgetting compared to naive sequential fine-tuning, achieving performance levels that approach those of privileged experience replay methods.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current implementation exhibits dependencies on external, pre-trained components, specifically the Eagle-2 VLM, which itself is finetuned from SmolLM2 and SigLIP-2. This introduces a dependency chain that requires careful management. Additionally, the training pipeline is inherently complex, necessitating sophisticated data generation infrastructure, including the processes for latent action extraction from human demonstrations and the synthesis of neural trajectories. Future work must focus on making the entire pipeline more self-contained and exploring methods to improve the robustness of the latent action space mapping across vastly different embodiments.</p>
+<p>The current implementation faces two primary limitations that restrict the quality of the pseudo-replay: first, there is degradation in the visual fidelity of future observations during long-horizon recurrent generation. Second, there are observable inconsistencies between the predicted future observations and the corresponding generated actions. Future work must focus on enhancing the WAM's ability to maintain visual fidelity over extended time horizons and enforcing tighter coupling constraints between predicted observations and actions during the recurrent rollout.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2503.14734">2503.14734</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">250314734</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{GR00T N1: An Open Foundation Model for Generalist Humanoid Robots}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{NVIDIA and : and Johan Bjorck and Fernando Castañeda and Nikita Cherniadev and Xingye Da et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2503.14734}</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2025}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2503.14734}</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.27374">2606.27374</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260627374</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{World Action Models Enable Continual Imitation Learning with Recurrent Generative Replays}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Manish Kumar Govind and Dominick Reilly and Smit Patel and Hieu Le and Srijan Das}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.27374}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.27374}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
