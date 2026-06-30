@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [DexCompose: Reusing Dexterous Policies for Multi-Task Manipulation with a Single Hand](2026-06-30-dexcompose-reusing-dexterous-policies-for-multi-task-manipul/) { data-cat="Robotics" data-date="2026-06-30" }
+
+*2026-06-30*
+
+DexCompose is a role-aware residual composition framework that reuses pretrained dexterous policies for multi-task manipulation by explicitly managing finger-level action ownership using dual residual stabilization.
+
 ## [World Action Models Enable Continual Imitation Learning with Recurrent Generative Replays](2026-06-29-world-action-models-enable-continual-imitation-learning-with/) { data-cat="Robotics" data-date="2026-06-29" }
 
 *2026-06-29*
