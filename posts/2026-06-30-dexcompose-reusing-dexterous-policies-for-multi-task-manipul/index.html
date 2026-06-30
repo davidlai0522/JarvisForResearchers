@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ATLAS is a framework that unifies agentic and latent visual reasoning by representing visual operations as discrete functional tokens within a standard autoregressive sequence, stabilized by Latent-Anchored GRPO (LA-GRPO) during RL training.
+        <meta name="description" content="DexCompose is a role-aware residual composition framework that reuses pretrained dexterous policies for multi-task manipulation by explicitly managing finger-level action ownership using dual residual stabilization.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-30-dexcompose-reusing-dexterous-policies-for-multi-task-manipul/">
       
       
-        <link rel="prev" href="../2026-05-18-refdecoder-enhancing-visual-generation-with-conditional-vide/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-16-world-action-models-are-zero-shot-policies/">
+        <link rel="next" href="../2026-06-29-world-action-models-enable-continual-imitation-learning-with/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both - JarvisForResearchers</title>
+        <title>DexCompose: Reusing Dexterous Policies for Multi-Task Manipulation with a Single Hand - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both
+              DexCompose: Reusing Dexterous Policies for Multi-Task Manipulation with a Single Hand
             
           </span>
         </div>
@@ -532,10 +532,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-06-30-dexcompose-reusing-dexterous-policies-for-multi-task-manipul/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DexCompose: Reusing Dexterous Policies for Multi-Task Manipulation with a Single Hand
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -551,6 +576,184 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-a-policy-pi_a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task A Policy (\(\pi_A\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-b-policy-pi_b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task B Policy (\(\pi_B\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finger-attribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finger Attribution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bounded-task-a-residual-delta-q_at" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bounded Task-A Residual (\(\Delta q_A^t\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bounded-task-b-residual-delta-a_bt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bounded Task-B Residual (\(\Delta a_B^t\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-aware-allocation-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task-aware Allocation Agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1680,35 +1883,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/" class="md-nav__link">
         
   
   
@@ -1724,162 +1902,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#functional-token-textvfunc" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Functional Token (\(\text{Vfunc}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#atlas-178k" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ATLAS-178K
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#standard-grpo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Standard GRPO
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#latent-anchored-grpo-la-grpo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Latent-Anchored GRPO (LA-GRPO)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2521,10 +2543,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#functional-token-textvfunc" class="md-nav__link">
+  <a href="#task-a-policy-pi_a" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Functional Token (\(\text{Vfunc}\))
+        Task A Policy (\(\pi_A\))
       
     </span>
   </a>
@@ -2532,10 +2554,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#atlas-178k" class="md-nav__link">
+  <a href="#task-b-policy-pi_b" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ATLAS-178K
+        Task B Policy (\(\pi_B\))
       
     </span>
   </a>
@@ -2543,10 +2565,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#standard-grpo" class="md-nav__link">
+  <a href="#finger-attribution" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Standard GRPO
+        Finger Attribution
       
     </span>
   </a>
@@ -2554,10 +2576,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#latent-anchored-grpo-la-grpo" class="md-nav__link">
+  <a href="#bounded-task-a-residual-delta-q_at" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Latent-Anchored GRPO (LA-GRPO)
+        Bounded Task-A Residual (\(\Delta q_A^t\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bounded-task-b-residual-delta-a_bt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bounded Task-B Residual (\(\Delta a_B^t\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-aware-allocation-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task-aware Allocation Agent
       
     </span>
   </a>
@@ -2648,51 +2692,78 @@
       
       
       
-        <a href="../../tags/#tag:generalization" class="md-tag">generalization</a>
+        <a href="../../tags/#tag:dexterous-manipulation" class="md-tag">dexterous-manipulation</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:nlp" class="md-tag">nlp</a>
+        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:manipulation" class="md-tag">manipulation</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
       
     
   </nav>
 
 
 
-  <h1>ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both</h1>
+  <h1>DexCompose: Reusing Dexterous Policies for Multi-Task Manipulation with a Single Hand</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-17</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-06-30</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
-<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+<p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>ATLAS unifies agentic and latent visual reasoning by encoding visual operations as discrete functional tokens (<span class="arithmatex">\(\text{Vfunc}\)</span>) within the standard autoregressive sequence. This approach avoids the computational burden of pixel-level generation and the latency of external tool calls, while LA-GRPO mitigates gradient dilution during RL fine-tuning.</p>
+<p>DexCompose introduces a role-aware residual composition framework to combine pretrained dexterous manipulation policies for multi-task execution. It addresses destructive interference by explicitly managing finger-level action ownership using dual residual stabilization, allowing two full-hand policies to operate concurrently without joint policy retraining.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Visual reasoning tasks frequently require the agent to interact with or modify a visual state iteratively. Current paradigms face distinct bottlenecks. Models that generate pixel-level images directly suffer from prohibitive computational costs during both training and inference. Agentic frameworks, which rely on external execution environments (e.g., calling code interpreters or APIs), introduce significant context-switching latency. Conversely, latent-based methods, while efficient, often lack robust task generalization and introduce recurrent latent dependencies that fundamentally conflict with the parallelization capabilities of standard autoregressive training regimes.</p>
+<p>Composing dexterous manipulation policies to execute multiple tasks with a single hand presents a significant challenge. When introducing a secondary task, the demands imposed on overlapping fingers and contact modes often conflict with the requirements of maintaining the initial manipulation outcome. This conflict leads to destructive interference, where the execution of the new task compromises the stability or success of the preceding task.</p>
+<p>The limitations of prior work are evident:
+1. Existing finger-aware methods typically mandate predefined finger allocations or rely on downstream task compositions during grasp generation, data construction, or policy training, severely limiting scalability across diverse task combinations.
+2. Simply chaining independently trained policies is inherently unreliable. The downstream policy, controlling the entire hand, frequently overwrites the precise finger motions necessary to maintain the grasp established by the upstream policy.
+3. Training a dedicated policy for every composite task scales poorly, necessitating <span class="arithmatex">\(n \times m\)</span> policies if <span class="arithmatex">\(n\)</span> grasp-maintenance skills and <span class="arithmatex">\(m\)</span> downstream interactions are considered.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce ATLAS, a framework that represents visual operations as discrete functional tokens within the standard vocabulary. This design choice allows the entire reasoning trajectory to be modeled as a single, continuous autoregressive sequence, thereby circumventing the need for verbose intermediate visual states while maintaining compatibility with scalable autoregressive training pipelines. Furthermore, recognizing that sparse functional tokens suffer from gradient dilution during reinforcement learning, we propose Latent-Anchored GRPO (LA-GRPO), a token-anchored objective designed to stabilize and strengthen the optimization signal for these critical functional tokens. Finally, we demonstrate that ATLAS enables compact, single-token visual reasoning, achieving strong performance on complex benchmarks with substantially reduced operational overhead compared to prior methods.</p>
+<p>We introduce three primary contributions to address these limitations:
+1. We present a post-hoc composition framework for pretrained dexterous manipulation policies. This framework models composite manipulation as an action allocation problem where the preservation of the initial grasp and the execution of the downstream interaction must be reconciled within the constraints of a single high-DoF multi-fingered hand.
+2. We propose DexCompose, a role-aware residual pipeline. This pipeline integrates training-free finger attribution, explicit action ownership assignment, and dual residual stabilization to compose two pretrained full-hand policies without requiring policy training for the complete task pair.
+3. We empirically validate DexCompose across 16 composite manipulation tasks, demonstrating a substantial performance improvement over both simple policy chaining and unmasked residual baselines.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.15198/fig_p2_c1.jpg" />
-<em>Figure 1 Comparison of Visual Reasoning Paradigms. I: Unified models generate intermediate pixel-level images. II: Agentic
-methods rely on external code or tool execution. III: Latent methods conduct intermediate reasoning through latent
-embeddings. IV: ATLAS briges agentic and latent visual reasoni</em></p>
-<p>ATLAS achieves the unification of agentic and latent reasoning by fundamentally altering how visual actions are represented. Instead of generating continuous visual representations or invoking external functions, visual operations—such as drawing a line or placing a shape—are mapped to discrete functional tokens (<span class="arithmatex">\(\text{Vfunc}\)</span>). These <span class="arithmatex">\(\text{Vfunc}\)</span> tokens are integrated directly into the model's standard tokenizer vocabulary (<span class="arithmatex">\(\text{V} = \text{Vtext} \cup \text{Vspec} \cup \text{Vfunc}\)</span>). This architectural decision ensures the entire reasoning process remains confined within the discrete autoregressive sequence.</p>
-<p>The training procedure is bifurcated. Initially, the model undergoes Supervised Fine-Tuning (SFT) using the ATLAS-178K dataset to establish a baseline competency in invoking these functional tokens. Following SFT, the model is refined using reinforcement learning. While standard GRPO can be applied, the sparsity of <span class="arithmatex">\(\text{Vfunc}\)</span> tokens leads to gradient dilution. To counteract this, we employ Latent-Anchored GRPO (LA-GRPO), which augments the sequence-level GRPO objective with a dedicated token-level auxiliary loss (<span class="arithmatex">\(\mathcal{L}_{\text{token}}\)</span>) specifically applied at the positions corresponding to <span class="arithmatex">\(\text{Vfunc}\)</span>, thereby providing a persistent and targeted learning signal.</p>
-<h3 id="functional-token-textvfunc">Functional Token (<span class="arithmatex">\(\text{Vfunc}\)</span>)</h3>
-<p>The <span class="arithmatex">\(\text{Vfunc}\)</span> set comprises a compact vocabulary of discrete tokens, including <span class="arithmatex">\(\{\text{&lt;|Manip|&gt;}, \text{&lt;|Shape|&gt;}, \text{&lt;|Line|&gt;}, \text{&lt;|Arrow|&gt;}, \text{&lt;|Text|&gt;}\}\)</span>. These tokens function as abstract instructions, representing internalized visual operations. Crucially, they are treated identically to standard text or specification tokens within the model's tokenizer vocabulary, allowing the entire sequence to be processed uniformly by the autoregressive decoder.</p>
-<h3 id="atlas-178k">ATLAS-178K</h3>
-<p>ATLAS-178K serves as the foundational dataset for the initial SFT phase. It is a curated collection encompassing over 40 distinct visual reasoning tasks. Its purpose is to provide the model with a robust, pre-trained understanding of when and how to invoke the functional tokens, establishing the necessary cold start for subsequent RL optimization.</p>
-<h3 id="standard-grpo">Standard GRPO</h3>
-<p>The reinforcement learning optimization relies on the standard GRPO algorithm. The objective function is composite, designed to balance multiple objectives: <span class="arithmatex">\(r(o) = \lambda_{\text{acc}}r_{\text{acc}} + \lambda_{\text{func}}r_{\text{func}} + \lambda_{\text{fmtr}}r_{\text{fmt}} - \lambda_{\text{len}}p_{\text{len}} - \lambda_{\text{spam}}p_{\text{spam}}\)</span>. This formulation guides the agent toward high accuracy (<span class="arithmatex">\(r_{\text{acc}}\)</span>), effective use of functional operations (<span class="arithmatex">\(r_{\text{func}}\)</span>), and adherence to formatting constraints (<span class="arithmatex">\(r_{\text{fmt}}\)</span>), while penalizing excessive length (<span class="arithmatex">\(p_{\text{len}}\)</span>) and irrelevant output (<span class="arithmatex">\(p_{\text{spam}}\)</span>).</p>
-<h3 id="latent-anchored-grpo-la-grpo">Latent-Anchored GRPO (LA-GRPO)</h3>
-<p>LA-GRPO is the critical enhancement to the standard GRPO framework. It addresses the issue of gradient dilution inherent when optimizing for sparse, high-leverage tokens like <span class="arithmatex">\(\text{Vfunc}\)</span>. LA-GRPO achieves this by introducing a token-level auxiliary loss, <span class="arithmatex">\(\mathcal{L}_{\text{token}}\)</span>. This loss is explicitly anchored to the positions of the functional tokens, ensuring that even when the overall sequence reward is noisy or sparse, the functional tokens receive a consistent, targeted learning signal that strengthens their optimization trajectory.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.28323/fig_p1_c1.jpg" />
+<em>Figure 1: DexCompose composes dexterous skills through role-aware finger ownership. By sep-
+arating grasp preservation from downstream interaction with asymmetric residuals, the framework
+reduces destructive interference and enables robust multi-skill manipulation.</em></p>
+<p>DexCompose operates through a two-stage process: discovery and composition.</p>
+<p>For the <strong>discovery</strong> stage, we determine the necessary finger support for the initial task. Finger attribution identifies which fingers are essential for preserving the Task-A grasp by executing release tests on successful post-task states, yielding a task-specific mask, <span class="arithmatex">\(m^*\)</span>.</p>
+<p>For the <strong>composition</strong> stage, we employ a dual residual stabilizer. A bounded Task-A residual (<span class="arithmatex">\(\Delta q_A^t\)</span>) is responsible for maintaining the held-object configuration (<span class="arithmatex">\(q_{ref}\)</span>) specifically on the fingers identified as preserved. Concurrently, a bounded Task-B residual (<span class="arithmatex">\(\Delta a_B^t\)</span>) adapts the downstream policy (<span class="arithmatex">\(\pi_B\)</span>) within its assigned action subspace. The final composed action, <span class="arithmatex">\(a_{comp}^t\)</span>, is synthesized using fixed ownership masks (<span class="arithmatex">\(M^*_A, M^*_B\)</span>), thereby enabling the concurrent execution of both tasks.</p>
+<h3 id="task-a-policy-pi_a">Task A Policy (<span class="arithmatex">\(\pi_A\)</span>)</h3>
+<p>This is the initial pretrained diffusion policy responsible for executing the first skill. The physical outcome of this skill—the grasp—must be preserved throughout the subsequent interaction.</p>
+<h3 id="task-b-policy-pi_b">Task B Policy (<span class="arithmatex">\(\pi_B\)</span>)</h3>
+<p>This is the second pretrained diffusion policy responsible for executing the downstream interaction skill. It dictates the motion required for the secondary task.</p>
+<h3 id="finger-attribution">Finger Attribution</h3>
+<p>This component utilizes release tests performed on successful post-grasp states. The objective is to identify the minimal set of fingers required to maintain the Task-A grasp, which results in the task-specific mask <span class="arithmatex">\(m^*\)</span>.</p>
+<h3 id="bounded-task-a-residual-delta-q_at">Bounded Task-A Residual (<span class="arithmatex">\(\Delta q_A^t\)</span>)</h3>
+<p>This lightweight residual module, parameterized by <span class="arithmatex">\(\pi_{A}^{res}\)</span>, is designed to counteract disturbances and preserve the held-object configuration (<span class="arithmatex">\(q_{ref}\)</span>). Its formulation is: <span class="arithmatex">\(\Delta q_A^t = \beta_A \odot \tanh(\pi_{A}^{res}(o_t, m^*))\)</span>.</p>
+<h3 id="bounded-task-b-residual-delta-a_bt">Bounded Task-B Residual (<span class="arithmatex">\(\Delta a_B^t\)</span>)</h3>
+<p>This residual correction is learned specifically within the action subspace owned by Task B. Its formulation is: <span class="arithmatex">\(\Delta a_B^t = M^*_B \odot \tanh(\beta_B \odot \pi_{B}^{res}(o_t, a_B^t, m^*))\)</span>.</p>
+<h3 id="task-aware-allocation-agent">Task-aware Allocation Agent</h3>
+<p>This agent is responsible for selecting the final mask <span class="arithmatex">\(m^*\)</span>. It synthesizes information from <span class="arithmatex">\(\{m, Pret(m), Pclean(m), \eta_B(m)\}\)</span> to achieve an optimal balance between ensuring grasp stability, achieving clean release quality, and maintaining residual dexterity.</p>
 <h2 id="results">Results</h2>
+<p>The empirical evaluation demonstrates the efficacy of the DexCompose framework:</p>
 <table>
 <thead>
 <tr>
@@ -2704,26 +2775,38 @@ embeddings. IV: ATLAS briges agentic and latent visual reasoni</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Performance</td>
-<td style="text-align: left;">Superior performance</td>
+<td style="text-align: left;">Average Composite Success Rate</td>
+<td style="text-align: left;">77.4%</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Extensive experiments and analyses</td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+<tr>
+<td style="text-align: left;">Composite Success Rate (GraspBall + OpenDoor)</td>
+<td style="text-align: left;"><span class="arithmatex">\(82.69\pm8.33\)</span></td>
+<td style="text-align: left;">Ours-ZS</td>
+<td style="text-align: left;">Table 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Mean Composite Success Rate</td>
+<td style="text-align: left;"><span class="arithmatex">\(77.43\pm2.64\)</span></td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The ATLAS framework provides a principled mechanism to bridge the gap between symbolic, agentic reasoning and continuous, latent visual processing within a single, scalable autoregressive model. By tokenizing operations, we effectively internalize the "tool-use" capability of agentic systems into the language model's generative capacity, eliminating the overhead associated with external execution environments. Furthermore, the LA-GRPO mechanism offers a concrete solution to a known theoretical challenge—gradient dilution—when applying RL to sparse, critical control tokens, thereby enabling more stable and effective fine-tuning for complex visual tasks.</p>
+<p>The practitioner takeaways highlight the practical implications of this work. For complex sequential manipulation, explicit action ownership—i.e., precise finger allocation—is critical to preventing destructive interference between concurrent tasks. Furthermore, the dual residual stabilization mechanism, which dedicates one residual to preservation and another to adaptation, proves key to achieving high composite success rates when reusing frozen, pretrained policies. Crucially, this framework enables composition at inference time without necessitating the full retraining of the base policies, offering a scalable methodology for skill reuse in robotic systems.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current functional token taxonomy is not intended to be exhaustive; the scope of operations represented by <span class="arithmatex">\(\text{Vfunc}\)</span> is necessarily constrained by the initial design choices. Additionally, while LA-GRPO mitigates gradient dilution, the paper acknowledges that this issue remains a relevant consideration when employing standard GRPO in similar sparse token optimization scenarios.</p>
+<p>The current implementation has noted limitations. Specifically, the method requires the collection of 4096 held states for each Task A skill to adequately support the stabilization and cross-task composition procedures. Additionally, we observed that the performance of the Decomposed Action Space baseline exhibits substantial variation across different task combinations, suggesting inherent brittleness in that approach. Future work should investigate methods to reduce the state collection overhead and enhance the robustness of allocation strategies across diverse task pairings.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.15198">2605.15198</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260515198</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Ziyu Guo and Rain Liu and Xinyan Chen and Pheng-Ann Heng}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.15198}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.28323">2606.28323</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260628323</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{DexCompose: Reusing Dexterous Policies for Multi-Task Manipulation with a Single Hand}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Dihong Huang and Zhenyu Wei and Zhuxiu Xu and Yunchao Yao and Sikai Li and Mingyu Ding}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.28323}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.15198}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.28323}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
