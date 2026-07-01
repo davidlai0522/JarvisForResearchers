@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [LeVo 2: Stable and Melodious Song Generation via Hierarchical Representation Modeling and Progressive Post-Training](2026-07-01-levo-2-stable-and-melodious-song-generation-via-hierarchical/) { data-cat="Artificial Intelligence" data-date="2026-07-01" }
+
+*2026-07-01*
+
+LeVo 2 is a hybrid LLM-Diffusion framework that addresses the trade-off between global song coherence and track-specific acoustic detail by employing hierarchical modeling and a decoupled, aesthetics-guided progressive post-training schedule.
+
 ## [DexCompose: Reusing Dexterous Policies for Multi-Task Manipulation with a Single Hand](2026-06-30-dexcompose-reusing-dexterous-policies-for-multi-task-manipul/) { data-cat="Robotics" data-date="2026-06-30" }
 
 *2026-06-30*
