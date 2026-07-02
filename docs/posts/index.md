@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [FaceMoE: Mixture of Experts for Low-Resolution Face Recognition](2026-07-02-facemoe-mixture-of-experts-for-low-resolution-face-recogniti/) { data-cat="Computer Vision" data-date="2026-07-02" }
+
+*2026-07-02*
+
+FaceMoE introduces a Mixture of Experts (MoE) adaptation within a transformer encoder to achieve resolution-aware feature extraction for low-resolution face recognition while mitigating catastrophic forgetting.
+
 ## [LeVo 2: Stable and Melodious Song Generation via Hierarchical Representation Modeling and Progressive Post-Training](2026-07-01-levo-2-stable-and-melodious-song-generation-via-hierarchical/) { data-cat="Artificial Intelligence" data-date="2026-07-01" }
 
 *2026-07-01*

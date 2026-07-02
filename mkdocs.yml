@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "FaceMoE: Mixture of Experts for Low-Resolution Face Recognition": posts/2026-07-02-facemoe-mixture-of-experts-for-low-resolution-face-recogniti.md
     - "LeVo 2: Stable and Melodious Song Generation via Hierarchical Representation Modeling and Progressive Post-Training": posts/2026-07-01-levo-2-stable-and-melodious-song-generation-via-hierarchical.md
     - "DexCompose: Reusing Dexterous Policies for Multi-Task Manipulation with a Single Hand": posts/2026-06-30-dexcompose-reusing-dexterous-policies-for-multi-task-manipul.md
     - "World Action Models Enable Continual Imitation Learning with Recurrent Generative Replays": posts/2026-06-29-world-action-models-enable-continual-imitation-learning-with.md
