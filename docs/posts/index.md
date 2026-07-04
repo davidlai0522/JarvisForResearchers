@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [WorldDirector: Building Controllable World Simulators with Persistent Dynamic Memory](2026-07-04-worlddirector-building-controllable-world-simulators-with-pe/) { data-cat="Computer Vision" data-date="2026-07-04" }
+
+*2026-07-04*
+
+WorldDirector is a controllable video world model framework that achieves persistent dynamic object memory by explicitly decoupling 3D semantic motion orchestration from visual generation, using an LLM as a central orchestrator.
+
 ## [Measuring the Gap Between Human and LLM Research Ideas](2026-07-03-measuring-the-gap-between-human-and-llm-research-ideas/) { data-cat="NLP" data-date="2026-07-03" }
 
 *2026-07-03*
