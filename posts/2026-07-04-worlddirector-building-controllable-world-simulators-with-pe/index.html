@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="The Integrable Context-Dependent Demand Network (ICDN) is a demand-first neural model that represents log-demand as a smooth, context-conditioned function of log-prices, allowing elasticities to be derived exactly as derivatives of the learned demand surface.
+        <meta name="description" content="WorldDirector is a controllable video world model framework that achieves persistent dynamic object memory by explicitly decoupling 3D semantic motion orchestration from visual generation, using an LLM as a central orchestrator.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-25-integrable-elasticity-via-neural-demand-potentials/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-04-worlddirector-building-controllable-world-simulators-with-pe/">
       
       
-        <link rel="prev" href="../2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/">
+        <link rel="next" href="../2026-07-03-measuring-the-gap-between-human-and-llm-research-ideas/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Integrable Elasticity via Neural Demand Potentials - JarvisForResearchers</title>
+        <title>WorldDirector: Building Controllable World Simulators with Persistent Dynamic Memory - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Integrable Elasticity via Neural Demand Potentials
+              WorldDirector: Building Controllable World Simulators with Persistent Dynamic Memory
             
           </span>
         </div>
@@ -540,10 +540,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-07-04-worlddirector-building-controllable-world-simulators-with-pe/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WorldDirector: Building Controllable World Simulators with Persistent Dynamic Memory
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -559,6 +584,206 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#location-condition-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Location Condition B
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appearance-condition-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appearance Condition A
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-granularity-prompts-p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Granularity Prompts P
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contextual-memory-frames-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contextual Memory Frames M
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3d-vae" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3D VAE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal-drop-mechanism-mathcald_taumathbfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Temporal Drop Mechanism \(\mathcal{D}_{\tau}(\mathbf{A})\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spatial-aware-weighted-cross-attention-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spatial-Aware Weighted Cross-Attention mechanism
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1576,35 +1801,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Integrable Elasticity via Neural Demand Potentials
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-25-integrable-elasticity-via-neural-demand-potentials/" class="md-nav__link">
         
   
   
@@ -1620,151 +1820,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#shared-encoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Shared Encoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#own-price-response-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Own-price Response Structure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#directed-cross-price-response-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Directed Cross-price Response Structure
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2630,10 +2685,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#shared-encoder" class="md-nav__link">
+  <a href="#llm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Shared Encoder
+        LLM
       
     </span>
   </a>
@@ -2641,10 +2696,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#own-price-response-structure" class="md-nav__link">
+  <a href="#location-condition-b" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Own-price Response Structure
+        Location Condition B
       
     </span>
   </a>
@@ -2652,10 +2707,65 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#directed-cross-price-response-structure" class="md-nav__link">
+  <a href="#appearance-condition-a" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Directed Cross-price Response Structure
+        Appearance Condition A
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-granularity-prompts-p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Granularity Prompts P
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contextual-memory-frames-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contextual Memory Frames M
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3d-vae" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3D VAE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal-drop-mechanism-mathcald_taumathbfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Temporal Drop Mechanism \(\mathcal{D}_{\tau}(\mathbf{A})\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spatial-aware-weighted-cross-attention-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spatial-Aware Weighted Cross-Attention mechanism
       
     </span>
   </a>
@@ -2732,82 +2842,70 @@
       
       
       
-        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
   </nav>
 
 
 
-  <h1>Integrable Elasticity via Neural Demand Potentials</h1>
+  <h1>WorldDirector: Building Controllable World Simulators with Persistent Dynamic Memory</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-25</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-07-04</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
-<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+<p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>The Integrable Context-Dependent Demand Network (ICDN) reframes multiproduct retail demand estimation as learning a smooth, context-conditioned demand surface. This formulation allows for the exact derivation of elasticities as derivatives of the learned surface, circumventing the instability and computational overhead associated with post-hoc numerical differentiation of complex ML models.</p>
+<p>WorldDirector is a controllable video world model framework that achieves persistent dynamic object memory by explicitly decoupling 3D semantic motion orchestration from visual generation, using an LLM as a central orchestrator.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Learning stable and reproducible elasticities at scale in multiproduct retail demand is challenging. The core difficulty arises because minor irregularities in the estimated demand surface can propagate into significant, spurious fluctuations in the calculated elasticities. This instability is particularly pronounced when cross-price effects are weak or when pricing decisions across products are highly correlated. Existing approaches suffer from limitations: simple log-log Ordinary Least Squares (OLS) models impose overly restrictive, globally constant price effects, failing to capture the heterogeneous and state-dependent substitution patterns observed in reality. Furthermore, while some machine learning methods attempt to recover elasticities, they often treat this as a secondary, post-hoc analysis, lacking an explicit, analytically tractable representation of demand as a function of price. Deep learning models that rely on numerical differentiation to extract elasticities are often computationally prohibitive at scale and offer limited direct control over the implied structure of the demand function and its derivatives.</p>
+<p>The challenge in video generation is maintaining 'Object Permanence' and 'Dynamic Object Memory'—ensuring dynamic entities persist and execute physical movements independently of camera visibility, and that their visual identity remains intact upon re-entry.</p>
+<p>Prior work exhibits several shortcomings. Existing methods relying on explicit tracking mechanisms scale poorly and incur prohibitive computational overhead. Approaches relying on implicit trajectory extrapolation from generative priors fail during prolonged camera diversions, leading to trajectory collapse or identity errors. Furthermore, prior work often entangles physical dynamics with pixel rendering, failing to guarantee strict physical logic and appearance stability.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We make three primary contributions to this domain:
-1. We formulate multiproduct elasticity estimation as a demand-first problem, where log-demand is modeled as a smooth surface, enabling the derivation of integrable elasticities directly as derivatives of this surface.
-2. We introduce ICDN, a structured neural demand model designed to decompose price responses into distinct components: linear own-price effects, directed cross-price interactions, and spline-based nonlinear refinements.
-3. We leverage the analytic derivatives inherent in product-specific spline bases to compute both own- and cross-price elasticities efficiently, entirely avoiding the need for dense Jacobian or Hessian evaluations.</p>
+<p>We make three primary contributions:
+1. Explicitly decoupling semantic motion orchestration from visual generation by leveraging an LLM to coordinate 3D trajectories with camera movements.
+2. Introducing an Appearance Binding mechanism that injects RGB dynamic object features from context as visual anchors to prevent identity distortion.
+3. Employing a causal autoregressive architecture with persistent dynamic memory to support complex and extended events.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.22820/fig_p15_c2.jpg" />
-*Figure 2 summarizes the forward pass of ICDN. The architecture is built around three components. First,
-a context branch constructs one contextual token per SKU and maps these tokens into product-specific
-latent representations. Second, an attention-based sparse neighbor selector identifies a small *</p>
-<p>ICDN models the log-demand as a smooth function of log-prices and various contextual covariates. The structural design ensures that the resulting elasticities are exact derivatives of this underlying surface. The model achieves this by decomposing the price effects across three structural components:</p>
-<h3 id="shared-encoder">Shared Encoder</h3>
-<p>The <strong>Shared Encoder</strong> is responsible for mapping the contextual information associated with each Stock Keeping Unit (SKU) into a product-specific latent representation, denoted <span class="arithmatex">\(h_i\)</span>. This latent vector serves to modulate the parameters of the subsequent demand response structures, allowing the model to capture context-dependent demand behavior.</p>
-<h3 id="own-price-response-structure">Own-price Response Structure</h3>
-<p>The response to a product's own price is modeled using a combination of two terms. The first is a locally linear log-log term, <span class="arithmatex">\(\beta_{ii}(x)u_i\)</span>, which captures the baseline price sensitivity. This is augmented by a nonlinear spline component, <span class="arithmatex">\(w_{ii}(x)^\top B_i(u_i)\)</span>, where <span class="arithmatex">\(B_i(u_i)\)</span> is the basis function expansion for product <span class="arithmatex">\(i\)</span>.</p>
-<h3 id="directed-cross-price-response-structure">Directed Cross-price Response Structure</h3>
-<p>The interaction between products <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> is modeled more intricately to capture directional substitution. This structure comprises three parts: a linear component, <span class="arithmatex">\(\beta_{ij}(x)u_j\)</span>, capturing the basic cross-price effect; a nonlinear univariate refinement, <span class="arithmatex">\(w_{ij}(x)^\top B_j(u_j)\)</span>, which refines the effect of <span class="arithmatex">\(u_j\)</span> on product <span class="arithmatex">\(i\)</span>; and critically, a spline-spline interaction term, <span class="arithmatex">\(B_i(u_i)^\top U_{(ij)}(x)B_j(u_j)\)</span>, which models the joint non-linear influence of both prices.</p>
-<p>The overall log-demand surface is constructed by summing these structured components, modulated by the latent representations derived from the <strong>Shared Encoder</strong>. The use of spline bases is key, as it provides the necessary mathematical structure to derive closed-form expressions for the required partial derivatives (elasticities).</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2607.02517/fig_p1_c1.jpg" />
+<em>Figure 1: Controllable world simulation with persistent dynamic memory via WorldDirector.
+By decoupling 3D semantic orchestration from latent video synthesis, our framework autoregressively
+generates long-horizon videos via causal chunks, ensuring rigorous dynamic memory and object
+permanence. Pleas</em></p>
+<p>WorldDirector operates by using an LLM to translate user instructions into 3D bounding box and camera trajectories, which are then projected into 2D location conditions (<span class="arithmatex">\(\mathbf{B}\)</span>). These conditions, alongside appearance conditions (<span class="arithmatex">\(\mathbf{A}\)</span>) derived from contextual frames, guide a causal autoregressive video generation process built upon the LingBot-World-Base model. To manage memory, retrieved contextual frames (<span class="arithmatex">\(\mathbf{M}\)</span>) are prepended to the noisy latent sequence, and an asymmetric attention mask prevents context pollution. The Temporal Drop Mechanism is used to compel natural motion synthesis driven by trajectories, while the Spatial-Aware Weighted Cross-Attention mechanism ensures fine-grained control by grounding entity-specific text prompts to their corresponding visual regions.</p>
+<h3 id="llm">LLM</h3>
+<p>The LLM functions as the central orchestrator. Its role is to interpret high-level user instructions and translate them into concrete, actionable 3D trajectories for all relevant entities, alongside the corresponding camera trajectories required to frame the scene.</p>
+<h3 id="location-condition-b">Location Condition B</h3>
+<p>This component encodes the precise spatiotemporal trajectories of 2D bounding boxes for all entities. These trajectories are rendered as identity-preserving, color-coded masks, providing the generative model with explicit geometric constraints on where entities must be at every timestep.</p>
+<h3 id="appearance-condition-a">Appearance Condition A</h3>
+<p>This condition provides sparse RGB features extracted from contextual frames. Its purpose is to maintain dynamic object appearance consistency across the generated sequence, acting as a visual anchor to prevent identity distortion during periods of occlusion or long-term memory recall.</p>
+<h3 id="multi-granularity-prompts-p">Multi-Granularity Prompts P</h3>
+<p>This input consists of two parts: a global prompt (<span class="arithmatex">\(p_{global}\)</span>) that summarizes the overall narrative intent of the video, and a set of fine-grained textual descriptions (<span class="arithmatex">\(\{p_i\}_k\)</span>) that detail the specific semantic behaviors of individual entities.</p>
+<h3 id="contextual-memory-frames-m">Contextual Memory Frames M</h3>
+<p>These frames are retrieved from a memory bank via a dual-stream selection strategy. They are paired with their corresponding location and appearance conditioning data, allowing the model to condition its generation on past, relevant states.</p>
+<h3 id="3d-vae">3D VAE</h3>
+<p>The 3D VAE is responsible for encoding both the location (<span class="arithmatex">\(\mathbf{B}\)</span>) and appearance (<span class="arithmatex">\(\mathbf{A}\)</span>) conditions into latent tokens. These derived latent tokens are then concatenated with the primary noisy latent sequence input to the autoregressive generator.</p>
+<h3 id="temporal-drop-mechanism-mathcald_taumathbfa">Temporal Drop Mechanism <span class="arithmatex">\(\mathcal{D}_{\tau}(\mathbf{A})\)</span></h3>
+<p>This mechanism implements a sparse sampling strategy applied specifically to the appearance condition <span class="arithmatex">\(\mathbf{A}\)</span>. It ensures that dense appearance information is retained for the initial 16 frames, after which only one reference frame is retained for every six-frame interval, managing computational load while preserving key appearance anchors.</p>
+<h3 id="spatial-aware-weighted-cross-attention-mechanism">Spatial-Aware Weighted Cross-Attention mechanism</h3>
+<p>This mechanism enforces fine-grained control by performing a targeted spatial weighting. It identifies the visual tokens within the latent space that correspond to each entity's 2D bounding box trajectory and applies a specific spatial weight bias to the pre-softmax attention logits, ensuring the model attends correctly to the relevant visual regions for each entity.</p>
 <h2 id="results">Results</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Metric</th>
-<th style="text-align: left;">Value</th>
-<th style="text-align: left;">Baseline</th>
-<th style="text-align: left;">Source</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Out-of-sample generalization</td>
-<td style="text-align: left;">Improves over a directed log-log benchmark</td>
-<td style="text-align: left;">Directed log-log benchmark</td>
-<td style="text-align: left;">Abstract</td>
-</tr>
-<tr>
-<td style="text-align: left;">Elasticity estimates</td>
-<td style="text-align: left;">More stable, economically plausible</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Abstract</td>
-</tr>
-</tbody>
-</table>
+<p>(No key results were provided in the outline.)</p>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>ICDN provides a robust framework for moving beyond simple parametric assumptions in demand modeling. By deriving elasticities exactly from a single, smooth demand surface, it significantly enhances the analytical tractability of the model. Furthermore, the structured approach allows the model to capture heterogeneous and directional cross-price responses by constructing them from ordered product pairs <span class="arithmatex">\((h_i, h_j)\)</span> independently. The ability to enforce economic coherence during training via regularization techniques—such as soft penalties on positive own-price elasticities and soft elasticity-band penalties on cross-price responses—makes the model more reliable for practical inference.</p>
+<p>The core insight here is that robust object permanence in generative models requires separating <em>what</em> an object is doing (semantic motion, governed by 3D planning) from <em>how</em> it looks (visual appearance, governed by contextual conditioning). By using an LLM to dictate the physics and geometry, and then using explicit, decoupled conditioning (<span class="arithmatex">\(\mathbf{B}\)</span> and <span class="arithmatex">\(\mathbf{A}\)</span>) to guide the visual synthesis, WorldDirector provides a framework capable of supporting complex, temporally extended interactions where entities must maintain identity through occlusion.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>It must be noted that the elasticities derived by ICDN should not be interpreted as fully identified causal effects of price interventions, given that the empirical application relies on observational scanner data. Additionally, the model's validity is contingent upon the mathematical coherence requirement: the local price responses must be compatible with a single, globally defined demand surface. Future work should investigate the robustness of the model when this integrability assumption is severely violated by underlying market dynamics.</p>
+<p>The framework currently relies on a pre-trained LingBot-World-Base model, meaning its capabilities are bounded by the pre-training distribution of that base model. Furthermore, the data curation pipeline presents a significant engineering hurdle; it requires generating 15-second videos with precise camera parameters specifically designed to induce target disappearances and reappearances to effectively train the memory retrieval components.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.22820">2605.22820</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260522820</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Integrable Elasticity via Neural Demand Potentials}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Carlos Heredia and Daniel Roncel}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.22820}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.02517">2607.02517</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260702517</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{WorldDirector: Building Controllable World Simulators with Persistent Dynamic Memory}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Hanlin Wang and Hao Ouyang and Qiuyu Wang and Wen Wang and Qingyan Bai and Ka Leong Cheng et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.02517}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.22820}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.02517}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
