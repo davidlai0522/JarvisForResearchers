@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Alignment Is All You Need For X-to-4D Generation](2026-07-05-alignment-is-all-you-need-for-x-to-4d-generation/) { data-cat="Computer Vision" data-date="2026-07-05" }
+
+*2026-07-05*
+
+Align4D is a flexible framework that translates any-modal input (text, image, video, or 3D) into coherent video–3D pairs by employing Object Distance Alignment, Motion-Geometry Joint Alignment, and Asynchronous Optimization.
+
 ## [WorldDirector: Building Controllable World Simulators with Persistent Dynamic Memory](2026-07-04-worlddirector-building-controllable-world-simulators-with-pe/) { data-cat="Computer Vision" data-date="2026-07-04" }
 
 *2026-07-04*
