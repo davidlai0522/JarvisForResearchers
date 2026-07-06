@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Distributed Attacks in Persistent-State AI Control](2026-07-06-distributed-attacks-in-persistent-state-ai-control/) { data-cat="Artificial Intelligence" data-date="2026-07-06" }
+
+*2026-07-06*
+
+The paper introduces ITERATIVE VIBECODING, a setting to study distributed attacks in persistent-state AI control, demonstrating that gradual attacks evade standard monitors better than non-gradual attacks, and proposing a stateful link-tracker monitor as a strong defense.
+
 ## [Alignment Is All You Need For X-to-4D Generation](2026-07-05-alignment-is-all-you-need-for-x-to-4d-generation/) { data-cat="Computer Vision" data-date="2026-07-05" }
 
 *2026-07-05*
