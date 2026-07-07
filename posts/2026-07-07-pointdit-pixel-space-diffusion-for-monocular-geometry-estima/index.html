@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="FaceMoE introduces a Mixture of Experts (MoE) adaptation within a transformer encoder to achieve resolution-aware feature extraction for low-resolution face recognition while mitigating catastrophic forgetting.
+        <meta name="description" content="PointDiT introduces a minimalist pixel-space Diffusion Transformer that operates directly on raw 3D point map patches, conditioned on DINOv3 image tokens, to achieve superior monocular geometry estimation without the overhead of latent spaces or complex hybrid architectures.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-02-facemoe-mixture-of-experts-for-low-resolution-face-recogniti/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-07-pointdit-pixel-space-diffusion-for-monocular-geometry-estima/">
       
       
-        <link rel="prev" href="../2026-07-03-measuring-the-gap-between-human-and-llm-research-ideas/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-07-01-levo-2-stable-and-melodious-song-generation-via-hierarchical/">
+        <link rel="next" href="../2026-07-06-distributed-attacks-in-persistent-state-ai-control/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>FaceMoE: Mixture of Experts for Low-Resolution Face Recognition - JarvisForResearchers</title>
+        <title>PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              FaceMoE: Mixture of Experts for Low-Resolution Face Recognition
+              PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation
             
           </span>
         </div>
@@ -546,10 +546,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-07-07-pointdit-pixel-space-diffusion-for-monocular-geometry-estima/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -565,6 +590,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plain-vit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plain ViT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#point-map-patchification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Point Map Patchification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dinov3-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DINOv3 Encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-and-point-map-fusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image and Point Map Fusion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linear-prediction-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linear Prediction Head
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -686,35 +878,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    FaceMoE: Mixture of Experts for Low-Resolution Face Recognition
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-07-02-facemoe-mixture-of-experts-for-low-resolution-face-recogniti/" class="md-nav__link">
         
   
   
@@ -730,173 +897,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#moe-mlp-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MoE-MLP Layer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#top-k-router" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Top-k Router
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#expert-i-f_i" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Expert \(i\) (\(f_i\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#router-z-loss-mathcall_z" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Router z-loss (\(\mathcal{L}_z\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#load-balancing-loss-mathcall_textbalance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Load Balancing Loss (\(\mathcal{L}_{\text{balance}}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2742,10 +2742,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#moe-mlp-layer" class="md-nav__link">
+  <a href="#plain-vit" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MoE-MLP Layer
+        Plain ViT
       
     </span>
   </a>
@@ -2753,10 +2753,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#top-k-router" class="md-nav__link">
+  <a href="#point-map-patchification" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Top-k Router
+        Point Map Patchification
       
     </span>
   </a>
@@ -2764,10 +2764,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#expert-i-f_i" class="md-nav__link">
+  <a href="#dinov3-encoder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Expert \(i\) (\(f_i\))
+        DINOv3 Encoder
       
     </span>
   </a>
@@ -2775,10 +2775,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#router-z-loss-mathcall_z" class="md-nav__link">
+  <a href="#image-and-point-map-fusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Router z-loss (\(\mathcal{L}_z\))
+        Image and Point Map Fusion
       
     </span>
   </a>
@@ -2786,10 +2786,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#load-balancing-loss-mathcall_textbalance" class="md-nav__link">
+  <a href="#linear-prediction-head" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Load Balancing Loss (\(\mathcal{L}_{\text{balance}}\))
+        Linear Prediction Head
       
     </span>
   </a>
@@ -2873,6 +2873,13 @@
       
       
       
+        <a href="../../tags/#tag:diffusion-models" class="md-tag">diffusion-models</a>
+      
+    
+      
+      
+      
+      
         <a href="../../tags/#tag:transformers" class="md-tag">transformers</a>
       
     
@@ -2880,38 +2887,42 @@
 
 
 
-  <h1>FaceMoE: Mixture of Experts for Low-Resolution Face Recognition</h1>
+  <h1>PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-07-02</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-07-07</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
 <p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>FaceMoE integrates a Mixture of Experts (MoE) mechanism into the transformer encoder's MLP layers. This design utilizes a top-k router to sparsely activate specialized experts, enabling resolution-aware feature extraction for low-resolution face recognition (LR-FR) while mitigating catastrophic forgetting and bridging the domain gap between HR gallery and LR probe images.</p>
+<p>PointDiT introduces a minimalist pixel-space Diffusion Transformer that operates directly on raw 3D point map patches, conditioned on DINOv3 image tokens, to achieve superior monocular geometry estimation without the overhead of latent spaces or complex hybrid architectures.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Low-resolution face recognition (LR-FR) presents several interconnected challenges. Primarily, the degraded nature of probe images leads to poor feature extraction and aggregation capabilities. Second, there is a significant domain gap between the high-resolution (HR) images typically used for training the gallery and the low-resolution (LR) images encountered during inference. Finally, when fine-tuning models on these LR datasets, there is a substantial risk of catastrophic forgetting, where the model loses generalizable knowledge acquired during pre-training.</p>
-<p>Existing approaches have limitations. Methods focused on feature fusion, such as CAFace, CoNAN, and ProxyFusion, are fundamentally constrained by the quality of the underlying feature encoders they employ. Furthermore, while PETALface [41] introduced quality-adaptive dual low-rank modules, its efficacy in the low-resolution domain remains inferior to contemporary state-of-the-art methods. Crucially, prior research has not explored the application of Mixture of Experts (MoE) architectures specifically for the LR-FR task.</p>
+<p>Monocular geometry estimation requires mapping a single 2D RGB image to a dense 3D point map, which is inherently ill-posed due to scale and depth ambiguities. Existing methods either use complex hybrid architectures that yield over-smoothed geometry or rely on Latent Diffusion Models (LDMs) that suffer from information loss during VAE encoding/decoding. Specifically, deterministic regression models often predict the mean of the output distribution, resulting in over-smoothed geometry lacking high-frequency detail. Furthermore, LDMs require compressing point maps into a latent space via a Variational Autoencoder (VAE), which is non-trivial for geometric data and causes information loss. Finally, existing pixel-space diffusion models for depth estimation often use the v-prediction target, which performs worse than x-prediction for this task.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce FaceMoE, a modified transformer encoder that incorporates sparsely activated FFN experts. This architecture efficiently adapts to low-resolution datasets while simultaneously minimizing catastrophic forgetting and addressing the domain gap inherent in LR-FR. We propose a top-k router responsible for assigning each input token to a subset of FFN experts, which facilitates resolution-aware feature extraction by allowing experts to specialize in distinct semantic facial regions. The empirical validation demonstrates superior performance of FaceMoE across eleven diverse datasets, encompassing HR, mixed-quality, and LR scenarios.</p>
+<p>The primary contributions of this work are threefold:
+1. Introduction of a minimalist pixel-space Diffusion Transformer built on a plain ViT that operates directly on raw 3D point map patches.
+2. Training the diffusion backbone entirely from scratch, eliminating the need for point map tokenizers used in latent diffusion approaches.
+3. Employing an x-prediction objective (predicting the clean point map directly) which is shown to be highly effective for geometric data.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.32040/fig_p2_c1.jpg" />
-<em>Fig. 1: (a) BRIAR gallery and probe. (b) Domain difference between gallery and probe.
-(c) Activation maps corresponding to LR and HR images. (d) SOTA results on BRIAR
-Protocol 3.1.</em></p>
-<p>FaceMoE modifies the standard transformer block by replacing the monolithic Feed-Forward Network (FFN) with a Mixture of Experts (MoE) layer. This layer consists of <span class="arithmatex">\(N\)</span> distinct expert MLPs. The process begins with the <strong>Top-k Router</strong>, which computes routing scores <span class="arithmatex">\(z_t\)</span> for every input token <span class="arithmatex">\(x_t\)</span> via a linear projection <span class="arithmatex">\(W_r\)</span>. The router then selects the indices corresponding to the top-<span class="arithmatex">\(k\)</span> scoring experts, normalizing these logits into routing probabilities <span class="arithmatex">\(w_{i_j}(x_t)\)</span>. The final output <span class="arithmatex">\(y_t\)</span> for the token is computed as a convex combination of the outputs from the selected experts. Training stability is maintained through a composite objective function: <span class="arithmatex">\(\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{face}} + \lambda_z \mathcal{L}_z + \lambda_b \mathcal{L}_{\text{balance}}\)</span>, where <span class="arithmatex">\(\mathcal{L}_{\text{face}}\)</span> is the CosFace loss, <span class="arithmatex">\(\mathcal{L}_z\)</span> is the router z-loss, and <span class="arithmatex">\(\mathcal{L}_{\text{balance}}\)</span> is the load balancing loss.</p>
-<h3 id="moe-mlp-layer">MoE-MLP Layer</h3>
-<p>This component substitutes the conventional FFN within a transformer block. It is structured around <span class="arithmatex">\(N\)</span> expert MLPs. Each individual expert <span class="arithmatex">\(f_i(x_t)\)</span> is implemented as a two-layer fully connected network, utilizing GELU activation. The parameters for expert <span class="arithmatex">\(i\)</span> are defined by weights <span class="arithmatex">\(\{W_{i,1}, W_{i,2}\}\)</span> and biases <span class="arithmatex">\(\{b_{i,1}, b_{i,2}\}\)</span>.</p>
-<h3 id="top-k-router">Top-k Router</h3>
-<p>The <strong>Top-k Router</strong> is responsible for dynamic expert selection. For an input token <span class="arithmatex">\(x_t\)</span>, it calculates the expert selection logits <span class="arithmatex">\(z_t = x_t W_r\)</span>. It then employs the <span class="arithmatex">\(\mathrm{TopK}(z_t)\)</span> operation to identify the indices of the <span class="arithmatex">\(k\)</span> experts with the highest logits. These logits are subsequently normalized using softmax to yield the routing probabilities <span class="arithmatex">\(w_{i_j}(x_t)\)</span> for the selected experts.</p>
-<h3 id="expert-i-f_i">Expert <span class="arithmatex">\(i\)</span> (<span class="arithmatex">\(f_i\)</span>)</h3>
-<p>An individual expert, denoted <span class="arithmatex">\(f_i\)</span>, is a parameterized MLP defined by <span class="arithmatex">\(\theta_i\)</span>. Its operation on an input token <span class="arithmatex">\(x_t\)</span> is given by the expression: <span class="arithmatex">\(f_i(x_t) = W_{i,2} \cdot \sigma (W_{i,1} x_t + b_{i,1}) + b_{i,2}\)</span>, where <span class="arithmatex">\(\sigma\)</span> is the GELU activation function.</p>
-<h3 id="router-z-loss-mathcall_z">Router z-loss (<span class="arithmatex">\(\mathcal{L}_z\)</span>)</h3>
-<p>This regularization term is designed to control the magnitude of the routing logits. It penalizes large values in <span class="arithmatex">\(z_t\)</span> across the batch <span class="arithmatex">\(B\)</span> and sequence length <span class="arithmatex">\(T\)</span>: <span class="arithmatex">\(\mathcal{L}_z = \lambda_z \cdot \frac{1}{B \cdot T} \sum_{b=1}^B \sum_{t=1}^T \| z_{b,t} \|_2^2\)</span>.</p>
-<h3 id="load-balancing-loss-mathcall_textbalance">Load Balancing Loss (<span class="arithmatex">\(\mathcal{L}_{\text{balance}}\)</span>)</h3>
-<p>To ensure that no single expert becomes disproportionately utilized, the <strong>Load Balancing Loss</strong> promotes uniform expert utilization. It is formulated as: <span class="arithmatex">\(\mathcal{L}_{\text{balance}} = \lambda_b \cdot N \cdot \frac{1}{(B \cdot T)^2} \sum_{i=1}^N \left ( \sum_{b=1}^B \sum_{t=1}^T p_{b,t,i} \right ) \cdot \left ( \sum_{b=1}^B \sum_{t=1}^T \mathbb {1}\left [ i \in \mathrm {TopK}(z_{b,t}) \right ] \right )\)</span>.</p>
+<p><img alt="Please provide the figure you would like me to analyze. I will then follow your instructions precisely." src="../../assets/figures/2607.02515/fig_p1_c1.jpg" />
+<em>Figure 1. PointDiT. A minimalist pixel-space Diffusion Trans-
+former operating directly on raw point map patches, conditioned
+on image tokens from a pre-trained DINOv3. The 3D point map
+(H × W × 3) is visualized as an RGB image, with color encoding
+the spatial (X, Y, Z) coordinates.</em></p>
+<p>PointDiT models conditional point map generation <span class="arithmatex">\(p(x|c)\)</span> using a flow matching framework parameterized by a Vision Transformer (ViT). The noisy point map <span class="arithmatex">\(z_t\)</span> is patchified and tokenized, while the input image <span class="arithmatex">\(c\)</span> is encoded using a frozen DINOv3 encoder, with features from four uniformly spaced intermediate layers concatenated to form <span class="arithmatex">\(T_c\)</span>. These tokens are fused with the point map tokens <span class="arithmatex">\(T_z\)</span> via channel-wise concatenation before being processed by the ViT. The network <span class="arithmatex">\(F_\theta\)</span> is trained to predict the clean point map <span class="arithmatex">\(\hat{x}\)</span> from <span class="arithmatex">\(z_t, t, c\)</span>. The optimization uses a velocity loss <span class="arithmatex">\(L_{fm}\)</span> derived from <span class="arithmatex">\(\hat{x}\)</span> and the ground-truth velocity target <span class="arithmatex">\(u_t = x - \epsilon\)</span>, supplemented by a relative point loss <span class="arithmatex">\(L_{rel}\)</span> to emphasize local detail.</p>
+<h3 id="plain-vit">Plain ViT</h3>
+<p>The Plain ViT serves as the core pixel-space Diffusion Transformer. It accepts the noisy point map <span class="arithmatex">\(z_t\)</span>, the time step <span class="arithmatex">\(t\)</span>, and the conditioning image <span class="arithmatex">\(c\)</span> as its inputs to perform the denoising operation within the flow matching framework.</p>
+<h3 id="point-map-patchification">Point Map Patchification</h3>
+<p>This component partitions the noisy point map <span class="arithmatex">\(z_t \in \mathbb{R}^{H \times W \times 3}\)</span> into non-overlapping <span class="arithmatex">\(p \times p\)</span> patches. This process yields the set of point map tokens <span class="arithmatex">\(T_z = \phi(\text{Patchify}(z_t)) \in \mathbb{R}^{N \times D}\)</span>, which serve as the input sequence for the Transformer.</p>
+<h3 id="dinov3-encoder">DINOv3 Encoder</h3>
+<p>The DINOv3 Encoder is a frozen general-purpose feature extractor utilized to encode the conditioning image <span class="arithmatex">\(c\)</span>. Specifically, features extracted from four uniformly spaced intermediate layers of the encoder are concatenated to form the image tokens <span class="arithmatex">\(T_c\)</span>.</p>
+<h3 id="image-and-point-map-fusion">Image and Point Map Fusion</h3>
+<p>This mechanism integrates the visual context into the geometric representation. It fuses the image tokens <span class="arithmatex">\(T_c \in \mathbb{R}^{N \times 4D}\)</span> and point map tokens <span class="arithmatex">\(T_z \in \mathbb{R}^{N \times D}\)</span> via channel-wise concatenation to form <span class="arithmatex">\(T_{in} \in \mathbb{R}^{N \times 5D}\)</span>. This fused representation is subsequently projected down to the target dimension <span class="arithmatex">\(D\)</span> before entering the main Transformer blocks.</p>
+<h3 id="linear-prediction-head">Linear Prediction Head</h3>
+<p>The Linear Prediction Head is responsible for reconstructing the final geometry. It projects the output tokens <span class="arithmatex">\(T_{out} \in \mathbb{R}^{N \times D}\)</span> back to the flattened patch dimension <span class="arithmatex">\(3p^2\)</span>. This is followed by an unpatchification operation to yield the full-resolution estimated point map <span class="arithmatex">\(\hat{x} \in \mathbb{R}^{H \times W \times 3}\)</span>.</p>
 <h2 id="results">Results</h2>
 <table>
 <thead>
@@ -2924,26 +2935,26 @@ Protocol 3.1.</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Performance</td>
-<td style="text-align: left;">significantly outperforms state-of-the-art methods</td>
-<td style="text-align: left;">state-of-the-art methods</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">Structural details recovery</td>
+<td style="text-align: left;">PointDiT recovers intricate, thin structures such as the chair more faithfully than GeometryCrafter (latent diffusion) and MoGe-2 (deterministic regression)</td>
+<td style="text-align: left;">GeometryCrafter / MoGe-2</td>
+<td style="text-align: left;">Figure 2(b)</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The integration of MoE into the transformer encoder provides a mechanism for scaling model capacity without a proportional increase in computational cost. The use of a top-k router allows for sparse expert activation, which translates to a 2.17<span class="arithmatex">\(\times\)</span> increase in model capacity while incurring only a 1.66<span class="arithmatex">\(\times\)</span> increase in FLOPs. This efficiency is critical for deploying complex models in resource-constrained environments. Furthermore, by allowing experts to specialize in different semantic facial regions, FaceMoE achieves resolution-aware feature extraction, directly addressing the core difficulty of LR-FR.</p>
+<p>The architectural choices made in PointDiT address fundamental bottlenecks in current monocular geometry estimation pipelines. By operating directly in pixel space, the model circumvents the information bottlenecks inherent in VAE-based latent diffusion models, allowing for the preservation of high-frequency geometric detail. Furthermore, the adoption of the x-prediction objective provides a more direct and effective training signal for tasks requiring precise data reconstruction, which is critical for accurate 3D structure recovery.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>A primary limitation noted is the lack of specific quantitative performance metrics across the eleven evaluated datasets; the paper only asserts that the method "significantly outperforms" existing SOTA. Additionally, the training procedure is complex, relying on a composite objective function involving three distinct loss components (<span class="arithmatex">\(\mathcal{L}_{\text{face}}\)</span>, <span class="arithmatex">\(\mathcal{L}_z\)</span>, and <span class="arithmatex">\(\mathcal{L}_{\text{balance}}\)</span>). This necessitates meticulous and careful hyperparameter tuning for the weighting factors (<span class="arithmatex">\(\lambda, \lambda_z, \lambda_b\)</span>) to ensure stable convergence.</p>
+<p>The model's point map predictions are affine-invariant, meaning they are recovered up to an unknown scale and shift. Additionally, the training process requires a rectified sampling strategy (setting <span class="arithmatex">\(t=0\)</span> with probability <span class="arithmatex">\(p_{zero} = 0.1\)</span>) to calibrate the model to the pure-noise distribution encountered at inference.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.32040">2606.32040</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260632040</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{FaceMoE: Mixture of Experts for Low-Resolution Face Recognition}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Kartik Narayan and Vishal M. Patel}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.32040}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.02515">2607.02515</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260702515</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Haofei Xu and Rundi Wu and Philipp Henzler and Nikolai Kalischek and Michael Oechsle and Fabian Manhardt et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.02515}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.32040}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.02515}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
