@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation](2026-07-07-pointdit-pixel-space-diffusion-for-monocular-geometry-estima/) { data-cat="Computer Vision" data-date="2026-07-07" }
+
+*2026-07-07*
+
+PointDiT introduces a minimalist pixel-space Diffusion Transformer that operates directly on raw 3D point map patches, conditioned on DINOv3 image tokens, to achieve superior monocular geometry estimation without the overhead of latent spaces or complex hybrid architectures.
+
 ## [Distributed Attacks in Persistent-State AI Control](2026-07-06-distributed-attacks-in-persistent-state-ai-control/) { data-cat="Artificial Intelligence" data-date="2026-07-06" }
 
 *2026-07-06*

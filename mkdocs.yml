@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation": posts/2026-07-07-pointdit-pixel-space-diffusion-for-monocular-geometry-estima.md
     - "Distributed Attacks in Persistent-State AI Control": posts/2026-07-06-distributed-attacks-in-persistent-state-ai-control.md
     - "Alignment Is All You Need For X-to-4D Generation": posts/2026-07-05-alignment-is-all-you-need-for-x-to-4d-generation.md
     - "WorldDirector: Building Controllable World Simulators with Persistent Dynamic Memory": posts/2026-07-04-worlddirector-building-controllable-world-simulators-with-pe.md
