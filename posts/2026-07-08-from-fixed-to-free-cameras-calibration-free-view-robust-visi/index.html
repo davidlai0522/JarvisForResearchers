@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="BenchX is a large-scale, open benchmark of 85,355 CT scans designed to systematically evaluate 12 tumor-detection AI models for performance inconsistencies across demographic and imaging protocol biases.
+        <meta name="description" content="CamVLA is a calibration-free, single-view Vision-Language-Action (VLA) model that achieves viewpoint robustness by decoupling action generation into camera-centric predictions and explicitly regressing the 6-DoF hand-eye matrix.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-25-benchx-benchmarking-ai-models-for-cancer-detection-and-local/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-08-from-fixed-to-free-cameras-calibration-free-view-robust-visi/">
       
       
-        <link rel="prev" href="../2026-06-26-learning-action-priors-for-cross-embodiment-robot-manipulati/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-06-24-autodex-an-automated-real-world-system-for-dexterous-graspin/">
+        <link rel="next" href="../2026-07-07-pointdit-pixel-space-diffusion-for-monocular-geometry-estima/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>BenchX: Benchmarking AI Models for Cancer Detection and Localization with Demographic and Protocol Biases - JarvisForResearchers</title>
+        <title>From Fixed to Free Cameras: Calibration-Free View-Robust Vision-Language-Action Model - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              BenchX: Benchmarking AI Models for Cancer Detection and Localization with Demographic and Protocol Biases
+              From Fixed to Free Cameras: Calibration-Free View-Robust Vision-Language-Action Model
             
           </span>
         </div>
@@ -548,10 +548,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-07-08-from-fixed-to-free-cameras-calibration-free-view-robust-visi/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From Fixed to Free Cameras: Calibration-Free View-Robust Vision-Language-Action Model
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -567,6 +592,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#image-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image Encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlm-backbone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VLM Backbone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action Head
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geometric-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometric Head
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deterministic-geometric-transformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deterministic Geometric Transformation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -912,35 +1104,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    BenchX: Benchmarking AI Models for Cancer Detection and Localization with Demographic and Protocol Biases
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-06-25-benchx-benchmarking-ai-models-for-cancer-detection-and-local/" class="md-nav__link">
         
   
   
@@ -956,151 +1123,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#benchx-dataset" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BenchX Dataset
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#llm-metadata-extraction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LLM Metadata Extraction
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#consistency-check-loop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consistency-Check Loop
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2750,10 +2772,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#benchx-dataset" class="md-nav__link">
+  <a href="#image-encoder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BenchX Dataset
+        Image Encoder
       
     </span>
   </a>
@@ -2761,10 +2783,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#llm-metadata-extraction" class="md-nav__link">
+  <a href="#vlm-backbone" class="md-nav__link">
     <span class="md-ellipsis">
       
-        LLM Metadata Extraction
+        VLM Backbone
       
     </span>
   </a>
@@ -2772,10 +2794,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#consistency-check-loop" class="md-nav__link">
+  <a href="#action-head" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Consistency-Check Loop
+        Action Head
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geometric-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometric Head
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deterministic-geometric-transformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deterministic Geometric Transformation
       
     </span>
   </a>
@@ -2852,6 +2896,13 @@
       
       
       
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
+      
+    
+      
+      
+      
+      
         <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
@@ -2859,60 +2910,61 @@
       
       
       
-        <a href="../../tags/#tag:generalization" class="md-tag">generalization</a>
+        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:llm" class="md-tag">llm</a>
+        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:segmentation" class="md-tag">segmentation</a>
+        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
       
     
   </nav>
 
 
 
-  <h1>BenchX: Benchmarking AI Models for Cancer Detection and Localization with Demographic and Protocol Biases</h1>
+  <h1>From Fixed to Free Cameras: Calibration-Free View-Robust Vision-Language-Action Model</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-06-25</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-07-08</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
-<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+<p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>BenchX is a large-scale, open benchmark comprising 85,355 abdominal CT scans. It systematically evaluates 12 tumor-detection AI models to expose performance inconsistencies arising from demographic variations and imaging protocol biases, leveraging LLMs for scalable, fine-grained metadata extraction.</p>
+<p>CamVLA introduces a calibration-free, single-view Vision-Language-Action (VLA) model that achieves viewpoint robustness by explicitly regressing the 6-DoF hand-eye matrix, thereby decoupling action generation into camera-centric predictions from the robot base frame.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Current state-of-the-art AI models deployed for tumor detection frequently exhibit performance degradation when encountering real-world clinical variations, specifically those related to patient demographics and differing CT imaging protocols. The existing evaluation infrastructure is insufficient because most benchmarks report only aggregate accuracy metrics, thereby obscuring critical biases stemming from population or protocol differences. Furthermore, many existing benchmarks are limited to single or few clinical sites and lack the necessary rich metadata required for systematic, granular bias analysis. Existing mitigation strategies, such as domain adaptation, often rely on narrow datasets and fail to provide a systematic assessment of group-wise performance disparities.</p>
+<p>Existing view-robust VLA policies suffer from fragility because they necessitate explicit knowledge of camera extrinsics. This requirement is often untenable in practical robotic deployments where camera mounting or positioning is subject to change. Standard VLAs inherently predict actions relative to the robot base frame, which implicitly couples the manipulation control policy with the fixed camera geometry. Furthermore, prior attempts at view robustness, such as OC-VLA, 4D-VLA, and AnyCamVLA, all mandate accurate, pre-known camera extrinsics at the time of execution. The critical gap remains the lack of a self-localizing alternative capable of inferring necessary camera geometry solely from a single monocular RGB image.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce BenchX, a large-scale benchmark featuring fine-grained demographic and protocol annotations designed to systematically expose fairness and domain-generalization gaps in tumor detection and localization models. Our comprehensive evaluation yielded five critical observations: (i) demonstrable demographic disparities across age, sex, and race; (ii) measurable performance degradation contingent upon CT imaging protocols; (iii) amplified detection challenges associated with small tumor sizes and specific tumor locations; (iv) the identification of consistent failure patterns across multiple state-of-the-art models; and (v) validation of these findings across six distinct external cohorts, confirming generalizability. A key methodological contribution is the utilization of large language models (LLMs) to efficiently extract and structure subgroup information from unstructured clinical reports, ensuring the scalability and reproducibility of the analysis.</p>
+<p>We identify that the prevailing assumption across existing view-robust VLA approaches—the requirement for known camera extrinsics—is a significant deployment bottleneck. We address this by proposing CamVLA, a novel, calibration-free, depth-free, single-view VLA framework. CamVLA achieves robustness by decoupling the camera-centric action generation from the camera-perspective geometric grounding, subsequently recombining these components via a deterministic geometric transformation. Comprehensive evaluation across both simulated and real-world scenarios demonstrates that CamVLA achieves substantial improvements in success rate over established VLA baselines (<span class="arithmatex">\(\pi_0\)</span> and GR00T N1.7) across diverse, unseen camera configurations.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.24883/fig_p2_c1.jpg" />
-<em>Fig. 1: Existing tumor-detection models,
-including top leaderboard performers [4,7],
-show inconsistent performance across pa-
-tient demographics (age, race, sex) and
-imaging protocols (contrast phases). This
-benchmark (BenchX) systematically mea-
-sures and exposes these performance gaps.</em></p>
-<p>BenchX aggregates a dataset of 85,355 abdominal CT scans sourced from six distinct clinical cohorts: E-Coast, Merlin, PanTS, N-California, S. Europe, and N-Europe. To achieve the necessary fine-grained annotation, a semi-automated pipeline is employed. Tumor annotations are curated through a consistency-check loop, where only cases exhibiting discordant predictions between segmentation and detection models are escalated for expert review by radiologists, thereby ensuring expert-level ground truth. Crucially, a pre-trained LLM is tasked with extracting structured attributes—such as age, sex, race, and contrast phase—from the unstructured clinical reports, followed by a rigorous two-stage quality control protocol. Model evaluation is performed on this dataset using standard scan-level detection metrics (sensitivity, specificity, AUC, F1-score) without any prior fine-tuning of the evaluated models on BenchX.</p>
-<h3 id="benchx-dataset">BenchX Dataset</h3>
-<p>This component constitutes the core resource: a large-scale benchmark comprising 85,355 abdominal CT scans. These scans are meticulously annotated with fine-grained metadata covering both patient demographics and specific acquisition protocols across the six contributing clinical cohorts.</p>
-<h3 id="llm-metadata-extraction">LLM Metadata Extraction</h3>
-<p>This component details the automated parsing mechanism. A pre-trained LLM is employed to convert unstructured clinical reports into a structured attribute set, adhering to a fixed schema. This process allows for the systematic extraction of variables such as race and contrast phase at scale.</p>
-<h3 id="consistency-check-loop">Consistency-Check Loop</h3>
-<p>This mechanism ensures annotation fidelity. It operates by filtering predictions: only instances where the segmentation model and the detection model yield discordant results trigger a manual review by a radiologist, thereby maintaining high-quality, expert-verified ground truth for tumor annotations.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2607.05396/fig_p2_c1.jpg" />
+<em>Figure 1: The Viewpoint Trap in VLAs. Conven-
+tional VLA (e.g., π0) trained on a single viewpoint
+exhibits extreme spatial brittleness, where a mere
+15◦camera shift drops success rates to 6.3%.</em></p>
+<p>CamVLA factorizes the end-to-end VLA policy into two parallel processing streams: an Action Head and a Geometric Head. The Action Head is tasked with predicting the delta action (<span class="arithmatex">\(\Delta A_{c,t}\)</span>) natively within the local camera frame, which is inherently pose-independent. Simultaneously, the Geometric Head regresses the 6-DoF hand-eye matrix, <span class="arithmatex">\(T_t \in SE(3)\)</span>, which defines the transformation between the camera frame and the robot base frame. These two outputs are then integrated using a deterministic geometric transformation to yield the final action (<span class="arithmatex">\(\Delta A_{b,t}\)</span>) expressed in the robot base frame. This architectural decoupling isolates the effects of viewpoint variation into the learned <span class="arithmatex">\(T_t\)</span>, enabling generalization without external calibration inputs.</p>
+<h3 id="image-encoder">Image Encoder</h3>
+<p>The Image Encoder is responsible for processing the raw Image Observation, <span class="arithmatex">\(I_t \in \mathbb{R}^{H \times W \times 3}\)</span>. This component extracts the foundational visual features necessary for subsequent representation learning.</p>
+<h3 id="vlm-backbone">VLM Backbone</h3>
+<p>The VLM Backbone operates on the combined input of the Image Tokens derived from the Image Encoder and the tokens representing the Language Instruction, <span class="arithmatex">\(L\)</span>. Its function is to synthesize rich, multimodal representations that encode both the visual context and the semantic goal of the task.</p>
+<h3 id="action-head">Action Head</h3>
+<p>The Action Head takes the fused visual and language representations and predicts the camera-centric delta action, <span class="arithmatex">\(\Delta A_{c,t} = [\Delta p_{c,t}, \Delta r_{c,t}, g_t]\)</span>. Crucially, this prediction is formulated entirely within the local camera frame, making it invariant to the camera's absolute pose relative to the robot base.</p>
+<h3 id="geometric-head">Geometric Head</h3>
+<p>The Geometric Head consumes the visual features from the VLM Backbone and is trained to regress the full 6-DoF hand-eye matrix, <span class="arithmatex">\(T_t \in SE(3)\)</span>. This matrix explicitly models the geometric relationship between the camera coordinate system and the robot base coordinate system, effectively localizing the camera pose relative to the robot.</p>
+<h3 id="deterministic-geometric-transformation">Deterministic Geometric Transformation</h3>
+<p>This final stage combines the outputs of the two heads. It utilizes the predicted rotation <span class="arithmatex">\(R_t \in SO(3)\)</span> extracted from <span class="arithmatex">\(T_t\)</span> to transform the camera-centric translation and rotation components (<span class="arithmatex">\(\Delta p_{c,t}, \Delta r_{c,t}\)</span>) into the robot base frame. The transformation is defined as <span class="arithmatex">\(\Delta p_{b,t} = R_t \Delta p_{c,t}\)</span> and <span class="arithmatex">\(\Delta r_{b,t} = R_t \Delta r_{c,t}\)</span>, resulting in the final robot base-frame action, <span class="arithmatex">\(\Delta A_{b,t}\)</span>.</p>
 <h2 id="results">Results</h2>
-<p>The evaluation revealed significant performance heterogeneity across subgroups. The observed F1 score drop when comparing Arterial vs. Non-contrast to Venous CT was between 15–30%. Furthermore, performance for minority groups on the Merlin cohort was observed as low as 2.5%. When examining top-1 subgroup F1 scores, the E-Coast, PanTS, and N-Europe cohorts showed scores between <span class="arithmatex">\(\ge 70\%\)</span> and <span class="arithmatex">\(74\%\)</span>, whereas the Merlin, N-California, and S-Europe cohorts exhibited scores between <span class="arithmatex">\(\ge 30\%\)</span> and <span class="arithmatex">\(35\%\)</span>.</p>
+<p>The empirical evaluation demonstrates significant performance gains across various testing conditions:</p>
 <table>
 <thead>
 <tr>
@@ -2924,44 +2976,44 @@ sures and exposes these performance gaps.</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">F1 score drop (Arterial/Non-contrast vs Venous)</td>
-<td style="text-align: left;">15–30%</td>
-<td style="text-align: left;">Venous CT</td>
-<td style="text-align: left;">Section 4.2</td>
+<td style="text-align: left;">Mean Success Rate (Unseen Viewpoints)</td>
+<td style="text-align: left;">51.4%</td>
+<td style="text-align: left;">33.2%</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">F1 score (Minority groups on Merlin)</td>
-<td style="text-align: left;">as low as 2.5%</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Section 1 (Abstract)</td>
+<td style="text-align: left;">Slide Block Success Rate (Unseen Viewpoints)</td>
+<td style="text-align: left;">44.5%</td>
+<td style="text-align: left;">18.3%</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Top-1 subgroup F1 (E-Coast, PanTS, N-Europe)</td>
-<td style="text-align: left;"><span class="arithmatex">\(\ge 70\%\)</span>–74%</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Section 4.2</td>
+<td style="text-align: left;">Mean Success Rate (Real-World, 0° Offset)</td>
+<td style="text-align: left;">79.0%</td>
+<td style="text-align: left;">63.3%</td>
+<td style="text-align: left;">Table 2</td>
 </tr>
 <tr>
-<td style="text-align: left;">Top-1 subgroup F1 (Merlin, N-California, S-Europe)</td>
-<td style="text-align: left;"><span class="arithmatex">\(\ge 30\%\)</span>–35%</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Section 4.2</td>
+<td style="text-align: left;">Mean Success Rate (Real-World, 15° Offset)</td>
+<td style="text-align: left;">29.3%</td>
+<td style="text-align: left;">16.0%</td>
+<td style="text-align: left;">Table 2</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The findings underscore that relying solely on the overall average accuracy metric in the evaluation of medical AI systems is fundamentally misleading, as it effectively masks substantial failures occurring within specific demographic or protocol subgroups. This work establishes that rigorous, subgroup-level evaluation—spanning diverse patient demographics (age, sex, race) and varied imaging protocols (arterial, non-contrast, venous, delayed)—is not merely beneficial but critical for engineering truly robust and clinically trustworthy AI systems. Moreover, the successful application of LLMs demonstrates a viable pathway for scaling the curation of complex, fine-grained metadata from otherwise inaccessible unstructured clinical reports.</p>
+<p>For deploying robotic systems in unstructured or dynamic environments, the reliance on perfect, pre-calibrated sensor configurations is a major engineering hurdle. CamVLA provides a pathway to deploy VLA policies where such calibration is infeasible or impractical. By learning the necessary geometric transformation implicitly from the visual input, the framework shifts the burden from external system setup to internal model inference. This capability is vital for achieving true generalization in real-world robotic manipulation tasks.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>A primary limitation of this study is that the benchmark evaluation was conducted without applying any additional fine-tuning of the evaluated models specifically on the BenchX dataset. Additionally, when calculating subgroup-specific metrics, cases where the attribute was labeled as "Unknown" (e.g., for race or contrast phase) were necessarily excluded from the computation. Future work should investigate the impact of targeted domain adaptation strategies when applied to BenchX, and explore methods to impute or handle missing attribute labels more robustly within the subgroup analysis framework.</p>
+<p>We note two primary limitations. First, the model exhibits a marked degradation in performance when the viewpoint offset in real-world tests exceeds <span class="arithmatex">\(15^\circ\)</span>. Second, the Geometric Head regresses the full 6-DoF matrix <span class="arithmatex">\(T_t\)</span>, but the translation vector <span class="arithmatex">\(\tau_t\)</span> within this matrix has no physical impact on the final action execution; viewpoint errors are consequently confined exclusively to the predicted rotation <span class="arithmatex">\(R_t\)</span>. Future work should investigate methods to constrain or refine the translation regression within the Geometric Head to improve overall geometric fidelity.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.24883">2606.24883</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260624883</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{BenchX: Benchmarking AI Models for Cancer Detection and Localization with Demographic and Protocol Biases}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Qi Chen and Wenxuan Li and Pedro R. A. S. Bassi and Xinze Zhou and Jakob Wasserthal and Ibrahim Ethem Hamamci et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.24883}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.05396">2607.05396</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260705396</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{From Fixed to Free Cameras: Calibration-Free View-Robust Vision-Language-Action Model}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Wenhao Li and Xueying Jiang and Quanhao Qian and Deli Zhao and Shijian Lu and Gongjie Zhang et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.05396}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.24883}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.05396}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
