@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [From Fixed to Free Cameras: Calibration-Free View-Robust Vision-Language-Action Model](2026-07-08-from-fixed-to-free-cameras-calibration-free-view-robust-visi/) { data-cat="Computer Vision" data-date="2026-07-08" }
+
+*2026-07-08*
+
+CamVLA is a calibration-free, single-view Vision-Language-Action (VLA) model that achieves viewpoint robustness by decoupling action generation into camera-centric predictions and explicitly regressing the 6-DoF hand-eye matrix.
+
 ## [PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation](2026-07-07-pointdit-pixel-space-diffusion-for-monocular-geometry-estima/) { data-cat="Computer Vision" data-date="2026-07-07" }
 
 *2026-07-07*
