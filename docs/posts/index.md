@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [ELSA3D: Elastic Semantic Anchoring for Unified 3D Understanding and Generation](2026-07-09-elsa3d-elastic-semantic-anchoring-for-unified-3d-understandi/) { data-cat="Computer Vision" data-date="2026-07-09" }
+
+*2026-07-09*
+
+ELSA3D introduces elastic semantic anchoring to unify 3D understanding and generation by structuring language and geometric reasoning jointly along matched abstraction scales using Anchor Tokens and a lightweight per-block router.
+
 ## [From Fixed to Free Cameras: Calibration-Free View-Robust Vision-Language-Action Model](2026-07-08-from-fixed-to-free-cameras-calibration-free-view-robust-visi/) { data-cat="Computer Vision" data-date="2026-07-08" }
 
 *2026-07-08*
