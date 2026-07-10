@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="UniAR is a unified autoregressive framework that uses a single discrete visual tokenizer, leveraging multi-level feature fusion and lookup-free bitwise quantization, to integrate visual understanding and generation in a shared context.
+        <meta name="description" content="SciReasoner is a multimodal scientific foundation model that achieves native structural reasoning across proteins, small molecules, and inorganic crystals by discretizing structural information into a unified, structure-aware vocabulary integrated into an autoregressive LLM.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-18-unified-multimodal-autoregressive-modeling-with-shared-conte/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-10-accurate-interdisciplinary-and-transparent-structure-propert/">
       
       
-        <link rel="prev" href="../2026-06-20-janusmesh-fast-and-zero-shot-3d-visual-illusion-generation-v/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-06-17-t-rex-tactile-reactive-dexterous-manipulation/">
+        <link rel="next" href="../2026-07-09-elsa3d-elastic-semantic-anchoring-for-unified-3d-understandi/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification - JarvisForResearchers</title>
+        <title>Accurate, Interdisciplinary and Transparent Structure-property Understanding with Deep Native Structural Reasoning - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification
+              Accurate, Interdisciplinary and Transparent Structure-property Understanding with Deep Native Structural Reasoning
             
           </span>
         </div>
@@ -552,10 +552,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-07-10-accurate-interdisciplinary-and-transparent-structure-propert/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accurate, Interdisciplinary and Transparent Structure-property Understanding with Deep Native Structural Reasoning
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -571,6 +596,206 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure-aware-vocabulary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure-aware vocabulary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#domain-specific-encoders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Domain-specific encoders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llm-backbone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLM Backbone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-1-warm-up-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 1: Warm-up Training
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-2-full-parameter-multimodal-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 2: Full-parameter Multimodal Training
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-3-annealing-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 3: Annealing Training
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intra-domain-structural-evidence-grounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intra-domain structural evidence grounding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-domain-reasoning-consolidation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-domain reasoning consolidation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1168,35 +1393,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-06-18-unified-multimodal-autoregressive-modeling-with-shared-conte/" class="md-nav__link">
         
   
   
@@ -1212,151 +1412,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#unified-visual-tokenizer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unified Visual Tokenizer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#unified-auto-regressive-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unified Auto-Regressive Model
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dit-based-visual-decoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DiT-based Visual Decoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2810,10 +2865,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#unified-visual-tokenizer" class="md-nav__link">
+  <a href="#structure-aware-vocabulary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Unified Visual Tokenizer
+        Structure-aware vocabulary
       
     </span>
   </a>
@@ -2821,10 +2876,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#unified-auto-regressive-model" class="md-nav__link">
+  <a href="#domain-specific-encoders" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Unified Auto-Regressive Model
+        Domain-specific encoders
       
     </span>
   </a>
@@ -2832,10 +2887,65 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dit-based-visual-decoder" class="md-nav__link">
+  <a href="#llm-backbone" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DiT-based Visual Decoder
+        LLM Backbone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-1-warm-up-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 1: Warm-up Training
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-2-full-parameter-multimodal-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 2: Full-parameter Multimodal Training
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-3-annealing-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 3: Annealing Training
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intra-domain-structural-evidence-grounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intra-domain structural evidence grounding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-domain-reasoning-consolidation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-domain reasoning consolidation
       
     </span>
   </a>
@@ -2912,7 +3022,21 @@
       
       
       
-        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:foundation-models" class="md-tag">foundation-models</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
       
     
       
@@ -2922,40 +3046,59 @@
         <a href="../../tags/#tag:multimodal" class="md-tag">multimodal</a>
       
     
+      
+      
+      
+      
+        <a href="../../tags/#tag:nlp" class="md-tag">nlp</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:reinforcement-learning" class="md-tag">reinforcement-learning</a>
+      
+    
   </nav>
 
 
 
-  <h1>Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification</h1>
+  <h1>Accurate, Interdisciplinary and Transparent Structure-property Understanding with Deep Native Structural Reasoning</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-06-18</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-07-10</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
-<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+<p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>UniAR introduces a unified autoregressive framework that resolves the representation split inherent in existing Unified Multimodal Models (UMMs). It achieves this via a single discrete visual tokenizer, leveraging Binary Spherical Quantization (BSQ) for implicit vocabulary scaling, and integrates this stream into a unified autoregressive model that employs parallel bitwise prediction. This architecture, coupled with a DiT-based decoder, enables high-fidelity image generation within a shared context.</p>
+<p>SciReasoner is a multimodal foundation model designed for native structural reasoning across proteins, small molecules, and inorganic crystals. It achieves this by discretizing complex structural information—coordinates, topologies, and connectivities—into a unified, structure-aware vocabulary that is integrated directly into an autoregressive LLM. Post-training reinforcement learning is used to ground these structural tokens as addressable evidence within a Chain-of-Thought (CoT) framework, enabling inspectable, mechanistic explanations.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Existing Unified Multimodal Models (UMMs) suffer from a fundamental architectural impedance mismatch: they typically employ two disparate visual tokenizers. This separation forces the representation space for visual understanding and visual generation to be distinct. Consequently, when an image needs to be interpreted by the understanding component, the generated image must first be re-encoded by the understanding tokenizer. This necessary re-encoding step fundamentally violates the goal of maintaining a truly 'shared context' across the multimodal pipeline.</p>
-<p>The gaps in prior art are threefold:
-1. Most existing works rely on two separate visual tokenizers, thereby segmenting the representation space for understanding and generation.
-2. Unified tokenizer approaches face significant engineering hurdles in designing tokens that simultaneously satisfy the requirements of both generation and understanding, while also managing the cost associated with scaling the tokenizer vocabulary.
-3. Previous attempts at unified models often lack the necessary architectural synergy between their understanding and generation components, or they rely on training objectives that are inherently divergent.</p>
+<p>Mechanistically explaining structure-property relationships across biology, chemistry, and materials science necessitates interpreting structural evidence through established scientific principles. Current AI paradigms encounter significant hurdles in this domain. Specifically, existing systems either maintain a strict separation between the native structural representation and the evidence-linked reasoning process, or they reduce complex, high-dimensional structures into linear strings. This string compression inherently discards the addressable physical evidence necessary for rigorous scientific inference. Furthermore, domain-specific models are typically engineered as black-box predictors, yielding scores without exposing the intermediate structural evidence that informed their decision.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce UniAR, a unified autoregressive framework designed around a single discrete visual tokenizer to achieve genuine unified modeling, augmented by multi-level feature fusion and lookup-free bitwise quantization. Furthermore, we present a unified autoregressive modeling paradigm that utilizes parallel bitwise prediction alongside a DiT-based decoder equipped with resolution upsampling, facilitating efficient high-resolution generation from compact visual sequences. Finally, we validate UniAR's efficacy, demonstrating state-of-the-art image generation performance while maintaining competitiveness on standard multimodal understanding benchmarks.</p>
+<p>We introduce SciReasoner, a multimodal scientific foundation model engineered for native structural reasoning across proteins, small molecules, and inorganic crystals. Our primary technical contributions are threefold: first, the development of a unified structure-aware vocabulary that discretizes coordinates, topologies, and periodic connectivities, thereby treating structural tokens as discrete, addressable units of evidence. Second, we engineered a multi-stage training pipeline culminating in a post-training framework for self-bootstrapped native structural reasoning. This framework employs reinforcement learning to explicitly connect the semantic meaning of structural vocabulary tokens to a Chain-of-Thought (CoT) generation strategy, ensuring reasoning trajectories are traceable to physical evidence.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.18249/fig_p2_c1.jpg" />
-<em>Figure 1 Visual content generated by UniAR. UniAR produces high-fidelity visual content with demonstrated efficacy
-in instruction-following and text rendering, alongside versatile image editing capabilities.</em></p>
-<p>UniAR operates by establishing a single, shared discrete representation for visual information. This is achieved by adapting continuous features extracted from a pre-trained vision encoder using Binary Spherical Quantization (BSQ) with a parameter setting of <span class="arithmatex">\(dBSQ = 64\)</span>. This quantization scheme implicitly defines a vocabulary of <span class="arithmatex">\(2^{64}\)</span> tokens. To enrich the representation quality, multi-level feature fusion is implemented, incorporating three intermediate layers alongside the final layer output. This resulting discrete token stream is fed into a unified autoregressive model. This model jointly models text and visual tokens via a next-token prediction paradigm, specifically utilizing parallel bitwise prediction (LAR). The final stage involves a DiT-based visual decoder, which reconstructs high-fidelity images from the predicted tokens, conditioned exclusively on the visual signal <span class="arithmatex">\(f_v\)</span> and employing resolution upsampling.</p>
-<h3 id="unified-visual-tokenizer">Unified Visual Tokenizer</h3>
-<p>This component is responsible for mapping continuous visual features into a discrete, shared token space. It operates by applying Binary Spherical Quantization (BSQ) to the feature maps derived from a pre-trained Large Multimodal Model's (LMM) vision encoder. Crucially, it incorporates multi-level feature fusion across multiple intermediate layers of the encoder, ensuring that the resulting tokens are semantically rich and capture information from various scales within the input image.</p>
-<h3 id="unified-auto-regressive-model">Unified Auto-Regressive Model</h3>
-<p>Built upon a pre-trained Large Language Model (LLM) backbone, this model serves as the central predictor. It jointly models the sequence of visual and text tokens using a standard next-token prediction framework. A key innovation here is the implementation of parallel bitwise prediction, which allows the model to predict the discrete visual tokens in parallel with the text tokens, significantly improving efficiency compared to sequential prediction.</p>
-<h3 id="dit-based-visual-decoder">DiT-based Visual Decoder</h3>
-<p>This component is responsible for the final pixel-space reconstruction. It utilizes a Diffusion Transformer (DiT) architecture. The decoding process is governed by Conditional Flow Matching (CFM) and is conditioned <em>solely</em> on the visual conditioning signal <span class="arithmatex">\(f_v\)</span>. To achieve high-resolution output efficiently, the decoder incorporates resolution upsampling mechanisms.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2607.07708/fig_p3_u0.jpg" />
+<em>Please provide the figure you would like me to analyze.</em></p>
+<p>SciReasoner operates by unifying disparate scientific inputs—proteins, small molecules, and crystals—into a shared cross-modal latent space mediated by the structure-aware vocabulary. Domain-specific encoders are responsible for transforming the native physical objects into structured textual representations compatible with this vocabulary. These representations are then fed into the LLM Backbone alongside natural language instructions. The training proceeds through three distinct stages: Stage 1 (Warm-up), Stage 2 (Full-parameter Multimodal Training), and Stage 3 (Annealing Training). Crucially, the model's reasoning capability is finalized in the post-training phase, which utilizes reinforcement learning to ground structural tokens as verifiable evidence within the CoT, allowing for the inspection of the reasoning path.</p>
+<h3 id="structure-aware-vocabulary">Structure-aware vocabulary</h3>
+<p>This vocabulary serves as the common substrate for all modalities. It is not merely a token set but a carefully constructed lexicon encompassing local motifs, specific 3D geometric descriptors, atomic bond types, and crystal space group information. Its design mandate is to preserve the inherent physical and biochemical integrity of the input structures, ensuring that a token refers to a specific, addressable physical feature rather than a generalized linguistic concept.</p>
+<h3 id="domain-specific-encoders">Domain-specific encoders</h3>
+<p>These components act as modality translators. They are specialized converters responsible for mapping the native structure of a given scientific object into the structured textual format dictated by the structure-aware vocabulary. For small molecules, this is handled by ConfSeq; for proteins, Foldseek is employed; and for inorganic crystals, SLICES is utilized. The output of these encoders is a structured sequence that retains the physical integrity of the original object while being consumable by the LLM Backbone.</p>
+<h3 id="llm-backbone">LLM Backbone</h3>
+<p>This is the central autoregressive transformer architecture. It ingests the sequence composed of structure-aware tokens (derived from the domain-specific encoders) interleaved with natural language prompts and instructions. Its function is to process this multimodal input, generating coherent, contextually grounded outputs that satisfy the scientific query, whether that is a prediction or a mechanistic explanation.</p>
+<h3 id="stage-1-warm-up-training">Stage 1: Warm-up Training</h3>
+<p>This initial training phase is designed to stabilize the integration process. Its objective is to anchor the newly introduced structure-aware tokens to fundamental topological, geometric, and chemical semantics. This is performed without aggressively perturbing the pre-trained linguistic knowledge embedded within the LLM Backbone, preventing catastrophic forgetting of general language capabilities.</p>
+<h3 id="stage-2-full-parameter-multimodal-training">Stage 2: Full-parameter Multimodal Training</h3>
+<p>In this phase, the model undergoes comprehensive multimodal training. The focus shifts to developing the robust interface between the structural information and the linguistic instruction set. The model learns how to interpret the structured tokens in the context of natural language queries, effectively learning the cross-modal mapping required for scientific tasks.</p>
+<h3 id="stage-3-annealing-training">Stage 3: Annealing Training</h3>
+<p>This stage refines the model's ability to perform deep reasoning. It is characterized by an increased proportion of question-answer (QA)-style data in the training mix. This shift biases the model towards generating explanatory narratives rather than simple feature extraction, thereby fostering native structural reasoning capabilities.</p>
+<h3 id="intra-domain-structural-evidence-grounding">Intra-domain structural evidence grounding</h3>
+<p>This is a critical post-training step executed by domain-specific experts. It explicitly teaches the model how to treat the structural tokens not just as input features, but as verifiable evidence units within the context of reasoning specific to their domain (e.g., a specific bond type in a molecule, or a specific residue interaction in a protein).</p>
+<h3 id="cross-domain-reasoning-consolidation">Cross-domain reasoning consolidation</h3>
+<p>The final post-training step integrates the specialized knowledge gained during the intra-domain grounding. Expert-generated reasoning traces and the capabilities learned within each domain are consolidated into the final SciReasoner model, enabling it to reason coherently across the boundaries of proteins, molecules, and crystals.</p>
 <h2 id="results">Results</h2>
 <table>
 <thead>
@@ -2968,38 +3111,68 @@ in instruction-following and text rendering, alongside versatile image editing c
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Overall (GenEval)</td>
-<td style="text-align: left;">0.85</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Table 1</td>
+<td style="text-align: left;">Fmax (Cellular Component annotation)</td>
+<td style="text-align: left;">0.55</td>
+<td style="text-align: left;">0.42</td>
+<td style="text-align: left;">Abstract</td>
 </tr>
 <tr>
-<td style="text-align: left;">Single (GenEval)</td>
-<td style="text-align: left;">1.00</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Table 1</td>
+<td style="text-align: left;">Single-step retrosynthesis accuracy</td>
+<td style="text-align: left;">0.72</td>
+<td style="text-align: left;">0.63</td>
+<td style="text-align: left;">Abstract</td>
 </tr>
 <tr>
-<td style="text-align: left;">Two (GenEval)</td>
-<td style="text-align: left;">0.95</td>
+<td style="text-align: left;">Mean Fmax (DeepFRI-GO)</td>
+<td style="text-align: left;">0.59</td>
+<td style="text-align: left;">0.52 (SaProt)</td>
+<td style="text-align: left;">Section 2.2.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Accuracy (subcellular localization)</td>
+<td style="text-align: left;">0.88</td>
+<td style="text-align: left;">0.84 (ESM2)</td>
+<td style="text-align: left;">Section 2.2.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Isoform R2 (RNA function)</td>
+<td style="text-align: left;">0.86</td>
+<td style="text-align: left;">0.59</td>
+<td style="text-align: left;">Section 2.2.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">RNA protein interaction MCC</td>
+<td style="text-align: left;">0.81</td>
+<td style="text-align: left;">0.74</td>
+<td style="text-align: left;">Section 2.2.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">5.0% enrichment factor (DUD-E)</td>
+<td style="text-align: left;">7.70</td>
+<td style="text-align: left;">7.12</td>
+<td style="text-align: left;">Section 2.2.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">R2 (formation-energy parity plot)</td>
+<td style="text-align: left;">0.895</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Table 1</td>
+<td style="text-align: left;">Section 2.2.4</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The core implication of UniAR is the realization of a true shared context in multimodal AI. By enforcing a single discrete token representation for both visual understanding and generation, we eliminate the representational bottleneck and the computational overhead associated with re-encoding between separate visual spaces. The use of lookup-free bitwise quantization provides a scalable mechanism to expand the effective vocabulary size without incurring the memory or computational cost of maintaining large, explicit codebooks. Furthermore, the parallel bitwise prediction mechanism in the autoregressive model directly addresses the sequential bottleneck in generative modeling, leading to accelerated inference.</p>
+<p>The development of SciReasoner addresses a fundamental bottleneck in applying large-scale AI to scientific discovery: the inability to bridge high-dimensional physical structure with symbolic, mechanistic explanation. By enforcing the representation of structure as addressable, discrete evidence within the LLM's context, we move beyond correlational pattern matching toward genuine structural inference. This capability is vital for accelerating hypothesis generation in fields where the relationship between atomic arrangement and macroscopic function is non-trivial and requires rigorous, traceable justification.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>We must note two specific limitations of the current implementation. First, the visual decoder is only introduced during the reinforcement learning phase to facilitate the acquisition of reward signals during the initial training stages; it is not necessarily part of the inference path in its full capacity. Second, the visual decoder is strictly conditioned only on the visual signal <span class="arithmatex">\(f_v\)</span> and does not incorporate any textual prompt information during the reconstruction process. Future work should investigate methods to integrate textual conditioning into the decoder while maintaining the benefits of the unified token stream.</p>
+<p>The current evaluation suggests that high benchmark performance can sometimes be achieved by the model exploiting homology, scaffold, or template-level shortcuts, which warrants further investigation into true inductive reasoning versus pattern matching. Furthermore, the model exhibits a strong dependency on the quality and presence of structural inputs; ablating these inputs results in a consistent and significant degradation of performance, indicating that the structural encoding remains a critical, rather than fully redundant, component of the architecture.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.18249">2606.18249</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260618249</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Wujian Peng and Lingchen Meng and Yuxuan Cai and Xianwei Zhuang and Yuhuan Yang and Rongyao Fang et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.18249}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.07708">2607.07708</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260707708</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Accurate, Interdisciplinary and Transparent Structure-property Understanding with Deep Native Structural Reasoning}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Chen Tang and Yizhou Wang and Jianyu Wu and Lintao Wang and Shixiang Tang and Pengze Li et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.07708}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.18249}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.07708}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
