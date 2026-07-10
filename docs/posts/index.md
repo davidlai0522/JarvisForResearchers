@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Accurate, Interdisciplinary and Transparent Structure-property Understanding with Deep Native Structural Reasoning](2026-07-10-accurate-interdisciplinary-and-transparent-structure-propert/) { data-cat="NLP" data-date="2026-07-10" }
+
+*2026-07-10*
+
+SciReasoner is a multimodal scientific foundation model that achieves native structural reasoning across proteins, small molecules, and inorganic crystals by discretizing structural information into a unified, structure-aware vocabulary integrated into an autoregressive LLM.
+
 ## [ELSA3D: Elastic Semantic Anchoring for Unified 3D Understanding and Generation](2026-07-09-elsa3d-elastic-semantic-anchoring-for-unified-3d-understandi/) { data-cat="Computer Vision" data-date="2026-07-09" }
 
 *2026-07-09*

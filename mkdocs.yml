@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "Accurate, Interdisciplinary and Transparent Structure-property Understanding with Deep Native Structural Reasoning": posts/2026-07-10-accurate-interdisciplinary-and-transparent-structure-propert.md
     - "ELSA3D: Elastic Semantic Anchoring for Unified 3D Understanding and Generation": posts/2026-07-09-elsa3d-elastic-semantic-anchoring-for-unified-3d-understandi.md
     - "From Fixed to Free Cameras: Calibration-Free View-Robust Vision-Language-Action Model": posts/2026-07-08-from-fixed-to-free-cameras-calibration-free-view-robust-visi.md
     - "PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation": posts/2026-07-07-pointdit-pixel-space-diffusion-for-monocular-geometry-estima.md
