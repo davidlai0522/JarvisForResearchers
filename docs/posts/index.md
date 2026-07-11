@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [LongE2V: Long-Horizon Event-based Video Reconstruction, Prediction, and Frame Interpolation with Video Diffusion Models](2026-07-11-longe2v-long-horizon-event-based-video-reconstruction-predic/) { data-cat="Computer Vision" data-date="2026-07-11" }
+
+*2026-07-11*
+
+LongE2V is a novel framework that leverages pre-trained video diffusion priors to jointly address event-based video reconstruction, long-horizon prediction, and frame interpolation using specialized mechanisms like Autoregressive Unrolling and Reencoding Alignment.
+
 ## [Accurate, Interdisciplinary and Transparent Structure-property Understanding with Deep Native Structural Reasoning](2026-07-10-accurate-interdisciplinary-and-transparent-structure-propert/) { data-cat="NLP" data-date="2026-07-10" }
 
 *2026-07-10*
