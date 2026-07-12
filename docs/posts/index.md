@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [ZipDepth: Bringing Lightweight Zero-Shot Monocular Depth Anywhere, on Any Device](2026-07-12-zipdepth-bringing-lightweight-zero-shot-monocular-depth-anyw/) { data-cat="Computer Vision" data-date="2026-07-12" }
+
+*2026-07-12*
+
+ZipDepth is a compact monocular depth network that achieves real-time, zero-shot cross-domain generalization by distilling knowledge from large foundation models into an efficient, reparameterizable encoder-decoder architecture.
+
 ## [LongE2V: Long-Horizon Event-based Video Reconstruction, Prediction, and Frame Interpolation with Video Diffusion Models](2026-07-11-longe2v-long-horizon-event-based-video-reconstruction-predic/) { data-cat="Computer Vision" data-date="2026-07-11" }
 
 *2026-07-11*
