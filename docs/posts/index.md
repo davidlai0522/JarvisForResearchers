@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Wat3R: Underwater 3D Geometry Learning without Annotations](2026-07-13-wat3r-underwater-3d-geometry-learning-without-annotations/) { data-cat="Computer Vision" data-date="2026-07-13" }
+
+*2026-07-13*
+
+Wat3R is a cross-domain semi-supervised learning framework that adapts feed-forward 3D reconstruction models from air to underwater scenes without requiring any annotated underwater data by leveraging unlabeled real underwater video footage and a cross-view consistency loss.
+
 ## [ZipDepth: Bringing Lightweight Zero-Shot Monocular Depth Anywhere, on Any Device](2026-07-12-zipdepth-bringing-lightweight-zero-shot-monocular-depth-anyw/) { data-cat="Computer Vision" data-date="2026-07-12" }
 
 *2026-07-12*
