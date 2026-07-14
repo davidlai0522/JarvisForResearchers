@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [PanoWorld: Real-World Panoramic Generation](2026-07-14-panoworld-real-world-panoramic-generation/) { data-cat="Computer Vision" data-date="2026-07-14" }
+
+*2026-07-14*
+
+PanoWorld is a diffusion-based framework that achieves high-fidelity and controllable panoramic video generation by leveraging the rotation-equivariant property of omnidirectional representations through Dense Panoramic Ray-Conditioning (DPRC) and Geometry-aware Memory Augmentation (GMA).
+
 ## [Wat3R: Underwater 3D Geometry Learning without Annotations](2026-07-13-wat3r-underwater-3d-geometry-learning-without-annotations/) { data-cat="Computer Vision" data-date="2026-07-13" }
 
 *2026-07-13*
