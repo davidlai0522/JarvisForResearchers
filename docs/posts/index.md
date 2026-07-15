@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Read It Back: Pretrained MLLMs Are Zero-Shot Reward Models for Text-to-Image Generation](2026-07-15-read-it-back-pretrained-mllms-are-zero-shot-reward-models-fo/) { data-cat="Computer Vision" data-date="2026-07-15" }
+
+*2026-07-15*
+
+SpectraReward is a training-free reward function that leverages the image-text alignment ability of pretrained MLLMs by measuring the average image-conditioned prompt log-likelihood to guide text-to-image reinforcement learning.
+
 ## [PanoWorld: Real-World Panoramic Generation](2026-07-14-panoworld-real-world-panoramic-generation/) { data-cat="Computer Vision" data-date="2026-07-14" }
 
 *2026-07-14*
