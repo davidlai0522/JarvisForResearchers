@@ -6,35 +6,36 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="High-quality robotics & AI research — explained locally with Gemma 4">
+        <meta name="description" content="SpectraReward is a training-free reward function that leverages the image-text alignment ability of pretrained MLLMs by measuring the average image-conditioned prompt log-likelihood to guide text-to-image reinforcement learning.
+">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/notes/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-15-read-it-back-pretrained-mllms-are-zero-shot-reward-models-fo/">
       
       
-        <link rel="prev" href="../digest/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../tags/">
+        <link rel="next" href="../2026-07-14-panoworld-real-world-panoramic-generation/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Notes - JarvisForResearchers</title>
+        <title>Read It Back: Pretrained MLLMs Are Zero-Shot Reward Models for Text-to-Image Generation - JarvisForResearchers</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,9 +54,9 @@
       
     
     
-      <link rel="stylesheet" href="../assets/css/blog-filter.css">
+      <link rel="stylesheet" href="../../assets/css/blog-filter.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#notes" class="md-skip">
+        <a href="#tldr" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +93,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="JarvisForResearchers" class="md-header__button md-logo" aria-label="JarvisForResearchers" data-md-component="logo">
+    <a href="../.." title="JarvisForResearchers" class="md-header__button md-logo" aria-label="JarvisForResearchers" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Notes
+              Read It Back: Pretrained MLLMs Are Zero-Shot Reward Models for Text-to-Image Generation
             
           </span>
         </div>
@@ -185,7 +186,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -202,11 +203,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../posts/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -226,7 +229,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../digest/" class="md-tabs__link">
+      <a href="../../digest/" class="md-tabs__link">
         
   
   
@@ -243,11 +246,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../notes/" class="md-tabs__link">
         
   
   
@@ -266,7 +267,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../tags/" class="md-tabs__link">
+      <a href="../../tags/" class="md-tabs__link">
         
   
   
@@ -290,8 +291,6 @@
           
             
               
-                
-              
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -303,7 +302,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="JarvisForResearchers" class="md-nav__button md-logo" aria-label="JarvisForResearchers" data-md-component="logo">
+    <a href="../.." title="JarvisForResearchers" class="md-nav__button md-logo" aria-label="JarvisForResearchers" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -321,7 +320,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -345,6 +344,8 @@
       
   
   
+    
+  
   
   
     
@@ -506,20 +507,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../posts/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -537,13 +539,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -560,10 +562,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../posts/2026-07-15-read-it-back-pretrained-mllms-are-zero-shot-reward-models-fo/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Read It Back: Pretrained MLLMs Are Zero-Shot Reward Models for Text-to-Image Generation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -579,6 +606,162 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#text-to-image-policy-g_theta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Text-to-Image Policy (\(G_\theta\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frozen-pretrained-mllm-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frozen Pretrained MLLM (\(M\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semantic-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantic Spectrum
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self-spectrareward-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-SpectraReward Mechanism
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -591,7 +774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-07-14-panoworld-real-world-panoramic-generation/" class="md-nav__link">
+      <a href="../2026-07-14-panoworld-real-world-panoramic-generation/" class="md-nav__link">
         
   
   
@@ -619,7 +802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-07-13-wat3r-underwater-3d-geometry-learning-without-annotations/" class="md-nav__link">
+      <a href="../2026-07-13-wat3r-underwater-3d-geometry-learning-without-annotations/" class="md-nav__link">
         
   
   
@@ -647,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-07-12-zipdepth-bringing-lightweight-zero-shot-monocular-depth-anyw/" class="md-nav__link">
+      <a href="../2026-07-12-zipdepth-bringing-lightweight-zero-shot-monocular-depth-anyw/" class="md-nav__link">
         
   
   
@@ -675,7 +858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-07-11-longe2v-long-horizon-event-based-video-reconstruction-predic/" class="md-nav__link">
+      <a href="../2026-07-11-longe2v-long-horizon-event-based-video-reconstruction-predic/" class="md-nav__link">
         
   
   
@@ -703,7 +886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-07-10-accurate-interdisciplinary-and-transparent-structure-propert/" class="md-nav__link">
+      <a href="../2026-07-10-accurate-interdisciplinary-and-transparent-structure-propert/" class="md-nav__link">
         
   
   
@@ -731,7 +914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-07-09-elsa3d-elastic-semantic-anchoring-for-unified-3d-understandi/" class="md-nav__link">
+      <a href="../2026-07-09-elsa3d-elastic-semantic-anchoring-for-unified-3d-understandi/" class="md-nav__link">
         
   
   
@@ -759,7 +942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-07-08-from-fixed-to-free-cameras-calibration-free-view-robust-visi/" class="md-nav__link">
+      <a href="../2026-07-08-from-fixed-to-free-cameras-calibration-free-view-robust-visi/" class="md-nav__link">
         
   
   
@@ -787,7 +970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-07-07-pointdit-pixel-space-diffusion-for-monocular-geometry-estima/" class="md-nav__link">
+      <a href="../2026-07-07-pointdit-pixel-space-diffusion-for-monocular-geometry-estima/" class="md-nav__link">
         
   
   
@@ -815,7 +998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-07-06-distributed-attacks-in-persistent-state-ai-control/" class="md-nav__link">
+      <a href="../2026-07-06-distributed-attacks-in-persistent-state-ai-control/" class="md-nav__link">
         
   
   
@@ -843,7 +1026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-07-05-alignment-is-all-you-need-for-x-to-4d-generation/" class="md-nav__link">
+      <a href="../2026-07-05-alignment-is-all-you-need-for-x-to-4d-generation/" class="md-nav__link">
         
   
   
@@ -871,7 +1054,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-07-04-worlddirector-building-controllable-world-simulators-with-pe/" class="md-nav__link">
+      <a href="../2026-07-04-worlddirector-building-controllable-world-simulators-with-pe/" class="md-nav__link">
         
   
   
@@ -899,7 +1082,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-07-03-measuring-the-gap-between-human-and-llm-research-ideas/" class="md-nav__link">
+      <a href="../2026-07-03-measuring-the-gap-between-human-and-llm-research-ideas/" class="md-nav__link">
         
   
   
@@ -927,7 +1110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-07-02-facemoe-mixture-of-experts-for-low-resolution-face-recogniti/" class="md-nav__link">
+      <a href="../2026-07-02-facemoe-mixture-of-experts-for-low-resolution-face-recogniti/" class="md-nav__link">
         
   
   
@@ -955,7 +1138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-07-01-levo-2-stable-and-melodious-song-generation-via-hierarchical/" class="md-nav__link">
+      <a href="../2026-07-01-levo-2-stable-and-melodious-song-generation-via-hierarchical/" class="md-nav__link">
         
   
   
@@ -983,7 +1166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-30-dexcompose-reusing-dexterous-policies-for-multi-task-manipul/" class="md-nav__link">
+      <a href="../2026-06-30-dexcompose-reusing-dexterous-policies-for-multi-task-manipul/" class="md-nav__link">
         
   
   
@@ -1011,7 +1194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-29-world-action-models-enable-continual-imitation-learning-with/" class="md-nav__link">
+      <a href="../2026-06-29-world-action-models-enable-continual-imitation-learning-with/" class="md-nav__link">
         
   
   
@@ -1039,7 +1222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-28-danceopd-on-policy-generative-field-distillation/" class="md-nav__link">
+      <a href="../2026-06-28-danceopd-on-policy-generative-field-distillation/" class="md-nav__link">
         
   
   
@@ -1067,7 +1250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-27-scalable-behavior-cloning-with-open-data-training-and-evalua/" class="md-nav__link">
+      <a href="../2026-06-27-scalable-behavior-cloning-with-open-data-training-and-evalua/" class="md-nav__link">
         
   
   
@@ -1095,7 +1278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-26-learning-action-priors-for-cross-embodiment-robot-manipulati/" class="md-nav__link">
+      <a href="../2026-06-26-learning-action-priors-for-cross-embodiment-robot-manipulati/" class="md-nav__link">
         
   
   
@@ -1123,7 +1306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-25-benchx-benchmarking-ai-models-for-cancer-detection-and-local/" class="md-nav__link">
+      <a href="../2026-06-25-benchx-benchmarking-ai-models-for-cancer-detection-and-local/" class="md-nav__link">
         
   
   
@@ -1151,7 +1334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-24-autodex-an-automated-real-world-system-for-dexterous-graspin/" class="md-nav__link">
+      <a href="../2026-06-24-autodex-an-automated-real-world-system-for-dexterous-graspin/" class="md-nav__link">
         
   
   
@@ -1179,7 +1362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-23-how-transparent-is-diffusiongemma/" class="md-nav__link">
+      <a href="../2026-06-23-how-transparent-is-diffusiongemma/" class="md-nav__link">
         
   
   
@@ -1207,7 +1390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-22-timeprove-propose-then-verify-for-efficient-long-video-tempo/" class="md-nav__link">
+      <a href="../2026-06-22-timeprove-propose-then-verify-for-efficient-long-video-tempo/" class="md-nav__link">
         
   
   
@@ -1235,7 +1418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-22-adm-dp-adaptive-dynamic-modality-diffusion-policy-through-vi/" class="md-nav__link">
+      <a href="../2026-06-22-adm-dp-adaptive-dynamic-modality-diffusion-policy-through-vi/" class="md-nav__link">
         
   
   
@@ -1263,7 +1446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-21-memorywam-efficient-world-action-modeling-with-persistent-me/" class="md-nav__link">
+      <a href="../2026-06-21-memorywam-efficient-world-action-modeling-with-persistent-me/" class="md-nav__link">
         
   
   
@@ -1291,7 +1474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-20-janusmesh-fast-and-zero-shot-3d-visual-illusion-generation-v/" class="md-nav__link">
+      <a href="../2026-06-20-janusmesh-fast-and-zero-shot-3d-visual-illusion-generation-v/" class="md-nav__link">
         
   
   
@@ -1319,7 +1502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-18-unified-multimodal-autoregressive-modeling-with-shared-conte/" class="md-nav__link">
+      <a href="../2026-06-18-unified-multimodal-autoregressive-modeling-with-shared-conte/" class="md-nav__link">
         
   
   
@@ -1347,7 +1530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-17-t-rex-tactile-reactive-dexterous-manipulation/" class="md-nav__link">
+      <a href="../2026-06-17-t-rex-tactile-reactive-dexterous-manipulation/" class="md-nav__link">
         
   
   
@@ -1375,7 +1558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-16-simmer-benchmarking-latent-failures-in-llm-executable-planni/" class="md-nav__link">
+      <a href="../2026-06-16-simmer-benchmarking-latent-failures-in-llm-executable-planni/" class="md-nav__link">
         
   
   
@@ -1403,7 +1586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-15-mana-dexterous-manipulation-of-articulated-tools/" class="md-nav__link">
+      <a href="../2026-06-15-mana-dexterous-manipulation-of-articulated-tools/" class="md-nav__link">
         
   
   
@@ -1431,7 +1614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-14-learning-to-reason-by-analogy-via-retrieval-augmented-reinfo/" class="md-nav__link">
+      <a href="../2026-06-14-learning-to-reason-by-analogy-via-retrieval-augmented-reinfo/" class="md-nav__link">
         
   
   
@@ -1459,7 +1642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-13-interleavethinker-reinforcing-agentic-interleaved-generation/" class="md-nav__link">
+      <a href="../2026-06-13-interleavethinker-reinforcing-agentic-interleaved-generation/" class="md-nav__link">
         
   
   
@@ -1487,7 +1670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-12-reroute-don-t-remove-recoverable-visual-token-routing-for-vi/" class="md-nav__link">
+      <a href="../2026-06-12-reroute-don-t-remove-recoverable-visual-token-routing-for-vi/" class="md-nav__link">
         
   
   
@@ -1515,7 +1698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-11-when-to-align-when-to-predict-a-phase-diagram-for-multimodal/" class="md-nav__link">
+      <a href="../2026-06-11-when-to-align-when-to-predict-a-phase-diagram-for-multimodal/" class="md-nav__link">
         
   
   
@@ -1543,7 +1726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-10-latent-spatial-memory-for-video-world-models/" class="md-nav__link">
+      <a href="../2026-06-10-latent-spatial-memory-for-video-world-models/" class="md-nav__link">
         
   
   
@@ -1571,7 +1754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-09-unisharp-universal-sharp-monocular-view-synthesis/" class="md-nav__link">
+      <a href="../2026-06-09-unisharp-universal-sharp-monocular-view-synthesis/" class="md-nav__link">
         
   
   
@@ -1599,7 +1782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-08-handoff-humanoid-agentic-task-space-whole-body-control-via-d/" class="md-nav__link">
+      <a href="../2026-06-08-handoff-humanoid-agentic-task-space-whole-body-control-via-d/" class="md-nav__link">
         
   
   
@@ -1627,7 +1810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-07-tempovla-learning-speed-controllable-vision-language-action-/" class="md-nav__link">
+      <a href="../2026-06-07-tempovla-learning-speed-controllable-vision-language-action-/" class="md-nav__link">
         
   
   
@@ -1655,7 +1838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-06-taillor-protecting-principal-components-in-parameter-efficie/" class="md-nav__link">
+      <a href="../2026-06-06-taillor-protecting-principal-components-in-parameter-efficie/" class="md-nav__link">
         
   
   
@@ -1683,7 +1866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-04-exploring-easy-boosts-for-lidar-semantic-scene-completion/" class="md-nav__link">
+      <a href="../2026-06-04-exploring-easy-boosts-for-lidar-semantic-scene-completion/" class="md-nav__link">
         
   
   
@@ -1711,7 +1894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-03-thinking-in-blender-staged-executable-inverse-graphics-with-/" class="md-nav__link">
+      <a href="../2026-06-03-thinking-in-blender-staged-executable-inverse-graphics-with-/" class="md-nav__link">
         
   
   
@@ -1739,7 +1922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-06-02-representation-forcing-for-bottleneck-free-unified-multimoda/" class="md-nav__link">
+      <a href="../2026-06-02-representation-forcing-for-bottleneck-free-unified-multimoda/" class="md-nav__link">
         
   
   
@@ -1767,7 +1950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised/" class="md-nav__link">
+      <a href="../2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised/" class="md-nav__link">
         
   
   
@@ -1795,7 +1978,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-28-algorithmic-monocultures-in-hiring/" class="md-nav__link">
+      <a href="../2026-05-28-algorithmic-monocultures-in-hiring/" class="md-nav__link">
         
   
   
@@ -1823,7 +2006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi/" class="md-nav__link">
+      <a href="../2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi/" class="md-nav__link">
         
   
   
@@ -1851,7 +2034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-27-latent-action-diffusion-for-cross-embodiment-manipulation/" class="md-nav__link">
+      <a href="../2026-05-27-latent-action-diffusion-for-cross-embodiment-manipulation/" class="md-nav__link">
         
   
   
@@ -1879,7 +2062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/" class="md-nav__link">
+      <a href="../2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/" class="md-nav__link">
         
   
   
@@ -1907,7 +2090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-25-integrable-elasticity-via-neural-demand-potentials/" class="md-nav__link">
+      <a href="../2026-05-25-integrable-elasticity-via-neural-demand-potentials/" class="md-nav__link">
         
   
   
@@ -1935,7 +2118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/" class="md-nav__link">
+      <a href="../2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/" class="md-nav__link">
         
   
   
@@ -1963,7 +2146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-23-tokenisation-via-convex-relaxations/" class="md-nav__link">
+      <a href="../2026-05-23-tokenisation-via-convex-relaxations/" class="md-nav__link">
         
   
   
@@ -1991,7 +2174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-23-explicit-stair-geometry-conditioning-for-robust-humanoid-loc/" class="md-nav__link">
+      <a href="../2026-05-23-explicit-stair-geometry-conditioning-for-robust-humanoid-loc/" class="md-nav__link">
         
   
   
@@ -2019,7 +2202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-22-variance-reduction-for-expectations-with-diffusion-teachers/" class="md-nav__link">
+      <a href="../2026-05-22-variance-reduction-for-expectations-with-diffusion-teachers/" class="md-nav__link">
         
   
   
@@ -2047,7 +2230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-20-can-these-views-be-one-scene-evaluating-multiview-3d-consist/" class="md-nav__link">
+      <a href="../2026-05-20-can-these-views-be-one-scene-evaluating-multiview-3d-consist/" class="md-nav__link">
         
   
   
@@ -2075,7 +2258,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-18-v-jepa-2-1-unlocking-dense-features-in-video-self-supervised/" class="md-nav__link">
+      <a href="../2026-05-18-v-jepa-2-1-unlocking-dense-features-in-video-self-supervised/" class="md-nav__link">
         
   
   
@@ -2103,7 +2286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-18-refdecoder-enhancing-visual-generation-with-conditional-vide/" class="md-nav__link">
+      <a href="../2026-05-18-refdecoder-enhancing-visual-generation-with-conditional-vide/" class="md-nav__link">
         
   
   
@@ -2131,7 +2314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/" class="md-nav__link">
+      <a href="../2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/" class="md-nav__link">
         
   
   
@@ -2159,7 +2342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-16-world-action-models-are-zero-shot-policies/" class="md-nav__link">
+      <a href="../2026-05-16-world-action-models-are-zero-shot-policies/" class="md-nav__link">
         
   
   
@@ -2187,7 +2370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-16-entitybench-towards-entity-consistent-long-range-multi-shot-/" class="md-nav__link">
+      <a href="../2026-05-16-entitybench-towards-entity-consistent-long-range-multi-shot-/" class="md-nav__link">
         
   
   
@@ -2215,7 +2398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-15-eva-bench-a-new-end-to-end-framework-for-evaluating-voice-ag/" class="md-nav__link">
+      <a href="../2026-05-15-eva-bench-a-new-end-to-end-framework-for-evaluating-voice-ag/" class="md-nav__link">
         
   
   
@@ -2243,7 +2426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/" class="md-nav__link">
+      <a href="../2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/" class="md-nav__link">
         
   
   
@@ -2271,7 +2454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-12-normalizing-trajectory-models/" class="md-nav__link">
+      <a href="../2026-05-12-normalizing-trajectory-models/" class="md-nav__link">
         
   
   
@@ -2299,7 +2482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/" class="md-nav__link">
+      <a href="../2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/" class="md-nav__link">
         
   
   
@@ -2327,7 +2510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/" class="md-nav__link">
+      <a href="../2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/" class="md-nav__link">
         
   
   
@@ -2355,7 +2538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/" class="md-nav__link">
+      <a href="../2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/" class="md-nav__link">
         
   
   
@@ -2383,7 +2566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/" class="md-nav__link">
+      <a href="../2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/" class="md-nav__link">
         
   
   
@@ -2411,7 +2594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-07-audio-visual-intelligence-in-large-foundation-models/" class="md-nav__link">
+      <a href="../2026-05-07-audio-visual-intelligence-in-large-foundation-models/" class="md-nav__link">
         
   
   
@@ -2439,7 +2622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/" class="md-nav__link">
+      <a href="../2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/" class="md-nav__link">
         
   
   
@@ -2467,7 +2650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-05-posterior-augmented-flow-matching/" class="md-nav__link">
+      <a href="../2026-05-05-posterior-augmented-flow-matching/" class="md-nav__link">
         
   
   
@@ -2495,7 +2678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/" class="md-nav__link">
+      <a href="../2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/" class="md-nav__link">
         
   
   
@@ -2523,7 +2706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/" class="md-nav__link">
+      <a href="../2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/" class="md-nav__link">
         
   
   
@@ -2551,7 +2734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/" class="md-nav__link">
+      <a href="../2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/" class="md-nav__link">
         
   
   
@@ -2579,7 +2762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/" class="md-nav__link">
+      <a href="../2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/" class="md-nav__link">
         
   
   
@@ -2607,7 +2790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../posts/2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/" class="md-nav__link">
+      <a href="../2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/" class="md-nav__link">
         
   
   
@@ -2644,7 +2827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../digest/" class="md-nav__link">
+      <a href="../../digest/" class="md-nav__link">
         
   
   
@@ -2668,37 +2851,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Notes
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../notes/" class="md-nav__link">
         
   
   
@@ -2714,48 +2870,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#thinking-methods-for-researchers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Thinking Methods for Researchers
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#actuator-design" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Actuator Design
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2767,7 +2881,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tags/" class="md-nav__link">
+      <a href="../../tags/" class="md-nav__link">
         
   
   
@@ -2795,9 +2909,7 @@
             
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -2805,8 +2917,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -2816,10 +2926,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#thinking-methods-for-researchers" class="md-nav__link">
+  <a href="#tldr" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Thinking Methods for Researchers
+        TL;DR
       
     </span>
   </a>
@@ -2827,10 +2937,126 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#actuator-design" class="md-nav__link">
+  <a href="#the-problem" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Actuator Design
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#text-to-image-policy-g_theta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Text-to-Image Policy (\(G_\theta\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frozen-pretrained-mllm-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frozen Pretrained MLLM (\(M\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semantic-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantic Spectrum
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self-spectrareward-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-SpectraReward Mechanism
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
       
     </span>
   </a>
@@ -2851,18 +3077,129 @@
               <article class="md-content__inner md-typeset">
                 
                   
-  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:multimodal" class="md-tag">multimodal</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:reinforcement-learning" class="md-tag">reinforcement-learning</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:reward-design" class="md-tag">reward-design</a>
+      
+    
+  </nav>
 
 
 
+  <h1>Read It Back: Pretrained MLLMs Are Zero-Shot Reward Models for Text-to-Image Generation</h1>
 
-<h1 id="notes">Notes</h1>
-<p>Hand-written notes and write-ups.</p>
+<blockquote>
+<p><em>Generated by JarvisForResearchers Bot on 2026-07-15</em></p>
+</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Brand new preprint (2026) — accepted</p>
+</div>
+<h2 id="tldr">TL;DR</h2>
+<p>SpectraReward provides a training-free mechanism to derive a reward signal for text-to-image (T2I) reinforcement learning by quantifying the image-conditioned prompt log-likelihood using a frozen, pretrained Multimodal Large Language Model (MLLM). Self-SpectraReward extends this by using the policy's internal understanding branch as the reward source, demonstrating that intrinsic alignment can yield performance competitive with, or exceeding, larger external reward models.</p>
+<h2 id="the-problem">The Problem</h2>
+<p>Designing a practical reward model for image generation that is both efficient and reliable, especially one that avoids expensive human preference annotations and reward-model fine-tuning, remains challenging. Current approaches suffer from significant overhead: methods relying on human preference annotations require costly data collection and iterative refinement. While zero-shot methods utilizing pretrained MLLMs exist, they are susceptible to noise stemming from judge calibration. Furthermore, complex question-decomposition pipelines introduce substantial engineering complexity by necessitating a multi-stage process.</p>
+<h2 id="key-contributions">Key Contributions</h2>
+<p>We introduce SpectraReward, a training-free and off-the-shelf reward function. This function repurposes any pretrained MLLM into a reward model for T2I generation by calculating the image-conditioned prompt-token likelihood. We also introduce Self-SpectraReward, a specialized instantiation where the policy's own understanding branch within a unified multimodal model serves as the reward model, establishing a closed-loop self-improving framework. Finally, we conduct a broad image-generation RL study demonstrating that the benefits of scaling the reward model are not monotonic, and that a well-aligned self-reward model can match or even outperform significantly larger external models.</p>
+<h2 id="how-it-works">How It Works</h2>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2607.11886/fig_p2_c1.jpg" />
+<em>Figure 1: Overview of SpectraReward. (a) Pretrained MLLMs naturally induce a semantic spectrum
+that measures how well a generated image aligns with the prompt. SpectraReward aggregates this
+into a reward for T2I RL. (b) During RL training, SpectraReward steadily increases together with
+visible impro</em></p>
+<p>SpectraReward operates by treating the frozen pretrained MLLM, <span class="arithmatex">\(M\)</span>, as an inverse question-answering system. Given a generated image <span class="arithmatex">\(y\)</span> and a text prompt <span class="arithmatex">\(x\)</span>, the system performs a single teacher-forced forward pass on <span class="arithmatex">\(x\)</span> conditioned on <span class="arithmatex">\(y\)</span>. The resulting token-level likelihoods constitute the semantic spectrum. The scalar reward, <span class="arithmatex">\(R_M(x, y)\)</span>, is computed as the mean image-conditioned prompt log-likelihood: <span class="arithmatex">\(R_M(x, y) = \frac{1}{T-1} \sum_{t=1}^{T-1} \log p_M(x_{t+1} | x_{\le t}, y)\)</span>. Self-SpectraReward specializes this by substituting the external MLLM <span class="arithmatex">\(M\)</span> with the policy's own understanding branch, <span class="arithmatex">\(G_{und}^\theta\)</span>, creating a closed-loop system that capitalizes on the intrinsic alignment between the generation and understanding branches.</p>
+<h3 id="text-to-image-policy-g_theta">Text-to-Image Policy (<span class="arithmatex">\(G_\theta\)</span>)</h3>
+<p>This is the generator model responsible for sampling an image <span class="arithmatex">\(y\)</span> conditioned on the input prompt <span class="arithmatex">\(x\)</span>, i.e., <span class="arithmatex">\(y \sim G_\theta(\cdot | x)\)</span>. This policy is the agent being optimized via reinforcement learning.</p>
+<h3 id="frozen-pretrained-mllm-m">Frozen Pretrained MLLM (<span class="arithmatex">\(M\)</span>)</h3>
+<p>This external MLLM is utilized within SpectraReward to compute the reward signal. Its role is passive; it performs a single, teacher-forced forward pass over the prompt <span class="arithmatex">\(x\)</span> conditioned on the generated image <span class="arithmatex">\(y\)</span> to yield the likelihood scores.</p>
+<h3 id="semantic-spectrum">Semantic Spectrum</h3>
+<p>This is the token-wise likelihood profile generated by the MLLM. It quantifies, on a token-by-token basis, the degree to which the visual evidence present in the generated image <span class="arithmatex">\(y\)</span> supports the semantic content described by the prompt <span class="arithmatex">\(x\)</span> across the sequence of prompt tokens.</p>
+<h3 id="self-spectrareward-mechanism">Self-SpectraReward Mechanism</h3>
+<p>This mechanism is the instantiation where the policy's own understanding branch, <span class="arithmatex">\(G_{und}^\theta\)</span>, is leveraged to act as the reward MLLM. This allows for a closed-loop system where the reward signal is derived internally from the policy's own learned representations, given images sampled by the generation branch, <span class="arithmatex">\(G_{gen}^\theta\)</span>.</p>
+<h2 id="results">Results</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Baseline</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">TIIF-Bench (BAGEL policy)</td>
+<td style="text-align: left;">+10.0</td>
+<td style="text-align: left;">BAGEL baseline</td>
+<td style="text-align: left;">Section 4.2</td>
+</tr>
+<tr>
+<td style="text-align: left;">GenEval (BAGEL policy)</td>
+<td style="text-align: left;">+4.3/5.5</td>
+<td style="text-align: left;">BAGEL baseline</td>
+<td style="text-align: left;">Section 4.2</td>
+</tr>
+<tr>
+<td style="text-align: left;">GenEval (Self-SpectraReward vs SpectraReward)</td>
+<td style="text-align: left;">+1.2</td>
+<td style="text-align: left;">SpectraReward with the best MLLM backbone</td>
+<td style="text-align: left;">Section 4.2</td>
+</tr>
+<tr>
+<td style="text-align: left;">GenEval2 (Self-SpectraReward vs SpectraReward)</td>
+<td style="text-align: left;">+2.1</td>
+<td style="text-align: left;">SpectraReward with the best MLLM backbone</td>
+<td style="text-align: left;">Section 4.2</td>
+</tr>
+<tr>
+<td style="text-align: left;">WISE (Self-SpectraReward vs SpectraReward)</td>
+<td style="text-align: left;">+2</td>
+<td style="text-align: left;">SpectraReward with the best MLLM backbone</td>
+<td style="text-align: left;">Section 4.2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="why-this-matters">Why This Matters</h2>
+<p>For T2I RL, SpectraReward establishes a viable, training-free pathway to circumvent the high cost associated with traditional Reinforcement Learning from Human Feedback (RLHF). Furthermore, the Self-SpectraReward framework suggests a powerful paradigm shift in Unified Multimodal Models (UMMs): utilizing the model's intrinsic understanding branch for self-rewarding can lead to superior reward-policy alignment, potentially surpassing the performance ceiling set by much larger, externally trained reward models. This indicates that distributional alignment, rather than sheer reward model scale, is a critical determinant of RL success.</p>
+<h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
+<p>The methodology is inherently dependent on the MLLM's pretraining knowledge. This reliance may introduce latent language priors into the reward signal, priors that are only effectively neutralized when employing group-relative RL techniques. Moreover, the empirical performance of SpectraReward is directly contingent upon the quality and alignment of the specific MLLM backbone selected for the task.</p>
 <hr />
-<h2 id="thinking-methods-for-researchers"><a href="2026-06-13-thinking-methods-for-researchers/">Thinking Methods for Researchers</a></h2>
-<p><em>2026-06-13</em></p>
-<h2 id="actuator-design"><a href="2026-06-13-actuator-design/">Actuator Design</a></h2>
-<p><em>2026-06-13</em></p>
+<h2 id="citation">Citation</h2>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.11886">2607.11886</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260711886</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Read It Back: Pretrained MLLMs Are Zero-Shot Reward Models for Text-to-Image Generation}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Runhui Huang and Qihui Zhang and Zhe Liu and Yu Gao and Jie Wu and Hengshuang Zhao}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.11886}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.11886}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</code></pre></div>
 
 
 
@@ -2875,8 +3212,6 @@
 
 
 
-
-  
 
 
 
@@ -2923,16 +3258,16 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "navigation.indexes", "navigation.expand", "content.code.copy", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "navigation.indexes", "navigation.expand", "content.code.copy", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../assets/js/mathjax.js"></script>
+        <script src="../../assets/js/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
-        <script src="../assets/js/blog-filter.js"></script>
+        <script src="../../assets/js/blog-filter.js"></script>
       
     
   </body>
