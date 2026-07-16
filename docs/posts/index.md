@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [The Seriality Gap in Video Diffusion Models](2026-07-16-the-seriality-gap-in-video-diffusion-models/) { data-cat="Machine Learning" data-date="2026-07-16" }
+
+*2026-07-16*
+
+The paper identifies the 'seriality gap' in video diffusion models, demonstrating that their denoising process fails to provide scalable serial computation necessary for accurately predicting long chains of dependent events, such as those found in hard-sphere dynamics.
+
 ## [Read It Back: Pretrained MLLMs Are Zero-Shot Reward Models for Text-to-Image Generation](2026-07-15-read-it-back-pretrained-mllms-are-zero-shot-reward-models-fo/) { data-cat="Computer Vision" data-date="2026-07-15" }
 
 *2026-07-15*
