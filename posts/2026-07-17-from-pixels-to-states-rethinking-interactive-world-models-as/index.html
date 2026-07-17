@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="FaceMoE introduces a Mixture of Experts (MoE) adaptation within a transformer encoder to achieve resolution-aware feature extraction for low-resolution face recognition while mitigating catastrophic forgetting.
+        <meta name="description" content="This paper examines interactive game world modeling by organizing existing approaches around the conventional action-state-observation loop, and introduces a scalable data engine for Black Myth: Wukong to support state-aware modeling.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-02-facemoe-mixture-of-experts-for-low-resolution-face-recogniti/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-17-from-pixels-to-states-rethinking-interactive-world-models-as/">
       
       
-        <link rel="prev" href="../2026-07-03-measuring-the-gap-between-human-and-llm-research-ideas/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-07-01-levo-2-stable-and-melodious-song-generation-via-hierarchical/">
+        <link rel="next" href="../2026-07-16-the-seriality-gap-in-video-diffusion-models/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>FaceMoE: Mixture of Experts for Low-Resolution Face Recognition - JarvisForResearchers</title>
+        <title>From Pixels to States: Rethinking Interactive World Models as Game Engines - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              FaceMoE: Mixture of Experts for Low-Resolution Face Recognition
+              From Pixels to States: Rethinking Interactive World Models as Game Engines
             
           </span>
         </div>
@@ -566,10 +566,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-07-17-from-pixels-to-states-rethinking-interactive-world-models-as/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From Pixels to States: Rethinking Interactive World Models as Game Engines
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -585,6 +610,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#action-state-observation-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action-State-Observation Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#player-action-control-families" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Player Action Control Families
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#game-state-dynamics-formulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Game State Dynamics Formulations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory Mechanisms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-time-generation-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-Time Generation Techniques
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -986,35 +1178,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    FaceMoE: Mixture of Experts for Low-Resolution Face Recognition
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-07-02-facemoe-mixture-of-experts-for-low-resolution-face-recogniti/" class="md-nav__link">
         
   
   
@@ -1030,173 +1197,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#moe-mlp-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MoE-MLP Layer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#top-k-router" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Top-k Router
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#expert-i-f_i" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Expert \(i\) (\(f_i\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#router-z-loss-mathcall_z" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Router z-loss (\(\mathcal{L}_z\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#load-balancing-loss-mathcall_textbalance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Load Balancing Loss (\(\mathcal{L}_{\text{balance}}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3042,10 +3042,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#moe-mlp-layer" class="md-nav__link">
+  <a href="#action-state-observation-loop" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MoE-MLP Layer
+        Action-State-Observation Loop
       
     </span>
   </a>
@@ -3053,10 +3053,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#top-k-router" class="md-nav__link">
+  <a href="#player-action-control-families" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Top-k Router
+        Player Action Control Families
       
     </span>
   </a>
@@ -3064,10 +3064,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#expert-i-f_i" class="md-nav__link">
+  <a href="#game-state-dynamics-formulations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Expert \(i\) (\(f_i\))
+        Game State Dynamics Formulations
       
     </span>
   </a>
@@ -3075,10 +3075,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#router-z-loss-mathcall_z" class="md-nav__link">
+  <a href="#memory-mechanisms" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Router z-loss (\(\mathcal{L}_z\))
+        Memory Mechanisms
       
     </span>
   </a>
@@ -3086,10 +3086,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#load-balancing-loss-mathcall_textbalance" class="md-nav__link">
+  <a href="#real-time-generation-techniques" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Load Balancing Loss (\(\mathcal{L}_{\text{balance}}\))
+        Real-Time Generation Techniques
       
     </span>
   </a>
@@ -3169,81 +3169,55 @@
         <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
-      
-      
-      
-      
-        <a href="../../tags/#tag:transformers" class="md-tag">transformers</a>
-      
-    
   </nav>
 
 
 
-  <h1>FaceMoE: Mixture of Experts for Low-Resolution Face Recognition</h1>
+  <h1>From Pixels to States: Rethinking Interactive World Models as Game Engines</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-07-02</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-07-17</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
 <p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>FaceMoE integrates a Mixture of Experts (MoE) mechanism into the transformer encoder's MLP layers. This design utilizes a top-k router to sparsely activate specialized experts, enabling resolution-aware feature extraction for low-resolution face recognition (LR-FR) while mitigating catastrophic forgetting and bridging the domain gap between HR gallery and LR probe images.</p>
+<p>This work formalizes interactive game world modeling by structuring existing research around the fundamental action-state-observation loop. It systematically reviews approaches across four dimensions—action control, state dynamics, state persistence, and real-time generation—and introduces a scalable data engine built on <span class="arithmatex">\(90+\)</span> hours of <span class="arithmatex">\(Black Myth: Wukong\)</span> gameplay data, complete with frame-aligned actions and ground-truth states.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Low-resolution face recognition (LR-FR) presents several interconnected challenges. Primarily, the degraded nature of probe images leads to poor feature extraction and aggregation capabilities. Second, there is a significant domain gap between the high-resolution (HR) images typically used for training the gallery and the low-resolution (LR) images encountered during inference. Finally, when fine-tuning models on these LR datasets, there is a substantial risk of catastrophic forgetting, where the model loses generalizable knowledge acquired during pre-training.</p>
-<p>Existing approaches have limitations. Methods focused on feature fusion, such as CAFace, CoNAN, and ProxyFusion, are fundamentally constrained by the quality of the underlying feature encoders they employ. Furthermore, while PETALface [41] introduced quality-adaptive dual low-rank modules, its efficacy in the low-resolution domain remains inferior to contemporary state-of-the-art methods. Crucially, prior research has not explored the application of Mixture of Experts (MoE) architectures specifically for the LR-FR task.</p>
+<p>The objective of constructing interactive game worlds that exhibit coherent behavior in response to player input is fundamentally constrained by the need for interaction outcomes to adhere to underlying game rules. This necessitates that consequences persist across long temporal horizons and that the entire generation process operates within real-time constraints. Current research often addresses these components in isolation, leading to fragmented understanding of the necessary architectural components for robust, interactive simulation.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce FaceMoE, a modified transformer encoder that incorporates sparsely activated FFN experts. This architecture efficiently adapts to low-resolution datasets while simultaneously minimizing catastrophic forgetting and addressing the domain gap inherent in LR-FR. We propose a top-k router responsible for assigning each input token to a subset of FFN experts, which facilitates resolution-aware feature extraction by allowing experts to specialize in distinct semantic facial regions. The empirical validation demonstrates superior performance of FaceMoE across eleven diverse datasets, encompassing HR, mixed-quality, and LR scenarios.</p>
+<p>We introduce a unified framework for interactive game world modeling, which is explicitly grounded in the action-state-observation loop. This framework organizes the field along four critical dimensions: player action control, game state dynamics, state-observation persistence, and real-time interactive generation. Furthermore, we provide a systematic review of existing methodologies across these four dimensions, analyzing their respective strengths and trade-offs. Crucially, we developed a scalable data engine for <span class="arithmatex">\(Black Myth: Wukong\)</span>, resulting in the collection of over 90 hours of gameplay videos annotated with frame-aligned player actions, ground-truth game states, and rich structured/semantic metadata.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.32040/fig_p2_c1.jpg" />
-<em>Fig. 1: (a) BRIAR gallery and probe. (b) Domain difference between gallery and probe.
-(c) Activation maps corresponding to LR and HR images. (d) SOTA results on BRIAR
-Protocol 3.1.</em></p>
-<p>FaceMoE modifies the standard transformer block by replacing the monolithic Feed-Forward Network (FFN) with a Mixture of Experts (MoE) layer. This layer consists of <span class="arithmatex">\(N\)</span> distinct expert MLPs. The process begins with the <strong>Top-k Router</strong>, which computes routing scores <span class="arithmatex">\(z_t\)</span> for every input token <span class="arithmatex">\(x_t\)</span> via a linear projection <span class="arithmatex">\(W_r\)</span>. The router then selects the indices corresponding to the top-<span class="arithmatex">\(k\)</span> scoring experts, normalizing these logits into routing probabilities <span class="arithmatex">\(w_{i_j}(x_t)\)</span>. The final output <span class="arithmatex">\(y_t\)</span> for the token is computed as a convex combination of the outputs from the selected experts. Training stability is maintained through a composite objective function: <span class="arithmatex">\(\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{face}} + \lambda_z \mathcal{L}_z + \lambda_b \mathcal{L}_{\text{balance}}\)</span>, where <span class="arithmatex">\(\mathcal{L}_{\text{face}}\)</span> is the CosFace loss, <span class="arithmatex">\(\mathcal{L}_z\)</span> is the router z-loss, and <span class="arithmatex">\(\mathcal{L}_{\text{balance}}\)</span> is the load balancing loss.</p>
-<h3 id="moe-mlp-layer">MoE-MLP Layer</h3>
-<p>This component substitutes the conventional FFN within a transformer block. It is structured around <span class="arithmatex">\(N\)</span> expert MLPs. Each individual expert <span class="arithmatex">\(f_i(x_t)\)</span> is implemented as a two-layer fully connected network, utilizing GELU activation. The parameters for expert <span class="arithmatex">\(i\)</span> are defined by weights <span class="arithmatex">\(\{W_{i,1}, W_{i,2}\}\)</span> and biases <span class="arithmatex">\(\{b_{i,1}, b_{i,2}\}\)</span>.</p>
-<h3 id="top-k-router">Top-k Router</h3>
-<p>The <strong>Top-k Router</strong> is responsible for dynamic expert selection. For an input token <span class="arithmatex">\(x_t\)</span>, it calculates the expert selection logits <span class="arithmatex">\(z_t = x_t W_r\)</span>. It then employs the <span class="arithmatex">\(\mathrm{TopK}(z_t)\)</span> operation to identify the indices of the <span class="arithmatex">\(k\)</span> experts with the highest logits. These logits are subsequently normalized using softmax to yield the routing probabilities <span class="arithmatex">\(w_{i_j}(x_t)\)</span> for the selected experts.</p>
-<h3 id="expert-i-f_i">Expert <span class="arithmatex">\(i\)</span> (<span class="arithmatex">\(f_i\)</span>)</h3>
-<p>An individual expert, denoted <span class="arithmatex">\(f_i\)</span>, is a parameterized MLP defined by <span class="arithmatex">\(\theta_i\)</span>. Its operation on an input token <span class="arithmatex">\(x_t\)</span> is given by the expression: <span class="arithmatex">\(f_i(x_t) = W_{i,2} \cdot \sigma (W_{i,1} x_t + b_{i,1}) + b_{i,2}\)</span>, where <span class="arithmatex">\(\sigma\)</span> is the GELU activation function.</p>
-<h3 id="router-z-loss-mathcall_z">Router z-loss (<span class="arithmatex">\(\mathcal{L}_z\)</span>)</h3>
-<p>This regularization term is designed to control the magnitude of the routing logits. It penalizes large values in <span class="arithmatex">\(z_t\)</span> across the batch <span class="arithmatex">\(B\)</span> and sequence length <span class="arithmatex">\(T\)</span>: <span class="arithmatex">\(\mathcal{L}_z = \lambda_z \cdot \frac{1}{B \cdot T} \sum_{b=1}^B \sum_{t=1}^T \| z_{b,t} \|_2^2\)</span>.</p>
-<h3 id="load-balancing-loss-mathcall_textbalance">Load Balancing Loss (<span class="arithmatex">\(\mathcal{L}_{\text{balance}}\)</span>)</h3>
-<p>To ensure that no single expert becomes disproportionately utilized, the <strong>Load Balancing Loss</strong> promotes uniform expert utilization. It is formulated as: <span class="arithmatex">\(\mathcal{L}_{\text{balance}} = \lambda_b \cdot N \cdot \frac{1}{(B \cdot T)^2} \sum_{i=1}^N \left ( \sum_{b=1}^B \sum_{t=1}^T p_{b,t,i} \right ) \cdot \left ( \sum_{b=1}^B \sum_{t=1}^T \mathbb {1}\left [ i \in \mathrm {TopK}(z_{b,t}) \right ] \right )\)</span>.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2607.14076/fig_p2_c1.jpg" />
+<em>Figure 1 Interactive game worlds as an action-state-observation loop. Player inputs update the internal game state
+according to game rules, and the resulting state is rendered into observations that continuously feed back to the player.</em></p>
+<p>The paper structures the problem space by centering the recurrent action-state-observation loop. This loop dictates that player inputs modify the internal game state according to established game rules, and the resulting state is subsequently rendered into observable data. We analyze the implementation choices within this loop across four distinct dimensions.</p>
+<h3 id="action-state-observation-loop">Action-State-Observation Loop</h3>
+<p>This loop serves as the organizing principle for all interactive game world modeling efforts. It formalizes the sequence: <span class="arithmatex">\(\text{Observation} \rightarrow \text{Action} \rightarrow \text{State Update} \rightarrow \text{New Observation}\)</span>. The efficacy of the model hinges on how each component—the input action, the state representation, the memory mechanism, and the generation process—is implemented within this cycle.</p>
+<h3 id="player-action-control-families">Player Action Control Families</h3>
+<p>This dimension categorizes how player intent is represented to drive the simulation. We identify three primary families: geometric trajectories, which encode movement paths (e.g., MotionCtrl [74]); motor signals, which represent low-level control inputs (e.g., Oasis [11]); and semantic events, which abstract actions into high-level concepts (e.g., Pandora [80]). The choice here dictates the level of abstraction available for controlling the simulation.</p>
+<h3 id="game-state-dynamics-formulations">Game State Dynamics Formulations</h3>
+<p>This concerns how the underlying game state is represented internally. We delineate three approaches: states entangled in observations, where the state is implicitly defined by the visual input (implicit simulators); states as learned latents, where a recurrent model tracks the state evolution; and states as explicit descriptions, where the state is maintained in a symbolic or textual format.</p>
+<h3 id="memory-mechanisms">Memory Mechanisms</h3>
+<p>This addresses state-observation persistence, which is critical for long-horizon coherence. We classify mechanisms into two types: memory as stored observations, where past frames or states are indexed and retrieved; and memory as estimates of the present, where the system dynamically updates its belief about the current state based on incoming data.</p>
+<h3 id="real-time-generation-techniques">Real-Time Generation Techniques</h3>
+<p>This dimension focuses on computational efficiency during interaction. Techniques are grouped based on whether they target reducing generation latency—such as employing step-reduction or streaming methods—or reducing conditioning latency, which allows the conditioning context to evolve dynamically during the rollout process.</p>
 <h2 id="results">Results</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Metric</th>
-<th style="text-align: left;">Value</th>
-<th style="text-align: left;">Baseline</th>
-<th style="text-align: left;">Source</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Performance</td>
-<td style="text-align: left;">significantly outperforms state-of-the-art methods</td>
-<td style="text-align: left;">state-of-the-art methods</td>
-<td style="text-align: left;">Abstract</td>
-</tr>
-</tbody>
-</table>
+<p>No quantitative results were provided in the outline.</p>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The integration of MoE into the transformer encoder provides a mechanism for scaling model capacity without a proportional increase in computational cost. The use of a top-k router allows for sparse expert activation, which translates to a 2.17<span class="arithmatex">\(\times\)</span> increase in model capacity while incurring only a 1.66<span class="arithmatex">\(\times\)</span> increase in FLOPs. This efficiency is critical for deploying complex models in resource-constrained environments. Furthermore, by allowing experts to specialize in different semantic facial regions, FaceMoE achieves resolution-aware feature extraction, directly addressing the core difficulty of LR-FR.</p>
+<p>The findings underscore that for developing next-generation game engines, the interaction paradigm must be conceptualized through the lens of the action-state-observation loop rather than merely as a video generation task. Furthermore, the work highlights that data scarcity is a primary impediment; achieving state-aware modeling necessitates the availability of explicit, temporally aligned state annotations, a gap addressed by our custom data engine. Finally, the analysis confirms that the selection of the state representation—be it implicit, latent, or explicit—directly determines the inherent trade-offs between visual fidelity, interpretability, and strict adherence to the game's governing rules.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>A primary limitation noted is the lack of specific quantitative performance metrics across the eleven evaluated datasets; the paper only asserts that the method "significantly outperforms" existing SOTA. Additionally, the training procedure is complex, relying on a composite objective function involving three distinct loss components (<span class="arithmatex">\(\mathcal{L}_{\text{face}}\)</span>, <span class="arithmatex">\(\mathcal{L}_z\)</span>, and <span class="arithmatex">\(\mathcal{L}_{\text{balance}}\)</span>). This necessitates meticulous and careful hyperparameter tuning for the weighting factors (<span class="arithmatex">\(\lambda, \lambda_z, \lambda_b\)</span>) to ensure stable convergence.</p>
+<p>A significant limitation in state-free formulations is that the state is effectively confined to a recent observation window, which severely compromises the guarantee of spatial and logical consistency over time. Conversely, maintaining explicit states requires access to large-scale, state-annotated gameplay data, which remains prohibitively scarce. Finally, the inherent nature of high-frequency interactions in game worlds means that small, incremental state changes accumulate rapidly, demanding memory mechanisms capable of making updates that are both highly efficient and reliably accurate.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.32040">2606.32040</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260632040</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{FaceMoE: Mixture of Experts for Low-Resolution Face Recognition}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Kartik Narayan and Vishal M. Patel}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.32040}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.14076">2607.14076</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260714076</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{From Pixels to States: Rethinking Interactive World Models as Game Engines}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Zhen Li and Zian Meng and Shuwei Shi and Mingliang Zhai and Jiaming Tan and Chuanhao Li et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.14076}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.32040}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.14076}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
