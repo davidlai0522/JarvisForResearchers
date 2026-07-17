@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [From Pixels to States: Rethinking Interactive World Models as Game Engines](2026-07-17-from-pixels-to-states-rethinking-interactive-world-models-as/) { data-cat="Computer Vision" data-date="2026-07-17" }
+
+*2026-07-17*
+
+This paper examines interactive game world modeling by organizing existing approaches around the conventional action-state-observation loop, and introduces a scalable data engine for Black Myth: Wukong to support state-aware modeling.
+
 ## [The Seriality Gap in Video Diffusion Models](2026-07-16-the-seriality-gap-in-video-diffusion-models/) { data-cat="Machine Learning" data-date="2026-07-16" }
 
 *2026-07-16*
