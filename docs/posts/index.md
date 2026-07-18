@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [RoboTTT: Context Scaling for Robot Policies](2026-07-18-robottt-context-scaling-for-robot-policies/) { data-cat="Robotics" data-date="2026-07-18" }
+
+*2026-07-18*
+
+RoboTTT is a robot model and training recipe that integrates Test-Time Training (TTT) into Vision-Language-Action (VLA) policies to scale visuomotor context up to 8K timesteps, enabling new capabilities like one-shot in-context imitation and on-the-fly policy improvement without increasing inference latency.
+
 ## [From Pixels to States: Rethinking Interactive World Models as Game Engines](2026-07-17-from-pixels-to-states-rethinking-interactive-world-models-as/) { data-cat="Computer Vision" data-date="2026-07-17" }
 
 *2026-07-17*
