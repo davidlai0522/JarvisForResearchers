@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "MeanFlowNFT: Bringing Forward-Process RL to Average-Velocity Generators": posts/2026-07-19-meanflownft-bringing-forward-process-rl-to-average-velocity-.md
     - "RoboTTT: Context Scaling for Robot Policies": posts/2026-07-18-robottt-context-scaling-for-robot-policies.md
     - "From Pixels to States: Rethinking Interactive World Models as Game Engines": posts/2026-07-17-from-pixels-to-states-rethinking-interactive-world-models-as.md
     - "The Seriality Gap in Video Diffusion Models": posts/2026-07-16-the-seriality-gap-in-video-diffusion-models.md

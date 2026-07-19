@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [MeanFlowNFT: Bringing Forward-Process RL to Average-Velocity Generators](2026-07-19-meanflownft-bringing-forward-process-rl-to-average-velocity-/) { data-cat="Computer Vision" data-date="2026-07-19" }
+
+*2026-07-19*
+
+MeanFlowNFT introduces a forward-process Reinforcement Learning framework, MeanFlowNFT, that applies the DiffusionNFT objective to an induced instantaneous-velocity predictor derived from MeanFlow's average-velocity network, enabling efficient RL tuning for few-step generation.
+
 ## [RoboTTT: Context Scaling for Robot Policies](2026-07-18-robottt-context-scaling-for-robot-policies/) { data-cat="Robotics" data-date="2026-07-18" }
 
 *2026-07-18*
