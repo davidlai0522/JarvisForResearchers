@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [SciDiagramEdit: Learning to Edit Scientific Diagrams from Paper Revisions](2026-07-20-scidiagramedit-learning-to-edit-scientific-diagrams-from-pap/) { data-cat="NLP" data-date="2026-07-20" }
+
+*2026-07-20*
+
+SciDiagramEdit introduces a skill-evolution framework that learns to edit scientific diagrams from natural paper revisions by employing an agentic editor, a vision-language model judge, and a demonstration-aware coach.
+
 ## [MeanFlowNFT: Bringing Forward-Process RL to Average-Velocity Generators](2026-07-19-meanflownft-bringing-forward-process-rl-to-average-velocity-/) { data-cat="Computer Vision" data-date="2026-07-19" }
 
 *2026-07-19*
