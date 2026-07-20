@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This survey provides the first comprehensive review of Audio-Visual Intelligence (AVI) within the paradigm of large foundation models, unifying perception, generation, and interaction research under a coherent framework.
+        <meta name="description" content="SciDiagramEdit introduces a skill-evolution framework that learns to edit scientific diagrams from natural paper revisions by employing an agentic editor, a vision-language model judge, and a demonstration-aware coach.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-07-audio-visual-intelligence-in-large-foundation-models/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-20-scidiagramedit-learning-to-edit-scientific-diagrams-from-pap/">
       
       
-        <link rel="prev" href="../2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/">
+        <link rel="next" href="../2026-07-19-meanflownft-bringing-forward-process-rl-to-average-velocity-/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Audio-Visual Intelligence in Large Foundation Models - JarvisForResearchers</title>
+        <title>SciDiagramEdit: Learning to Edit Scientific Diagrams from Paper Revisions - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Audio-Visual Intelligence in Large Foundation Models
+              SciDiagramEdit: Learning to Edit Scientific Diagrams from Paper Revisions
             
           </span>
         </div>
@@ -572,10 +572,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-07-20-scidiagramedit-learning-to-edit-scientific-diagrams-from-pap/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SciDiagramEdit: Learning to Edit Scientific Diagrams from Paper Revisions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -591,6 +616,195 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editor-e" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editor E
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill-specification-s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill Specification S
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#judge-j" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Judge J
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coach-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coach C
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aesthetic_verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aesthetic_Verifier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#svg_render" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Svg_Render
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layout_plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layout_Plan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2560,35 +2774,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Audio-Visual Intelligence in Large Foundation Models
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-07-audio-visual-intelligence-in-large-foundation-models/" class="md-nav__link">
         
   
   
@@ -2604,184 +2793,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#audio-modality" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Audio Modality
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#visual-modality" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visual Modality
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cross-modal-fusion-and-alignment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cross-Modal Fusion and Alignment
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#autoregressive-generation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Autoregressive Generation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#diffusion-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Diffusion Models
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#llm-centric-methods" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LLM-Centric Methods
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3143,10 +3154,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#audio-modality" class="md-nav__link">
+  <a href="#editor-e" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Audio Modality
+        Editor E
       
     </span>
   </a>
@@ -3154,10 +3165,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#visual-modality" class="md-nav__link">
+  <a href="#skill-specification-s" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Visual Modality
+        Skill Specification S
       
     </span>
   </a>
@@ -3165,10 +3176,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cross-modal-fusion-and-alignment" class="md-nav__link">
+  <a href="#judge-j" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cross-Modal Fusion and Alignment
+        Judge J
       
     </span>
   </a>
@@ -3176,10 +3187,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#autoregressive-generation" class="md-nav__link">
+  <a href="#coach-c" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Autoregressive Generation
+        Coach C
       
     </span>
   </a>
@@ -3187,10 +3198,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#diffusion-models" class="md-nav__link">
+  <a href="#aesthetic_verifier" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Diffusion Models
+        Aesthetic_Verifier
       
     </span>
   </a>
@@ -3198,10 +3209,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#llm-centric-methods" class="md-nav__link">
+  <a href="#svg_render" class="md-nav__link">
     <span class="md-ellipsis">
       
-        LLM-Centric Methods
+        Svg_Render
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layout_plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layout_Plan
       
     </span>
   </a>
@@ -3278,83 +3300,101 @@
       
       
       
-        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:diffusion-models" class="md-tag">diffusion-models</a>
+        <a href="../../tags/#tag:llm" class="md-tag">llm</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:foundation-models" class="md-tag">foundation-models</a>
+        <a href="../../tags/#tag:nlp" class="md-tag">nlp</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:perception" class="md-tag">perception</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:transformers" class="md-tag">transformers</a>
+        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
       
     
   </nav>
 
 
 
-  <h1>Audio-Visual Intelligence in Large Foundation Models</h1>
+  <h1>SciDiagramEdit: Learning to Edit Scientific Diagrams from Paper Revisions</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-07</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-07-20</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Brand new preprint (2026) — accepted</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>This survey provides the first comprehensive review of Audio-Visual Intelligence (AVI) within the paradigm of large foundation models, unifying perception, generation, and interaction research under a coherent framework. It establishes a principled taxonomy and consolidates the methodological foundations necessary for systematic progress in this rapidly evolving domain.</p>
+<p>SciDiagramEdit introduces a skill-evolution framework to automate instruction-driven editing of scientific diagrams. It employs an agentic editor, a vision-language model judge, and a demonstration-aware coach to learn compositional editing skills directly from real author revisions, demonstrating substantial improvement over single-pass baselines.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>The literature on Audio-Visual Intelligence (AVI) is fragmented, spanning diverse tasks, inconsistent taxonomies, and heterogeneous evaluation practices, which impedes systematic comparison and knowledge integration. Specifically, the existing body of work suffers from several critical issues: the literature remains fragmented across subcommunities with overlapping definitions, inconsistent terminology, and divergent taxonomies that hinder cumulative understanding; evaluation practices vary widely in datasets, metrics, and protocols, especially for open-ended generation, alignment quality, temporal coherence, and human-centric judgments, which complicates reproducibility and benchmarking; and safety and governance concerns, such as privacy in audio/video, consent for speech and music, watermarking and provenance, and the energy footprint of foundation-scale training, are increasingly consequential yet unevenly addressed.</p>
+<p>Automating instruction-driven editing of scientific figures presents significant technical hurdles. A scientific figure is not a simple image; it is a dense infographic composed of heterogeneous visual elements governed by a strict visual grammar. Existing tooling falls short because they either attempt to generate the entire figure from scratch based on text prompts, or they operate purely at the raster level. Raster-level operations lack the necessary compositional handles required for targeted, local modifications—the very nature of an edit.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>This work makes three primary contributions. First, it provides the first systematic and in-depth survey of Audio-Visual Intelligence within the paradigm of large foundation models, unifying perception, generation, and interaction research under a coherent framework. Second, it establishes a principled taxonomy that organizes the diverse audio-visual tasks—covering speech, music, sound events, video, and open-world understanding, generation, and interaction—while clarifying task scope, assumptions, and relationships among subproblems. Third, it consolidates the methodological foundations of AVI, including audio/visual tokenization, cross-modal fusion, autoregressive and diffusion-based generation, instruction alignment, and large-scale pretraining strategies.</p>
+<p>We introduce SCIDIAGRAMEDIT, a novel editing benchmark comprising 364 before/after figure pairs extracted from real arXiv paper revisions across 23 distinct subjects. This dataset is annotated with 2,628 atomic editing claims. Furthermore, we developed a self-improving scientific figure-editing agent that learns from these paper revisions via a skill evolution mechanism. This process distills execution traces and the authors' demonstrations into a portable skill specification. Finally, we empirically demonstrate that this agent learns meaningful editing skills from the revision data and achieves a substantial improvement in edit quality compared to strong single-pass baselines.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.04045/fig_p1_u0.jpg" />
-<em>Please provide the figure you would like me to analyze.</em></p>
-<p>The survey synthesizes methodological foundations for AVI, which build upon modality-specific encoders or tokenizers for audio and vision, followed by cross-modal fusion and alignment techniques. Generative capabilities are addressed using autoregressive transformers for sequence modeling or diffusion models for high-fidelity synthesis, often adapted via cross-attention and guidance mechanisms. Furthermore, LLM-centric methods are synthesized, including Encoder+LLM for perception, LLM+Generator for generation, and unified models for joint perception and generation, all tailored for instruction alignment and preference optimization.</p>
-<h3 id="audio-modality">Audio Modality</h3>
-<p>The Audio Modality originates from physical vibrations, captured as 1D time-series digital signals (waveform, <span class="arithmatex">\(a \in \mathbb{R}^L\)</span>) or transformed into time-frequency representations (spectrograms). The choice of representation dictates the subsequent processing pipeline, often requiring specialized feature extractors to capture relevant acoustic invariants.</p>
-<h3 id="visual-modality">Visual Modality</h3>
-<p>The Visual Modality is data represented as images or video, processed through unimodal representations before cross-modal integration. Standard computer vision backbones are employed here, but the complexity scales significantly when dealing with temporal dependencies inherent in video streams.</p>
-<h3 id="cross-modal-fusion-and-alignment">Cross-Modal Fusion and Alignment</h3>
-<p>Cross-Modal Fusion and Alignment techniques are employed to align and integrate representations from the audio and visual modalities. This step is crucial for enabling joint reasoning, ensuring that semantic correspondences between auditory and visual events are preserved across the latent space.</p>
-<h3 id="autoregressive-generation">Autoregressive Generation</h3>
-<p>Autoregressive Generation utilizes transformers driving sequence modeling for speech, music, and video tokens, enabling conditional decoding and instruction following at scale. This paradigm is fundamentally sequential, making it suitable for modeling temporal dependencies inherent in generative tasks.</p>
-<h3 id="diffusion-models">Diffusion Models</h3>
-<p>Diffusion Models provide high-fidelity synthesis and flexible editing, increasingly adapted to multimodal control via cross-attention and guidance mechanisms. Their strength lies in generating samples that adhere closely to complex, learned data distributions, often surpassing the fidelity limits of purely autoregressive approaches in certain domains.</p>
-<h3 id="llm-centric-methods">LLM-Centric Methods</h3>
-<p>LLM-Centric Methods encompass architectures utilizing Large Language Models. These include Encoder+LLM for Multimodal Perception, where the LLM interprets fused sensory data, and LLM+Generator for Multimodal Generation, where the LLM guides the synthesis process of a separate generative module.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2607.15272/fig_p1_c1.jpg" />
+<em>Figure 1: Overview of SciDiagramEdit. Left: the Human Revision Repository, naturally occurring before/after
+figure pairs mined from arXiv paper revisions, where each pair encodes an edit the original authors performed during
+manuscript refinement. Middle: Agentic Learning via Skill Evolution — an SV</em></p>
+<p>SciDiagramEdit operates via an iterative refinement loop centered around an agentic system, the Editor E. Editor E manipulates the figure's editable vector source using a learned skill specification <span class="arithmatex">\(S\)</span>, producing an execution trace <span class="arithmatex">\(\tau\)</span> and the resulting figure <span class="arithmatex">\(F_{out}\)</span>. A Judge J, implemented as a vision-language model, evaluates <span class="arithmatex">\(F_{out}\)</span> by calculating a scalar score <span class="arithmatex">\(r \in [0, 1]\)</span>. This score is a composite of semantic faithfulness (<span class="arithmatex">\(r_{sem}\)</span>), derived from a per-sample checklist <span class="arithmatex">\(Q\)</span>, and aesthetic preference (<span class="arithmatex">\(r_{aes}\)</span>), derived from pairwise comparison against the author's reference revision <span class="arithmatex">\(F_{ref}\)</span>. The Coach C consumes <span class="arithmatex">\(\tau\)</span>, the judge's verdict <span class="arithmatex">\(r\)</span>, and <span class="arithmatex">\(F_{ref}\)</span> to generate a patch <span class="arithmatex">\(P\)</span>, which subsequently updates the skill specification <span class="arithmatex">\(S\)</span>. This closed loop allows the agent to iteratively refine <span class="arithmatex">\(S\)</span> and learn compositional editing skills directly from observed author revisions.</p>
+<h3 id="editor-e">Editor E</h3>
+<p>Editor E is realized as an agentic system capable of code generation. It possesses file-system and Python tool access, enabling it to interpret the skill specification <span class="arithmatex">\(S\)</span> and execute precise modifications on the SVG figure source code.</p>
+<h3 id="skill-specification-s">Skill Specification S</h3>
+<p><span class="arithmatex">\(S\)</span> is the core learnable artifact driving Editor E's behavior. It is formally defined as a finite map from relative paths to file contents: <span class="arithmatex">\(S = \{(p_i, c_i)\}_{i=1}^{|S|}\)</span>.</p>
+<h3 id="judge-j">Judge J</h3>
+<p>Judge J is a vision-language model responsible for assigning a comprehensive scalar score <span class="arithmatex">\(r \in [0, 1]\)</span>. This score is a function of two components: <span class="arithmatex">\(r_{sem}\)</span>, which measures semantic faithfulness against the required changes defined in <span class="arithmatex">\(Q\)</span>, and <span class="arithmatex">\(r_{aes}\)</span>, which measures aesthetic preference by comparing <span class="arithmatex">\(F_{out}\)</span> against the ground truth <span class="arithmatex">\(F_{ref}\)</span>.</p>
+<h3 id="coach-c">Coach C</h3>
+<p>Coach C functions as a coding-agent subprocess. Its role is to analyze the history of execution traces (<span class="arithmatex">\(\tau\)</span>), the associated Judge verdicts (<span class="arithmatex">\(r\)</span>), and the target revision (<span class="arithmatex">\(F_{ref}\)</span>). Based on this analysis, it emits a patch <span class="arithmatex">\(P\)</span> designed to upgrade or correct the skill specification <span class="arithmatex">\(S\)</span>.</p>
+<h3 id="aesthetic_verifier">Aesthetic_Verifier</h3>
+<p>This component is integrated into the training loop and is instrumental in calculating the aesthetic preference score (<span class="arithmatex">\(r_{aes}\)</span>) used by Judge J, likely involving geometric or visual comparison routines.</p>
+<h3 id="svg_render">Svg_Render</h3>
+<p>Svg_Render is a utility component within the training pipeline responsible for converting the editable vector source (the SVG) into a renderable format for visual inspection and comparison by the Judge J.</p>
+<h3 id="layout_plan">Layout_Plan</h3>
+<p>This component is utilized during the training loop, suggesting its involvement in geometric validation or pre-computation steps necessary for ensuring the structural integrity of the edits before or during rendering.</p>
 <h2 id="results">Results</h2>
-<p>(No quantitative results were provided in the outline.)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Baseline</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Success Rate (%)</td>
+<td style="text-align: left;">best-so-far</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Figure 1</td>
+</tr>
+</tbody>
+</table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The structured review provided by this survey offers practitioners a clear roadmap for research focus. The field is structured into three main pillars: Perception (Section 5), Generation (Section 6), and Interaction (Section 7), providing a clear roadmap for research focus. Furthermore, the consolidation of key technical components—modality tokenization, cross-modal fusion, and the application of both autoregressive and diffusion-based generation—provides a necessary reference point for engineering design. Ultimately, this synthesis highlights that future research must address open challenges such as temporal synchronization, spatial audio reasoning, and multimodal controllability to advance the state-of-the-art in AVI.</p>
+<p>The findings underscore that for instruction-driven editing tasks, operating directly on the editable vector source is fundamentally superior to raster-level re-rendering because it provides the necessary compositional control. Furthermore, the skill evolution paradigm, which leverages the contrast between agent execution traces and author-drawn targets, proves to be an effective method for acquiring complex, long-tail editing behaviors. Finally, the composite scoring mechanism, <span class="arithmatex">\(r = r_{aes} \cdot r_{sem}\)</span>, which gates verification accuracy on aesthetic preference, ensures that the learned edits are not only semantically correct but also visually polished.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The primary limitations identified in the current literature are that the literature remains fragmented across subcommunities with overlapping definitions, inconsistent terminology, and divergent taxonomies. Concurrently, evaluation practices vary widely in datasets, metrics, and protocols, complicating reproducibility and benchmarking.</p>
+<p>One observed limitation is the rarity of certain operations; for instance, connection rewiring constitutes only 4.2% of the atomic editing claims. Additionally, the design of Coach C incorporates a feedback-history file <span class="arithmatex">\(H\)</span> specifically to prevent the agent from re-litigating editing ideas that have already been rejected in previous iterations.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.04045">2605.04045</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260504045</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Audio-Visual Intelligence in Large Foundation Models}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{You Qin and Kai Liu and Shengqiong Wu and Kai Wang and Shijian Deng and Yapeng Tian et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.04045}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.15272">2607.15272</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260715272</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{SciDiagramEdit: Learning to Edit Scientific Diagrams from Paper Revisions}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Yasheng Sun and Zezi Zeng and Yifan Yang and Chong Luo and Wenyi Wang and Ziwei Liu et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.15272}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.04045}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.15272}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
