@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Knowing the Self, Understanding the World: A Dual-Cognition Benchmark for UAV Spatio-temporal Reasoning with MLLMs](2026-07-21-knowing-the-self-understanding-the-world-a-dual-cognition-be/) { data-cat="Computer Vision" data-date="2026-07-21" }
+
+*2026-07-21*
+
+UAV-DualCog is a novel benchmark designed to jointly evaluate the dual-cognition capabilities—self-state and environment-state reasoning—of Multimodal Large Language Models (MLLMs) in aerial multiview spatio-temporal contexts.
+
 ## [SciDiagramEdit: Learning to Edit Scientific Diagrams from Paper Revisions](2026-07-20-scidiagramedit-learning-to-edit-scientific-diagrams-from-pap/) { data-cat="NLP" data-date="2026-07-20" }
 
 *2026-07-20*
