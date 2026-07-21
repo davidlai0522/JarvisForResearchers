@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Posterior-Augmented Flow Matching (PAFM) generalizes standard Flow Matching (FM) by replacing single-target supervision with an expectation over an approximate posterior of valid target completions, thereby reducing gradient variance.
+        <meta name="description" content="UAV-DualCog is a novel benchmark designed to jointly evaluate the dual-cognition capabilities—self-state and environment-state reasoning—of Multimodal Large Language Models (MLLMs) in aerial multiview spatio-temporal contexts.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-05-posterior-augmented-flow-matching/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-21-knowing-the-self-understanding-the-world-a-dual-cognition-be/">
       
       
-        <link rel="prev" href="../2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/">
+        <link rel="next" href="../2026-07-20-scidiagramedit-learning-to-edit-scientific-diagrams-from-pap/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Posterior Augmented Flow Matching - JarvisForResearchers</title>
+        <title>Knowing the Self, Understanding the World: A Dual-Cognition Benchmark for UAV Spatio-temporal Reasoning with MLLMs - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Posterior Augmented Flow Matching
+              Knowing the Self, Understanding the World: A Dual-Cognition Benchmark for UAV Spatio-temporal Reasoning with MLLMs
             
           </span>
         </div>
@@ -574,10 +574,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-07-21-knowing-the-self-understanding-the-world-a-dual-cognition-be/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Knowing the Self, Understanding the World: A Dual-Cognition Benchmark for UAV Spatio-temporal Reasoning with MLLMs
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -593,6 +618,162 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scene-level-semantic-point-cloud-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scene-level semantic point cloud construction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#landmark-asset-construction-and-semantic-annotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Landmark asset construction and semantic annotation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#behavior-driven-video-task-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Behavior-driven video task generation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-task-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image task generation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2646,35 +2827,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Posterior Augmented Flow Matching
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-05-posterior-augmented-flow-matching/" class="md-nav__link">
         
   
   
@@ -2690,173 +2846,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#flow-matching-fm-objective" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Flow Matching (FM) Objective
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#posterior-augmented-flow-matching-pafm-objective" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Posterior-Augmented Flow Matching (PAFM) Objective
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conditional-probability-path-p_tz_itz_j" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conditional Probability Path \(p_t(z_{i,t}|z_j)\)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#condition-likelihood-p_ty_iz_j" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Condition Likelihood \(p_t(y_i|z_j)\)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#self-normalized-importance-sampling-snis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Self-Normalized Importance Sampling (SNIS)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3162,10 +3151,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#flow-matching-fm-objective" class="md-nav__link">
+  <a href="#scene-level-semantic-point-cloud-construction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Flow Matching (FM) Objective
+        Scene-level semantic point cloud construction
       
     </span>
   </a>
@@ -3173,10 +3162,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#posterior-augmented-flow-matching-pafm-objective" class="md-nav__link">
+  <a href="#landmark-asset-construction-and-semantic-annotation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Posterior-Augmented Flow Matching (PAFM) Objective
+        Landmark asset construction and semantic annotation
       
     </span>
   </a>
@@ -3184,10 +3173,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#conditional-probability-path-p_tz_itz_j" class="md-nav__link">
+  <a href="#behavior-driven-video-task-generation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conditional Probability Path \(p_t(z_{i,t}|z_j)\)
+        Behavior-driven video task generation
       
     </span>
   </a>
@@ -3195,21 +3184,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#condition-likelihood-p_ty_iz_j" class="md-nav__link">
+  <a href="#image-task-generation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Condition Likelihood \(p_t(y_i|z_j)\)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#self-normalized-importance-sampling-snis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Self-Normalized Importance Sampling (SNIS)
+        Image task generation
       
     </span>
   </a>
@@ -3289,44 +3267,70 @@
         <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
+      
+      
+      
+      
+        <a href="../../tags/#tag:llm" class="md-tag">llm</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:multimodal" class="md-tag">multimodal</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:navigation" class="md-tag">navigation</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:point-cloud" class="md-tag">point-cloud</a>
+      
+    
   </nav>
 
 
 
-  <h1>Posterior Augmented Flow Matching</h1>
+  <h1>Knowing the Self, Understanding the World: A Dual-Cognition Benchmark for UAV Spatio-temporal Reasoning with MLLMs</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-05</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-07-21</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Brand new preprint (2026) — accepted</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>Posterior-Augmented Flow Matching (PAFM) generalizes standard Flow Matching (FM) by replacing single-target supervision with an expectation over an approximate posterior of valid target completions, thereby reducing gradient variance.</p>
+<p>UAV-DualCog is a novel benchmark designed to jointly evaluate the dual-cognition capabilities—self-state and environment-state reasoning—of Multimodal Large Language Models (MLLMs) in aerial multiview spatio-temporal contexts. It moves beyond traditional scene understanding by requiring models to reason about both the UAV's own state and the external environment simultaneously, utilizing a highly automated pipeline to generate complex image and video tasks.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>In high-dimensional image generation utilizing Flow Matching (FM), the training signal is inherently sparse and high-variance. Specifically, each training sample only supervises a single trajectory and a single intermediate point. This constraint means that a given intermediate point <span class="arithmatex">\(z_{i,t}\)</span> can plausibly lie on numerous trajectories leading to different valid targets under the same conditioning. This sparse, under-constrained supervision leads to flow collapse, where the learned dynamics tend to overfit to specific, sampled source-target pairings rather than learning the general underlying data manifold dynamics. Existing theoretical frameworks and objective refinements for FM typically maintain the assumption of a one-target-per-intermediate coupling, failing to address this fundamental issue of trajectory ambiguity.</p>
+<p>Current MLLMs' capabilities in UAV scenarios are insufficiently explored. Existing UAV-oriented benchmarks typically focus narrowly on scene understanding, event recognition, or navigation completion. This narrow focus fails to jointly assess the dual-cognition capability required for effective UAV agents: the ability to reason about both the UAV's own state (self-state) and the external environment (environment-state) within complex, multiview spatio-temporal contexts.</p>
+<p>The gaps in prior work are threefold. First, existing benchmarks are largely built on static images or short videos in passive observation settings, where visual inputs are not conditioned on an agent's motion, viewpoint, or interaction with the environment. Second, most UAV-oriented benchmarks emphasize either external environment exploration or task completion, rather than jointly evaluating self-state and environment-state cognition in a unified aerial multiview spatio-temporal setting. Third, existing benchmarks often neglect the observer's embodied state (UAV's own state), focusing primarily on environment-centered understanding.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce Posterior-Augmented Flow Matching (PAFM), which fundamentally shifts the supervision paradigm from single-target prediction to predicting the expected velocity over all plausible continuation trajectories, weighted by their posterior likelihood. We provide a proof demonstrating that PAFM yields an unbiased estimator of the original FM objective, i.e., <span class="arithmatex">\(L(\text{PAFM})(\theta) = L(\text{FM})(\theta)\)</span>. Furthermore, we demonstrate that this aggregation of information across multiple plausible flows effectively reduces the gradient variance compared to standard FM.</p>
+<p>We introduce UAV-DualCog, a benchmark for UAV multiview spatio-temporal reasoning that formulates self-state cognition and environment-state cognition as top-level dimensions, with image and video tasks built by a scalable automated pipeline. We provide a systematic evaluation of diverse lightweight MLLMs, revealing persistent challenges in dual-cognition reasoning, spatial-temporal grounding, and cross-modal consistency. Furthermore, we provide diagnostic validations and a lightweight optimization probe, demonstrating that UAV-DualCog can serve not only as an evaluation benchmark but also as a structured supervision source for UAV-oriented MLLMs.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze. I will then follow your instructions precisely." src="../../assets/figures/2605.00825/fig_p1_c1.jpg" />
-<em>Figure 1: Left: Standard FM provides a sparse, one-to-one supervision signal, pairing each interme-
-diate point with a single target and yielding a single plausible flow. Right: Our PAFM aggregates
-supervision over the full posterior of compatible targets, producing a denser, more coherent set of
-pl</em></p>
-<p>PAFM reformulates the FM objective by conditioning the velocity prediction not on a single sampled endpoint <span class="arithmatex">\(y_i\)</span>, but on the expectation over the posterior distribution of valid targets given the intermediate state <span class="arithmatex">\(z_{i,t}\)</span>. This posterior, <span class="arithmatex">\(p_t(z_j|z_{i,t}, y_i)\)</span>, is generally intractable. We factor this posterior into two components: the likelihood of the intermediate state <span class="arithmatex">\(z_{i,t}\)</span> under a hypothesized endpoint <span class="arithmatex">\(z_j\)</span>, <span class="arithmatex">\(p_t(z_{i,t}|z_j)\)</span>, and the prior probability of that endpoint <span class="arithmatex">\(z_j\)</span> under the condition <span class="arithmatex">\(y_i\)</span>, <span class="arithmatex">\(p_t(y_i|z_j)\)</span>.</p>
-<p>To handle the intractability, we employ a sampling strategy that constructs a mixture over <span class="arithmatex">\(K\)</span> candidate targets, <span class="arithmatex">\(\{z_j\}_{j=1}^K\)</span>. We then utilize Self-Normalized Importance Sampling (SNIS) to weight these candidates according to their posterior likelihoods. This aggregation of gradients derived from multiple plausible flows effectively lowers the variance of the training gradient estimate by a factor related to the Effective Sample Size, <span class="arithmatex">\(\text{ESS}(z_{i,t}) \geq 1\)</span>, relative to standard FM.</p>
-<h3 id="flow-matching-fm-objective">Flow Matching (FM) Objective</h3>
-<p>The standard FM objective is defined as:
-$<span class="arithmatex">\(L(\text{FM})(\theta) = \mathbb{E}_{t \sim \text{Unif}[0,1), (z_i, y_i) \sim \text{data}(\bullet), z_{i,t} \sim p_t(\bullet|z_i)} \left\| f_\theta(z_{i,t}|t, y_i) - v(z_{i,t}|z_i) \right\|^2\)</span>$
-This objective requires predicting the velocity <span class="arithmatex">\(v\)</span> at time <span class="arithmatex">\(t\)</span> given the current latent <span class="arithmatex">\(z_{i,t}\)</span> and the final target <span class="arithmatex">\(y_i\)</span>.</p>
-<h3 id="posterior-augmented-flow-matching-pafm-objective">Posterior-Augmented Flow Matching (PAFM) Objective</h3>
-<p>PAFM modifies this by integrating over the posterior of targets:
-$<span class="arithmatex">\(L(\text{PAFM})(\theta) = \mathbb{E}_{t \sim \text{Unif}[0,1), y_i \sim \text{data}(y), z_{i,t} \sim p_t(\bullet), z_j \sim p_t(\bullet|z_{i,t}, y_i)} \left\| f_\theta(z_{i,t}|t, y_i) - v(z_{i,t}|z_j) \right\|^2\)</span>$
-Here, the expectation is taken over the distribution of plausible targets <span class="arithmatex">\(z_j\)</span> given the intermediate state <span class="arithmatex">\(z_{i,t}\)</span> and condition <span class="arithmatex">\(y_i\)</span>.</p>
-<h3 id="conditional-probability-path-p_tz_itz_j">Conditional Probability Path <span class="arithmatex">\(p_t(z_{i,t}|z_j)\)</span></h3>
-<p>We model the likelihood of reaching a specific target <span class="arithmatex">\(z_j\)</span> from the current latent <span class="arithmatex">\(z_{i,t}\)</span> using a Gaussian distribution: <span class="arithmatex">\(N(\mu_t z_j, \alpha_t^2 \text{Id})\)</span>. The log-likelihood is proportional to <span class="arithmatex">\(-\|z_{i,t} - (1-t)z_j\|^2 / 2t^2\)</span>. This term quantifies how likely the current state <span class="arithmatex">\(z_{i,t}\)</span> is to be on a path leading to <span class="arithmatex">\(z_j\)</span>.</p>
-<h3 id="condition-likelihood-p_ty_iz_j">Condition Likelihood <span class="arithmatex">\(p_t(y_i|z_j)\)</span></h3>
-<p>This term measures the compatibility between a candidate target <span class="arithmatex">\(z_j\)</span> and the input condition <span class="arithmatex">\(y_i\)</span>. For class-conditioned FM, this is deterministic (1 if <span class="arithmatex">\(y_i = y_j\)</span>, 0 otherwise). For more complex conditioning, this requires an approximation.</p>
-<h3 id="self-normalized-importance-sampling-snis">Self-Normalized Importance Sampling (SNIS)</h3>
-<p>Since the true posterior <span class="arithmatex">\(p_t(z_j|z_{i,t}, y_i)\)</span> is intractable, we approximate the expectation using SNIS. This technique computes the gradient estimator <span class="arithmatex">\(\hat{\mu}_{\text{SNIS}}g(z_{i,t}|K) = \sum_{j=1}^K w_j g(z_j|z_{i,t}, y_i)\)</span>, where the weights <span class="arithmatex">\(w_j\)</span> are derived by normalizing the importance weights based on the posterior likelihoods of the <span class="arithmatex">\(K\)</span> sampled candidates <span class="arithmatex">\(\{z_j\}_{j=1}^K\)</span>.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2607.16193/fig_p2_c1.jpg" />
+<em>Figure 1: Overview of UAV-DualCog, a benchmark for aerial multiview spatio-temporal reasoning. It explicitly formulates
+self-aware cognition and environment-aware cognition as two top-level evaluation dimensions. By developing an automatic
+construction pipeline, it utilize both image and video modal</em></p>
+<p>UAV-DualCog is constructed via a four-stage, highly automated pipeline. This pipeline begins with scene-level semantic point cloud construction from AerialVLN scenes. Candidate landmarks are then aggregated and annotated. Next, behavior-driven video tasks are generated using a hierarchical flight behavior framework, and image QA samples are constructed from controlled viewpoint sampling. The benchmark evaluates dual cognition, defined as <span class="arithmatex">\(C(o) = \{c_s, c_e\}\)</span>, where <span class="arithmatex">\(c_s\)</span> is self-state cognition (e.g., relative position, motion) and <span class="arithmatex">\(c_e\)</span> is environment-state cognition (e.g., target direction, visibility). The evaluation utilizes both image tasks (four types) and video tasks (two types) to require structured outputs, such as normalized bounding boxes or temporal intervals, moving beyond discrete answer prediction.</p>
+<h3 id="scene-level-semantic-point-cloud-construction">Scene-level semantic point cloud construction</h3>
+<p>This stage involves sampling coverage-aware UAV poses within the AerialVLN scenes. LiDAR, RGB, segmentation, and pose data are fused to construct scene-level semantic point clouds, which are annotated at both the class- and instance-level.</p>
+<h3 id="landmark-asset-construction-and-semantic-annotation">Landmark asset construction and semantic annotation</h3>
+<p>Candidate landmarks are aggregated by instance. These landmarks are then associated with multi-view observations and annotated with detailed geometry and semantic attributes.</p>
+<h3 id="behavior-driven-video-task-generation">Behavior-driven video task generation</h3>
+<p>Executable UAV missions and trajectories are generated under a hierarchical flight behavior framework. These trajectories are validated against geometric and collision constraints before being recorded as annotated first-person videos.</p>
+<h3 id="image-task-generation">Image task generation</h3>
+<p>Image QA samples are constructed from the pre-built landmark assets. This process involves controlled viewpoint sampling, rigorous visibility checking, and the application of structured annotation protocols.</p>
 <h2 id="results">Results</h2>
+<p>The evaluation across various MLLMs highlights significant performance disparities across the dual-cognition dimensions.</p>
 <table>
 <thead>
 <tr>
@@ -3338,26 +3342,44 @@ Here, the expectation is taken over the distribution of plausible targets <span 
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">FID50K improvement</td>
-<td style="text-align: left;">up to 3.4</td>
-<td style="text-align: left;">FM</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">Rel. Position Acc (Proprietary Models)</td>
+<td style="text-align: left;">37.7%</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Table 2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Future Obs. mIoU@50 (Proprietary Models)</td>
+<td style="text-align: left;">14.2%</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Table 2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Rel. Position Acc (Gemini 3 Flash)</td>
+<td style="text-align: left;">47.6%</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Table 2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Action Dec. Acc (GPT 5.5)</td>
+<td style="text-align: left;">53.4%</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Table 2</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>PAFM provides a principled method to mitigate the high variance inherent in trajectory-based generative modeling. By replacing the brittle, single-point supervision of standard FM with an expectation over a set of plausible continuations, we effectively densify the training signal. This allows the model to learn a more robust and generalized flow dynamics, leading to measurable improvements in sample quality, as evidenced by the FID score reduction. Furthermore, the method is architecturally flexible, supporting various strategies for sourcing candidate targets <span class="arithmatex">\(\{z_j\}_{j=1}^K\)</span>, such as FAISS k-nearest-neighbor retrieval, and incurs only marginal computational overhead across different model scales and architectures.</p>
+<p>The introduction of UAV-DualCog provides a necessary shift in how we evaluate embodied AI agents operating in complex aerial environments. The practitioner takeaways are clear: when evaluating MLLMs for embodied agents, the evaluation must explicitly test both self-state awareness (the agent's own state) and environment-state awareness (the external scene state). Furthermore, for robust UAV reasoning, models must be required to provide structured outputs, such as bounding boxes or temporal intervals, rather than relying solely on discrete answers. Finally, UAV-DualCog demonstrates utility beyond static evaluation; it can serve as a structured supervision source for training MLLMs specifically for UAV applications.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The primary limitation is that the true posterior <span class="arithmatex">\(p_t(z_j|z_{i,t}, y_i)\)</span> remains intractable, necessitating practical approximations. Similarly, the condition likelihood <span class="arithmatex">\(p_t(y_i|z_j)\)</span> requires approximation, particularly in continuous-conditioned generation, although using models like CLIP offers an intuitive starting point for this approximation.</p>
+<p>Two primary limitations are noted. First, reducing the sim-to-real gap remains an active area of future work, although the construction logic is extensible to real UAV videos provided reliable metadata can be secured. Second, current MLLMs remain substantially distant from reliable performance in UAV dual cognition. Persistent bottlenecks are observed in self-state reasoning, accurate viewpoint transformation, precise spatial grounding, and temporal interval localization.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.00825">2605.00825</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260500825</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Posterior Augmented Flow Matching}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{George Stoica and Sayak Paul and Matthew Wallingford and Vivek Ramanujan and Abhay Nori and Winson Han et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.00825}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.16193">2607.16193</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260716193</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Knowing the Self, Understanding the World: A Dual-Cognition Benchmark for UAV Spatio-temporal Reasoning with MLLMs}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Like Liu and Zhengzheng Xu and Haitao He and Hongzhe Li and Shuchang Zhang and Dian Shao}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.16193}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.00825}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.16193}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
