@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [The Many Senses of Visual Similarity: A Text-Prompted Image Perceptual Metric](2026-07-22-the-many-senses-of-visual-similarity-a-text-prompted-image-p/) { data-cat="Computer Vision" data-date="2026-07-22" }
+
+*2026-07-22*
+
+The Text-Prompted Image Perceptual Similarity (TPIPS) metric is introduced to capture context-dependent, multi-faceted visual similarity by fine-tuning a Vision-Language Model (VLM) on a large-scale dataset of human similarity judgments conditioned on free-form text prompts.
+
 ## [Knowing the Self, Understanding the World: A Dual-Cognition Benchmark for UAV Spatio-temporal Reasoning with MLLMs](2026-07-21-knowing-the-self-understanding-the-world-a-dual-cognition-be/) { data-cat="Computer Vision" data-date="2026-07-21" }
 
 *2026-07-21*
