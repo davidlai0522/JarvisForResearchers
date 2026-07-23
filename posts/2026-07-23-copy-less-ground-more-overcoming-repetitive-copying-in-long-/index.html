@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="FaceMoE introduces a Mixture of Experts (MoE) adaptation within a transformer encoder to achieve resolution-aware feature extraction for low-resolution face recognition while mitigating catastrophic forgetting.
+        <meta name="description" content="GEAR (Grounding Evidence-Aware Reward) is a reward shaping method that mitigates repetitive copying in long-context LLM reasoning by augmenting the accuracy signal with a grounding reward for key evidence overlap and a distractor penalty for irrelevant context overlap.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-02-facemoe-mixture-of-experts-for-low-resolution-face-recogniti/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-23-copy-less-ground-more-overcoming-repetitive-copying-in-long-/">
       
       
-        <link rel="prev" href="../2026-07-03-measuring-the-gap-between-human-and-llm-research-ideas/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-07-01-levo-2-stable-and-melodious-song-generation-via-hierarchical/">
+        <link rel="next" href="../2026-07-22-the-many-senses-of-visual-similarity-a-text-prompted-image-p/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>FaceMoE: Mixture of Experts for Low-Resolution Face Recognition - JarvisForResearchers</title>
+        <title>Copy Less, Ground More: Overcoming Repetitive Copying in Long-Context Reasoning via Evidence-Aware Reinforcement Learning - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              FaceMoE: Mixture of Experts for Low-Resolution Face Recognition
+              Copy Less, Ground More: Overcoming Repetitive Copying in Long-Context Reasoning via Evidence-Aware Reinforcement Learning
             
           </span>
         </div>
@@ -578,10 +578,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-07-23-copy-less-ground-more-overcoming-repetitive-copying-in-long-/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copy Less, Ground More: Overcoming Repetitive Copying in Long-Context Reasoning via Evidence-Aware Reinforcement Learning
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -597,6 +622,162 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gear-grounding-evidence-aware-reward" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GEAR (Grounding Evidence-Aware Reward)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grounding-reward-r_textground" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounding Reward (\(R_{\text{ground}}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distractor-penalty-r_textdist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distractor Penalty (\(R_{\text{dist}}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automated-data-construction-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Data Construction Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1166,35 +1347,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    FaceMoE: Mixture of Experts for Low-Resolution Face Recognition
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-07-02-facemoe-mixture-of-experts-for-low-resolution-face-recogniti/" class="md-nav__link">
         
   
   
@@ -1210,173 +1366,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#moe-mlp-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MoE-MLP Layer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#top-k-router" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Top-k Router
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#expert-i-f_i" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Expert \(i\) (\(f_i\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#router-z-loss-mathcall_z" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Router z-loss (\(\mathcal{L}_z\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#load-balancing-loss-mathcall_textbalance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Load Balancing Loss (\(\mathcal{L}_{\text{balance}}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3222,10 +3211,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#moe-mlp-layer" class="md-nav__link">
+  <a href="#gear-grounding-evidence-aware-reward" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MoE-MLP Layer
+        GEAR (Grounding Evidence-Aware Reward)
       
     </span>
   </a>
@@ -3233,10 +3222,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#top-k-router" class="md-nav__link">
+  <a href="#grounding-reward-r_textground" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Top-k Router
+        Grounding Reward (\(R_{\text{ground}}\))
       
     </span>
   </a>
@@ -3244,10 +3233,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#expert-i-f_i" class="md-nav__link">
+  <a href="#distractor-penalty-r_textdist" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Expert \(i\) (\(f_i\))
+        Distractor Penalty (\(R_{\text{dist}}\))
       
     </span>
   </a>
@@ -3255,21 +3244,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#router-z-loss-mathcall_z" class="md-nav__link">
+  <a href="#automated-data-construction-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Router z-loss (\(\mathcal{L}_z\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#load-balancing-loss-mathcall_textbalance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Load Balancing Loss (\(\mathcal{L}_{\text{balance}}\))
+        Automated Data Construction Pipeline
       
     </span>
   </a>
@@ -3346,53 +3324,60 @@
       
       
       
-        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:transformers" class="md-tag">transformers</a>
+        <a href="../../tags/#tag:llm" class="md-tag">llm</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:nlp" class="md-tag">nlp</a>
       
     
   </nav>
 
 
 
-  <h1>FaceMoE: Mixture of Experts for Low-Resolution Face Recognition</h1>
+  <h1>Copy Less, Ground More: Overcoming Repetitive Copying in Long-Context Reasoning via Evidence-Aware Reinforcement Learning</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-07-02</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-07-23</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
 <p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>FaceMoE integrates a Mixture of Experts (MoE) mechanism into the transformer encoder's MLP layers. This design utilizes a top-k router to sparsely activate specialized experts, enabling resolution-aware feature extraction for low-resolution face recognition (LR-FR) while mitigating catastrophic forgetting and bridging the domain gap between HR gallery and LR probe images.</p>
+<p>GEAR (Grounding Evidence-Aware Reward) is a reward shaping method that mitigates repetitive copying in long-context LLM reasoning by augmenting the accuracy signal with a grounding reward for key evidence overlap and a distractor penalty for irrelevant context overlap.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Low-resolution face recognition (LR-FR) presents several interconnected challenges. Primarily, the degraded nature of probe images leads to poor feature extraction and aggregation capabilities. Second, there is a significant domain gap between the high-resolution (HR) images typically used for training the gallery and the low-resolution (LR) images encountered during inference. Finally, when fine-tuning models on these LR datasets, there is a substantial risk of catastrophic forgetting, where the model loses generalizable knowledge acquired during pre-training.</p>
-<p>Existing approaches have limitations. Methods focused on feature fusion, such as CAFace, CoNAN, and ProxyFusion, are fundamentally constrained by the quality of the underlying feature encoders they employ. Furthermore, while PETALface [41] introduced quality-adaptive dual low-rank modules, its efficacy in the low-resolution domain remains inferior to contemporary state-of-the-art methods. Crucially, prior research has not explored the application of Mixture of Experts (MoE) architectures specifically for the LR-FR task.</p>
+<p>Large language models generating step-by-step reasoning traces exhibit repetitive copying when reasoning over long contexts. In these scenarios, the models frequently copy verbatim text from the input document into their reasoning traces rather than synthesizing or productively solving the underlying problem. This behavior degrades the quality and efficiency of the reasoning process, particularly when the context window is extensive.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce FaceMoE, a modified transformer encoder that incorporates sparsely activated FFN experts. This architecture efficiently adapts to low-resolution datasets while simultaneously minimizing catastrophic forgetting and addressing the domain gap inherent in LR-FR. We propose a top-k router responsible for assigning each input token to a subset of FFN experts, which facilitates resolution-aware feature extraction by allowing experts to specialize in distinct semantic facial regions. The empirical validation demonstrates superior performance of FaceMoE across eleven diverse datasets, encompassing HR, mixed-quality, and LR scenarios.</p>
+<p>We make three primary contributions. First, we identify repetitive copying as a pervasive failure mode in long-context LLM reasoning, tracing its root cause to insufficient evidence grounding—the model's inability to distinguish between salient evidence and extraneous information. Second, we propose GEAR, a reward shaping method that explicitly combines a grounding reward (<span class="arithmatex">\(\alpha \cdot \text{Overlap}_n(y|x_{\text{key}})\)</span>) and a distractor penalty (<span class="arithmatex">\(\beta \cdot \text{Overlap}_n(y|x_{\text{dist}})\)</span>). Third, we developed an automated three-stage pipeline to construct evidence-annotated QA pairs from arbitrary long documents, enabling the scaling of GEAR to natural-language datasets where manual annotation is infeasible.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.32040/fig_p2_c1.jpg" />
-<em>Fig. 1: (a) BRIAR gallery and probe. (b) Domain difference between gallery and probe.
-(c) Activation maps corresponding to LR and HR images. (d) SOTA results on BRIAR
-Protocol 3.1.</em></p>
-<p>FaceMoE modifies the standard transformer block by replacing the monolithic Feed-Forward Network (FFN) with a Mixture of Experts (MoE) layer. This layer consists of <span class="arithmatex">\(N\)</span> distinct expert MLPs. The process begins with the <strong>Top-k Router</strong>, which computes routing scores <span class="arithmatex">\(z_t\)</span> for every input token <span class="arithmatex">\(x_t\)</span> via a linear projection <span class="arithmatex">\(W_r\)</span>. The router then selects the indices corresponding to the top-<span class="arithmatex">\(k\)</span> scoring experts, normalizing these logits into routing probabilities <span class="arithmatex">\(w_{i_j}(x_t)\)</span>. The final output <span class="arithmatex">\(y_t\)</span> for the token is computed as a convex combination of the outputs from the selected experts. Training stability is maintained through a composite objective function: <span class="arithmatex">\(\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{face}} + \lambda_z \mathcal{L}_z + \lambda_b \mathcal{L}_{\text{balance}}\)</span>, where <span class="arithmatex">\(\mathcal{L}_{\text{face}}\)</span> is the CosFace loss, <span class="arithmatex">\(\mathcal{L}_z\)</span> is the router z-loss, and <span class="arithmatex">\(\mathcal{L}_{\text{balance}}\)</span> is the load balancing loss.</p>
-<h3 id="moe-mlp-layer">MoE-MLP Layer</h3>
-<p>This component substitutes the conventional FFN within a transformer block. It is structured around <span class="arithmatex">\(N\)</span> expert MLPs. Each individual expert <span class="arithmatex">\(f_i(x_t)\)</span> is implemented as a two-layer fully connected network, utilizing GELU activation. The parameters for expert <span class="arithmatex">\(i\)</span> are defined by weights <span class="arithmatex">\(\{W_{i,1}, W_{i,2}\}\)</span> and biases <span class="arithmatex">\(\{b_{i,1}, b_{i,2}\}\)</span>.</p>
-<h3 id="top-k-router">Top-k Router</h3>
-<p>The <strong>Top-k Router</strong> is responsible for dynamic expert selection. For an input token <span class="arithmatex">\(x_t\)</span>, it calculates the expert selection logits <span class="arithmatex">\(z_t = x_t W_r\)</span>. It then employs the <span class="arithmatex">\(\mathrm{TopK}(z_t)\)</span> operation to identify the indices of the <span class="arithmatex">\(k\)</span> experts with the highest logits. These logits are subsequently normalized using softmax to yield the routing probabilities <span class="arithmatex">\(w_{i_j}(x_t)\)</span> for the selected experts.</p>
-<h3 id="expert-i-f_i">Expert <span class="arithmatex">\(i\)</span> (<span class="arithmatex">\(f_i\)</span>)</h3>
-<p>An individual expert, denoted <span class="arithmatex">\(f_i\)</span>, is a parameterized MLP defined by <span class="arithmatex">\(\theta_i\)</span>. Its operation on an input token <span class="arithmatex">\(x_t\)</span> is given by the expression: <span class="arithmatex">\(f_i(x_t) = W_{i,2} \cdot \sigma (W_{i,1} x_t + b_{i,1}) + b_{i,2}\)</span>, where <span class="arithmatex">\(\sigma\)</span> is the GELU activation function.</p>
-<h3 id="router-z-loss-mathcall_z">Router z-loss (<span class="arithmatex">\(\mathcal{L}_z\)</span>)</h3>
-<p>This regularization term is designed to control the magnitude of the routing logits. It penalizes large values in <span class="arithmatex">\(z_t\)</span> across the batch <span class="arithmatex">\(B\)</span> and sequence length <span class="arithmatex">\(T\)</span>: <span class="arithmatex">\(\mathcal{L}_z = \lambda_z \cdot \frac{1}{B \cdot T} \sum_{b=1}^B \sum_{t=1}^T \| z_{b,t} \|_2^2\)</span>.</p>
-<h3 id="load-balancing-loss-mathcall_textbalance">Load Balancing Loss (<span class="arithmatex">\(\mathcal{L}_{\text{balance}}\)</span>)</h3>
-<p>To ensure that no single expert becomes disproportionately utilized, the <strong>Load Balancing Loss</strong> promotes uniform expert utilization. It is formulated as: <span class="arithmatex">\(\mathcal{L}_{\text{balance}} = \lambda_b \cdot N \cdot \frac{1}{(B \cdot T)^2} \sum_{i=1}^N \left ( \sum_{b=1}^B \sum_{t=1}^T p_{b,t,i} \right ) \cdot \left ( \sum_{b=1}^B \sum_{t=1}^T \mathbb {1}\left [ i \in \mathrm {TopK}(z_{b,t}) \right ] \right )\)</span>.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2607.19345/fig_p4_c1.jpg" />
+<em>Figure 1: n-gram overlap rate on GSM-Infinite as a function of context length across seven models.
+All models copy more as context grows, and the high 10-gram overlap confirms that copied spans are
+long contiguous passages.</em></p>
+<p>GEAR addresses the issue of insufficient grounding by modifying the standard accuracy reward (<span class="arithmatex">\(R_{\text{acc}}\)</span>). The modified reward function is defined as:
+$<span class="arithmatex">\(R(x, y) = R_{\text{acc}} + \alpha \cdot \text{Overlap}_n(y|x_{\text{key}}) - \beta \cdot \text{Overlap}_n(y|x_{\text{dist}})\)</span>$
+This formulation introduces two corrective terms. The grounding reward encourages the model to selectively engage with task-relevant evidence (<span class="arithmatex">\(x_{\text{key}}\)</span>) by measuring the <span class="arithmatex">\(n\)</span>-gram overlap between the generated reasoning trace (<span class="arithmatex">\(y\)</span>) and these annotated support spans. Conversely, the distractor penalty actively discourages indiscriminate copying by penalizing the overlap between <span class="arithmatex">\(y\)</span> and irrelevant context (<span class="arithmatex">\(x_{\text{dist}}\)</span>).</p>
+<h3 id="gear-grounding-evidence-aware-reward">GEAR (Grounding Evidence-Aware Reward)</h3>
+<p>GEAR functions as a reward shaping mechanism applied during Reinforcement Learning from Human Feedback (RLHF) or similar fine-tuning regimes. It augments the intrinsic accuracy signal with explicit signals regarding the <em>quality</em> and <em>relevance</em> of the evidence utilized in the generated trace.</p>
+<h3 id="grounding-reward-r_textground">Grounding Reward (<span class="arithmatex">\(R_{\text{ground}}\)</span>)</h3>
+<p>This component is quantified by <span class="arithmatex">\(\alpha \cdot \text{Overlap}_n(y|x_{\text{key}})\)</span>. It operates by calculating the <span class="arithmatex">\(n\)</span>-gram overlap between the model's output trace (<span class="arithmatex">\(y\)</span>) and the pre-identified, task-relevant evidence spans (<span class="arithmatex">\(x_{\text{key}}\)</span>). A higher overlap, weighted by the coefficient <span class="arithmatex">\(\alpha\)</span>, yields a positive reward, incentivizing the model to incorporate relevant facts from the source material into its reasoning steps.</p>
+<h3 id="distractor-penalty-r_textdist">Distractor Penalty (<span class="arithmatex">\(R_{\text{dist}}\)</span>)</h3>
+<p>This component is quantified by <span class="arithmatex">\(-\beta \cdot \text{Overlap}_n(y|x_{\text{dist}})\)</span>. It specifically targets the undesirable behavior of copying irrelevant text. By calculating the <span class="arithmatex">\(n\)</span>-gram overlap between <span class="arithmatex">\(y\)</span> and context segments deemed irrelevant (<span class="arithmatex">\(x_{\text{dist}}\)</span>), and applying a negative weight <span class="arithmatex">\(-\beta\)</span>, the system penalizes the model for generating text that is merely copied from non-essential parts of the input document.</p>
+<h3 id="automated-data-construction-pipeline">Automated Data Construction Pipeline</h3>
+<p>To make GEAR applicable to large, unannotated corpora, we employ a three-stage pipeline. This process begins with Document analysis and filtering, where the raw long document is processed to identify potential evidence regions. This is followed by Evidence-constrained QA generation, where questions are synthesized such that their ground truth answers are constrained to reside within the identified evidence regions. Finally, Answer verification confirms the generated QA pairs, resulting in a dataset where support annotations (<span class="arithmatex">\(x_{\text{key}}\)</span> and <span class="arithmatex">\(x_{\text{dist}}\)</span>) are constructed by design.</p>
 <h2 id="results">Results</h2>
+<p>The implementation of GEAR demonstrated a measurable improvement over baseline methods.</p>
 <table>
 <thead>
 <tr>
@@ -3404,26 +3389,26 @@ Protocol 3.1.</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Performance</td>
-<td style="text-align: left;">significantly outperforms state-of-the-art methods</td>
-<td style="text-align: left;">state-of-the-art methods</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">Average points improvement over standard RL with accuracy-based rewards</td>
+<td style="text-align: left;">+4.6</td>
+<td style="text-align: left;">Standard RL with accuracy-based rewards</td>
+<td style="text-align: left;">Abstract/Section 4.3</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The integration of MoE into the transformer encoder provides a mechanism for scaling model capacity without a proportional increase in computational cost. The use of a top-k router allows for sparse expert activation, which translates to a 2.17<span class="arithmatex">\(\times\)</span> increase in model capacity while incurring only a 1.66<span class="arithmatex">\(\times\)</span> increase in FLOPs. This efficiency is critical for deploying complex models in resource-constrained environments. Furthermore, by allowing experts to specialize in different semantic facial regions, FaceMoE achieves resolution-aware feature extraction, directly addressing the core difficulty of LR-FR.</p>
+<p>The ability of LLMs to reason over massive contexts is a critical capability for real-world deployment in domains like legal review, scientific literature analysis, and complex technical troubleshooting. Repetitive copying is not merely a stylistic flaw; it indicates a failure in the model's internal grounding mechanism, suggesting it is pattern-matching input text rather than performing abstract reasoning. GEAR provides a principled, quantifiable mechanism to guide the model toward utilizing context selectively, thereby improving the fidelity and robustness of its reasoning traces.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>A primary limitation noted is the lack of specific quantitative performance metrics across the eleven evaluated datasets; the paper only asserts that the method "significantly outperforms" existing SOTA. Additionally, the training procedure is complex, relying on a composite objective function involving three distinct loss components (<span class="arithmatex">\(\mathcal{L}_{\text{face}}\)</span>, <span class="arithmatex">\(\mathcal{L}_z\)</span>, and <span class="arithmatex">\(\mathcal{L}_{\text{balance}}\)</span>). This necessitates meticulous and careful hyperparameter tuning for the weighting factors (<span class="arithmatex">\(\lambda, \lambda_z, \lambda_b\)</span>) to ensure stable convergence.</p>
+<p>The efficacy of the GEAR framework is contingent upon the proper calibration of the hyper-parameters <span class="arithmatex">\(\alpha\)</span> and <span class="arithmatex">\(\beta\)</span>. These non-negative coefficients require careful tuning relative to the base accuracy reward to ensure the shaping signals do not dominate or destabilize the RL training process. Furthermore, the reliance on the Automated Data Construction Pipeline introduces a dependency: the pipeline's success is bounded by the language model's inherent ability to accurately perform document analysis and successfully constrain question generation to the designated evidence regions. Future work must investigate more robust methods for evidence boundary detection that are less reliant on generative constraints.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.32040">2606.32040</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260632040</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{FaceMoE: Mixture of Experts for Low-Resolution Face Recognition}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Kartik Narayan and Vishal M. Patel}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.32040}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.19345">2607.19345</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260719345</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Copy Less, Ground More: Overcoming Repetitive Copying in Long-Context Reasoning via Evidence-Aware Reinforcement Learning}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Lizhe Fang and Weizhou Shen and Tianyi Tang and Yisen Wang}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.19345}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.32040}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.19345}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
