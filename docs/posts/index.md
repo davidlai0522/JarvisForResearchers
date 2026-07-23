@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Copy Less, Ground More: Overcoming Repetitive Copying in Long-Context Reasoning via Evidence-Aware Reinforcement Learning](2026-07-23-copy-less-ground-more-overcoming-repetitive-copying-in-long-/) { data-cat="NLP" data-date="2026-07-23" }
+
+*2026-07-23*
+
+GEAR (Grounding Evidence-Aware Reward) is a reward shaping method that mitigates repetitive copying in long-context LLM reasoning by augmenting the accuracy signal with a grounding reward for key evidence overlap and a distractor penalty for irrelevant context overlap.
+
 ## [The Many Senses of Visual Similarity: A Text-Prompted Image Perceptual Metric](2026-07-22-the-many-senses-of-visual-similarity-a-text-prompted-image-p/) { data-cat="Computer Vision" data-date="2026-07-22" }
 
 *2026-07-22*
