@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "ATSplat: Compact Feed-forward 3D Gaussian Splatting with Adaptive Token Expansion": posts/2026-07-24-atsplat-compact-feed-forward-3d-gaussian-splatting-with-adap.md
     - "Copy Less, Ground More: Overcoming Repetitive Copying in Long-Context Reasoning via Evidence-Aware Reinforcement Learning": posts/2026-07-23-copy-less-ground-more-overcoming-repetitive-copying-in-long-.md
     - "The Many Senses of Visual Similarity: A Text-Prompted Image Perceptual Metric": posts/2026-07-22-the-many-senses-of-visual-similarity-a-text-prompted-image-p.md
     - "Knowing the Self, Understanding the World: A Dual-Cognition Benchmark for UAV Spatio-temporal Reasoning with MLLMs": posts/2026-07-21-knowing-the-self-understanding-the-world-a-dual-cognition-be.md

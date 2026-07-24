@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [ATSplat: Compact Feed-forward 3D Gaussian Splatting with Adaptive Token Expansion](2026-07-24-atsplat-compact-feed-forward-3d-gaussian-splatting-with-adap/) { data-cat="Computer Vision" data-date="2026-07-24" }
+
+*2026-07-24*
+
+ATSplat is a feed-forward 3D Gaussian Splatting framework that restores scene-adaptive capacity allocation by using sparse 3D anchor tokens and an Adaptive Token Expansion module to concentrate representational capacity in challenging regions.
+
 ## [Copy Less, Ground More: Overcoming Repetitive Copying in Long-Context Reasoning via Evidence-Aware Reinforcement Learning](2026-07-23-copy-less-ground-more-overcoming-repetitive-copying-in-long-/) { data-cat="NLP" data-date="2026-07-23" }
 
 *2026-07-23*
