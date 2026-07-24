@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="TriSplat is a feed-forward 3D scene reconstruction network that uses oriented triangle primitives to directly export simulation-ready mesh scenes from sparse, unposed images in a single forward pass.
+        <meta name="description" content="ATSplat is a feed-forward 3D Gaussian Splatting framework that restores scene-adaptive capacity allocation by using sparse 3D anchor tokens and an Adaptive Token Expansion module to concentrate representational capacity in challenging regions.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-24-atsplat-compact-feed-forward-3d-gaussian-splatting-with-adap/">
       
       
-        <link rel="prev" href="../2026-05-28-algorithmic-monocultures-in-hiring/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-27-latent-action-diffusion-for-cross-embodiment-manipulation/">
+        <link rel="next" href="../2026-07-23-copy-less-ground-more-overcoming-repetitive-copying-in-long-/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>TriSplat: Simulation-Ready Feed-Forward 3D Scene Reconstruction - JarvisForResearchers</title>
+        <title>ATSplat: Compact Feed-forward 3D Gaussian Splatting with Adaptive Token Expansion - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              TriSplat: Simulation-Ready Feed-Forward 3D Scene Reconstruction
+              ATSplat: Compact Feed-forward 3D Gaussian Splatting with Adaptive Token Expansion
             
           </span>
         </div>
@@ -580,10 +580,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-07-24-atsplat-compact-feed-forward-3d-gaussian-splatting-with-adap/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ATSplat: Compact Feed-forward 3D Gaussian Splatting with Adaptive Token Expansion
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -599,6 +624,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-view-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-view Encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sparse-3d-anchor-tokens-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sparse 3D Anchor Tokens Initialization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-to-3d-decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image-to-3D Decoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adaptive-token-expansion-ate-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adaptive Token Expansion (ATE) Module
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gaussian-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gaussian Head
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2092,35 +2284,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    TriSplat: Simulation-Ready Feed-Forward 3D Scene Reconstruction
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi/" class="md-nav__link">
         
   
   
@@ -2136,217 +2303,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dinov2-backbone" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DINOv2 backbone
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#local-global-attention-decoder-blocks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Local-Global Attention decoder blocks
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#point-head" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Point head
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#camera-head" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Camera head
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#primitive-head" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Primitive head
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#geometry-normals-mathbfn_geo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Geometry normals (\(\mathbf{n}_{geo}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#refinement-network-f_theta" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Refinement network (\(f_{\theta}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mono-normal-bootstrap" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mono-normal bootstrap
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#differentiable-triangle-rasterizer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Differentiable triangle rasterizer
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3296,10 +3252,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dinov2-backbone" class="md-nav__link">
+  <a href="#multi-view-encoder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DINOv2 backbone
+        Multi-view Encoder
       
     </span>
   </a>
@@ -3307,10 +3263,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#local-global-attention-decoder-blocks" class="md-nav__link">
+  <a href="#sparse-3d-anchor-tokens-initialization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Local-Global Attention decoder blocks
+        Sparse 3D Anchor Tokens Initialization
       
     </span>
   </a>
@@ -3318,10 +3274,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#point-head" class="md-nav__link">
+  <a href="#image-to-3d-decoder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Point head
+        Image-to-3D Decoder
       
     </span>
   </a>
@@ -3329,10 +3285,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#camera-head" class="md-nav__link">
+  <a href="#adaptive-token-expansion-ate-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Camera head
+        Adaptive Token Expansion (ATE) Module
       
     </span>
   </a>
@@ -3340,54 +3296,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#primitive-head" class="md-nav__link">
+  <a href="#gaussian-head" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Primitive head
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#geometry-normals-mathbfn_geo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Geometry normals (\(\mathbf{n}_{geo}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#refinement-network-f_theta" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Refinement network (\(f_{\theta}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mono-normal-bootstrap" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mono-normal bootstrap
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#differentiable-triangle-rasterizer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Differentiable triangle rasterizer
+        Gaussian Head
       
     </span>
   </a>
@@ -3464,66 +3376,43 @@
       
       
       
-        <a href="../../tags/#tag:3d-perception" class="md-tag">3d-perception</a>
-      
-    
-      
-      
-      
-      
         <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:transformers" class="md-tag">transformers</a>
       
     
   </nav>
 
 
 
-  <h1>TriSplat: Simulation-Ready Feed-Forward 3D Scene Reconstruction</h1>
+  <h1>ATSplat: Compact Feed-forward 3D Gaussian Splatting with Adaptive Token Expansion</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-27</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-07-24</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
-<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+<p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>TriSplat is a feed-forward 3D scene reconstruction network that uses oriented triangle primitives to directly export simulation-ready mesh scenes from sparse, unposed images in a single forward pass. This circumvents the need for expensive post-hoc mesh extraction common in Gaussian-based methods.</p>
+<p>ATSplat introduces a feed-forward 3D Gaussian Splatting framework that overcomes the limitations of pixel-aligned formulations by utilizing sparse 3D anchor tokens. It employs an Adaptive Token Expansion (ATE) module to dynamically allocate representational capacity to complex regions, achieving state-of-the-art quality while drastically reducing the required number of Gaussians.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Existing feed-forward 3D reconstruction methods, particularly those based on Gaussian primitives, expose surfaces only indirectly. This indirect representation necessitates expensive post-hoc steps, such as TSDF fusion or Poisson reconstruction, to extract a usable mesh suitable for downstream simulation or embodied interaction. This reliance on sequential, non-differentiable extraction processes fundamentally breaks the promise of a purely feed-forward pipeline. Furthermore, geometry-aware variants often still depend on per-scene optimization or auxiliary extraction mechanisms for robust mesh recovery.</p>
+<p>Existing feed-forward 3D Gaussian Splatting (3DGS) methods are fundamentally constrained by their pixel-aligned formulations. This dependency dictates that the number and spatial placement of 3D primitives must correlate directly with the input image resolution and the specific viewpoints provided. Consequently, these methods often generate overly dense and redundant Gaussian sets, as the primitive distribution is dictated by the image grid rather than the intrinsic geometric complexity of the scene. Furthermore, a key challenge in feed-forward decoding is the inability to directly access rendering errors during the forward pass, which complicates the identification of regions that are currently under-reconstructed. Previous attempts to address this either mandated dense, pixel-aligned predictions or relied on uniform spatial downsampling, neither of which adequately accounts for local scene complexity.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce TriSplat, a novel feed-forward network whose native representation is oriented triangle primitives. This architecture jointly predicts geometry, appearance, and camera poses directly from sparse, unposed images in a single forward pass. We designed a normal-anchored triangle construction pipeline that derives triangle orientation from the predicted point map geometry, subsequently refining this orientation using an image-conditioned head. Training stability is maintained through mono-normal bootstrapping and validity-aware masking. Critically, we demonstrate that this triangle-native representation eliminates the requirement for post-hoc mesh extraction, allowing the rendering output to be directly consumable by physics engines and standard rendering pipelines.</p>
+<p>We propose ATSplat, a novel feed-forward 3DGS framework centered on adaptive 3D anchor tokens, which successfully restores scene-adaptive capacity allocation within a feed-forward paradigm. We introduce the Adaptive Token Expansion (ATE) module, which intelligently identifies and progressively expands tokens in geometrically challenging areas without requiring direct access to rendering errors. Critically, ATSplat achieves superior rendering quality while utilizing over <span class="arithmatex">\(5.7\times\)</span> fewer Gaussians compared to prior dense, pixel-aligned methods.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.26115/fig_p1_c1.jpg" />
-<em>Figure 1 TriSplat reconstructs simulation-ready 3D scenes from sparse, unposed images. The feed-forward model
-predicts a triangle mesh in a single pass, enabling direct use in physics engines for locomotion, dynamics, and
-robotic grasping. The teaser is rendered with Blender.</em></p>
-<p>TriSplat employs a DINOv2 backbone to encode scene priors, which feeds into a custom transformer decoder. This decoder processes the sparse, unposed image inputs to predict three distinct outputs in parallel: dense local 3D point maps, SE(3) camera-to-world poses, and per-pixel triangle attributes. The orientation of the triangles is anchored by first deriving raw geometry normals (<span class="arithmatex">\(\mathbf{n}_{geo}\)</span>) from the dense point map <span class="arithmatex">\(\mathbf{P}\)</span> using finite differences (<span class="arithmatex">\(\mathbf{n}_{geo} = \text{normalize}(\partial_x \times \partial_y)\)</span>). These raw normals are then refined by a dedicated image-conditioned U-Net, denoted <span class="arithmatex">\(f_{\theta}\)</span>. Training stability is enforced via a mono-normal bootstrap schedule, which blends teacher normals (<span class="arithmatex">\(\mathbf{n}_{tch}\)</span>) with the refined model normals (<span class="arithmatex">\(\mathbf{n}_{ref}\)</span>). Finally, progressive opacity and blur scheduling transition the representation from soft primitives to sharp, mesh-ready oriented triangles, which are rendered via a differentiable triangle rasterizer.</p>
-<h3 id="dinov2-backbone">DINOv2 backbone</h3>
-<p>The DINOv2 backbone serves as the primary encoder. Its function is to extract rich, high-level scene priors from the input sparse, unposed images, which are subsequently utilized by the custom transformer decoder to guide the prediction of geometric and photometric properties.</p>
-<h3 id="local-global-attention-decoder-blocks">Local-Global Attention decoder blocks</h3>
-<p>These decoder blocks are structured to facilitate multi-scale reasoning. They alternate between intra-view self-attention, which enables local spatial reasoning within a single image view, and cross-view joint attention, which aggregates information across multiple views to establish multi-view correspondence.</p>
-<h3 id="point-head">Point head</h3>
-<p>The Point head is responsible for predicting a dense local 3D point map <span class="arithmatex">\(\mathbf{P} \in \mathbb{R}^{H \times W \times 3}\)</span>. For every pixel, it outputs three unconstrained scalars <span class="arithmatex">\((u, v, z)\)</span>, defining the local 3D coordinates.</p>
-<h3 id="camera-head">Camera head</h3>
-<p>The Camera head predicts the camera-to-world pose for each view. This is achieved by mean-pooling the relevant decoder tokens and subsequently regressing a translation vector and a <span class="arithmatex">\(3 \times 3\)</span> matrix. This matrix is projected onto <span class="arithmatex">\(SO(3)\)</span> via Singular Value Decomposition (SVD) orthogonalization to yield the rotation component.</p>
-<h3 id="primitive-head">Primitive head</h3>
-<p>The Primitive head predicts the necessary attributes for constructing oriented triangles at the per-pixel level. These attributes include a density logit, three scale logits, a quaternion defining orientation, spherical-harmonic appearance coefficients, and a blur parameter.</p>
-<h3 id="geometry-normals-mathbfn_geo">Geometry normals (<span class="arithmatex">\(\mathbf{n}_{geo}\)</span>)</h3>
-<p>These are the raw surface normals computed directly from the dense point map <span class="arithmatex">\(\mathbf{P}\)</span>. The calculation relies on finite differences across the predicted point map: <span class="arithmatex">\(\mathbf{n}_{geo} = \text{normalize}(\partial_x \times \partial_y)\)</span>.</p>
-<h3 id="refinement-network-f_theta">Refinement network (<span class="arithmatex">\(f_{\theta}\)</span>)</h3>
-<p>This lightweight U-Net acts as the geometry normal refinement module. It takes as input the raw/smoothed geometry normals (<span class="arithmatex">\(\mathbf{n}_{geo}\)</span>), the downsampled RGB image <span class="arithmatex">\(I_v\)</span>, the predicted depth map <span class="arithmatex">\(D_v\)</span>, and the validity mask. Its purpose is to refine the initial normal estimates into a more accurate representation.</p>
-<h3 id="mono-normal-bootstrap">Mono-normal bootstrap</h3>
-<p>This mechanism ensures training stability by managing the transition of normal supervision. It employs a time-varying coefficient <span class="arithmatex">\(\alpha(t)\)</span> across three distinct phases—takeover, blending, and release—to blend the teacher normals (<span class="arithmatex">\(\mathbf{n}_{tch}\)</span>) with the model-predicted normals (<span class="arithmatex">\(\mathbf{n}_{ref}\)</span>).</p>
-<h3 id="differentiable-triangle-rasterizer">Differentiable triangle rasterizer</h3>
-<p>This component is responsible for the final rendering step. It takes the predicted oriented triangles and renders them using tile-based sorting and front-to-back alpha compositing. This process outputs differentiable representations of the RGB images, depth maps, and surface normals.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2607.20417/fig_p1_c1.jpg" />
+<em>Fig. 1. ATSplat reconstructs compact 3D Gaussians from multi-view captures in a single forward pass. Unlike dense pixel-aligned feed-forward methods that
+place Gaussians according to input image grids, ATSplat starts from sparse 3D anchor tokens and adaptively expands tokens associated with challeng</em></p>
+<p>ATSplat operates in a single forward pass to reconstruct a scene from a set of multi-view images. The process begins by extracting coarse patch features and corresponding patch-level depths using a multi-view encoder. These initial features are used to establish a sparse scaffold of 3D anchor tokens. These anchors are subsequently refined by an Image-to-3D decoder, which integrates the Adaptive Token Expansion (ATE) module to selectively augment the representation in areas requiring higher fidelity. Finally, a Gaussian head maps these refined anchor features into local 3D Gaussians, whose centers are offset from the anchor positions, thereby decoupling primitive placement from the fixed input pixel grid. The ATE module guides this adaptive expansion by estimating a per-anchor uncertainty score, which is supervised using 2D reconstruction errors.</p>
+<h3 id="multi-view-encoder">Multi-view Encoder</h3>
+<p>The Multi-view Encoder is responsible for extracting rich, cross-view patch features from the input image set. It leverages a frozen DINO backbone for feature extraction. Crucially, camera geometry is injected into the process via Plücker raymap embeddings. The resulting features are then flattened across all input views to form a unified set of tokens.</p>
+<h3 id="sparse-3d-anchor-tokens-initialization">Sparse 3D Anchor Tokens Initialization</h3>
+<p>This stage establishes the initial, sparse geometric scaffold. For each encoded patch, a patch-level depth (<span class="arithmatex">\(\hat{d}_i\)</span>) is predicted. This depth is then used to unproject the 2D patch location (<span class="arithmatex">\(x_i\)</span>) along its corresponding ray (<span class="arithmatex">\(r_{v_i}\)</span>) originating from the camera center (<span class="arithmatex">\(o_{v_i}\)</span>), yielding the initial 3D coordinate <span class="arithmatex">\(p_i = o_{v_i} + \hat{d}_i r_{v_i}(x_i)\)</span>. This process generates the initial sparse set of 3D anchor tokens.</p>
+<h3 id="image-to-3d-decoder">Image-to-3D Decoder</h3>
+<p>The Image-to-3D Decoder refines the initial anchor tokens. This refinement is achieved through a stack of <span class="arithmatex">\(L\)</span> blocks that facilitate cross-attention between the anchor tokens and fine-grained image features. These fine-grained features are extracted at twice the resolution of the initial coarse patch features, allowing for high-frequency detail incorporation during the refinement process.</p>
+<h3 id="adaptive-token-expansion-ate-module">Adaptive Token Expansion (ATE) Module</h3>
+<p>The ATE Module is the mechanism for adaptive capacity allocation. It employs a lightweight MLP to predict a per-anchor uncertainty score (<span class="arithmatex">\(u_i = g_\phi(f_i)\)</span>) based on the current anchor feature <span class="arithmatex">\(f_i\)</span>. Based on this score, the top fraction <span class="arithmatex">\(\rho_l\)</span> of anchors are selected for expansion. These selected anchors are then expanded into <span class="arithmatex">\(M\)</span> child tokens via a linear projection: <span class="arithmatex">\([\Delta f_{i,1}, \dots, \Delta f_{i,M}] = W f_i\)</span>. This mechanism allows the model to concentrate representational power where the uncertainty is highest.</p>
+<h3 id="gaussian-head">Gaussian Head</h3>
+<p>The Gaussian Head is a lightweight, two-layer MLP that translates the refined anchor feature (<span class="arithmatex">\(\hat{f}_i\)</span>) into the parameters defining a set of local 3D Gaussians. For each anchor, it outputs <span class="arithmatex">\(K\)</span> sets of Gaussian attributes: <span class="arithmatex">\(\Delta\mu_{i,k}\)</span> (center offset), <span class="arithmatex">\(q_{i,k}\)</span> (covariance), <span class="arithmatex">\(s_{i,k}\)</span> (scale), <span class="arithmatex">\(\alpha_{i,k}\)</span> (opacity), and <span class="arithmatex">\(SH_{i,k}\)</span> (spherical harmonics coefficients). The final 3D center of the <span class="arithmatex">\(k\)</span>-th Gaussian is determined as <span class="arithmatex">\(\mu_{i,k} = p_i + \Delta\mu_{i,k}\)</span>, ensuring the primitive placement is relative to the anchor, not the input grid.</p>
 <h2 id="results">Results</h2>
 <table>
 <thead>
@@ -3536,26 +3425,38 @@ robotic grasping. The teaser is rendered with Blender.</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Mesh-rendering PSNR</td>
-<td style="text-align: left;">0.51s</td>
-<td style="text-align: left;">TriSplat (Ours)</td>
-<td style="text-align: left;">Figure 2</td>
+<td style="text-align: left;">Reduction in number of Gaussians</td>
+<td style="text-align: left;">more than <span class="arithmatex">\(5.7\times\)</span></td>
+<td style="text-align: left;">dense feed-forward 3DGS methods</td>
+<td style="text-align: left;">Experiments on RealEstate10K and DL3DV</td>
+</tr>
+<tr>
+<td style="text-align: left;">Reconstruction time</td>
+<td style="text-align: left;">less than a second</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">From 12 input images at <span class="arithmatex">\(512 \times 960\)</span> resolution</td>
+</tr>
+<tr>
+<td style="text-align: left;">Rendering FPS</td>
+<td style="text-align: left;">1136 FPS</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">For <span class="arithmatex">\(512 \times 960\)</span> resolution with only 311K Gaussians</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The primary implication of TriSplat is the shift from implicit or indirect surface representations to explicit, native surface primitives within a feed-forward framework. For practitioners in robotics and simulation, this means that the output of the reconstruction network is immediately usable by physics engines and standard rendering pipelines without incurring the computational overhead or algorithmic complexity of post-processing steps like Poisson reconstruction. Furthermore, anchoring geometric properties like triangle orientation directly to the predicted local geometry, rather than treating them as unconstrained latent variables, demonstrably improves the fidelity of the reconstructed surfaces.</p>
+<p>ATSplat provides a viable pathway to achieving high-fidelity 3D scene reconstruction using feed-forward neural rendering techniques, a significant step toward real-time, generative 3D content creation. By decoupling primitive placement from the input image grid via sparse anchor tokens, we move away from the inherent inefficiencies of pixel-aligned methods. The introduction of the ATE module demonstrates that scene-adaptive capacity allocation can be effectively learned and implemented in a feed-forward setting, leading to highly compact representations without sacrificing visual quality.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current implementation relies on a complex, multi-stage pipeline involving the derivation of geometry normals, their subsequent refinement via <span class="arithmatex">\(f_{\theta}\)</span>, and the stabilization provided by the mono-normal bootstrapping schedule. This complexity introduces potential failure modes if any single component is perturbed. Additionally, the progressive sharpening mechanism, which relies on scheduling opacity and blur parameters, necessitates careful tuning to ensure a smooth and stable transition from soft primitives to sharp, mesh-ready triangles.</p>
+<p>A primary limitation is that the uncertainty score used to guide token expansion is an approximation of the true rendering error, as it is supervised solely via 2D reconstruction errors. Furthermore, the reliance on a single forward pass necessitates approximating the error signals during the decoding process, which inherently limits the direct feedback loop available in iterative optimization methods. Future work should investigate methods to incorporate more direct, differentiable error signals into the token expansion criterion.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.26115">2605.26115</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260526115</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{TriSplat: Simulation-Ready Feed-Forward 3D Scene Reconstruction}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Weijie Wang and Zimu Li and Jinchuan Shi and Zeyu Zhang and Botao Ye and Marc Pollefeys et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.26115}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.20417">2607.20417</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260720417</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{ATSplat: Compact Feed-forward 3D Gaussian Splatting with Adaptive Token Expansion}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Cho In and Jeonghwan Cho and Mijin Yoo and Gim Hee Lee and Seon Joo Kim}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.20417}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.26115}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.20417}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
