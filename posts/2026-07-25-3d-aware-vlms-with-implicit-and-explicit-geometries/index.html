@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="π0 is a novel flow matching architecture built on a pre-trained Vision-Language Model (VLM) to create a generalist robot policy capable of performing complex, dexterous tasks via direct prompting or fine-tuning.
+        <meta name="description" content="VLM-IE3D is a unified framework that enhances the 3D spatial awareness of Vision-Language Models (VLMs) by integrating both Implicit Geometry Tokens (IGTs) and Explicit Geometry Tokens (EGTs) derived from RGB videos, without requiring additional 3D inputs.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-25-3d-aware-vlms-with-implicit-and-explicit-geometries/">
       
       
-        <link rel="prev" href="../2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/">
+        <link rel="next" href="../2026-07-24-atsplat-compact-feed-forward-3d-gaussian-splatting-with-adap/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>$π_0$: A Vision-Language-Action Flow Model for General Robot Control - JarvisForResearchers</title>
+        <title>3D-Aware VLMs with Implicit and Explicit Geometries - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              $π_0$: A Vision-Language-Action Flow Model for General Robot Control
+              3D-Aware VLMs with Implicit and Explicit Geometries
             
           </span>
         </div>
@@ -582,10 +582,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-07-25-3d-aware-vlms-with-implicit-and-explicit-geometries/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3D-Aware VLMs with Implicit and Explicit Geometries
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -601,6 +626,162 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2d-visual-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2D visual encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3d-geometry-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3D geometry encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3d-explicit-embedding-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3D explicit embedding module
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3d-aware-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3D-aware adapter
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2626,35 +2807,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    $π_0$: A Vision-Language-Action Flow Model for General Robot Control
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/" class="md-nav__link">
         
   
   
@@ -2670,162 +2826,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vlm-backbone" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        VLM backbone
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#action-expert" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Action expert
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#observation-input-o_t" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Observation input \(o_t\)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#action-chunk-a_t" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Action chunk \(A_t\)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3271,10 +3271,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#vlm-backbone" class="md-nav__link">
+  <a href="#2d-visual-encoder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        VLM backbone
+        2D visual encoder
       
     </span>
   </a>
@@ -3282,10 +3282,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#action-expert" class="md-nav__link">
+  <a href="#3d-geometry-encoder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Action expert
+        3D geometry encoder
       
     </span>
   </a>
@@ -3293,10 +3293,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#observation-input-o_t" class="md-nav__link">
+  <a href="#3d-explicit-embedding-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Observation input \(o_t\)
+        3D explicit embedding module
       
     </span>
   </a>
@@ -3304,10 +3304,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#action-chunk-a_t" class="md-nav__link">
+  <a href="#3d-aware-adapter" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Action chunk \(A_t\)
+        3D-aware adapter
       
     </span>
   </a>
@@ -3384,14 +3384,14 @@
       
       
       
-        <a href="../../tags/#tag:foundation-models" class="md-tag">foundation-models</a>
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:generalization" class="md-tag">generalization</a>
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
       
@@ -3412,13 +3412,6 @@
       
       
       
-        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
-      
-    
-      
-      
-      
-      
         <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
       
     
@@ -3426,36 +3419,42 @@
 
 
 
-  <h1>$π_0$: A Vision-Language-Action Flow Model for General Robot Control</h1>
+  <h1>3D-Aware VLMs with Implicit and Explicit Geometries</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-10</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-07-25</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Brand new preprint (2026) — accepted</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p><span class="arithmatex">\(\pi_0\)</span> introduces a novel generalist robot policy architecture that integrates a pre-trained Vision-Language Model (VLM) backbone with a conditional flow matching mechanism. This design enables the policy to generate continuous, high-frequency action sequences directly from multimodal observations, allowing for complex, dexterous task execution via prompting or fine-tuning.</p>
+<p>VLM-IE3D unifies the integration of Implicit Geometry Tokens (IGTs) and Explicit Geometry Tokens (EGTs) derived solely from RGB video streams to imbue Vision-Language Models (VLMs) with robust, fine-grained 3D spatial awareness, circumventing the need for auxiliary 3D sensor data.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>The pursuit of generalist robot systems capable of operating effectively in unstructured, real-world environments is fundamentally constrained by limitations in data availability, generalization capacity, and operational robustness. Current methodologies often fail to capture the physically situated versatility inherent to human performance. Specifically, prior work has struggled with two critical issues: first, many Vision-Language Action (VLA) models rely on autoregressive discretization for action representation, which is inherently ill-suited for the high-frequency, continuous control signals required by dexterous manipulation; and second, existing large-scale robot learning efforts have generally operated on tasks of limited complexity or utilized datasets orders of magnitude smaller than those necessary to train foundation models capable of broad generalization. Furthermore, a unified framework combining a VLM backbone with flow matching for action generation in a VLA context has remained unexplored.</p>
+<p>Most contemporary Vision-Language Models (VLMs) are fundamentally trained on 2D visual data. When tasked with complex 3D reasoning—such as detailed spatial localization or geometric manipulation—these models encounter significant limitations. The implicit 3D representations often leveraged in related work tend to capture only coarse, global spatial layouts. Furthermore, the highly compressed and latent nature of these implicit representations hinders a language model's ability to interpret precise, quantitative geometric properties. Existing RGB-only VLM architectures fail to adequately exploit structured, interpretable explicit 3D representations, which are necessary for achieving high fidelity in spatial understanding.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We present three primary contributions to this field:
-1. A novel generalist robot policy architecture that synergistically leverages VLM pre-training and conditional flow matching.
-2. An empirical investigation into effective pre-training and post-training recipes necessary for realizing such robot foundation models.
-3. A demonstration of a level of dexterity and task generality that substantially surpasses the capabilities exhibited by previously reported robot foundation models.</p>
+<p>We present VLM-IE3D, a unified framework designed to inject strong 3D inductive biases into VLMs using only RGB video sequences. Our primary contributions include:</p>
+<ol>
+<li>The introduction of two complementary geometry-aware representations: Implicit Geometry Tokens (IGTs), which encode high-level 3D priors, and Explicit Geometry Tokens (EGTs), which provide detailed 3D structural information.</li>
+<li>The design of a specialized 3D-aware adapter mechanism engineered to effectively fuse these disparate geometric representations with standard 2D visual cues.</li>
+</ol>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2410.24164/fig_p1_c1.jpg" />
-<em>Fig. 1: Our generalist robot policy uses a pre-trained vision-language model (VLM) backbone, as well as a diverse cross-
-embodiment dataset with a variety of dexterous manipulation tasks. The model is adapted to robot control by adding a separate
-action expert that produces continuous actions via fl</em></p>
-<p><span class="arithmatex">\(\pi_0\)</span> is architected to inherit the vast semantic knowledge encoded within a pre-trained VLM while simultaneously modeling the continuous, high-dimensional distribution of physical actions. The policy processes a comprehensive observation <span class="arithmatex">\(o_t = [I^1_t, ..., I^n_t, \ell_t, q_t]\)</span>, which comprises multiple RGB images (<span class="arithmatex">\(I^i_t\)</span>), language tokens (<span class="arithmatex">\(\ell_t\)</span>), and the robot's proprioceptive state (<span class="arithmatex">\(q_t\)</span>). The objective is to predict an action chunk <span class="arithmatex">\(A_t = [a_t, ..., a_{t+H-1}]\)</span>, where <span class="arithmatex">\(H=50\)</span>. This prediction is framed as a continuous density estimation problem solved via conditional flow matching. The training objective minimizes the conditional flow matching loss: <span class="arithmatex">\(L_\tau(\theta) = \mathbb{E}_{p(A_t|o_t), q(A_\tau^t|A_t)||v_\theta(A_\tau^t, o_t) - u(A_\tau^t|A_t)||^2\)</span>. Inference proceeds by numerically integrating the learned vector field <span class="arithmatex">\(v_\theta\)</span> from the noise level <span class="arithmatex">\(\tau=0\)</span> to <span class="arithmatex">\(\tau=1\)</span>, typically employing the forward Euler integration rule.</p>
-<h3 id="vlm-backbone">VLM backbone</h3>
-<p>This component is initialized using PaliGemma, allowing <span class="arithmatex">\(\pi_0\)</span> to immediately benefit from the Internet-scale semantic knowledge acquired during its large-scale pre-training phase. It serves as the primary encoder for interpreting the multimodal observation <span class="arithmatex">\(o_t\)</span>.</p>
-<h3 id="action-expert">Action expert</h3>
-<p>This is a distinct module, parameterized with 300M parameters and initialized from scratch. Its role is to model the continuous distribution of actions conditioned on the VLM's encoded state. It implements the conditional flow matching mechanism necessary for generating high-fidelity, continuous action trajectories.</p>
-<h3 id="observation-input-o_t">Observation input <span class="arithmatex">\(o_t\)</span></h3>
-<p>The input vector <span class="arithmatex">\(o_t\)</span> is heterogeneous, comprising <span class="arithmatex">\(n\)</span> RGB images (<span class="arithmatex">\(I^1_t, ..., I^n_t\)</span>), a sequence of language tokens (<span class="arithmatex">\(\ell_t\)</span>), and the robot's proprioceptive state (<span class="arithmatex">\(q_t\)</span>). Crucially, the image and state data are projected into the embedding space compatible with the VLM's internal representations before being processed.</p>
-<h3 id="action-chunk-a_t">Action chunk <span class="arithmatex">\(A_t\)</span></h3>
-<p>The target output is the action chunk <span class="arithmatex">\(A_t\)</span>, defined as a sequence of <span class="arithmatex">\(H=50\)</span> future actions, <span class="arithmatex">\([a_t, ..., a_{t+H-1}]\)</span>. This fixed-length sequence allows the model to plan over a short horizon while maintaining the continuous nature of the action space.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2607.21595/fig_p4_c2.jpg" />
+<em>Fig. 2: Overview of the VLM-IE3D framework. VLM-IE3D directly processes RGB
+frames without explicit 3D inputs, using three streams: (1) a 2D visual encoder that
+extracts 2D visual tokens; (2) a 3D geometry encoder that generates Implicit Geometry
+Tokens (IGTs) for high-level 3D information; (3) a 3D</em></p>
+<p>VLM-IE3D operates by processing an input RGB video sequence <span class="arithmatex">\(I_i\)</span> alongside a natural language query <span class="arithmatex">\(Q\)</span> through three parallel processing streams. The process begins with the extraction of standard 2D visual tokens (<span class="arithmatex">\(T_{2D}\)</span>) from the video frames. Concurrently, a dedicated 3D geometry encoder (leveraging AnySplat [19]) generates Implicit Geometry Tokens (<span class="arithmatex">\(T_I\)</span>), which encapsulate global 3D priors. In parallel, reconstructed 3D attributes (such as depth maps) are processed by a 3D explicit embedding module to yield Explicit Geometry Tokens (<span class="arithmatex">\(T_E\)</span>). The core innovation lies in the 3D-aware adapter, which fuses <span class="arithmatex">\(T_I\)</span> and <span class="arithmatex">\(T_E\)</span> using an implicit-explicit attention (IEA) module to produce a unified 3D representation (<span class="arithmatex">\(T_{3D}\)</span>). This <span class="arithmatex">\(T_{3D}\)</span> is then fused with a compressed version of <span class="arithmatex">\(T_{2D}\)</span> via element-wise addition, resulting in the final 3D-aware visual tokens (<span class="arithmatex">\(T_{3D}\)</span>), which are subsequently fed into the VLM backbone.</p>
+<h3 id="2d-visual-encoder">2D visual encoder</h3>
+<p>This component is responsible for extracting the foundational 2D visual tokens, <span class="arithmatex">\(T_{2D} \in \mathbb{R}^{f \times n \times c}\)</span>, directly from the input RGB video sequence <span class="arithmatex">\(I_i\)</span>.</p>
+<h3 id="3d-geometry-encoder">3D geometry encoder</h3>
+<p>This module utilizes AnySplat [19] to generate the Implicit Geometry Tokens (<span class="arithmatex">\(T_I \in \mathbb{R}^{f \times n \times c}\)</span>). This process simultaneously yields the necessary 3D attributes required for the explicit encoding stream.</p>
+<h3 id="3d-explicit-embedding-module">3D explicit embedding module</h3>
+<p>This module takes the reconstructed explicit 3D attributes (e.g., depth maps) and transforms them into Explicit Geometry Tokens (<span class="arithmatex">\(T_E \in \mathbb{R}^{f \times n \times c}\)</span>). This transformation involves a one-layer patch embedding followed by a two-layer MLP.</p>
+<h3 id="3d-aware-adapter">3D-aware adapter</h3>
+<p>This component orchestrates the integration of the three modalities. It first employs an implicit-explicit attention (IEA) module, implemented as Multi-Head Cross-Attention, to fuse <span class="arithmatex">\(T_I\)</span> and <span class="arithmatex">\(T_E\)</span> into <span class="arithmatex">\(T_{3D}\)</span>. Subsequently, <span class="arithmatex">\(T_{3D}\)</span> is fused with the compressed <span class="arithmatex">\(T_{2D}\)</span> via element-wise addition to yield the final, unified 3D-aware visual tokens.</p>
 <h2 id="results">Results</h2>
-<p>The empirical evaluation demonstrates the efficacy of the proposed training regimen:</p>
+<p>The performance gains demonstrate the efficacy of this unified geometric injection strategy.</p>
 <table>
 <thead>
 <tr>
@@ -3467,38 +3466,32 @@ action expert that produces continuous actions via fl</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Pre-training data scale</td>
-<td style="text-align: left;">over 10,000 hours of robot data</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Section V</td>
+<td style="text-align: left;">C@0.5<span class="arithmatex">\(\uparrow\)</span> (Scan2Cap)</td>
+<td style="text-align: left;">80.4</td>
+<td style="text-align: left;">Qwen2.5-VL-3B [2]</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Robot configurations used in pre-training</td>
-<td style="text-align: left;">7 different robot configurations</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Section III</td>
-</tr>
-<tr>
-<td style="text-align: left;">Tasks in pre-training</td>
-<td style="text-align: left;">68 tasks</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Section III</td>
+<td style="text-align: left;">M@0.5<span class="arithmatex">\(\uparrow\)</span> (Scan2Cap)</td>
+<td style="text-align: left;">28.8</td>
+<td style="text-align: left;">Qwen2.5-VL-3B [2]</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The integration of VLM priors with flow matching addresses the core limitations of prior VLA approaches. By replacing discrete action sampling with continuous density modeling, <span class="arithmatex">\(\pi_0\)</span> is inherently better suited for the fine-grained, high-frequency control required for dexterous manipulation. The ability to leverage massive, general-purpose VLM knowledge allows the policy to generalize semantic instructions to novel physical scenarios, moving robotics closer to the level of versatility seen in human performance.</p>
+<p>The practitioner takeaway is clear: to move beyond coarse spatial reasoning in RGB-only VLM pipelines, augmenting implicit scene priors with structured, explicit geometric tokens (EGTs) is a highly effective strategy. The design of the implicit-explicit attention (IEA) module is critical, as it successfully bridges the semantic gap between the coarse global understanding provided by IGTs and the fine-grained local detail offered by EGTs. Crucially, VLM-IE3D achieves this strong 3D inductive bias injection without incurring the computational overhead or dependency on specialized 3D sensing hardware.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>A primary limitation is that the overall performance is highly contingent upon the effectiveness of the separation between the pre-training and post-training phases. Furthermore, the architectural complexity necessitates rigorous management of the interface and information flow between the VLM backbone and the specialized Action expert. Future work must investigate more robust methods for mitigating potential divergence during the integration of these two distinct learning paradigms.</p>
+<p>We acknowledge two primary limitations. First, the performance of the framework is contingent upon the 3D geometry encoder [19] having been pre-trained on a sufficiently diverse and comprehensive set of 3D geometric tasks. Second, the specific design choice within the 3D-aware adapter—the spatial merging strategy involving the concatenation of spatially adjacent <span class="arithmatex">\(2 \times 2\)</span> features—represents a fixed architectural decision that warrants further investigation regarding its optimality.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2410.24164">2410.24164</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">241024164</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{$π_0$: A Vision-Language-Action Flow Model for General Robot Control}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Kevin Black and Noah Brown and Danny Driess and Adnan Esmail and Michael Equi and Chelsea Finn et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2410.24164}</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2024}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2410.24164}</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.21595">2607.21595</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260721595</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{3D-Aware VLMs with Implicit and Explicit Geometries}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Wenhao Li and Xueying Jiang and Quanhao Qian and Deli Zhao and Ran Xu and Shijian Lu et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.21595}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.21595}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
