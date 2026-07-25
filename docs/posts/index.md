@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [3D-Aware VLMs with Implicit and Explicit Geometries](2026-07-25-3d-aware-vlms-with-implicit-and-explicit-geometries/) { data-cat="Computer Vision" data-date="2026-07-25" }
+
+*2026-07-25*
+
+VLM-IE3D is a unified framework that enhances the 3D spatial awareness of Vision-Language Models (VLMs) by integrating both Implicit Geometry Tokens (IGTs) and Explicit Geometry Tokens (EGTs) derived from RGB videos, without requiring additional 3D inputs.
+
 ## [ATSplat: Compact Feed-forward 3D Gaussian Splatting with Adaptive Token Expansion](2026-07-24-atsplat-compact-feed-forward-3d-gaussian-splatting-with-adap/) { data-cat="Computer Vision" data-date="2026-07-24" }
 
 *2026-07-24*
