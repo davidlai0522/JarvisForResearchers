@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Unified Video Dense Prediction from Disjoint Data](2026-07-26-unified-video-dense-prediction-from-disjoint-data/) { data-cat="Computer Vision" data-date="2026-07-26" }
+
+*2026-07-26*
+
+UniD is a unified video model that jointly predicts eight dense scene properties from disjoint, domain-specific datasets by leveraging the visual priors of a pretrained diffusion model and using lightweight task projectors to distill task embeddings.
+
 ## [3D-Aware VLMs with Implicit and Explicit Geometries](2026-07-25-3d-aware-vlms-with-implicit-and-explicit-geometries/) { data-cat="Computer Vision" data-date="2026-07-25" }
 
 *2026-07-25*

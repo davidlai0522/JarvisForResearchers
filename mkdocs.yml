@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "Unified Video Dense Prediction from Disjoint Data": posts/2026-07-26-unified-video-dense-prediction-from-disjoint-data.md
     - "3D-Aware VLMs with Implicit and Explicit Geometries": posts/2026-07-25-3d-aware-vlms-with-implicit-and-explicit-geometries.md
     - "ATSplat: Compact Feed-forward 3D Gaussian Splatting with Adaptive Token Expansion": posts/2026-07-24-atsplat-compact-feed-forward-3d-gaussian-splatting-with-adap.md
     - "Copy Less, Ground More: Overcoming Repetitive Copying in Long-Context Reasoning via Evidence-Aware Reinforcement Learning": posts/2026-07-23-copy-less-ground-more-overcoming-repetitive-copying-in-long-.md
