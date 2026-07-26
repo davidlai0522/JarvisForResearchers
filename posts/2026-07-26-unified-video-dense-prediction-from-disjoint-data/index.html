@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="UniSHARP extends SHARP for universal monocular novel view synthesis by aligning images in a unified omnidirectional latent space, enabling rendering across perspective, wide-FoV, fisheye, and panoramic camera systems.
+        <meta name="description" content="UniD is a unified video model that jointly predicts eight dense scene properties from disjoint, domain-specific datasets by leveraging the visual priors of a pretrained diffusion model and using lightweight task projectors to distill task embeddings.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-09-unisharp-universal-sharp-monocular-view-synthesis/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-26-unified-video-dense-prediction-from-disjoint-data/">
       
       
-        <link rel="prev" href="../2026-06-10-latent-spatial-memory-for-video-world-models/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-06-08-handoff-humanoid-agentic-task-space-whole-body-control-via-d/">
+        <link rel="next" href="../2026-07-25-3d-aware-vlms-with-implicit-and-explicit-geometries/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>UniSHARP: Universal Sharp Monocular View Synthesis - JarvisForResearchers</title>
+        <title>Unified Video Dense Prediction from Disjoint Data - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              UniSHARP: Universal Sharp Monocular View Synthesis
+              Unified Video Dense Prediction from Disjoint Data
             
           </span>
         </div>
@@ -584,10 +584,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-07-26-unified-video-dense-prediction-from-disjoint-data/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unified Video Dense Prediction from Disjoint Data
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -603,6 +628,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pretrained-latent-diffusion-model-ldm-backbone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pretrained Latent Diffusion Model (LDM) Backbone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-specialist-fk_theta-p_k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task Specialist (\(F^k_\theta, P_k\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unified-backbone-g_phi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unified Backbone (\(G_\phi\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-specific-latent-projector-psik" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task-Specific Latent Projector (\(\Psi^k\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extended-self-attention-esa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extended Self-Attention (ESA)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1900,35 +2092,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    UniSHARP: Universal Sharp Monocular View Synthesis
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-06-09-unisharp-universal-sharp-monocular-view-synthesis/" class="md-nav__link">
         
   
   
@@ -1944,173 +2111,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ray-based-universal-representation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ray-based universal representation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#geometry-anchored-gaussians-b_pell" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Geometry Anchored Gaussians (\(B_{p,\ell}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#feature-conditioned-gaussian-residuals-delta_pell" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Feature Conditioned Gaussian Residuals (\(\Delta_{p,\ell}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#depth-head-1-and-depth-head-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Depth Head 1 and Depth Head 2
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#distortion-adaptation-dropout-p_y" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Distortion Adaptation Dropout (\(p_y\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3312,10 +3312,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ray-based-universal-representation" class="md-nav__link">
+  <a href="#pretrained-latent-diffusion-model-ldm-backbone" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ray-based universal representation
+        Pretrained Latent Diffusion Model (LDM) Backbone
       
     </span>
   </a>
@@ -3323,10 +3323,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#geometry-anchored-gaussians-b_pell" class="md-nav__link">
+  <a href="#task-specialist-fk_theta-p_k" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Geometry Anchored Gaussians (\(B_{p,\ell}\))
+        Task Specialist (\(F^k_\theta, P_k\))
       
     </span>
   </a>
@@ -3334,10 +3334,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#feature-conditioned-gaussian-residuals-delta_pell" class="md-nav__link">
+  <a href="#unified-backbone-g_phi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Feature Conditioned Gaussian Residuals (\(\Delta_{p,\ell}\))
+        Unified Backbone (\(G_\phi\))
       
     </span>
   </a>
@@ -3345,10 +3345,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#depth-head-1-and-depth-head-2" class="md-nav__link">
+  <a href="#task-specific-latent-projector-psik" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Depth Head 1 and Depth Head 2
+        Task-Specific Latent Projector (\(\Psi^k\))
       
     </span>
   </a>
@@ -3356,10 +3356,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#distortion-adaptation-dropout-p_y" class="md-nav__link">
+  <a href="#extended-self-attention-esa" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Distortion Adaptation Dropout (\(p_y\))
+        Extended Self-Attention (ESA)
       
     </span>
   </a>
@@ -3439,43 +3439,47 @@
         <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
+      
+      
+      
+      
+        <a href="../../tags/#tag:diffusion-models" class="md-tag">diffusion-models</a>
+      
+    
   </nav>
 
 
 
-  <h1>UniSHARP: Universal Sharp Monocular View Synthesis</h1>
+  <h1>Unified Video Dense Prediction from Disjoint Data</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-06-09</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-07-26</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
 <p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>UniSHARP generalizes monocular novel view synthesis beyond narrow-FoV perspective inputs by unifying image representations into an omnidirectional latent space. It reformulates Gaussian prediction in ray-distance space, enabling robust rendering across perspective, wide-FoV, fisheye, and panoramic cameras via a feature-space residual refinement pipeline.</p>
+<p>UniD introduces a unified video model capable of jointly predicting eight dense scene properties from disparate, domain-specific datasets. It achieves this by distilling task-specific knowledge from specialized diffusion models into a shared backbone via lightweight task projectors, circumventing the need for co-annotated data or expensive pseudo-labeling.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Monocular view synthesis inherently suffers from ill-posedness due to the loss of depth and spatial information during projection. Existing methods, exemplified by SHARP, are fundamentally constrained by pinhole camera assumptions. This constraint severely limits their applicability, as fine-tuning these models on data captured by non-pinhole systems—such as wide-FoV, fisheye, or panoramic cameras—results in poor generalization. The core gap is the inability of pinhole-centric models to accurately predict scene geometry when the input projection deviates significantly from the standard pinhole model, especially when constrained to a single-image, feedforward inference paradigm.</p>
+<p>Scene understanding necessitates the simultaneous estimation of geometric, appearance, and semantic attributes. However, the available ground-truth annotations are typically fragmented across numerous, incompatible, domain-specific datasets. This fragmentation presents a significant hurdle for developing truly unified models, as standard training paradigms often require either perfectly co-annotated data across all tasks or rely on computationally intensive pseudo-labeling pipelines.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce UniSHARP, a universal-camera feedforward 3DGS framework designed for monocular novel view synthesis across standard perspective, wide-FoV, fisheye, and panoramic inputs. This is achieved by reformulating the SHARP-style Gaussian prediction process within a ray-distance space. We develop a feature-space Gaussian prediction pipeline that effectively fuses 2D semantic encodings with 3D spatial features, allocating Gaussians directly at the native input resolution. Furthermore, we incorporate panoramic-specific adaptations, including spherical Gaussian initialization and distortion-aware probabilistic dropout, to stabilize Gaussian distributions under the severe projection artifacts of equirectangular representations.</p>
+<p>We introduce UniD, a unified video model designed to jointly predict eight dense scene properties sourced from disjoint, domain-specific datasets. Our primary technical contribution is a simple distillation mechanism where task-specific experts supervise a unified backbone through lightweight task projectors, effectively eliminating the dependency on annotation overlap or pseudo-labeling. Furthermore, we leverage the robust visual priors embedded within a pretrained diffusion model to effectively bridge the domain gaps inherent in training from disjoint data sources.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.07514/fig_p1_c1.jpg" />
-<em>Figure 1: UniSHARP performs monocular novel view synthesis across diverse camera types. Given a
-single image from a perspective, wide-FoV, fisheye, or panoramic camera, UniSHARP predicts a 3D
-Gaussian point cloud and renders high-quality novel views.</em></p>
-<p>UniSHARP addresses the limitations of pinhole assumptions by enforcing a unified representation across all input modalities. This is accomplished by aligning the input images into a shared, omnidirectional latent space, facilitating implicit alignment in both the feature domain and the Gaussian representation domain. The scene structure is modeled using a ray-based universal representation, where Gaussian primitives are parameterized by a predicted unit ray direction (<span class="arithmatex">\(\mathbf{r}_p \in S^2\)</span>) and a radial distance (<span class="arithmatex">\(d_p &gt; 0\)</span>). This decoupling of viewing direction from scene range allows the model to operate independently of the specific camera projection model.</p>
-<h3 id="ray-based-universal-representation">Ray-based universal representation</h3>
-<p>This component establishes the foundational coordinate system for UniSHARP. Instead of relying on pixel coordinates tied to a specific camera projection, Gaussian attributes are defined consistently across diverse camera models. This is achieved by predicting a per-pixel unit ray field, <span class="arithmatex">\(\mathbf{r}_p \in S^2\)</span>, and an associated radial distance, <span class="arithmatex">\(d_p &gt; 0\)</span>. This structure ensures that the geometric primitives are defined relative to a canonical, omnidirectional view, irrespective of whether the input was captured by a perspective, fisheye, or panoramic lens.</p>
-<h3 id="geometry-anchored-gaussians-b_pell">Geometry Anchored Gaussians (<span class="arithmatex">\(B_{p,\ell}\)</span>)</h3>
-<p>The scene representation is initialized using Geometry Anchored Gaussians (<span class="arithmatex">\(B_{p,\ell}\)</span>). These are two-layer Gaussians constructed directly upon a native ray grid derived from the input image. The first layer is tasked with approximating the primary visible surface geometry, while the second layer is dedicated to modeling occlusions and capturing high-frequency surface details. This anchoring provides a camera-unified initialization point for the scene structure.</p>
-<h3 id="feature-conditioned-gaussian-residuals-delta_pell">Feature Conditioned Gaussian Residuals (<span class="arithmatex">\(\Delta_{p,\ell}\)</span>)</h3>
-<p>To refine the initial geometry provided by the anchors, we employ Feature Conditioned Gaussian Residuals (<span class="arithmatex">\(\Delta_{p,\ell}\)</span>). These residuals are predicted by a dedicated Gaussian decoder. This decoder performs a critical fusion operation, combining high-dimensional 2D semantic image features extracted from the input with the 3D ray-based geometric features derived from the anchor Gaussians. This fusion allows the model to incorporate rich semantic context into the geometric refinement process.</p>
-<h3 id="depth-head-1-and-depth-head-2">Depth Head 1 and Depth Head 2</h3>
-<p>These components serve as specialized output heads within the architecture. They are responsible for predicting the necessary distance hypotheses for the second radial layer of the Geometry Anchored Gaussians (<span class="arithmatex">\(B_{p,\ell}\)</span>). By providing separate heads, the model gains the capacity to model complex depth distributions required for accurate representation, particularly in areas of high geometric complexity or occlusion.</p>
-<h3 id="distortion-adaptation-dropout-p_y">Distortion Adaptation Dropout (<span class="arithmatex">\(p_y\)</span>)</h3>
-<p>For inputs captured using equirectangular projections (panoramas), the inherent oversampling in the polar regions can destabilize the Gaussian distribution fitting. To mitigate this, we introduce Distortion Adaptation Dropout (<span class="arithmatex">\(p_y\)</span>). This mechanism applies a probabilistic dropout specifically dependent on the latitude (<span class="arithmatex">\(y\)</span>) of the ray, effectively regularizing the second Gaussian layer during training to prevent overfitting to the high-density sampling artifacts near the poles.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2607.21592/fig_p2_c1.jpg" />
+<em>Fig. 1: Unified Video Dense Predictions by UniD.</em></p>
+<p>The UniD framework operates in two phases. Initially, task-specific specialists (<span class="arithmatex">\(F^k_\theta, P_k\)</span>) are trained independently on their respective disjoint datasets <span class="arithmatex">\(D_k\)</span> using a single-step diffusion framework, minimizing task-specific objectives <span class="arithmatex">\(L_k\)</span>. These specialists learn to map input latent codes <span class="arithmatex">\(z_i\)</span> to task-specific latent representations <span class="arithmatex">\(l^k_i\)</span>. Subsequently, a unified backbone <span class="arithmatex">\(G_\phi\)</span> is trained alongside <span class="arithmatex">\(K\)</span> lightweight task-specific latent projectors <span class="arithmatex">\(\{\Psi^k\}_{k=1}^K\)</span>. The objective for this second phase is a latent reconstruction loss <span class="arithmatex">\(L_{rec}\)</span>, which forces <span class="arithmatex">\(G_\phi\)</span> to reconstruct the target latents <span class="arithmatex">\(\{l^k_i\}\)</span> via the projectors. Temporal consistency across frames is enforced through an extended temporal gradient matching loss <span class="arithmatex">\(L_{TGM}\)</span>, which stabilizes the predictions during simultaneous, temporally coherent inference.</p>
+<h3 id="pretrained-latent-diffusion-model-ldm-backbone">Pretrained Latent Diffusion Model (LDM) Backbone</h3>
+<p>This component is instantiated using Stable Diffusion v2 [60]. It comprises a Variational Autoencoder (VAE) encoder <span class="arithmatex">\(E\)</span> and decoder <span class="arithmatex">\(D\)</span>, alongside a U-Net backbone <span class="arithmatex">\(F_\theta\)</span>. This structure provides the foundational capability for initial latent code generation, leveraging extensive pretraining for strong visual representation learning.</p>
+<h3 id="task-specialist-fk_theta-p_k">Task Specialist (<span class="arithmatex">\(F^k_\theta, P_k\)</span>)</h3>
+<p>For each task <span class="arithmatex">\(k\)</span>, a dedicated specialist is maintained. This specialist consists of a finetuned U-Net backbone <span class="arithmatex">\(F^k_\theta\)</span> and a task-specific pixel projector <span class="arithmatex">\(P_k\)</span>, which is implemented as a single <span class="arithmatex">\(3 \times 3\)</span> convolution. These components are responsible for learning the specific mapping required for task <span class="arithmatex">\(k\)</span> within its domain <span class="arithmatex">\(D_k\)</span>.</p>
+<h3 id="unified-backbone-g_phi">Unified Backbone (<span class="arithmatex">\(G_\phi\)</span>)</h3>
+<p><span class="arithmatex">\(G_\phi\)</span> serves as the shared core of the model, initialized from the pretrained U-Net. It processes the input latent codes <span class="arithmatex">\(z_i\)</span> and incorporates Extended Self-Attention (ESA) mechanisms to integrate temporal context across frames.</p>
+<h3 id="task-specific-latent-projector-psik">Task-Specific Latent Projector (<span class="arithmatex">\(\Psi^k\)</span>)</h3>
+<p>This component acts as the interface between the unified representation and the task-specific latent space. It is implemented as a DPT head that fuses three intermediate feature representations from <span class="arithmatex">\(G_\phi\)</span> with the final output feature. This fusion occurs at a fixed dimension of 256, projecting the unified representation into the required task-specific latent space.</p>
+<h3 id="extended-self-attention-esa">Extended Self-Attention (ESA)</h3>
+<p>ESA is an augmentation applied to every self-attention layer within the U-Net backbone <span class="arithmatex">\(F_\theta\)</span>. It enhances the standard attention mechanism by incorporating feature vectors derived from <span class="arithmatex">\(M\)</span> historical frames stored within a dedicated memory bank, thereby explicitly modeling temporal dependencies.</p>
 <h2 id="results">Results</h2>
-<p>The performance of UniSHARP demonstrates superior generalization across different camera domains compared to prior work.</p>
 <table>
 <thead>
 <tr>
@@ -3487,56 +3491,32 @@ Gaussian point cloud and renders high-quality novel views.</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">PSNR</td>
-<td style="text-align: left;">21.556</td>
-<td style="text-align: left;">SHARP [12]</td>
-<td style="text-align: left;">Table 2</td>
+<td style="text-align: left;">Depth</td>
+<td style="text-align: left;">Competitive performance</td>
+<td style="text-align: left;">Per-task specialists and multi-task baselines</td>
+<td style="text-align: left;">Table 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">SSIM</td>
-<td style="text-align: left;">0.674</td>
-<td style="text-align: left;">SHARP [12]</td>
-<td style="text-align: left;">Table 2</td>
-</tr>
-<tr>
-<td style="text-align: left;">LPIPS</td>
-<td style="text-align: left;">0.143</td>
-<td style="text-align: left;">SHARP [12]</td>
-<td style="text-align: left;">Table 2</td>
-</tr>
-<tr>
-<td style="text-align: left;">PSNR</td>
-<td style="text-align: left;">29.244</td>
-<td style="text-align: left;">Matrix3D [61]</td>
-<td style="text-align: left;">Table 3</td>
-</tr>
-<tr>
-<td style="text-align: left;">SSIM</td>
-<td style="text-align: left;">0.895</td>
-<td style="text-align: left;">Matrix3D [61]</td>
-<td style="text-align: left;">Table 3</td>
-</tr>
-<tr>
-<td style="text-align: left;">LPIPS</td>
-<td style="text-align: left;">0.065</td>
-<td style="text-align: left;">Matrix3D [61]</td>
-<td style="text-align: left;">Table 3</td>
+<td style="text-align: left;">Temporal Consistency</td>
+<td style="text-align: left;">Superior</td>
+<td style="text-align: left;">Existing unified models and a multi-task baseline utilizing a frozen DINOv3-H backbone</td>
+<td style="text-align: left;">Section 4.1</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The introduction of UniSHARP shifts the paradigm for monocular 3D reconstruction from being camera-specific to being representation-agnostic. The practitioner takeaways highlight three critical shifts: first, the necessity of moving from image-plane coordinates to a ray-distance space for universal handling of heterogeneous cameras. Second, the efficacy of fusing 2D semantic context with 3D geometric residuals enables high-fidelity reconstruction without requiring input image resizing or domain-specific preprocessing. Finally, the framework supports pose-free inference by implicitly recovering camera geometry from the predicted ray field, which is a significant advantage for real-world deployment with uncalibrated capture devices.</p>
+<p>UniD provides a practical pathway to achieve unified dense prediction across a spectrum of diverse tasks—encompassing geometry, semantics, and intrinsics—without the prohibitive requirement of co-annotated data. Furthermore, the modular design of the architecture ensures extensibility; introducing a new task <span class="arithmatex">\(K+1\)</span> necessitates only the training of a new specialist <span class="arithmatex">\((F^{K+1}_\theta, P_{K+1})\)</span> and a corresponding latent projector <span class="arithmatex">\(\Psi^{K+1}\)</span>. The reliance on pretrained diffusion models ensures that strong, general visual priors are available to mitigate the domain shift introduced by training on disjoint datasets.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current implementation necessitates a mixed-camera training strategy, which inherently requires the construction and curation of a comprehensive, FoV-stratified benchmark dataset to ensure robust generalization. Furthermore, while the model is designed to be pose-free, the practical deployment of the pose-free model still relies on fitting specific camera intrinsics—either pinhole or Fisheye parameters—from the predicted ray field to achieve accurate rendering for specific camera types.</p>
+<p>A noted limitation is the temporal gradient matching loss <span class="arithmatex">\(L_{TGM}\)</span>, which employs a mask <span class="arithmatex">\(\mathbb{1}[|l_{i+1} - l_i|_2 &lt; \varepsilon ]\)</span>. This masking mechanism inherently suppresses the learning signal in regions exhibiting rapid changes, where temporal regularization is less reliable. Additionally, if the reconstruction loss <span class="arithmatex">\(L_{rec}\)</span> is restricted solely to per-frame reconstruction objectives, the unified backbone <span class="arithmatex">\(G_\phi\)</span> may not receive sufficient global temporal regularization.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.07514">2606.07514</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260607514</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{UniSHARP: Universal Sharp Monocular View Synthesis}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Meixi Song and Dizhe Zhang and Hao Ren and Ruiyang Zhang and Bo Du and Ming-Hsuan Yang et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.07514}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.21592">2607.21592</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260721592</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Unified Video Dense Prediction from Disjoint Data}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Yihong Sun and Seoung Wug Oh and Jiahui Huang and Bharath Hariharan and Joon-Young Lee}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.21592}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.07514}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.21592}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
