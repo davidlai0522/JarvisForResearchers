@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ABC introduces a fully open-source stack for behavior cloning in robot manipulation, centered around the ABC-130K dataset, allowing for reproducible exploration of model architectures and training recipes.
+        <meta name="description" content="AXIS is a growable, community-driven data engine and benchmark that enables scalable robot manipulation learning by unifying task generation, browser-based teleoperation, data refinement, realistic augmentation, and policy learning with real-world validation.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-27-scalable-behavior-cloning-with-open-data-training-and-evalua/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-27-axis-a-growable-community-driven-data-engine-for-scalable-ro/">
       
       
-        <link rel="prev" href="../2026-06-28-danceopd-on-policy-generative-field-distillation/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-06-26-learning-action-priors-for-cross-embodiment-robot-manipulati/">
+        <link rel="next" href="../2026-07-26-unified-video-dense-prediction-from-disjoint-data/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Scalable Behavior Cloning with Open Data, Training, and Evaluation - JarvisForResearchers</title>
+        <title>AXIS: A Growable Community-Driven Data Engine for Scalable Robot Manipulation - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Scalable Behavior Cloning with Open Data, Training, and Evaluation
+              AXIS: A Growable Community-Driven Data Engine for Scalable Robot Manipulation
             
           </span>
         </div>
@@ -586,10 +586,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-07-27-axis-a-growable-community-driven-data-engine-for-scalable-ro/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AXIS: A Growable Community-Driven Data Engine for Scalable Robot Manipulation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -605,6 +630,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#web-based-teleoperation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Web-Based Teleoperation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-generation-asset-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task Generation &amp; Asset Normalization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataset-layer-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dataset Layer Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#realistic-augmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Realistic Augmentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-snapshots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task Snapshots
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1426,35 +1618,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Scalable Behavior Cloning with Open Data, Training, and Evaluation
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-06-27-scalable-behavior-cloning-with-open-data-training-and-evalua/" class="md-nav__link">
         
   
   
@@ -1470,162 +1637,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#abc-130k" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ABC-130K
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#abc-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ABC-Models
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#abc-sim" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ABC-Sim
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#abc-eval" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ABC-Eval
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3331,10 +3342,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#abc-130k" class="md-nav__link">
+  <a href="#web-based-teleoperation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ABC-130K
+        Web-Based Teleoperation
       
     </span>
   </a>
@@ -3342,10 +3353,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#abc-models" class="md-nav__link">
+  <a href="#task-generation-asset-normalization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ABC-Models
+        Task Generation &amp; Asset Normalization
       
     </span>
   </a>
@@ -3353,10 +3364,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#abc-sim" class="md-nav__link">
+  <a href="#dataset-layer-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ABC-Sim
+        Dataset Layer Pipeline
       
     </span>
   </a>
@@ -3364,10 +3375,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#abc-eval" class="md-nav__link">
+  <a href="#realistic-augmentation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ABC-Eval
+        Realistic Augmentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-snapshots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task Snapshots
       
     </span>
   </a>
@@ -3454,57 +3476,40 @@
         <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
       
     
-      
-      
-      
-      
-        <a href="../../tags/#tag:transformers" class="md-tag">transformers</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
-      
-    
   </nav>
 
 
 
-  <h1>Scalable Behavior Cloning with Open Data, Training, and Evaluation</h1>
+  <h1>AXIS: A Growable Community-Driven Data Engine for Scalable Robot Manipulation</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-06-27</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-07-27</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
-<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+<p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>ABC introduces a fully open-source stack for behavior cloning in robot manipulation, centered around the ABC-130K dataset, allowing for reproducible exploration of model architectures and training recipes.</p>
+<p>AXIS is a framework designed to overcome the scalability bottlenecks in robot manipulation data collection. It integrates automated task generation, community-driven data acquisition via browser-based teleoperation, and a multi-stage data refinement pipeline (including IsaacSim augmentation) to produce large, high-quality, and continuously growing datasets suitable for training Vision-Language-Action (VLA) policies.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Progress in robot manipulation using behavior cloning is opaque because state-of-the-art systems are often developed on proprietary datasets, and the necessary training recipes and evaluation infrastructure are not publicly available, making it difficult for researchers to reproduce results or determine key design drivers. Existing open datasets lack sufficient scale, rely on bespoke and expensive hardware platforms, or lack necessary training infrastructure and evaluation suites. Furthermore, state-of-the-art systems are often developed in industry labs on proprietary datasets, and training recipes for state-of-the-art systems rarely provide enough detail to reproduce results or determine which design choices drive performance.</p>
+<p>The efficacy of modern robot manipulation policies is fundamentally constrained by the quality and quantity of training data. Current methodologies suffer from inherent scaling limitations. Specifically, existing manipulation datasets are typically static, resulting from one-time collection efforts. Furthermore, the data collection process is often centralized and closed, relying heavily on expert operators or dedicated, specialized teams. Finally, accessibility is restricted because many teleoperation systems mandate specialized hardware or complex local simulator installations. This combination results in datasets that grow significantly slower than the capability ceiling of the models being trained.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>The primary contributions are:
-1. <strong>ABC-130K</strong>: The largest open-source teleoperation dataset to date, featuring 3,500 hours of data spanning over 130K episodes across 195 diverse tasks.
-2. <strong>Open-sourcing the entire stack</strong>: This includes the hardware setup, training infrastructure, and simulation pipeline.
-3. <strong>Co-training recipe</strong>: Providing a recipe that produces correlated simulation and real-world evaluation for reliable proxy testing.</p>
+<p>We present AXIS, a web-based, community-driven infrastructure engineered for scalable manipulation data collection. This infrastructure leverages browser-based MuJoCo-WASM teleoperation alongside automated task generation capabilities. We have constructed a growable manipulation dataset containing 207 tasks and over 50K trajectories. This dataset is supported by a unified data processing pipeline that standardizes trajectories, validates success, filters quality, performs temporal smoothing, resamples data, and applies realistic augmentation using IsaacSim. Furthermore, we introduce a systematic evaluation protocol that allows for controlled studies of policy learning and dataset scaling by utilizing versioned task snapshots (AXIS-25%, AXIS-50%, AXIS-100%) against a fixed evaluation suite.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.27375/fig_p2_c2.jpg" />
-<em>Figure 2: An overview of the ABC stack. ABC-130K provides large-scale real-world teleoperation
-data. ABC-Models instantiates DiT and VLA policies and studies architecture and compute-scaling
-choices through real-world ablations. ABC-Sim provides simulation environments and data for studying
-sim-to-r</em></p>
-<p>The ABC stack facilitates behavior cloning by leveraging ABC-130K, a massive real-world teleoperation dataset. Researchers explore two policy families: ABC-DiT (Diffusion Transformer) and ABC-VLA (Vision-Language-Action). For ABC-DiT, variants are tested using different vision encoders (CLIP ViT-B, DINOv3 ViT-B) and conditioning schemes (CLIP-AdaLN, CLIP-Cross-Attention, DINO-Cross-Attention). For ABC-VLA, three connectors are compared: Cross Attention, Cross Attention + FAST, and Adaptive LayerNorm (AdaLN). Performance is evaluated using offline metrics (training loss, validation action error) and real-world rollouts via ABC-Eval, allowing for systematic ablation studies on architecture and compute scaling.</p>
-<h3 id="abc-130k">ABC-130K</h3>
-<p>This dataset constitutes the foundation of the stack. It is the largest open-source teleoperation dataset, comprising 3,500 hours of real-world interaction across 130,000 episodes and 195 distinct tasks.</p>
-<h3 id="abc-models">ABC-Models</h3>
-<p>This component instantiates the ABC-DiT and ABC-VLA policies. It is designed to study architecture and compute-scaling choices through real-world ablations, allowing for systematic comparison between different policy designs and conditioning mechanisms.</p>
-<h3 id="abc-sim">ABC-Sim</h3>
-<p>This component provides simulation environments and 400 hours of simulation teleoperation data. Its purpose is to enable the study of sim-to-real correlation through a co-training recipe.</p>
-<h3 id="abc-eval">ABC-Eval</h3>
-<p>This provides a large-scale real-world evaluation suite. It includes rollouts and rubrics, encompassing over 100 hours of real-world policy rollouts, which serve as the ground truth for performance assessment.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2607.21588/fig_p1_c1.jpg" />
+<em>Figure 1: AXIS: A growable community-driven data engine unifying task generation, web teleoper-
+ation, data refinement, realistic augmentation, and policy learning with real-world validation.</em></p>
+<p>AXIS is architected as a three-layer system. The infrastructure layer manages the interface between high-level instructions and physical demonstration capture. The dataset layer is responsible for transforming raw, noisy demonstrations into clean, high-fidelity training samples. The model layer facilitates the training and rigorous evaluation of VLA policies using these structured, progressively scaled datasets.</p>
+<h3 id="web-based-teleoperation">Web-Based Teleoperation</h3>
+<p>This component provides the interface for data collection. It enables external users to contribute demonstrations through a shared web interface. The underlying simulation environment is powered by MuJoCo-WASM, allowing demonstrations to be captured using commodity input devices without requiring specialized local installations.</p>
+<h3 id="task-generation-asset-normalization">Task Generation &amp; Asset Normalization</h3>
+<p>This module addresses the need for diverse task coverage. It generates novel tasks based on high-level Text Prompts. This generation process is augmented by LLM Inference to structure the task, and it incorporates detailed analysis of object properties, including Shape Analysis and Spatial Layout Generation, to ensure the generated tasks are physically valid and well-defined.</p>
+<h3 id="dataset-layer-pipeline">Dataset Layer Pipeline</h3>
+<p>This pipeline is the core transformation engine for raw data. It systematically processes demonstrations through several stages: automated success validation to confirm task completion; quality filtering to discard low-fidelity samples; static-segment removal to eliminate redundant motion; trajectory smoothing to reduce high-frequency noise; and resampling to standardize trajectory length.</p>
+<h3 id="realistic-augmentation">Realistic Augmentation</h3>
+<p>Once data is cleaned, it is replayed within the IsaacSim environment. This allows for the application of controlled, high-fidelity augmentation. Specifically, we introduce physical randomization, varying parameters such as object poses and friction coefficients, alongside rendering randomization, which manipulates camera viewpoints and lighting conditions.</p>
+<h3 id="task-snapshots">Task Snapshots</h3>
+<p>To enable controlled scaling studies, the collected and processed demonstrations are organized into versioned snapshots. These snapshots represent progressively larger subsets of the total data, specifically AXIS-25%, AXIS-50%, and AXIS-100%, allowing researchers to isolate the impact of dataset size on policy performance.</p>
 <h2 id="results">Results</h2>
 <table>
 <thead>
@@ -3517,56 +3522,62 @@ sim-to-r</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Aggregate Mean strict success (VLA)</td>
-<td style="text-align: left;">32.9%</td>
+<td style="text-align: left;">Overall LIBERO-Plus success rate improvement (Continual pretraining on AXIS-100%)</td>
+<td style="text-align: left;">5.8%</td>
+<td style="text-align: left;"><span class="arithmatex">\(\pi0.5\)</span></td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+<tr>
+<td style="text-align: left;">Outperformance vs. RoboCasa365 (volume-matched)</td>
+<td style="text-align: left;">37.3%</td>
+<td style="text-align: left;">RoboCasa365</td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+<tr>
+<td style="text-align: left;">Success Rate (AXIS-25%)</td>
+<td style="text-align: left;">84.7%</td>
 <td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+<tr>
+<td style="text-align: left;">Success Rate (AXIS-50%)</td>
+<td style="text-align: left;">85.7%</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+<tr>
+<td style="text-align: left;">Success Rate (AXIS-100%)</td>
+<td style="text-align: left;">88.8%</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+<tr>
+<td style="text-align: left;">Mean Acceleration Reduction (Smoothed vs. Raw)</td>
+<td style="text-align: left;">63.9%</td>
+<td style="text-align: left;">Raw Teleoperation</td>
 <td style="text-align: left;">Table 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Mean progress (VLA)</td>
-<td style="text-align: left;">67.5%</td>
-<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Mean Jerk Reduction (Smoothed vs. Raw)</td>
+<td style="text-align: left;">80.8%</td>
+<td style="text-align: left;">Raw Teleoperation</td>
 <td style="text-align: left;">Table 1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Strict success (DiT, DINOv3-xattn CLIP-adaln)</td>
-<td style="text-align: left;">73.5%</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Table 1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Mean progress (DiT, DINOv3-xattn CLIP-adaln)</td>
-<td style="text-align: left;">93.1%</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Table 1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Real-world task success (DiT vs VLA)</td>
-<td style="text-align: left;">DiT outperforms VLA for smaller batch sizes</td>
-<td style="text-align: left;">VLA</td>
-<td style="text-align: left;">Figure 5</td>
-</tr>
-<tr>
-<td style="text-align: left;">Real-world task success (DiT vs VLA)</td>
-<td style="text-align: left;">VLA outperforms DiT for batch size 9216</td>
-<td style="text-align: left;">DiT</td>
-<td style="text-align: left;">Figure 5</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The ABC stack provides a reproducible toolkit to learn the 'ABCs of Behavior Cloning' in robot manipulation. Furthermore, the validation action error shows the strongest negative correlation with real-world performance, establishing it as a useful cheap proxy metric for initial screening. Finally, the results indicate that scaling batch size significantly impacts performance, with VLA demonstrating a larger performance jump at higher batch sizes, such as 9216.</p>
+<p>AXIS provides a tangible pathway toward decoupling the rate of model improvement from the rate of specialized data collection. By democratizing data acquisition through web-based interfaces and automating the laborious process of data cleaning and augmentation, it shifts the bottleneck from infrastructure and expertise to the rate of community contribution. The systematic snapshotting allows for rigorous, controlled ablation studies on dataset scaling, which is critical for understanding the true data efficiency of VLA architectures.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>A primary limitation is that offline metrics cannot reliably predict task success rates or reveal specific failure modes encountered during deployment. Additionally, the utility of the validation action error metric is conditional; it is only meaningful when the number of diffusion steps is held fixed across comparisons.</p>
+<p>The current description does not provide exhaustive detail on the specific hardware configuration utilized, beyond noting the use of a Franka Research 3 robot arm equipped with a parallel-jaw gripper. Furthermore, the operational complexity of the complete pipeline necessitates substantial backend infrastructure to maintain the required fidelity for high-fidelity simulation and augmentation steps. Future work should focus on modularizing the backend to allow for easier deployment and scaling of the augmentation services.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.27375">2606.27375</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260627375</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Scalable Behavior Cloning with Open Data, Training, and Evaluation}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Arthur Allshire and Himanshu Gaurav Singh and Ritvik Singh and Adam Rashid and Hongsuk Choi and David McAllister et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.27375}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.21588">2607.21588</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260721588</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{AXIS: A Growable Community-Driven Data Engine for Scalable Robot Manipulation}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Mengfei Zhao and Dihong Huang and Yikai Tang and Peihao Li and Mingxuan Yan and Ruiqi Zhuang et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.21588}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.27375}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.21588}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
