@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [AXIS: A Growable Community-Driven Data Engine for Scalable Robot Manipulation](2026-07-27-axis-a-growable-community-driven-data-engine-for-scalable-ro/) { data-cat="Robotics" data-date="2026-07-27" }
+
+*2026-07-27*
+
+AXIS is a growable, community-driven data engine and benchmark that enables scalable robot manipulation learning by unifying task generation, browser-based teleoperation, data refinement, realistic augmentation, and policy learning with real-world validation.
+
 ## [Unified Video Dense Prediction from Disjoint Data](2026-07-26-unified-video-dense-prediction-from-disjoint-data/) { data-cat="Computer Vision" data-date="2026-07-26" }
 
 *2026-07-26*
