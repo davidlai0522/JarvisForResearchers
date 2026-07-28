@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [SM4RT: Learning Structured Motion Geometry for 4D Reconstruction](2026-07-28-sm4rt-learning-structured-motion-geometry-for-4d-reconstruct/) { data-cat="Computer Vision" data-date="2026-07-28" }
+
+*2026-07-28*
+
+SM4RT introduces Structure-of-Motion (SoM) to represent 4D scene dynamics by decomposing motion into a compact set of motion bases, allowing for end-to-end 3D reconstruction and structured motion perception from monocular RGB video in a single forward pass.
+
 ## [AXIS: A Growable Community-Driven Data Engine for Scalable Robot Manipulation](2026-07-27-axis-a-growable-community-driven-data-engine-for-scalable-ro/) { data-cat="Robotics" data-date="2026-07-27" }
 
 *2026-07-27*
