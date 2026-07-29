@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Data Pyramid for Embodied Manipulation](2026-07-29-data-pyramid-for-embodied-manipulation/) { data-cat="Robotics" data-date="2026-07-29" }
+
+*2026-07-29*
+
+This paper organizes the embodied data ecosystem into a five-layer 'Data Pyramid' based on the tension between scalability and robot alignment, characterizing data sources by quality, diversity, reusability, and physical fidelity.
+
 ## [SM4RT: Learning Structured Motion Geometry for 4D Reconstruction](2026-07-28-sm4rt-learning-structured-motion-geometry-for-4d-reconstruct/) { data-cat="Computer Vision" data-date="2026-07-28" }
 
 *2026-07-28*
