@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="LongE2V is a novel framework that leverages pre-trained video diffusion priors to jointly address event-based video reconstruction, long-horizon prediction, and frame interpolation using specialized mechanisms like Autoregressive Unrolling and Reencoding Alignment.
+        <meta name="description" content="This paper organizes the embodied data ecosystem into a five-layer 'Data Pyramid' based on the tension between scalability and robot alignment, characterizing data sources by quality, diversity, reusability, and physical fidelity.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-11-longe2v-long-horizon-event-based-video-reconstruction-predic/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-29-data-pyramid-for-embodied-manipulation/">
       
       
-        <link rel="prev" href="../2026-07-12-zipdepth-bringing-lightweight-zero-shot-monocular-depth-anyw/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-07-10-accurate-interdisciplinary-and-transparent-structure-propert/">
+        <link rel="next" href="../2026-07-28-sm4rt-learning-structured-motion-geometry-for-4d-reconstruct/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>LongE2V: Long-Horizon Event-based Video Reconstruction, Prediction, and Frame Interpolation with Video Diffusion Models - JarvisForResearchers</title>
+        <title>Data Pyramid for Embodied Manipulation - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              LongE2V: Long-Horizon Event-based Video Reconstruction, Prediction, and Frame Interpolation with Video Diffusion Models
+              Data Pyramid for Embodied Manipulation
             
           </span>
         </div>
@@ -590,10 +590,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-07-29-data-pyramid-for-embodied-manipulation/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Pyramid for Embodied Manipulation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -609,6 +634,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#real-robot-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-Robot Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#umi-style-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UMI-Style Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#egocentric-exocentric-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Egocentric / Exocentric Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulation-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simulation Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1094,35 +1286,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    LongE2V: Long-Horizon Event-based Video Reconstruction, Prediction, and Frame Interpolation with Video Diffusion Models
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-07-11-longe2v-long-horizon-event-based-video-reconstruction-predic/" class="md-nav__link">
         
   
   
@@ -1138,206 +1305,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cogvideox-i2v" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CogVideoX I2V
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3d-vae" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3D VAE
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#diffusion-transformer-dit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Diffusion Transformer (DiT)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#event-voxel-density-augmentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Event Voxel Density Augmentation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#autoregressive-unrolling" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Autoregressive Unrolling
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adaptive-context-switch" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Adaptive Context Switch
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reencoding-alignment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reencoding Alignment
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cross-residual-correction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cross Residual Correction
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3435,10 +3402,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#cogvideox-i2v" class="md-nav__link">
+  <a href="#real-robot-data" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CogVideoX I2V
+        Real-Robot Data
       
     </span>
   </a>
@@ -3446,10 +3413,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3d-vae" class="md-nav__link">
+  <a href="#umi-style-data" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3D VAE
+        UMI-Style Data
       
     </span>
   </a>
@@ -3457,10 +3424,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#diffusion-transformer-dit" class="md-nav__link">
+  <a href="#egocentric-exocentric-data" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Diffusion Transformer (DiT)
+        Egocentric / Exocentric Data
       
     </span>
   </a>
@@ -3468,10 +3435,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#event-voxel-density-augmentation" class="md-nav__link">
+  <a href="#simulation-data" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Event Voxel Density Augmentation
+        Simulation Data
       
     </span>
   </a>
@@ -3479,43 +3446,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#autoregressive-unrolling" class="md-nav__link">
+  <a href="#general-data" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Autoregressive Unrolling
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adaptive-context-switch" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Adaptive Context Switch
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reencoding-alignment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reencoding Alignment
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cross-residual-correction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cross Residual Correction
+        General Data
       
     </span>
   </a>
@@ -3599,81 +3533,109 @@
       
       
       
-        <a href="../../tags/#tag:generalization" class="md-tag">generalization</a>
+        <a href="../../tags/#tag:foundation-models" class="md-tag">foundation-models</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:multimodal" class="md-tag">multimodal</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:perception" class="md-tag">perception</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:planning" class="md-tag">planning</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
       
     
   </nav>
 
 
 
-  <h1>LongE2V: Long-Horizon Event-based Video Reconstruction, Prediction, and Frame Interpolation with Video Diffusion Models</h1>
+  <h1>Data Pyramid for Embodied Manipulation</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-07-11</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-07-29</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
 <p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>LongE2V integrates pre-trained video diffusion priors with specialized mechanisms—Autoregressive Unrolling, Adaptive Context Switching, and Reencoding Alignment—to unify event-based video reconstruction, long-horizon prediction, and frame interpolation into a single, robust framework.</p>
+<p>This work formalizes the embodied data ecosystem into a five-layer 'Data Pyramid.' This structure organizes complementary data sources—Real-Robot, UMI-Style, Egocentric/Exocentric, Simulation, and General—based on the inherent tension between data scalability and robot alignment. Each source is characterized across Quality, Diversity, Reusability, and Physical Fidelity, providing a systematic lens to analyze how embodied foundation models integrate heterogeneous data for perception, reasoning, and action generation.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Recovering high-fidelity video from sparse event streams is fundamentally an ill-posed inverse problem. Existing methodologies exhibit distinct failure modes depending on the specific task. Specifically, regression-based approaches often suffer from "regression-to-the-mean," resulting in perceptually blurry textures. Furthermore, when applying diffusion models naively to long sequences, the process is prone to severe error accumulation and temporal drift during long-term prediction. Finally, frame interpolation methods frequently introduce ghosting artifacts due to temporal inconsistencies introduced during latent space manipulation. Moreover, prior work often necessitates disparate architectural designs for reconstruction, prediction, and interpolation.</p>
+<p>Extending multimodal foundation models to function as competent embodied agents necessitates data that robustly couples high-dimensional observations with precise physical states and executable actions. However, the current landscape lacks a systematic framework for understanding the roles, inherent trade-offs, relationships, and optimal integration strategies among the various complementary data sources available.</p>
+<p>The existing literature presents several gaps. First, prior hierarchical or pyramid-like views of training data are often tailored to the specific training recipe of a single model, offering limited comparative analysis across critical dimensions such as collection scalability, embodiment dependence, physical fidelity, transferability, and downstream utility. Second, existing surveys tend to be siloed, focusing narrowly on model architectures or specific subproblems (e.g., Vision-Language-Action models, World-Action models, or world modeling). Consequently, the embodied data ecosystem has not been systematically organized at the category level, nor has the utilization of heterogeneous data by embodied foundation models been comprehensively analyzed from a rigorous, data-centric perspective.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce LongE2V, a novel framework that leverages pre-trained video diffusion priors to jointly address event-based reconstruction, prediction, and frame interpolation with superior data efficiency. Our contributions include the introduction of Autoregressive Unrolling and Adaptive Context Switching to ensure long-term stability in reconstruction and prediction, alongside Reencoding Alignment with Cross Residual Correction for enhanced temporal consistency during frame interpolation. Additionally, we propose Event Voxel Density Augmentation to ensure robust generalization across varying sensor resolutions.</p>
+<p>We make three primary contributions to this domain:
+1. We organize the embodied data ecosystem into a 'Data Pyramid' comprising five complementary sources: real-robot data, UMI-style data, egocentric and exocentric data, simulation data, and general data.
+2. We characterize each of these data sources using four complementary dimensions—Quality, Diversity, Reusability, and Physical Fidelity—in conjunction with the overarching metrics of Scalability and Robot Alignment.
+3. We analyze recent embodied foundation models through the lens of their data recipes, establishing a direct relationship between the composition of their utilized data and their resulting capabilities across perception, reasoning, planning, action generation, and world prediction.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze. I need the image to give you the description." src="../../assets/figures/2607.08770/fig_p1_c1.jpg" />
-<em>Fig. 1. Event-based video generation. We leverage pre-trained video diffusion priors to address three distinct inverse problems within a single architecture.
-Depending on the input condition, our model performs: (a) Video Reconstruction, recovering high-fidelity textures from sparse event streams, (</em></p>
-<p>LongE2V frames event-based video generation as a conditional generation task conditioned on event voxels, utilizing a fine-tuned foundational video model, CogVideoX. To manage the inherent challenges of long sequences, we employ Autoregressive Unrolling, which iteratively refines the model by substituting its own generated predictions as context frames for subsequent fine-tuning steps. Temporal drift is further controlled by Adaptive Context Switching, which assesses the relevance of the current context using the average attention weight, <span class="arithmatex">\(\mu_{attn}\)</span>. For the specific task of frame interpolation, Reencoding Alignment is used to correct temporal misalignment introduced by the 3D VAE compression by executing a decode-flip-reencode cycle. This cycle is then stabilized by Cross Residual Correction, which injects opposing residuals from the forward and backward branches to compensate for reconstruction loss.</p>
-<h3 id="cogvideox-i2v">CogVideoX I2V</h3>
-<p>This component serves as the foundational video diffusion model. It is responsible for encoding the input video <span class="arithmatex">\(X\)</span> into a compressed latent representation <span class="arithmatex">\(Z_0\)</span> via a 3D VAE, employing a <span class="arithmatex">\(4\times\)</span> temporal and <span class="arithmatex">\(8\times\)</span> spatial compression factor.</p>
-<h3 id="3d-vae">3D VAE</h3>
-<p>The 3D VAE is the mechanism utilized for compressing the high-dimensional video data <span class="arithmatex">\(X\)</span> into the lower-dimensional latent space <span class="arithmatex">\(Z_0\)</span>, which is the domain where the diffusion process operates.</p>
-<h3 id="diffusion-transformer-dit">Diffusion Transformer (DiT)</h3>
-<p>The DiT constitutes the core generative model. It is trained to minimize the standard denoising objective, defined as <span class="arithmatex">\(L = E_{Z_0,t,C,\epsilon} [\|\epsilon - \epsilon_\theta(Z_t,t,C)\|^2]\)</span>, where <span class="arithmatex">\(\epsilon\)</span> is the noise and <span class="arithmatex">\(\epsilon_\theta\)</span> is the predicted noise conditioned on the latent state <span class="arithmatex">\(Z_t\)</span>, timestep <span class="arithmatex">\(t\)</span>, and context <span class="arithmatex">\(C\)</span>.</p>
-<h3 id="event-voxel-density-augmentation">Event Voxel Density Augmentation</h3>
-<p>This is a specific training strategy designed to improve generalization. It involves randomly resizing the event voxels within a predefined dynamic range, <span class="arithmatex">\([S_{min}, S_{max}]\)</span>, during training to make the model robust to variations in sensor resolution.</p>
-<h3 id="autoregressive-unrolling">Autoregressive Unrolling</h3>
-<p>This iterative training strategy addresses error accumulation in sequential generation. During inference, predictions generated at one step are substituted back into the input sequence as context frames for the next step's fine-tuning, effectively allowing the model to correct its own past errors.</p>
-<h3 id="adaptive-context-switch">Adaptive Context Switch</h3>
-<p>This mechanism dynamically governs the flow of context during generation. It evaluates the relevance of the existing context by calculating the average attention weight, <span class="arithmatex">\(\mu_{attn}\)</span>. If <span class="arithmatex">\(\mu_{attn}\)</span> falls below a predefined threshold <span class="arithmatex">\(\tau=0.05\)</span>, the system triggers a Context Switch, indicating that the current context is insufficient for accurate generation.</p>
-<h3 id="reencoding-alignment">Reencoding Alignment</h3>
-<p>This technique is specifically designed to mitigate temporal misalignment artifacts arising from the 3D VAE's compression scheme. It operates by taking the predicted clean latent <span class="arithmatex">\(\hat{Z}_0\)</span>, performing a spatial flip in pixel space, and then re-encoding the result back into the latent space.</p>
-<h3 id="cross-residual-correction">Cross Residual Correction</h3>
-<p>This strategy is employed subsequent to Reencoding Alignment. It compensates for the reconstruction loss introduced by the decode-flip-reencode loop by injecting complementary high-frequency details, specifically residuals, derived from both the forward and backward branches of the process into the aligned latents.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2607.24744/fig_p1_c1.jpg" />
+<em>Figure 1 Overview of Organization and Scope. This work is organized into three parts. We first introduce the embodied
+data pyramid, which categorizes data sources into real-robot, UMI-style, egocentric-exocentric, simulation, and general
+data according to their scalability and robot alignment, and r</em></p>
+<p>The core methodology involves constructing the Embodied Data Pyramid. This pyramid categorizes five distinct data sources—Real-Robot, UMI-Style, Egocentric/Exocentric, Simulation, and General—by mapping them onto the tension between Scalability and Robot Alignment. These categories are then further characterized by their inherent levels of Quality, Diversity, Reusability, and Physical Fidelity. The pyramid is structurally ordered from its apex, representing the strongest physical grounding, down to its base, which represents the greatest accessibility and scalability. Following this categorization, the paper examines how contemporary embodied foundation models leverage these heterogeneous sources, specifically analyzing their data composition and the accommodation strategies employed, such as action-space alignment and geometric alignment.</p>
+<h3 id="real-robot-data">Real-Robot Data</h3>
+<p>This data consists of trajectories that are either teleoperated or scripted directly onto the target robot. It captures a complete, closed-loop sequence, recording observations, internal states, executed actions, and resulting outcomes within the physical environment.</p>
+<h3 id="umi-style-data">UMI-Style Data</h3>
+<p>This category encompasses demonstrations captured using handheld grippers. Crucially, this data records end-effector motion trajectories without requiring the full complexity of a robot integrated into the control loop.</p>
+<h3 id="egocentric-exocentric-data">Egocentric / Exocentric Data</h3>
+<p>This data includes first-person (egocentric) and third-person (exocentric) recordings of human agents performing tasks. These sources provide access to real-world physics, dexterous manipulation examples, and high levels of everyday behavioral variety.</p>
+<h3 id="simulation-data">Simulation Data</h3>
+<p>This data is generated through interaction within physics engines. It is valuable because it returns executable actions alongside privileged, ground-truth labels, such as precise contact points, object poses, and binary success signals.</p>
+<h3 id="general-data">General Data</h3>
+<p>This category comprises web-scale corpora, including images, videos, natural language text, and vision-language pairs. These sources primarily inject semantics, spatial structure, and commonsense knowledge into the model.</p>
 <h2 id="results">Results</h2>
+<p>The analysis of recent model training practices reveals a clear trend in data composition.</p>
 <table>
 <thead>
 <tr>
 <th style="text-align: left;">Metric</th>
-<th style="text-align: left;">Reconstruction (PSNR)</th>
-<th style="text-align: left;">Prediction (FID)</th>
-<th style="text-align: left;">Interpolation (SSIM)</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Baseline</th>
+<th style="text-align: left;">Source</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">LongE2V</td>
-<td style="text-align: left;">32.1</td>
-<td style="text-align: left;">15.4</td>
-<td style="text-align: left;">0.91</td>
+<td style="text-align: left;">Data Utilization Across Model Paradigms</td>
+<td style="text-align: left;">Transition from early training recipes dominated by real-robot trajectories toward increasingly heterogeneous mixtures of real-robot, simulation, general, egocentric, and, less frequently, UMI-style data.</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Figure 3</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The integration of these specialized components within a unified diffusion framework allows LongE2V to address the multi-faceted challenges of event-based video processing—reconstruction fidelity, long-term temporal coherence, and interpolation accuracy—using a single, cohesive architecture. The practitioner takeaways highlight that leveraging pre-trained priors is key to task unification, while Autoregressive Unrolling and Reencoding Alignment provide the necessary mechanisms to overcome the inherent stability and temporal consistency issues in sequential and compressed video generation, respectively.</p>
+<p>This systematic organization moves the discussion beyond mere data aggregation toward a principled understanding of data utility in embodied AI. By characterizing data sources across six dimensions (Scalability, Robot Alignment, Quality, Diversity, Reusability, and Physical Fidelity), practitioners gain a diagnostic tool for pipeline design. The findings indicate that the evolution of embodied foundation models is characterized by a move away from reliance on singular, high-fidelity sources toward complex, heterogeneous mixtures, suggesting that the optimal data recipe is context-dependent and requires careful balancing of fidelity against scale.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current implementation is contingent upon the availability and quality of the foundational video model, CogVideoX, necessitating a fine-tuning step. Furthermore, the Adaptive Context Switch mechanism employs a single-attempt retry strategy when context relevance is low, which may not be optimal for all highly complex temporal dependencies.</p>
+<p>The current framework highlights several open challenges that require focused research. These include the necessity of building large-scale tactile datasets, developing robust methods for collecting failure and recovery data, engineering scalable data-collection pipelines, establishing principled methods for aligning actions across different embodiments, effectively leveraging egocentric data for fine-grained dexterous manipulation, and ultimately, designing principled data recipes for general robot learning. Furthermore, it must be noted that the ordering of the pyramid represents an overall synthesis of the six dimensions; it does not imply a strictly monotonic progression along every individual property for any given data source.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.08770">2607.08770</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260708770</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{LongE2V: Long-Horizon Event-based Video Reconstruction, Prediction, and Frame Interpolation with Video Diffusion Models}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Cheng-De Fan and Chun-Wei Tuan Mu and Chen-Wei Chang and Chin-Yang Lin and Kun-Ru Wu and Yu-Chee Tseng et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.08770}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.24744">2607.24744</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260724744</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Data Pyramid for Embodied Manipulation}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Yifan Ye and Yankai Fu and Yaoxu Lv and Bohan Hou and Jun Cen and Lingdong Kong et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.24744}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.08770}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.24744}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
