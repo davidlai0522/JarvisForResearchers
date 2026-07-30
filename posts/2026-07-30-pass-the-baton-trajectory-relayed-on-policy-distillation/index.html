@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="UniAR is a unified autoregressive framework that uses a single discrete visual tokenizer, leveraging multi-level feature fusion and lookup-free bitwise quantization, to integrate visual understanding and generation in a shared context.
+        <meta name="description" content="Relay On-Policy Distillation (Relay-OPD) addresses prefix failure in On-Policy Distillation (OPD) by using a label-free handoff trigger to allow the teacher to briefly correct the student's trajectory before the student resumes generation.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-18-unified-multimodal-autoregressive-modeling-with-shared-conte/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-30-pass-the-baton-trajectory-relayed-on-policy-distillation/">
       
       
-        <link rel="prev" href="../2026-06-20-janusmesh-fast-and-zero-shot-3d-visual-illusion-generation-v/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-06-17-t-rex-tactile-reactive-dexterous-manipulation/">
+        <link rel="next" href="../2026-07-29-data-pyramid-for-embodied-manipulation/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification - JarvisForResearchers</title>
+        <title>Pass the Baton: Trajectory-Relayed On-Policy Distillation - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification
+              Pass the Baton: Trajectory-Relayed On-Policy Distillation
             
           </span>
         </div>
@@ -592,10 +592,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-07-30-pass-the-baton-trajectory-relayed-on-policy-distillation/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pass the Baton: Trajectory-Relayed On-Policy Distillation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -611,6 +636,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handoff-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handoff Trigger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relay-budget-m-l" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relay Budget \((M, L)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teacher-leg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Teacher Leg
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#student-leg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Student Leg
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-speculative-decoding-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single Speculative Decoding Engine
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1768,35 +1960,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-06-18-unified-multimodal-autoregressive-modeling-with-shared-conte/" class="md-nav__link">
         
   
   
@@ -1812,151 +1979,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#unified-visual-tokenizer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unified Visual Tokenizer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#unified-auto-regressive-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unified Auto-Regressive Model
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dit-based-visual-decoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DiT-based Visual Decoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3410,10 +3432,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#unified-visual-tokenizer" class="md-nav__link">
+  <a href="#handoff-trigger" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Unified Visual Tokenizer
+        Handoff Trigger
       
     </span>
   </a>
@@ -3421,10 +3443,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#unified-auto-regressive-model" class="md-nav__link">
+  <a href="#relay-budget-m-l" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Unified Auto-Regressive Model
+        Relay Budget \((M, L)\)
       
     </span>
   </a>
@@ -3432,10 +3454,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dit-based-visual-decoder" class="md-nav__link">
+  <a href="#teacher-leg" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DiT-based Visual Decoder
+        Teacher Leg
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#student-leg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Student Leg
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-speculative-decoding-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single Speculative Decoding Engine
       
     </span>
   </a>
@@ -3512,50 +3556,60 @@
       
       
       
-        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:multimodal" class="md-tag">multimodal</a>
+        <a href="../../tags/#tag:nlp" class="md-tag">nlp</a>
       
     
   </nav>
 
 
 
-  <h1>Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification</h1>
+  <h1>Pass the Baton: Trajectory-Relayed On-Policy Distillation</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-06-18</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-07-30</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
-<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+<p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>UniAR introduces a unified autoregressive framework that resolves the representation split inherent in existing Unified Multimodal Models (UMMs). It achieves this via a single discrete visual tokenizer, leveraging Binary Spherical Quantization (BSQ) for implicit vocabulary scaling, and integrates this stream into a unified autoregressive model that employs parallel bitwise prediction. This architecture, coupled with a DiT-based decoder, enables high-fidelity image generation within a shared context.</p>
+<p>Relay On-Policy Distillation (Relay-OPD) mitigates prefix failure in On-Policy Distillation (OPD) by introducing a label-free handoff trigger. This trigger allows the teacher model to briefly correct the student's trajectory via a budgeted relay rollout before control returns to the student, leading to significant performance gains while reducing training compute.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Existing Unified Multimodal Models (UMMs) suffer from a fundamental architectural impedance mismatch: they typically employ two disparate visual tokenizers. This separation forces the representation space for visual understanding and visual generation to be distinct. Consequently, when an image needs to be interpreted by the understanding component, the generated image must first be re-encoded by the understanding tokenizer. This necessary re-encoding step fundamentally violates the goal of maintaining a truly 'shared context' across the multimodal pipeline.</p>
-<p>The gaps in prior art are threefold:
-1. Most existing works rely on two separate visual tokenizers, thereby segmenting the representation space for understanding and generation.
-2. Unified tokenizer approaches face significant engineering hurdles in designing tokens that simultaneously satisfy the requirements of both generation and understanding, while also managing the cost associated with scaling the tokenizer vocabulary.
-3. Previous attempts at unified models often lack the necessary architectural synergy between their understanding and generation components, or they rely on training objectives that are inherently divergent.</p>
+<p>On-policy distillation (OPD) is susceptible to prefix failure. If the student model commits to an incorrect reasoning path early in the generation process, all subsequent tokens are conditioned on this erroneous prefix. This leads to the generation of misdirected continuations, which in turn yields unreliable supervision signals for the student, ultimately wasting computational resources.</p>
+<p>The existing approaches to address this failure mode exhibit limitations:
+*   Fixed-length truncation methods (e.g., ESR, FastOPD) impose a rigid cutoff point, irrespective of the actual point of reasoning failure.
+*   Offline rewriting techniques (e.g., TRD) only correct trajectories after they have been fully generated, often resulting in noticeable artifacts in the repaired output.
+*   Token-level mixing methods (e.g., SKD) switch between teacher and student based on generic distributional disagreement, lacking the specificity of an explicit signal indicating a failure in the reasoning direction.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce UniAR, a unified autoregressive framework designed around a single discrete visual tokenizer to achieve genuine unified modeling, augmented by multi-level feature fusion and lookup-free bitwise quantization. Furthermore, we present a unified autoregressive modeling paradigm that utilizes parallel bitwise prediction alongside a DiT-based decoder equipped with resolution upsampling, facilitating efficient high-resolution generation from compact visual sequences. Finally, we validate UniAR's efficacy, demonstrating state-of-the-art image generation performance while maintaining competitiveness on standard multimodal understanding benchmarks.</p>
+<p>We make three primary contributions:
+1.  We identify a continuation asymmetry between the teacher and student models specifically on failed reasoning prefixes, demonstrating that correcting this failure requires only early and localized teacher intervention, with teacher tokens constituting as little as 0.35% of the total generation.
+2.  We propose Relay-OPD, which formalizes this asymmetry into a label-free handoff trigger and implements a budgeted relay rollout. This unifies the student and teacher generation processes within a single speculative-decoding engine.
+3.  Empirically, across eight math reasoning benchmarks, Relay-OPD surpasses standard OPD by +5.73% and FastOPD by +1.49% when using a 1.7B student model, concurrently achieving a reduction in average training trajectory length exceeding 50%.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.18249/fig_p2_c1.jpg" />
-<em>Figure 1 Visual content generated by UniAR. UniAR produces high-fidelity visual content with demonstrated efficacy
-in instruction-following and text rendering, alongside versatile image editing capabilities.</em></p>
-<p>UniAR operates by establishing a single, shared discrete representation for visual information. This is achieved by adapting continuous features extracted from a pre-trained vision encoder using Binary Spherical Quantization (BSQ) with a parameter setting of <span class="arithmatex">\(dBSQ = 64\)</span>. This quantization scheme implicitly defines a vocabulary of <span class="arithmatex">\(2^{64}\)</span> tokens. To enrich the representation quality, multi-level feature fusion is implemented, incorporating three intermediate layers alongside the final layer output. This resulting discrete token stream is fed into a unified autoregressive model. This model jointly models text and visual tokens via a next-token prediction paradigm, specifically utilizing parallel bitwise prediction (LAR). The final stage involves a DiT-based visual decoder, which reconstructs high-fidelity images from the predicted tokens, conditioned exclusively on the visual signal <span class="arithmatex">\(f_v\)</span> and employing resolution upsampling.</p>
-<h3 id="unified-visual-tokenizer">Unified Visual Tokenizer</h3>
-<p>This component is responsible for mapping continuous visual features into a discrete, shared token space. It operates by applying Binary Spherical Quantization (BSQ) to the feature maps derived from a pre-trained Large Multimodal Model's (LMM) vision encoder. Crucially, it incorporates multi-level feature fusion across multiple intermediate layers of the encoder, ensuring that the resulting tokens are semantically rich and capture information from various scales within the input image.</p>
-<h3 id="unified-auto-regressive-model">Unified Auto-Regressive Model</h3>
-<p>Built upon a pre-trained Large Language Model (LLM) backbone, this model serves as the central predictor. It jointly models the sequence of visual and text tokens using a standard next-token prediction framework. A key innovation here is the implementation of parallel bitwise prediction, which allows the model to predict the discrete visual tokens in parallel with the text tokens, significantly improving efficiency compared to sequential prediction.</p>
-<h3 id="dit-based-visual-decoder">DiT-based Visual Decoder</h3>
-<p>This component is responsible for the final pixel-space reconstruction. It utilizes a Diffusion Transformer (DiT) architecture. The decoding process is governed by Conditional Flow Matching (CFM) and is conditioned <em>solely</em> on the visual conditioning signal <span class="arithmatex">\(f_v\)</span>. To achieve high-resolution output efficiently, the decoder incorporates resolution upsampling mechanisms.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2607.26057/fig_p1_c1.jpg" />
+<em>Figure 1: (a) A Relay-OPD case: at the detected handoff trigger, the teacher prefers the reflection
+token (But, 74.4%) while the student would continue along the current direction (So, 50.6%); a
+brief teacher leg corrects the reasoning and the student resumes to the correct answer. (b) Difference
+be</em></p>
+<p>Relay-OPD operates by monitoring the student's trajectory for a specific handoff trigger. This trigger signals a state where the teacher model indicates a desire to redirect the reasoning, while the student model is still proceeding along its initial, potentially flawed, path.</p>
+<p>When the condition <span class="arithmatex">\(\phi(h) = 1\)</span> is met, the teacher initiates a short "Teacher Leg" of length <span class="arithmatex">\(L\)</span> paragraphs, guided by the teacher's policy <span class="arithmatex">\(a_T(h)\)</span>. This intervention is constrained by a predefined relay budget <span class="arithmatex">\((M, L)\)</span> to ensure correction is concentrated early. Upon completion of the teacher leg, control transfers back to the student for a "Student Leg," where generation resumes autoregressively according to the student's policy <span class="arithmatex">\(\pi_{\bar{\theta}}\)</span>. The student is then trained on this corrected, relay-augmented trajectory using the advantage <span class="arithmatex">\(A_{Relay}^t = \log \pi_T(z_t | h_z^t) - \log \pi_{\bar{\theta}}(z_t | h_z^t)\)</span>, optimized via the objective <span class="arithmatex">\(L_{Relay}\)</span>. The entire state management—switching between student and teacher control—is managed within a single speculative decoding engine.</p>
+<h3 id="handoff-trigger">Handoff Trigger</h3>
+<p>The handoff trigger is defined by the criterion <span class="arithmatex">\(\phi(h) = 1[a_T(h) \in R] \cdot 1[KS(h) \cap R = \emptyset]\)</span>. This fires when the teacher's most probable next token, <span class="arithmatex">\(a_T(h)\)</span>, belongs to the set of reflection tokens <span class="arithmatex">\(R\)</span>, but the student's top-K support set, <span class="arithmatex">\(KS(h)\)</span>, contains no token from <span class="arithmatex">\(R\)</span>. This precisely captures the moment the teacher suggests a correction that the student has not yet considered.</p>
+<h3 id="relay-budget-m-l">Relay Budget <span class="arithmatex">\((M, L)\)</span></h3>
+<p>The relay budget <span class="arithmatex">\((M, L)\)</span> dictates the operational constraints of the intervention. <span class="arithmatex">\(M\)</span> specifies the maximum number of times the teacher can take over control, and <span class="arithmatex">\(L\)</span> defines the fixed number of additional paragraphs generated during each teacher leg following the reflection token. This budget ensures the correction mechanism remains localized and computationally bounded.</p>
+<h3 id="teacher-leg">Teacher Leg</h3>
+<p>The Teacher Leg is the corrective phase. It commences when the handoff trigger fires, beginning with the teacher's suggested token <span class="arithmatex">\(a_T(h)\)</span>. The teacher then generates subsequent tokens for <span class="arithmatex">\(L\)</span> paragraphs, actively steering the reasoning process back toward a correct path, effectively overriding the student's current trajectory.</p>
+<h3 id="student-leg">Student Leg</h3>
+<p>The Student Leg is the resumption phase. Once the teacher leg concludes, control reverts to the student. The student continues generation autoregressively, conditioned on the state established by the teacher leg, allowing it to build upon the corrected prefix.</p>
+<h3 id="single-speculative-decoding-engine">Single Speculative Decoding Engine</h3>
+<p>The entire Relay-OPD mechanism is integrated into a single speculative decoding engine. This engine manages the state transitions <span class="arithmatex">\(s_t \in \{S, T, \perp\}\)</span>, where <span class="arithmatex">\(S\)</span> denotes student control, <span class="arithmatex">\(T\)</span> denotes teacher control, and <span class="arithmatex">\(\perp\)</span> denotes an inactive state. This unification allows for seamless, state-switched execution of the relay mechanism without requiring separate inference pipelines.</p>
 <h2 id="results">Results</h2>
 <table>
 <thead>
@@ -3568,38 +3622,44 @@ in instruction-following and text rendering, alongside versatile image editing c
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Overall (GenEval)</td>
-<td style="text-align: left;">0.85</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Table 1</td>
+<td style="text-align: left;">Outperformance vs standard OPD</td>
+<td style="text-align: left;">+5.73%</td>
+<td style="text-align: left;">standard OPD</td>
+<td style="text-align: left;">Section 4.1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Single (GenEval)</td>
-<td style="text-align: left;">1.00</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Table 1</td>
+<td style="text-align: left;">Outperformance vs FastOPD</td>
+<td style="text-align: left;">+1.49%</td>
+<td style="text-align: left;">FastOPD</td>
+<td style="text-align: left;">Section 4.1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Two (GenEval)</td>
-<td style="text-align: left;">0.95</td>
+<td style="text-align: left;">Training trajectory length reduction</td>
+<td style="text-align: left;">over 50%</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Table 1</td>
+<td style="text-align: left;">Section 4.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Accuracy lift (intervention experiment)</td>
+<td style="text-align: left;">34.96% (from 27.73%)</td>
+<td style="text-align: left;">Student Accuracy (27.73%)</td>
+<td style="text-align: left;">Figure 2(a)</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The core implication of UniAR is the realization of a true shared context in multimodal AI. By enforcing a single discrete token representation for both visual understanding and generation, we eliminate the representational bottleneck and the computational overhead associated with re-encoding between separate visual spaces. The use of lookup-free bitwise quantization provides a scalable mechanism to expand the effective vocabulary size without incurring the memory or computational cost of maintaining large, explicit codebooks. Furthermore, the parallel bitwise prediction mechanism in the autoregressive model directly addresses the sequential bottleneck in generative modeling, leading to accelerated inference.</p>
+<p>The ability to correct reasoning errors locally and early during the distillation process fundamentally improves the efficiency and reliability of knowledge transfer from teacher to student models. By requiring only minimal teacher intervention (as low as 0.35% of tokens), Relay-OPD demonstrates that high-quality supervision can be achieved without the prohibitive computational cost of full trajectory rewriting or the instability associated with late-stage correction. This provides a more robust paradigm for fine-tuning large language models on complex, multi-step reasoning tasks.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>We must note two specific limitations of the current implementation. First, the visual decoder is only introduced during the reinforcement learning phase to facilitate the acquisition of reward signals during the initial training stages; it is not necessarily part of the inference path in its full capacity. Second, the visual decoder is strictly conditioned only on the visual signal <span class="arithmatex">\(f_v\)</span> and does not incorporate any textual prompt information during the reconstruction process. Future work should investigate methods to integrate textual conditioning into the decoder while maintaining the benefits of the unified token stream.</p>
+<p>The current formulation relies on the existence of a specific teacher-student continuation asymmetry, which is detectable without recourse to external ground-truth verifiers or complex reward models. Furthermore, the training objective employs a reverse-KL-style single-sample objective because the supervision signal derived from the relay trajectories differs intrinsically from the ideal supervision the teacher provides on its own, unperturbed trajectories. Future work should investigate the stability and generalization of this objective across different task modalities.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.18249">2606.18249</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260618249</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Wujian Peng and Lingchen Meng and Yuxuan Cai and Xianwei Zhuang and Yuhuan Yang and Rongyao Fang et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.18249}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.26057">2607.26057</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260726057</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Pass the Baton: Trajectory-Relayed On-Policy Distillation}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Haolei Xu and Xiaowen Xu and Haiwen Hong and Zixuan Ni and Hongxing Li and Yiwen Qiu et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.26057}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.18249}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.26057}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
