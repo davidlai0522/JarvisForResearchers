@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Pass the Baton: Trajectory-Relayed On-Policy Distillation](2026-07-30-pass-the-baton-trajectory-relayed-on-policy-distillation/) { data-cat="NLP" data-date="2026-07-30" }
+
+*2026-07-30*
+
+Relay On-Policy Distillation (Relay-OPD) addresses prefix failure in On-Policy Distillation (OPD) by using a label-free handoff trigger to allow the teacher to briefly correct the student's trajectory before the student resumes generation.
+
 ## [Data Pyramid for Embodied Manipulation](2026-07-29-data-pyramid-for-embodied-manipulation/) { data-cat="Robotics" data-date="2026-07-29" }
 
 *2026-07-29*
