@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "VidMap: Exploiting Temporal Structure for Video-Based Structure-from-Motion": posts/2026-07-31-vidmap-exploiting-temporal-structure-for-video-based-structu.md
     - "Pass the Baton: Trajectory-Relayed On-Policy Distillation": posts/2026-07-30-pass-the-baton-trajectory-relayed-on-policy-distillation.md
     - "Data Pyramid for Embodied Manipulation": posts/2026-07-29-data-pyramid-for-embodied-manipulation.md
     - "SM4RT: Learning Structured Motion Geometry for 4D Reconstruction": posts/2026-07-28-sm4rt-learning-structured-motion-geometry-for-4d-reconstruct.md

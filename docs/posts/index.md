@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [VidMap: Exploiting Temporal Structure for Video-Based Structure-from-Motion](2026-07-31-vidmap-exploiting-temporal-structure-for-video-based-structu/) { data-cat="Computer Vision" data-date="2026-07-31" }
+
+*2026-07-31*
+
+VidMap combines the sequential constraints of SLAM with the global optimization of offline SfM, augmented with metric monocular depth priors and provenance-aware tracking, to achieve robust metric reconstruction of arbitrary, long, uncalibrated videos.
+
 ## [Pass the Baton: Trajectory-Relayed On-Policy Distillation](2026-07-30-pass-the-baton-trajectory-relayed-on-policy-distillation/) { data-cat="NLP" data-date="2026-07-30" }
 
 *2026-07-30*
