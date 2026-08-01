@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [ReToken: One Token to Improve Vision-Language Models for Visual Retrieval](2026-08-01-retoken-one-token-to-improve-vision-language-models-for-visu/) { data-cat="Computer Vision" data-date="2026-08-01" }
+
+*2026-08-01*
+
+RETOKEN introduces a single learnable embedding trained as an explicit retrieval target to select a sparse set of query-relevant visual tokens from a pre-filled visual KV cache, improving performance in long visual context tasks for Vision-Language Models (VLMs).
+
 ## [VidMap: Exploiting Temporal Structure for Video-Based Structure-from-Motion](2026-07-31-vidmap-exploiting-temporal-structure-for-video-based-structu/) { data-cat="Computer Vision" data-date="2026-07-31" }
 
 *2026-07-31*
