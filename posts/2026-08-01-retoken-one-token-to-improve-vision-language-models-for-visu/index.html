@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="DanceOPD is an on-policy generative field distillation framework for flow-matching models that resolves multi-capability composition challenges by hard-routing samples to specific capability fields, querying these fields on student-induced states, and using a simple velocity MSE objective.
+        <meta name="description" content="RETOKEN introduces a single learnable embedding trained as an explicit retrieval target to select a sparse set of query-relevant visual tokens from a pre-filled visual KV cache, improving performance in long visual context tasks for Vision-Language Models (VLMs).
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-28-danceopd-on-policy-generative-field-distillation/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-08-01-retoken-one-token-to-improve-vision-language-models-for-visu/">
       
       
-        <link rel="prev" href="../2026-06-29-world-action-models-enable-continual-imitation-learning-with/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-06-27-scalable-behavior-cloning-with-open-data-training-and-evalua/">
+        <link rel="next" href="../2026-07-31-vidmap-exploiting-temporal-structure-for-video-based-structu/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>DanceOPD: On-Policy Generative Field Distillation - JarvisForResearchers</title>
+        <title>ReToken: One Token to Improve Vision-Language Models for Visual Retrieval - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              DanceOPD: On-Policy Generative Field Distillation
+              ReToken: One Token to Improve Vision-Language Models for Visual Retrieval
             
           </span>
         </div>
@@ -596,10 +596,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-08-01-retoken-one-token-to-improve-vision-language-models-for-visu/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ReToken: One Token to Improve Vision-Language Models for Visual Retrieval
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -615,6 +640,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#retoken-x_r" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RETOKEN (\(X_r\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#projection-matrix-mathbfw_r" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Projection Matrix (\(\mathbf{W}_r\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frame-mean-value-vector-barmathbfv_fn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frame Mean Value Vector (\(\bar{\mathbf{v}}_f^{(N)}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retrieval-score-s_fn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retrieval Score (\(s_f^{(N)}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retrieval-loss-mathcall_textret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retrieval Loss (\(\mathcal{L}_{\text{ret}}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1548,35 +1740,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    DanceOPD: On-Policy Generative Field Distillation
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-06-28-danceopd-on-policy-generative-field-distillation/" class="md-nav__link">
         
   
   
@@ -1592,173 +1759,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#trainable-student-textv_theta" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Trainable Student (\(\text{v}_\theta\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#frozen-capability-sources-textv_m_m1m" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Frozen Capability Sources (\(\{\text{v}_m\}_{m=1}^M\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hard-routed-sample-wise-field-matching" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hard-Routed Sample-Wise Field Matching
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#on-policy-field-querying" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        On-Policy Field Querying
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#semantic-side-single-query" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Semantic-Side Single Query
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3492,10 +3492,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#trainable-student-textv_theta" class="md-nav__link">
+  <a href="#retoken-x_r" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Trainable Student (\(\text{v}_\theta\))
+        RETOKEN (\(X_r\))
       
     </span>
   </a>
@@ -3503,10 +3503,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#frozen-capability-sources-textv_m_m1m" class="md-nav__link">
+  <a href="#projection-matrix-mathbfw_r" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Frozen Capability Sources (\(\{\text{v}_m\}_{m=1}^M\))
+        Projection Matrix (\(\mathbf{W}_r\))
       
     </span>
   </a>
@@ -3514,10 +3514,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#hard-routed-sample-wise-field-matching" class="md-nav__link">
+  <a href="#frame-mean-value-vector-barmathbfv_fn" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hard-Routed Sample-Wise Field Matching
+        Frame Mean Value Vector (\(\bar{\mathbf{v}}_f^{(N)}\))
       
     </span>
   </a>
@@ -3525,10 +3525,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#on-policy-field-querying" class="md-nav__link">
+  <a href="#retrieval-score-s_fn" class="md-nav__link">
     <span class="md-ellipsis">
       
-        On-Policy Field Querying
+        Retrieval Score (\(s_f^{(N)}\))
       
     </span>
   </a>
@@ -3536,10 +3536,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#semantic-side-single-query" class="md-nav__link">
+  <a href="#retrieval-loss-mathcall_textret" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Semantic-Side Single Query
+        Retrieval Loss (\(\mathcal{L}_{\text{ret}}\))
       
     </span>
   </a>
@@ -3616,7 +3616,21 @@
       
       
       
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
+      
+    
+      
+      
+      
+      
         <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:llm" class="md-tag">llm</a>
       
     
       
@@ -3630,52 +3644,49 @@
       
       
       
-        <a href="../../tags/#tag:nlp" class="md-tag">nlp</a>
+        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
       
     
   </nav>
 
 
 
-  <h1>DanceOPD: On-Policy Generative Field Distillation</h1>
+  <h1>ReToken: One Token to Improve Vision-Language Models for Visual Retrieval</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-06-28</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-08-01</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
-<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+<p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>DanceOPD introduces an on-policy generative field distillation framework for flow-matching models. It addresses capability interference in multi-capability generation by hard-routing samples to specific, frozen capability fields, querying these fields on student-induced states, and minimizing velocity MSE. This approach effectively manages target-field ambiguity, state-distribution mismatch, and trajectory-query correlation inherent in composing diverse generative tasks.</p>
+<p>RETOKEN introduces a single learnable embedding trained as an explicit retrieval target to select a sparse set of query-relevant visual tokens from a pre-filled visual KV cache, improving performance in long visual context tasks for Vision-Language Models (VLMs).</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Modern generative models are increasingly expected to serve as unified platforms capable of executing diverse functions—such as text-to-image synthesis (T2I), local image editing, and global style transfer—within a single deployed instance. However, when optimizing a single model to accommodate these disparate capabilities, the underlying optimization objectives often conflict. Capabilities are rarely naturally aligned in the parameter space, and attempting to unify them through standard joint training or parameter merging typically results in capability interference, where the model performs sub-optimally across all intended functions.</p>
+<p>Long visual contexts pose challenges for VLMs because performance degrades as the number of distractors grows, and processing all tokens simultaneously is computationally infeasible under GPU memory constraints. Standard attention mechanisms struggle to effectively prune irrelevant visual information in these extended sequences.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We present DanceOPD, a novel framework that reframes multi-capability image generation as an on-policy generative field distillation problem. Our primary contributions are:</p>
-<ol>
-<li>Formulating multi-capability image generation as on-policy generative field distillation and introducing DanceOPD, a hard-routed, semantic-side velocity-matching method applied to states visited by the student model.</li>
-<li>Systematically identifying three critical query-induced alignment challenges—target-field ambiguity, state-distribution mismatch, and trajectory-query correlation—and demonstrating how the architecture is specifically designed to mitigate each.</li>
-<li>Empirically confirming the efficacy of DanceOPD across complex composition tasks, including T2I and editing composition, as well as its ability to absorb realism and classifier-free guidance (CFG) properties.</li>
-</ol>
+<p>We made three primary contributions:
+1. Identifying that retrieval scores computed in the value space, rather than the conventional query-key space, provide a substantially stronger signal for retrieving visual information.
+2. Introducing RETOKEN, a lightweight learnable retrieval token that enables pretrained VLMs to identify relevant visual information more effectively.
+3. Demonstrating that RETOKEN trained only on multi-image QA transfers zero-shot to long-video benchmarks.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.27377/fig_p1_c1.jpg" />
-<em>Figure 1 DanceOPD Improves Multi-Capability Composition. Left: Per-metric performance for the two composition
-settings, compared with representative baselines. Right: Editing×T2I capability space for their composition, with
-marker size denoting per-step training cost. DanceOPD achieves a better comp</em></p>
-<p>DanceOPD operates by treating each distinct, frozen capability source as a specialized velocity field defined over a shared generative state space. The core innovation lies in how supervision is applied to the student model (<span class="arithmatex">\(\text{v}_\theta\)</span>) using these expert fields.</p>
-<h3 id="trainable-student-textv_theta">Trainable Student (<span class="arithmatex">\(\text{v}_\theta\)</span>)</h3>
-<p>The student model is the target of the distillation process. Its parameters are iteratively updated to assimilate the diverse capabilities encoded in the frozen sources. It operates within the shared generative state space, evolving according to the flow dynamics.</p>
-<h3 id="frozen-capability-sources-textv_m_m1m">Frozen Capability Sources (<span class="arithmatex">\(\{\text{v}_m\}_{m=1}^M\)</span>)</h3>
-<p>We maintain a set of <span class="arithmatex">\(M \ge 2\)</span> frozen models, <span class="arithmatex">\(\{\text{v}_m\}_{m=1}^M\)</span>. Each <span class="arithmatex">\(\text{v}_m\)</span> is pre-trained to excel at a specific capability (e.g., T2I, inpainting). Each <span class="arithmatex">\(\text{v}_m\)</span> defines a capability-specific velocity field <span class="arithmatex">\(\text{v}_m(z_t, t, c)\)</span> over the shared state space, where <span class="arithmatex">\(c\)</span> represents capability-specific conditioning.</p>
-<h3 id="hard-routed-sample-wise-field-matching">Hard-Routed Sample-Wise Field Matching</h3>
-<p>To resolve the <strong>target-field ambiguity</strong>—the problem of which expert field should supervise a given sample—we employ hard-routing. Each training sample is deterministically dispatched to exactly one capability field <span class="arithmatex">\(\text{v}_m\)</span>. This ensures that the semantic identity of the sample is preserved during the distillation step, preventing the averaging or dilution of distinct capabilities that occurs in soft-mixing approaches.</p>
-<h3 id="on-policy-field-querying">On-Policy Field Querying</h3>
-<p>To address <strong>state-distribution mismatch</strong>, we must ensure the supervision aligns with the state distribution the student model actually traverses during its rollout. Instead of querying the expert field on a fixed, pre-defined state, we query the selected field <span class="arithmatex">\(\text{v}_m\)</span> on a stop-gradient state <span class="arithmatex">\(z'_t\)</span> that is drawn directly from the current student rollout. This grounds the supervision in the student's own visitation distribution.</p>
-<h3 id="semantic-side-single-query">Semantic-Side Single Query</h3>
-<p>To mitigate <strong>trajectory-query correlation</strong>, which arises when multiple samples along a single trajectory are correlated, we enforce the use of a single, low-noise query per sample. This query is strategically placed on the semantic side of the noise schedule, corresponding to the regime where the capability-specific information encoded in the expert fields is most concentrated, thereby maximizing the signal-to-noise ratio for the distillation objective.</p>
-<p>The student is trained using a standard velocity Mean Squared Error (MSE) loss, <span class="arithmatex">\(\mathcal{L}_{\text{MSE}} = \mathbb{E}_{t, z_t, c} [ \| \text{v}_\theta(z_t, t, c) - \text{v}_m(z'_t, t, c) \|^2 ]\)</span>, where the routing and querying mechanisms define the specific <span class="arithmatex">\(\text{v}_m\)</span> and <span class="arithmatex">\(z'_t\)</span> used for that sample. This simple objective naturally subsumes operator-defined guidance mechanisms, such as Classifier-Free Guidance (CFG).</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2607.28627/fig_p1_c1.jpg" />
+<em>Figure 1: Attention-based retrieval mechanisms are not effective for retrieving relevant visual
+information in VLMs. (a) shows attention scores from question tokens (as queries) to frame tokens
+(as keys), across frames in one video; (b) shows whether the top-1 retrieved frame falls within the
+ground</em></p>
+<p>RETOKEN operates by introducing a single learnable embedding, <span class="arithmatex">\(X_r \in \mathbb{R}^{d_r}\)</span>, which is appended to the question tokens. This token is trained explicitly as a retrieval target. The mechanism leverages the final layer <span class="arithmatex">\(L_N\)</span> of the VLM. For each frame <span class="arithmatex">\(f\)</span>, we compute its mean value vector, <span class="arithmatex">\(\bar{\mathbf{v}}_f^{(N)}\)</span>, across all its visual tokens at <span class="arithmatex">\(L_N\)</span>. The retrieval process then scores each frame based on the cosine similarity between the projected retrieval token embedding, <span class="arithmatex">\(\mathbf{Z}_r = \mathbf{W}_r \mathbf{X}_r^{(N)}\)</span>, and <span class="arithmatex">\(\bar{\mathbf{v}}_f^{(N)}\)</span>. The model is supervised using a class-balanced binary cross-entropy loss (<span class="arithmatex">\(\mathcal{L}_{\text{ret}}\)</span>) against ground-truth relevance labels <span class="arithmatex">\(y_f\)</span>. At inference, a two-pass retrieve-then-answer pipeline is employed: the first pass selects the top-<span class="arithmatex">\(K\)</span> relevant frames (<span class="arithmatex">\(\mathcal{S}_{K}^{(N)}\)</span>) based on the scores, and the second pass generates the answer conditioned solely on the cached features of these selected frames.</p>
+<h3 id="retoken-x_r">RETOKEN (<span class="arithmatex">\(X_r\)</span>)</h3>
+<p>RETOKEN is defined as a single learnable embedding, <span class="arithmatex">\(X_r \in \mathbb{R}^{d_r}\)</span>, which is injected into the input sequence alongside the question tokens. Its purpose is to serve as a dynamic, query-specific anchor for visual information retrieval, unlike static tokens used in prior work.</p>
+<h3 id="projection-matrix-mathbfw_r">Projection Matrix (<span class="arithmatex">\(\mathbf{W}_r\)</span>)</h3>
+<p>The Projection Matrix (<span class="arithmatex">\(\mathbf{W}_r\)</span>) is a single final-layer projection matrix. It maps the embedding <span class="arithmatex">\(X_r\)</span> into the retrieval space, yielding <span class="arithmatex">\(\mathbf{Z}_r = \mathbf{W}_r \mathbf{X}_r^{(N)}\)</span>. This projection is crucial as it aligns the retrieval token into the feature space where the frame representations reside at the final layer.</p>
+<h3 id="frame-mean-value-vector-barmathbfv_fn">Frame Mean Value Vector (<span class="arithmatex">\(\bar{\mathbf{v}}_f^{(N)}\)</span>)</h3>
+<p>The Frame Mean Value Vector (<span class="arithmatex">\(\bar{\mathbf{v}}_f^{(N)}\)</span>) is computed by averaging the value vectors of all visual tokens associated with the <span class="arithmatex">\(f\)</span>-th frame at the final layer <span class="arithmatex">\(L_N\)</span>. This vector serves as a compact, representative embedding for the entire visual content of that frame.</p>
+<h3 id="retrieval-score-s_fn">Retrieval Score (<span class="arithmatex">\(s_f^{(N)}\)</span>)</h3>
+<p>The Retrieval Score (<span class="arithmatex">\(s_f^{(N)}\)</span>) quantifies the relevance of frame <span class="arithmatex">\(f\)</span> to the query. It is calculated as the cosine similarity between the projected retrieval token embedding (<span class="arithmatex">\(\mathbf{Z}_r\)</span>) and the frame's mean value vector (<span class="arithmatex">\(\bar{\mathbf{v}}_f^{(N)}\)</span>): <span class="arithmatex">\(s_f^{(N)} = \cos(\mathbf{Z}_r, \bar{\mathbf{v}}_f^{(N)})\)</span>.</p>
+<h3 id="retrieval-loss-mathcall_textret">Retrieval Loss (<span class="arithmatex">\(\mathcal{L}_{\text{ret}}\)</span>)</h3>
+<p>The model is trained using the Retrieval Loss (<span class="arithmatex">\(\mathcal{L}_{\text{ret}}\)</span>). This is a class-balanced binary cross-entropy loss that directly compares the computed final-layer retrieval scores (<span class="arithmatex">\(s_f^{(N)}\)</span>) against the provided ground-truth relevance labels (<span class="arithmatex">\(y_f\)</span>).</p>
 <h2 id="results">Results</h2>
-<p>The empirical evaluation demonstrates the effectiveness of the DanceOPD framework across various composition tasks and absorption capabilities.</p>
 <table>
 <thead>
 <tr>
@@ -3687,62 +3698,56 @@ marker size denoting per-step training cost. DanceOPD achieves a better comp</em
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">GEditBench (T2I and editing composition)</td>
-<td style="text-align: left;">8.1% improvement over the best reproduced OPD baseline</td>
-<td style="text-align: left;">Best reproduced OPD baseline</td>
-<td style="text-align: left;">Table 1</td>
-</tr>
-<tr>
-<td style="text-align: left;">GEditBench (T2I and editing composition)</td>
-<td style="text-align: left;">8.5% improvement over the edit source</td>
-<td style="text-align: left;">Edit source</td>
-<td style="text-align: left;">Table 1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Improvement over best competing composition baseline (local and global edit composition)</td>
-<td style="text-align: left;">16.1%</td>
-<td style="text-align: left;">Best competing composition baseline</td>
-<td style="text-align: left;">Table 1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Improvement over local edit source (local and global edit composition)</td>
-<td style="text-align: left;">7.9%</td>
-<td style="text-align: left;">Local edit source</td>
-<td style="text-align: left;">Table 1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Realism reward improvement (realism-field absorption)</td>
-<td style="text-align: left;">9.9%</td>
-<td style="text-align: left;">Off-policy distillation</td>
-<td style="text-align: left;">Table 1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Student-to-teacher reward gap closure (realism-field absorption)</td>
-<td style="text-align: left;">85.3%</td>
+<td style="text-align: left;">Improvement on Visual Haystacks (Qwen3VL-8B)</td>
+<td style="text-align: left;">13.4 points</td>
 <td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+<tr>
+<td style="text-align: left;">Improvement on Visual Haystacks (InternVL3.5)</td>
+<td style="text-align: left;">12.4 points (&gt;20% relative)</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+<tr>
+<td style="text-align: left;">Zero-shot gain on LVBench (Qwen3VL-8B)</td>
+<td style="text-align: left;">8.0-point gain</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+<tr>
+<td style="text-align: left;">Recall@1 (Qwen3VL, Target Phrase)</td>
+<td style="text-align: left;">78.0</td>
+<td style="text-align: left;">65.7 (Sentence)</td>
 <td style="text-align: left;">Table 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Improvement over train-only absorption (CFG absorption)</td>
-<td style="text-align: left;">7.6%</td>
-<td style="text-align: left;">Train-only absorption</td>
+<td style="text-align: left;">Recall@1 (InternVL3.5, Target Phrase)</td>
+<td style="text-align: left;">83.8</td>
+<td style="text-align: left;">78.8 (Sentence)</td>
 <td style="text-align: left;">Table 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Average Recall@1 (Attention Retrieval, QAEgo4DTest-MC)</td>
+<td style="text-align: left;">5.1%</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Fig. 1b</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>DanceOPD provides a principled methodology for constructing highly capable, unified generative models without suffering from the inherent trade-offs of joint optimization. By decoupling the capability expertise into frozen fields and using a targeted, on-policy distillation strategy, we achieve superior performance in complex compositional tasks compared to existing methods that rely on soft mixing or external composition mechanisms. This framework moves the composition logic from an external inference-time procedure into the training objective itself, leading to a more robust and integrated final model.</p>
+<p>The findings demonstrate a significant advantage to value-space retrieval over traditional query-key attention mechanisms for long-context reasoning. The substantial performance gains across Visual Haystacks and LVBench, coupled with the high Recall@1 scores achieved by using target phrases, validate the efficacy of RETOKEN. Furthermore, the zero-shot transfer capability from multi-image QA to long-video benchmarks suggests that this mechanism provides a robust, generalizable pathway for scaling multimodal reasoning without requiring task-specific fine-tuning on massive video datasets. The parameter efficiency of RETOKEN also makes it practical for deployment on constrained hardware.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>It must be noted that DanceOPD does not claim global Pareto optimality across the entire space of possible training mixtures; the routing strategy is heuristic based on semantic identity. Furthermore, the current analysis does not fully explore the stress case where the inherent decorrelation provided by SDE-style noise injection only partially mitigates the challenges, suggesting avenues for future investigation into more robust state-space regularization.</p>
+<p>Two primary limitations were identified. First, there is an asymmetry in context access: the retrieval pass budget (<span class="arithmatex">\(K_1 = 256\)</span> frames per early layer) differs from the answer-stage budget (<span class="arithmatex">\(K\)</span>). Second, the necessity of a two-pass retrieve-then-answer pipeline at test time is a consequence of training RETOKEN only at the final layer <span class="arithmatex">\(L_N\)</span>. Future work should investigate methods to integrate this retrieval signal earlier in the VLM stack or develop a single-pass inference strategy.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.27377">2606.27377</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260627377</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{DanceOPD: On-Policy Generative Field Distillation}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Wei Zhou and Xiongwei Zhu and Zelin Xu and Bo Dong and Lixue Gong and Yongyuan Liang et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.27377}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.28627">2607.28627</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260728627</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{ReToken: One Token to Improve Vision-Language Models for Visual Retrieval}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Yao Xiao and Reuben Tan and Zhen Zhu and Yuqun Wu and Jianfeng Gao and Derek Hoiem}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.28627}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.27377}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.28627}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
