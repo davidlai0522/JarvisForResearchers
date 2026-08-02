@@ -6,29 +6,36 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="High-quality robotics & AI research — explained locally with Gemma 4">
+        <meta name="description" content="This paper uses machine learning, specifically Graph Neural Networks (GNNs) and pathfinding algorithms, to address the computationally challenging problem of determining if two supersymmetric quiver gauge theories are related by a sequence of Seiberg dualities.
+">
       
       
       
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-08-02-learning-to-trace-seiberg-dualities/">
       
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../2026-08-01-retoken-one-token-to-improve-vision-language-models-for-visu/">
       
       
         
       
       
-      <link rel="icon" href="/JarvisForResearchers/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>JarvisForResearchers</title>
+        <title>Learning to Trace Seiberg Dualities - JarvisForResearchers</title>
       
     
     
-      <link rel="stylesheet" href="/JarvisForResearchers/assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="/JarvisForResearchers/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -47,9 +54,9 @@
       
     
     
-      <link rel="stylesheet" href="/JarvisForResearchers/assets/css/blog-filter.css">
+      <link rel="stylesheet" href="../../assets/css/blog-filter.css">
     
-    <script>__md_scope=new URL("/JarvisForResearchers/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -71,6 +78,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#tldr" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -81,7 +93,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/JarvisForResearchers/." title="JarvisForResearchers" class="md-header__button md-logo" aria-label="JarvisForResearchers" data-md-component="logo">
+    <a href="../.." title="JarvisForResearchers" class="md-header__button md-logo" aria-label="JarvisForResearchers" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -101,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Learning to Trace Seiberg Dualities
             
           </span>
         </div>
@@ -174,7 +186,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/JarvisForResearchers/." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -191,11 +203,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/JarvisForResearchers/posts/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -215,7 +229,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/JarvisForResearchers/digest/" class="md-tabs__link">
+      <a href="../../digest/" class="md-tabs__link">
         
   
   
@@ -234,7 +248,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/JarvisForResearchers/notes/" class="md-tabs__link">
+      <a href="../../notes/" class="md-tabs__link">
         
   
   
@@ -253,7 +267,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/JarvisForResearchers/tags/" class="md-tabs__link">
+      <a href="../../tags/" class="md-tabs__link">
         
   
   
@@ -288,7 +302,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/JarvisForResearchers/." title="JarvisForResearchers" class="md-nav__button md-logo" aria-label="JarvisForResearchers" data-md-component="logo">
+    <a href="../.." title="JarvisForResearchers" class="md-nav__button md-logo" aria-label="JarvisForResearchers" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -306,7 +320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -330,6 +344,8 @@
       
   
   
+    
+  
   
   
     
@@ -527,20 +543,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/JarvisForResearchers/posts/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -558,13 +575,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -581,10 +598,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-08-02-learning-to-trace-seiberg-dualities/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning to Trace Seiberg Dualities
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -600,6 +642,184 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#distance-gnn-dgnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distance GNN (DGNN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adviser-gnn-agnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adviser GNN (AGNN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bidirectional-asearch-pathfinder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bidirectional A*search pathfinder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beam-search-pathfinder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beam search pathfinder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lowest-common-ancestor-lca-pathfinder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lowest Common Ancestor (LCA) pathfinder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hybrid-lca-pathfinder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hybrid LCA pathfinder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -612,7 +832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-08-01-retoken-one-token-to-improve-vision-language-models-for-visu/" class="md-nav__link">
+      <a href="../2026-08-01-retoken-one-token-to-improve-vision-language-models-for-visu/" class="md-nav__link">
         
   
   
@@ -640,7 +860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-31-vidmap-exploiting-temporal-structure-for-video-based-structu/" class="md-nav__link">
+      <a href="../2026-07-31-vidmap-exploiting-temporal-structure-for-video-based-structu/" class="md-nav__link">
         
   
   
@@ -668,7 +888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-30-pass-the-baton-trajectory-relayed-on-policy-distillation/" class="md-nav__link">
+      <a href="../2026-07-30-pass-the-baton-trajectory-relayed-on-policy-distillation/" class="md-nav__link">
         
   
   
@@ -696,7 +916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-29-data-pyramid-for-embodied-manipulation/" class="md-nav__link">
+      <a href="../2026-07-29-data-pyramid-for-embodied-manipulation/" class="md-nav__link">
         
   
   
@@ -724,7 +944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-28-sm4rt-learning-structured-motion-geometry-for-4d-reconstruct/" class="md-nav__link">
+      <a href="../2026-07-28-sm4rt-learning-structured-motion-geometry-for-4d-reconstruct/" class="md-nav__link">
         
   
   
@@ -752,7 +972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-27-axis-a-growable-community-driven-data-engine-for-scalable-ro/" class="md-nav__link">
+      <a href="../2026-07-27-axis-a-growable-community-driven-data-engine-for-scalable-ro/" class="md-nav__link">
         
   
   
@@ -780,7 +1000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-26-unified-video-dense-prediction-from-disjoint-data/" class="md-nav__link">
+      <a href="../2026-07-26-unified-video-dense-prediction-from-disjoint-data/" class="md-nav__link">
         
   
   
@@ -808,7 +1028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-25-3d-aware-vlms-with-implicit-and-explicit-geometries/" class="md-nav__link">
+      <a href="../2026-07-25-3d-aware-vlms-with-implicit-and-explicit-geometries/" class="md-nav__link">
         
   
   
@@ -836,7 +1056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-24-atsplat-compact-feed-forward-3d-gaussian-splatting-with-adap/" class="md-nav__link">
+      <a href="../2026-07-24-atsplat-compact-feed-forward-3d-gaussian-splatting-with-adap/" class="md-nav__link">
         
   
   
@@ -864,7 +1084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-23-copy-less-ground-more-overcoming-repetitive-copying-in-long-/" class="md-nav__link">
+      <a href="../2026-07-23-copy-less-ground-more-overcoming-repetitive-copying-in-long-/" class="md-nav__link">
         
   
   
@@ -892,7 +1112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-22-the-many-senses-of-visual-similarity-a-text-prompted-image-p/" class="md-nav__link">
+      <a href="../2026-07-22-the-many-senses-of-visual-similarity-a-text-prompted-image-p/" class="md-nav__link">
         
   
   
@@ -920,7 +1140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-21-knowing-the-self-understanding-the-world-a-dual-cognition-be/" class="md-nav__link">
+      <a href="../2026-07-21-knowing-the-self-understanding-the-world-a-dual-cognition-be/" class="md-nav__link">
         
   
   
@@ -948,7 +1168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-20-scidiagramedit-learning-to-edit-scientific-diagrams-from-pap/" class="md-nav__link">
+      <a href="../2026-07-20-scidiagramedit-learning-to-edit-scientific-diagrams-from-pap/" class="md-nav__link">
         
   
   
@@ -976,7 +1196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-19-meanflownft-bringing-forward-process-rl-to-average-velocity-/" class="md-nav__link">
+      <a href="../2026-07-19-meanflownft-bringing-forward-process-rl-to-average-velocity-/" class="md-nav__link">
         
   
   
@@ -1004,7 +1224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-18-robottt-context-scaling-for-robot-policies/" class="md-nav__link">
+      <a href="../2026-07-18-robottt-context-scaling-for-robot-policies/" class="md-nav__link">
         
   
   
@@ -1032,7 +1252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-17-from-pixels-to-states-rethinking-interactive-world-models-as/" class="md-nav__link">
+      <a href="../2026-07-17-from-pixels-to-states-rethinking-interactive-world-models-as/" class="md-nav__link">
         
   
   
@@ -1060,7 +1280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-16-the-seriality-gap-in-video-diffusion-models/" class="md-nav__link">
+      <a href="../2026-07-16-the-seriality-gap-in-video-diffusion-models/" class="md-nav__link">
         
   
   
@@ -1088,7 +1308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-15-read-it-back-pretrained-mllms-are-zero-shot-reward-models-fo/" class="md-nav__link">
+      <a href="../2026-07-15-read-it-back-pretrained-mllms-are-zero-shot-reward-models-fo/" class="md-nav__link">
         
   
   
@@ -1116,7 +1336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-14-panoworld-real-world-panoramic-generation/" class="md-nav__link">
+      <a href="../2026-07-14-panoworld-real-world-panoramic-generation/" class="md-nav__link">
         
   
   
@@ -1144,7 +1364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-13-wat3r-underwater-3d-geometry-learning-without-annotations/" class="md-nav__link">
+      <a href="../2026-07-13-wat3r-underwater-3d-geometry-learning-without-annotations/" class="md-nav__link">
         
   
   
@@ -1172,7 +1392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-12-zipdepth-bringing-lightweight-zero-shot-monocular-depth-anyw/" class="md-nav__link">
+      <a href="../2026-07-12-zipdepth-bringing-lightweight-zero-shot-monocular-depth-anyw/" class="md-nav__link">
         
   
   
@@ -1200,7 +1420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-11-longe2v-long-horizon-event-based-video-reconstruction-predic/" class="md-nav__link">
+      <a href="../2026-07-11-longe2v-long-horizon-event-based-video-reconstruction-predic/" class="md-nav__link">
         
   
   
@@ -1228,7 +1448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-10-accurate-interdisciplinary-and-transparent-structure-propert/" class="md-nav__link">
+      <a href="../2026-07-10-accurate-interdisciplinary-and-transparent-structure-propert/" class="md-nav__link">
         
   
   
@@ -1256,7 +1476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-09-elsa3d-elastic-semantic-anchoring-for-unified-3d-understandi/" class="md-nav__link">
+      <a href="../2026-07-09-elsa3d-elastic-semantic-anchoring-for-unified-3d-understandi/" class="md-nav__link">
         
   
   
@@ -1284,7 +1504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-08-from-fixed-to-free-cameras-calibration-free-view-robust-visi/" class="md-nav__link">
+      <a href="../2026-07-08-from-fixed-to-free-cameras-calibration-free-view-robust-visi/" class="md-nav__link">
         
   
   
@@ -1312,7 +1532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-07-pointdit-pixel-space-diffusion-for-monocular-geometry-estima/" class="md-nav__link">
+      <a href="../2026-07-07-pointdit-pixel-space-diffusion-for-monocular-geometry-estima/" class="md-nav__link">
         
   
   
@@ -1340,7 +1560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-06-distributed-attacks-in-persistent-state-ai-control/" class="md-nav__link">
+      <a href="../2026-07-06-distributed-attacks-in-persistent-state-ai-control/" class="md-nav__link">
         
   
   
@@ -1368,7 +1588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-05-alignment-is-all-you-need-for-x-to-4d-generation/" class="md-nav__link">
+      <a href="../2026-07-05-alignment-is-all-you-need-for-x-to-4d-generation/" class="md-nav__link">
         
   
   
@@ -1396,7 +1616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-04-worlddirector-building-controllable-world-simulators-with-pe/" class="md-nav__link">
+      <a href="../2026-07-04-worlddirector-building-controllable-world-simulators-with-pe/" class="md-nav__link">
         
   
   
@@ -1424,7 +1644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-03-measuring-the-gap-between-human-and-llm-research-ideas/" class="md-nav__link">
+      <a href="../2026-07-03-measuring-the-gap-between-human-and-llm-research-ideas/" class="md-nav__link">
         
   
   
@@ -1452,7 +1672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-02-facemoe-mixture-of-experts-for-low-resolution-face-recogniti/" class="md-nav__link">
+      <a href="../2026-07-02-facemoe-mixture-of-experts-for-low-resolution-face-recogniti/" class="md-nav__link">
         
   
   
@@ -1480,7 +1700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-07-01-levo-2-stable-and-melodious-song-generation-via-hierarchical/" class="md-nav__link">
+      <a href="../2026-07-01-levo-2-stable-and-melodious-song-generation-via-hierarchical/" class="md-nav__link">
         
   
   
@@ -1508,7 +1728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-30-dexcompose-reusing-dexterous-policies-for-multi-task-manipul/" class="md-nav__link">
+      <a href="../2026-06-30-dexcompose-reusing-dexterous-policies-for-multi-task-manipul/" class="md-nav__link">
         
   
   
@@ -1536,7 +1756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-29-world-action-models-enable-continual-imitation-learning-with/" class="md-nav__link">
+      <a href="../2026-06-29-world-action-models-enable-continual-imitation-learning-with/" class="md-nav__link">
         
   
   
@@ -1564,7 +1784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-28-danceopd-on-policy-generative-field-distillation/" class="md-nav__link">
+      <a href="../2026-06-28-danceopd-on-policy-generative-field-distillation/" class="md-nav__link">
         
   
   
@@ -1592,7 +1812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-27-scalable-behavior-cloning-with-open-data-training-and-evalua/" class="md-nav__link">
+      <a href="../2026-06-27-scalable-behavior-cloning-with-open-data-training-and-evalua/" class="md-nav__link">
         
   
   
@@ -1620,7 +1840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-26-learning-action-priors-for-cross-embodiment-robot-manipulati/" class="md-nav__link">
+      <a href="../2026-06-26-learning-action-priors-for-cross-embodiment-robot-manipulati/" class="md-nav__link">
         
   
   
@@ -1648,7 +1868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-25-benchx-benchmarking-ai-models-for-cancer-detection-and-local/" class="md-nav__link">
+      <a href="../2026-06-25-benchx-benchmarking-ai-models-for-cancer-detection-and-local/" class="md-nav__link">
         
   
   
@@ -1676,7 +1896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-24-autodex-an-automated-real-world-system-for-dexterous-graspin/" class="md-nav__link">
+      <a href="../2026-06-24-autodex-an-automated-real-world-system-for-dexterous-graspin/" class="md-nav__link">
         
   
   
@@ -1704,7 +1924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-23-how-transparent-is-diffusiongemma/" class="md-nav__link">
+      <a href="../2026-06-23-how-transparent-is-diffusiongemma/" class="md-nav__link">
         
   
   
@@ -1732,7 +1952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-22-timeprove-propose-then-verify-for-efficient-long-video-tempo/" class="md-nav__link">
+      <a href="../2026-06-22-timeprove-propose-then-verify-for-efficient-long-video-tempo/" class="md-nav__link">
         
   
   
@@ -1760,7 +1980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-22-adm-dp-adaptive-dynamic-modality-diffusion-policy-through-vi/" class="md-nav__link">
+      <a href="../2026-06-22-adm-dp-adaptive-dynamic-modality-diffusion-policy-through-vi/" class="md-nav__link">
         
   
   
@@ -1788,7 +2008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-21-memorywam-efficient-world-action-modeling-with-persistent-me/" class="md-nav__link">
+      <a href="../2026-06-21-memorywam-efficient-world-action-modeling-with-persistent-me/" class="md-nav__link">
         
   
   
@@ -1816,7 +2036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-20-janusmesh-fast-and-zero-shot-3d-visual-illusion-generation-v/" class="md-nav__link">
+      <a href="../2026-06-20-janusmesh-fast-and-zero-shot-3d-visual-illusion-generation-v/" class="md-nav__link">
         
   
   
@@ -1844,7 +2064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-18-unified-multimodal-autoregressive-modeling-with-shared-conte/" class="md-nav__link">
+      <a href="../2026-06-18-unified-multimodal-autoregressive-modeling-with-shared-conte/" class="md-nav__link">
         
   
   
@@ -1872,7 +2092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-17-t-rex-tactile-reactive-dexterous-manipulation/" class="md-nav__link">
+      <a href="../2026-06-17-t-rex-tactile-reactive-dexterous-manipulation/" class="md-nav__link">
         
   
   
@@ -1900,7 +2120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-16-simmer-benchmarking-latent-failures-in-llm-executable-planni/" class="md-nav__link">
+      <a href="../2026-06-16-simmer-benchmarking-latent-failures-in-llm-executable-planni/" class="md-nav__link">
         
   
   
@@ -1928,7 +2148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-15-mana-dexterous-manipulation-of-articulated-tools/" class="md-nav__link">
+      <a href="../2026-06-15-mana-dexterous-manipulation-of-articulated-tools/" class="md-nav__link">
         
   
   
@@ -1956,7 +2176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-14-learning-to-reason-by-analogy-via-retrieval-augmented-reinfo/" class="md-nav__link">
+      <a href="../2026-06-14-learning-to-reason-by-analogy-via-retrieval-augmented-reinfo/" class="md-nav__link">
         
   
   
@@ -1984,7 +2204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-13-interleavethinker-reinforcing-agentic-interleaved-generation/" class="md-nav__link">
+      <a href="../2026-06-13-interleavethinker-reinforcing-agentic-interleaved-generation/" class="md-nav__link">
         
   
   
@@ -2012,7 +2232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-12-reroute-don-t-remove-recoverable-visual-token-routing-for-vi/" class="md-nav__link">
+      <a href="../2026-06-12-reroute-don-t-remove-recoverable-visual-token-routing-for-vi/" class="md-nav__link">
         
   
   
@@ -2040,7 +2260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-11-when-to-align-when-to-predict-a-phase-diagram-for-multimodal/" class="md-nav__link">
+      <a href="../2026-06-11-when-to-align-when-to-predict-a-phase-diagram-for-multimodal/" class="md-nav__link">
         
   
   
@@ -2068,7 +2288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-10-latent-spatial-memory-for-video-world-models/" class="md-nav__link">
+      <a href="../2026-06-10-latent-spatial-memory-for-video-world-models/" class="md-nav__link">
         
   
   
@@ -2096,7 +2316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-09-unisharp-universal-sharp-monocular-view-synthesis/" class="md-nav__link">
+      <a href="../2026-06-09-unisharp-universal-sharp-monocular-view-synthesis/" class="md-nav__link">
         
   
   
@@ -2124,7 +2344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-08-handoff-humanoid-agentic-task-space-whole-body-control-via-d/" class="md-nav__link">
+      <a href="../2026-06-08-handoff-humanoid-agentic-task-space-whole-body-control-via-d/" class="md-nav__link">
         
   
   
@@ -2152,7 +2372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-07-tempovla-learning-speed-controllable-vision-language-action-/" class="md-nav__link">
+      <a href="../2026-06-07-tempovla-learning-speed-controllable-vision-language-action-/" class="md-nav__link">
         
   
   
@@ -2180,7 +2400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-06-taillor-protecting-principal-components-in-parameter-efficie/" class="md-nav__link">
+      <a href="../2026-06-06-taillor-protecting-principal-components-in-parameter-efficie/" class="md-nav__link">
         
   
   
@@ -2208,7 +2428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-04-exploring-easy-boosts-for-lidar-semantic-scene-completion/" class="md-nav__link">
+      <a href="../2026-06-04-exploring-easy-boosts-for-lidar-semantic-scene-completion/" class="md-nav__link">
         
   
   
@@ -2236,7 +2456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-03-thinking-in-blender-staged-executable-inverse-graphics-with-/" class="md-nav__link">
+      <a href="../2026-06-03-thinking-in-blender-staged-executable-inverse-graphics-with-/" class="md-nav__link">
         
   
   
@@ -2264,7 +2484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-06-02-representation-forcing-for-bottleneck-free-unified-multimoda/" class="md-nav__link">
+      <a href="../2026-06-02-representation-forcing-for-bottleneck-free-unified-multimoda/" class="md-nav__link">
         
   
   
@@ -2292,7 +2512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised/" class="md-nav__link">
+      <a href="../2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised/" class="md-nav__link">
         
   
   
@@ -2320,7 +2540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-28-algorithmic-monocultures-in-hiring/" class="md-nav__link">
+      <a href="../2026-05-28-algorithmic-monocultures-in-hiring/" class="md-nav__link">
         
   
   
@@ -2348,7 +2568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi/" class="md-nav__link">
+      <a href="../2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi/" class="md-nav__link">
         
   
   
@@ -2376,7 +2596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-27-latent-action-diffusion-for-cross-embodiment-manipulation/" class="md-nav__link">
+      <a href="../2026-05-27-latent-action-diffusion-for-cross-embodiment-manipulation/" class="md-nav__link">
         
   
   
@@ -2404,7 +2624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/" class="md-nav__link">
+      <a href="../2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/" class="md-nav__link">
         
   
   
@@ -2432,7 +2652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-25-integrable-elasticity-via-neural-demand-potentials/" class="md-nav__link">
+      <a href="../2026-05-25-integrable-elasticity-via-neural-demand-potentials/" class="md-nav__link">
         
   
   
@@ -2460,7 +2680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/" class="md-nav__link">
+      <a href="../2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/" class="md-nav__link">
         
   
   
@@ -2488,7 +2708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-23-tokenisation-via-convex-relaxations/" class="md-nav__link">
+      <a href="../2026-05-23-tokenisation-via-convex-relaxations/" class="md-nav__link">
         
   
   
@@ -2516,7 +2736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-23-explicit-stair-geometry-conditioning-for-robust-humanoid-loc/" class="md-nav__link">
+      <a href="../2026-05-23-explicit-stair-geometry-conditioning-for-robust-humanoid-loc/" class="md-nav__link">
         
   
   
@@ -2544,7 +2764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-22-variance-reduction-for-expectations-with-diffusion-teachers/" class="md-nav__link">
+      <a href="../2026-05-22-variance-reduction-for-expectations-with-diffusion-teachers/" class="md-nav__link">
         
   
   
@@ -2572,7 +2792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-20-can-these-views-be-one-scene-evaluating-multiview-3d-consist/" class="md-nav__link">
+      <a href="../2026-05-20-can-these-views-be-one-scene-evaluating-multiview-3d-consist/" class="md-nav__link">
         
   
   
@@ -2600,7 +2820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-18-v-jepa-2-1-unlocking-dense-features-in-video-self-supervised/" class="md-nav__link">
+      <a href="../2026-05-18-v-jepa-2-1-unlocking-dense-features-in-video-self-supervised/" class="md-nav__link">
         
   
   
@@ -2628,7 +2848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-18-refdecoder-enhancing-visual-generation-with-conditional-vide/" class="md-nav__link">
+      <a href="../2026-05-18-refdecoder-enhancing-visual-generation-with-conditional-vide/" class="md-nav__link">
         
   
   
@@ -2656,7 +2876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/" class="md-nav__link">
+      <a href="../2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/" class="md-nav__link">
         
   
   
@@ -2684,7 +2904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-16-world-action-models-are-zero-shot-policies/" class="md-nav__link">
+      <a href="../2026-05-16-world-action-models-are-zero-shot-policies/" class="md-nav__link">
         
   
   
@@ -2712,7 +2932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-16-entitybench-towards-entity-consistent-long-range-multi-shot-/" class="md-nav__link">
+      <a href="../2026-05-16-entitybench-towards-entity-consistent-long-range-multi-shot-/" class="md-nav__link">
         
   
   
@@ -2740,7 +2960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-15-eva-bench-a-new-end-to-end-framework-for-evaluating-voice-ag/" class="md-nav__link">
+      <a href="../2026-05-15-eva-bench-a-new-end-to-end-framework-for-evaluating-voice-ag/" class="md-nav__link">
         
   
   
@@ -2768,7 +2988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/" class="md-nav__link">
+      <a href="../2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/" class="md-nav__link">
         
   
   
@@ -2796,7 +3016,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-12-normalizing-trajectory-models/" class="md-nav__link">
+      <a href="../2026-05-12-normalizing-trajectory-models/" class="md-nav__link">
         
   
   
@@ -2824,7 +3044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/" class="md-nav__link">
+      <a href="../2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/" class="md-nav__link">
         
   
   
@@ -2852,7 +3072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/" class="md-nav__link">
+      <a href="../2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/" class="md-nav__link">
         
   
   
@@ -2880,7 +3100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/" class="md-nav__link">
+      <a href="../2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/" class="md-nav__link">
         
   
   
@@ -2908,7 +3128,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/" class="md-nav__link">
+      <a href="../2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/" class="md-nav__link">
         
   
   
@@ -2936,7 +3156,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-07-audio-visual-intelligence-in-large-foundation-models/" class="md-nav__link">
+      <a href="../2026-05-07-audio-visual-intelligence-in-large-foundation-models/" class="md-nav__link">
         
   
   
@@ -2964,7 +3184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/" class="md-nav__link">
+      <a href="../2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/" class="md-nav__link">
         
   
   
@@ -2992,7 +3212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-05-posterior-augmented-flow-matching/" class="md-nav__link">
+      <a href="../2026-05-05-posterior-augmented-flow-matching/" class="md-nav__link">
         
   
   
@@ -3020,7 +3240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/" class="md-nav__link">
+      <a href="../2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/" class="md-nav__link">
         
   
   
@@ -3048,7 +3268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/" class="md-nav__link">
+      <a href="../2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/" class="md-nav__link">
         
   
   
@@ -3076,7 +3296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/" class="md-nav__link">
+      <a href="../2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/" class="md-nav__link">
         
   
   
@@ -3104,7 +3324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/" class="md-nav__link">
+      <a href="../2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/" class="md-nav__link">
         
   
   
@@ -3132,7 +3352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/posts/2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/" class="md-nav__link">
+      <a href="../2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/" class="md-nav__link">
         
   
   
@@ -3169,7 +3389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/digest/" class="md-nav__link">
+      <a href="../../digest/" class="md-nav__link">
         
   
   
@@ -3196,7 +3416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/notes/" class="md-nav__link">
+      <a href="../../notes/" class="md-nav__link">
         
   
   
@@ -3223,7 +3443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/JarvisForResearchers/tags/" class="md-nav__link">
+      <a href="../../tags/" class="md-nav__link">
         
   
   
@@ -3261,6 +3481,174 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#distance-gnn-dgnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distance GNN (DGNN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adviser-gnn-agnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adviser GNN (AGNN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bidirectional-asearch-pathfinder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bidirectional A*search pathfinder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beam-search-pathfinder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beam search pathfinder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lowest-common-ancestor-lca-pathfinder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lowest Common Ancestor (LCA) pathfinder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hybrid-lca-pathfinder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hybrid LCA pathfinder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3272,8 +3660,136 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:transformers" class="md-tag">transformers</a>
+      
+    
+  </nav>
+
+
+
+  <h1>Learning to Trace Seiberg Dualities</h1>
+
+<blockquote>
+<p><em>Generated by JarvisForResearchers Bot on 2026-08-02</em></p>
+</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Brand new preprint (2026) — accepted</p>
+</div>
+<h2 id="tldr">TL;DR</h2>
+<p>This work leverages Graph Neural Networks (GNNs)—specifically the Distance GNN (DGNN) and Adviser GNN (AGNN)—to automate the search for Seiberg duality transformations between supersymmetric quiver gauge theories. By integrating these learned policies into sophisticated pathfinding algorithms like bidirectional A*search, we demonstrate that hybrid, data-driven search strategies outperform purely deterministic approaches in navigating the combinatorial explosion inherent in these theoretical physics problems.</p>
+<h2 id="the-problem">The Problem</h2>
+<p>The fundamental challenge addressed is the efficient determination of whether two given supersymmetric quiver gauge theories are related by a sequence of Seiberg dualities, and if they are, identifying the optimal sequence of simple duality operations required to transform one into the other. The search space for these transformations grows combinatorially with each successive duality operation, making exhaustive search intractable for non-trivial theories.</p>
+<p>The prior art has largely restricted its AI/ML applications to the specialized case of quivers possessing finite mutation type. The general case, where the sequence of dualities leads to rapidly increasing combinatorial complexity, remains largely unaddressed computationally. This research marks the initial application of this methodology to a problem in theoretical physics, aiming to elucidate the underlying physics, computational complexity, and inference mechanisms governing duality operations.</p>
+<h2 id="key-contributions">Key Contributions</h2>
+<p>We present three primary contributions:
+1. We demonstrate that for quivers of modest size (up to 10 nodes), specific network architectures combining transformers and multi-layer perceptrons exhibit superior performance compared to traditional deterministic algorithms.
+2. We enhance the search strategy by augmenting the neural network outputs with established pathfinding algorithms, effectively creating a "Google Maps for quivers" that improves both efficiency and accuracy.
+3. We develop and rigorously test several pathfinding heuristics, including the Distance GNN (DGNN) and Adviser GNN (AGNN) guided searches, alongside a physics-informed Lowest Common Ancestor (LCA) pathfinder.</p>
+<h2 id="how-it-works">How It Works</h2>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2607.28628/fig_p11_c2.jpg" />
+<em>Figure 2: Seiberg Duality Tree for C3/Z3 inspired by [32, Figure 2]. Each node in the tree
+is a gauge theory Q(n) with n being the number of non-trivial mutations Dj done from
+Q(0). Generally, the action of Dj leads to different gauge theories. However, C3/Z3 has a
+permutation symmetry such that eac</em></p>
+<p>The methodology centers on constructing a dataset by iteratively applying Seiberg dualities to canonical quiver presentations, focusing on theories with 13 or fewer nodes and up to 12 duality steps. Two core GNNs are trained on this dataset: the DGNN estimates the minimal mutation distance between two quivers, while the AGNN functions as a policy adviser, predicting the most probable vertex for the next duality operation. These learned models are then integrated into heuristic-driven pathfinders, such as bidirectional A*search and beam search. Specifically, the DGNN output serves as the admissible heuristic function, and the AGNN output informs the cost function, enabling a hybrid search guided by both learned and physics-informed policies.</p>
+<h3 id="distance-gnn-dgnn">Distance GNN (DGNN)</h3>
+<p>The DGNN is engineered to perform a conceptual comparison between two input graphs (quivers). Its objective is to output an estimate of the distance or difference between these two structures, providing a metric for how far apart the two quivers are in the duality graph.</p>
+<h3 id="adviser-gnn-agnn">Adviser GNN (AGNN)</h3>
+<p>The AGNN operates as a policy adviser within the search framework. Given an input quiver, it outputs a probability distribution over the possible nodes, guiding the pathfinder algorithm to select the most likely vertex to perform a duality operation at each step.</p>
+<h3 id="bidirectional-asearch-pathfinder">Bidirectional A*search pathfinder</h3>
+<p>This pathfinder implements a search strategy where the DGNN's output is utilized as the heuristic function <span class="arithmatex">\(h(n)\)</span>, estimating the remaining distance to the target. Concurrently, the AGNN's prediction informs the cost function <span class="arithmatex">\(g(n)\)</span>, allowing the search to be guided by both learned distance estimates and policy advice.</p>
+<h3 id="beam-search-pathfinder">Beam search pathfinder</h3>
+<p>This variant of the search algorithm operates similarly to A*search but foregoes the explicit heuristic function derived from the DGNN. Instead, it maintains a reduced search frontier, pruning less promising paths based on a limited beam width, thereby controlling computational overhead.</p>
+<h3 id="lowest-common-ancestor-lca-pathfinder">Lowest Common Ancestor (LCA) pathfinder</h3>
+<p>This pathfinder is inspired by heuristic approaches employed by human physicists. It operates by attempting to locate a common quiver structure between the two input theories that minimizes the ranks of the intermediate theories, effectively searching for a shared ancestor in the duality tree.</p>
+<h3 id="hybrid-lca-pathfinder">Hybrid LCA pathfinder</h3>
+<p>This final pathfinder represents a synthesis of the preceding policies. It unifies the guidance mechanisms, incorporating the outputs from the trained neural networks (DGNN/AGNN) alongside the structural insights derived from the LCA policies, aiming for a maximally informed search trajectory.</p>
+<h2 id="results">Results</h2>
+<p>The performance evaluation across various search strategies yielded distinct results concerning computational complexity.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Baseline</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Efficiency Ratio (ER)</td>
+<td style="text-align: left;">Not quantified numerically in the abstract/summary provided</td>
+<td style="text-align: left;">Breadth-First Search (BFS)</td>
+<td style="text-align: left;">Table 2a</td>
+</tr>
+<tr>
+<td style="text-align: left;">Success Rate</td>
+<td style="text-align: left;">Not quantified numerically in the abstract/summary provided</td>
+<td style="text-align: left;">Not specified</td>
+<td style="text-align: left;">Table 2a</td>
+</tr>
+<tr>
+<td style="text-align: left;">Complexity</td>
+<td style="text-align: left;"><span class="arithmatex">\(\le 11.5\)</span></td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Section 5</td>
+</tr>
+</tbody>
+</table>
+<h2 id="why-this-matters">Why This Matters</h2>
+<p>The findings underscore a critical trend: the integration of learned heuristics derived from GNNs with established, rigorous search algorithms (like A*search) yields substantial improvements in both the efficiency and the accuracy of tracing complex theoretical relationships. Furthermore, the complexity measure <span class="arithmatex">\(C = D \log_{10} K\)</span> provides a quantifiable metric for benchmarking the performance gains achieved by NN-guided pathfinders against traditional methods. The Hybrid LCA pathfinder specifically demonstrated superior overall performance when the constraint of achieving a 100% success rate was imposed.</p>
+<h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
+<p>Despite the advancements, limitations persist. The LCA pathfinder exhibits a tendency to become trapped in local minima when the true duality distance is not sufficiently large. Moreover, an interesting paradox was observed when comparing the Efficiency Ratios (ERs) of Out-of-Distribution (OOD) theories: while the average EERs of the LCA relative to BFS were superior, the Hybrid model outperformed the LCA when the ER was normalized against the LCA baseline. This suggests a nuanced trade-off between structural intuition and learned generalization that requires further investigation.</p>
+<hr />
+<h2 id="citation">Citation</h2>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.28628">2607.28628</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260728628</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Learning to Trace Seiberg Dualities}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Jonathan J. Heckman and Shani Meynet and Alessandro Mininno and Gary Shiu}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.28628}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.28628}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</code></pre></div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -3316,16 +3832,16 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/JarvisForResearchers/", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "navigation.indexes", "navigation.expand", "content.code.copy", "search.highlight"], "search": "/JarvisForResearchers/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "navigation.indexes", "navigation.expand", "content.code.copy", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/JarvisForResearchers/assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="/JarvisForResearchers/assets/js/mathjax.js"></script>
+        <script src="../../assets/js/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
-        <script src="/JarvisForResearchers/assets/js/blog-filter.js"></script>
+        <script src="../../assets/js/blog-filter.js"></script>
       
     
   </body>
