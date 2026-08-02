@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Learning to Trace Seiberg Dualities](2026-08-02-learning-to-trace-seiberg-dualities/) { data-cat="Artificial Intelligence" data-date="2026-08-02" }
+
+*2026-08-02*
+
+This paper uses machine learning, specifically Graph Neural Networks (GNNs) and pathfinding algorithms, to address the computationally challenging problem of determining if two supersymmetric quiver gauge theories are related by a sequence of Seiberg dualities.
+
 ## [ReToken: One Token to Improve Vision-Language Models for Visual Retrieval](2026-08-01-retoken-one-token-to-improve-vision-language-models-for-visu/) { data-cat="Computer Vision" data-date="2026-08-01" }
 
 *2026-08-01*
