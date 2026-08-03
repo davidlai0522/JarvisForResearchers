@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Posterior-Augmented Flow Matching (PAFM) generalizes standard Flow Matching (FM) by replacing single-target supervision with an expectation over an approximate posterior of valid target completions, thereby reducing gradient variance.
+        <meta name="description" content="ACE introduces the Ambient Capture Engine (ACE) to generate ACE-Data-0, a large-scale, temporally synchronized, multi-modal dataset capturing human-object interactions in realistic home environments across table-scale and room-scale configurations.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-05-posterior-augmented-flow-matching/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-08-03-ace-data-0-human-centric-ambient-capture-as-embodied-data-en/">
       
       
-        <link rel="prev" href="../2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/">
+        <link rel="next" href="../2026-08-02-learning-to-trace-seiberg-dualities/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Posterior Augmented Flow Matching - JarvisForResearchers</title>
+        <title>ACE-Data-0: Human-Centric Ambient Capture as Embodied Data Engine - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Posterior Augmented Flow Matching
+              ACE-Data-0: Human-Centric Ambient Capture as Embodied Data Engine
             
           </span>
         </div>
@@ -600,10 +600,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-08-03-ace-data-0-human-centric-ambient-capture-as-embodied-data-en/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACE-Data-0: Human-Centric Ambient Capture as Embodied Data Engine
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -619,6 +644,162 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ambient-capture-engine-ace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ambient Capture Engine (ACE)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table-scale-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table-scale configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#room-scale-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Room-scale configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ace-data-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ACE-Data-0
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3036,35 +3217,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Posterior Augmented Flow Matching
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-05-posterior-augmented-flow-matching/" class="md-nav__link">
         
   
   
@@ -3080,173 +3236,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#flow-matching-fm-objective" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Flow Matching (FM) Objective
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#posterior-augmented-flow-matching-pafm-objective" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Posterior-Augmented Flow Matching (PAFM) Objective
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conditional-probability-path-p_tz_itz_j" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conditional Probability Path \(p_t(z_{i,t}|z_j)\)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#condition-likelihood-p_ty_iz_j" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Condition Likelihood \(p_t(y_i|z_j)\)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#self-normalized-importance-sampling-snis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Self-Normalized Importance Sampling (SNIS)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3552,10 +3541,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#flow-matching-fm-objective" class="md-nav__link">
+  <a href="#ambient-capture-engine-ace" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Flow Matching (FM) Objective
+        Ambient Capture Engine (ACE)
       
     </span>
   </a>
@@ -3563,10 +3552,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#posterior-augmented-flow-matching-pafm-objective" class="md-nav__link">
+  <a href="#table-scale-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Posterior-Augmented Flow Matching (PAFM) Objective
+        Table-scale configuration
       
     </span>
   </a>
@@ -3574,10 +3563,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#conditional-probability-path-p_tz_itz_j" class="md-nav__link">
+  <a href="#room-scale-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conditional Probability Path \(p_t(z_{i,t}|z_j)\)
+        Room-scale configuration
       
     </span>
   </a>
@@ -3585,21 +3574,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#condition-likelihood-p_ty_iz_j" class="md-nav__link">
+  <a href="#ace-data-0" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Condition Likelihood \(p_t(y_i|z_j)\)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#self-normalized-importance-sampling-snis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Self-Normalized Importance Sampling (SNIS)
+        ACE-Data-0
       
     </span>
   </a>
@@ -3679,43 +3657,75 @@
         <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
+      
+      
+      
+      
+        <a href="../../tags/#tag:dexterous-manipulation" class="md-tag">dexterous-manipulation</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:locomotion" class="md-tag">locomotion</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:manipulation" class="md-tag">manipulation</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:multimodal" class="md-tag">multimodal</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:perception" class="md-tag">perception</a>
+      
+    
   </nav>
 
 
 
-  <h1>Posterior Augmented Flow Matching</h1>
+  <h1>ACE-Data-0: Human-Centric Ambient Capture as Embodied Data Engine</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-05</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-08-03</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Brand new preprint (2026) — accepted</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>Posterior-Augmented Flow Matching (PAFM) generalizes standard Flow Matching (FM) by replacing single-target supervision with an expectation over an approximate posterior of valid target completions, thereby reducing gradient variance.</p>
+<p>ACE introduces the Ambient Capture Engine (ACE), a paradigm for generating ACE-Data-0. This dataset captures human-object interactions in realistic home environments across table-scale and room-scale configurations, providing temporally synchronized, multi-modal data spanning 17M frames and 75,000 interaction episodes.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>In high-dimensional image generation utilizing Flow Matching (FM), the training signal is inherently sparse and high-variance. Specifically, each training sample only supervises a single trajectory and a single intermediate point. This constraint means that a given intermediate point <span class="arithmatex">\(z_{i,t}\)</span> can plausibly lie on numerous trajectories leading to different valid targets under the same conditioning. This sparse, under-constrained supervision leads to flow collapse, where the learned dynamics tend to overfit to specific, sampled source-target pairings rather than learning the general underlying data manifold dynamics. Existing theoretical frameworks and objective refinements for FM typically maintain the assumption of a one-target-per-intermediate coupling, failing to address this fundamental issue of trajectory ambiguity.</p>
+<p>Embodied intelligence development is fundamentally constrained by data availability. Current datasets fail to capture the complete perception-action loop necessary for robust agents. Specifically, existing resources tend to fragment this loop, meaning they either lack synchronized ground truth across modalities (e.g., omitting audio or tactile sensing alongside visual and kinematic data), lack the necessary egocentric perspective, or are confined to artificial laboratory settings. Furthermore, the majority of existing Human-Object Interaction (HOI) clips are short-horizon, failing to model the sustained, goal-directed activities characteristic of real-world household use.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce Posterior-Augmented Flow Matching (PAFM), which fundamentally shifts the supervision paradigm from single-target prediction to predicting the expected velocity over all plausible continuation trajectories, weighted by their posterior likelihood. We provide a proof demonstrating that PAFM yields an unbiased estimator of the original FM objective, i.e., <span class="arithmatex">\(L(\text{PAFM})(\theta) = L(\text{FM})(\theta)\)</span>. Furthermore, we demonstrate that this aggregation of information across multiple plausible flows effectively reduces the gradient variance compared to standard FM.</p>
+<p>We present ACE, a "human-centric ambient capture as embodied data engine paradigm," implemented via table-scale and room-scale configurations. This engine yields ACE-Data-0, a large-scale, long-horizon home-scene HOI dataset containing 17M frames and 75,000 interaction episodes, richly annotated. Finally, we establish a three-level benchmark that systematically evaluates state-of-the-art methods across signal, component, and interaction levels, testing over 30 existing approaches.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze. I will then follow your instructions precisely." src="../../assets/figures/2605.00825/fig_p1_c1.jpg" />
-<em>Figure 1: Left: Standard FM provides a sparse, one-to-one supervision signal, pairing each interme-
-diate point with a single target and yielding a single plausible flow. Right: Our PAFM aggregates
-supervision over the full posterior of compatible targets, producing a denser, more coherent set of
-pl</em></p>
-<p>PAFM reformulates the FM objective by conditioning the velocity prediction not on a single sampled endpoint <span class="arithmatex">\(y_i\)</span>, but on the expectation over the posterior distribution of valid targets given the intermediate state <span class="arithmatex">\(z_{i,t}\)</span>. This posterior, <span class="arithmatex">\(p_t(z_j|z_{i,t}, y_i)\)</span>, is generally intractable. We factor this posterior into two components: the likelihood of the intermediate state <span class="arithmatex">\(z_{i,t}\)</span> under a hypothesized endpoint <span class="arithmatex">\(z_j\)</span>, <span class="arithmatex">\(p_t(z_{i,t}|z_j)\)</span>, and the prior probability of that endpoint <span class="arithmatex">\(z_j\)</span> under the condition <span class="arithmatex">\(y_i\)</span>, <span class="arithmatex">\(p_t(y_i|z_j)\)</span>.</p>
-<p>To handle the intractability, we employ a sampling strategy that constructs a mixture over <span class="arithmatex">\(K\)</span> candidate targets, <span class="arithmatex">\(\{z_j\}_{j=1}^K\)</span>. We then utilize Self-Normalized Importance Sampling (SNIS) to weight these candidates according to their posterior likelihoods. This aggregation of gradients derived from multiple plausible flows effectively lowers the variance of the training gradient estimate by a factor related to the Effective Sample Size, <span class="arithmatex">\(\text{ESS}(z_{i,t}) \geq 1\)</span>, relative to standard FM.</p>
-<h3 id="flow-matching-fm-objective">Flow Matching (FM) Objective</h3>
-<p>The standard FM objective is defined as:
-$<span class="arithmatex">\(L(\text{FM})(\theta) = \mathbb{E}_{t \sim \text{Unif}[0,1), (z_i, y_i) \sim \text{data}(\bullet), z_{i,t} \sim p_t(\bullet|z_i)} \left\| f_\theta(z_{i,t}|t, y_i) - v(z_{i,t}|z_i) \right\|^2\)</span>$
-This objective requires predicting the velocity <span class="arithmatex">\(v\)</span> at time <span class="arithmatex">\(t\)</span> given the current latent <span class="arithmatex">\(z_{i,t}\)</span> and the final target <span class="arithmatex">\(y_i\)</span>.</p>
-<h3 id="posterior-augmented-flow-matching-pafm-objective">Posterior-Augmented Flow Matching (PAFM) Objective</h3>
-<p>PAFM modifies this by integrating over the posterior of targets:
-$<span class="arithmatex">\(L(\text{PAFM})(\theta) = \mathbb{E}_{t \sim \text{Unif}[0,1), y_i \sim \text{data}(y), z_{i,t} \sim p_t(\bullet), z_j \sim p_t(\bullet|z_{i,t}, y_i)} \left\| f_\theta(z_{i,t}|t, y_i) - v(z_{i,t}|z_j) \right\|^2\)</span>$
-Here, the expectation is taken over the distribution of plausible targets <span class="arithmatex">\(z_j\)</span> given the intermediate state <span class="arithmatex">\(z_{i,t}\)</span> and condition <span class="arithmatex">\(y_i\)</span>.</p>
-<h3 id="conditional-probability-path-p_tz_itz_j">Conditional Probability Path <span class="arithmatex">\(p_t(z_{i,t}|z_j)\)</span></h3>
-<p>We model the likelihood of reaching a specific target <span class="arithmatex">\(z_j\)</span> from the current latent <span class="arithmatex">\(z_{i,t}\)</span> using a Gaussian distribution: <span class="arithmatex">\(N(\mu_t z_j, \alpha_t^2 \text{Id})\)</span>. The log-likelihood is proportional to <span class="arithmatex">\(-\|z_{i,t} - (1-t)z_j\|^2 / 2t^2\)</span>. This term quantifies how likely the current state <span class="arithmatex">\(z_{i,t}\)</span> is to be on a path leading to <span class="arithmatex">\(z_j\)</span>.</p>
-<h3 id="condition-likelihood-p_ty_iz_j">Condition Likelihood <span class="arithmatex">\(p_t(y_i|z_j)\)</span></h3>
-<p>This term measures the compatibility between a candidate target <span class="arithmatex">\(z_j\)</span> and the input condition <span class="arithmatex">\(y_i\)</span>. For class-conditioned FM, this is deterministic (1 if <span class="arithmatex">\(y_i = y_j\)</span>, 0 otherwise). For more complex conditioning, this requires an approximation.</p>
-<h3 id="self-normalized-importance-sampling-snis">Self-Normalized Importance Sampling (SNIS)</h3>
-<p>Since the true posterior <span class="arithmatex">\(p_t(z_j|z_{i,t}, y_i)\)</span> is intractable, we approximate the expectation using SNIS. This technique computes the gradient estimator <span class="arithmatex">\(\hat{\mu}_{\text{SNIS}}g(z_{i,t}|K) = \sum_{j=1}^K w_j g(z_j|z_{i,t}, y_i)\)</span>, where the weights <span class="arithmatex">\(w_j\)</span> are derived by normalizing the importance weights based on the posterior likelihoods of the <span class="arithmatex">\(K\)</span> sampled candidates <span class="arithmatex">\(\{z_j\}_{j=1}^K\)</span>.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2607.28625/fig_p1_c1.jpg" />
+<em>Figure 1
+We introduce the Ambient Capture Engine (ACE), a capture system that transforms real home envi-
+ronments into recording studios. ACE observes household activity at two complementary scales, i.e., table-scale
+and room-scale. Via ACE, we capture and release ACE-Data-0 with synchronized multip</em></p>
+<p>The Ambient Capture Engine (ACE) functions by transforming uncontrolled, real home environments into precisely calibrated, temporally synchronized recording environments. This is achieved by operating concurrently at two complementary spatial scales: table-scale for high-fidelity, local manipulation analysis, and room-scale for capturing global, whole-body dynamics. ACE records a unified multisensory stream encompassing synchronized egocentric and multi-view exocentric video, optical tracking of full-body and articulated hand motion, precise 6-DoF trajectories for every object, multi-channel audio, and tactile feedback. ACE-Data-0 is the resulting corpus, documenting 150 hours of daily living interactions across 200 distinct task categories, performed by 50 participants. Annotations are comprehensive, including full-body/hand poses, 6-DoF poses, bounding boxes, motion trails, and Gemini Text Labels, all rigorously aligned to the synchronized sensor stream.</p>
+<h3 id="ambient-capture-engine-ace">Ambient Capture Engine (ACE)</h3>
+<p>ACE serves as the core data generation mechanism. It operationalizes the concept of a human-centric data engine, effectively converting unstructured domestic settings into structured, spatially calibrated recording studios. This engine is designed to enforce temporal and spatial synchronization across disparate sensor modalities.</p>
+<h3 id="table-scale-configuration">Table-scale configuration</h3>
+<p>This configuration is optimized for high-resolution, localized interaction analysis. It employs a dense arrangement of close-range cameras coupled with high-resolution tactile sensors. This setup is specifically engineered to resolve the fine-grained kinematic details inherent in hand-object manipulation tasks.</p>
+<h3 id="room-scale-configuration">Room-scale configuration</h3>
+<p>This setup addresses the global context of interaction. Sensors are deployed across the entirety of a furnished environment to capture large-scale phenomena, including whole-body motion, locomotion patterns, and interactions that are spatially distributed throughout the scene.</p>
+<h3 id="ace-data-0">ACE-Data-0</h3>
+<p>This is the empirical output of the ACE framework. It constitutes a massive, multi-modal dataset comprising 150 hours of recorded data, totaling 17M video frames. The dataset is structured around 75,000 interaction episodes categorized into 200 distinct task categories, featuring synchronized recordings and rich, ground-truth annotations.</p>
 <h2 id="results">Results</h2>
 <table>
 <thead>
@@ -3728,26 +3738,38 @@ Here, the expectation is taken over the distribution of plausible targets <span 
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">FID50K improvement</td>
-<td style="text-align: left;">up to 3.4</td>
-<td style="text-align: left;">FM</td>
+<td style="text-align: left;">Total Interaction Episodes</td>
+<td style="text-align: left;">75,000</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+<tr>
+<td style="text-align: left;">Total Video Frames</td>
+<td style="text-align: left;">17M</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+<tr>
+<td style="text-align: left;">Task Categories</td>
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">N/A</td>
 <td style="text-align: left;">Abstract</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>PAFM provides a principled method to mitigate the high variance inherent in trajectory-based generative modeling. By replacing the brittle, single-point supervision of standard FM with an expectation over a set of plausible continuations, we effectively densify the training signal. This allows the model to learn a more robust and generalized flow dynamics, leading to measurable improvements in sample quality, as evidenced by the FID score reduction. Furthermore, the method is architecturally flexible, supporting various strategies for sourcing candidate targets <span class="arithmatex">\(\{z_j\}_{j=1}^K\)</span>, such as FAISS k-nearest-neighbor retrieval, and incurs only marginal computational overhead across different model scales and architectures.</p>
+<p>The ACE framework provides a necessary methodological advancement for embodied AI research. By providing synchronized, multi-modal grounding—encompassing perceptual input, kinematic state, and contact supervision—it furnishes coherent training signals that are currently unavailable. Furthermore, the dual-scale nature of ACE allows researchers to bridge the critical gap between analyzing fine-grained, local manipulation (via table-scale data) and achieving robust, global scene understanding (via room-scale data). The structured, three-level benchmark (signals <span class="arithmatex">\(\rightarrow\)</span> components <span class="arithmatex">\(\rightarrow\)</span> interactions) offers a systematic progression for rigorously assessing the capabilities of embodied agents.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The primary limitation is that the true posterior <span class="arithmatex">\(p_t(z_j|z_{i,t}, y_i)\)</span> remains intractable, necessitating practical approximations. Similarly, the condition likelihood <span class="arithmatex">\(p_t(y_i|z_j)\)</span> requires approximation, particularly in continuous-conditioned generation, although using models like CLIP offers an intuitive starting point for this approximation.</p>
+<p>A primary limitation observed during the evaluation of state-of-the-art methods is the manifestation of failure modes inherent to long-horizon, real-world data. These failures are attributable to the sheer diversity and complexity of the interactions, the interleaving nature of tasks, significant occlusion events, extreme viewpoints, and continuous movement across the scene. Additionally, the current paper does not provide quantitative performance metrics for the state-of-the-art methods across the established benchmark tracks.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.00825">2605.00825</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260500825</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Posterior Augmented Flow Matching}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{George Stoica and Sayak Paul and Matthew Wallingford and Vivek Ramanujan and Abhay Nori and Winson Han et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.00825}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.28625">2607.28625</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260728625</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{ACE-Data-0: Human-Centric Ambient Capture as Embodied Data Engine}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Yukang Cao and Haozhe Xie and Beichen Wen and Runmao Yao and Yinghao Liu and Yue Huang et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.28625}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.00825}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.28625}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
