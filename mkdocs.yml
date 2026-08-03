@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "ACE-Data-0: Human-Centric Ambient Capture as Embodied Data Engine": posts/2026-08-03-ace-data-0-human-centric-ambient-capture-as-embodied-data-en.md
     - "Learning to Trace Seiberg Dualities": posts/2026-08-02-learning-to-trace-seiberg-dualities.md
     - "ReToken: One Token to Improve Vision-Language Models for Visual Retrieval": posts/2026-08-01-retoken-one-token-to-improve-vision-language-models-for-visu.md
     - "VidMap: Exploiting Temporal Structure for Video-Based Structure-from-Motion": posts/2026-07-31-vidmap-exploiting-temporal-structure-for-video-based-structu.md

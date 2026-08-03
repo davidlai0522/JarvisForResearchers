@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [ACE-Data-0: Human-Centric Ambient Capture as Embodied Data Engine](2026-08-03-ace-data-0-human-centric-ambient-capture-as-embodied-data-en/) { data-cat="Computer Vision" data-date="2026-08-03" }
+
+*2026-08-03*
+
+ACE introduces the Ambient Capture Engine (ACE) to generate ACE-Data-0, a large-scale, temporally synchronized, multi-modal dataset capturing human-object interactions in realistic home environments across table-scale and room-scale configurations.
+
 ## [Learning to Trace Seiberg Dualities](2026-08-02-learning-to-trace-seiberg-dualities/) { data-cat="Artificial Intelligence" data-date="2026-08-02" }
 
 *2026-08-02*
