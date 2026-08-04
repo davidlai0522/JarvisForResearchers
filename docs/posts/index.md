@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Diagnosing Compositional Generalization in Sequential Robot Tasks](2026-08-04-diagnosing-compositional-generalization-in-sequential-robot-/) { data-cat="Robotics" data-date="2026-08-04" }
+
+*2026-08-04*
+
+This paper diagnoses compositional generalization failure in sequential robot tasks by decomposing the generalization gap into marginal, instruction-compositional, and context–action shifts, demonstrating that structured subset coverage is often sufficient for strong out-of-distribution performance.
+
 ## [ACE-Data-0: Human-Centric Ambient Capture as Embodied Data Engine](2026-08-03-ace-data-0-human-centric-ambient-capture-as-embodied-data-en/) { data-cat="Computer Vision" data-date="2026-08-03" }
 
 *2026-08-03*

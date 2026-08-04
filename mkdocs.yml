@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "Diagnosing Compositional Generalization in Sequential Robot Tasks": posts/2026-08-04-diagnosing-compositional-generalization-in-sequential-robot-.md
     - "ACE-Data-0: Human-Centric Ambient Capture as Embodied Data Engine": posts/2026-08-03-ace-data-0-human-centric-ambient-capture-as-embodied-data-en.md
     - "Learning to Trace Seiberg Dualities": posts/2026-08-02-learning-to-trace-seiberg-dualities.md
     - "ReToken: One Token to Improve Vision-Language Models for Visual Retrieval": posts/2026-08-01-retoken-one-token-to-improve-vision-language-models-for-visu.md
