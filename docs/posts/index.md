@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Bridging Artificial Intelligence and Power Systems Education Using a Hands-On Executable Framework](2026-08-05-bridging-artificial-intelligence-and-power-systems-education/) { data-cat="Artificial Intelligence" data-date="2026-08-05" }
+
+*2026-08-05*
+
+This paper introduces an open, executable module library that bridges Artificial Intelligence and Power Systems Education by mapping core AI concepts onto representative, progressive power-system tasks.
+
 ## [Diagnosing Compositional Generalization in Sequential Robot Tasks](2026-08-04-diagnosing-compositional-generalization-in-sequential-robot-/) { data-cat="Robotics" data-date="2026-08-04" }
 
 *2026-08-04*
