@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [ParVL: Parallel Scaling and Expandable Compute Allocation for Multimodal LLMs](2026-08-06-parvl-parallel-scaling-and-expandable-compute-allocation-for/) { data-cat="Computer Vision" data-date="2026-08-06" }
+
+*2026-08-06*
+
+ParVL is a parallel scaling framework for Multimodal Large Language Models (MLLMs) that expands computation by reusing existing ViT and LLM backbone parameters across multiple vision and language branches, allowing for flexible allocation between modalities.
+
 ## [Bridging Artificial Intelligence and Power Systems Education Using a Hands-On Executable Framework](2026-08-05-bridging-artificial-intelligence-and-power-systems-education/) { data-cat="Artificial Intelligence" data-date="2026-08-05" }
 
 *2026-08-05*
