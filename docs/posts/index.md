@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [CoCo-IR: Contextual Composed Image Retrieval](2026-08-07-coco-ir-contextual-composed-image-retrieval/) { data-cat="Computer Vision" data-date="2026-08-07" }
+
+*2026-08-07*
+
+CoCo-IR introduces a novel multi-turn Contextual Composed Image Retrieval task solved by the TIE framework, which uses an LMM to generate context-aware, transformable image embeddings across an evolving dialogue history.
+
 ## [ParVL: Parallel Scaling and Expandable Compute Allocation for Multimodal LLMs](2026-08-06-parvl-parallel-scaling-and-expandable-compute-allocation-for/) { data-cat="Computer Vision" data-date="2026-08-06" }
 
 *2026-08-06*
