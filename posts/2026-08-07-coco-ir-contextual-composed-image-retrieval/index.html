@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="RoboTTT is a robot model and training recipe that integrates Test-Time Training (TTT) into Vision-Language-Action (VLA) policies to scale visuomotor context up to 8K timesteps, enabling new capabilities like one-shot in-context imitation and on-the-fly policy improvement without increasing inference latency.
+        <meta name="description" content="CoCo-IR introduces a novel multi-turn Contextual Composed Image Retrieval task solved by the TIE framework, which uses an LMM to generate context-aware, transformable image embeddings across an evolving dialogue history.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-18-robottt-context-scaling-for-robot-policies/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-08-07-coco-ir-contextual-composed-image-retrieval/">
       
       
-        <link rel="prev" href="../2026-07-19-meanflownft-bringing-forward-process-rl-to-average-velocity-/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-07-17-from-pixels-to-states-rethinking-interactive-world-models-as/">
+        <link rel="next" href="../2026-08-06-parvl-parallel-scaling-and-expandable-compute-allocation-for/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>RoboTTT: Context Scaling for Robot Policies - JarvisForResearchers</title>
+        <title>CoCo-IR: Contextual Composed Image Retrieval - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              RoboTTT: Context Scaling for Robot Policies
+              CoCo-IR: Contextual Composed Image Retrieval
             
           </span>
         </div>
@@ -608,10 +608,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-08-07-coco-ir-contextual-composed-image-retrieval/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CoCo-IR: Contextual Composed Image Retrieval
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -627,6 +652,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#large-multimodal-model-lmm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Large Multimodal Model (LMM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#langle-embrangletoken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        \(\langle EMB\rangle\)token
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hybrid-attention-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hybrid Attention Mechanism
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linear-projection-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linear Projection Layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contrastive-learning-objective-infonce-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contrastive Learning Objective (InfoNCE loss)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1168,35 +1360,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    RoboTTT: Context Scaling for Robot Policies
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-07-18-robottt-context-scaling-for-robot-policies/" class="md-nav__link">
         
   
   
@@ -1212,184 +1379,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vision-language-model-vlm-backbone" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vision-Language Model (VLM) backbone
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#diffusion-transformer-dit-action-head" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Diffusion Transformer (DiT) action head
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ttt-layers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TTT Layers
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fast-weights-w_t" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fast Weights (\(W_t\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#register-tokens-r_t" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Register Tokens (\(R_t\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tanh-gating-mechanism" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tanh Gating Mechanism
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3683,10 +3672,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#vision-language-model-vlm-backbone" class="md-nav__link">
+  <a href="#large-multimodal-model-lmm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vision-Language Model (VLM) backbone
+        Large Multimodal Model (LMM)
       
     </span>
   </a>
@@ -3694,10 +3683,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#diffusion-transformer-dit-action-head" class="md-nav__link">
+  <a href="#langle-embrangletoken" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Diffusion Transformer (DiT) action head
+        \(\langle EMB\rangle\)token
       
     </span>
   </a>
@@ -3705,10 +3694,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ttt-layers" class="md-nav__link">
+  <a href="#hybrid-attention-mechanism" class="md-nav__link">
     <span class="md-ellipsis">
       
-        TTT Layers
+        Hybrid Attention Mechanism
       
     </span>
   </a>
@@ -3716,10 +3705,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fast-weights-w_t" class="md-nav__link">
+  <a href="#linear-projection-layer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fast Weights (\(W_t\))
+        Linear Projection Layer
       
     </span>
   </a>
@@ -3727,21 +3716,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#register-tokens-r_t" class="md-nav__link">
+  <a href="#contrastive-learning-objective-infonce-loss" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Register Tokens (\(R_t\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tanh-gating-mechanism" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tanh Gating Mechanism
+        Contrastive Learning Objective (InfoNCE loss)
       
     </span>
   </a>
@@ -3818,81 +3796,59 @@
       
       
       
-        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:foundation-models" class="md-tag">foundation-models</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:transformers" class="md-tag">transformers</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
+        <a href="../../tags/#tag:multimodal" class="md-tag">multimodal</a>
       
     
   </nav>
 
 
 
-  <h1>RoboTTT: Context Scaling for Robot Policies</h1>
+  <h1>CoCo-IR: Contextual Composed Image Retrieval</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-07-18</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-08-07</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
 <p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>RoboTTT introduces Test-Time Training (TTT) into Vision-Language-Action (VLA) policies, enabling the scaling of visuomotor context up to 8K timesteps. This is achieved by allowing recurrent state components (fast weights) to be updated via gradient descent during inference, effectively compressing long histories into weight space. This architecture unlocks capabilities such as one-shot in-context imitation and on-the-fly policy improvement without incurring increased inference latency.</p>
+<p>CoCo-IR formalizes multi-turn contextual composed image retrieval, addressing the limitations of single-turn systems. We introduce TIE, an LMM-based framework that generates context-aware, transformable image embeddings by utilizing a specialized <span class="arithmatex">\(\langle EMB\rangle\)</span>token to aggregate the entire dialogue history into a compact, query-aware representation.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Contemporary robot foundation models are fundamentally constrained by their reliance on single-step or short-history visuomotor context windows. This limitation severely restricts their capacity to effectively learn from, or exploit, the arbitrarily long temporal dependencies inherent in complex robotic tasks. Specifically, this short-context constraint impedes the realization of capabilities such as one-shot in-context imitation derived from extended human video demonstrations, the ability to perform on-the-fly policy refinement, and achieving robust closed-loop performance across multi-stage, long-horizon operational sequences.</p>
+<p>Current instruction-based image retrieval systems are fundamentally constrained to single-turn interactions. This limitation prevents them from modeling the iterative, exploratory, and inherently complex nature of real-world visual search tasks. In practical scenarios, users do not issue a single, monolithic query; rather, they engage in a dialogue, progressively refining their intent based on the visual evidence or results presented in previous turns.</p>
+<p>The gaps in prior work are significant:
+1. Classical CIR is restricted to isolated, single-turn queries.
+2. Existing methods struggle to natively encode a sequence of interleaved images and instructions, even when employing powerful external models to summarize the interaction history.
+3. Prior work, such as IRR or MAI, is often domain-specific (e.g., fashion) or only supports text-only refinements after the initial turn, failing to accommodate the interleaved image-text input structure central to CoCo-IR.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce Test-Time-Training Robot Policies (RoboTTT) to scale the available visuomotor context length to 8K timesteps. We demonstrate that this long-context conditioning unlocks novel capabilities, including effective one-shot in-context imitation and demonstrable on-the-fly policy improvement. Furthermore, we establish that scaling the pretraining context length yields a consistent and measurable gain in the closed-loop performance of robot foundation models.</p>
+<p>Our work makes three primary contributions:
+1. We introduce CoCo-IR, a novel task definition for multi-turn contextual composed image retrieval.
+2. We propose TIE, an LMM-based architecture designed to generate context-aware, transformable image embeddings that accurately capture the full dialogue history.
+3. We developed a scalable data engine that leverages LMM-driven self-reflection and hard-negative verification to construct the first large-scale CoCo-IR dataset.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2607.15275/fig_p1_c1.jpg" />
-<em>Figure 1: RoboTTT, a long-context visuomotor policy that integrates Test-Time Training (TTT) into robot foundation
-models, with context scaled to 8K timesteps. RoboTTT exhibits capabilities such as one-shot in-context imitation from
-human videos and on-the-fly policy improvement.</em></p>
-<p>RoboTTT operationalizes long-context modeling by integrating Test-Time Training (TTT) directly into the structure of VLA policies. The core innovation is transforming the recurrent state of the model into a set of "fast weights." Unlike traditional frozen slow weights, these fast weights are amenable to gradient descent updates during both the standard training phase and the inference phase. This mechanism allows the model to compress extensive temporal histories into the parameter space of these fast weights. To facilitate the necessary long context, the training recipe employs a combination of sequence action forcing and Truncated Backpropagation Through Time (TBPTT). Architecturally, the TTT layers are strategically positioned downstream of the self- and cross-attention mechanisms within the Diffusion Transformer (DiT) action head. To ensure that the model retains its foundational VLA capabilities while adapting to heterogeneous contexts—such as those provided by human video demonstrations via DAgger Distillation—a learned tanh gating mechanism is employed.</p>
-<h3 id="vision-language-model-vlm-backbone">Vision-Language Model (VLM) backbone</h3>
-<p>The VLM backbone is responsible for generating the necessary vision-language (VL) tokens, denoted as <span class="arithmatex">\(\Phi_t\)</span>, which serve as the primary input representation for the robot trajectory at each timestep <span class="arithmatex">\(t\)</span>.</p>
-<h3 id="diffusion-transformer-dit-action-head">Diffusion Transformer (DiT) action head</h3>
-<p>The DiT action head is the module responsible for predicting the action chunk <span class="arithmatex">\(A_t\)</span> over an <span class="arithmatex">\(H\)</span>-step horizon. Crucially, this head incorporates the TTT layers immediately following the self-attention and cross-attention layers, allowing the contextual information derived from TTT to modulate the action prediction process.</p>
-<h3 id="ttt-layers">TTT Layers</h3>
-<p>The TTT Layers are the mechanism through which information is processed across the time dimension. They operate by updating the fast weights (<span class="arithmatex">\(W_t\)</span>) via gradient descent, as formalized in Equation 1. This update process is what enables the model to dynamically adapt its internal state based on the observed history.</p>
-<h3 id="fast-weights-w_t">Fast Weights (<span class="arithmatex">\(W_t\)</span>)</h3>
-<p>The Fast Weights (<span class="arithmatex">\(W_t\)</span>) constitute the parameters of a small, dedicated neural network, <span class="arithmatex">\(f_W(\cdot)\)</span>. These parameters are designed to be updated iteratively using gradient descent during both the initial training phase and subsequent inference steps. Their function is to serve as a compressed, dynamic encoding of the contextual information accumulated over the trajectory history.</p>
-<h3 id="register-tokens-r_t">Register Tokens (<span class="arithmatex">\(R_t\)</span>)</h3>
-<p>Register Tokens (<span class="arithmatex">\(R_t\)</span>) are a set of <span class="arithmatex">\(N=16\)</span> learned tokens that are prepended to the input sequence at every timestep. These tokens are designed to attend globally to all other tokens in the sequence, thereby acting as a persistent carrier of the accumulated VL information across the temporal dimension.</p>
-<h3 id="tanh-gating-mechanism">Tanh Gating Mechanism</h3>
-<p>The Tanh Gating Mechanism provides a controlled integration point for the TTT contribution. It is implemented as a learned mechanism, <span class="arithmatex">\(\tanh(\alpha)\)</span>, which gates the output derived from the TTT layers (<span class="arithmatex">\(O_{TTT}\)</span>) before it is combined with the standard attention output (<span class="arithmatex">\(O_{attn}\)</span>), following the formulation: <span class="arithmatex">\(O = \tanh(\alpha) \odot O_{TTT} + O_{attn}\)</span> (Equation 3). This gating allows the model to selectively incorporate the context-aware updates from TTT without corrupting the robust representations learned by the base VLA architecture.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2608.05149/fig_p1_c1.jpg" />
+<em>Fig. 1: Comparison between conventional single-turn Composed Image Retrieval (CIR)
+and our novel Contextual Composed Image Retrieval (CoCo-IR) task, achieved via our
+proposed TIE framework. (Top Left) A standard single-turn CIR model successfully
+processes a simple, isolated instruction. (Top Right)</em></p>
+<p>CoCo-IR is modeled as an interactive dialogue where the system must interpret each new instruction relative to the entire interaction history, <span class="arithmatex">\(H_t\)</span>. The TIE model, built upon a Large Multimodal Model (LMM), processes this sequence by feeding a special <span class="arithmatex">\(\langle EMB\rangle\)</span>token at the conclusion of each turn. This token serves to compel the LMM to aggregate the complete history into a compact, query-aware embedding, effectively functioning as a global information bottleneck. The architecture integrates bidirectional attention within each turn to facilitate deep multimodal fusion, while causal attention across turns is employed to strictly respect the temporal flow of the dialogue. Training is performed using an InfoNCE loss, which contrasts the query embedding against the positive target embedding within a comprehensive set of candidate embeddings, <span class="arithmatex">\(\mathcal{C}_e\)</span>.</p>
+<h3 id="large-multimodal-model-lmm">Large Multimodal Model (LMM)</h3>
+<p>The LMM serves as the foundational component, enhanced specifically for the CoCo-IR task. Its role is to function as a context-aware reasoner, capable of synthesizing information across multimodal inputs (images and text) and maintaining coherence across the evolving dialogue state.</p>
+<h3 id="langle-embrangletoken"><span class="arithmatex">\(\langle EMB\rangle\)</span>token</h3>
+<p>This is a specialized token injected into the input sequence at the end of each turn. Its function is prescriptive: it prompts the LMM to perform a high-level summarization of the entire interactive history up to that point, condensing the complex sequence into a single, dense, and context-aware representation.</p>
+<h3 id="hybrid-attention-mechanism">Hybrid Attention Mechanism</h3>
+<p>The attention mechanism is bifurcated to handle intra-turn and inter-turn dependencies. Within a single turn, bidirectional (full) attention is used to maximize multimodal fusion between the current instruction and the associated image(s). Across turns, causal attention is enforced to ensure that the model processes the dialogue sequentially, respecting the temporal causality of the interaction.</p>
+<h3 id="linear-projection-layer">Linear Projection Layer</h3>
+<p>This layer is applied to the final hidden state vector corresponding to the <span class="arithmatex">\(\langle EMB\rangle\)</span>token. Its purpose is to map the high-dimensional, context-aggregated representation generated by the LMM into the final, fixed-dimension output embedding suitable for retrieval comparison.</p>
+<h3 id="contrastive-learning-objective-infonce-loss">Contrastive Learning Objective (InfoNCE loss)</h3>
+<p>The training objective is the InfoNCE loss. This loss function is designed to maximize the similarity between the current query embedding, <span class="arithmatex">\(q_{t,i}\)</span>, and its corresponding positive target embedding, <span class="arithmatex">\(p_{t,i}\)</span>, while simultaneously minimizing the similarity to all other candidate embeddings present in the set <span class="arithmatex">\(\mathcal{C}_e\)</span>.</p>
 <h2 id="results">Results</h2>
 <table>
 <thead>
@@ -3905,50 +3861,32 @@ human videos and on-the-fly policy improvement.</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Overall task performance improvement</td>
-<td style="text-align: left;">87%</td>
-<td style="text-align: left;">single-step context baseline</td>
-<td style="text-align: left;">Table 1</td>
+<td style="text-align: left;">mAP@5 on CIRCO</td>
+<td style="text-align: left;">39.4</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Abstract</td>
 </tr>
 <tr>
-<td style="text-align: left;">Task completion score (Gear Bot)</td>
-<td style="text-align: left;">79%</td>
-<td style="text-align: left;">GR00T N1.7 (single-step context)</td>
-<td style="text-align: left;">Figure 7</td>
-</tr>
-<tr>
-<td style="text-align: left;">Task completion score (Gear Bot)</td>
-<td style="text-align: left;">42%</td>
-<td style="text-align: left;">GR00T N1.7 (single-step context)</td>
-<td style="text-align: left;">Figure 7</td>
-</tr>
-<tr>
-<td style="text-align: left;">Task completion score (Gear Bot)</td>
-<td style="text-align: left;">56%</td>
-<td style="text-align: left;">GDN</td>
-<td style="text-align: left;">Figure 7</td>
-</tr>
-<tr>
-<td style="text-align: left;">Task completion score (Gear Bot)</td>
-<td style="text-align: left;">63% higher task completion score</td>
-<td style="text-align: left;">same model pretrained with 1K-timestep context</td>
+<td style="text-align: left;">4-turn R@1 on CoCo-IR benchmark</td>
+<td style="text-align: left;">44.1</td>
+<td style="text-align: left;">28.2</td>
 <td style="text-align: left;">Abstract</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The ability to scale visuomotor context to 8K timesteps via RoboTTT represents a significant step toward building truly general-purpose robotic agents. By allowing the model to dynamically update its internal state during inference, we achieve in-context adaptation without the prohibitive computational overhead associated with maintaining massive, fixed-context attention mechanisms. This capability directly enables the exploitation of rich, long-form data like human demonstrations for one-shot learning, while simultaneously providing a mechanism for the agent to self-correct and improve its policy iteratively during execution.</p>
+<p>The shift from single-turn to multi-turn retrieval is critical for advancing robotics and AI applications that require complex, goal-directed interaction with the environment. By formalizing CoCo-IR, we provide a rigorous benchmark for evaluating systems that must maintain long-term context and adapt their search strategy iteratively. Furthermore, the TIE framework demonstrates a viable paradigm for leveraging LMMs not just for immediate reasoning, but for structured, history-aware embedding generation, which is a necessary step toward more autonomous visual agents.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current implementation is highly dependent on specific, carefully engineered training recipes, notably sequence action forcing and DAgger Distillation, which must be managed rigorously. Furthermore, the architectural complexity introduced by the fast weight updates necessitates careful management of the gradient flow across the time steps to ensure stable and efficient operation. Future work must address the scalability and robustness of the fast weight update mechanism under highly noisy or adversarial input streams.</p>
+<p>We acknowledge two primary limitations. First, the evaluation metric, m-turn Recall@k, necessitates fixed and predefined evaluation trajectories. This structure inherently prevents the simulation of truly on-the-fly user adaptation, which is a key characteristic of human interaction. Second, the overall performance ceiling of the TIE framework is intrinsically tied to the quality of the data generated by the LMM-powered data engine; any systematic bias in the self-reflection process will propagate into the benchmark's limitations. Future work must address the simulation of dynamic user behavior and explore alternative, less data-dependent context aggregation mechanisms.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.15275">2607.15275</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260715275</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{RoboTTT: Context Scaling for Robot Policies}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Yunfan Jiang and Yevgen Chebotar and Ruijie Zheng and Fengyuan Hu and Yunhao Ge and Jimmy Wu et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.15275}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2608.05149">2608.05149</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260805149</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{CoCo-IR: Contextual Composed Image Retrieval}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Shengcao Cao and Tanmaya Shekhar Dabral and Zhongli Ding and Madhuri Shanbhogue and Kaifeng Chen and Zhe Li et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2608.05149}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.15275}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2608.05149}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
