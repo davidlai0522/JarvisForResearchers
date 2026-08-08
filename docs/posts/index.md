@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Learning When to Trust via Selective Context Preference Optimization](2026-08-08-learning-when-to-trust-via-selective-context-preference-opti/) { data-cat="NLP" data-date="2026-08-08" }
+
+*2026-08-08*
+
+SCOPE introduces a signal-counterfactual preference framework that optimizes for selective trust by balancing misleading-resistance pairs against matched clean, correct-context, and irrelevant-context controls.
+
 ## [CoCo-IR: Contextual Composed Image Retrieval](2026-08-07-coco-ir-contextual-composed-image-retrieval/) { data-cat="Computer Vision" data-date="2026-08-07" }
 
 *2026-08-07*

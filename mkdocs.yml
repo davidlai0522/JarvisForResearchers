@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "Learning When to Trust via Selective Context Preference Optimization": posts/2026-08-08-learning-when-to-trust-via-selective-context-preference-opti.md
     - "CoCo-IR: Contextual Composed Image Retrieval": posts/2026-08-07-coco-ir-contextual-composed-image-retrieval.md
     - "ParVL: Parallel Scaling and Expandable Compute Allocation for Multimodal LLMs": posts/2026-08-06-parvl-parallel-scaling-and-expandable-compute-allocation-for.md
     - "Bridging Artificial Intelligence and Power Systems Education Using a Hands-On Executable Framework": posts/2026-08-05-bridging-artificial-intelligence-and-power-systems-education.md
