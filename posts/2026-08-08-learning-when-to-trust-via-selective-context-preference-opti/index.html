@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="The paper introduces MODIRECT and DeltaDirect to diagnose and overcome directional motion blindness in Video-LLMs, which stems from a direction binding gap where motion signals are present but not reliably linked to verbal answers.
+        <meta name="description" content="SCOPE introduces a signal-counterfactual preference framework that optimizes for selective trust by balancing misleading-resistance pairs against matched clean, correct-context, and irrelevant-context controls.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-08-08-learning-when-to-trust-via-selective-context-preference-opti/">
       
       
-        <link rel="prev" href="../2026-05-25-integrable-elasticity-via-neural-demand-potentials/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-23-tokenisation-via-convex-relaxations/">
+        <link rel="next" href="../2026-08-07-coco-ir-contextual-composed-image-retrieval/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Which Way Did It Move? Diagnosing and Overcoming Directional Motion Blindness in Video-LLMs - JarvisForResearchers</title>
+        <title>Learning When to Trust via Selective Context Preference Optimization - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Which Way Did It Move? Diagnosing and Overcoming Directional Motion Blindness in Video-LLMs
+              Learning When to Trust via Selective Context Preference Optimization
             
           </span>
         </div>
@@ -610,10 +610,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-08-08-learning-when-to-trust-via-selective-context-preference-opti/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning When to Trust via Selective Context Preference Optimization
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -629,6 +654,162 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mist-misleading-signal-testbed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MIST (Misleading Signal Testbed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sc2w" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SC2W
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matched-preference-data-d_b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matched Preference Data (\(D_b\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scope-loss-l_textscope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SCOPE Loss (\(L_{\text{SCOPE}}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2654,35 +2835,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Which Way Did It Move? Diagnosing and Overcoming Directional Motion Blindness in Video-LLMs
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/" class="md-nav__link">
         
   
   
@@ -2698,173 +2854,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vision-encoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vision Encoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#projector" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Projector
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#llm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LLM
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#readout-token-h_textout" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Readout Token (\(h_\text{out}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deltadirect" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DeltaDirect
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3702,10 +3691,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#vision-encoder" class="md-nav__link">
+  <a href="#mist-misleading-signal-testbed" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vision Encoder
+        MIST (Misleading Signal Testbed)
       
     </span>
   </a>
@@ -3713,10 +3702,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#projector" class="md-nav__link">
+  <a href="#sc2w" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Projector
+        SC2W
       
     </span>
   </a>
@@ -3724,10 +3713,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#llm" class="md-nav__link">
+  <a href="#matched-preference-data-d_b" class="md-nav__link">
     <span class="md-ellipsis">
       
-        LLM
+        Matched Preference Data (\(D_b\))
       
     </span>
   </a>
@@ -3735,21 +3724,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#readout-token-h_textout" class="md-nav__link">
+  <a href="#scope-loss-l_textscope" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Readout Token (\(h_\text{out}\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deltadirect" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DeltaDirect
+        SCOPE Loss (\(L_{\text{SCOPE}}\))
       
     </span>
   </a>
@@ -3826,101 +3804,124 @@
       
       
       
-        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:generalization" class="md-tag">generalization</a>
+        <a href="../../tags/#tag:llm" class="md-tag">llm</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:nlp" class="md-tag">nlp</a>
       
     
   </nav>
 
 
 
-  <h1>Which Way Did It Move? Diagnosing and Overcoming Directional Motion Blindness in Video-LLMs</h1>
+  <h1>Learning When to Trust via Selective Context Preference Optimization</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-24</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-08-08</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
-<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+<p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>This work introduces MODIRECT and DeltaDirect to address directional motion blindness in Video-LLMs. This blindness arises from a direction binding gap where motion signals are present but fail to reliably map to verbal outputs. DeltaDirect is a projector-level objective that forces the visual features to encode strong, signed 2-D motion vectors, leading to significant performance gains on motion direction tasks.</p>
+<p>SCOPE introduces a signal-counterfactual preference framework to optimize for selective trust in language models. It moves beyond resistance-only training by balancing the penalty for succumbing to misleading signals against the necessity of maintaining performance under clean, correct-context, and irrelevant-context inputs, as evaluated by the MIST benchmark.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>A critical failure mode observed in many Video-LLMs is directional motion blindness. This manifests as near-chance performance on tasks requiring the perception of signed image-plane motion direction, even when the necessary motion information is linearly accessible throughout the model's processing pipeline.</p>
-<p>The limitations of prior work are threefold. First, existing benchmarks often conflate the target motion direction with confounding factors such as camera motion, object identity, scene layout, scale changes, and event semantics. Second, while instruction tuning can successfully close the direction binding gap within the source domain, it fails to instill a robust, domain-invariant motion direction signal, resulting in a significant out-of-domain generalization gap. Crucially, the failure mode is not merely an absence of motion direction geometry, but rather a deficit in the <em>magnitude</em> of the motion direction concept vector when generalizing across domains.</p>
+<p>Language models exhibit fragility concerning external contextual signals. While training methods exist to increase resistance to misleading context, this approach introduces a critical failure mode: models trained exclusively for resistance may become robust against adversarial inputs but simultaneously degrade in utility by ignoring all provided context, even when that context is trustworthy. Current evaluation paradigms, which often score models under a single context, fail to capture this nuanced dependency on context quality. Furthermore, existing resistance-only training methods, such as misleading-only Direct Preference Optimization (DPO), successfully raise misleading-context accuracy at the expense of eroding accuracy on clean or correct-context inputs. A significant gap remains in the literature regarding methods that explicitly model and optimize for <em>selective trust</em> rather than blanket context rejection.</p>
 <h2 id="key-contributions">Key Contributions</h2>
 <p>We make three primary contributions:
-1. We formally identify directional motion blindness in Video-LLMs, diagnosing its root cause as a direction binding gap.
-2. We demonstrate that while instruction tuning resolves the direction binding gap in the source domain, it fails to produce a sufficiently strong, domain-invariant motion direction signal, leading to an out-of-domain generalization deficit.
-3. We introduce MODIRECT, a controlled dataset family designed to isolate motion direction, and DeltaDirect, a training-only projector-level objective that explicitly predicts normalized 2-D motion vectors from adjacent-frame feature deltas.</p>
+1. Introduction of MIST (Misleading Signal Testbed), a human-annotated benchmark designed to quantify selective trust across four matched contextual conditions.
+2. Empirical demonstration that standard prompt-defense, Supervised Fine-Tuning (SFT), and misleading-only DPO fail to achieve the necessary balance for selective trust.
+3. Proposal of SCOPE, a signal-counterfactual preference method that explicitly balances the learning signal derived from misleading-resistance pairs against matched controls derived from clean, correct-context, and irrelevant-context scenarios.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.22823/fig_p2_c1.jpg" />
-<em>Figure 1: Directional motion blindness in Video-LLMs. (a) Given a simple synthetic video of a
-yellow circle moving from left to right, recent Video-LLMs correctly identify the object’s color but
-answer the wrong motion direction. (b) Across Video-LLMs, appearance recognition is high, yet
-signed moti</em></p>
-<p>The diagnostic process involves tracing motion direction signals through the Video-LLM architecture to pinpoint the 'direction binding gap' at the readout position. To mitigate this, we employ DeltaDirect. This objective supervises the output of the <strong>Projector</strong> by training it to predict normalized 2-D motion vectors. These target vectors are derived directly from the feature deltas between adjacent frames. By imposing this low-level, signed displacement constraint at the projector level, we force the visual features to carry a stronger, more explicit signed displacement signal before they are integrated into the <strong>LLM</strong>.</p>
-<h3 id="vision-encoder">Vision Encoder</h3>
-<p>The <strong>Vision Encoder</strong> processes <span class="arithmatex">\(T\)</span> sampled frames, outputting visual features <span class="arithmatex">\(V \in \mathbb{R}^{T \times M \times D_v}\)</span>. Here, <span class="arithmatex">\(M\)</span> denotes the number of patch tokens per frame, and <span class="arithmatex">\(D_v\)</span> is the embedding dimension.</p>
-<h3 id="projector">Projector</h3>
-<p>The <strong>Projector</strong> serves as the interface between the vision and language modalities. It maps the high-dimensional visual features into the LLM's embedding space, yielding visual tokens <span class="arithmatex">\(F \in \mathbb{R}^{T \times N \times D}\)</span>, where <span class="arithmatex">\(N \le M\)</span> reflects any spatial pooling applied, and <span class="arithmatex">\(D\)</span> is the LLM hidden dimension.</p>
-<h3 id="llm">LLM</h3>
-<p>The <strong>LLM</strong> is an <span class="arithmatex">\(L\)</span>-layer transformer that processes the sequence of visual tokens <span class="arithmatex">\(F\)</span> alongside text tokens. It generates an answer by tracking hidden states <span class="arithmatex">\(z_i^t\)</span> at the visual-token positions.</p>
-<h3 id="readout-token-h_textout">Readout Token (<span class="arithmatex">\(h_\text{out}\)</span>)</h3>
-<p>The <strong>Readout Token</strong> is the hidden state corresponding to the final token position at layer <span class="arithmatex">\(L\)</span>. This state, <span class="arithmatex">\(h_L\)</span>, is subsequently mapped to the output vocabulary logits to facilitate next-token prediction.</p>
-<h3 id="deltadirect">DeltaDirect</h3>
-<p><strong>DeltaDirect</strong> is a training-only objective applied at the <strong>Projector</strong> level. It directly supervises the projector's output by requiring it to predict normalized 2-D motion vectors. These target vectors are computed from the feature deltas between adjacent frames, effectively training the projector to encode explicit motion kinematics.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2608.06377/fig_p1_c1.jpg" />
+<em>Figure 1: Misleading signals cause a universal ac-
+curacy drop. On MIST (Misleading Signal Testbed),
+replacing a clean context with a plausible misleading
+one lowers accuracy for every model we evaluate, fron-
+tier proprietary models included.</em></p>
+<p>SCOPE operates by mining counterfactual preference data from a base model. We select items <span class="arithmatex">\(i\)</span> where the base model solves the underlying reasoning task correctly on its own but fails when a misleading signal is appended. For each such item <span class="arithmatex">\(i\)</span>, we construct a response pair <span class="arithmatex">\((r^+_i, r^-_i)\)</span>, where <span class="arithmatex">\(r^+_i\)</span> is the truth-consistent response and <span class="arithmatex">\(r^-_i\)</span> is the response generated by the base model that follows the misleading signal. This pair is then contextualized by four matched prompts, <span class="arithmatex">\(z^b_i\)</span>, where <span class="arithmatex">\(b \in \{\text{mis, clean, cor, irr}\}\)</span>. The learning signal is engineered to depend on the <em>role</em> of the context, not merely the surface form of the prompt. The objective is unified into the SCOPE Loss: <span class="arithmatex">\(L_{\text{SCOPE}} = \lambda_m L_{\text{mis}} + \lambda_c L_{\text{clean}} + \lambda_p L_{\text{nonadv}}\)</span>, where <span class="arithmatex">\(\lambda_m + \lambda_c + \lambda_p = 1\)</span>. In our headline experiments, the hyperparameters are set as <span class="arithmatex">\((\lambda_m, \lambda_c, \lambda_p, \rho) = (0.25, 0.25, 0.50, 0.50)\)</span>.</p>
+<h3 id="mist-misleading-signal-testbed">MIST (Misleading Signal Testbed)</h3>
+<p>MIST is a human-annotated benchmark. It renders each underlying reasoning item under four distinct, matched conditions: clean context, misleading context, correct-context, and irrelevant-context. This structure allows for the systematic evaluation of how the model's decision boundary shifts based on the veracity and relevance of the surrounding information.</p>
+<h3 id="sc2w">SC2W</h3>
+<p>SC2W is a paired metric designed to quantify the susceptibility to misleading signals. It is defined as <span class="arithmatex">\(SC2W = \frac{P_i I[\text{aclean}_i = 1 \land \text{amis}_i = 0]}{P_i I[\text{aclean}_i = 1]}\)</span>, which measures the proportion of times a misleading signal causes a response that was correct under clean context to become incorrect.</p>
+<h3 id="matched-preference-data-d_b">Matched Preference Data (<span class="arithmatex">\(D_b\)</span>)</h3>
+<p>For every item <span class="arithmatex">\(i\)</span> selected, we generate a single counterfactual response pair <span class="arithmatex">\((r^+_i, r^-_i)\)</span>. This pair is then associated with the four matched context prompts <span class="arithmatex">\(z^b_i\)</span> to construct the dataset <span class="arithmatex">\(D_b = n \langle z^b_i, r^+_i, r^-_i \rangle\)</span>. This ensures that the preference learning signal is grounded in the same underlying reasoning instance across all four context types.</p>
+<h3 id="scope-loss-l_textscope">SCOPE Loss (<span class="arithmatex">\(L_{\text{SCOPE}}\)</span>)</h3>
+<p>The unified objective function is <span class="arithmatex">\(L_{\text{SCOPE}} = \lambda_m L_{\text{mis}} + \lambda_c L_{\text{clean}} + \lambda_p L_{\text{nonadv}}\)</span>. The term <span class="arithmatex">\(L_{\text{nonadv}}\)</span> serves to balance the losses from the correct-context (<span class="arithmatex">\(L_{\text{cor}}\)</span>) and irrelevant-context (<span class="arithmatex">\(L_{\text{irr}}\)</span>) conditions using a balancing factor <span class="arithmatex">\(\rho\)</span>. This structure forces the model to learn a preference that is robust to adversarial inputs while simultaneously maintaining high fidelity to both truthful and contextually relevant information.</p>
 <h2 id="results">Results</h2>
-<p>The efficacy of DeltaDirect is demonstrated across controlled and real-world benchmarks.</p>
+<p>The empirical evaluation demonstrates that SCOPE significantly outperforms baselines across metrics related to context-aware reasoning.</p>
 <table>
 <thead>
 <tr>
 <th style="text-align: left;">Metric</th>
-<th style="text-align: left;">Value</th>
-<th style="text-align: left;">Baseline</th>
-<th style="text-align: left;">Source</th>
+<th style="text-align: left;">Qwen3-4B</th>
+<th style="text-align: left;">Llama-3.2-3B</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Motion direction accuracy (MODIRECT-SYNBENCH)</td>
-<td style="text-align: left;">85.4%</td>
-<td style="text-align: left;">25.9%</td>
-<td style="text-align: left;">Table 1</td>
+<td style="text-align: left;">SC2W (Qwen3-4B)</td>
+<td style="text-align: left;">16.3</td>
+<td style="text-align: left;">N/A</td>
 </tr>
 <tr>
-<td style="text-align: left;">Real-world motion direction accuracy improvement (MODIRECT-REALBENCH)</td>
-<td style="text-align: left;">21.9 points</td>
-<td style="text-align: left;">vanilla baseline</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">SC2W (Llama-3.2-3B)</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">20.6</td>
 </tr>
 <tr>
-<td style="text-align: left;">Instruction tuning MCQ accuracy (Primitive-on-Syn)</td>
-<td style="text-align: left;">99.5%</td>
-<td style="text-align: left;">27.6%</td>
-<td style="text-align: left;">Figure 4</td>
+<td style="text-align: left;">Overall Accuracy (Seed 1.8)</td>
+<td style="text-align: left;"><span class="arithmatex">\(85.5\pm0.6\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(85.5\pm0.6\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Baseline (Qwen3-4B)</td>
+<td style="text-align: left;">35.0</td>
+<td style="text-align: left;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Baseline (Llama-3.2-3B)</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">31.5</td>
+</tr>
+<tr>
+<td style="text-align: left;">Baseline Overall Accuracy (Seed 1.8)</td>
+<td style="text-align: left;"><span class="arithmatex">\(39.7\pm1.6\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(39.7\pm1.6\)</span></td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>This work establishes that directional motion blindness is not merely a data scarcity issue but a fundamental representational bottleneck localized at the visual-language interface. By introducing DeltaDirect, we provide a mechanism to explicitly inject low-level, signed motion information into the model's latent space during training. The substantial gains observed on MODIRECT-SYNBENCH (from 25.9% to 85.4%) confirm that strengthening the motion signal magnitude at the projector level is a viable strategy to overcome this binding gap. Furthermore, the improvement on MODIRECT-REALBENCH suggests that this approach yields benefits that extend beyond synthetic, controlled environments.</p>
+<p>The findings confirm that optimizing solely for resistance to misleading context is insufficient; it actively compromises utility. SCOPE demonstrates that achieving selective trust requires a multi-objective optimization strategy. By explicitly balancing the adversarial signal (<span class="arithmatex">\(L_{\text{mis}}\)</span>) against the preservation of performance in non-adversarial settings (<span class="arithmatex">\(L_{\text{clean}}, L_{\text{cor}}, L_{\text{irr}}\)</span>), SCOPE yields models that are both resilient and useful. The MIST benchmark provides the necessary rigorous framework to move beyond simple accuracy metrics when evaluating context-aware reasoning capabilities.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>A key limitation remains the out-of-domain failure mode, which persists even after applying instruction tuning. This strongly suggests that the generalization gap is rooted in an inherent magnitude deficit in the motion direction representations when moving from the source to target domains. Additionally, it must be noted that the auxiliary branch utilized by DeltaDirect is discarded post-training; therefore, the test-time input format remains unchanged from the standard Video-LLM setup. Future work should investigate methods to enforce domain-invariant signal magnitudes rather than relying solely on task-specific supervision.</p>
+<p>One limitation is that the MIST benchmark is not intended as a test of purely unseen knowledge, as 800 items were adapted from existing public benchmarks. Furthermore, the method relies on a base-specific rule to determine the preferred response <span class="arithmatex">\(r^+_i\)</span>, which may necessitate the use of a private diagnostic note during the data mining phase. Future work should investigate the robustness of the selection rule for <span class="arithmatex">\(r^+_i\)</span> across different base model architectures.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.22823">2605.22823</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260522823</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Which Way Did It Move? Diagnosing and Overcoming Directional Motion Blindness in Video-LLMs}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Jongseo Lee and Hyuntak Lee and Sunghun Kim and Sooa Kim and Jihoon Chung and Jinwoo Choi}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.22823}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2608.06377">2608.06377</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260806377</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Learning When to Trust via Selective Context Preference Optimization}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Xian Sun and Wei Chow and Yingshuo Wang and Junhao Liu and Wei Gao and Qing Wu et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2608.06377}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.22823}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2608.06377}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
