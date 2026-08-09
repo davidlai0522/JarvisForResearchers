@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [$ω$-0: A Latent Predictive World Action Model for Concurrent Humanoid Loco-Manipulation](2026-08-09-0-a-latent-predictive-world-action-model-for-concurrent-huma/) { data-cat="Robotics" data-date="2026-08-09" }
+
+*2026-08-09*
+
+ω-0 is a latent predictive whole-body world-action model designed for concurrent humanoid loco-manipulation, which couples lightweight future observation embedding prediction with diffusion-based whole-body action generation.
+
 ## [Learning When to Trust via Selective Context Preference Optimization](2026-08-08-learning-when-to-trust-via-selective-context-preference-opti/) { data-cat="NLP" data-date="2026-08-08" }
 
 *2026-08-08*
