@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="DexCompose is a role-aware residual composition framework that reuses pretrained dexterous policies for multi-task manipulation by explicitly managing finger-level action ownership using dual residual stabilization.
+        <meta name="description" content="DyPES-VLA is a cross-embodiment Vision-Language-Action (VLA) model that learns shared dynamics priors via future prediction and translates them into embodiment-specific controls using a Mixture-of-Experts (MoE) action head, eliminating the need for manual action space alignment.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-30-dexcompose-reusing-dexterous-policies-for-multi-task-manipul/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-08-10-dypes-vla-learning-shared-dynamics-priors-and-embodiment-spe/">
       
       
-        <link rel="prev" href="../2026-07-01-levo-2-stable-and-melodious-song-generation-via-hierarchical/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-06-29-world-action-models-enable-continual-imitation-learning-with/">
+        <link rel="next" href="../2026-08-09-0-a-latent-predictive-world-action-model-for-concurrent-huma/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>DexCompose: Reusing Dexterous Policies for Multi-Task Manipulation with a Single Hand - JarvisForResearchers</title>
+        <title>DyPES-VLA: Learning Shared Dynamics Priors and Embodiment-Specific Control for Cross-Embodiment Manipulation - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              DexCompose: Reusing Dexterous Policies for Multi-Task Manipulation with a Single Hand
+              DyPES-VLA: Learning Shared Dynamics Priors and Embodiment-Specific Control for Cross-Embodiment Manipulation
             
           </span>
         </div>
@@ -614,10 +614,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-08-10-dypes-vla-learning-shared-dynamics-priors-and-embodiment-spe/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DyPES-VLA: Learning Shared Dynamics Priors and Embodiment-Specific Control for Cross-Embodiment Manipulation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -633,6 +658,195 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vision-language-model-vlm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vision Language Model (VLM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-tokens-q" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query Tokens (Q)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-generation-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Future Generation Head
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embodiment-specific-moe-action-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Embodiment-Specific MoE Action Head
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-router" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Static Router
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-embodiment-encoder-encre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-Embodiment Encoder (Encr(e))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-embodiment-decoder-decre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-Embodiment Decoder (Decr(e))
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1762,35 +1976,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    DexCompose: Reusing Dexterous Policies for Multi-Task Manipulation with a Single Hand
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-06-30-dexcompose-reusing-dexterous-policies-for-multi-task-manipul/" class="md-nav__link">
         
   
   
@@ -1806,184 +1995,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#task-a-policy-pi_a" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Task A Policy (\(\pi_A\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#task-b-policy-pi_b" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Task B Policy (\(\pi_B\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#finger-attribution" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Finger Attribution
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bounded-task-a-residual-delta-q_at" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bounded Task-A Residual (\(\Delta q_A^t\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bounded-task-b-residual-delta-a_bt" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bounded Task-B Residual (\(\Delta a_B^t\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#task-aware-allocation-agent" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Task-aware Allocation Agent
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3773,10 +3784,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#task-a-policy-pi_a" class="md-nav__link">
+  <a href="#vision-language-model-vlm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Task A Policy (\(\pi_A\))
+        Vision Language Model (VLM)
       
     </span>
   </a>
@@ -3784,10 +3795,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#task-b-policy-pi_b" class="md-nav__link">
+  <a href="#query-tokens-q" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Task B Policy (\(\pi_B\))
+        Query Tokens (Q)
       
     </span>
   </a>
@@ -3795,10 +3806,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#finger-attribution" class="md-nav__link">
+  <a href="#future-generation-head" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Finger Attribution
+        Future Generation Head
       
     </span>
   </a>
@@ -3806,10 +3817,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bounded-task-a-residual-delta-q_at" class="md-nav__link">
+  <a href="#embodiment-specific-moe-action-head" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bounded Task-A Residual (\(\Delta q_A^t\))
+        Embodiment-Specific MoE Action Head
       
     </span>
   </a>
@@ -3817,10 +3828,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bounded-task-b-residual-delta-a_bt" class="md-nav__link">
+  <a href="#static-router" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bounded Task-B Residual (\(\Delta a_B^t\))
+        Static Router
       
     </span>
   </a>
@@ -3828,10 +3839,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#task-aware-allocation-agent" class="md-nav__link">
+  <a href="#per-embodiment-encoder-encre" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Task-aware Allocation Agent
+        Per-Embodiment Encoder (Encr(e))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-embodiment-decoder-decre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-Embodiment Decoder (Decr(e))
       
     </span>
   </a>
@@ -3908,35 +3930,7 @@
       
       
       
-        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:dexterous-manipulation" class="md-tag">dexterous-manipulation</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:manipulation" class="md-tag">manipulation</a>
+        <a href="../../tags/#tag:llm" class="md-tag">llm</a>
       
     
       
@@ -3946,54 +3940,62 @@
         <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
       
     
+      
+      
+      
+      
+        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
+      
+    
   </nav>
 
 
 
-  <h1>DexCompose: Reusing Dexterous Policies for Multi-Task Manipulation with a Single Hand</h1>
+  <h1>DyPES-VLA: Learning Shared Dynamics Priors and Embodiment-Specific Control for Cross-Embodiment Manipulation</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-06-30</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-08-10</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
 <p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>DexCompose introduces a role-aware residual composition framework to combine pretrained dexterous manipulation policies for multi-task execution. It addresses destructive interference by explicitly managing finger-level action ownership using dual residual stabilization, allowing two full-hand policies to operate concurrently without joint policy retraining.</p>
+<p>DyPES-VLA introduces a cross-embodiment Vision-Language-Action (VLA) framework that learns shared dynamics priors by predicting future states from multimodal inputs. It translates these shared priors into embodiment-specific controls using a Mixture-of-Experts (MoE) action head, thereby circumventing the necessity for manual action space alignment across diverse robotic morphologies.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Composing dexterous manipulation policies to execute multiple tasks with a single hand presents a significant challenge. When introducing a secondary task, the demands imposed on overlapping fingers and contact modes often conflict with the requirements of maintaining the initial manipulation outcome. This conflict leads to destructive interference, where the execution of the new task compromises the stability or success of the preceding task.</p>
-<p>The limitations of prior work are evident:
-1. Existing finger-aware methods typically mandate predefined finger allocations or rely on downstream task compositions during grasp generation, data construction, or policy training, severely limiting scalability across diverse task combinations.
-2. Simply chaining independently trained policies is inherently unreliable. The downstream policy, controlling the entire hand, frequently overwrites the precise finger motions necessary to maintain the grasp established by the upstream policy.
-3. Training a dedicated policy for every composite task scales poorly, necessitating <span class="arithmatex">\(n \times m\)</span> policies if <span class="arithmatex">\(n\)</span> grasp-maintenance skills and <span class="arithmatex">\(m\)</span> downstream interactions are considered.</p>
+<p>Training a single, generalist policy capable of operating across heterogeneous robot embodiments using VLA models remains an open challenge. The core difficulties stem from two related issues: first, the underutilization of inherent shared dynamics priors that exist across diverse datasets of human and robot manipulation; and second, the substantial requirement for manual preprocessing to map embodiment-specific actions into a common, unified format suitable for a single policy.</p>
+<p>Existing methodologies exhibit several limitations. Many current approaches restrict supervision solely to action prediction, which severely curtails the ability to leverage large corpora of unlabelled or sparsely labelled manipulation videos to extract robust, shared dynamics knowledge. Furthermore, methods that attempt to share information at the action level typically mandate manual mapping of heterogeneous controls into a common representation. This process often necessitates complex coordinate transformations or inverse kinematics, leading to poor scalability. Crucially, forcing disparate embodiments into a singular action format risks entangling fundamental interaction regularities—which should be shared—with the control semantics intrinsically unique to each robot's physical structure.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce three primary contributions to address these limitations:
-1. We present a post-hoc composition framework for pretrained dexterous manipulation policies. This framework models composite manipulation as an action allocation problem where the preservation of the initial grasp and the execution of the downstream interaction must be reconciled within the constraints of a single high-DoF multi-fingered hand.
-2. We propose DexCompose, a role-aware residual pipeline. This pipeline integrates training-free finger attribution, explicit action ownership assignment, and dual residual stabilization to compose two pretrained full-hand policies without requiring policy training for the complete task pair.
-3. We empirically validate DexCompose across 16 composite manipulation tasks, demonstrating a substantial performance improvement over both simple policy chaining and unmasked residual baselines.</p>
+<p>This work makes three primary contributions:
+1. We propose a novel cross-embodiment learning paradigm designed to simultaneously learn abstract shared dynamics priors and generate embodiment-specific control policies.
+2. We introduce DyPES-VLA, a system that learns these shared priors via future-supervised query states and realizes control through an embodiment-specific action head, entirely obviating the need for a common action format.
+3. We demonstrate state-of-the-art performance across three distinct simulation benchmarks using a single checkpoint, establishing a transferable foundation for deploying policies across morphologies with varying physical characteristics.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.28323/fig_p1_c1.jpg" />
-<em>Figure 1: DexCompose composes dexterous skills through role-aware finger ownership. By sep-
-arating grasp preservation from downstream interaction with asymmetric residuals, the framework
-reduces destructive interference and enables robust multi-skill manipulation.</em></p>
-<p>DexCompose operates through a two-stage process: discovery and composition.</p>
-<p>For the <strong>discovery</strong> stage, we determine the necessary finger support for the initial task. Finger attribution identifies which fingers are essential for preserving the Task-A grasp by executing release tests on successful post-task states, yielding a task-specific mask, <span class="arithmatex">\(m^*\)</span>.</p>
-<p>For the <strong>composition</strong> stage, we employ a dual residual stabilizer. A bounded Task-A residual (<span class="arithmatex">\(\Delta q_A^t\)</span>) is responsible for maintaining the held-object configuration (<span class="arithmatex">\(q_{ref}\)</span>) specifically on the fingers identified as preserved. Concurrently, a bounded Task-B residual (<span class="arithmatex">\(\Delta a_B^t\)</span>) adapts the downstream policy (<span class="arithmatex">\(\pi_B\)</span>) within its assigned action subspace. The final composed action, <span class="arithmatex">\(a_{comp}^t\)</span>, is synthesized using fixed ownership masks (<span class="arithmatex">\(M^*_A, M^*_B\)</span>), thereby enabling the concurrent execution of both tasks.</p>
-<h3 id="task-a-policy-pi_a">Task A Policy (<span class="arithmatex">\(\pi_A\)</span>)</h3>
-<p>This is the initial pretrained diffusion policy responsible for executing the first skill. The physical outcome of this skill—the grasp—must be preserved throughout the subsequent interaction.</p>
-<h3 id="task-b-policy-pi_b">Task B Policy (<span class="arithmatex">\(\pi_B\)</span>)</h3>
-<p>This is the second pretrained diffusion policy responsible for executing the downstream interaction skill. It dictates the motion required for the secondary task.</p>
-<h3 id="finger-attribution">Finger Attribution</h3>
-<p>This component utilizes release tests performed on successful post-grasp states. The objective is to identify the minimal set of fingers required to maintain the Task-A grasp, which results in the task-specific mask <span class="arithmatex">\(m^*\)</span>.</p>
-<h3 id="bounded-task-a-residual-delta-q_at">Bounded Task-A Residual (<span class="arithmatex">\(\Delta q_A^t\)</span>)</h3>
-<p>This lightweight residual module, parameterized by <span class="arithmatex">\(\pi_{A}^{res}\)</span>, is designed to counteract disturbances and preserve the held-object configuration (<span class="arithmatex">\(q_{ref}\)</span>). Its formulation is: <span class="arithmatex">\(\Delta q_A^t = \beta_A \odot \tanh(\pi_{A}^{res}(o_t, m^*))\)</span>.</p>
-<h3 id="bounded-task-b-residual-delta-a_bt">Bounded Task-B Residual (<span class="arithmatex">\(\Delta a_B^t\)</span>)</h3>
-<p>This residual correction is learned specifically within the action subspace owned by Task B. Its formulation is: <span class="arithmatex">\(\Delta a_B^t = M^*_B \odot \tanh(\beta_B \odot \pi_{B}^{res}(o_t, a_B^t, m^*))\)</span>.</p>
-<h3 id="task-aware-allocation-agent">Task-aware Allocation Agent</h3>
-<p>This agent is responsible for selecting the final mask <span class="arithmatex">\(m^*\)</span>. It synthesizes information from <span class="arithmatex">\(\{m, Pret(m), Pclean(m), \eta_B(m)\}\)</span> to achieve an optimal balance between ensuring grasp stability, achieving clean release quality, and maintaining residual dexterity.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2608.06374/fig_p2_c1.jpg" />
+<em>Figure 1 We propose a paradigm that learns from het-
+erogeneous cross-embodiment data. Our DyPES-VLA
+learns shared dynamics priors and embodiment-specific
+control. The former is supervised by a future generation
+head, and the latter is achieved by an MoE action head.</em></p>
+<p>DyPES-VLA operates by leveraging a pre-trained Vision-Language Model (VLM) to distill multimodal information—visual observations, natural language instructions, and embodiment metadata—into a set of shared query states, denoted as <span class="arithmatex">\(Z\)</span>. These states serve as the central, embodiment-agnostic interface.</p>
+<p>These query states <span class="arithmatex">\(Z\)</span> condition two parallel generative mechanisms. The first is the <strong>Future Generation Head</strong>, which, instantiated as a SANA image generator, is trained using a rectified-flow objective to synthesize future visual frames. This process effectively forces the model to learn the underlying, shared dynamics of the observed interactions. Concurrently, the same query states <span class="arithmatex">\(Z\)</span> condition the <strong>Embodiment-Specific MoE Action Head</strong>, which is implemented as a flow-matching Diffusion Transformer (DiT). This MoE head is designed to generate action chunks directly within each embodiment's native action space, utilizing statically routed experts.</p>
+<p>The training proceeds in two distinct stages. Initially, the VLM and the Future Generation Head are pretrained exclusively on action-free videos to establish a strong foundation in visual-linguistic understanding and dynamics modeling. Subsequently, both heads are jointly optimized using action-labeled demonstrations. At inference time, the Future Generation Head is deactivated, relying solely on the learned dynamics priors encoded in <span class="arithmatex">\(Z\)</span> to guide the MoE action head.</p>
+<h3 id="vision-language-model-vlm">Vision Language Model (VLM)</h3>
+<p>The VLM serves as the initial encoder. It ingests the multimodal input stream, comprising visual observations, the textual instruction, and metadata describing the specific embodiment being considered. It processes these inputs alongside a set of learnable <strong>Query Tokens (Q)</strong>. The output of the VLM is the set of query states <span class="arithmatex">\(Z \in \mathbb{R}^{N \times d_{VLM}}\)</span>, which encapsulate the necessary context for downstream prediction tasks.</p>
+<h3 id="query-tokens-q">Query Tokens (Q)</h3>
+<p>These are learnable embedding vectors appended to the multimodal sequence fed into the VLM. Their role is to act as abstract placeholders that the VLM learns to condition upon, allowing the model to distill high-level, shared representations (<span class="arithmatex">\(Z\)</span>) from the heterogeneous input data.</p>
+<h3 id="future-generation-head">Future Generation Head</h3>
+<p>This component is realized as a SANA image generator. It is conditioned directly on the shared query states <span class="arithmatex">\(Z\)</span>. Its objective is to predict the subsequent frame given the current state and the instruction. This prediction is formalized using a rectified-flow objective, which compels the model to learn a latent representation of the system's dynamics independent of the specific control signals used to achieve the state transitions.</p>
+<h3 id="embodiment-specific-moe-action-head">Embodiment-Specific MoE Action Head</h3>
+<p>This head is implemented as a flow-matching Diffusion Transformer (DiT) and is conditioned on <span class="arithmatex">\(Z\)</span>. Its critical feature is the use of statically routed experts. Instead of forcing all embodiments to use a single action space, the <strong>Static Router</strong> deterministically assigns each sample to a specific expert <span class="arithmatex">\(r(e) \in \{1, \dots, K\}\)</span> based on the embodiment metadata <span class="arithmatex">\(m_e\)</span>. This routing ensures that the generation process for a specific robot morphology utilizes the expert best suited to its native action space.</p>
+<h3 id="static-router">Static Router</h3>
+<p>The Static Router performs a deterministic assignment. Given the embodiment metadata <span class="arithmatex">\(m_e\)</span>, it outputs a routing index <span class="arithmatex">\(r(e)\)</span>. This index dictates which specific expert within the MoE structure will process the action generation for that particular embodiment, effectively isolating the control semantics to the appropriate expert.</p>
+<h3 id="per-embodiment-encoder-encre">Per-Embodiment Encoder (Encr(e))</h3>
+<p>This lightweight encoder is responsible for preparing the noisy action chunk for the DiT within a specific embodiment <span class="arithmatex">\(e\)</span>. It takes the noisy action chunk and the corresponding flow timestep as input, embedding them into a format suitable for the DiT's processing pipeline.</p>
+<h3 id="per-embodiment-decoder-decre">Per-Embodiment Decoder (Decr(e))</h3>
+<p>The output from the DiT, which is an abstract representation of the action, must be translated back into a physically meaningful control signal. The Per-Embodiment Decoder maps the DiT's output back to a velocity vector <span class="arithmatex">\(\mathbf{A}_e \in \mathbb{R}^{H_e \times d_e}\)</span> that resides in the native action space of embodiment <span class="arithmatex">\(e\)</span>.</p>
 <h2 id="results">Results</h2>
-<p>The empirical evaluation demonstrates the efficacy of the DexCompose framework:</p>
+<p>The performance of DyPES-VLA across various benchmarks is summarized below:</p>
 <table>
 <thead>
 <tr>
@@ -4005,38 +4007,44 @@ reduces destructive interference and enables robust multi-skill manipulation.</e
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Average Composite Success Rate</td>
-<td style="text-align: left;">77.4%</td>
+<td style="text-align: left;">Success Rate (LIBERO)</td>
+<td style="text-align: left;">98.0%</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">Section 4.1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Composite Success Rate (GraspBall + OpenDoor)</td>
-<td style="text-align: left;"><span class="arithmatex">\(82.69\pm8.33\)</span></td>
-<td style="text-align: left;">Ours-ZS</td>
-<td style="text-align: left;">Table 1</td>
+<td style="text-align: left;">Success Rate (RoboCasa-GR1)</td>
+<td style="text-align: left;">59.25%</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Section 4.1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Mean Composite Success Rate</td>
-<td style="text-align: left;"><span class="arithmatex">\(77.43\pm2.64\)</span></td>
+<td style="text-align: left;">Success Rate (RoboTwin 2.0)</td>
+<td style="text-align: left;">89.02%</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Table 1</td>
+<td style="text-align: left;">Section 4.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Average Success Rate (Real-World)</td>
+<td style="text-align: left;">75.6%</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Section 4.1</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The practitioner takeaways highlight the practical implications of this work. For complex sequential manipulation, explicit action ownership—i.e., precise finger allocation—is critical to preventing destructive interference between concurrent tasks. Furthermore, the dual residual stabilization mechanism, which dedicates one residual to preservation and another to adaptation, proves key to achieving high composite success rates when reusing frozen, pretrained policies. Crucially, this framework enables composition at inference time without necessitating the full retraining of the base policies, offering a scalable methodology for skill reuse in robotic systems.</p>
+<p>The ability to learn shared dynamics priors from heterogeneous data is a significant step toward truly generalist robotics. By decoupling the learning of <em>what</em> the dynamics are (learned via future prediction) from <em>how</em> to execute them (learned via embodiment-specific MoE heads), DyPES-VLA achieves cross-embodiment generalization without the prohibitive engineering cost of manual action space harmonization. The practitioner takeaways highlight that future prediction offers a powerful, unsupervised signal for dynamics learning, while the MoE structure provides the necessary architectural flexibility to handle diverse kinematic constraints within a unified backbone.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current implementation has noted limitations. Specifically, the method requires the collection of 4096 held states for each Task A skill to adequately support the stabilization and cross-task composition procedures. Additionally, we observed that the performance of the Decomposed Action Space baseline exhibits substantial variation across different task combinations, suggesting inherent brittleness in that approach. Future work should investigate methods to reduce the state collection overhead and enhance the robustness of allocation strategies across diverse task pairings.</p>
+<p>Two primary limitations are noted. First, the reported results do not detail the model's performance when the Future Generation Head is utilized during inference, as the design mandates its removal for control execution. Second, the complexity introduced by the MoE action head—specifically the reliance on static routing and the inclusion of per-embodiment encoders and decoders—imposes a non-trivial architectural overhead compared to monolithic action heads. Future work should investigate dynamic routing mechanisms or explore the trade-offs associated with this architectural complexity.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.28323">2606.28323</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260628323</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{DexCompose: Reusing Dexterous Policies for Multi-Task Manipulation with a Single Hand}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Dihong Huang and Zhenyu Wei and Zhuxiu Xu and Yunchao Yao and Sikai Li and Mingyu Ding}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.28323}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2608.06374">2608.06374</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260806374</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{DyPES-VLA: Learning Shared Dynamics Priors and Embodiment-Specific Control for Cross-Embodiment Manipulation}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Junfeng Li and Junjie He and Zhide Zhong and Yangyang Zheng and Pingyue Sheng and Jiayu Dong et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2608.06374}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.28323}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2608.06374}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
