@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [DyPES-VLA: Learning Shared Dynamics Priors and Embodiment-Specific Control for Cross-Embodiment Manipulation](2026-08-10-dypes-vla-learning-shared-dynamics-priors-and-embodiment-spe/) { data-cat="Robotics" data-date="2026-08-10" }
+
+*2026-08-10*
+
+DyPES-VLA is a cross-embodiment Vision-Language-Action (VLA) model that learns shared dynamics priors via future prediction and translates them into embodiment-specific controls using a Mixture-of-Experts (MoE) action head, eliminating the need for manual action space alignment.
+
 ## [$ω$-0: A Latent Predictive World Action Model for Concurrent Humanoid Loco-Manipulation](2026-08-09-0-a-latent-predictive-world-action-model-for-concurrent-huma/) { data-cat="Robotics" data-date="2026-08-09" }
 
 *2026-08-09*
