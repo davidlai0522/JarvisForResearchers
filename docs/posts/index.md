@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Beyond Naturalness: Probing Automated Text-To-Speech Evaluators on Linguistically Grounded Dimensions](2026-08-12-beyond-naturalness-probing-automated-text-to-speech-evaluato/) { data-cat="Artificial Intelligence" data-date="2026-08-12" }
+
+*2026-08-12*
+
+This research introduces the first dimension-level meta-evaluation benchmark for Text-to-Speech (TTS) evaluators, using a linguistically grounded 10-dimension schema to audit the capabilities of MOS predictors and Audio-LLMs judges.
+
 ## [DyPES-VLA: Learning Shared Dynamics Priors and Embodiment-Specific Control for Cross-Embodiment Manipulation](2026-08-10-dypes-vla-learning-shared-dynamics-priors-and-embodiment-spe/) { data-cat="Robotics" data-date="2026-08-10" }
 
 *2026-08-10*
