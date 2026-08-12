@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="LeVo 2 is a hybrid LLM-Diffusion framework that addresses the trade-off between global song coherence and track-specific acoustic detail by employing hierarchical modeling and a decoupled, aesthetics-guided progressive post-training schedule.
+        <meta name="description" content="This research introduces the first dimension-level meta-evaluation benchmark for Text-to-Speech (TTS) evaluators, using a linguistically grounded 10-dimension schema to audit the capabilities of MOS predictors and Audio-LLMs judges.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-01-levo-2-stable-and-melodious-song-generation-via-hierarchical/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-08-12-beyond-naturalness-probing-automated-text-to-speech-evaluato/">
       
       
-        <link rel="prev" href="../2026-07-02-facemoe-mixture-of-experts-for-low-resolution-face-recogniti/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-06-30-dexcompose-reusing-dexterous-policies-for-multi-task-manipul/">
+        <link rel="next" href="../2026-08-10-dypes-vla-learning-shared-dynamics-priors-and-embodiment-spe/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>LeVo 2: Stable and Melodious Song Generation via Hierarchical Representation Modeling and Progressive Post-Training - JarvisForResearchers</title>
+        <title>Beyond Naturalness: Probing Automated Text-To-Speech Evaluators on Linguistically Grounded Dimensions - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              LeVo 2: Stable and Melodious Song Generation via Hierarchical Representation Modeling and Progressive Post-Training
+              Beyond Naturalness: Probing Automated Text-To-Speech Evaluators on Linguistically Grounded Dimensions
             
           </span>
         </div>
@@ -616,10 +616,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-08-12-beyond-naturalness-probing-automated-text-to-speech-evaluato/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Beyond Naturalness: Probing Automated Text-To-Speech Evaluators on Linguistically Grounded Dimensions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -635,6 +660,162 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#annotation-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Annotation Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-generation-pathways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Generation Pathways
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automated-judges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Judges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompting-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompting Conditions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1764,35 +1945,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    LeVo 2: Stable and Melodious Song Generation via Hierarchical Representation Modeling and Progressive Post-Training
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-07-01-levo-2-stable-and-melodious-song-generation-via-hierarchical/" class="md-nav__link">
         
   
   
@@ -1808,162 +1964,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#mixed-semantic-lm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mixed Semantic LM
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#track-specific-lm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Track-Specific LM
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#music-codec" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Music Codec
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#automated-music-aesthetic-evaluation-framework" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Automated Music Aesthetic Evaluation Framework
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3781,10 +3781,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#mixed-semantic-lm" class="md-nav__link">
+  <a href="#annotation-schema" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Mixed Semantic LM
+        Annotation Schema
       
     </span>
   </a>
@@ -3792,10 +3792,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#track-specific-lm" class="md-nav__link">
+  <a href="#error-generation-pathways" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Track-Specific LM
+        Error Generation Pathways
       
     </span>
   </a>
@@ -3803,10 +3803,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#music-codec" class="md-nav__link">
+  <a href="#automated-judges" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Music Codec
+        Automated Judges
       
     </span>
   </a>
@@ -3814,10 +3814,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#automated-music-aesthetic-evaluation-framework" class="md-nav__link">
+  <a href="#prompting-conditions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Automated Music Aesthetic Evaluation Framework
+        Prompting Conditions
       
     </span>
   </a>
@@ -3901,47 +3901,73 @@
       
       
       
-        <a href="../../tags/#tag:planning" class="md-tag">planning</a>
+        <a href="../../tags/#tag:llm" class="md-tag">llm</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:manipulation" class="md-tag">manipulation</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:nlp" class="md-tag">nlp</a>
       
     
   </nav>
 
 
 
-  <h1>LeVo 2: Stable and Melodious Song Generation via Hierarchical Representation Modeling and Progressive Post-Training</h1>
+  <h1>Beyond Naturalness: Probing Automated Text-To-Speech Evaluators on Linguistically Grounded Dimensions</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-07-01</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-08-12</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
 <p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>LeVo 2 introduces a hybrid LLM-Diffusion framework that resolves the inherent tension between maintaining global song coherence and capturing fine-grained, track-specific acoustic detail. It achieves this via hierarchical modeling—where a Mixed Semantic LM handles high-level planning, and a parallel Track-Specific LM refines vocal and accompaniment details—coupled with an aesthetics-guided, progressive post-training schedule.</p>
+<p>We introduce the first dimension-level meta-evaluation benchmark for Text-to-Speech (TTS) evaluators. This benchmark utilizes a linguistically grounded 10-dimension schema to audit the capabilities of existing MOS predictors and Audio-LLMs judges, demonstrating that current automated methods fail to reliably capture the distinct, interpretable aspects of speech quality.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>The generation of full-length, coherent musical compositions presents a significant architectural challenge. A successful system must simultaneously ensure global musicality, accurately render intricate vocal and accompaniment acoustics, and adhere strictly to textual prompts. Current methodologies are constrained by a structural trade-off: tokenizing the entire composition into a single stream using mixed tokens tends to obscure the necessary track-specific acoustic fidelity due to vocabulary limitations and mutual acoustic masking. Conversely, approaches that attempt to model tracks separately result in prohibitively long input sequences, which severely degrades the model's capacity for long-range musical planning and instruction following. Furthermore, existing preference alignment techniques often suffer from gradient conflicts when attempting to optimize multiple, sometimes competing, objectives simultaneously, and they typically rely solely on static, offline paired datasets.</p>
+<p>It remains insufficiently clear how effectively automated Text-to-Speech (TTS) evaluation methods—specifically Mean Opinion Score (MOS) predictors and Audio Large Language Models (Audio-LLMs) judges—capture the granular, linguistically grounded aspects of speech that human listeners perceive. Current evaluation paradigms suffer from opacity: MOS predictors yield holistic quality signals without providing a diagnostic path when performance degrades, and LLM-based judges similarly produce holistic scores where the underlying perceptual drivers are obscured. Furthermore, existing benchmarks typically organize evaluation around broad scenario categories rather than a principled, fine-grained speech quality schema.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>LeVo 2 addresses these limitations through three primary contributions:
-1. <strong>Hierarchical Modeling:</strong> The framework decomposes the generation task by having the Mixed Semantic LM manage global semantic planning via mixed tokens, while the Track-Specific LM predicts vocal and accompaniment tokens in parallel for localized, track-specific refinement.
-2. <strong>Aesthetics-Guided Training:</strong> We introduce an automated music aesthetic evaluation framework that assigns musicality-tier conditions during the pre-training phase, embedding musical priors directly into the model's foundational knowledge.
-3. <strong>Progressive Post-Training:</strong> We implement a staged refinement process—SFT followed by large-scale offline DPO, and concluding with closed-loop semi-online DPO—to systematically improve generation quality, controllability, and musicality while mitigating optimization conflicts.</p>
+<p>This work makes three primary contributions:
+1. <strong>Annotation Schema:</strong> We present a linguistically grounded evaluation schema that decomposes the concept of naturalness into 10 distinct dimensions, grounded in phonological and phonetic attributes across word, prosodic, and paralinguistic levels.
+2. <strong>Meta-Evaluation Dataset:</strong> We constructed a per-dimension annotated dataset comprising 860 utterances. These samples were meticulously labeled by trained linguist raters across all 10 defined dimensions.
+3. <strong>Dimension-Level Audit:</strong> We conducted an evaluation of four neural MOS models and four Audio-LLMs judges across four distinct prompting conditions. This audit revealed significant heterogeneity in the phonetic, prosodic, and paralinguistic sensitivity of these automated judges.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.30642/fig_p4_c1.jpg" />
-*Fig. 1.
-Overview of LeVo 2. LeLM performs hierarchical semantic planning over mixed and dual-track tokens, while the diffusion-based Music Codec
-reconstructs the generated tokens into full-length song audio. The bottom panel summarizes the training paradigm: pre-training establishes global semantic
-*</p>
-<p>LeVo 2 operates on a hybrid LLM-Diffusion paradigm. The process begins with the <strong>Mixed Semantic LM</strong>, which functions as the global planner, outputting mixed tokens (<span class="arithmatex">\(S_m\)</span>) that encode high-level structural elements such as melody, rhythm, and tempo. These hidden states are then passed to the <strong>Track-Specific LM</strong>. This module operates in parallel, predicting the vocal tokens (<span class="arithmatex">\(S_v\)</span>) and accompaniment tokens (<span class="arithmatex">\(S_a\)</span>) independently, conditioned on the contextual embeddings provided by the Mixed Semantic LM. This parallel prediction allows for fine-grained acoustic detail capture without the sequence length explosion associated with joint modeling. Finally, the <strong>Music Codec</strong>, a diffusion-based system, synthesizes the sequence of mixed, vocal, and accompaniment tokens into the final, high-fidelity song waveform. The training regimen is structured in three phases: pre-training utilizing the <strong>Automated Music Aesthetic Evaluation Framework</strong> to inject musicality priors; progressive post-training to decouple optimization objectives; and modular extension for targeted acoustic refinement.</p>
-<h3 id="mixed-semantic-lm">Mixed Semantic LM</h3>
-<p>This component is implemented as a decoder-only Transformer architecture. Its function is strictly supervisory at the macro level; it predicts mixed tokens (<span class="arithmatex">\(S_m\)</span>) designed to encapsulate the overarching structural and semantic blueprint of the desired music. This abstraction layer allows the model to maintain a global view of the composition's trajectory.</p>
-<h3 id="track-specific-lm">Track-Specific LM</h3>
-<p>This module is designed to be lightweight relative to the global planner. It receives the contextualized hidden states from the Mixed Semantic LM and operates to predict two distinct streams in parallel: <span class="arithmatex">\(S_v\)</span> (vocal tokens) and <span class="arithmatex">\(S_a\)</span> (accompaniment tokens). This parallel structure is key to isolating and refining acoustic details for each track type without forcing them into a single, overly long sequence.</p>
-<h3 id="music-codec">Music Codec</h3>
-<p>This is the generative realization stage. It employs a diffusion-based architecture. Its role is to map the discrete token sequences—comprising <span class="arithmatex">\(S_m\)</span>, <span class="arithmatex">\(S_v\)</span>, and <span class="arithmatex">\(S_a\)</span>—into continuous, high-fidelity audio waveforms. The diffusion process enables the reconstruction of complex acoustic textures from the structured token representations.</p>
-<h3 id="automated-music-aesthetic-evaluation-framework">Automated Music Aesthetic Evaluation Framework</h3>
-<p>This framework is integral to the pre-training phase. It functions as an external oracle, analyzing large-scale datasets to assign specific musicality-tier conditions to the data samples. By conditioning the model on these tiers, we effectively inject a quantifiable prior regarding desirable musical qualities directly into the initial training distribution.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2608.09930/fig_p2_c1.jpg" />
+<em>Figure 1: Dataset Construction Pipeline. Sentences from three sources (Harvard Sentences, EmergentTTS-Eval,
+synthetic text) are fed through three error-generation pathways: LLM-modified plain text, LLM-modified IPA
+transcriptions, and direct acoustic manipulation. All pathways pass through the TTS m</em></p>
+<p>The methodology involves constructing a benchmark by generating 860 utterances. These utterances are engineered to contain controlled errors specifically targeting the 10 dimensions defined in our schema. Error introduction is achieved via three distinct pathways: LLM-altered IPA, LLM-altered plain text, and direct Acoustic Manipulation. Following generation, these samples are annotated by three expert linguists. The subsequent evaluation audits four neural MOS predictors and four Audio-LLMs judges under four systematic prompting conditions. Performance is quantified using Kendall’s <span class="arithmatex">\(\tau_b\)</span>, which measures the correlation between the model's predicted binary ground-truth label for a specific dimension and the actual human judgment for that dimension.</p>
+<h3 id="annotation-schema">Annotation Schema</h3>
+<p>The <strong>Annotation Schema</strong> operationalizes the concept of naturalness into 10 measurable attributes. These dimensions are categorized based on the linguistic level of the error:
+*   <strong>Word-level:</strong> Phonetic Accuracy and Lexical Stress.
+*   <strong>Prosodic-level:</strong> Intonation, Prosodic Stress, Prosodic Boundary Appropriateness, and Speech Rate Appropriateness.
+*   <strong>Paralinguistic-level:</strong> Emotional Appropriateness, Expressiveness, Human Plausibility, and Speaker Identity Consistency.</p>
+<h3 id="error-generation-pathways">Error Generation Pathways</h3>
+<p>To ensure targeted testing, we employed three <strong>Error Generation Pathways</strong>:
+*   <strong>LLM-altered IPA:</strong> This pathway was used to introduce errors specifically targeting Phonetic Accuracy and Lexical Stress.
+*   <strong>LLM-altered plain text:</strong> This method was employed to induce errors related to Prosodic Stress and Prosodic Boundary Placement.
+*   <strong>Acoustic Manipulation:</strong> This pathway was utilized to introduce perturbations affecting Intonation, Speech Rate, Expressiveness, Speaker Identity Consistency, and Human Plausibility.</p>
+<h3 id="automated-judges">Automated Judges</h3>
+<p>We evaluated two classes of <strong>Automated Judges</strong>:
+*   <strong>Neural MOS predictors:</strong> This group included four established models: UTMOSv2, DNSMOS-Pro, NISQA, and Audiobox-Aesthetics.
+*   <strong>Audio-LLMs judges:</strong> This group comprised four different LLM implementations, such as Gemini 3.5 Flash and Qwen3 Omni.</p>
+<h3 id="prompting-conditions">Prompting Conditions</h3>
+<p>The evaluation was structured around four <strong>Prompting Conditions</strong> to isolate the influence of the evaluation interface:
+*   <strong>Condition 1 (Underspecified MOS-style prompt):</strong> A standard, holistic scoring prompt.
+*   <strong>Condition 2a (Schema-guided prompt, single score):</strong> A prompt referencing the schema but requesting only a single, aggregate score.
+*   <strong>Condition 2b (Schema-guided prompt, per-dimension scores):</strong> A prompt explicitly requesting scores for each of the 10 dimensions.
+*   <strong>Condition 3 (Isolated per-dimension prompts):</strong> Prompts designed to test sensitivity to a single, specific dimension in isolation.</p>
 <h2 id="results">Results</h2>
+<p>The dimension-level audit revealed significant variance in the ability of the judges to track human judgments across specific attributes.</p>
 <table>
 <thead>
 <tr>
@@ -3953,26 +3979,38 @@ reconstructs the generated tokens into full-length song audio. The bottom panel 
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Overall Musicality, Melody, Arrangement, Instrumental Sound Quality, Vocal Sound Quality, and Structure</td>
-<td style="text-align: left;">Significantly outperforms all open-source baselines across all dimensions</td>
-<td style="text-align: left;">Open-source baselines</td>
-<td style="text-align: left;">Extensive experiments</td>
+<td style="text-align: left;">Kendall’s <span class="arithmatex">\(\tau_b\)</span></td>
+<td style="text-align: left;">0.606***</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Table 3</td>
+</tr>
+<tr>
+<td style="text-align: left;">Kendall’s <span class="arithmatex">\(\tau_b\)</span></td>
+<td style="text-align: left;">-0.615***</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Table 3</td>
+</tr>
+<tr>
+<td style="text-align: left;">Kendall’s <span class="arithmatex">\(\tau_b\)</span></td>
+<td style="text-align: left;">0.412***</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Table 3</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The LeVo 2 architecture provides a principled mechanism for navigating the fundamental trade-off in generative music AI: the tension between high-level structural coherence and low-level acoustic fidelity. By decoupling these concerns hierarchically, we circumvent the scalability bottlenecks of monolithic sequence modeling while avoiding the semantic ambiguity of overly coarse tokenization. Furthermore, the staged, progressive post-training regimen offers a robust methodology for aligning complex generative models with nuanced human preferences, a capability often brittle in single-stage optimization loops.</p>
+<p>The findings underscore a critical limitation in current TTS evaluation: automated evaluators do not reliably capture the full spectrum of linguistically structured speech errors. Specifically, MOS predictors appear to correlate more strongly with general acoustic signal quality, whereas Audio-LLMs judges exhibit a detection capability that is highly selective and contingent upon the prompting strategy employed. This benchmark provides the necessary infrastructure to move beyond opaque holistic scores, enabling researchers to attribute TTS system failures to specific, interpretable linguistic dimensions.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current implementation necessitates a complex, multi-stage training paradigm, involving initial pre-training, followed by sequential fine-tuning steps (SFT <span class="arithmatex">\(\rightarrow\)</span> offline DPO <span class="arithmatex">\(\rightarrow\)</span> semi-online DPO), and subsequent modular extension. This complexity increases the engineering overhead significantly. Additionally, the inherent reliance on the hierarchical structure demands meticulous management of the information flow; ensuring that the high-level semantic guidance from the Mixed Semantic LM is sufficiently rich yet not overly restrictive to the fine-grained predictions of the Track-Specific LM remains a critical area for ongoing investigation.</p>
+<p>A primary limitation is that neither the tested MOS predictors nor the Audio-LLMs judges demonstrated reliable error detection across all 10 dimensions under any of the tested conditions. Furthermore, the observed performance of Audio-LLMs judges is demonstrably selective and prompt-dependent, suggesting a lack of generalized perceptual understanding across the entire schema. Future work must address how to stabilize the sensitivity of LLM judges across diverse linguistic error types.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.30642">2606.30642</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260630642</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{LeVo 2: Stable and Melodious Song Generation via Hierarchical Representation Modeling and Progressive Post-Training}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Shun Lei and Huaicheng Zhang and Dapeng Wu and Yaoxun Xu and Lishi Zuo and Wei Tan et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.30642}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2608.09930">2608.09930</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260809930</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Beyond Naturalness: Probing Automated Text-To-Speech Evaluators on Linguistically Grounded Dimensions}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Oluwanifemi Bamgbose and Simon Rosen and Jash Shah and Lindsay Devon Brin and Hoang H Nguyen and Anke Koelzer et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2608.09930}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.30642}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2608.09930}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
