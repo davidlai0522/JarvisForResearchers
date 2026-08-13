@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [AdvFD: Boosting Visual Generation via Adversarial Fr'echet Distance Loss](2026-08-13-advfd-boosting-visual-generation-via-adversarial-fr-echet-di/) { data-cat="Computer Vision" data-date="2026-08-13" }
+
+*2026-08-13*
+
+Adversarial Fréchet Distance (AdvFD) mitigates Fréchet hacking in visual generation by augmenting static Fréchet objectives with a learnable, adversarially optimized representation stabilized by real-feature whitening.
+
 ## [Beyond Naturalness: Probing Automated Text-To-Speech Evaluators on Linguistically Grounded Dimensions](2026-08-12-beyond-naturalness-probing-automated-text-to-speech-evaluato/) { data-cat="Artificial Intelligence" data-date="2026-08-12" }
 
 *2026-08-12*
