@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "StateFlow: Building, Evolving, and Accessing 3D World States for Previsualization": posts/2026-08-14-stateflow-building-evolving-and-accessing-3d-world-states-fo.md
     - "AdvFD: Boosting Visual Generation via Adversarial Fr'echet Distance Loss": posts/2026-08-13-advfd-boosting-visual-generation-via-adversarial-fr-echet-di.md
     - "Beyond Naturalness: Probing Automated Text-To-Speech Evaluators on Linguistically Grounded Dimensions": posts/2026-08-12-beyond-naturalness-probing-automated-text-to-speech-evaluato.md
     - "DyPES-VLA: Learning Shared Dynamics Priors and Embodiment-Specific Control for Cross-Embodiment Manipulation": posts/2026-08-10-dypes-vla-learning-shared-dynamics-priors-and-embodiment-spe.md

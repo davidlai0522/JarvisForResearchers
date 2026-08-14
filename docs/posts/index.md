@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [StateFlow: Building, Evolving, and Accessing 3D World States for Previsualization](2026-08-14-stateflow-building-evolving-and-accessing-3d-world-states-fo/) { data-cat="Computer Vision" data-date="2026-08-14" }
+
+*2026-08-14*
+
+StateFlow is a state-centric framework for generative previsualization that moves beyond one-shot synthesis by maintaining an editable, persistent 3D world state which can be constructed, evolved based on user intent, and accessed via controlled camera planning.
+
 ## [AdvFD: Boosting Visual Generation via Adversarial Fr'echet Distance Loss](2026-08-13-advfd-boosting-visual-generation-via-adversarial-fr-echet-di/) { data-cat="Computer Vision" data-date="2026-08-13" }
 
 *2026-08-13*
