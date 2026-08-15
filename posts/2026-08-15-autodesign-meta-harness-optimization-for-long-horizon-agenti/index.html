@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This survey provides a comprehensive, robot-learning-centered review of world models, detailing their coupling with robot policies, their function as simulators, and their application in robotic video generation.
+        <meta name="description" content="AutoDesign is a meta-harness optimization framework that guides a code agent to recursively improve a design harness based on rollout feedback, enabling long-horizon, human-aligned multimodal design.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-08-15-autodesign-meta-harness-optimization-for-long-horizon-agenti/">
       
       
-        <link rel="prev" href="../2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/">
+        <link rel="next" href="../2026-08-14-stateflow-building-evolving-and-accessing-3d-world-states-fo/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>World Model for Robot Learning: A Comprehensive Survey - JarvisForResearchers</title>
+        <title>AutoDesign: Meta-Harness Optimization for Long-Horizon Agentic Design - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              World Model for Robot Learning: A Comprehensive Survey
+              AutoDesign: Meta-Harness Optimization for Long-Horizon Agentic Design
             
           </span>
         </div>
@@ -622,10 +622,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-08-15-autodesign-meta-harness-optimization-for-long-horizon-agenti/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AutoDesign: Meta-Harness Optimization for Long-Horizon Agentic Design
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -641,6 +666,184 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-harness-h" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Harness (H)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#meta-harness-optimizer-p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Meta-Harness Optimizer (P)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functional-components-of-h" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functional Components (of H)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#designer-mdesign" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Designer (Mdesign)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#critic-mcritic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Critic (Mcritic)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acceptance-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Acceptance Gate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3254,35 +3457,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    World Model for Robot Learning: A Comprehensive Survey
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/" class="md-nav__link">
         
   
   
@@ -3298,184 +3476,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#world-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        World Model
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#low-level-physical-actions-a" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Low-level physical actions (a)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#high-level-language-or-task-actions-l" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        High-level language or task actions (l)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#robot-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Robot Policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#visuomotor-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visuomotor Policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vision-language-action-vla-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vision-Language-Action (VLA) Models
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3893,10 +3893,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#world-model" class="md-nav__link">
+  <a href="#design-harness-h" class="md-nav__link">
     <span class="md-ellipsis">
       
-        World Model
+        Design Harness (H)
       
     </span>
   </a>
@@ -3904,10 +3904,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#low-level-physical-actions-a" class="md-nav__link">
+  <a href="#meta-harness-optimizer-p" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Low-level physical actions (a)
+        Meta-Harness Optimizer (P)
       
     </span>
   </a>
@@ -3915,10 +3915,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#high-level-language-or-task-actions-l" class="md-nav__link">
+  <a href="#functional-components-of-h" class="md-nav__link">
     <span class="md-ellipsis">
       
-        High-level language or task actions (l)
+        Functional Components (of H)
       
     </span>
   </a>
@@ -3926,10 +3926,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#robot-policy" class="md-nav__link">
+  <a href="#designer-mdesign" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Robot Policy
+        Designer (Mdesign)
       
     </span>
   </a>
@@ -3937,10 +3937,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#visuomotor-policy" class="md-nav__link">
+  <a href="#critic-mcritic" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Visuomotor Policy
+        Critic (Mcritic)
       
     </span>
   </a>
@@ -3948,10 +3948,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#vision-language-action-vla-models" class="md-nav__link">
+  <a href="#acceptance-gate" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vision-Language-Action (VLA) Models
+        Acceptance Gate
       
     </span>
   </a>
@@ -4028,6 +4028,13 @@
       
       
       
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
+      
+    
+      
+      
+      
+      
         <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
@@ -4035,79 +4042,110 @@
       
       
       
-        <a href="../../tags/#tag:planning" class="md-tag">planning</a>
+        <a href="../../tags/#tag:multimodal" class="md-tag">multimodal</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:reinforcement-learning" class="md-tag">reinforcement-learning</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
+        <a href="../../tags/#tag:nlp" class="md-tag">nlp</a>
       
     
   </nav>
 
 
 
-  <h1>World Model for Robot Learning: A Comprehensive Survey</h1>
+  <h1>AutoDesign: Meta-Harness Optimization for Long-Horizon Agentic Design</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-09</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-08-15</em></p>
 </blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Brand new preprint (2026) — accepted</p>
+</div>
 <h2 id="tldr">TL;DR</h2>
-<p>This survey provides a robot-learning-centered review of world models, detailing their coupling with robot policies, their function as simulators, and their application in robotic video generation. We establish a fine-grained taxonomy distinguishing major architectural paradigms and functional roles, clarifying how predictive structures enable long-horizon reasoning and data amplification for embodied agents.</p>
+<p>AutoDesign introduces a meta-harness optimization framework that enables a code agent to recursively refine a design harness. This framework transforms a static system into a self-improving entity capable of producing long-horizon, human-aligned multimodal artifacts, such as academic posters, by iteratively updating the harness components based on rollout feedback.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Purely reactive Vision-Language-Action (VLA) policies struggle with long-horizon reasoning, temporal credit assignment, and robustness under compounding errors in complex physical environments due to a lack of explicit predictive structure for anticipating world evolution. Without an internal model of dynamics, these policies are inherently brittle when the required sequence of actions extends beyond the immediate sensory horizon.</p>
-<p>The existing literature suffers from fragmentation across architectures, functional roles, and embodied application domains. Furthermore, prior surveys lacked a fine-grained view of major world-model paradigms, and previous work did not offer a clear robotics-centered definition of world models in relation to VLA policies and robot learning.</p>
+<p>The challenge in modern multimodal design is not merely generating a single, high-quality output, but establishing a persistent, production-ready capability that adheres to complex human alignment criteria. Existing benchmarks typically evaluate isolated aspects of the output—such as layout quality, information extraction faithfulness, or visual aesthetics—in a static manner. Furthermore, prior work often treats human feedback as transient noise rather than actionable knowledge that can improve the underlying generation process. While some systems optimize declarative components or search code workflows, they fail to systematically update a reusable, end-to-end design harness based on the cumulative results of execution trajectories.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We present a policy-centric survey of world models for robot learning, focusing specifically on their coupling with VLA policies for action generation, planning, simulation, evaluation, and data generation. We provide a more fine-grained taxonomy by distinguishing major architectural paradigms and functional roles of world models. Finally, we offer a comprehensive and clearly defined treatment of robotic world models by clarifying their relationship to robot learning, VLA policies, video generation, and simulator-style usage.</p>
+<p>We introduce three primary contributions to address these gaps:</p>
+<ol>
+<li><strong>AutoDesign:</strong> A meta-harness optimization framework that evolves a static design harness into a recursively improving system specifically tailored for human-aligned multimodal design tasks.</li>
+<li><strong>DesignHarness:</strong> The concrete, executable system built by AutoDesign. This harness integrates editable generation capabilities with rendering pipelines, rule-based validation, and visual critic feedback to facilitate localized, targeted revisions.</li>
+<li><strong>PosterBench:</strong> A comprehensive evaluation protocol designed for paper-to-poster tasks. It employs a seven-dimensional rubric covering faithfulness, coverage, density, visual evidence, layout, readability, and aesthetics.</li>
+</ol>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.00080/fig_p2_c1.jpg" />
-<em>Figure 1 Overview of the organization of this survey. Section 3 reviews how world models are coupled with robot policies
-from an architectural perspective. Section 4 examines world models as simulators from an application perspective.
-Section 5 focuses on robotic video world models and organizes the</em></p>
-<p>The survey adopts a robot-learning-centered view, defining a world model as a predictive model of agent-environment dynamics that captures how a robotic or embodied system evolves under actions. This model must provide foresight, imagination-driven planning, and data amplification to be actionable. We systematically examine how these predictive structures are coupled with robot policies, how they function as learned simulators for reinforcement learning and evaluation, and how robotic video world models progress from imagination-based generation to controllable, structured, and foundation-scale formulations. The focus remains on action-conditioned consistency, long-horizon reliability, and practical deployability in embodied tasks.</p>
-<h3 id="world-model">World Model</h3>
-<p>A <strong>World Model</strong> is defined as a predictive model of agent-environment dynamics that captures how a robotic or embodied system evolves under actions, typically modeling a state-transition process: <span class="arithmatex">\(p(x_{t+1:t+H} | x_t, a_{t:t+H-1}, l)\)</span>. This model is the core mechanism for enabling foresight.</p>
-<h3 id="low-level-physical-actions-a">Low-level physical actions (a)</h3>
-<p>These are the concrete physical actions executed by the agent, such as motor commands. They represent the direct interface between the agent's decision-making process and the physical environment.</p>
-<h3 id="high-level-language-or-task-actions-l">High-level language or task actions (l)</h3>
-<p>These are high-level semantic actions that specify what the future should be realized, such as a language instruction or goal description. They provide the necessary semantic grounding for long-horizon planning.</p>
-<h3 id="robot-policy">Robot Policy</h3>
-<p>The <strong>Robot Policy</strong> is a decision-making model that frames physical control as an action prediction task, mapping current environmental observations to future action trajectories: <span class="arithmatex">\(p(a_{t+1:t+k}|o_t, l)\)</span>. It dictates the agent's behavior based on its current state and goals.</p>
-<h3 id="visuomotor-policy">Visuomotor Policy</h3>
-<p>A <strong>Visuomotor Policy</strong> is a specialized, often lightweight, end-to-end network that establishes a direct mapping from raw states to the action space, typically via regression or generative models. It represents a direct, low-level control mapping without explicit internal world modeling.</p>
-<h3 id="vision-language-action-vla-models">Vision-Language-Action (VLA) Models</h3>
-<p><strong>Vision-Language-Action (VLA) Models</strong> are generalist models developed by fine-tuning large-scale Vision-Language Models (VLMs) on large scale robotic trajectory data to achieve cross-task and cross-embodiment generalization. They aim to unify perception, language understanding, and action generation.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2608.13560/fig_p1_c1.jpg" />
+<em>Figure 1 AutoDesign progressively improves the design harness and the quality of the artifacts. (a) Score of the poster
+generated by the design harness for one representative paper, tracked across meta-harness iterations. Autonomous
+optimization improves the initial harness before reaching a plateau</em></p>
+<p>AutoDesign operates through a nested loop structure. The inner loop is governed by the <strong>Design Harness (H)</strong>, which transforms a multimodal source <span class="arithmatex">\(x\)</span> and context <span class="arithmatex">\(c\)</span> into a human-facing artifact <span class="arithmatex">\(y\)</span> via an execution trajectory <span class="arithmatex">\(\pi\)</span>. This inner loop involves the <strong>Designer (Mdesign)</strong> generating or revising <span class="arithmatex">\(y_k\)</span>, and the <strong>Critic (Mcritic)</strong> evaluating <span class="arithmatex">\(y_k\)</span> to produce feedback <span class="arithmatex">\(f_k\)</span> for the next iteration.</p>
+<p>The outer loop is managed by the <strong>Meta-Harness Optimizer (P)</strong>. P analyzes the evaluation results derived from the trajectories <span class="arithmatex">\(\pi\)</span> across multiple tasks. Based on this analysis, P proposes a bounded update to one of the five <strong>Functional Components (of H)</strong>. This proposed update is then passed through an <strong>Acceptance Gate</strong>. The Gate enforces a strict criterion: the update must yield a measurable training gain while simultaneously preserving performance on the development set. Successful updates accumulate, leading to the progressive refinement of the <strong>DesignHarness</strong>.</p>
+<h3 id="design-harness-h">Design Harness (H)</h3>
+<p>The Design Harness (H) serves as the operational wrapper around a fixed generative model. Its function is to manage the entire process of transforming the multimodal source <span class="arithmatex">\(x\)</span> into the final artifact <span class="arithmatex">\(y\)</span> by orchestrating a sequence of operations defined by the execution trajectory <span class="arithmatex">\(\pi\)</span>.</p>
+<h3 id="meta-harness-optimizer-p">Meta-Harness Optimizer (P)</h3>
+<p>The Meta-Harness Optimizer (P) is the supervisory layer. Its role is not to generate content, but to improve the <em>process</em> of content generation. It treats the harness <span class="arithmatex">\(H\)</span> as the object of optimization, aiming to maximize the expected quality <span class="arithmatex">\(J(H)\)</span> by intelligently modifying its internal structure.</p>
+<h3 id="functional-components-of-h">Functional Components (of H)</h3>
+<p>The harness <span class="arithmatex">\(H\)</span> is modularized into five distinct <strong>Functional Components (of H)</strong>: Context and Memory, Tools and Specifications, Execution Runtime, Orchestration, and Evaluation and Feedback. The Meta-Harness Optimizer (P) targets updates to these discrete components.</p>
+<h3 id="designer-mdesign">Designer (Mdesign)</h3>
+<p>The Designer (Mdesign) is the generative engine within the inner loop. It is responsible for the actual creation and revision of the artifact <span class="arithmatex">\(y_k\)</span>, utilizing the current state and the feedback <span class="arithmatex">\(f_k\)</span> provided by the Critic.</p>
+<h3 id="critic-mcritic">Critic (Mcritic)</h3>
+<p>The Critic (Mcritic) operates in the inner loop to provide evaluative signals. It assesses the current artifact state <span class="arithmatex">\(y_k\)</span> against the required criteria derived from the source <span class="arithmatex">\(x\)</span> and context <span class="arithmatex">\(c\)</span>, generating the necessary feedback <span class="arithmatex">\(f_k\)</span> to guide the Designer.</p>
+<h3 id="acceptance-gate">Acceptance Gate</h3>
+<p>The Acceptance Gate acts as a stability constraint on the optimization process. It prevents catastrophic forgetting or overfitting by ensuring that any proposed modification to <span class="arithmatex">\(H\)</span> is validated against both the training set (requiring a gain) and the development set (requiring performance retention).</p>
 <h2 id="results">Results</h2>
-<p>(No quantitative results were provided in the outline.)</p>
+<p>The application of AutoDesign resulted in measurable improvements across the evaluation protocol.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Baseline</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">PosterBench Score (Main Track)</td>
+<td style="text-align: left;">78.32</td>
+<td style="text-align: left;">Claude Design</td>
+<td style="text-align: left;">Section 5</td>
+</tr>
+<tr>
+<td style="text-align: left;">PosterBench Score (PosterBench-mini)</td>
+<td style="text-align: left;">67.39</td>
+<td style="text-align: left;">54.99</td>
+<td style="text-align: left;">Section 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Average PosterBench Score Improvement</td>
+<td style="text-align: left;">+12.4%</td>
+<td style="text-align: left;">54.99</td>
+<td style="text-align: left;">Section 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Autonomous Loop Execution</td>
+<td style="text-align: left;">253 tool calls and 11 editing turns within 40 minutes for under $3</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Section 1</td>
+</tr>
+</tbody>
+</table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>World models serve as a predictive bridge from semantic intent to physically realizable behavior, directly addressing the limitations inherent in purely reactive VLA policies. The functional role of a world model must be action-conditioned; visually plausible but action-inconsistent futures offer limited value for closed-loop decision making. Consequently, the field is trending towards tighter integration, moving from decoupled pipelines toward single-backbone, MoE/MoT, unified VLA, and latent world-modeling designs.</p>
+<p>The AutoDesign framework shifts the paradigm from prompt engineering or model fine-tuning to <em>system engineering</em> for AI agents. By optimizing the harness—the surrounding control flow, validation logic, and component interaction—we achieve robust, long-horizon performance gains without requiring expensive retraining of the core LLM. This methodology provides a blueprint for building reliable, production-grade agents capable of complex, iterative tasks where the final output quality depends on the entire workflow, not just the final token generation.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>It must be noted that this survey does not enforce a single narrow formal definition of a world model, acknowledging the diverse implementations in the literature. Furthermore, the focus is strictly on the functional role of world models for robot learning, which is a narrower scope than generic future prediction as studied in computer vision.</p>
+<p>Currently, the <strong>PosterBench</strong> evaluation protocol is specifically tailored for poster generation. Furthermore, the scope of the updates proposed by the <strong>Meta-Harness Optimizer (P)</strong> is restricted to modifying one selected <strong>Functional Components (of H)</strong> per optimization step. Future work must address generalizing the update mechanism across multiple components simultaneously and expanding the evaluation scope beyond static poster artifacts.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.00080">2605.00080</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260500080</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{World Model for Robot Learning: A Comprehensive Survey}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Bohan Hou and Gen Li and Jindou Jia and Tuo An and Xinying Guo and Sicong Leng et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.00080}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2608.13560">2608.13560</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260813560</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{AutoDesign: Meta-Harness Optimization for Long-Horizon Agentic Design}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Yaxin Luo and Haobin Jiang and Jialv Zou and Xu Huang and Wenhao Yan and Haodong Li et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2608.13560}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.00080}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2608.13560}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
