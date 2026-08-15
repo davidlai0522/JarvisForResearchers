@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [AutoDesign: Meta-Harness Optimization for Long-Horizon Agentic Design](2026-08-15-autodesign-meta-harness-optimization-for-long-horizon-agenti/) { data-cat="Computer Vision" data-date="2026-08-15" }
+
+*2026-08-15*
+
+AutoDesign is a meta-harness optimization framework that guides a code agent to recursively improve a design harness based on rollout feedback, enabling long-horizon, human-aligned multimodal design.
+
 ## [StateFlow: Building, Evolving, and Accessing 3D World States for Previsualization](2026-08-14-stateflow-building-evolving-and-accessing-3d-world-states-fo/) { data-cat="Computer Vision" data-date="2026-08-14" }
 
 *2026-08-14*
