@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [OmniScientist: An Omni-Modal Omni-Discipline AI Scientist](2026-08-16-omniscientist-an-omni-modal-omni-discipline-ai-scientist/) { data-cat="Artificial Intelligence" data-date="2026-08-16" }
+
+*2026-08-16*
+
+OmniScientist is an end-to-end, omni-modal AI scientist that conducts multidisciplinary research directly from heterogeneous raw evidence by integrating a perception layer with three autonomous agents within a deterministic, code-enforced pipeline.
+
 ## [AutoDesign: Meta-Harness Optimization for Long-Horizon Agentic Design](2026-08-15-autodesign-meta-harness-optimization-for-long-horizon-agenti/) { data-cat="Computer Vision" data-date="2026-08-15" }
 
 *2026-08-15*
