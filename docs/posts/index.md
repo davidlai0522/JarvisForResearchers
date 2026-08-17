@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [V-RAE: Rethinking Video Latent Spaces for Generation](2026-08-17-v-rae-rethinking-video-latent-spaces-for-generation/) { data-cat="Computer Vision" data-date="2026-08-17" }
+
+*2026-08-17*
+
+V-RAE is a video representation autoencoder that constructs compact generative latents by leveraging frozen vision foundation model representations, augmented with a lightweight temporal pooling module and a spatiotemporal Transformer decoder.
+
 ## [OmniScientist: An Omni-Modal Omni-Discipline AI Scientist](2026-08-16-omniscientist-an-omni-modal-omni-discipline-ai-scientist/) { data-cat="Artificial Intelligence" data-date="2026-08-16" }
 
 *2026-08-16*
