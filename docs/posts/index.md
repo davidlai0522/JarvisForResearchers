@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [MagnifiQ: Patch-aware Text Guided Progressive Upscaling for High-Resolution Image Restoration](2026-08-18-magnifiq-patch-aware-text-guided-progressive-upscaling-for-h/) { data-cat="Computer Vision" data-date="2026-08-18" }
+
+*2026-08-18*
+
+MagnifiQ is a patch-aware, text-guided progressive upscaling framework that iteratively restores low-quality images to high resolutions up to 4096 × 4096 by adapting SDXL and replacing self-attention with efficient convolutional operations.
+
 ## [V-RAE: Rethinking Video Latent Spaces for Generation](2026-08-17-v-rae-rethinking-video-latent-spaces-for-generation/) { data-cat="Computer Vision" data-date="2026-08-17" }
 
 *2026-08-17*

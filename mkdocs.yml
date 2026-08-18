@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "MagnifiQ: Patch-aware Text Guided Progressive Upscaling for High-Resolution Image Restoration": posts/2026-08-18-magnifiq-patch-aware-text-guided-progressive-upscaling-for-h.md
     - "V-RAE: Rethinking Video Latent Spaces for Generation": posts/2026-08-17-v-rae-rethinking-video-latent-spaces-for-generation.md
     - "OmniScientist: An Omni-Modal Omni-Discipline AI Scientist": posts/2026-08-16-omniscientist-an-omni-modal-omni-discipline-ai-scientist.md
     - "AutoDesign: Meta-Harness Optimization for Long-Horizon Agentic Design": posts/2026-08-15-autodesign-meta-harness-optimization-for-long-horizon-agenti.md
