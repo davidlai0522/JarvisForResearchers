@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [$τ_0$-VLA: a Hierarchical Robot Foundation Model with World-Model-Guided Test-Time Computation](2026-08-19-0-vla-a-hierarchical-robot-foundation-model-with-world-model/) { data-cat="Robotics" data-date="2026-08-19" }
+
+*2026-08-19*
+
+τ0-VLA is a hierarchical robot foundation model that uses world-model-guided test-time computation to make compute-scalable, consequence-aware decisions for long-horizon subtask generation in mobile manipulation.
+
 ## [MagnifiQ: Patch-aware Text Guided Progressive Upscaling for High-Resolution Image Restoration](2026-08-18-magnifiq-patch-aware-text-guided-progressive-upscaling-for-h/) { data-cat="Computer Vision" data-date="2026-08-18" }
 
 *2026-08-18*
