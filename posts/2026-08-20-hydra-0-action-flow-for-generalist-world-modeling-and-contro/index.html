@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This paper introduces a plug-and-play recipe that significantly boosts Lidar Semantic Scene Completion (SSC) performance by augmenting input point clouds with semantic pseudo-labels and visibility information derived from off-the-shelf techniques.
+        <meta name="description" content="Hydra-0 introduces a generalist world model conditioned on action flow, a shared image-plane motion representation, enabling multi-embodiment learning and control across diverse robotic interactions.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-04-exploring-easy-boosts-for-lidar-semantic-scene-completion/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-08-20-hydra-0-action-flow-for-generalist-world-modeling-and-contro/">
       
       
-        <link rel="prev" href="../2026-06-06-taillor-protecting-principal-components-in-parameter-efficie/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-06-03-thinking-in-blender-staged-executable-inverse-graphics-with-/">
+        <link rel="next" href="../2026-08-19-0-vla-a-hierarchical-robot-foundation-model-with-world-model/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Exploring Easy Boosts for Lidar Semantic Scene Completion - JarvisForResearchers</title>
+        <title>Hydra-0: Action Flow for Generalist World Modeling and Control - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Exploring Easy Boosts for Lidar Semantic Scene Completion
+              Hydra-0: Action Flow for Generalist World Modeling and Control
             
           </span>
         </div>
@@ -632,10 +632,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-08-20-hydra-0-action-flow-for-generalist-world-modeling-and-contro/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hydra-0: Action Flow for Generalist World Modeling and Control
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -651,6 +676,206 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#encoder-e_varphi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encoder \(e_{\varphi}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamics-model-g_theta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dynamics Model \(g_{\theta}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decoder-d_psi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decoder \(d_{\psi}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action-flow-mathcalf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action Flow \(\mathcal{F}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#motion-feature-m_ktildep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motion Feature \(M_k(\tilde{p})\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#presence-gate-g_ktildep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Presence Gate \(g_k(\tilde{p})\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-motion-condition-c_motion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Motion Condition \(C_{motion}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action Head
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2732,35 +2957,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Exploring Easy Boosts for Lidar Semantic Scene Completion
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-06-04-exploring-easy-boosts-for-lidar-semantic-scene-completion/" class="md-nav__link">
         
   
   
@@ -2776,195 +2976,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#input-tensor-v" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Input Tensor V
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#semantic-prior" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Semantic Prior
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#visibility-prior" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visibility Prior
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lmscnet-ss-4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LMSCNet-SS [4]
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#semcity-ae-12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SemCity-AE [12]
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ssa-sc-6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SSA-SC [6]
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#js3c-net-7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        JS3C-Net [7]
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4054,10 +4065,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#input-tensor-v" class="md-nav__link">
+  <a href="#encoder-e_varphi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Input Tensor V
+        Encoder \(e_{\varphi}\)
       
     </span>
   </a>
@@ -4065,10 +4076,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#semantic-prior" class="md-nav__link">
+  <a href="#dynamics-model-g_theta" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Semantic Prior
+        Dynamics Model \(g_{\theta}\)
       
     </span>
   </a>
@@ -4076,10 +4087,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#visibility-prior" class="md-nav__link">
+  <a href="#decoder-d_psi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Visibility Prior
+        Decoder \(d_{\psi}\)
       
     </span>
   </a>
@@ -4087,10 +4098,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#lmscnet-ss-4" class="md-nav__link">
+  <a href="#action-flow-mathcalf" class="md-nav__link">
     <span class="md-ellipsis">
       
-        LMSCNet-SS [4]
+        Action Flow \(\mathcal{F}\)
       
     </span>
   </a>
@@ -4098,10 +4109,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#semcity-ae-12" class="md-nav__link">
+  <a href="#motion-feature-m_ktildep" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SemCity-AE [12]
+        Motion Feature \(M_k(\tilde{p})\)
       
     </span>
   </a>
@@ -4109,10 +4120,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ssa-sc-6" class="md-nav__link">
+  <a href="#presence-gate-g_ktildep" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SSA-SC [6]
+        Presence Gate \(g_k(\tilde{p})\)
       
     </span>
   </a>
@@ -4120,10 +4131,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#js3c-net-7" class="md-nav__link">
+  <a href="#complete-motion-condition-c_motion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        JS3C-Net [7]
+        Complete Motion Condition \(C_{motion}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action Head
       
     </span>
   </a>
@@ -4200,20 +4222,6 @@
       
       
       
-        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:point-cloud" class="md-tag">point-cloud</a>
-      
-    
-      
-      
-      
-      
         <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
       
     
@@ -4221,51 +4229,44 @@
 
 
 
-  <h1>Exploring Easy Boosts for Lidar Semantic Scene Completion</h1>
+  <h1>Hydra-0: Action Flow for Generalist World Modeling and Control</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-06-04</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-08-20</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
 <p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>We introduce a plug-and-play recipe that significantly boosts Lidar Semantic Scene Completion (SSC) performance by augmenting input point clouds with semantic pseudo-labels and visibility information derived from off-the-shelf techniques. This demonstrates that simple, external priors can substantially improve the performance of existing SSC architectures.</p>
+<p>Hydra-0 introduces a generalist world model conditioned on action flow, a shared image-plane motion representation, enabling multi-embodiment learning and control across diverse robotic interactions.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Lidar Semantic Scene Completion (SSC) from a single lidar scan is challenging because lidar provides accurate but sparse geometry and lacks dense colorimetric information, which is a major cue for semantic estimation. The inherent sparsity and lack of rich feature data limit the ability of standard SSC networks to accurately infer the complete semantic structure of the scene.</p>
-<p>The prior art exhibits several gaps:
-1. The impact of various additional priors (semantic or visibility) on SSC performance has not been systematically evaluated.
-2. The contribution of different priors to the final SSC performance is unclear.
-3. Existing methods often derive priors concurrently or rely on specific, unquantified prior types.</p>
+<p>The current landscape of foundation world models suffers from a critical lack of transferability. Existing models are frequently coupled to the specific embodiment on which they were trained. This coupling arises because they often rely on native robot commands—such as joint-space or end-effector trajectories—which inherently encode embodiment-specific structural information. This reliance prevents seamless generalization across different robot platforms, tasks, or environments. Furthermore, there is an unresolved challenge in establishing a mechanism to ground a purely visual, shared motion representation into executable, embodiment-specific robot commands.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>Our work makes three primary contributions:
-1. We demonstrate that endowing input point clouds with semantic pseudo-labels from off-the-shelf segmentors significantly improves SSC performance.
-2. We equip the input lidar scan with visibility information to distinguish between empty and unknown spaces, providing a secondary performance boost.
-3. We show that combining semantic and visibility priors is complementary, boosting performance even further across tested architectures.</p>
+<p>We make three primary contributions to address these limitations. First, we formulate robot action conditioning not through native commands, but via kinematically grounded image-plane action flow. This flow can be derived either from recorded video data or synthesized from executable commands. Second, we demonstrate that this action flow serves as a universal, shared interface for generalist world modeling across various embodiments and video-generation backbones. Empirical evaluation shows significant performance gains: we achieve 90.40% lower robot-motion error and 60.16% lower object-motion error compared to the action-conditioned Cosmos 2.5 baseline. Third, we successfully invert this action flow interface to construct a world action model capable of predicting compatible robot motion directly from desired object flow extracted from human demonstrations.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.03992/fig_p1_c1.jpg" />
-<em>Fig. 1. Impact of input priors. We compare the baseline
-models against their versions endowed with our recipe. It
-yields consistent gains across all backbones, propelling SSA-
-SC [6] to 28.8 mIoU.</em></p>
-<p>The core methodology involves augmenting the input 3D volume tensor <span class="arithmatex">\(V \in \{0, 1\}^{X \times Y \times Z \times (C+2)}\)</span> provided to existing SSC networks. This augmentation process introduces two distinct types of priors: the semantic prior and the visibility prior. These priors are then combined and applied to four established SSC architectures: LMSCNet-SS [4], SemCity-AE [12], SSA-SC [6], and JS3C-Net [7].</p>
-<h3 id="input-tensor-v">Input Tensor V</h3>
-<p>The input tensor <span class="arithmatex">\(V\)</span> is a 4D tensor constructed on a grid of voxels. It encodes information using one-hot vectors, indicating whether a voxel is empty, unknown, or occupied (and, if occupied, what its assigned semantic pseudo-label is). This structure allows the augmented information to be integrated directly into the network's input representation.</p>
-<h3 id="semantic-prior">Semantic Prior</h3>
-<p>The semantic prior is derived from external, off-the-shelf point cloud segmentors. For each voxel, the semantic label is determined by majority voting among all points contained within that voxel. This process effectively injects semantic context into the geometric representation where raw lidar data is ambiguous.</p>
-<h3 id="visibility-prior">Visibility Prior</h3>
-<p>The visibility prior addresses the ambiguity between empty and unknown spaces. This is achieved by ray casting from the lidar center <span class="arithmatex">\(o\)</span> to sample points <span class="arithmatex">\(q_i\)</span> at regular intervals, specifically <span class="arithmatex">\(\delta = 20 \text{ cm}\)</span>, along each ray. Voxels containing such sampled points are explicitly labeled as empty. Furthermore, a safety volume surrounding occupied voxels is utilized to assign the unknown label to neighboring voxels, refining the boundary delineation.</p>
-<h3 id="lmscnet-ss-4">LMSCNet-SS [4]</h3>
-<p>This network serves as a baseline SSC architecture. To incorporate our augmented input, LMSCNet-SS [4] was adapted by modifying its initial network layer. This modification ensures the input layer can correctly process the augmented tensor <span class="arithmatex">\(V\)</span>, which now possesses <span class="arithmatex">\((C+2) \cdot Z\)</span> channels.</p>
-<h3 id="semcity-ae-12">SemCity-AE [12]</h3>
-<p>SemCity-AE [12], a lightweight autoencoder, was repurposed for SSC. It accepts the augmented sparse tensor <span class="arithmatex">\(V\)</span> as its input. The necessary adaptation involved modifying the embedding layer size to accommodate the richer feature set provided by the augmented input.</p>
-<h3 id="ssa-sc-6">SSA-SC [6]</h3>
-<p>In the SSA-SC [6] architecture, the input width of the BEV U-Net required modification. It was changed from the original <span class="arithmatex">\(32+32\)</span> to <span class="arithmatex">\((C+2) \cdot 32 + 32\)</span>. This adjustment allows the network to ingest the one-hot encoded semantics alongside the empty and unknown class indicators.</p>
-<h3 id="js3c-net-7">JS3C-Net [7]</h3>
-<p>JS3C-Net [7] required two specific updates to integrate the priors. First, one-hot encoded semantic pseudo-labels were concatenated to the per-point input features used for semantic segmentation. Second, the input to the SSC module itself was enhanced to explicitly incorporate the visibility information derived from the ray casting process.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2608.18077/fig_p1_c1.jpg" />
+<em>Figure 1: Action flow as a shared control interface. Top: Hydra-0 learns from diverse interaction videos
+featuring egocentric human demonstrations, handheld UMI grippers, bimanual robot arms, and single-arm
+robots. Middle: Visible embodiment motion is represented as image-plane flow trajectories, pl</em></p>
+<p>Hydra-0 operates by leveraging action flow, defined as a set of camera-plane trajectories, as the primary shared visual condition. In the forward dynamics mode, we simulate executable commands using a platform like Isaac Lab. The resulting visible robot-surface trajectories are then projected into the image plane to construct the action flow <span class="arithmatex">\(\mathcal{F}\)</span>. This <span class="arithmatex">\(\mathcal{F}\)</span> subsequently conditions a causal autoregressive dynamics model, <span class="arithmatex">\(g_{\theta}\)</span>, which is tasked with predicting the future latent states <span class="arithmatex">\(\hat{s}_{1:H}\)</span>. The motion features are derived by propagating information from the initial state <span class="arithmatex">\(s_0\)</span> using Gaussian weights to generate a motion condition <span class="arithmatex">\(C_{motion}\)</span>. This <span class="arithmatex">\(C_{motion}\)</span> is then concatenated with the noisy latent representation <span class="arithmatex">\(Z_t\)</span> before being processed by the DiT patch embedding layer. The training objective optimizes the standard flow-matching objective <span class="arithmatex">\(\mathcal{L}(\theta)\)</span>, augmented by the inclusion of <span class="arithmatex">\(C_{motion}\)</span>.</p>
+<h3 id="encoder-e_varphi">Encoder <span class="arithmatex">\(e_{\varphi}\)</span></h3>
+<p>The Encoder <span class="arithmatex">\(e_{\varphi}\)</span> is responsible for mapping the initial observation <span class="arithmatex">\(o_0\)</span> into a compact, spatial latent state <span class="arithmatex">\(s_0 \in \mathcal{S}\)</span>. This establishes the initial state representation upon which the dynamics model operates.</p>
+<h3 id="dynamics-model-g_theta">Dynamics Model <span class="arithmatex">\(g_{\theta}\)</span></h3>
+<p>The Dynamics Model <span class="arithmatex">\(g_{\theta}\)</span> is the core predictive component. It takes the initial state <span class="arithmatex">\(s_0\)</span> and the action flow <span class="arithmatex">\(\mathcal{F}\)</span> as inputs to predict the sequence of future latent states, <span class="arithmatex">\(\hat{s}_{1:H} = g_{\theta}(s_0, \mathcal{F})\)</span>.</p>
+<h3 id="decoder-d_psi">Decoder <span class="arithmatex">\(d_{\psi}\)</span></h3>
+<p>The Decoder <span class="arithmatex">\(d_{\psi}\)</span> reconstructs the visual sequence corresponding to the predicted latent states. It maps the predicted latent sequence <span class="arithmatex">\(\hat{s}_{1:H}\)</span> back into the observable RGB sequence, <span class="arithmatex">\(\hat{o}_{1:H} = d_{\psi}(\hat{s}_{1:H})\)</span>.</p>
+<h3 id="action-flow-mathcalf">Action Flow <span class="arithmatex">\(\mathcal{F}\)</span></h3>
+<p>The Action Flow <span class="arithmatex">\(\mathcal{F}\)</span> is the critical shared interface. It is formally defined as a set of camera-plane trajectories, <span class="arithmatex">\(\mathcal{F} = \{\tau_n\}_N\)</span>, which explicitly describe the commanded motion of visible points on the robot or objects within the scene.</p>
+<h3 id="motion-feature-m_ktildep">Motion Feature <span class="arithmatex">\(M_k(\tilde{p})\)</span></h3>
+<p>The Motion Feature <span class="arithmatex">\(M_k(\tilde{p})\)</span> quantifies the propagated motion information at a specific latent time <span class="arithmatex">\(k\)</span> and a normalized latent-grid location <span class="arithmatex">\(\tilde{p}\)</span>. This is computed by applying Gaussian weighting to the features derived from the initial frame.</p>
+<h3 id="presence-gate-g_ktildep">Presence Gate <span class="arithmatex">\(g_k(\tilde{p})\)</span></h3>
+<p>The Presence Gate <span class="arithmatex">\(g_k(\tilde{p})\)</span> serves to delineate where the visual condition carries trajectory-propagated appearance information. It is calculated as the clipped sum of the raw Gaussian weights, providing a spatial mask for motion influence.</p>
+<h3 id="complete-motion-condition-c_motion">Complete Motion Condition <span class="arithmatex">\(C_{motion}\)</span></h3>
+<p>The Complete Motion Condition <span class="arithmatex">\(C_{motion}\)</span> is the composite input that injects motion context into the latent space. It is constructed by combining the derived motion features and the presence gate: <span class="arithmatex">\(C_{motion} = (M, g)\)</span>.</p>
+<h3 id="action-head">Action Head</h3>
+<p>The Action Head is utilized during the inverse control mode. It functions by reading the clean token features from the DiT structure and learning the necessary embodiment-specific inverse mapping required to translate the abstract latent representation back into executable robot commands.</p>
 <h2 id="results">Results</h2>
-<p>The empirical evaluation across various architectures demonstrates the efficacy of this augmentation strategy.</p>
 <table>
 <thead>
 <tr>
@@ -4277,50 +4278,38 @@ SC [6] to 28.8 mIoU.</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">mIoU</td>
-<td style="text-align: left;">28.8 mIoU</td>
-<td style="text-align: left;">DiffSSC [5] and DPS2CNet [24] (both at 26.7 mIoU)</td>
-<td style="text-align: left;">Table 3</td>
+<td style="text-align: left;">robot-motion error</td>
+<td style="text-align: left;">90.40% lower</td>
+<td style="text-align: left;">action-conditioned Cosmos 2.5 baseline</td>
+<td style="text-align: left;">Section 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">mIoU</td>
-<td style="text-align: left;">33.5 mIoU</td>
-<td style="text-align: left;">SemCity-AE [12] <span class="arithmatex">\(\checkmark\)</span>WI-TTA <span class="arithmatex">\(\text{+25.7 mIoU}\)</span></td>
-<td style="text-align: left;">Table 3</td>
+<td style="text-align: left;">object-motion error</td>
+<td style="text-align: left;">60.16% lower</td>
+<td style="text-align: left;">action-conditioned Cosmos 2.5 baseline</td>
+<td style="text-align: left;">Section 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">mIoU</td>
-<td style="text-align: left;">40.1 mIoU</td>
-<td style="text-align: left;">SSA-SC [6] <span class="arithmatex">\(\checkmark\)</span>Oracle <span class="arithmatex">\(\text{+28.8 mIoU}\)</span></td>
-<td style="text-align: left;">Table 3</td>
-</tr>
-<tr>
-<td style="text-align: left;">mIoU</td>
-<td style="text-align: left;">+13.8 mIoU pts</td>
-<td style="text-align: left;">LMSCNet-SS [4] (without GT semantic input)</td>
-<td style="text-align: left;">Table 1</td>
-</tr>
-<tr>
-<td style="text-align: left;">IoU</td>
-<td style="text-align: left;">+2.4 points</td>
-<td style="text-align: left;">SemCity-AE [12] (without visibility prior)</td>
-<td style="text-align: left;">Table 2</td>
+<td style="text-align: left;">Pearson correlation (replayed vs reference success rates)</td>
+<td style="text-align: left;">r= 0.96</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Section 1</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The practitioner takeaways from this work are significant for applied robotics and AI engineering. First, this research establishes that relatively simple input augmentations—namely semantic pseudo-labels and visibility information—can elevate the performance of established SSC models to levels competitive with more complex, state-of-the-art systems. Second, it underscores that the quality of the semantic segmentation prior is a critical bottleneck; leveraging advances in off-the-shelf point semantic segmentation directly translates to substantial gains in scene completion. Finally, the visibility information provides a measurable, "free" boost to occupancy estimation by explicitly resolving the ambiguity between empty and unknown voxels.</p>
+<p>The introduction of action flow fundamentally decouples the world model's dynamics from the specific kinematics of the training robot. By using a camera-plane trajectory representation, Hydra-0 achieves a robust, embodiment-agnostic interface. This capability allows the model to ingest and generalize across heterogeneous training data—be it human demonstrations, bimanual tasks, or single-arm operations—without requiring retraining for each new hardware configuration. Furthermore, the dual capability of forward dynamics prediction and inverse control positions Hydra-0 as a comprehensive tool for both simulation-based evaluation and real-world intent-driven robotic execution.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>It is important to note that this study is fundamentally an empirical investigation focused on demonstrating the efficacy of input augmentation rather than proposing a novel, end-to-end architectural paradigm. Furthermore, the reproducibility of some state-of-the-art methods cited in the literature is hampered by them being closed-source, non-reproducible, or relying on multi-frame test-time optimization procedures, which limits a direct, apples-to-apples comparison in all scenarios.</p>
+<p>Two primary limitations must be acknowledged. First, the geometry-aware construction route for deriving the action flow necessitates prior knowledge of the robot's geometry and precise camera calibration parameters. Second, the functionality of the Action Head in the inverse mode is contingent upon having paired real-world robot trajectories available during the training phase to learn the necessary embodiment-specific command mapping. Future work should investigate methods to infer or learn these geometric priors implicitly.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.03992">2606.03992</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260603992</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Exploring Easy Boosts for Lidar Semantic Scene Completion}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Tetiana Martyniuk and Jonathan Seele and Alexandre Boulch and Gilles Puy and Renaud Marlet and Raoul de Charette}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.03992}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2608.18077">2608.18077</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260818077</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Hydra-0: Action Flow for Generalist World Modeling and Control}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Hongyu Li and Bowen Wen and Xinghao Zhu and Yixuan Wang and Yilun Du and Yunzhu Li et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2608.18077}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.03992}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2608.18077}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
