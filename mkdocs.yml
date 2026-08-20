@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "Hydra-0: Action Flow for Generalist World Modeling and Control": posts/2026-08-20-hydra-0-action-flow-for-generalist-world-modeling-and-contro.md
     - "$τ_0$-VLA: a Hierarchical Robot Foundation Model with World-Model-Guided Test-Time Computation": posts/2026-08-19-0-vla-a-hierarchical-robot-foundation-model-with-world-model.md
     - "MagnifiQ: Patch-aware Text Guided Progressive Upscaling for High-Resolution Image Restoration": posts/2026-08-18-magnifiq-patch-aware-text-guided-progressive-upscaling-for-h.md
     - "V-RAE: Rethinking Video Latent Spaces for Generation": posts/2026-08-17-v-rae-rethinking-video-latent-spaces-for-generation.md

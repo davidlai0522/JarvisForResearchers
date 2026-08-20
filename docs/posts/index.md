@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Hydra-0: Action Flow for Generalist World Modeling and Control](2026-08-20-hydra-0-action-flow-for-generalist-world-modeling-and-contro/) { data-cat="Robotics" data-date="2026-08-20" }
+
+*2026-08-20*
+
+Hydra-0 introduces a generalist world model conditioned on action flow, a shared image-plane motion representation, enabling multi-embodiment learning and control across diverse robotic interactions.
+
 ## [$τ_0$-VLA: a Hierarchical Robot Foundation Model with World-Model-Guided Test-Time Computation](2026-08-19-0-vla-a-hierarchical-robot-foundation-model-with-world-model/) { data-cat="Robotics" data-date="2026-08-19" }
 
 *2026-08-19*
