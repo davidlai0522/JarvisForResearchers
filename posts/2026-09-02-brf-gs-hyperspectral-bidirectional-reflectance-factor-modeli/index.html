@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="7 papers this week: V-JEPA 2.1: Unlocking Dense Features in Video, RefDecoder: Enhancing Visual Generation with , Can These Views Be One Scene? Evaluating Mult and 4 more.
+        <meta name="description" content="BRF-GS is a 3DGS-based framework that integrates a hybrid BRDF-driven kernel, geometry-reliable band selection, and a two-stage training strategy to efficiently model Bidirectional Reflectance Factor (BRF) and generate multi-angle hyperspectral reflectance imagery for remote sensing scenes.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/digest/this-week-in-robotics--2026-week-20/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-09-02-brf-gs-hyperspectral-bidirectional-reflectance-factor-modeli/">
       
       
-        <link rel="prev" href="../this-week-in-robotics--2026-week-17/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../this-week-in-robotics--2026-week-21/">
+        <link rel="next" href="../2026-08-20-hydra-0-action-flow-for-generalist-world-modeling-and-contro/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>This Week in Robotics — 2026, Week 20 - JarvisForResearchers</title>
+        <title>BRF-GS: Hyperspectral Bidirectional Reflectance Factor Modeling and Image Generation Based on 3D Gaussian Splatting - JarvisForResearchers</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#overview" class="md-skip">
+        <a href="#tldr" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              This Week in Robotics — 2026, Week 20
+              BRF-GS: Hyperspectral Bidirectional Reflectance Factor Modeling and Image Generation Based on 3D Gaussian Splatting
             
           </span>
         </div>
@@ -203,11 +203,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../posts/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -225,11 +227,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="../" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../digest/" class="md-tabs__link">
         
   
   
@@ -291,9 +291,7 @@
           
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -346,6 +344,8 @@
       
   
   
+    
+  
   
   
     
@@ -579,20 +579,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../posts/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -610,13 +611,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -633,10 +634,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../posts/2026-09-02-brf-gs-hyperspectral-bidirectional-reflectance-factor-modeli/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BRF-GS: Hyperspectral Bidirectional Reflectance Factor Modeling and Image Generation Based on 3D Gaussian Splatting
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -652,6 +678,151 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hybrid-brdf-driven-kernel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hybrid BRDF-driven kernel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geometry-reliable-spectral-bands-selection-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometry-reliable spectral bands selection strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-stage-training-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two-stage training framework
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -664,7 +835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-08-20-hydra-0-action-flow-for-generalist-world-modeling-and-contro/" class="md-nav__link">
+      <a href="../2026-08-20-hydra-0-action-flow-for-generalist-world-modeling-and-contro/" class="md-nav__link">
         
   
   
@@ -692,7 +863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-08-19-0-vla-a-hierarchical-robot-foundation-model-with-world-model/" class="md-nav__link">
+      <a href="../2026-08-19-0-vla-a-hierarchical-robot-foundation-model-with-world-model/" class="md-nav__link">
         
   
   
@@ -720,7 +891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-08-18-magnifiq-patch-aware-text-guided-progressive-upscaling-for-h/" class="md-nav__link">
+      <a href="../2026-08-18-magnifiq-patch-aware-text-guided-progressive-upscaling-for-h/" class="md-nav__link">
         
   
   
@@ -748,7 +919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-08-17-v-rae-rethinking-video-latent-spaces-for-generation/" class="md-nav__link">
+      <a href="../2026-08-17-v-rae-rethinking-video-latent-spaces-for-generation/" class="md-nav__link">
         
   
   
@@ -776,7 +947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-08-16-omniscientist-an-omni-modal-omni-discipline-ai-scientist/" class="md-nav__link">
+      <a href="../2026-08-16-omniscientist-an-omni-modal-omni-discipline-ai-scientist/" class="md-nav__link">
         
   
   
@@ -804,7 +975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-08-15-autodesign-meta-harness-optimization-for-long-horizon-agenti/" class="md-nav__link">
+      <a href="../2026-08-15-autodesign-meta-harness-optimization-for-long-horizon-agenti/" class="md-nav__link">
         
   
   
@@ -832,7 +1003,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-08-14-stateflow-building-evolving-and-accessing-3d-world-states-fo/" class="md-nav__link">
+      <a href="../2026-08-14-stateflow-building-evolving-and-accessing-3d-world-states-fo/" class="md-nav__link">
         
   
   
@@ -860,7 +1031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-08-13-advfd-boosting-visual-generation-via-adversarial-fr-echet-di/" class="md-nav__link">
+      <a href="../2026-08-13-advfd-boosting-visual-generation-via-adversarial-fr-echet-di/" class="md-nav__link">
         
   
   
@@ -888,7 +1059,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-08-12-beyond-naturalness-probing-automated-text-to-speech-evaluato/" class="md-nav__link">
+      <a href="../2026-08-12-beyond-naturalness-probing-automated-text-to-speech-evaluato/" class="md-nav__link">
         
   
   
@@ -916,7 +1087,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-08-10-dypes-vla-learning-shared-dynamics-priors-and-embodiment-spe/" class="md-nav__link">
+      <a href="../2026-08-10-dypes-vla-learning-shared-dynamics-priors-and-embodiment-spe/" class="md-nav__link">
         
   
   
@@ -944,7 +1115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-08-09-0-a-latent-predictive-world-action-model-for-concurrent-huma/" class="md-nav__link">
+      <a href="../2026-08-09-0-a-latent-predictive-world-action-model-for-concurrent-huma/" class="md-nav__link">
         
   
   
@@ -972,7 +1143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-08-08-learning-when-to-trust-via-selective-context-preference-opti/" class="md-nav__link">
+      <a href="../2026-08-08-learning-when-to-trust-via-selective-context-preference-opti/" class="md-nav__link">
         
   
   
@@ -1000,7 +1171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-08-07-coco-ir-contextual-composed-image-retrieval/" class="md-nav__link">
+      <a href="../2026-08-07-coco-ir-contextual-composed-image-retrieval/" class="md-nav__link">
         
   
   
@@ -1028,7 +1199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-08-06-parvl-parallel-scaling-and-expandable-compute-allocation-for/" class="md-nav__link">
+      <a href="../2026-08-06-parvl-parallel-scaling-and-expandable-compute-allocation-for/" class="md-nav__link">
         
   
   
@@ -1056,7 +1227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-08-05-bridging-artificial-intelligence-and-power-systems-education/" class="md-nav__link">
+      <a href="../2026-08-05-bridging-artificial-intelligence-and-power-systems-education/" class="md-nav__link">
         
   
   
@@ -1084,7 +1255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-08-04-diagnosing-compositional-generalization-in-sequential-robot-/" class="md-nav__link">
+      <a href="../2026-08-04-diagnosing-compositional-generalization-in-sequential-robot-/" class="md-nav__link">
         
   
   
@@ -1112,7 +1283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-08-03-ace-data-0-human-centric-ambient-capture-as-embodied-data-en/" class="md-nav__link">
+      <a href="../2026-08-03-ace-data-0-human-centric-ambient-capture-as-embodied-data-en/" class="md-nav__link">
         
   
   
@@ -1140,7 +1311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-08-02-learning-to-trace-seiberg-dualities/" class="md-nav__link">
+      <a href="../2026-08-02-learning-to-trace-seiberg-dualities/" class="md-nav__link">
         
   
   
@@ -1168,7 +1339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-08-01-retoken-one-token-to-improve-vision-language-models-for-visu/" class="md-nav__link">
+      <a href="../2026-08-01-retoken-one-token-to-improve-vision-language-models-for-visu/" class="md-nav__link">
         
   
   
@@ -1196,7 +1367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-31-vidmap-exploiting-temporal-structure-for-video-based-structu/" class="md-nav__link">
+      <a href="../2026-07-31-vidmap-exploiting-temporal-structure-for-video-based-structu/" class="md-nav__link">
         
   
   
@@ -1224,7 +1395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-30-pass-the-baton-trajectory-relayed-on-policy-distillation/" class="md-nav__link">
+      <a href="../2026-07-30-pass-the-baton-trajectory-relayed-on-policy-distillation/" class="md-nav__link">
         
   
   
@@ -1252,7 +1423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-29-data-pyramid-for-embodied-manipulation/" class="md-nav__link">
+      <a href="../2026-07-29-data-pyramid-for-embodied-manipulation/" class="md-nav__link">
         
   
   
@@ -1280,7 +1451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-28-sm4rt-learning-structured-motion-geometry-for-4d-reconstruct/" class="md-nav__link">
+      <a href="../2026-07-28-sm4rt-learning-structured-motion-geometry-for-4d-reconstruct/" class="md-nav__link">
         
   
   
@@ -1308,7 +1479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-27-axis-a-growable-community-driven-data-engine-for-scalable-ro/" class="md-nav__link">
+      <a href="../2026-07-27-axis-a-growable-community-driven-data-engine-for-scalable-ro/" class="md-nav__link">
         
   
   
@@ -1336,7 +1507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-26-unified-video-dense-prediction-from-disjoint-data/" class="md-nav__link">
+      <a href="../2026-07-26-unified-video-dense-prediction-from-disjoint-data/" class="md-nav__link">
         
   
   
@@ -1364,7 +1535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-25-3d-aware-vlms-with-implicit-and-explicit-geometries/" class="md-nav__link">
+      <a href="../2026-07-25-3d-aware-vlms-with-implicit-and-explicit-geometries/" class="md-nav__link">
         
   
   
@@ -1392,7 +1563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-24-atsplat-compact-feed-forward-3d-gaussian-splatting-with-adap/" class="md-nav__link">
+      <a href="../2026-07-24-atsplat-compact-feed-forward-3d-gaussian-splatting-with-adap/" class="md-nav__link">
         
   
   
@@ -1420,7 +1591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-23-copy-less-ground-more-overcoming-repetitive-copying-in-long-/" class="md-nav__link">
+      <a href="../2026-07-23-copy-less-ground-more-overcoming-repetitive-copying-in-long-/" class="md-nav__link">
         
   
   
@@ -1448,7 +1619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-22-the-many-senses-of-visual-similarity-a-text-prompted-image-p/" class="md-nav__link">
+      <a href="../2026-07-22-the-many-senses-of-visual-similarity-a-text-prompted-image-p/" class="md-nav__link">
         
   
   
@@ -1476,7 +1647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-21-knowing-the-self-understanding-the-world-a-dual-cognition-be/" class="md-nav__link">
+      <a href="../2026-07-21-knowing-the-self-understanding-the-world-a-dual-cognition-be/" class="md-nav__link">
         
   
   
@@ -1504,7 +1675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-20-scidiagramedit-learning-to-edit-scientific-diagrams-from-pap/" class="md-nav__link">
+      <a href="../2026-07-20-scidiagramedit-learning-to-edit-scientific-diagrams-from-pap/" class="md-nav__link">
         
   
   
@@ -1532,7 +1703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-19-meanflownft-bringing-forward-process-rl-to-average-velocity-/" class="md-nav__link">
+      <a href="../2026-07-19-meanflownft-bringing-forward-process-rl-to-average-velocity-/" class="md-nav__link">
         
   
   
@@ -1560,7 +1731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-18-robottt-context-scaling-for-robot-policies/" class="md-nav__link">
+      <a href="../2026-07-18-robottt-context-scaling-for-robot-policies/" class="md-nav__link">
         
   
   
@@ -1588,7 +1759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-17-from-pixels-to-states-rethinking-interactive-world-models-as/" class="md-nav__link">
+      <a href="../2026-07-17-from-pixels-to-states-rethinking-interactive-world-models-as/" class="md-nav__link">
         
   
   
@@ -1616,7 +1787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-16-the-seriality-gap-in-video-diffusion-models/" class="md-nav__link">
+      <a href="../2026-07-16-the-seriality-gap-in-video-diffusion-models/" class="md-nav__link">
         
   
   
@@ -1644,7 +1815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-15-read-it-back-pretrained-mllms-are-zero-shot-reward-models-fo/" class="md-nav__link">
+      <a href="../2026-07-15-read-it-back-pretrained-mllms-are-zero-shot-reward-models-fo/" class="md-nav__link">
         
   
   
@@ -1672,7 +1843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-14-panoworld-real-world-panoramic-generation/" class="md-nav__link">
+      <a href="../2026-07-14-panoworld-real-world-panoramic-generation/" class="md-nav__link">
         
   
   
@@ -1700,7 +1871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-13-wat3r-underwater-3d-geometry-learning-without-annotations/" class="md-nav__link">
+      <a href="../2026-07-13-wat3r-underwater-3d-geometry-learning-without-annotations/" class="md-nav__link">
         
   
   
@@ -1728,7 +1899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-12-zipdepth-bringing-lightweight-zero-shot-monocular-depth-anyw/" class="md-nav__link">
+      <a href="../2026-07-12-zipdepth-bringing-lightweight-zero-shot-monocular-depth-anyw/" class="md-nav__link">
         
   
   
@@ -1756,7 +1927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-11-longe2v-long-horizon-event-based-video-reconstruction-predic/" class="md-nav__link">
+      <a href="../2026-07-11-longe2v-long-horizon-event-based-video-reconstruction-predic/" class="md-nav__link">
         
   
   
@@ -1784,7 +1955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-10-accurate-interdisciplinary-and-transparent-structure-propert/" class="md-nav__link">
+      <a href="../2026-07-10-accurate-interdisciplinary-and-transparent-structure-propert/" class="md-nav__link">
         
   
   
@@ -1812,7 +1983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-09-elsa3d-elastic-semantic-anchoring-for-unified-3d-understandi/" class="md-nav__link">
+      <a href="../2026-07-09-elsa3d-elastic-semantic-anchoring-for-unified-3d-understandi/" class="md-nav__link">
         
   
   
@@ -1840,7 +2011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-08-from-fixed-to-free-cameras-calibration-free-view-robust-visi/" class="md-nav__link">
+      <a href="../2026-07-08-from-fixed-to-free-cameras-calibration-free-view-robust-visi/" class="md-nav__link">
         
   
   
@@ -1868,7 +2039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-07-pointdit-pixel-space-diffusion-for-monocular-geometry-estima/" class="md-nav__link">
+      <a href="../2026-07-07-pointdit-pixel-space-diffusion-for-monocular-geometry-estima/" class="md-nav__link">
         
   
   
@@ -1896,7 +2067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-06-distributed-attacks-in-persistent-state-ai-control/" class="md-nav__link">
+      <a href="../2026-07-06-distributed-attacks-in-persistent-state-ai-control/" class="md-nav__link">
         
   
   
@@ -1924,7 +2095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-05-alignment-is-all-you-need-for-x-to-4d-generation/" class="md-nav__link">
+      <a href="../2026-07-05-alignment-is-all-you-need-for-x-to-4d-generation/" class="md-nav__link">
         
   
   
@@ -1952,7 +2123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-04-worlddirector-building-controllable-world-simulators-with-pe/" class="md-nav__link">
+      <a href="../2026-07-04-worlddirector-building-controllable-world-simulators-with-pe/" class="md-nav__link">
         
   
   
@@ -1980,7 +2151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-03-measuring-the-gap-between-human-and-llm-research-ideas/" class="md-nav__link">
+      <a href="../2026-07-03-measuring-the-gap-between-human-and-llm-research-ideas/" class="md-nav__link">
         
   
   
@@ -2008,7 +2179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-02-facemoe-mixture-of-experts-for-low-resolution-face-recogniti/" class="md-nav__link">
+      <a href="../2026-07-02-facemoe-mixture-of-experts-for-low-resolution-face-recogniti/" class="md-nav__link">
         
   
   
@@ -2036,7 +2207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-07-01-levo-2-stable-and-melodious-song-generation-via-hierarchical/" class="md-nav__link">
+      <a href="../2026-07-01-levo-2-stable-and-melodious-song-generation-via-hierarchical/" class="md-nav__link">
         
   
   
@@ -2064,7 +2235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-30-dexcompose-reusing-dexterous-policies-for-multi-task-manipul/" class="md-nav__link">
+      <a href="../2026-06-30-dexcompose-reusing-dexterous-policies-for-multi-task-manipul/" class="md-nav__link">
         
   
   
@@ -2092,7 +2263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-29-world-action-models-enable-continual-imitation-learning-with/" class="md-nav__link">
+      <a href="../2026-06-29-world-action-models-enable-continual-imitation-learning-with/" class="md-nav__link">
         
   
   
@@ -2120,7 +2291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-28-danceopd-on-policy-generative-field-distillation/" class="md-nav__link">
+      <a href="../2026-06-28-danceopd-on-policy-generative-field-distillation/" class="md-nav__link">
         
   
   
@@ -2148,7 +2319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-27-scalable-behavior-cloning-with-open-data-training-and-evalua/" class="md-nav__link">
+      <a href="../2026-06-27-scalable-behavior-cloning-with-open-data-training-and-evalua/" class="md-nav__link">
         
   
   
@@ -2176,7 +2347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-26-learning-action-priors-for-cross-embodiment-robot-manipulati/" class="md-nav__link">
+      <a href="../2026-06-26-learning-action-priors-for-cross-embodiment-robot-manipulati/" class="md-nav__link">
         
   
   
@@ -2204,7 +2375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-25-benchx-benchmarking-ai-models-for-cancer-detection-and-local/" class="md-nav__link">
+      <a href="../2026-06-25-benchx-benchmarking-ai-models-for-cancer-detection-and-local/" class="md-nav__link">
         
   
   
@@ -2232,7 +2403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-24-autodex-an-automated-real-world-system-for-dexterous-graspin/" class="md-nav__link">
+      <a href="../2026-06-24-autodex-an-automated-real-world-system-for-dexterous-graspin/" class="md-nav__link">
         
   
   
@@ -2260,7 +2431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-23-how-transparent-is-diffusiongemma/" class="md-nav__link">
+      <a href="../2026-06-23-how-transparent-is-diffusiongemma/" class="md-nav__link">
         
   
   
@@ -2288,7 +2459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-22-timeprove-propose-then-verify-for-efficient-long-video-tempo/" class="md-nav__link">
+      <a href="../2026-06-22-timeprove-propose-then-verify-for-efficient-long-video-tempo/" class="md-nav__link">
         
   
   
@@ -2316,7 +2487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-22-adm-dp-adaptive-dynamic-modality-diffusion-policy-through-vi/" class="md-nav__link">
+      <a href="../2026-06-22-adm-dp-adaptive-dynamic-modality-diffusion-policy-through-vi/" class="md-nav__link">
         
   
   
@@ -2344,7 +2515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-21-memorywam-efficient-world-action-modeling-with-persistent-me/" class="md-nav__link">
+      <a href="../2026-06-21-memorywam-efficient-world-action-modeling-with-persistent-me/" class="md-nav__link">
         
   
   
@@ -2372,7 +2543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-20-janusmesh-fast-and-zero-shot-3d-visual-illusion-generation-v/" class="md-nav__link">
+      <a href="../2026-06-20-janusmesh-fast-and-zero-shot-3d-visual-illusion-generation-v/" class="md-nav__link">
         
   
   
@@ -2400,7 +2571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-18-unified-multimodal-autoregressive-modeling-with-shared-conte/" class="md-nav__link">
+      <a href="../2026-06-18-unified-multimodal-autoregressive-modeling-with-shared-conte/" class="md-nav__link">
         
   
   
@@ -2428,7 +2599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-17-t-rex-tactile-reactive-dexterous-manipulation/" class="md-nav__link">
+      <a href="../2026-06-17-t-rex-tactile-reactive-dexterous-manipulation/" class="md-nav__link">
         
   
   
@@ -2456,7 +2627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-16-simmer-benchmarking-latent-failures-in-llm-executable-planni/" class="md-nav__link">
+      <a href="../2026-06-16-simmer-benchmarking-latent-failures-in-llm-executable-planni/" class="md-nav__link">
         
   
   
@@ -2484,7 +2655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-15-mana-dexterous-manipulation-of-articulated-tools/" class="md-nav__link">
+      <a href="../2026-06-15-mana-dexterous-manipulation-of-articulated-tools/" class="md-nav__link">
         
   
   
@@ -2512,7 +2683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-14-learning-to-reason-by-analogy-via-retrieval-augmented-reinfo/" class="md-nav__link">
+      <a href="../2026-06-14-learning-to-reason-by-analogy-via-retrieval-augmented-reinfo/" class="md-nav__link">
         
   
   
@@ -2540,7 +2711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-13-interleavethinker-reinforcing-agentic-interleaved-generation/" class="md-nav__link">
+      <a href="../2026-06-13-interleavethinker-reinforcing-agentic-interleaved-generation/" class="md-nav__link">
         
   
   
@@ -2568,7 +2739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-12-reroute-don-t-remove-recoverable-visual-token-routing-for-vi/" class="md-nav__link">
+      <a href="../2026-06-12-reroute-don-t-remove-recoverable-visual-token-routing-for-vi/" class="md-nav__link">
         
   
   
@@ -2596,7 +2767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-11-when-to-align-when-to-predict-a-phase-diagram-for-multimodal/" class="md-nav__link">
+      <a href="../2026-06-11-when-to-align-when-to-predict-a-phase-diagram-for-multimodal/" class="md-nav__link">
         
   
   
@@ -2624,7 +2795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-10-latent-spatial-memory-for-video-world-models/" class="md-nav__link">
+      <a href="../2026-06-10-latent-spatial-memory-for-video-world-models/" class="md-nav__link">
         
   
   
@@ -2652,7 +2823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-09-unisharp-universal-sharp-monocular-view-synthesis/" class="md-nav__link">
+      <a href="../2026-06-09-unisharp-universal-sharp-monocular-view-synthesis/" class="md-nav__link">
         
   
   
@@ -2680,7 +2851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-08-handoff-humanoid-agentic-task-space-whole-body-control-via-d/" class="md-nav__link">
+      <a href="../2026-06-08-handoff-humanoid-agentic-task-space-whole-body-control-via-d/" class="md-nav__link">
         
   
   
@@ -2708,7 +2879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-07-tempovla-learning-speed-controllable-vision-language-action-/" class="md-nav__link">
+      <a href="../2026-06-07-tempovla-learning-speed-controllable-vision-language-action-/" class="md-nav__link">
         
   
   
@@ -2736,7 +2907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-06-taillor-protecting-principal-components-in-parameter-efficie/" class="md-nav__link">
+      <a href="../2026-06-06-taillor-protecting-principal-components-in-parameter-efficie/" class="md-nav__link">
         
   
   
@@ -2764,7 +2935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-04-exploring-easy-boosts-for-lidar-semantic-scene-completion/" class="md-nav__link">
+      <a href="../2026-06-04-exploring-easy-boosts-for-lidar-semantic-scene-completion/" class="md-nav__link">
         
   
   
@@ -2792,7 +2963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-03-thinking-in-blender-staged-executable-inverse-graphics-with-/" class="md-nav__link">
+      <a href="../2026-06-03-thinking-in-blender-staged-executable-inverse-graphics-with-/" class="md-nav__link">
         
   
   
@@ -2820,7 +2991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-06-02-representation-forcing-for-bottleneck-free-unified-multimoda/" class="md-nav__link">
+      <a href="../2026-06-02-representation-forcing-for-bottleneck-free-unified-multimoda/" class="md-nav__link">
         
   
   
@@ -2848,7 +3019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised/" class="md-nav__link">
+      <a href="../2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised/" class="md-nav__link">
         
   
   
@@ -2876,7 +3047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-28-algorithmic-monocultures-in-hiring/" class="md-nav__link">
+      <a href="../2026-05-28-algorithmic-monocultures-in-hiring/" class="md-nav__link">
         
   
   
@@ -2904,7 +3075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi/" class="md-nav__link">
+      <a href="../2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi/" class="md-nav__link">
         
   
   
@@ -2932,7 +3103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-27-latent-action-diffusion-for-cross-embodiment-manipulation/" class="md-nav__link">
+      <a href="../2026-05-27-latent-action-diffusion-for-cross-embodiment-manipulation/" class="md-nav__link">
         
   
   
@@ -2960,7 +3131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/" class="md-nav__link">
+      <a href="../2026-05-26-skillopt-executive-strategy-for-self-evolving-agent-skills/" class="md-nav__link">
         
   
   
@@ -2988,7 +3159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-25-integrable-elasticity-via-neural-demand-potentials/" class="md-nav__link">
+      <a href="../2026-05-25-integrable-elasticity-via-neural-demand-potentials/" class="md-nav__link">
         
   
   
@@ -3016,7 +3187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/" class="md-nav__link">
+      <a href="../2026-05-24-which-way-did-it-move-diagnosing-and-overcoming-directional-/" class="md-nav__link">
         
   
   
@@ -3044,7 +3215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-23-tokenisation-via-convex-relaxations/" class="md-nav__link">
+      <a href="../2026-05-23-tokenisation-via-convex-relaxations/" class="md-nav__link">
         
   
   
@@ -3072,7 +3243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-23-explicit-stair-geometry-conditioning-for-robust-humanoid-loc/" class="md-nav__link">
+      <a href="../2026-05-23-explicit-stair-geometry-conditioning-for-robust-humanoid-loc/" class="md-nav__link">
         
   
   
@@ -3100,7 +3271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-22-variance-reduction-for-expectations-with-diffusion-teachers/" class="md-nav__link">
+      <a href="../2026-05-22-variance-reduction-for-expectations-with-diffusion-teachers/" class="md-nav__link">
         
   
   
@@ -3128,7 +3299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-20-can-these-views-be-one-scene-evaluating-multiview-3d-consist/" class="md-nav__link">
+      <a href="../2026-05-20-can-these-views-be-one-scene-evaluating-multiview-3d-consist/" class="md-nav__link">
         
   
   
@@ -3156,7 +3327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-18-v-jepa-2-1-unlocking-dense-features-in-video-self-supervised/" class="md-nav__link">
+      <a href="../2026-05-18-v-jepa-2-1-unlocking-dense-features-in-video-self-supervised/" class="md-nav__link">
         
   
   
@@ -3184,7 +3355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-18-refdecoder-enhancing-visual-generation-with-conditional-vide/" class="md-nav__link">
+      <a href="../2026-05-18-refdecoder-enhancing-visual-generation-with-conditional-vide/" class="md-nav__link">
         
   
   
@@ -3212,7 +3383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/" class="md-nav__link">
+      <a href="../2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/" class="md-nav__link">
         
   
   
@@ -3240,7 +3411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-16-world-action-models-are-zero-shot-policies/" class="md-nav__link">
+      <a href="../2026-05-16-world-action-models-are-zero-shot-policies/" class="md-nav__link">
         
   
   
@@ -3268,7 +3439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-16-entitybench-towards-entity-consistent-long-range-multi-shot-/" class="md-nav__link">
+      <a href="../2026-05-16-entitybench-towards-entity-consistent-long-range-multi-shot-/" class="md-nav__link">
         
   
   
@@ -3296,7 +3467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-15-eva-bench-a-new-end-to-end-framework-for-evaluating-voice-ag/" class="md-nav__link">
+      <a href="../2026-05-15-eva-bench-a-new-end-to-end-framework-for-evaluating-voice-ag/" class="md-nav__link">
         
   
   
@@ -3324,7 +3495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/" class="md-nav__link">
+      <a href="../2026-05-14-benchmarking-vision-language-action-models-on-robotic-learni/" class="md-nav__link">
         
   
   
@@ -3352,7 +3523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-12-normalizing-trajectory-models/" class="md-nav__link">
+      <a href="../2026-05-12-normalizing-trajectory-models/" class="md-nav__link">
         
   
   
@@ -3380,7 +3551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/" class="md-nav__link">
+      <a href="../2026-05-10-bami-training-free-bias-mitigation-in-gui-grounding/" class="md-nav__link">
         
   
   
@@ -3408,7 +3579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/" class="md-nav__link">
+      <a href="../2026-05-10-0-a-vision-language-action-flow-model-for-general-robot-cont/" class="md-nav__link">
         
   
   
@@ -3436,7 +3607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/" class="md-nav__link">
+      <a href="../2026-05-09-world-model-for-robot-learning-a-comprehensive-survey/" class="md-nav__link">
         
   
   
@@ -3464,7 +3635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/" class="md-nav__link">
+      <a href="../2026-05-09-actcam-zero-shot-joint-camera-and-3d-motion-control-for-vide/" class="md-nav__link">
         
   
   
@@ -3492,7 +3663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-07-audio-visual-intelligence-in-large-foundation-models/" class="md-nav__link">
+      <a href="../2026-05-07-audio-visual-intelligence-in-large-foundation-models/" class="md-nav__link">
         
   
   
@@ -3520,7 +3691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/" class="md-nav__link">
+      <a href="../2026-05-06-albumfill-album-guided-reasoning-and-retrieval-for-personali/" class="md-nav__link">
         
   
   
@@ -3548,7 +3719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-05-posterior-augmented-flow-matching/" class="md-nav__link">
+      <a href="../2026-05-05-posterior-augmented-flow-matching/" class="md-nav__link">
         
   
   
@@ -3576,7 +3747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/" class="md-nav__link">
+      <a href="../2026-05-01-hermes-toward-a-unified-driving-world-model-for-3d-scene-und/" class="md-nav__link">
         
   
   
@@ -3604,7 +3775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/" class="md-nav__link">
+      <a href="../2026-05-01-gr00t-n1-an-open-foundation-model-for-generalist-humanoid-ro/" class="md-nav__link">
         
   
   
@@ -3632,7 +3803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/" class="md-nav__link">
+      <a href="../2026-05-01-generalizable-sparse-view-3d-reconstruction-from-unconstrain/" class="md-nav__link">
         
   
   
@@ -3660,7 +3831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/" class="md-nav__link">
+      <a href="../2026-05-01-eureka-human-level-reward-design-via-coding-large-language-m/" class="md-nav__link">
         
   
   
@@ -3688,7 +3859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../posts/2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/" class="md-nav__link">
+      <a href="../2026-05-01-an-adaptable-safe-and-portable-robot-assisted-feeding-system/" class="md-nav__link">
         
   
   
@@ -3720,14 +3891,12 @@
       
   
   
-    
-  
   
     
   
   
-    <li class="md-nav__item md-nav__item--active">
-      <a href="../" class="md-nav__link">
+    <li class="md-nav__item">
+      <a href="../../digest/" class="md-nav__link">
         
   
   
@@ -3809,8 +3978,6 @@
             
             
               
-                
-              
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -3828,10 +3995,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#tldr" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Overview
+        TL;DR
       
     </span>
   </a>
@@ -3839,22 +4006,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#papers-this-week" class="md-nav__link">
+  <a href="#the-problem" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Papers This Week
+        The Problem
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Papers This Week">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#v-jepa-21-unlocking-dense-features-in-video-self-supervised-learning" class="md-nav__link">
+  <a href="#hybrid-brdf-driven-kernel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning
+        Hybrid BRDF-driven kernel
       
     </span>
   </a>
@@ -3862,10 +4051,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#refdecoder-enhancing-visual-generation-with-conditional-video-decoding" class="md-nav__link">
+  <a href="#geometry-reliable-spectral-bands-selection-strategy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RefDecoder: Enhancing Visual Generation with Conditional Video Decoding
+        Geometry-reliable spectral bands selection strategy
       
     </span>
   </a>
@@ -3873,54 +4062,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#can-these-views-be-one-scene-evaluating-multiview-3d-consistency-when-3d-foundation-models-hallucinate" class="md-nav__link">
+  <a href="#two-stage-training-framework" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Can These Views Be One Scene? Evaluating Multiview 3D Consistency when 3D Foundation Models Hallucinate
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#variance-reduction-for-expectations-with-diffusion-teachers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Variance Reduction for Expectations with Diffusion Teachers
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tokenisation-via-convex-relaxations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tokenisation via Convex Relaxations
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#explicit-stair-geometry-conditioning-for-robust-humanoid-locomotion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Explicit Stair Geometry Conditioning for Robust Humanoid Locomotion
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#which-way-did-it-move-diagnosing-and-overcoming-directional-motion-blindness-in-video-llms" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Which Way Did It Move? Diagnosing and Overcoming Directional Motion Blindness in Video-LLMs
+        Two-stage training framework
       
     </span>
   </a>
@@ -3933,10 +4078,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#trends-observations" class="md-nav__link">
+  <a href="#results" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Trends &amp; Observations
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
       
     </span>
   </a>
@@ -3952,133 +4130,95 @@
             
           
           
-  <div class="md-content md-content--post" data-md-component="content">
-    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
-      <div class="md-sidebar__scrollwrap">
-        <div class="md-sidebar__inner md-post">
-          <nav class="md-nav md-nav--primary">
-            <div class="md-post__back">
-              <div class="md-nav__title md-nav__container">
-                <a href="../" class="md-nav__link">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-                  <span class="md-ellipsis">
-                    Back to index
-                  </span>
-                </a>
-              </div>
-            </div>
-            
-              <div class="md-post__authors md-typeset">
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
                 
-                  <div class="md-profile md-post__profile">
-                    <span class="md-author md-author--long">
-                      <img src="https://api.dicebear.com/9.x/bottts/svg?seed=jarvisforresearchers" alt="JarvisForResearchers Bot">
-                    </span>
-                    <span class="md-profile__description">
-                      <strong>
-                        
-                          JarvisForResearchers Bot
-                        
-                      </strong>
-                      <br>
-                      Automated AI research blogger powered by Gemma 4
-                    </span>
-                  </div>
-                
-              </div>
-            
-            <ul class="md-post__meta md-nav__list">
-              <li class="md-nav__item md-nav__item--section">
-                <div class="md-post__title">
-                  <span class="md-ellipsis">
-                    Metadata
-                  </span>
-                </div>
-                <nav class="md-nav">
-                  <ul class="md-nav__list">
-                    <li class="md-nav__item">
-                      <div class="md-nav__link">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2026-05-24 00:00:00+00:00" class="md-ellipsis">May 24, 2026</time>
-                      </div>
-                    </li>
-                    
-                    
-                    
-                      
-                      <li class="md-nav__item">
-                        <div class="md-nav__link">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
-                          <span class="md-ellipsis">
-                            
-                              4 min read
-                            
-                          </span>
-                        </div>
-                      </li>
-                    
-                  </ul>
-                </nav>
-              </li>
-            </ul>
-            
-          </nav>
-          
-        </div>
-      </div>
-    </div>
-    <article class="md-content__inner md-typeset">
+                  
+
+  <nav class="md-tags" >
+    
       
-        
-  
+      
+      
+      
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+      
+    
+  </nav>
 
 
 
-
-  <h1>This Week in Robotics — 2026, Week 20</h1>
+  <h1>BRF-GS: Hyperspectral Bidirectional Reflectance Factor Modeling and Image Generation Based on 3D Gaussian Splatting</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-24</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-09-02</em></p>
 </blockquote>
-<h2 id="overview">Overview</h2>
-<p>This week's research shows a strong focus on refining the fidelity and interpretability of complex generative and predictive models across vision and robotics. In self-supervised learning, V-JEPA 2.1 demonstrates that applying Dense Predictive Loss across all tokens, coupled with Deep Self-Supervision, yields measurable gains in anticipation tasks. On the generation side, REFDECODER addresses detail loss in video VAEs by explicitly conditioning the decoder on high-fidelity reference signals, achieving PSNR improvements over existing methods. Furthermore, the field is grappling with the limitations of learned metrics; SysCON3D provides a necessary framework to test 3D consistency evaluators against geometric hallucinations. Finally, several papers tackle specific bottlenecks: CARV optimizes variance reduction in diffusion sampling, ConvexTok offers a rigorous optimization approach to tokenization, and MODIRECT targets the directional motion blindness in Video-LLMs.</p>
-<h2 id="papers-this-week">Papers This Week</h2>
-<h3 id="v-jepa-21-unlocking-dense-features-in-video-self-supervised-learning"><a href="https://arxiv.org/abs/2603.14482">V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning</a></h3>
-<p><em>V-JEPA 2.1 enhances self-supervised learning for dense visual understanding in images and videos by applying a Dense Predictive Loss across all tokens and incorporating Deep Self-Supervision.</em>
-The method introduces a Dense Predictive Loss applied to both masked and unmasked tokens, and incorporates Deep Self-Supervision by applying the loss hierarchically across multiple intermediate encoder layers. This resulted in an mAP of 7.71 on Ego4D for short-term object-interaction anticipation.</p>
-<p><strong>Why it matters:</strong> To improve dense feature quality in SSL, extending the predictive loss to cover all tokens (masked and unmasked) is crucial.</p>
-<h3 id="refdecoder-enhancing-visual-generation-with-conditional-video-decoding"><a href="https://arxiv.org/abs/2605.15196">RefDecoder: Enhancing Visual Generation with Conditional Video Decoding</a></h3>
-<p><em>REFDECODER enhances visual generation by introducing a reference-conditioned video VAE decoder that injects high-fidelity reference image signals directly into the decoding process via reference attention, mitigating detail loss and inconsistency inherent in unconditional VAE decoders.</em>
-REFDECODER uses reference attention to inject high-fidelity reference image signals into the decoder, and employs a latent token dropout strategy to force the decoder to recover spatial details from reference tokens. This approach yielded a +2.1 dB PSNR improvement on WebVid compared to VideoVAE+.</p>
-<p><strong>Why it matters:</strong> REFDECODER is a drop-in replacement for existing video VAE decoders, requiring no retraining of the diffusion model or freezing the encoder.</p>
-<h3 id="can-these-views-be-one-scene-evaluating-multiview-3d-consistency-when-3d-foundation-models-hallucinate"><a href="https://arxiv.org/abs/2605.18754">Can These Views Be One Scene? Evaluating Multiview 3D Consistency when 3D Foundation Models Hallucinate</a></h3>
-<p><em>This paper introduces SysCON3D, a controlled benchmark, and a parametric family of neural metrics to diagnose and improve the robustness of ground-truth-free multiview 3D consistency evaluators against geometric hallucinations.</em>
-The authors developed SysCON3D, a controlled benchmark, and a parametric neural metric family that decomposes evaluators into backbone, residual, and aggregation components. This led to MASt3R-W-IMQ being up to 3<span class="arithmatex">\(\times\)</span> more robust than MEt3R.</p>
-<p><strong>Why it matters:</strong> When evaluating 3D consistency without ground truth, be aware that learned metrics inherit the failure modes of their underlying reconstruction backbones.</p>
-<h3 id="variance-reduction-for-expectations-with-diffusion-teachers"><a href="https://arxiv.org/abs/2605.21489">Variance Reduction for Expectations with Diffusion Teachers</a></h3>
-<p><em>CARV is a compute-aware variance-accounting framework that introduces a hierarchical Monte Carlo estimator by amortizing expensive upstream computations over cheap diffusion-noise resamples, sharpened by timestep importance sampling and stratified-inverse-CDF construction.</em>
-CARV implements a hierarchical Monte Carlo estimator by caching expensive upstream computations and resampling cheap diffusion noise. This framework achieved Effective Compute Multipliers (ECM) of 2-3<span class="arithmatex">\(\times\)</span> compared to uniform-IID sampling.</p>
-<p><strong>Why it matters:</strong> When upstream computation is expensive relative to denoising cost (<span class="arithmatex">\(c_{render+encode} \gg c_{denoise}\)</span>), prioritize compute reuse by caching expensive states.</p>
-<h3 id="tokenisation-via-convex-relaxations"><a href="https://arxiv.org/abs/2605.22821">Tokenisation via Convex Relaxations</a></h3>
-<p><em>ConvexTok formulates tokeniser construction as a linear program relaxation of an NP-hard integer program, allowing for the computation of near-optimal tokenisers and providing lower bounds on compression.</em>
-The paper formulates tokeniser construction as a linear program (LP) derived from an equivalent integer program (IP), and proposes three rounding schemes to discretize the LP solution. The resulting tokenisers consistently outperformed other tokenisers on intrinsic metrics.</p>
-<p><strong>Why it matters:</strong> ConvexTok offers a mathematically rigorous way to approach tokeniser design by framing it as an optimization problem.</p>
-<h3 id="explicit-stair-geometry-conditioning-for-robust-humanoid-locomotion"><a href="https://arxiv.org/abs/2605.09944">Explicit Stair Geometry Conditioning for Robust Humanoid Locomotion</a></h3>
-<p><em>This paper introduces an explicit stair geometry conditioning framework that uses interpretable parameters like step height, step depth, and current yaw angle to condition a PPO-based locomotion policy for robust humanoid stair climbing.</em>
-The framework conditions a PPO-based policy directly on step height, step depth, and current yaw, enabling anticipatory gait modulation. The policy demonstrated an MAE(<span class="arithmatex">\(h_{step}\)</span>) of 0.6 cm across unseen stair geometries in simulation.</p>
-<p><strong>Why it matters:</strong> Explicitly parameterizing terrain geometry (step height, step depth) provides more structured and task-relevant information than implicit latent representations for locomotion.</p>
-<h3 id="which-way-did-it-move-diagnosing-and-overcoming-directional-motion-blindness-in-video-llms"><a href="https://arxiv.org/abs/2605.22823">Which Way Did It Move? Diagnosing and Overcoming Directional Motion Blindness in Video-LLMs</a></h3>
-<p><em>The paper introduces MODIRECT and DeltaDirect to diagnose and overcome directional motion blindness in Video-LLMs, which stems from a direction binding gap where motion signals are present but not reliably linked to verbal answers.</em>
-The authors introduced DeltaDirect, a training-only projector-level objective that predicts normalized 2-D motion vectors from adjacent-frame feature deltas. This resulted in a motion direction accuracy of 85.4% on MODIRECT-SYNBENCH, up from 25.9% for the vanilla baseline.</p>
-<p><strong>Why it matters:</strong> Training objectives like DeltaDirect can strengthen low-level motion cues at the visual-language interface, improving performance.</p>
-<h2 id="trends-observations">Trends &amp; Observations</h2>
-<ul>
-<li>There is a clear trend toward making learned metrics more robust by moving beyond simple aggregation, as seen in the development of parametric neural metrics in SysCON3D.</li>
-<li>Several papers address the efficiency of deep learning pipelines, whether through compute amortization (CARV) or by providing mathematically grounded design choices (ConvexTok).</li>
-<li>The integration of explicit, interpretable geometric parameters (e.g., step height, step depth) is proving more effective for control tasks than relying solely on implicit latent representations.</li>
-<li>Video understanding research is focusing on fine-grained signal binding, specifically addressing directional motion blindness in Video-LLMs (MODIRECT).</li>
-<li>Self-supervised learning advancements (V-JEPA 2.1) are pushing the boundary of feature density by modifying the loss function application across all tokens.</li>
-</ul>
+<div class="admonition tip">
+<p class="admonition-title">Why we featured this paper</p>
+<p>Brand new preprint (2026) — accepted</p>
+</div>
+<h2 id="tldr">TL;DR</h2>
+<p>BRF-GS is a 3DGS-based framework that integrates a hybrid BRDF-driven kernel, geometry-reliable band selection, and a two-stage training strategy to efficiently model Bidirectional Reflectance Factor (BRF) and generate multi-angle hyperspectral reflectance imagery for remote sensing scenes.</p>
+<h2 id="the-problem">The Problem</h2>
+<p>Existing 3D radiative transfer models are computationally intensive and require substantial prior knowledge for scene construction. Concurrently, standard 3D Gaussian Splatting (3DGS) inherently lacks the capability to capture complex directional reflectance due to its low-order spherical harmonics representation. Furthermore, direct extension of 3DGS to hyperspectral data introduces significant challenges related to high dimensionality, maintaining spectral fidelity, and managing varying inter-band signal quality.</p>
+<p>The limitations of current approaches are threefold: Microfacet-based BRDF models are insufficient for remote sensing because they fail to account for multi-scale interactions such as 3D structural occlusion, shadowing effects, and multiple scattering. Existing hyperspectral extensions, such as HyperGS and Hyperspectral Gaussian Splatting, either employ latent compression that risks suppressing subtle spectral variations or couple geometry and spectral representations during joint optimization. Finally, there is an insufficient exploration of leveraging band-dependent data quality to selectively utilize geometry-reliable spectral bands for robust 3D scene initialization in hyperspectral BRF modeling.</p>
+<h2 id="key-contributions">Key Contributions</h2>
+<p>We introduce four primary contributions:
+1. A geometry-reliable spectral bands selection strategy for hyperspectral Gaussian initialization, utilizing an Equivalent Feature Count (EFC) to quantify band-wise geometric reliability.
+2. A hybrid BRDF-driven kernel representation for Gaussian primitives, integrating Lambertian diffuse reflection, a simplified microfacet-based specular component, volumetric scattering, and geometric-optical effects.
+3. A geometry-spectral decoupled two-stage training framework that first optimizes geometry using selected geometry-reliable bands and subsequently learns spectral directional reflectance variations using full hyperspectral observations.
+4. The construction and release of the AIR-BRF dataset, a multi-angle hyperspectral directional reflectance dataset comprising three scenes.</p>
+<h2 id="how-it-works">How It Works</h2>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2608.31159/fig_p17_c1.jpg" />
+<em>Fig. 1 Overview of the proposed BRF-GS framework. Multi-angle hyperspectral observations are first</em></p>
+<p>BRF-GS addresses the limitations of standard 3DGS for hyperspectral BRF modeling by introducing three core innovations. First, it employs a geometry-reliable spectral bands selection strategy, quantified by the Equivalent Feature Count (EFC), to ensure robust 3D scene initialization by adaptively selecting geometry-informative bands. Second, it enhances the Gaussian primitives by incorporating a hybrid semi-empirical BRDF kernel, which integrates Lambertian diffuse reflection, a simplified microfacet-based specular component, volumetric scattering, and geometric-optical effects, allowing learnable weights to estimate radiative mechanism contributions. Finally, the framework utilizes a geometry-spectral decoupled two-stage training strategy: geometry parameters are optimized first using the selected reliable bands, followed by spectral directional reflectance learning using the full hyperspectral observations.</p>
+<h3 id="hybrid-brdf-driven-kernel">Hybrid BRDF-driven kernel</h3>
+<p>This kernel is integrated directly into the Gaussian primitives. It is constructed by combining four physical components: Lambertian diffuse reflection, a simplified microfacet-based specular component, volumetric scattering, and geometric-optical effects. Crucially, the framework incorporates learnable weights within this kernel structure, enabling the model to estimate the relative contributions of these various radiative mechanisms during rendering.</p>
+<h3 id="geometry-reliable-spectral-bands-selection-strategy">Geometry-reliable spectral bands selection strategy</h3>
+<p>This strategy addresses the issue of noisy or unreliable spectral data during the initial geometry estimation phase. It jointly considers both the band-wise signal quality and the spatial feature responses across the hyperspectral cube. This assessment is formalized through the Equivalent Feature Count (EFC), which provides a quantitative metric to adaptively select only those spectral bands deemed most informative for robust 3D scene initialization.</p>
+<h3 id="two-stage-training-framework">Two-stage training framework</h3>
+<p>The training process is deliberately decoupled into two sequential stages. In the first stage, the geometric parameters of the Gaussian primitives are optimized exclusively using the subset of bands selected by the Geometry-reliable spectral bands selection strategy. Following this geometric stabilization, the second stage commences, where the full hyperspectral observations are utilized to learn the complex spectral directional reflectance variations, conditioned on the established geometry.</p>
+<h2 id="results">Results</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Baseline</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Spatial fidelity and spectral accuracy</td>
+<td style="text-align: left;">Superior</td>
+<td style="text-align: left;">Not specified</td>
+<td style="text-align: left;">Experimental results</td>
+</tr>
+<tr>
+<td style="text-align: left;">BRF response reproduction</td>
+<td style="text-align: left;">Accurately reproducing characteristic view-dependent BRF responses</td>
+<td style="text-align: left;">Not specified</td>
+<td style="text-align: left;">Experimental results</td>
+</tr>
+</tbody>
+</table>
+<h2 id="why-this-matters">Why This Matters</h2>
+<p>For hyperspectral remote sensing applications, standard 3DGS is fundamentally insufficient because it cannot model the complex, view-dependent directional reflectance inherent in real-world surfaces. Our work demonstrates that employing band-wise data quality assessment, such as the EFC, is a necessary prerequisite for achieving robust 3D scene initialization when dealing with spectrally heterogeneous data. Furthermore, the decoupling of geometry optimization from spectral modeling provides a pathway toward a more physically grounded and computationally stable learning process for accurately modeling the Bidirectional Reflectance Factor.</p>
+<h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
+<p>The current presentation does not provide quantitative comparisons against specific baselines for all metrics, which limits the scope of direct performance benchmarking. Additionally, the complexity introduced by the hybrid BRDF-driven kernel necessitates careful implementation to ensure that the learned parameters maintain physical interpretability. Future work should focus on deriving quantitative comparisons across established state-of-the-art methods and further refining the physical constraints within the kernel structure.</p>
+<hr />
+<h2 id="citation">Citation</h2>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2608.31159">2608.31159</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260831159</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{BRF-GS: Hyperspectral Bidirectional Reflectance Factor Modeling and Image Generation Based on 3D Gaussian Splatting}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Yiling Yao and Wenjuan Zhang and Bowen Wang and Bocheng Li and Wentao Song and Bing Zhang}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2608.31159}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2608.31159}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</code></pre></div>
 
 
 
@@ -4092,14 +4232,12 @@ The authors introduced DeltaDirect, a training-only projector-level objective th
 
 
 
-  
 
 
-
-      
-    </article>
-  </div>
-
+                
+              </article>
+            </div>
+          
           
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
