@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [BRF-GS: Hyperspectral Bidirectional Reflectance Factor Modeling and Image Generation Based on 3D Gaussian Splatting](2026-09-02-brf-gs-hyperspectral-bidirectional-reflectance-factor-modeli/) { data-cat="Computer Vision" data-date="2026-09-02" }
+
+*2026-09-02*
+
+BRF-GS is a 3DGS-based framework that integrates a hybrid BRDF-driven kernel, geometry-reliable band selection, and a two-stage training strategy to efficiently model Bidirectional Reflectance Factor (BRF) and generate multi-angle hyperspectral reflectance imagery for remote sensing scenes.
+
 ## [Hydra-0: Action Flow for Generalist World Modeling and Control](2026-08-20-hydra-0-action-flow-for-generalist-world-modeling-and-contro/) { data-cat="Robotics" data-date="2026-08-20" }
 
 *2026-08-20*
