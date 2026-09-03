@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="OmniScientist is an end-to-end, omni-modal AI scientist that conducts multidisciplinary research directly from heterogeneous raw evidence by integrating a perception layer with three autonomous agents within a deterministic, code-enforced pipeline.
+        <meta name="description" content="PTA-IRT is a Privileged Trajectory-Aware Item Response Theory framework that fuses historical agent execution trajectories with Item Response Theory to enable efficient, budgeted evaluation of software engineering agents.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-08-16-omniscientist-an-omni-modal-omni-discipline-ai-scientist/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-09-03-efficient-swe-agent-benchmarking-via-trajectory-aware-evalua/">
       
       
-        <link rel="prev" href="../2026-08-17-v-rae-rethinking-video-latent-spaces-for-generation/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-08-15-autodesign-meta-harness-optimization-for-long-horizon-agenti/">
+        <link rel="next" href="../2026-09-02-brf-gs-hyperspectral-bidirectional-reflectance-factor-modeli/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>OmniScientist: An Omni-Modal Omni-Discipline AI Scientist - JarvisForResearchers</title>
+        <title>Efficient SWE Agent Benchmarking via Trajectory-Aware Evaluation - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              OmniScientist: An Omni-Modal Omni-Discipline AI Scientist
+              Efficient SWE Agent Benchmarking via Trajectory-Aware Evaluation
             
           </span>
         </div>
@@ -636,10 +636,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-09-03-efficient-swe-agent-benchmarking-via-trajectory-aware-evalua/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Efficient SWE Agent Benchmarking via Trajectory-Aware Evaluation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -655,6 +680,195 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trajectory-parser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trajectory Parser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summarization-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summarization Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#item-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Item Encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary Encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teacher-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Teacher Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#student-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Student Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -804,35 +1018,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    OmniScientist: An Omni-Modal Omni-Discipline AI Scientist
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-08-16-omniscientist-an-omni-modal-omni-discipline-ai-scientist/" class="md-nav__link">
         
   
   
@@ -848,173 +1037,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#perception-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Perception Layer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ideation-agent" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ideation Agent
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#experiment-agent" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Experiment Agent
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#writeup-agent" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Writeup Agent
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deterministic-pipeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Deterministic Pipeline
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4092,10 +4114,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#perception-layer" class="md-nav__link">
+  <a href="#trajectory-parser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Perception Layer
+        Trajectory Parser
       
     </span>
   </a>
@@ -4103,10 +4125,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ideation-agent" class="md-nav__link">
+  <a href="#summarization-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ideation Agent
+        Summarization Model
       
     </span>
   </a>
@@ -4114,10 +4136,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#experiment-agent" class="md-nav__link">
+  <a href="#agent-encoder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Experiment Agent
+        Agent Encoder
       
     </span>
   </a>
@@ -4125,10 +4147,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#writeup-agent" class="md-nav__link">
+  <a href="#item-encoder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Writeup Agent
+        Item Encoder
       
     </span>
   </a>
@@ -4136,10 +4158,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#deterministic-pipeline" class="md-nav__link">
+  <a href="#summary-encoder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Deterministic Pipeline
+        Summary Encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teacher-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Teacher Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#student-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Student Model
       
     </span>
   </a>
@@ -4226,52 +4270,43 @@
         <a href="../../tags/#tag:nlp" class="md-tag">nlp</a>
       
     
-      
-      
-      
-      
-        <a href="../../tags/#tag:perception" class="md-tag">perception</a>
-      
-    
   </nav>
 
 
 
-  <h1>OmniScientist: An Omni-Modal Omni-Discipline AI Scientist</h1>
+  <h1>Efficient SWE Agent Benchmarking via Trajectory-Aware Evaluation</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-08-16</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-09-03</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
 <p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>OmniScientist is an end-to-end, omni-modal AI scientist that conducts multidisciplinary research directly from heterogeneous raw evidence by integrating a perception layer with three autonomous agents within a deterministic, code-enforced pipeline.</p>
+<p>PTA-IRT is a Privileged Trajectory-Aware Item Response Theory framework that fuses historical agent execution trajectories with Item Response Theory to enable efficient, budgeted evaluation of software engineering agents. It leverages process-level execution data to enhance the accuracy of performance estimation from limited test sets.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Existing AI systems designed for scientific discovery often achieve workflow completeness at the expense of evidence completeness. This limitation arises because they typically operate over abstracted representations—text, code, labels, or precomputed summaries—thereby discarding scientifically critical information embedded in the raw heterogeneous evidence. Specifically, these systems fail to adequately capture the spatial, temporal, cross-channel, and procedural relationships inherent in the original data.</p>
-<p>The gaps in current approaches are threefold:
-1. Current agents are constrained to reasoning over artifacts that have already been transformed into discrete modalities (text, code, or numbers), neglecting the raw evidence itself.
-2. Agents that incorporate perception usually do so only at localized points, such as inspecting generated figures, failing to establish a continuous research loop where raw observations actively redirect the investigative process.
-3. The reliance on pre-processed data (text, code, labels, or summaries) inherently constrains the types of anomalies an agent can detect and the hypotheses it is capable of formulating.</p>
+<p>Evaluating software engineering agents on realistic, repository-level benchmarks is substantially expensive due to multi-step code exploration, modification, and test execution. This high cost motivates the need to reliably recover full-benchmark performance from a small, budgeted subset of tasks. Existing efficient evaluation methods are largely result-only, fitting historical pass/fail response matrices or static task semantics. Furthermore, prior IRT methods for efficient benchmarking typically represent each task solely through its final pass/fail response, discarding crucial process-level measurement signals. Current SWE benchmarks still rely on rule-based filtering or human verification to reduce evaluation cost, as seen in SWE-bench Lite and Verified subsets.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We present OmniScientist, an end-to-end, omni-modal, and discipline-agnostic AI scientist capable of operating directly from heterogeneous scientific evidence while preserving critical spatial, temporal, statistical, and procedural relations. We propose a perception-first, multi-agent architecture where raw observations serve as active drivers for ideation, experimentation, and manuscript generation. Furthermore, we integrate code-enforced checks throughout the pipeline to rigorously screen for novelty, ensure statistical validity and execution provenance, prevent Hypothesis After the Results Knowledge (HARKing), and guarantee claim traceability.</p>
+<p>We make three key contributions. First, we formulate efficient SWE benchmarking as a budgeted subset-to-full evaluation problem under a realistic protocol where new agents are executed only on the calibration subset while historical trajectories are used offline for training. Second, we introduce PTA-IRT, which incorporates historical agent trajectories as privileged information into IRT-based item selection and full-benchmark performance estimation. Third, we demonstrate that PTA-IRT improves budgeted score and ranking recovery over prior IRT baselines across four SWE benchmarks.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze. I need the image to give you a precise description." src="../../assets/figures/2608.13558/fig_p1_c1.jpg" />
-<em>Figure 1. Overview of the OmniScientist framework. Raw multimodal observations spanning multiple disciplines (left) are
-fed into a unified engine that perceives evidence, executes falsifiable experiments, and grounds every claim (center). This
-continuous pipeline ultimately yields verifiable scienti</em></p>
-<p>OmniScientist functions as a deterministic pipeline coordinating a specialized perception layer with three core autonomous agents: the Ideation Agent, the Experiment Agent, and the Writeup Agent. Within each agent's operational phase, a ReAct loop is employed, interleaving observation, reasoning, and action. This structure permits raw evidence to dynamically shape the research trajectory. The entire process is governed by a thin, deterministic pipeline that manages stage transitions and enforces critical checks via code. These checks verify novelty evidence, falsifiability, execution provenance, and numerical traceability. Scientific evidence is categorized into four discipline-independent families: perceptual, symbolic, quantitative-statistical, and procedural. The system was evaluated across a 36-case demonstration suite spanning five discipline families and all four evidence families.</p>
-<h3 id="perception-layer">Perception Layer</h3>
-<p>This component is responsible for ingesting and aligning multimodal evidence. Its function is to enable the entire system to operate directly from the raw artifacts, thereby preserving the fine-grained relational information lost during abstraction.</p>
-<h3 id="ideation-agent">Ideation Agent</h3>
-<p>Guided by the input from the Perception Layer, this agent is tasked with proposing testable explanations. Its reasoning is directly informed by the raw evidence, allowing for the formulation of hypotheses grounded in the observed data structure rather than merely textual summaries.</p>
-<h3 id="experiment-agent">Experiment Agent</h3>
-<p>This agent executes the proposed tests, whether through running simulations or interacting with real-world experimental setups. Its actions are also guided by the raw evidence, ensuring that the experimental design remains tethered to the initial observations.</p>
-<h3 id="writeup-agent">Writeup Agent</h3>
-<p>The final agent is responsible for generating scientific claims. Crucially, its output is grounded in the evidence and includes explicit provenance tracking, ensuring reproducibility and traceability for every assertion made.</p>
-<h3 id="deterministic-pipeline">Deterministic Pipeline</h3>
-<p>This component acts as the central control flow mechanism. It manages the transitions between the Ideation, Experiment, and Writeup stages. It enforces a strict control structure: if an agent's output fails a code-enforced check (e.g., a null result or a failed novelty check), the pipeline dictates a return to the Ideation Agent. It only admits stage outputs after these checks have passed.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2609.01603/fig_p3_c1.jpg" />
+<em>Figure 1: Limitations of prior work and an overview of PTA-IRT.</em></p>
+<p>PTA-IRT operates in three stages. First, it constructs Agent Trajectory Representations by parsing heterogeneous execution logs into structured process summaries containing Task Goal, Context Explored, Edits Executed, and Path Overview. Second, it selects Informative Calibration Items by fitting a trajectory-aware 4PL IRT model, scoring tasks using a trajectory-aware Fisher information weighted by trajectory reliability, and selecting a difficulty-stratified subset. Third, it estimates Agent Ability via LUPI, where a teacher-student objective transfers privileged process knowledge from historical trajectories to a deployable student model, allowing the student to estimate the new agent's full-benchmark performance from limited calibration observations.</p>
+<h3 id="trajectory-parser">Trajectory Parser</h3>
+<p>The Trajectory Parser extracts action steps from heterogeneous logs to build the foundation for structured summaries. This component is responsible for the initial parsing of raw execution data into discrete, actionable steps.</p>
+<h3 id="summarization-model">Summarization Model</h3>
+<p>The Summarization Model compresses historical trajectories into a structured process summary with four fields: Task Goal, Context Explored, Edits Executed, and Path Overview. This model abstracts the complex temporal dynamics of the agent's execution into a fixed-dimensional, semantically rich representation.</p>
+<h3 id="agent-encoder">Agent Encoder</h3>
+<p>The Agent Encoder is a two-layer multilayer perceptron (MLP) that maps a one-hot agent identifier to latent ability <span class="arithmatex">\(\theta_i\)</span>. This maps the discrete identity of an agent to a continuous latent space representation of its underlying capability.</p>
+<h3 id="item-encoder">Item Encoder</h3>
+<p>The Item Encoder is a two-layer multilayer perceptron (MLP) that maps a one-hot item identifier to global parameters <span class="arithmatex">\((a_j, b_j, c_j, d_j)\)</span>. These parameters define the item's characteristics within the IRT framework, such as discrimination and difficulty.</p>
+<h3 id="summary-encoder">Summary Encoder</h3>
+<p>The Summary Encoder is a two-layer multilayer perceptron (MLP) that maps each privileged summary <span class="arithmatex">\(z_{ij}\)</span> to bounded residuals <span class="arithmatex">\((\Delta a_{ij}, \Delta b_{ij})\)</span>. This component learns how the specific execution context of an agent on a task modifies the baseline item parameters.</p>
+<h3 id="teacher-model">Teacher Model</h3>
+<p>The Teacher Model predicts with trajectory-adjusted parameters <span class="arithmatex">\((a_{ij}, b_{ij})\)</span> using privileged summary information during offline training. This model utilizes the rich, historical trajectory data to learn a highly accurate, context-specific parameterization of the item response function.</p>
+<h3 id="student-model">Student Model</h3>
+<p>The Student Model predicts with global item parameters <span class="arithmatex">\((a_j, b_j, c_j, d_j)\)</span> and estimates ability <span class="arithmatex">\(\theta^*\)</span> at test time using only identifiers and shared item parameters. This model is designed for deployment, relying only on the generalized item parameters and the agent's identifier, having learned the necessary knowledge transfer from the Teacher Model.</p>
 <h2 id="results">Results</h2>
 <table>
 <thead>
@@ -4284,32 +4319,44 @@ continuous pipeline ultimately yields verifiable scienti</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Mean overall paper score</td>
-<td style="text-align: left;">6.3</td>
-<td style="text-align: left;">reference reasoning backbone</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">MAE</td>
+<td style="text-align: left;"><span class="arithmatex">\(0.041\pm0.015\)</span></td>
+<td style="text-align: left;">prior IRT baselines</td>
+<td style="text-align: left;">Table 3</td>
 </tr>
 <tr>
-<td style="text-align: left;">Head-to-head judgments (vs. blind variant)</td>
-<td style="text-align: left;">85%</td>
-<td style="text-align: left;">blind variant that receives only precomputed scalar features</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">Kendall's <span class="arithmatex">\(\tau\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(0.888\)</span></td>
+<td style="text-align: left;">prior IRT baselines</td>
+<td style="text-align: left;">Table 3</td>
+</tr>
+<tr>
+<td style="text-align: left;">Spearman's <span class="arithmatex">\(\rho\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(0.973\)</span></td>
+<td style="text-align: left;">prior IRT baselines</td>
+<td style="text-align: left;">Table 3</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(\tau\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(0.768\)</span></td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Figure 2</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The practitioner takeaways highlight several critical insights. First, lifecycle-wide perception is demonstrated to be essential for evidence-grounded scientific discovery, contrasting sharply with methods that rely solely on precomputed feature vectors. Second, the integration of code-enforced checks—specifically for novelty, statistical validity, and execution provenance—provides a necessary, robust control structure for autonomous research systems. Finally, the system's demonstrated discipline-agnostic nature confirms that the core engine can effectively operate across diverse evidence families, including perceptual, symbolic, quantitative-statistical, and procedural data.</p>
+<p>When evaluating complex, multi-step agents, incorporating process-level evidence (like execution trajectories) significantly boosts the reliability of performance estimation from small test sets. PTA-IRT demonstrates robustness, maintaining superior performance across varying calibration budgets (e.g., 5% to 25%). The combination of trajectory-aware IRT for item selection and LUPI for knowledge transfer is a powerful paradigm for efficient model evaluation.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>Two primary limitations were noted. First, the current paper does not provide a detailed exposition of the specific implementation mechanics of the ReAct loop utilized within each individual agent. Second, the complexity inherent in the 36-case demonstration suite suggests that full, end-to-end execution of the system incurs significant computational demands.</p>
+<p>The method relies on the availability of historical agent trajectories for offline training. Furthermore, the process summaries are generated using a summarization model, introducing potential compression artifacts.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2608.13558">2608.13558</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260813558</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{OmniScientist: An Omni-Modal Omni-Discipline AI Scientist}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Bobo Li and Hao Fei and Tianjie Ju and Mong-Li Lee and Wynne Hsu}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2608.13558}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2609.01603">2609.01603</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260901603</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Efficient SWE Agent Benchmarking via Trajectory-Aware Evaluation}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Kefeng Duan and Dewu Zheng and Yanlin Wang and Xiwen Wang and Ensheng Shi and Xilin Liu et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2609.01603}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2608.13558}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2609.01603}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
