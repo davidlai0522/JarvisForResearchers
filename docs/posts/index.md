@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Efficient SWE Agent Benchmarking via Trajectory-Aware Evaluation](2026-09-03-efficient-swe-agent-benchmarking-via-trajectory-aware-evalua/) { data-cat="Artificial Intelligence" data-date="2026-09-03" }
+
+*2026-09-03*
+
+PTA-IRT is a Privileged Trajectory-Aware Item Response Theory framework that fuses historical agent execution trajectories with Item Response Theory to enable efficient, budgeted evaluation of software engineering agents.
+
 ## [BRF-GS: Hyperspectral Bidirectional Reflectance Factor Modeling and Image Generation Based on 3D Gaussian Splatting](2026-09-02-brf-gs-hyperspectral-bidirectional-reflectance-factor-modeli/) { data-cat="Computer Vision" data-date="2026-09-02" }
 
 *2026-09-02*
