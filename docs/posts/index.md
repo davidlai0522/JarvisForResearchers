@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models](2026-09-04-solarwm-open-data-and-scalable-training-for-long-horizon-vid/) { data-cat="Computer Vision" data-date="2026-09-04" }
+
+*2026-09-04*
+
+SolarWM introduces a fully open foundation for interactive video world models by unifying heterogeneous data sources via a reconfigurable multi-source data engine and enabling scalable training across diverse video backbones using a three-stage recipe.
+
 ## [Efficient SWE Agent Benchmarking via Trajectory-Aware Evaluation](2026-09-03-efficient-swe-agent-benchmarking-via-trajectory-aware-evalua/) { data-cat="Artificial Intelligence" data-date="2026-09-03" }
 
 *2026-09-03*
