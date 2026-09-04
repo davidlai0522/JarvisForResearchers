@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This study investigates algorithmic monoculture in hiring by analyzing a novel dataset from the vendor pymetrics, finding clear racial disparities and systemic rejection patterns when examining hiring decisions on a per-position basis.
+        <meta name="description" content="SolarWM introduces a fully open foundation for interactive video world models by unifying heterogeneous data sources via a reconfigurable multi-source data engine and enabling scalable training across diverse video backbones using a three-stage recipe.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-28-algorithmic-monocultures-in-hiring/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-09-04-solarwm-open-data-and-scalable-training-for-long-horizon-vid/">
       
       
-        <link rel="prev" href="../2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-27-trisplat-simulation-ready-feed-forward-3d-scene-reconstructi/">
+        <link rel="next" href="../2026-09-03-efficient-swe-agent-benchmarking-via-trajectory-aware-evalua/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Algorithmic Monocultures in Hiring - JarvisForResearchers</title>
+        <title>SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Algorithmic Monocultures in Hiring
+              SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models
             
           </span>
         </div>
@@ -638,10 +638,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-09-04-solarwm-open-data-and-scalable-training-for-long-horizon-vid/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -657,6 +682,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reconfigurable-multi-source-data-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reconfigurable Multi-Source Data Engine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backbone-native-adaptation-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backbone-Native Adaptation Framework
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bidirectional-adaptation-stage-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bidirectional Adaptation (Stage 1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teacher-forced-anyflow-initialization-stage-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Teacher-Forced AnyFlow Initialization (Stage 2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dmd-based-causal-training-stage-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DMD-based Causal Training (Stage 3)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2934,35 +3126,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Algorithmic Monocultures in Hiring
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-28-algorithmic-monocultures-in-hiring/" class="md-nav__link">
         
   
   
@@ -2978,162 +3145,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pymetrics-machine-learning-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        pymetrics machine learning model
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#assessment-games" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Assessment Games
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#probabilistic-score-p" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Probabilistic Score (\(p\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#binary-outcome-y" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Binary Outcome (\(y\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4111,10 +4122,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pymetrics-machine-learning-model" class="md-nav__link">
+  <a href="#reconfigurable-multi-source-data-engine" class="md-nav__link">
     <span class="md-ellipsis">
       
-        pymetrics machine learning model
+        Reconfigurable Multi-Source Data Engine
       
     </span>
   </a>
@@ -4122,10 +4133,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#assessment-games" class="md-nav__link">
+  <a href="#backbone-native-adaptation-framework" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Assessment Games
+        Backbone-Native Adaptation Framework
       
     </span>
   </a>
@@ -4133,10 +4144,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#probabilistic-score-p" class="md-nav__link">
+  <a href="#bidirectional-adaptation-stage-1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Probabilistic Score (\(p\))
+        Bidirectional Adaptation (Stage 1)
       
     </span>
   </a>
@@ -4144,10 +4155,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#binary-outcome-y" class="md-nav__link">
+  <a href="#teacher-forced-anyflow-initialization-stage-2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Binary Outcome (\(y\))
+        Teacher-Forced AnyFlow Initialization (Stage 2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dmd-based-causal-training-stage-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DMD-based Causal Training (Stage 3)
       
     </span>
   </a>
@@ -4224,47 +4246,50 @@
       
       
       
-        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
   </nav>
 
 
 
-  <h1>Algorithmic Monocultures in Hiring</h1>
+  <h1>SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-28</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-09-04</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
 <p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>This study analyzes a large-scale dataset from the pymetrics vendor to demonstrate that reliance on a single algorithmic hiring system (algorithmic monoculture) results in measurable racial disparities and systemic rejection patterns when evaluated on a per-position basis.</p>
+<p>SolarWM establishes a unified, open foundation for interactive, long-horizon video world models. It achieves this by standardizing heterogeneous data from 10 datasets into a single, frame-aligned contract via a reconfigurable multi-source data engine. Model adaptation across diverse video backbones is managed by a backbone-native framework, and training is formalized through a three-stage recipe: Bidirectional Adaptation, Teacher-Forced AnyFlow Initialization, and DMD-based Causal Training.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Many organizations utilize hiring algorithms sourced from a limited set of third-party vendors. This reliance establishes an algorithmic monoculture. We hypothesize that this homogeneity in deployed models can lead to homogeneous, and potentially discriminatory, hiring outcomes, disproportionately affecting certain demographic groups. Prior research has shown no significant differences when analyzing aggregate selection rates across all applications from pymetrics. Furthermore, previous studies have been limited by the inability to observe cross-employer rejection patterns or to analyze outcomes as they occur in deployment.</p>
+<p>The objective of transitioning video generation models from short-clip synthesis to interactive, long-horizon rollouts necessitates maintaining high visual fidelity and temporal coherence while ensuring responsiveness to external control signals. This transition is fundamentally hampered by two coupled issues: first, the supervision provided by existing datasets is inherently inconsistent due to variations in temporal scale, motion distribution, captioning conventions, and camera geometry; and second, the architectural diversity among state-of-the-art video generation backbones—specifically concerning latent representations, attention mechanisms, and conditioning inputs—precludes straightforward, shared adaptation without degrading the intrinsic capabilities of the pretrained models. Existing open systems fail to address this coupling, often remaining restricted to specific data modalities or model architectures.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>This work makes three primary contributions:
-1. It presents the first empirical study observing deployed algorithmic hiring decisions across multiple employers utilizing a single vendor.
-2. It provides quantitative evidence of systemic rejections occurring at scale due to the operational deployment of these hiring algorithms.
-3. It introduces methodological approaches that leverage the deterministic replicability of the underlying algorithms to generate robust counterfactual outcome simulations.</p>
+<p>SolarWM delivers three primary contributions:
+1. A fully open and unified foundation that integrates a reconfigurable multi-source data infrastructure with a scalable backbone-native adaptation framework.
+2. A reconfigurable multi-source data infrastructure capable of processing approximately 1.43 million clips sourced from 10 distinct datasets, with the corpus and processing pipeline released for reproducibility.
+3. A scalable backbone-native adaptation framework and a corresponding model family (SolarWM-wan2.2-5B, SolarWM-wan2.2-14B, SolarWM-ltx-2.5-22B, and SolarWM-minimax-h3-33B) trained using a formalized three-stage procedure.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.27371/fig_p2_c1.jpg" />
-<em>Fig. 1. The pymetrics process. Stage 1: Applicants apply to positions. Stage 2: Applicants are directed to the pymetrics
-platform to play assessment games. Stage 3: pymetrics algorithms use applicant gameplay features to recommend 58.2%
-of applicants per position on average. Stage 4: Employers decid</em></p>
-<p>The analysis utilized a dataset comprising 4,197,168 job applications submitted by 3,372,132 applicants across 1,746 distinct positions, all processed by pymetrics' machine learning model. The model outputs a probabilistic score, <span class="arithmatex">\(p \in [0, 1]\)</span>, which is subsequently binarized at a threshold <span class="arithmatex">\(t=0.5\)</span> to yield the final recommendation, <span class="arithmatex">\(y\)</span>. To move beyond the limitations of aggregate analysis, the study rigorously re-examined adverse impact metrics on a per-position basis. Crucially, the deterministic nature of the algorithms allowed us to simulate counterfactual scenarios, determining the outcome an applicant would have received if they had applied to every available position.</p>
-<h3 id="pymetrics-machine-learning-model">pymetrics machine learning model</h3>
-<p>This component functions as a binary classifier, trained specifically for each client organization. Its input features are derived from the applicants' performance within the Assessment Games. The training process is supervised, where positive examples are defined as the gameplay features exhibited by at least 50 current employees within that specific role.</p>
-<h3 id="assessment-games">Assessment Games</h3>
-<p>These are 16 proprietary online games developed by pymetrics. Their function is to quantify various cognitive traits in the applicants, including measures of risk propensity, processing speed, trust, altruism, and planning ability. These gameplay metrics serve as the input features for the downstream classification model.</p>
-<h3 id="probabilistic-score-p">Probabilistic Score (<span class="arithmatex">\(p\)</span>)</h3>
-<p>This is the direct output of the trained machine learning model for any given applicant's set of gameplay features. It represents the model's estimated probability, <span class="arithmatex">\(p \in [0, 1]\)</span>, that the applicant meets the criteria for a positive recommendation for the specific role.</p>
-<h3 id="binary-outcome-y">Binary Outcome (<span class="arithmatex">\(y\)</span>)</h3>
-<p>This is the final, actionable decision. It is derived by applying a fixed threshold, <span class="arithmatex">\(t=0.5\)</span>, to the probabilistic score <span class="arithmatex">\(p\)</span>. If <span class="arithmatex">\(p \ge 0.5\)</span>, the outcome is <span class="arithmatex">\(y=1\)</span> ('recommend'); otherwise, <span class="arithmatex">\(y=0\)</span> ('do not recommend').</p>
+<p><img alt="Please provide the figure you would like me to analyze. I will then follow your instructions precisely." src="../../assets/figures/2609.02886/fig_p1_c1.jpg" />
+<em>Figure 1 | SolarWM: an open foundation for interactive, long-horizon video world models.</em></p>
+<p>SolarWM addresses data heterogeneity at the input layer using the Reconfigurable Multi-Source Data Engine. This engine transforms disparate data—including visual observations, metric camera geometry, captions, quality metadata, selection decisions, and provenance—into a singular, frame-aligned contract. Model adaptation is then managed by the Backbone-Native Adaptation Framework, which ensures that while shared interfaces exist for camera conditioning and long-horizon rollout, the native representations and optimization objectives of the underlying video generators are preserved. The training procedure itself is structured as a sequential, three-stage recipe to guide the model from general feature learning to precise causal generation.</p>
+<h3 id="reconfigurable-multi-source-data-engine">Reconfigurable Multi-Source Data Engine</h3>
+<p>This component is responsible for the ingestion and harmonization of heterogeneous data. Its function is to map inputs from various sources—which may differ in temporal resolution, geometric representation, or descriptive style—onto a canonical, unified data structure. This structure serves as the consistent input contract for the subsequent model training stages, effectively decoupling the model training process from the idiosyncrasies of the source datasets.</p>
+<h3 id="backbone-native-adaptation-framework">Backbone-Native Adaptation Framework</h3>
+<p>This framework is designed to facilitate cross-architecture compatibility. It abstracts the necessary interfaces—specifically for camera conditioning and the mechanism enabling long-horizon rollout—while strictly preserving the internal computational graphs and learned representations of the specific video generator being adapted. This allows the system to leverage the strengths of diverse pretrained backbones without requiring a monolithic, architecture-specific redesign.</p>
+<h3 id="bidirectional-adaptation-stage-1">Bidirectional Adaptation (Stage 1)</h3>
+<p>The initial training stage focuses on robust feature learning using bidirectional attention. The objective function, <span class="arithmatex">\(L_{bid}\)</span>, is minimized:
+$<span class="arithmatex">\(L_{bid} = \mathbb{E}_{(\mathbf{z}_t, \mathbf{z}_{t+1}, c)} \left[ \langle \text{Decoder}(\mathbf{z}_t, \mathbf{z}_{t+1}, c) - \mathbf{z}_{t+1} \rangle^2 \right]\)</span>$
+This stage utilizes bidirectional attention across the entire training window. Crucially, camera control is injected into the latent space via a fused-PRoPE mechanism, providing early exposure to control signals before the model commits to a unidirectional prediction path.</p>
+<h3 id="teacher-forced-anyflow-initialization-stage-2">Teacher-Forced AnyFlow Initialization (Stage 2)</h3>
+<p>Stage 2 transitions the model toward autoregressive generation. The attention mechanism is switched to causal, and the objective shifts to minimizing <span class="arithmatex">\(L_{TF-AF}\)</span>:
+$<span class="arithmatex">\(L_{TF-AF} = \mathbb{E}_{(\mathbf{z}_t, \mathbf{z}_{t+1}, c)} \left[ \text{AF}(\mathbf{z}_t; \mathbf{z}_{t+1}, c, \mathbf{z}_{&lt;t}, c) \right]\)</span>$
+Teacher forcing is employed here. By conditioning the model on the ground-truth future states (<span class="arithmatex">\(\mathbf{z}_{t+1}\)</span>), the model learns the necessary transition dynamics under causal constraints, enabling the initial steps of autoregressive generation without immediately requiring perfect self-prediction.</p>
+<h3 id="dmd-based-causal-training-stage-3">DMD-based Causal Training (Stage 3)</h3>
+<p>The final stage refines the causal generator using trajectories generated by the model itself. Instead of relying solely on ground-truth supervision, the model is trained to align its generated distribution with the dynamics implied by its own predictions. This is achieved by minimizing the DMD Loss on model-generated trajectories, effectively stabilizing the long-horizon inference process by enforcing consistency with the learned dynamics model.</p>
 <h2 id="results">Results</h2>
-<p>The analysis revealed significant disparities when examining outcomes at the granular, per-position level.</p>
 <table>
 <thead>
 <tr>
@@ -4276,50 +4301,32 @@ of applicants per position on average. Stage 4: Employers decid</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Adverse Impact against Black applicants (per position)</td>
-<td style="text-align: left;">10.62%</td>
+<td style="text-align: left;">Model Family</td>
+<td style="text-align: left;">SolarWM-wan2.2-5B, SolarWM-wan2.2-14B, SolarWM-ltx-2.5-22B, and SolarWM-minimax-h3-33B</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Section 3.1</td>
+<td style="text-align: left;">Abstract</td>
 </tr>
 <tr>
-<td style="text-align: left;">Percentage of Black applicants applying to at least one adversely impacting position</td>
-<td style="text-align: left;">30.70%</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Section 3.1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Percentage of all applications submitted by Black applicants to adversely impacting positions</td>
-<td style="text-align: left;">25.87%</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Section 3.1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Systemic rejection rate (applicants applying to 10 positions rejected from all)</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Section 3.1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Exponential decay rate for systemic rejection</td>
-<td style="text-align: left;"><span class="arithmatex">\(R^2 = 0.984\)</span></td>
-<td style="text-align: left;">Predicted by chance</td>
-<td style="text-align: left;">Section 3.1</td>
+<td style="text-align: left;">Rollout Horizon</td>
+<td style="text-align: left;">minutes to hours</td>
+<td style="text-align: left;">5s sequences (training)</td>
+<td style="text-align: left;">Abstract</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The findings underscore a critical vulnerability in modern talent acquisition pipelines: algorithmic monoculture. The evidence demonstrates that relying on a single vendor's model, even when applied across different client organizations, can lead to systemic rejection. The observation of a <span class="arithmatex">\(4\%\)</span> systemic rejection rate, coupled with an exponential decay rate of <span class="arithmatex">\(R^2 = 0.984\)</span>, suggests that once an applicant is flagged by the model for a specific set of traits, they face a high probability of rejection across multiple roles evaluated by the same system. This necessitates a shift in focus from aggregate compliance metrics to granular, per-position auditing of vendor-mediated systems.</p>
+<p>SolarWM provides a critical methodological shift for the field of interactive world modeling. By formalizing a unified data contract, it mitigates the practical engineering hurdle of combining disparate, real-world datasets. Furthermore, the backbone-native adaptation framework decouples the training methodology from the specific implementation details of the video generator, offering a path toward genuinely scalable research. The three-stage training recipe demonstrates that high-fidelity, long-horizon performance can be achieved by systematically progressing from bidirectional feature learning to constrained causal prediction, even when the initial training data is limited to short clips.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current study has two primary limitations. First, it does not provide any assessment regarding the validity or predictive accuracy of the features derived from the Assessment Games themselves. Second, the analysis is constrained by the data provided by pymetrics, which is subject to non-disclosure agreements concerning proprietary information related to the client companies. Future work must address the causal validity of the input features and explore mechanisms for independent, external validation of these vendor systems.</p>
+<p>One limitation noted is that the paper does not provide specific quantitative performance metrics against established baselines for the final long-horizon rollouts; it only asserts state-of-the-art performance. Additionally, while the fused-PRoPE mechanism is described as a method for injecting camera control, the precise implementation overhead associated with this mechanism remains insufficiently detailed for a complete engineering assessment. Future work should focus on quantifying the computational cost of the data engine and providing explicit comparative performance curves across different rollouts.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.27371">2605.27371</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260527371</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Algorithmic Monocultures in Hiring}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Rishi Bommasani and Sarah H. Bana and Kathleen A. Creel and Dan Jurafsky and Percy Liang}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.27371}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2609.02886">2609.02886</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260902886</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Junchao Huang and Guian Fang and Shengju Qian and Xianghao Kong and Zhuoran Zhao and Wei Huang et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2609.02886}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.27371}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2609.02886}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
