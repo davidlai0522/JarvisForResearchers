@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This paper organizes the embodied data ecosystem into a five-layer 'Data Pyramid' based on the tension between scalability and robot alignment, characterizing data sources by quality, diversity, reusability, and physical fidelity.
+        <meta name="description" content="TokenMatch is a novel, feed-forward, transformer-based unified model that estimates 3D shape correspondences by adaptively tokenizing meshes using curvature guidance and leveraging self- and cross-attention mechanisms.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-29-data-pyramid-for-embodied-manipulation/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-09-05-tokenmatch-3d-mesh-correspondence-transformer-with-curvature/">
       
       
-        <link rel="prev" href="../2026-07-30-pass-the-baton-trajectory-relayed-on-policy-distillation/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-07-28-sm4rt-learning-structured-motion-geometry-for-4d-reconstruct/">
+        <link rel="next" href="../2026-09-04-solarwm-open-data-and-scalable-training-for-long-horizon-vid/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Data Pyramid for Embodied Manipulation - JarvisForResearchers</title>
+        <title>TokenMatch: 3D Mesh Correspondence Transformer with Curvature-Guided Tokenisation - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Data Pyramid for Embodied Manipulation
+              TokenMatch: 3D Mesh Correspondence Transformer with Curvature-Guided Tokenisation
             
           </span>
         </div>
@@ -640,10 +640,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-09-05-tokenmatch-3d-mesh-correspondence-transformer-with-curvature/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TokenMatch: 3D Mesh Correspondence Transformer with Curvature-Guided Tokenisation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -659,6 +684,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geometry-aware-curvature-guided-mesh-tokenisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometry-Aware Curvature-Guided Mesh Tokenisation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transformer-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transformer Encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Attention
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overlap-prediction-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overlap Prediction Module
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functional-map-estimation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functional Map Estimation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1340,35 +1532,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Data Pyramid for Embodied Manipulation
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-07-29-data-pyramid-for-embodied-manipulation/" class="md-nav__link">
         
   
   
@@ -1384,173 +1551,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#real-robot-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Real-Robot Data
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#umi-style-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        UMI-Style Data
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#egocentric-exocentric-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Egocentric / Exocentric Data
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#simulation-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Simulation Data
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#general-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        General Data
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4152,10 +4152,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#real-robot-data" class="md-nav__link">
+  <a href="#geometry-aware-curvature-guided-mesh-tokenisation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Real-Robot Data
+        Geometry-Aware Curvature-Guided Mesh Tokenisation
       
     </span>
   </a>
@@ -4163,10 +4163,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#umi-style-data" class="md-nav__link">
+  <a href="#transformer-encoder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        UMI-Style Data
+        Transformer Encoder
       
     </span>
   </a>
@@ -4174,10 +4174,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#egocentric-exocentric-data" class="md-nav__link">
+  <a href="#cross-attention" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Egocentric / Exocentric Data
+        Cross-Attention
       
     </span>
   </a>
@@ -4185,10 +4185,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#simulation-data" class="md-nav__link">
+  <a href="#overlap-prediction-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Simulation Data
+        Overlap Prediction Module
       
     </span>
   </a>
@@ -4196,10 +4196,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#general-data" class="md-nav__link">
+  <a href="#functional-map-estimation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        General Data
+        Functional Map Estimation
       
     </span>
   </a>
@@ -4283,78 +4283,49 @@
       
       
       
-        <a href="../../tags/#tag:foundation-models" class="md-tag">foundation-models</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:multimodal" class="md-tag">multimodal</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:perception" class="md-tag">perception</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:planning" class="md-tag">planning</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
+        <a href="../../tags/#tag:transformers" class="md-tag">transformers</a>
       
     
   </nav>
 
 
 
-  <h1>Data Pyramid for Embodied Manipulation</h1>
+  <h1>TokenMatch: 3D Mesh Correspondence Transformer with Curvature-Guided Tokenisation</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-07-29</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-09-05</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
 <p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>This work formalizes the embodied data ecosystem into a five-layer 'Data Pyramid.' This structure organizes complementary data sources—Real-Robot, UMI-Style, Egocentric/Exocentric, Simulation, and General—based on the inherent tension between data scalability and robot alignment. Each source is characterized across Quality, Diversity, Reusability, and Physical Fidelity, providing a systematic lens to analyze how embodied foundation models integrate heterogeneous data for perception, reasoning, and action generation.</p>
+<p>TokenMatch introduces a novel, feed-forward, transformer-based unified model for 3D shape correspondence estimation. It addresses the limitations of prior methods by employing curvature-guided tokenization to handle irregularly sampled meshes, followed by self- and cross-attention mechanisms to learn dense correspondences without relying on templates.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Extending multimodal foundation models to function as competent embodied agents necessitates data that robustly couples high-dimensional observations with precise physical states and executable actions. However, the current landscape lacks a systematic framework for understanding the roles, inherent trade-offs, relationships, and optimal integration strategies among the various complementary data sources available.</p>
-<p>The existing literature presents several gaps. First, prior hierarchical or pyramid-like views of training data are often tailored to the specific training recipe of a single model, offering limited comparative analysis across critical dimensions such as collection scalability, embodiment dependence, physical fidelity, transferability, and downstream utility. Second, existing surveys tend to be siloed, focusing narrowly on model architectures or specific subproblems (e.g., Vision-Language-Action models, World-Action models, or world modeling). Consequently, the embodied data ecosystem has not been systematically organized at the category level, nor has the utilization of heterogeneous data by embodied foundation models been comprehensively analyzed from a rigorous, data-centric perspective.</p>
+<p>Robustly matching 3D shapes is a non-trivial problem, particularly when dealing with partial observations or significant non-isometric deformations. Current learning-based solutions often exhibit deficiencies: they frequently depend on hand-crafted descriptors, rely on rigid template-based representations, or incur prohibitively high inference costs while maintaining limited interpretability. Specifically, existing functional map frameworks struggle with fine-grained correspondence recovery due to their inherent global low-rank structure. Furthermore, reliably inferring both pointwise correspondences and the precise overlapping regions is difficult when only partial shapes are provided, a challenge that generative models over functional maps have failed to address efficiently or interpretably.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We make three primary contributions to this domain:
-1. We organize the embodied data ecosystem into a 'Data Pyramid' comprising five complementary sources: real-robot data, UMI-style data, egocentric and exocentric data, simulation data, and general data.
-2. We characterize each of these data sources using four complementary dimensions—Quality, Diversity, Reusability, and Physical Fidelity—in conjunction with the overarching metrics of Scalability and Robot Alignment.
-3. We analyze recent embodied foundation models through the lens of their data recipes, establishing a direct relationship between the composition of their utilized data and their resulting capabilities across perception, reasoning, planning, action generation, and world prediction.</p>
+<p>We present three primary contributions:
+1. TokenMatch, the first mesh-transformer-based unified model for 3D shape correspondence estimation, which integrates functional maps with sophisticated self- and cross-attention mechanisms.
+2. A curvature-guided, geometry-aware, overlapping mesh tokenisation scheme that permits the application of transformer-based processing to irregularly sampled geometric data.
+3. A feed-forward architecture that achieves sub-second inference time for partial-shape matching without necessitating shared templates or making category-specific assumptions.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2607.24744/fig_p1_c1.jpg" />
-<em>Figure 1 Overview of Organization and Scope. This work is organized into three parts. We first introduce the embodied
-data pyramid, which categorizes data sources into real-robot, UMI-style, egocentric-exocentric, simulation, and general
-data according to their scalability and robot alignment, and r</em></p>
-<p>The core methodology involves constructing the Embodied Data Pyramid. This pyramid categorizes five distinct data sources—Real-Robot, UMI-Style, Egocentric/Exocentric, Simulation, and General—by mapping them onto the tension between Scalability and Robot Alignment. These categories are then further characterized by their inherent levels of Quality, Diversity, Reusability, and Physical Fidelity. The pyramid is structurally ordered from its apex, representing the strongest physical grounding, down to its base, which represents the greatest accessibility and scalability. Following this categorization, the paper examines how contemporary embodied foundation models leverage these heterogeneous sources, specifically analyzing their data composition and the accommodation strategies employed, such as action-space alignment and geometric alignment.</p>
-<h3 id="real-robot-data">Real-Robot Data</h3>
-<p>This data consists of trajectories that are either teleoperated or scripted directly onto the target robot. It captures a complete, closed-loop sequence, recording observations, internal states, executed actions, and resulting outcomes within the physical environment.</p>
-<h3 id="umi-style-data">UMI-Style Data</h3>
-<p>This category encompasses demonstrations captured using handheld grippers. Crucially, this data records end-effector motion trajectories without requiring the full complexity of a robot integrated into the control loop.</p>
-<h3 id="egocentric-exocentric-data">Egocentric / Exocentric Data</h3>
-<p>This data includes first-person (egocentric) and third-person (exocentric) recordings of human agents performing tasks. These sources provide access to real-world physics, dexterous manipulation examples, and high levels of everyday behavioral variety.</p>
-<h3 id="simulation-data">Simulation Data</h3>
-<p>This data is generated through interaction within physics engines. It is valuable because it returns executable actions alongside privileged, ground-truth labels, such as precise contact points, object poses, and binary success signals.</p>
-<h3 id="general-data">General Data</h3>
-<p>This category comprises web-scale corpora, including images, videos, natural language text, and vision-language pairs. These sources primarily inject semantics, spatial structure, and commonsense knowledge into the model.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2609.04202/fig_p2_c1.jpg" />
+<em>Figure 1: Overview of TokenMatch, our unified model for 3D mesh correspondence estimation.
+Given a pair of input meshes (bottom-left), we extract geometry-aware tokens (top-left; Sec. 4.1)
+and process them with a transformer encoder to obtain shape features (top-right; Secs. 4.2 and 4.4).
+Cross-atte</em></p>
+<p>TokenMatch operates by transforming the continuous geometric structure of 3D meshes into a discrete sequence of tokens suitable for transformer processing. This process begins with geometry-aware tokenization, which partitions the mesh into overlapping patches guided by a signal <span class="arithmatex">\(s(i) = \alpha \|H(i)\|^2 + (1 - \alpha)E(i)\)</span>. These patches serve as the input tokens. These tokens are then fed into a transformer encoder to derive contextualized shape features. To facilitate the reasoning required for dense correspondence, cross-attention is employed to enable feature exchange between the tokens originating from the two input shapes. The framework further incorporates an Overlap Prediction Module to identify shared regions, culminating in the Functional Map Estimation stage, which estimates pointwise correspondences in a reduced spectral basis, thereby unifying the handling of both full and partial shape matching in a template-free, feed-forward manner.</p>
+<h3 id="geometry-aware-curvature-guided-mesh-tokenisation">Geometry-Aware Curvature-Guided Mesh Tokenisation</h3>
+<p>This component is responsible for discretizing the continuous mesh structure into a set of discrete tokens. It partitions the triangular mesh into overlapping regions. The selection of these regions is not arbitrary; it is guided by the signal <span class="arithmatex">\(s(i) = \alpha \|H(i)\|^2 + (1 - \alpha)E(i)\)</span>, where <span class="arithmatex">\(\|H(i)\|^2\)</span> quantifies local curvature and <span class="arithmatex">\(E(i)\)</span> likely relates to edge or feature density. This curvature-weighted approach ensures that tokens are sampled in regions of geometric significance, which is critical for maintaining local geometric fidelity during tokenization.</p>
+<h3 id="transformer-encoder">Transformer Encoder</h3>
+<p>The Transformer Encoder receives the tokens generated by the tokenization stage. Its function is to process these tokens and learn rich, contextualized shape features. The architecture utilizes a Multi-Layer Perceptron (MLP) to project the aggregated features into the final token representations, denoted as <span class="arithmatex">\(x_i = e_i + p_i\)</span>, where <span class="arithmatex">\(e_i\)</span> and <span class="arithmatex">\(p_i\)</span> represent the embedded and projected features, respectively. This encoding step allows the model to capture long-range dependencies and global shape characteristics from the local patch representations.</p>
+<h3 id="cross-attention">Cross-Attention</h3>
+<p>This mechanism is the core component enabling the model to reason about dense correspondence between two input shapes. It explicitly facilitates the exchange of features between the token sets derived from the two different input shapes. By allowing tokens from Shape A to query and attend to tokens from Shape B (and vice-versa), the model can learn cross-shape relationships necessary for estimating dense correspondences, moving beyond simple feature similarity.</p>
+<h3 id="overlap-prediction-module">Overlap Prediction Module</h3>
+<p>Following the feature extraction via the Transformer Encoder and Cross-Attention, the Overlap Prediction Module takes the resulting contextualized features. Its objective is to predict the regions where the two input shapes spatially coincide. This prediction is crucial for constraining the correspondence estimation, particularly in the context of partial shapes, by explicitly identifying the valid domain for correspondence mapping.</p>
+<h3 id="functional-map-estimation">Functional Map Estimation</h3>
+<p>This is the final stage of the pipeline. Utilizing the refined, context-aware features and the guidance from the Overlap Prediction Module, this module estimates the pointwise correspondences. These correspondences are not outputted as raw coordinate mappings but are represented within a reduced spectral basis, which is the characteristic output of a functional map framework. This spectral representation provides a compact, structured way to encode the dense correspondence field.</p>
 <h2 id="results">Results</h2>
-<p>The analysis of recent model training practices reveals a clear trend in data composition.</p>
 <table>
 <thead>
 <tr>
@@ -4366,26 +4337,32 @@ data according to their scalability and robot alignment, and r</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Data Utilization Across Model Paradigms</td>
-<td style="text-align: left;">Transition from early training recipes dominated by real-robot trajectories toward increasingly heterogeneous mixtures of real-robot, simulation, general, egocentric, and, less frequently, UMI-style data.</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Figure 3</td>
+<td style="text-align: left;">Performance</td>
+<td style="text-align: left;">consistently high performance</td>
+<td style="text-align: left;">existing methods</td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+<tr>
+<td style="text-align: left;">Inference Speed</td>
+<td style="text-align: left;">sub-second inference speeds</td>
+<td style="text-align: left;">combinatorial techniques and when no additional assumptions are made</td>
+<td style="text-align: left;">Abstract</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>This systematic organization moves the discussion beyond mere data aggregation toward a principled understanding of data utility in embodied AI. By characterizing data sources across six dimensions (Scalability, Robot Alignment, Quality, Diversity, Reusability, and Physical Fidelity), practitioners gain a diagnostic tool for pipeline design. The findings indicate that the evolution of embodied foundation models is characterized by a move away from reliance on singular, high-fidelity sources toward complex, heterogeneous mixtures, suggesting that the optimal data recipe is context-dependent and requires careful balancing of fidelity against scale.</p>
+<p>The development of TokenMatch provides a significant advancement in 3D shape matching by unifying the treatment of full and partial shapes within a single, efficient, and template-free framework. By replacing reliance on fixed descriptors or iterative optimization with a geometry-aware, feed-forward transformer architecture, we achieve both high performance and practical inference speed. The curvature-guided tokenization strategy is particularly valuable as it provides a robust mechanism for handling the inherent irregularity of mesh data, a common scenario in real-world 3D sensing.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current framework highlights several open challenges that require focused research. These include the necessity of building large-scale tactile datasets, developing robust methods for collecting failure and recovery data, engineering scalable data-collection pipelines, establishing principled methods for aligning actions across different embodiments, effectively leveraging egocentric data for fine-grained dexterous manipulation, and ultimately, designing principled data recipes for general robot learning. Furthermore, it must be noted that the ordering of the pyramid represents an overall synthesis of the six dimensions; it does not imply a strictly monotonic progression along every individual property for any given data source.</p>
+<p>The current implementation is constrained by its reliance on the BeCoS dataset for training, meaning its generalization outside of this specific, curated domain requires further validation. Additionally, while the functional map estimation provides a powerful representation of correspondence, the spectral nature of this representation introduces a layer of complexity, and the full interpretability of the learned spectral coefficients remains an active area for investigation.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.24744">2607.24744</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260724744</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Data Pyramid for Embodied Manipulation}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Yifan Ye and Yankai Fu and Yaoxu Lv and Bohan Hou and Jun Cen and Lingdong Kong et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.24744}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2609.04202">2609.04202</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260904202</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{TokenMatch: 3D Mesh Correspondence Transformer with Curvature-Guided Tokenisation}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Adeela Islam and Zorah Lähner and Vittorio Murino and Vladislav Golyanik}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2609.04202}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.24744}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2609.04202}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
