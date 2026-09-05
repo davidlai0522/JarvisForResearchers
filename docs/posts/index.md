@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [TokenMatch: 3D Mesh Correspondence Transformer with Curvature-Guided Tokenisation](2026-09-05-tokenmatch-3d-mesh-correspondence-transformer-with-curvature/) { data-cat="Computer Vision" data-date="2026-09-05" }
+
+*2026-09-05*
+
+TokenMatch is a novel, feed-forward, transformer-based unified model that estimates 3D shape correspondences by adaptively tokenizing meshes using curvature guidance and leveraging self- and cross-attention mechanisms.
+
 ## [SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models](2026-09-04-solarwm-open-data-and-scalable-training-for-long-horizon-vid/) { data-cat="Computer Vision" data-date="2026-09-04" }
 
 *2026-09-04*
