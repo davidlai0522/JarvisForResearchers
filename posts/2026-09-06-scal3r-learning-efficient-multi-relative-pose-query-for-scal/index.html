@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ω-0 is a latent predictive whole-body world-action model designed for concurrent humanoid loco-manipulation, which couples lightweight future observation embedding prediction with diffusion-based whole-body action generation.
+        <meta name="description" content="Scal3R addresses the catastrophic drift in long-sequence 3D reconstruction by reformulating global pose regression into a multi-reference relative pose query problem, leveraging lightweight tokens injected into a frozen backbone and stabilized by online Pose-Graph Optimization (PGO).
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-08-09-0-a-latent-predictive-world-action-model-for-concurrent-huma/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-09-06-scal3r-learning-efficient-multi-relative-pose-query-for-scal/">
       
       
-        <link rel="prev" href="../2026-08-10-dypes-vla-learning-shared-dynamics-priors-and-embodiment-spe/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-08-08-learning-when-to-trust-via-selective-context-preference-opti/">
+        <link rel="next" href="../2026-09-05-tokenmatch-3d-mesh-correspondence-transformer-with-curvature/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>$ω$-0: A Latent Predictive World Action Model for Concurrent Humanoid Loco-Manipulation - JarvisForResearchers</title>
+        <title>Scal3R: Learning Efficient Multi-Relative Pose Query for Scalable Online 3D Reconstruction - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              $ω$-0: A Latent Predictive World Action Model for Concurrent Humanoid Loco-Manipulation
+              Scal3R: Learning Efficient Multi-Relative Pose Query for Scalable Online 3D Reconstruction
             
           </span>
         </div>
@@ -642,10 +642,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-09-06-scal3r-learning-efficient-multi-relative-pose-query-for-scal/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scal3R: Learning Efficient Multi-Relative Pose Query for Scalable Online 3D Reconstruction
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -661,6 +686,206 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frozen-online-3d-reconstruction-backbones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frozen Online 3D Reconstruction Backbones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lightweight-learnable-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lightweight Learnable Tokens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asymmetric-attention-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asymmetric Attention Injection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pose-token-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pose Token Buffer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relative-pose-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relative Pose Head
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#online-pose-graph-optimization-pgo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Online Pose-Graph Optimization (PGO)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyframe-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keyframe Selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop-closure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loop Closure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1062,35 +1287,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    $ω$-0: A Latent Predictive World Action Model for Concurrent Humanoid Loco-Manipulation
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-08-09-0-a-latent-predictive-world-action-model-for-concurrent-huma/" class="md-nav__link">
         
   
   
@@ -1106,173 +1306,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#whole-body-action-vlm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Whole-Body Action VLM
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#whole-body-fast-tokenizer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Whole-Body FAST tokenizer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#joint-video-action-latent-predictor" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Joint Video-Action Latent Predictor
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#action-dit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Action DiT
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sonic-controller" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SONIC Controller
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4182,10 +4215,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#whole-body-action-vlm" class="md-nav__link">
+  <a href="#frozen-online-3d-reconstruction-backbones" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Whole-Body Action VLM
+        Frozen Online 3D Reconstruction Backbones
       
     </span>
   </a>
@@ -4193,10 +4226,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#whole-body-fast-tokenizer" class="md-nav__link">
+  <a href="#lightweight-learnable-tokens" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Whole-Body FAST tokenizer
+        Lightweight Learnable Tokens
       
     </span>
   </a>
@@ -4204,10 +4237,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#joint-video-action-latent-predictor" class="md-nav__link">
+  <a href="#asymmetric-attention-injection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Joint Video-Action Latent Predictor
+        Asymmetric Attention Injection
       
     </span>
   </a>
@@ -4215,10 +4248,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#action-dit" class="md-nav__link">
+  <a href="#pose-token-buffer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Action DiT
+        Pose Token Buffer
       
     </span>
   </a>
@@ -4226,10 +4259,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#sonic-controller" class="md-nav__link">
+  <a href="#relative-pose-head" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SONIC Controller
+        Relative Pose Head
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#online-pose-graph-optimization-pgo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Online Pose-Graph Optimization (PGO)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyframe-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keyframe Selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop-closure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loop Closure
       
     </span>
   </a>
@@ -4306,65 +4372,59 @@
       
       
       
-        <a href="../../tags/#tag:humanoid" class="md-tag">humanoid</a>
+        <a href="../../tags/#tag:3d-perception" class="md-tag">3d-perception</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:locomotion" class="md-tag">locomotion</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:manipulation" class="md-tag">manipulation</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
   </nav>
 
 
 
-  <h1>$ω$-0: A Latent Predictive World Action Model for Concurrent Humanoid Loco-Manipulation</h1>
+  <h1>Scal3R: Learning Efficient Multi-Relative Pose Query for Scalable Online 3D Reconstruction</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-08-09</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-09-06</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
 <p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p><span class="arithmatex">\(\omega\)</span>-0 is a latent predictive whole-body world-action model designed for concurrent humanoid loco-manipulation, which couples lightweight future observation embedding prediction with diffusion-based whole-body action generation. It addresses the limitations of decomposing locomotion and manipulation by unifying these capabilities into a single latent prediction framework.</p>
+<p>Scal3R addresses the catastrophic drift in long-sequence 3D reconstruction by reformulating global pose regression into a multi-reference relative pose query problem, leveraging lightweight tokens injected into a frozen backbone and stabilized by online Pose-Graph Optimization (PGO).</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Humanoid household tasks inherently demand concurrent loco-manipulation—the simultaneous execution of locomotion (maintaining balance, adjusting posture) and manipulation (interacting with objects). Current robotic policies frequently suffer from a functional decomposition, treating locomotion and manipulation as separate, sequential sub-problems. Furthermore, existing World Action Models (WAMs) are often specialized, typically focusing on arm-centric manipulation or relying on video dynamics as the central intermediate representation. This reliance on video dynamics is brittle when confronted with the inherent noise and variability present in real-world visual observations.</p>
+<p>Online 3D reconstruction models exhibit significant performance degradation when processing long video sequences. The fundamental issue stems from the reliance on regressing camera poses relative to a fixed first-frame anchor. This forces the model to extrapolate far outside the distribution of its training data for subsequent frames, which inevitably leads to accumulated drift and geometric collapse, even when the per-frame depth estimation remains locally accurate.</p>
+<p>The limitations of prior work are clear: feed-forward models such as CUT3R and STream3R rely on absolute global pose regression, making them susceptible to extrapolation failure over extended sequences. While some existing methods address long-sequence consistency, they typically sacrifice the real-time, online capability by requiring offline global optimization. Furthermore, previous approaches have not effectively utilized prompt tuning techniques to guide relative pose estimation within the context of 3D reconstruction for scalable, drift-free motion representation.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce <span class="arithmatex">\(\omega\)</span>-0, a latent predictive whole-body humanoid world-action model. This model achieves concurrent loco-manipulation by coupling the prediction of future visual embedding states with the generation of whole-body actions via a diffusion process. We developed a staged training pipeline that is crucial for learning action-aware visual-language representations and for grounding general human or public visual-motion priors into robot-executable action latents, leveraging SONIC-based simulation replay. Finally, we curated <span class="arithmatex">\(\omega\)</span>-HOME, a comprehensive 40-hour real-world household humanoid dataset containing synchronized multi-view RGB-D observations, whole-body SMPL motions, robot states, and corresponding action latents.</p>
+<p>We present three primary contributions to address these limitations. First, we identify that the instability arises specifically from global extrapolation errors, whereas the local geometric representations derived by the backbone remain robust. Second, we propose Scal3R, which introduces multi-reference relative pose querying. This is achieved by employing visual prompt tuning on a frozen backbone, utilizing asymmetric attention injection to enable pose tokens to query features from multiple historical reference frames. Third, we integrate this multi-reference querying mechanism with an online Pose-Graph Optimization (PGO) framework, which incorporates keyframe selection and loop closure detection to effectively suppress long-range drift across kilometer-scale trajectories.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze. I need the image to give you the description." src="../../assets/figures/2608.06375/fig_p1_c1.jpg" />
-<em>Figure 1 Overview of ω-0 and the ω-HOME dataset. ω-0 generates whole-body action latents from language, multi-view
-observations, and robot states, while ω-HOME provides 40h of multimodal household humanoid demonstrations for
-training and evaluation.</em></p>
-<p><span class="arithmatex">\(\omega\)</span>-0 operates by mapping a language instruction (<span class="arithmatex">\(\ell\)</span>), the current visual observation (<span class="arithmatex">\(ov_t\)</span>) from a specific view (<span class="arithmatex">\(v\)</span>), and the robot's proprioceptive state (<span class="arithmatex">\(st\)</span>) to a sequence of future whole-body action latents (<span class="arithmatex">\(z_{t:t+H}\)</span>). The architecture is structured around three primary functional blocks. First, a Whole-Body Action VLM translates the continuous space of whole-body actions into a discrete token sequence using a whole-body FAST tokenizer. Second, the Joint Video-Action Latent Predictor fuses diverse modalities—VLM features, T5 text features, V-JEPA visual features, view/motion queries—to predict compact embeddings representing future observations. Third, an Action DiT takes these future-aware motion features, alongside text and state information, and denoises a noisy action latent into a clean, controller-compatible whole-body action latent. This design strategically employs future visual prediction as a lightweight auxiliary supervision signal, thereby circumventing the need for large, computationally expensive video generation models.</p>
-<h3 id="whole-body-action-vlm">Whole-Body Action VLM</h3>
-<p>This component is implemented as a fine-tuned Qwen3-VL-2B-Instruct model. Its function is to autoregressively predict discrete whole-body action tokens. The input to this VLM comprises the language instruction (<span class="arithmatex">\(\ell\)</span>), the current visual observation (<span class="arithmatex">\(ov_t\)</span>), and a learnable view token (<span class="arithmatex">\(ev\)</span>).</p>
-<h3 id="whole-body-fast-tokenizer">Whole-Body FAST tokenizer</h3>
-<p>This module is responsible for encoding continuous whole-body action trajectories, which are defined in <span class="arithmatex">\(\mathbb{R}^{H \times d_a}\)</span>, into a discrete sequence of action tokens (<span class="arithmatex">\(c_{1:N}\)</span>). This encoding is achieved by minimizing a specific reconstruction error (<span class="arithmatex">\(\mathcal{L}_{tok}\)</span>).</p>
-<h3 id="joint-video-action-latent-predictor">Joint Video-Action Latent Predictor</h3>
-<p>This predictor serves as the central fusion mechanism. It integrates features derived from the VLM, T5 text embeddings, V-JEPA visual features, view tokens, motion queries, and video queries. Critically, the motion queries are utilized to guide the action generation process, while the video queries are tasked with predicting the future visual latent embeddings.</p>
-<h3 id="action-dit">Action DiT</h3>
-<p>The Action DiT operates as the generative refinement stage. It accepts several inputs: the future-aware motion feature, the text feature, the robot state feature, and an initial noisy action latent. Its objective is to denoise this input into a final, clean whole-body action latent chunk suitable for direct use by the controller.</p>
-<h3 id="sonic-controller">SONIC Controller</h3>
-<p>This is the low-level execution mechanism. It takes the predicted, controller-compatible whole-body action latents and executes them on the physical humanoid robot in a receding-horizon manner.</p>
+<p><img alt="Please provide the figure you would like me to analyze. I need the image to give you the description." src="../../assets/figures/2609.04201/fig_p1_c1.jpg" />
+<em>Fig. 1: Scal3R enables scalable online 3D reconstruction on long video
+streams. (a) Existing feed-forward models, such as CUT3R [82] and STream3R [40],
+regress absolute global poses (Pt) relative to a fixed first frame. This forces extrapolation
+far beyond its training distribution, resulting in cat</em></p>
+<p>Scal3R fundamentally reframes the task of online 3D reconstruction. Instead of predicting the absolute pose <span class="arithmatex">\(T_t\)</span> relative to <span class="arithmatex">\(T_0\)</span>, it predicts a sequence of relative transformations <span class="arithmatex">\(\hat{T}_{t \leftarrow r_k}\)</span> between the current frame <span class="arithmatex">\(t\)</span> and several selected historical reference frames <span class="arithmatex">\(r_k\)</span>. This is achieved by building upon established frozen backbones, such as CUT3R or STream3R.</p>
+<h3 id="frozen-online-3d-reconstruction-backbones">Frozen Online 3D Reconstruction Backbones</h3>
+<p>These are pretrained models (e.g., CUT3R or STream3R) that provide the necessary rich spatiotemporal geometric priors for the reconstruction task. Crucially, the weights of these backbones are held constant throughout the operation, ensuring that the system leverages existing, robust feature extraction capabilities without the computational overhead or instability of fine-tuning the entire network.</p>
+<h3 id="lightweight-learnable-tokens">Lightweight Learnable Tokens</h3>
+<p>To facilitate the relative pose querying, we introduce a small set of learnable tokens. These tokens constitute only about <span class="arithmatex">\(\sim 1\%\)</span> of the total model parameters and are injected directly into the frozen decoder structure. Their function is to act as specialized, trainable pose queries that guide the feature extraction process toward predicting relative motion.</p>
+<h3 id="asymmetric-attention-injection">Asymmetric Attention Injection</h3>
+<p>The core mechanism for multi-reference querying is the asymmetric attention injection. In this setup, the pose query tokens (<span class="arithmatex">\(\tilde{\mathbf{q}}_k\)</span>) are used as the query input when attending to the image tokens (<span class="arithmatex">\(\mathbf{X}^\ell\)</span>). Conversely, the image tokens compute their Keys and Values without attending back to the pose query tokens. This asymmetry is critical because it allows the pose tokens to selectively probe historical image features for pose estimation while preserving the integrity and fidelity of the underlying image feature representations within the backbone.</p>
+<h3 id="pose-token-buffer">Pose Token Buffer</h3>
+<p>To enable the multi-reference querying capability, we maintain a Pose Token Buffer. This buffer stores the camera tokens corresponding to a set of selected past keyframes. This buffer serves as the repository from which the pose query tokens can retrieve relevant historical visual context for calculating relative poses.</p>
+<h3 id="relative-pose-head">Relative Pose Head</h3>
+<p>The output of the attention mechanism, which is conditioned on the historical context retrieved from the Pose Token Buffer, is passed to a lightweight MLP head. This head is responsible for decoding the processed pose query tokens (<span class="arithmatex">\(\tilde{\mathbf{q}}_k\)</span>) into the predicted relative transformation <span class="arithmatex">\(\hat{T}_{t \leftarrow r_k}\)</span>, which belongs to the special Euclidean group <span class="arithmatex">\(SE(3)\)</span>.</p>
+<h3 id="online-pose-graph-optimization-pgo">Online Pose-Graph Optimization (PGO)</h3>
+<p>The pairwise relative constraints predicted by the Relative Pose Head are inherently local. To achieve global consistency across long sequences, these constraints are aggregated using an online Pose-Graph Optimization (PGO) framework, specifically implemented via iSAM2. This framework incrementally updates the global trajectory by incorporating new relative measurements, effectively suppressing the accumulation of drift over long distances.</p>
+<h3 id="keyframe-selection">Keyframe Selection</h3>
+<p>To manage the computational load and maintain relevance in the Pose Token Buffer, we employ an online 3D overlap-based strategy for keyframe selection. This strategy utilizes a KD-tree spatial index to efficiently determine whether an incoming frame contributes novel geometry to the scene. Only frames deemed geometrically novel are used to update the KV cache and populate the pose token buffer.</p>
+<h3 id="loop-closure">Loop Closure</h3>
+<p>To correct for accumulated drift over very long trajectories, we incorporate a Loop Closure mechanism. This is implemented by detecting revisits using a pretrained DINOv2 backbone coupled with a SALAD aggregation layer. Upon detecting a revisit, the archived camera token corresponding to the revisited keyframe is injected into the system as an additional, high-confidence reference slot, providing a strong global constraint for the PGO.</p>
 <h2 id="results">Results</h2>
 <table>
 <thead>
@@ -4377,26 +4437,32 @@ training and evaluation.</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Execution Success</td>
-<td style="text-align: left;">Demonstrate smooth manipulate-while-moving behaviors and consistently outperform representative imitation learning, VLA, humanoid, and WAM baselines.</td>
-<td style="text-align: left;">Representative imitation learning, VLA, humanoid, and WAM baselines</td>
-<td style="text-align: left;">Real-world experiments on 11 household tasks</td>
+<td style="text-align: left;">Average ATE reduction</td>
+<td style="text-align: left;">over 60%</td>
+<td style="text-align: left;">online baseline</td>
+<td style="text-align: left;">Abstract</td>
+</tr>
+<tr>
+<td style="text-align: left;">Convergence time</td>
+<td style="text-align: left;">8 hours</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Abstract</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The <span class="arithmatex">\(\omega\)</span>-0 framework provides a viable paradigm shift for complex robotic tasks. By shifting the predictive focus from generating full video sequences to predicting lightweight latent embeddings, we significantly reduce the computational overhead associated with world modeling while maintaining predictive power. The integration of a unified architecture allows the system to handle diverse household tasks without requiring the development of task-specific policies. Furthermore, the use of SONIC-based simulation replay allows us to effectively ground abstract, human-derived motion priors into concrete, executable action latents for the robot.</p>
+<p>The shift from absolute global pose regression to multi-reference relative pose querying is a necessary architectural change for achieving robust, long-sequence 3D reconstruction. By adopting parameter-efficient tuning methods like prompt tuning, Scal3R allows us to leverage the powerful feature extraction capabilities of large, frozen foundation models without incurring the prohibitive cost of full model retraining. Critically, the combination of local relative constraint prediction with a global optimization layer (PGO) is what enables the system to maintain geometric consistency across trajectories spanning kilometers.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current implementation is constrained by its reliance on a staged training pipeline, which necessitates the conversion of continuous actions into discrete tokens via the FAST tokenizer. Additionally, the process of grounding human or public visual-motion priors is inherently imperfect; it requires a filtering step to discard trajectories that cannot be reliably executed by the SONIC simulation environment. Future work must address the robustness of this tokenization scheme and explore methods to mitigate the dependency on simulation fidelity during prior grounding.</p>
+<p>The current implementation necessitates an online inference backend, specifically the PGO and loop closure modules, to successfully aggregate the locally predicted relative constraints into a globally coherent trajectory. Furthermore, to manage memory constraints and mitigate feature degradation associated with unbounded state growth, the frozen decoder's streaming state is periodically reset every <span class="arithmatex">\(N_{reset}\)</span> frames. Future work should investigate methods to stabilize the streaming state across resets while maintaining global consistency.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2608.06375">2608.06375</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260806375</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{$ω$-0: A Latent Predictive World Action Model for Concurrent Humanoid Loco-Manipulation}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Zhe Li and Zhenzhe Zhang and Yangyang Wei and Wenjie Zhang and Xichen Yuan and Peiyuan Zhi et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2608.06375}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2609.04201">2609.04201</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260904201</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Scal3R: Learning Efficient Multi-Relative Pose Query for Scalable Online 3D Reconstruction}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Chin-Yang Lin and Yang-Che Sun and Cheng Sun and Fu-En Yang and Min-Hung Chen and Yen-Yu Lin et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2609.04201}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2608.06375}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2609.04201}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
