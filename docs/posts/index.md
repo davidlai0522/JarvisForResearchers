@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Scal3R: Learning Efficient Multi-Relative Pose Query for Scalable Online 3D Reconstruction](2026-09-06-scal3r-learning-efficient-multi-relative-pose-query-for-scal/) { data-cat="Computer Vision" data-date="2026-09-06" }
+
+*2026-09-06*
+
+Scal3R addresses the catastrophic drift in long-sequence 3D reconstruction by reformulating global pose regression into a multi-reference relative pose query problem, leveraging lightweight tokens injected into a frozen backbone and stabilized by online Pose-Graph Optimization (PGO).
+
 ## [TokenMatch: 3D Mesh Correspondence Transformer with Curvature-Guided Tokenisation](2026-09-05-tokenmatch-3d-mesh-correspondence-transformer-with-curvature/) { data-cat="Computer Vision" data-date="2026-09-05" }
 
 *2026-09-05*
