@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "Temporal Self-Distillation: Learning Visual State Tracking in Videos Without Supervision": posts/2026-09-07-temporal-self-distillation-learning-visual-state-tracking-in.md
     - "Scal3R: Learning Efficient Multi-Relative Pose Query for Scalable Online 3D Reconstruction": posts/2026-09-06-scal3r-learning-efficient-multi-relative-pose-query-for-scal.md
     - "TokenMatch: 3D Mesh Correspondence Transformer with Curvature-Guided Tokenisation": posts/2026-09-05-tokenmatch-3d-mesh-correspondence-transformer-with-curvature.md
     - "SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models": posts/2026-09-04-solarwm-open-data-and-scalable-training-for-long-horizon-vid.md

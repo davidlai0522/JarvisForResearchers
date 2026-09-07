@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Temporal Self-Distillation: Learning Visual State Tracking in Videos Without Supervision](2026-09-07-temporal-self-distillation-learning-visual-state-tracking-in/) { data-cat="Computer Vision" data-date="2026-09-07" }
+
+*2026-09-07*
+
+S3T introduces a fully self-contained framework that uses temporal sampling density as privileged information to enable continuous visual state tracking in videos without relying on external labels or judges.
+
 ## [Scal3R: Learning Efficient Multi-Relative Pose Query for Scalable Online 3D Reconstruction](2026-09-06-scal3r-learning-efficient-multi-relative-pose-query-for-scal/) { data-cat="Computer Vision" data-date="2026-09-06" }
 
 *2026-09-06*
