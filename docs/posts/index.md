@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [WorldSculpt: Generating Compositional Worlds from Grounded Videos](2026-09-08-worldsculpt-generating-compositional-worlds-from-grounded-vi/) { data-cat="Computer Vision" data-date="2026-09-08" }
+
+*2026-09-08*
+
+WorldSculpt generates compositional 3D representations of densely cluttered scenes by adapting a single-object 3D generative prior (Pixal3D) with a multi-view conditioning pathway, allowing generalization to complex scenes without scene-level training.
+
 ## [Temporal Self-Distillation: Learning Visual State Tracking in Videos Without Supervision](2026-09-07-temporal-self-distillation-learning-visual-state-tracking-in/) { data-cat="Computer Vision" data-date="2026-09-07" }
 
 *2026-09-07*
