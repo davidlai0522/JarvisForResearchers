@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Reroute introduces a training-free plug-in that replaces irreversible visual token removal in Vision-Language Models (VLMs) with recoverable routing, allowing deferred tokens to re-enter the candidate pool at subsequent decoder stages.
+        <meta name="description" content="WorldSculpt generates compositional 3D representations of densely cluttered scenes by adapting a single-object 3D generative prior (Pixal3D) with a multi-view conditioning pathway, allowing generalization to complex scenes without scene-level training.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-12-reroute-don-t-remove-recoverable-visual-token-routing-for-vi/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-09-08-worldsculpt-generating-compositional-worlds-from-grounded-vi/">
       
       
-        <link rel="prev" href="../2026-06-13-interleavethinker-reinforcing-agentic-interleaved-generation/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-06-11-when-to-align-when-to-predict-a-phase-diagram-for-multimodal/">
+        <link rel="next" href="../2026-09-07-temporal-self-distillation-learning-visual-state-tracking-in/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Reroute, Don't Remove: Recoverable Visual Token Routing for Vision-Language Models - JarvisForResearchers</title>
+        <title>WorldSculpt: Generating Compositional Worlds from Grounded Videos - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Reroute, Don't Remove: Recoverable Visual Token Routing for Vision-Language Models
+              WorldSculpt: Generating Compositional Worlds from Grounded Videos
             
           </span>
         </div>
@@ -646,10 +646,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-09-08-worldsculpt-generating-compositional-worlds-from-grounded-vi/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WorldSculpt: Generating Compositional Worlds from Grounded Videos
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -665,6 +690,184 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anchor-aligned-virtual-canonical-cube" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anchor-aligned virtual canonical cube
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-view-dinov3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-view DINOv3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#canonical-voxel-feature-lifting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical voxel feature lifting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibrnet-style-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBRNet-style module
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pixal3d-prior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pixal3D prior
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#low-rank-adapters-lora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Low-rank adapters (LoRA)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2746,35 +2949,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Reroute, Don't Remove: Recoverable Visual Token Routing for Vision-Language Models
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-06-12-reroute-don-t-remove-recoverable-visual-token-routing-for-vi/" class="md-nav__link">
         
   
   
@@ -2790,173 +2968,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#stage-wise-selection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Stage-wise selection
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scorer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scorer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#selected-tokens-v_seli" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Selected tokens (\(V_{sel}^i\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deferred-tokens-v_defi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Deferred tokens (\(V_{def}^i\))
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#candidate-set-transition" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Candidate set transition
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4242,10 +4253,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#stage-wise-selection" class="md-nav__link">
+  <a href="#anchor-aligned-virtual-canonical-cube" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stage-wise selection
+        Anchor-aligned virtual canonical cube
       
     </span>
   </a>
@@ -4253,10 +4264,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#scorer" class="md-nav__link">
+  <a href="#per-view-dinov3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scorer
+        Per-view DINOv3
       
     </span>
   </a>
@@ -4264,10 +4275,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#selected-tokens-v_seli" class="md-nav__link">
+  <a href="#canonical-voxel-feature-lifting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Selected tokens (\(V_{sel}^i\))
+        Canonical voxel feature lifting
       
     </span>
   </a>
@@ -4275,10 +4286,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#deferred-tokens-v_defi" class="md-nav__link">
+  <a href="#ibrnet-style-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Deferred tokens (\(V_{def}^i\))
+        IBRNet-style module
       
     </span>
   </a>
@@ -4286,10 +4297,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#candidate-set-transition" class="md-nav__link">
+  <a href="#pixal3d-prior" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Candidate set transition
+        Pixal3D prior
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#low-rank-adapters-lora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Low-rank adapters (LoRA)
       
     </span>
   </a>
@@ -4366,13 +4388,6 @@
       
       
       
-        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
-      
-    
-      
-      
-      
-      
         <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
@@ -4380,57 +4395,47 @@
       
       
       
-        <a href="../../tags/#tag:llm" class="md-tag">llm</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
+        <a href="../../tags/#tag:generalization" class="md-tag">generalization</a>
       
     
   </nav>
 
 
 
-  <h1>Reroute, Don't Remove: Recoverable Visual Token Routing for Vision-Language Models</h1>
+  <h1>WorldSculpt: Generating Compositional Worlds from Grounded Videos</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-06-12</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-09-08</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
-<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+<p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>Reroute introduces a training-free plug-in that replaces irreversible visual token removal in Vision-Language Models (VLMs) with recoverable routing. This allows tokens temporarily pruned by attention-based selection to re-enter the candidate pool at subsequent decoder stages, mitigating the fragility of rank-and-remove paradigms where token importance evolves across decoder depth.</p>
+<p>WorldSculpt generates compositional 3D representations of densely cluttered scenes by adapting a single-object 3D generative prior (Pixal3D) with a multi-view conditioning pathway, allowing generalization to complex scenes without scene-level training.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>VLMs ingest high-dimensional visual data, projecting it into hundreds or thousands of visual tokens. This token count imposes significant computational overhead during decoder inference, primarily due to the quadratic complexity of attention mechanisms and the associated memory footprint of the KV-cache. Existing approaches to reduce this token count typically employ a rank-and-remove paradigm, where tokens deemed least important are permanently discarded. This approach suffers from a critical flaw: it assumes that the relative importance of a visual token remains static throughout the entire depth of the decoder. In practice, the relevance of a token often changes as the model processes sequential textual context, rendering irreversible pruning suboptimal. Furthermore, most existing decoder-side pruning methods result in the permanent deletion of deferred tokens, losing potentially valuable visual evidence.</p>
+<p>Generating a compositional 3D representation of a cluttered scene containing hundreds of objects, where the scene must be represented as a collection of individual object meshes placed in a shared world frame, is challenging due to heavy occlusion and the limitations of existing methods.</p>
+<p>Existing approaches suffer from several limitations. Geometry-based methods typically reconstruct the scene as a single representation and leave incomplete geometry in occluded regions. Scene-level world generation models, such as Marble, produce a unified scene representation without explicitly separating individual objects. Furthermore, native-3D generative priors are generally designed for a single pose-free image of one object and do not jointly condition on a consistent set of views or generate objects in a known scene coordinate frame.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We present three primary contributions:
-1. A recoverable routing formulation that recasts token pruning as a stage-wise routing mechanism with a deferred-token bypass. This enables a training-free, attention-driven realization of a mixture-of-depth strategy specifically for VLM visual tokens.
-2. A plug-in mechanism designed for matched theoretical efficiency. Reroute reuses existing token scoring mechanisms and pruning schedules without introducing any new trainable parameters, thereby preserving the computational budget (FLOPs and KV-cache size) of the augmented pruning scheme.
-3. Demonstration of consistent performance gains across various VLM architectures and pruning baselines. Reroute improves matched-budget pruning baselines on grounding benchmarks while maintaining competitive general Visual Question Answering (VQA) performance.</p>
+<p>We introduce three primary contributions. First, we propose WorldSculpt, a framework that maps multi-view scene observations into an anchor-aligned canonical frame, conditions a strong object-level 3D generative prior on the aligned observations, and places the generated meshes into a shared world frame. Second, we demonstrate that a generative prior finetuned entirely on individual objects in canonical space can generalize to large-scale scenes containing hundreds of densely occluded objects, without any scene-level training, through multi-view conditioning and a targeted augmentation curriculum. Third, we introduce UE-MeshyScene, a photorealistic benchmark of densely cluttered scenes containing hundreds of objects, with exact per-object annotations and ground-truth meshes.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.12412/fig_p2_c1.jpg" />
-<em>Figure 1: Reroute, don’t remove. Under aggressive 88.9% visual token reduction (576→64 visual
-tokens), conventional pruning permanently discards visual evidence and grounding collapses (top
-rows, IoU &lt; 0.4). Replacing irreversible removal with our recoverable routing, using the same scorer
-(PDrop) a</em></p>
-<p>Reroute functions as a training-free augmentation layer that can be inserted into existing token pruning pipelines, such as those based on FastV or PDrop. The core mechanism involves partitioning the decoder into <span class="arithmatex">\(S\)</span> sequential stages, with each stage <span class="arithmatex">\(\ell_i\)</span> governed by a specific keep ratio <span class="arithmatex">\(r_i\)</span>.</p>
-<h3 id="stage-wise-selection">Stage-wise selection</h3>
-<p>The decoder is segmented into <span class="arithmatex">\(S\)</span> discrete stages. At the entry point of stage <span class="arithmatex">\(i\)</span>, the system utilizes the <span class="arithmatex">\(\text{Scorer}\)</span> to evaluate the current set of candidate vision tokens, <span class="arithmatex">\(C_i\)</span>. Based on the predefined keep ratio <span class="arithmatex">\(r_i\)</span>, a subset of tokens is selected to proceed through the full computational block, while the remainder is deferred.</p>
-<h3 id="scorer">Scorer</h3>
-<p>The token ranking mechanism is typically implemented using the text-to-vision attention scores generated within the VLM architecture. This score provides a quantitative measure of the current relevance of each visual token relative to the evolving textual context at that specific decoder layer.</p>
-<h3 id="selected-tokens-v_seli">Selected tokens (<span class="arithmatex">\(V_{sel}^i\)</span>)</h3>
-<p>The top <span class="arithmatex">\(K_i\)</span> tokens, where <span class="arithmatex">\(K_i = \lfloor r_i|V| \rfloor\)</span>, are designated as <span class="arithmatex">\(V_{sel}^i\)</span>. These tokens are allowed to traverse the complete decoder block, executing both the attention and feed-forward network (Attn+FFN) operations for stage <span class="arithmatex">\(i\)</span>.</p>
-<h3 id="deferred-tokens-v_defi">Deferred tokens (<span class="arithmatex">\(V_{def}^i\)</span>)</h3>
-<p>The remaining tokens, <span class="arithmatex">\(V_{def}^i\)</span>, are not discarded. Instead, they bypass the current stage's full computation via a residual path. This deferral mechanism is the critical departure from traditional pruning, as these tokens remain active and eligible for re-evaluation in subsequent stages.</p>
-<h3 id="candidate-set-transition">Candidate set transition</h3>
-<p>The transition between stages defines the recoverability. In standard pruning, the candidate set for the next stage, <span class="arithmatex">\(C_{prune}^{i+1}\)</span>, is restricted to <span class="arithmatex">\(V_{sel}^i\)</span>. In Reroute, the candidate set is restored to the full set of original visual tokens, <span class="arithmatex">\(C_{reroute}^{i+1}=V\)</span>. This restoration ensures that tokens deferred in stage <span class="arithmatex">\(i\)</span> can be re-selected in stage <span class="arithmatex">\(i+1\)</span> if their importance increases due to subsequent contextual processing.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2609.05416/fig_p2_c1.jpg" />
+<em>Figure 1 WorldSculpt. Given a set of RGB images with instance-level 2D masks and 3D bounding boxes, WorldSculpt
+produces a compositional mesh representation for very complex scenes consisting of hundreds of individual objects.</em></p>
+<p>WorldSculpt operates in three sequential steps: anchor-aligned object canonicalization, multi-view conditioned object generation, and world frame transformation. For each object, an anchor-aligned virtual canonical cube is constructed. Per-view DINOv3 features are then lifted into this canonical voxel volume using crop-aware projections. These lifted features are aggregated using an IBRNet-style module to form a 3D conditioning grid <span class="arithmatex">\(G_k\)</span>. This grid, alongside global tokens derived from the anchor view, conditions the frozen Pixal3D prior via zero-initialized projection layers and LoRA adaptation. The resulting canonical mesh is subsequently placed into the shared world frame using its canonical-to-world transformation, yielding an individually addressable mesh.</p>
+<h3 id="anchor-aligned-virtual-canonical-cube">Anchor-aligned virtual canonical cube</h3>
+<p>This component defines a normalized cubic domain <span class="arithmatex">\(V = [-1/2, 1/2]^3\)</span> constructed for each object. Crucially, the orientation of this cube is determined by the anchor camera view, providing a consistent local coordinate system for the object regardless of its initial pose estimation.</p>
+<h3 id="per-view-dinov3">Per-view DINOv3</h3>
+<p>We employ Per-view DINOv3 to independently encode each canonical observation <span class="arithmatex">\(\bar{I}_{kn}\)</span>. This process yields a dense feature map <span class="arithmatex">\(F_{kn}\)</span> for each view <span class="arithmatex">\(n\)</span> associated with object <span class="arithmatex">\(k\)</span>.</p>
+<h3 id="canonical-voxel-feature-lifting">Canonical voxel feature lifting</h3>
+<p>This step involves sampling the 2D feature map <span class="arithmatex">\(F_{kn}\)</span> at the projected image location <span class="arithmatex">\(\pi_{kn}(x)\)</span> for every canonical voxel <span class="arithmatex">\(x\)</span>. This yields the per-view feature contribution <span class="arithmatex">\(g_n(x)\)</span> for that voxel.</p>
+<h3 id="ibrnet-style-module">IBRNet-style module</h3>
+<p>This module functions as a permutation-invariant aggregator. It computes the cross-view mean <span class="arithmatex">\(\mu(x)\)</span> and variance <span class="arithmatex">\(\sigma^2(x)\)</span> across all available views for a given voxel <span class="arithmatex">\(x\)</span>. These statistics are used to refine the final voxel feature <span class="arithmatex">\(g_{out}(x)\)</span>.</p>
+<h3 id="pixal3d-prior">Pixal3D prior</h3>
+<p>This is the native-3D generative model, which is built upon the TRELLIS.2 structured-latent backbone. It is kept frozen throughout the generation process, serving as the foundational knowledge for object geometry synthesis.</p>
+<h3 id="low-rank-adapters-lora">Low-rank adapters (LoRA)</h3>
+<p>LoRA is utilized to adapt the pretrained Pixal3D network. Specifically, it modifies the network's attention and per-block projection layers, allowing the frozen prior to effectively exploit the rich, multi-view evidence provided by the scene observations.</p>
 <h2 id="results">Results</h2>
-<p>The efficacy of Reroute is demonstrated across various VLM backbones under aggressive token reduction regimes.</p>
 <table>
 <thead>
 <tr>
@@ -4442,56 +4447,26 @@ rows, IoU &lt; 0.4). Replacing irreversible removal with our recoverable routing
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">IoU (LLaVA-1.5-7B, 88.9% reduction)</td>
-<td style="text-align: left;">0.80 <span class="arithmatex">\(\checkmark\)</span></td>
-<td style="text-align: left;">PDrop (IoU 0.38 <span class="arithmatex">\(\times\)</span>)</td>
-<td style="text-align: left;">Figure 1</td>
-</tr>
-<tr>
-<td style="text-align: left;">IoU (Qwen2.5-VL-7B, 88.9% reduction)</td>
-<td style="text-align: left;">0.88 <span class="arithmatex">\(\checkmark\)</span></td>
-<td style="text-align: left;">PDrop (IoU 0.21 <span class="arithmatex">\(\times\)</span>)</td>
-<td style="text-align: left;">Figure 1</td>
-</tr>
-<tr>
-<td style="text-align: left;">IoU (Qwen3.5-9B, 88.9% reduction)</td>
-<td style="text-align: left;">0.72 <span class="arithmatex">\(\checkmark\)</span></td>
-<td style="text-align: left;">PDrop (IoU 0.22 <span class="arithmatex">\(\times\)</span>)</td>
-<td style="text-align: left;">Figure 1</td>
-</tr>
-<tr>
-<td style="text-align: left;">RefCOCO (Avg Token 192, HuggingFace format)</td>
-<td style="text-align: left;">59.2%</td>
-<td style="text-align: left;">FastV (45.5%)</td>
-<td style="text-align: left;">Table 1 (b)</td>
-</tr>
-<tr>
-<td style="text-align: left;">RefCOCO (Avg Token 192, HuggingFace format)</td>
-<td style="text-align: left;">82.3%</td>
-<td style="text-align: left;">PDrop (71.3%)</td>
-<td style="text-align: left;">Table 1 (b)</td>
-</tr>
-<tr>
-<td style="text-align: left;">RefCOCO (Avg Token 64, HuggingFace format)</td>
-<td style="text-align: left;">34.0%</td>
-<td style="text-align: left;">PDrop (22.2%)</td>
-<td style="text-align: left;">Table 1 (b)</td>
+<td style="text-align: left;">Performance</td>
+<td style="text-align: left;">consistently outperforms prior approaches</td>
+<td style="text-align: left;">prior approaches</td>
+<td style="text-align: left;">Across single-object, controlled multi-object, and UE-MeshyScene evaluations</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The ability to recover pruned visual tokens addresses a fundamental limitation in current efficient VLM inference. By transforming irreversible deletion into recoverable deferral, Reroute allows the model to dynamically adjust its reliance on visual evidence as the textual prompt is processed. This is particularly impactful under aggressive token reduction, where the risk of discarding a critical token early in the decoding process is high. Since Reroute is a training-free plug-in, it offers a low-cost path to significantly improving the performance of existing, large-scale VLM deployments without requiring costly fine-tuning.</p>
+<p>The core takeaway is that compositional 3D generation can be achieved by conditioning strong single-object priors on multi-view evidence, thereby bypassing the necessity of training a model specifically on scene-level data. Furthermore, the reliance on canonical frames and similarity transformations ensures a consistent object representation even when the initial localization box estimates contain inaccuracies. The introduction of specialized benchmarks like UE-MeshyScene is critical for establishing rigorous evaluation standards for compositional generation under realistic, high-occlusion scenarios.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current implementation of Reroute is not a general-purpose Mixture-of-Depth (MoD) architecture; rather, it is a specialized instantiation tailored for the visual-token pruning problem within VLMs. Furthermore, the practical inference latency still carries overhead associated with the necessary gather/scatter operations required to manage the dynamic candidate sets and the underlying KV-cache management across stages. Future work should investigate the optimal scheduling of <span class="arithmatex">\(r_i\)</span> across different VLM architectures to further optimize the trade-off between computational savings and information retention.</p>
+<p>Currently, the method focuses exclusively on geometry generation; the subsequent stages involving texture and material synthesis remain open problems for future work. Additionally, it is worth noting that the initial coarse localization box <span class="arithmatex">\(Bloc_k\)</span> is not directly used as the generation volume; instead, we rely on the construction of the anchor-aligned virtual canonical cube.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.12412">2606.12412</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260612412</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Reroute, Don't Remove: Recoverable Visual Token Routing for Vision-Language Models}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Cheng-Yu Yang and Shao-Yuan Lo and Yu-Lun Liu}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.12412}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2609.05416">2609.05416</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260905416</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{WorldSculpt: Generating Compositional Worlds from Grounded Videos}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Muyao Niu and Jixuan He and Ruihan Yu and Lian Fu and Yonghao Yu and Zheng-Hui Huang et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2609.05416}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.12412}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2609.05416}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
