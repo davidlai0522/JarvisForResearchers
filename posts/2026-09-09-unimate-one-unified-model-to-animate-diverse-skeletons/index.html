@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="REFDECODER enhances visual generation by introducing a reference-conditioned video VAE decoder that injects high-fidelity reference image signals directly into the decoding process via reference attention, mitigating detail loss and inconsistency inherent in unconditional VAE decoders.
+        <meta name="description" content="UniMate is a unified foundation model that synthesizes articulated motion for arbitrary skeletons from a rigged 3D asset and a text prompt by employing a Topology-Aware Diffusion Transformer (TADiT).
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-05-18-refdecoder-enhancing-visual-generation-with-conditional-vide/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-09-09-unimate-one-unified-model-to-animate-diverse-skeletons/">
       
       
-        <link rel="prev" href="../2026-05-18-v-jepa-2-1-unlocking-dense-features-in-video-self-supervised/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-17-atlas-agentic-or-latent-visual-reasoning-one-word-is-enough-/">
+        <link rel="next" href="../2026-09-08-worldsculpt-generating-compositional-worlds-from-grounded-vi/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>RefDecoder: Enhancing Visual Generation with Conditional Video Decoding - JarvisForResearchers</title>
+        <title>UniMate: One Unified Model to Animate Diverse Skeletons - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              RefDecoder: Enhancing Visual Generation with Conditional Video Decoding
+              UniMate: One Unified Model to Animate Diverse Skeletons
             
           </span>
         </div>
@@ -648,10 +648,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-09-09-unimate-one-unified-model-to-animate-diverse-skeletons/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UniMate: One Unified Model to Animate Diverse Skeletons
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -667,6 +692,184 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#topology-aware-diffusion-transformer-tadit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Topology-Aware Diffusion Transformer (TADiT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-aware-attention-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Graph-Aware Attention Bias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spectral-rotary-position-embedding-spec-rope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spectral Rotary Position Embedding (Spec-RoPE)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-topological-conditioner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global Topological Conditioner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skeleton-token-t_j" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skeleton Token \(T_j\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#motion-token-m_tj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motion Token \(M_{tj}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3392,35 +3595,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    RefDecoder: Enhancing Visual Generation with Conditional Video Decoding
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-05-18-refdecoder-enhancing-visual-generation-with-conditional-vide/" class="md-nav__link">
         
   
   
@@ -3436,173 +3614,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#reference-encoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reference Encoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conditional-token-decoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conditional Token Decoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#token-concatenation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Token Concatenation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#transformer-block" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Transformer Block
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#latent-token-dropout" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Latent Token Dropout
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4272,10 +4283,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#reference-encoder" class="md-nav__link">
+  <a href="#topology-aware-diffusion-transformer-tadit" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reference Encoder
+        Topology-Aware Diffusion Transformer (TADiT)
       
     </span>
   </a>
@@ -4283,10 +4294,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#conditional-token-decoder" class="md-nav__link">
+  <a href="#graph-aware-attention-bias" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conditional Token Decoder
+        Graph-Aware Attention Bias
       
     </span>
   </a>
@@ -4294,10 +4305,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#token-concatenation" class="md-nav__link">
+  <a href="#spectral-rotary-position-embedding-spec-rope" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Token Concatenation
+        Spectral Rotary Position Embedding (Spec-RoPE)
       
     </span>
   </a>
@@ -4305,10 +4316,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#transformer-block" class="md-nav__link">
+  <a href="#global-topological-conditioner" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Transformer Block
+        Global Topological Conditioner
       
     </span>
   </a>
@@ -4316,10 +4327,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#latent-token-dropout" class="md-nav__link">
+  <a href="#skeleton-token-t_j" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Latent Token Dropout
+        Skeleton Token \(T_j\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#motion-token-m_tj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motion Token \(M_{tj}\)
       
     </span>
   </a>
@@ -4403,7 +4425,7 @@
       
       
       
-        <a href="../../tags/#tag:diffusion-models" class="md-tag">diffusion-models</a>
+        <a href="../../tags/#tag:foundation-models" class="md-tag">foundation-models</a>
       
     
       
@@ -4424,44 +4446,38 @@
 
 
 
-  <h1>RefDecoder: Enhancing Visual Generation with Conditional Video Decoding</h1>
+  <h1>UniMate: One Unified Model to Animate Diverse Skeletons</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-05-18</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-09-09</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
 <p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>REFDECODER addresses the detail loss and temporal inconsistency in video diffusion models by conditioning the VAE decoder on a high-fidelity reference image. It achieves this by injecting reference tokens into the decoder's upsampling stages via reference attention, forcing the decoder to reconstruct fine details even when video latent tokens are intentionally dropped out.</p>
+<p>UniMate is a unified foundation model that synthesizes articulated motion for skeletons of arbitrary topology from a rigged 3D asset and a text prompt by employing a Topology-Aware Diffusion Transformer (TADiT).</p>
 <h2 id="the-problem">The Problem</h2>
-<p>The current paradigm in latent diffusion models exhibits a structural imbalance: the diffusion backbone is heavily conditioned on the input prompt or data, whereas the subsequent VAE decoder often operates unconditionally. This asymmetry results in a critical failure mode during the latent-to-pixel decoding phase. Specifically, the decoder must reconstruct high-fidelity spatial details from a highly compressed latent representation without a strong, explicit anchor. This deficiency manifests as a progressive degradation of fine spatial details and noticeable temporal inconsistencies in the generated video output.</p>
+<p>Generating high-quality, controllable motion to drive 3D assets remains a significant bottleneck in computer graphics and robotics. Existing learned animation systems suffer from severe limitations. Specifically, they are typically topology-constrained, meaning they are trained on and restricted to specific anatomical categories or templates. To deploy these systems on novel skeletons, one often requires computationally expensive per-skeleton fine-tuning or the provision of reference motion data at inference time. Furthermore, mesh-based approaches often necessitate costly per-asset distillation or resort to regressing kinematically unconstrained vertex-wise deformations, which introduces instability. Closest prior work, such as AnyTop, is restricted to a small animal corpus, mandates the availability of motion data for the target skeleton during inference, and lacks text conditioning capabilities.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce three primary contributions to address these limitations:
-1. <strong>REFDECODER:</strong> A novel reference-conditioned video VAE decoder that directly injects high-fidelity signal from a reference image into the decoding process using reference attention mechanisms.
-2. <strong>Lightweight Image Encoder:</strong> A minimal encoder designed to map the reference frame into detail-rich, high-dimensional tokens that can be co-processed with the denoised video latent tokens at every decoder up-sampling stage.
-3. <strong>Latent Token Dropout Strategy:</strong> The implementation of a specific dropout mechanism applied to the video latent tokens, which compels the decoder to recover necessary spatial information by relying on the injected reference tokens via attention.</p>
+<p>We introduce UniMate, a unified foundation model capable of synthesizing articulated motion for skeletons of arbitrary topology, conditioned jointly on a rigged 3D asset and a natural language text prompt. Our primary technical contribution is the Topology-Aware Diffusion Transformer (TADiT). This architecture integrates skeletal structure directly into the generative process through three novel mechanisms: a graph-aware attention bias derived from joint relations, the Spec-RoPE spectral rotary position embedding designed for arbitrary kinematic trees, and a global topological conditioner that provides holistic structural context. To enable rigorous training and benchmarking, we curated UniML3D, a comprehensive dataset comprising 13,006 motion sequences across thousands of skeletons, covering diverse morphologies including bipedal, quadrupedal, avian, marine, insectoid, serpentine, and articulated rigid objects.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.15196/fig_p1_c1.jpg" />
-<em>Figure 1: (a) REFDECODER improves video VAE decoders by conditioning on a high-fidelity
-reference signal that bypasses the lossy VAE latent round trip. Given the encoded latents, the decoder
-injects fine-grained details that are not preserved in the VAE latent space, improving reconstruction
-fidelit</em></p>
-<p>REFDECODER modifies a standard video VAE backbone by inserting specialized Transformer blocks into the existing upsampling stages of the pretrained decoder. The process begins by encoding the reference image, <span class="arithmatex">\(I_{ref}\)</span>, using a minimal reference image encoder to generate a set of reference tokens, <span class="arithmatex">\(z_{ref}\)</span>, residing in a high-dimensional feature space.</p>
-<p>At any given decoder stage <span class="arithmatex">\(s\)</span>, the video tokens, <span class="arithmatex">\(z^{(s)}\)</span>, and the corresponding reference tokens, <span class="arithmatex">\(z_{ref}^{(s)}\)</span>, are combined. This combination occurs via <strong>Token Concatenation</strong> along the temporal dimension, resulting in a tensor of shape <span class="arithmatex">\(R^{C_s} \times (1+T_s) \times H_s \times W_s\)</span>. This combined tensor is then fed into a shared <strong>Transformer Block</strong>. This block processes the tokens using self-attention, allowing the video tokens to query the reference tokens. The output is subsequently partitioned back into <span class="arithmatex">\(\hat{z}_{ref}^{(s)}\)</span> and <span class="arithmatex">\(\hat{z}^{(s)}\)</span>, which are then upsampled independently. To ensure the decoder actively utilizes the reference information, <strong>Latent Token Dropout</strong> is applied to <span class="arithmatex">\(z\)</span> with a probability <span class="arithmatex">\(r\)</span>, where <span class="arithmatex">\(r\)</span> is drawn uniformly from <span class="arithmatex">\([0, r_{max})\)</span>, with <span class="arithmatex">\(r_{max}\)</span> set to <span class="arithmatex">\(0.7\)</span> by default.</p>
-<h3 id="reference-encoder">Reference Encoder</h3>
-<p>The <strong>Reference Encoder</strong> is deliberately kept minimal. It consists of a single convolution layer followed by normalization. Its function is to map the input reference image, <span class="arithmatex">\(I_{ref}\)</span>, into a set of reference tokens, <span class="arithmatex">\(z_{ref}\)</span>, structured as <span class="arithmatex">\(\mathbb{R}^{C \times H_p \times W_p}\)</span>. This ensures the reference signal is encoded efficiently without introducing significant computational overhead.</p>
-<h3 id="conditional-token-decoder">Conditional Token Decoder</h3>
-<p>The <strong>Conditional Token Decoder</strong> is the core modification. It involves inserting Transformer blocks directly into the upsampling stages of the original, pretrained decoder. These blocks are engineered to facilitate joint attention between the video tokens and the reference tokens, effectively conditioning the decoding process on the reference image signal.</p>
-<h3 id="token-concatenation">Token Concatenation</h3>
-<p>At decoder stage <span class="arithmatex">\(s\)</span>, the video tokens, <span class="arithmatex">\(z^{(s)} \in \mathbb{R}^{C_s \times T_s \times H_s \times W_s}\)</span>, and the reference tokens, <span class="arithmatex">\(z_{ref}^{(s)} \in \mathbb{R}^{C_s \times 1 \times H_s \times W_s}\)</span>, are concatenated along the temporal dimension. This operation merges the temporal dynamics information from the video latent with the static, high-fidelity spatial information from the reference image into a unified sequence for processing.</p>
-<h3 id="transformer-block">Transformer Block</h3>
-<p>The <strong>Transformer Block</strong> processes the concatenated tokens. It employs self-attention mechanisms, and critically, the weights of this block are shared across all decoder stages to maintain parameter efficiency. Stage-specific patch embedding layers are utilized to project the varying channel dimensions, <span class="arithmatex">\(C_s\)</span>, encountered at different upsampling stages into a unified transformer hidden dimension, ensuring consistent input dimensionality for the attention mechanism.</p>
-<h3 id="latent-token-dropout">Latent Token Dropout</h3>
-<p>The <strong>Latent Token Dropout</strong> strategy is a regularization technique applied during training. It randomly zeroes out video latent tokens <span class="arithmatex">\(z\)</span> at each training step with a probability <span class="arithmatex">\(r\)</span>, where <span class="arithmatex">\(r\)</span> is sampled uniformly from <span class="arithmatex">\([0, r_{max})\)</span>. This forces the decoder to learn robust representations capable of recovering lost spatial details by attending to and leveraging the information present in the reference tokens.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2609.05415/fig_p1_c1.jpg" />
+<em>Fig. 1. Given a rigged 3D asset and a text prompt, UniMate generates animations for characters with diverse skeletal topologies within a single unified model.</em></p>
+<p>UniMate leverages the TADiT framework to generate motion sequences conditioned on a rest-pose skeleton <span class="arithmatex">\(S\)</span> and a text prompt <span class="arithmatex">\(c\)</span>. The core mechanism operates within a unified token space <span class="arithmatex">\(Z\)</span>. This space is constructed by combining tokens derived from the MLP-projected rest-pose skeleton, denoted <span class="arithmatex">\(T_j\)</span>, and tokens representing the motion features, <span class="arithmatex">\(M_{tj}\)</span>. Topology is not merely an input feature but is deeply integrated into the transformer's operation via three distinct mechanisms. First, a graph-aware attention bias is applied, which is informed by the pairwise joint relations and geodesic distances within the skeleton graph. Second, Spec-RoPE generalizes the standard Rotary Position Embedding (RoPE) to handle the structural properties of arbitrary kinematic trees by leveraging the graph Laplacian spectrum. Third, a global topological conditioner aggregates information from the skeleton tokens and modulates the processing within every transformer block via AdaLN-Zero, ensuring global structural consistency. The model is trained using conditional flow matching, which learns a velocity field capable of transforming an initial Gaussian noise distribution into the desired target motion sequence.</p>
+<h3 id="topology-aware-diffusion-transformer-tadit">Topology-Aware Diffusion Transformer (TADiT)</h3>
+<p>TADiT serves as the generative backbone, implementing a flow-matching architecture. Its defining characteristic is the systematic injection of topological information into the diffusion process via the Graph-Aware Attention Bias, the Spec-RoPE, and the Global Topological Conditioner.</p>
+<h3 id="graph-aware-attention-bias">Graph-Aware Attention Bias</h3>
+<p>This component introduces a learned bias, <span class="arithmatex">\(B(h)_{ij}\)</span>, directly into the joint-attention logits. This bias is explicitly derived from descriptors quantifying the embedded pairwise graph distance (<span class="arithmatex">\(G_S\)</span>) and the relational structure (<span class="arithmatex">\(R_S\)</span>) between joints <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span>. This allows the attention mechanism to modulate its focus based on the inherent connectivity and spatial relationship of the joints in the skeleton.</p>
+<h3 id="spectral-rotary-position-embedding-spec-rope">Spectral Rotary Position Embedding (Spec-RoPE)</h3>
+<p>Spec-RoPE addresses the limitation of standard RoPE when applied to non-uniform or arbitrary kinematic structures. It generalizes the rotary embedding by deriving the necessary rotary angles for each joint directly from the spectrum of the graph Laplacian (<span class="arithmatex">\(\text{FS}(j)\)</span>) of the skeleton graph. This ensures that the positional encoding respects the underlying kinematic tree structure, regardless of its specific topology.</p>
+<h3 id="global-topological-conditioner">Global Topological Conditioner</h3>
+<p>This mechanism ensures that the entire sequence generation process is aware of the global skeletal structure. It operates by attention-pooling information exclusively from the set of skeleton tokens (<span class="arithmatex">\(T_j\)</span>). This pooled structural context is then injected into every transformer block using the AdaLN-Zero normalization scheme, providing a consistent, global structural constraint throughout the generation process.</p>
+<h3 id="skeleton-token-t_j">Skeleton Token <span class="arithmatex">\(T_j\)</span></h3>
+<p>The skeleton token <span class="arithmatex">\(T_j\)</span> is the representation of the static structural information for a specific joint <span class="arithmatex">\(j\)</span>. It is constructed by concatenating the MLP-projected rest-pose positions of joint <span class="arithmatex">\(j\)</span> along with the position of its immediate parent joint. This provides the transformer with local structural context at the input stage.</p>
+<h3 id="motion-token-m_tj">Motion Token <span class="arithmatex">\(M_{tj}\)</span></h3>
+<p>The motion token <span class="arithmatex">\(M_{tj}\)</span> encapsulates the dynamic information for joint <span class="arithmatex">\(j\)</span>. It is derived from the motion feature <span class="arithmatex">\(m_{tj}\)</span> and is augmented with two critical pieces of information: a learnable depth embedding, <span class="arithmatex">\(D_S(j)\)</span>, which encodes the joint's hierarchical depth, and a joint-name text embedding, <span class="arithmatex">\(N_S(j)\)</span>, which provides semantic identity.</p>
 <h2 id="results">Results</h2>
-<p>The empirical evaluation demonstrates a measurable improvement in reconstruction quality across standard benchmarks.</p>
 <table>
 <thead>
 <tr>
@@ -4473,38 +4489,26 @@ fidelit</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">PSNR improvement (Inter4K, Wan 2.1)</td>
-<td style="text-align: left;">+1.2 dB</td>
-<td style="text-align: left;">Wan 2.1 VAE [39]</td>
-<td style="text-align: left;">Table 1</td>
-</tr>
-<tr>
-<td style="text-align: left;">PSNR improvement (WebVid, VideoVAE+)</td>
-<td style="text-align: left;">+2.1 dB</td>
-<td style="text-align: left;">VideoVAE+ [48]</td>
-<td style="text-align: left;">Table 1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Total VBench score (Wan 2.1)</td>
-<td style="text-align: left;">88.2</td>
-<td style="text-align: left;">Wan 2.1 [39] (87.9)</td>
-<td style="text-align: left;">Table 2</td>
+<td style="text-align: left;">Performance</td>
+<td style="text-align: left;">state-of-the-art performance on topology-agnostic motion generation and mesh animation</td>
+<td style="text-align: left;">prior methods</td>
+<td style="text-align: left;">Extensive experiments</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>REFDECODER provides a practical and effective mechanism to bridge the conditioning gap in video diffusion models. A key advantage is its deployment as a drop-in replacement for existing video VAE decoders; it requires no retraining of the upstream diffusion model or freezing of the encoder weights. Furthermore, the method exhibits generalization across different underlying architectures, successfully improving performance on both Wan 2.1 and VideoVAE+ backbones. This capability suggests that reference conditioning in the decoder space is a powerful technique applicable to downstream refinement tasks such as style transfer and video editing.</p>
+<p>UniMate provides a significant advancement toward generalized 3D character animation synthesis. The model enables zero-shot cross-topology transfer, allowing animation generation for novel skeletons without prior training on that specific topology. Furthermore, it supports complex editing operations such as in-betweening, expansion, and text-guided modification. Crucially, the model operates end-to-end on arbitrary skeletons, eliminating the need for cumbersome test-time fitting procedures or per-skeleton specialization. The successful integration of graph structure—via the Graph Laplacian and relation matrices—demonstrates a principled method for enabling the model to reason jointly and coherently over both the kinematic structure and the temporal motion dynamics.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current formulation operates under the assumption that the decoder's internal hidden space possesses sufficient representational capacity to encode and utilize the rich information provided by the reference image, exceeding the capacity of the initial VAE latent space. Additionally, while the method is designed to be flexible, the standard inference procedure utilizes the reference image as the first frame. We acknowledge that the training process employs random frame selection for the reference input, which warrants further investigation regarding the optimal balance between training stochasticity and inference determinism.</p>
+<p>The current implementation of UniMate necessitates two specific inputs: a fully rigged 3D asset defining the skeleton structure and a natural-language prompt to guide the motion semantics. While the training dataset UniML3D is extensive and diverse, it remains a curated corpus, and its coverage does not guarantee perfect generalization to highly specialized or pathological skeletal structures not represented within it. Future work should investigate methods for robustly handling incomplete or noisy skeletal inputs.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.15196">2605.15196</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260515196</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{RefDecoder: Enhancing Visual Generation with Conditional Video Decoding}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Xiang Fan and Yuheng Wang and Bohan Fang and Zhongzheng Ren and Ranjay Krishna}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.15196}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2609.05415">2609.05415</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260905415</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{UniMate: One Unified Model to Animate Diverse Skeletons}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Linzhan Mou and Jiahui Lei and Zhiyang Dou and Chenyue Cai and Chaoyue Song and Adam Finkelstein et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2609.05415}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.15196}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2609.05415}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
