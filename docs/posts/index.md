@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [UniMate: One Unified Model to Animate Diverse Skeletons](2026-09-09-unimate-one-unified-model-to-animate-diverse-skeletons/) { data-cat="Computer Vision" data-date="2026-09-09" }
+
+*2026-09-09*
+
+UniMate is a unified foundation model that synthesizes articulated motion for arbitrary skeletons from a rigged 3D asset and a text prompt by employing a Topology-Aware Diffusion Transformer (TADiT).
+
 ## [WorldSculpt: Generating Compositional Worlds from Grounded Videos](2026-09-08-worldsculpt-generating-compositional-worlds-from-grounded-vi/) { data-cat="Computer Vision" data-date="2026-09-08" }
 
 *2026-09-08*
