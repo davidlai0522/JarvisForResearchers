@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [TANGO: Humanoid Navigation in Cluttered Environments with a Whole-Body Vision-Language-Action Model](2026-09-10-tango-humanoid-navigation-in-cluttered-environments-with-a-w/) { data-cat="Robotics" data-date="2026-09-10" }
+
+*2026-09-10*
+
+TANGO is a novel, whole-body vision-language-action (VLA) framework that enables language-conditioned humanoid traversal in cluttered indoor environments by directly predicting 29-DoF joint-space actions.
+
 ## [UniMate: One Unified Model to Animate Diverse Skeletons](2026-09-09-unimate-one-unified-model-to-animate-diverse-skeletons/) { data-cat="Computer Vision" data-date="2026-09-09" }
 
 *2026-09-09*

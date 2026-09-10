@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "TANGO: Humanoid Navigation in Cluttered Environments with a Whole-Body Vision-Language-Action Model": posts/2026-09-10-tango-humanoid-navigation-in-cluttered-environments-with-a-w.md
     - "UniMate: One Unified Model to Animate Diverse Skeletons": posts/2026-09-09-unimate-one-unified-model-to-animate-diverse-skeletons.md
     - "WorldSculpt: Generating Compositional Worlds from Grounded Videos": posts/2026-09-08-worldsculpt-generating-compositional-worlds-from-grounded-vi.md
     - "Temporal Self-Distillation: Learning Visual State Tracking in Videos Without Supervision": posts/2026-09-07-temporal-self-distillation-learning-visual-state-tracking-in.md
