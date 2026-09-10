@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Representation Forcing (RF) is a technique that enables bottleneck-free unified multimodal models by forcing the decoder to autoregressively predict visual representations as intermediate tokens, guiding pixel diffusion within the same backbone.
+        <meta name="description" content="TANGO is a novel, whole-body vision-language-action (VLA) framework that enables language-conditioned humanoid traversal in cluttered indoor environments by directly predicting 29-DoF joint-space actions.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-02-representation-forcing-for-bottleneck-free-unified-multimoda/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-09-10-tango-humanoid-navigation-in-cluttered-environments-with-a-w/">
       
       
-        <link rel="prev" href="../2026-06-03-thinking-in-blender-staged-executable-inverse-graphics-with-/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-05-31-physics-is-all-you-need-a-case-study-in-physicist-supervised/">
+        <link rel="next" href="../2026-09-09-unimate-one-unified-model-to-animate-diverse-skeletons/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Representation Forcing for Bottleneck-Free Unified Multimodal Models - JarvisForResearchers</title>
+        <title>TANGO: Humanoid Navigation in Cluttered Environments with a Whole-Body Vision-Language-Action Model - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Representation Forcing for Bottleneck-Free Unified Multimodal Models
+              TANGO: Humanoid Navigation in Cluttered Environments with a Whole-Body Vision-Language-Action Model
             
           </span>
         </div>
@@ -650,10 +650,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-09-10-tango-humanoid-navigation-in-cluttered-environments-with-a-w/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TANGO: Humanoid Navigation in Cluttered Environments with a Whole-Body Vision-Language-Action Model
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -669,6 +694,162 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-2-vision-language-perception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System-2: Vision-Language Perception
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-1-multi-modal-diffusion-transformer-mm-dit-action-expert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System-1: Multi-modal Diffusion Transformer (MM-DiT) Action Expert
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-0-off-the-shelf-motion-tracker-sonic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System-0: Off-the-shelf Motion Tracker (SONIC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plan-edit-track-pet-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plan, Edit, Track (PET) Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3058,35 +3239,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Representation Forcing for Bottleneck-Free Unified Multimodal Models
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-06-02-representation-forcing-for-bottleneck-free-unified-multimoda/" class="md-nav__link">
         
   
   
@@ -3102,184 +3258,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#transformer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Transformer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#text-head" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Text head
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rep-head" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rep head
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pixel-head" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pixel head
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#image-encoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Image encoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#codebook" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Codebook
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4313,10 +4291,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#transformer" class="md-nav__link">
+  <a href="#system-2-vision-language-perception" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Transformer
+        System-2: Vision-Language Perception
       
     </span>
   </a>
@@ -4324,10 +4302,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#text-head" class="md-nav__link">
+  <a href="#system-1-multi-modal-diffusion-transformer-mm-dit-action-expert" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Text head
+        System-1: Multi-modal Diffusion Transformer (MM-DiT) Action Expert
       
     </span>
   </a>
@@ -4335,10 +4313,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rep-head" class="md-nav__link">
+  <a href="#system-0-off-the-shelf-motion-tracker-sonic" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rep head
+        System-0: Off-the-shelf Motion Tracker (SONIC)
       
     </span>
   </a>
@@ -4346,32 +4324,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pixel-head" class="md-nav__link">
+  <a href="#plan-edit-track-pet-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pixel head
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#image-encoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Image encoder
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#codebook" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Codebook
+        Plan, Edit, Track (PET) Pipeline
       
     </span>
   </a>
@@ -4448,14 +4404,21 @@
       
       
       
-        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
+        <a href="../../tags/#tag:artificial-intelligence" class="md-tag">artificial-intelligence</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:multimodal" class="md-tag">multimodal</a>
+        <a href="../../tags/#tag:humanoid" class="md-tag">humanoid</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:navigation" class="md-tag">navigation</a>
       
     
       
@@ -4469,50 +4432,54 @@
       
       
       
-        <a href="../../tags/#tag:transformers" class="md-tag">transformers</a>
+        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
       
     
   </nav>
 
 
 
-  <h1>Representation Forcing for Bottleneck-Free Unified Multimodal Models</h1>
+  <h1>TANGO: Humanoid Navigation in Cluttered Environments with a Whole-Body Vision-Language-Action Model</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-06-02</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-09-10</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
 <p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>Representation Forcing (RF) enables bottleneck-free unified multimodal models by compelling the decoder to autoregressively predict visual representations as intermediate tokens. These predicted tokens then guide pixel diffusion within the shared backbone, allowing high-quality image generation directly in pixel space without relying on a frozen, external VAE.</p>
+<p>TANGO is a novel, whole-body vision-language-action (VLA) framework that enables language-conditioned humanoid traversal in cluttered indoor environments by directly predicting 29-DoF joint-space actions. It integrates perception, action generation, and motion tracking into a unified system, leveraging a scalable simulation pipeline (PET) for training.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Existing Unified Multimodal Models (UMMs) face a fundamental structural limitation: they typically rely on a separately pretrained and frozen Variational Autoencoder (VAE) for image generation. This VAE acts as a bottleneck, constraining the model's generative capacity. If one attempts to bypass this VAE and generate directly in pixel space, the resulting quality suffers significantly. This degradation stems from the model needing to simultaneously learn both the high-level semantic structure and the fine-grained, low-level details directly from raw pixel signals, a task that is inherently more complex than operating within a pre-defined latent space. Furthermore, prior representation learning methods have generally been confined to operating within these externally defined, frozen representation spaces.</p>
+<p>Humanoid traversal in cluttered environments necessitates continuous, geometry-aware whole-body adaptation. This adaptation involves coordinating complex motions such as arm placement, torso adjustments, and gait modulation to ensure collision-free passage through intricate 3D spaces. Existing Vision-Language Navigation (VLN) methods are fundamentally inadequate for this task because they typically operate within low-dimensional action spaces, failing to explicitly model the intricate, high-dimensional kinematics required for physically feasible whole-body movement.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce Representation Forcing (RF), a mechanism that effectively closes the quality gap associated with pixel-space image generation in UMMs, thereby eliminating the necessity for any pretrained VAE. We demonstrate that RF provides synergistic benefits to both image generation and multimodal understanding, irrespective of whether the model operates in pixel space or utilizes a VAE-based latent space. Notably, the pixel-space model augmented with RF achieves generation quality comparable to its VAE-based counterpart while exhibiting superior performance in understanding tasks. This work advocates for the paradigm shift toward UMMs where perception and generation are unified within a single, end-to-end-learned representation space.</p>
+<ul>
+<li>Introduction of TANGO, the first whole-body vision-language navigation framework designed for language-conditioned humanoid traversal within cluttered environments.</li>
+<li>Development of a scalable simulation pipeline, Plan, Edit, Track (PET), engineered to automatically synthesize collision-free and dynamically feasible whole-body traversal trajectories.</li>
+<li>Direct prediction of 29-DoF joint-space actions from language instructions and egocentric RGB observations, thereby eliminating the need for separate, brittle navigation and control modules.</li>
+</ul>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2605.31604/fig_p2_c1.jpg" />
-<em>Figure 1 Architectural comparison. (a) Prevailing UMMs rely on a frozen VAE encoder and decoder for image
-generation, creating a structural bottleneck. (b) Naively removing the VAE and generating directly in pixel space
-eliminates this bottleneck but loses structural guidance, leading to a quality g</em></p>
-<p>Representation Forcing (RF) operates by grounding the high-level visual representation directly within the decoder itself. This is achieved by training the decoder to autoregressively predict the visual representations that are extracted by the understanding encoder. The objective function mirrors that of language modeling: next-token prediction. These predicted representations then serve as the necessary in-context structural guidance for the pixel-space diffusion process occurring within the shared transformer backbone.</p>
-<p>The process involves several integrated components:</p>
-<h3 id="transformer">Transformer</h3>
-<p>The Transformer serves as the shared backbone, processing unified sequences comprising text tokens (<span class="arithmatex">\(\text{T}\)</span>), representation tokens (<span class="arithmatex">\(\text{R}\)</span>), and pixel patches (<span class="arithmatex">\(\text{P}\)</span>). This shared architecture is central to achieving unified representation learning.</p>
-<h3 id="text-head">Text head</h3>
-<p>The <span class="arithmatex">\(\text{Text head}\)</span> is responsible for calculating the cross-entropy loss (<span class="arithmatex">\(\mathcal{L}_{LM}\)</span>) pertaining to the prediction of the next text token.</p>
-<h3 id="rep-head">Rep head</h3>
-<p>The <span class="arithmatex">\(\text{Rep head}\)</span> is tasked with calculating the cross-entropy loss (<span class="arithmatex">\(\mathcal{L}_{Rep}\)</span>) associated with the prediction of the representation tokens. This is where the core forcing mechanism is implemented.</p>
-<h3 id="pixel-head">Pixel head</h3>
-<p>The <span class="arithmatex">\(\text{Pixel head}\)</span> manages the pixel diffusion process. This is executed via flow matching, specifically utilizing the <span class="arithmatex">\(x\)</span>-prediction formulation and associated velocity loss (<span class="arithmatex">\(\mathcal{L}_{FM}\)</span>).</p>
-<h3 id="image-encoder">Image encoder</h3>
-<p>The <span class="arithmatex">\(\text{Image encoder}\)</span> is implemented as a DINOv3 ViT-H+/16 [40] augmented with NaViT-style variable-resolution support [9]. Crucially, this encoder is jointly trained alongside the rest of the model, ensuring its features are optimized for the unified task.</p>
-<h3 id="codebook">Codebook</h3>
-<p>The <span class="arithmatex">\(\text{Codebook}\)</span> consists of <span class="arithmatex">\(K=16,384\)</span> learnable prototype embeddings. These are employed to perform online vector quantization on the patch-level features extracted by the encoder, providing a discrete representation space. The Sinkhorn–Knopp balancing technique is applied during this quantization step.</p>
-<p>During the generation phase, the decoder is conditioned solely on the text prompt to predict the necessary representation tokens. These predicted tokens subsequently condition the pixel generation process through the flow matching mechanism.</p>
+<p><img alt="Please provide the figure you would like me to analyze. I am ready to describe it once you upload or provide the image." src="../../assets/figures/2609.09158/fig_p2_c1.jpg" />
+<em>Figure 1 | Humanoid whole-body navigation in cluttered environments. We propose TANGO, a whole-body
+foundation model for cluttered indoor scene navigation. TANGO demonstrates strong scene understanding
+and robust traversal capability, navigating a 30-meter route zero-shot in a real-world cluttered o</em></p>
+<p>TANGO employs a triple-system architecture: System-2 (Vision-Language Perception), System-1 (Action Prediction), and System-0 (Motion Tracker). The process begins with System-2 processing visual and linguistic inputs to distill a contextual representation. This context is then fed into System-1, a flow-based model, which predicts a future reference action chunk. Finally, System-0 takes this predicted chunk and translates it into high-frequency joint commands for execution. The overall training objective minimizes a combined loss function: <span class="arithmatex">\(L = L_{CE} + w_{FM} \cdot L_{FM}\)</span>, where the flow-matching weight <span class="arithmatex">\(w_{FM}\)</span> is set to 20.</p>
+<h3 id="system-2-vision-language-perception">System-2: Vision-Language Perception</h3>
+<p>This component is instantiated using Qwen2.5VL-7B. It ingests stacked front (<span class="arithmatex">\(I^f_t\)</span>) and downward (<span class="arithmatex">\(I^d_t\)</span>) camera views, alongside the language instruction (<span class="arithmatex">\(\ell\)</span>). Crucially, it employs Budget-Aware Token Sampling (BATS) to efficiently process these inputs and generate a compact latent context token, <span class="arithmatex">\(z\)</span>.</p>
+<h3 id="system-1-multi-modal-diffusion-transformer-mm-dit-action-expert">System-1: Multi-modal Diffusion Transformer (MM-DiT) Action Expert</h3>
+<p>This is a flow-based model responsible for action prediction. It conditions its output on the latent context token <span class="arithmatex">\(z\)</span> derived from System-2, along with the current robot proprioception (<span class="arithmatex">\(q^{d,t}\)</span>). Using flow-matching, it predicts a future whole-body reference chunk, denoted as <span class="arithmatex">\(\tilde{A}_{t:t+H}\)</span>.</p>
+<h3 id="system-0-off-the-shelf-motion-tracker-sonic">System-0: Off-the-shelf Motion Tracker (SONIC)</h3>
+<p>System-0 functions as the low-level execution layer. It receives the predicted action chunks (<span class="arithmatex">\(\tilde{A}_{t:t+H}\)</span>) from System-1 and tracks this reference trajectory against the robot's actual proprioception. This tracking mechanism is responsible for generating the high-frequency joint commands required for real-time control.</p>
+<h3 id="plan-edit-track-pet-pipeline">Plan, Edit, Track (PET) Pipeline</h3>
+<p>PET is an offline data generation pipeline. It integrates several components: A* path planning establishes the macro-level route; the SONIC motion planner converts this into executable trajectories; IsaacSim handles the rendering environment; SoftMimic-style pseudo-forces are used for trajectory editing to enhance diversity; and the SONIC tracker acts as a final executability filter to ensure synthesized data is physically plausible.</p>
 <h2 id="results">Results</h2>
-<p>The quantitative evaluation demonstrates the efficacy of the RF approach:</p>
 <table>
 <thead>
 <tr>
@@ -4524,32 +4491,44 @@ eliminates this bottleneck but loses structural guidance, leading to a quality g
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">GenEval Overall</td>
-<td style="text-align: left;">0.84</td>
-<td style="text-align: left;">BAGEL baseline (0.82)</td>
+<td style="text-align: left;">Success Rate (SR)</td>
+<td style="text-align: left;">70.31</td>
+<td style="text-align: left;">InternVLA-N1 [10]</td>
 <td style="text-align: left;">Table 1</td>
 </tr>
 <tr>
-<td style="text-align: left;">GenEval Overall (with LLM rewriter)</td>
-<td style="text-align: left;">0.88</td>
-<td style="text-align: left;">State-of-the-art among unified models</td>
+<td style="text-align: left;">Navigation Error (NE)</td>
+<td style="text-align: left;">3.90</td>
+<td style="text-align: left;">InternVLA-N1 [10]</td>
+<td style="text-align: left;">Table 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Success weighted by Path Length (SPL)</td>
+<td style="text-align: left;">54.69</td>
+<td style="text-align: left;">RDP [27]</td>
+<td style="text-align: left;">Table 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Oracle Success Rate (OSR)</td>
+<td style="text-align: left;">71.07</td>
+<td style="text-align: left;">RDP [27]</td>
 <td style="text-align: left;">Table 1</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The practitioner takeaways highlight several significant implications. First, RF facilitates the construction of truly end-to-end UMMs by internalizing the latent space, thereby removing the dependency on external, pre-trained VAEs. Second, the model exhibits dual benefits: it improves both understanding and generation capabilities. Furthermore, the empirical evidence suggests that pixel-space generation, when augmented with RF, is more inherently compatible with the unified modeling framework than generation conditioned on a VAE-derived latent space. Finally, the combination of autoregressive prediction for structural guidance (RF) and diffusion for rendering establishes a robust and coherent mechanism for high-fidelity pixel-space generation.</p>
+<p>The TANGO framework addresses a critical bottleneck in embodied AI: the gap between high-level semantic reasoning and low-level physical feasibility. By directly predicting 29-DoF joint-space actions, TANGO moves beyond abstract waypoint navigation. This allows the system to inherently reason about whole-body kinematics—such as maintaining balance while reaching around an obstacle—during the navigation planning phase. Furthermore, the PET pipeline demonstrates a viable path toward generating large-scale, high-fidelity training datasets necessary for training such complex, physically grounded models without exhaustive real-world data collection.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>Despite these advancements, the current implementation imposes certain constraints. The method necessitates a specific three-stage training regimen: initial alignment, subsequent joint pre-training, and a final continued training phase. Additionally, the architecture relies on a Mixture-of-Transformers (MoT) structure, specifically utilizing three distinct groups of experts. Future work should investigate the necessity of the MoT structure and explore training strategies that might reduce the required training stages.</p>
+<p>The current training methodology is heavily dependent on the PET pipeline, which necessitates substantial computational resources; specifically, generating the dataset required 211 GPU-hours across 64,633 trajectories. Additionally, the deployment architecture mandates a server-client separation to effectively decouple the low-frequency VLA inference loop from the high-frequency requirements of the WBC module. Future work should investigate methods to reduce the reliance on this intensive offline data synthesis or explore fully end-to-end training paradigms that can handle the inherent complexity of whole-body dynamics more directly.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.31604">2605.31604</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260531604</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Representation Forcing for Bottleneck-Free Unified Multimodal Models}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Yuqing Wang and Zhijie Lin and Ceyuan Yang and Yang Zhao and Fei Xiao and Hao He et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2605.31604}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2609.09158">2609.09158</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260909158</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{TANGO: Humanoid Navigation in Cluttered Environments with a Whole-Body Vision-Language-Action Model}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Anqi Li and Yuxin Chen and Zhaobo Li and Zhuo Cao and Junli Ren and Masayoshi Tomizuka et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2609.09158}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2605.31604}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2609.09158}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
