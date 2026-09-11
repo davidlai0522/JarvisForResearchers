@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Precision in Rice Variety Classification using Stacking-Based Ensemble Learning](2026-09-11-precision-in-rice-variety-classification-using-stacking-base/) { data-cat="Computer Vision" data-date="2026-09-11" }
+
+*2026-09-11*
+
+This research introduces a stacked ensemble learning framework, utilizing deep features extracted from a self-curated dataset of 20 rice varieties, to achieve 100% classification accuracy for rice variety identification.
+
 ## [TANGO: Humanoid Navigation in Cluttered Environments with a Whole-Body Vision-Language-Action Model](2026-09-10-tango-humanoid-navigation-in-cluttered-environments-with-a-w/) { data-cat="Robotics" data-date="2026-09-10" }
 
 *2026-09-10*
