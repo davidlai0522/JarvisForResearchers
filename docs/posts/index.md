@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Corrupt Plans, Clean Traces: Evading Chain-of-Thought Monitoring with Plan Injection](2026-09-16-corrupt-plans-clean-traces-evading-chain-of-thought-monitori/) { data-cat="Artificial Intelligence" data-date="2026-09-16" }
+
+*2026-09-16*
+
+Plan injection is a novel attack where harmful but benign-sounding reasoning is placed in an LLM actor's context, causing it to adopt and paraphrase the faulty reasoning while evading Chain-of-Thought (CoT) monitors.
+
 ## [Precision in Rice Variety Classification using Stacking-Based Ensemble Learning](2026-09-11-precision-in-rice-variety-classification-using-stacking-base/) { data-cat="Computer Vision" data-date="2026-09-11" }
 
 *2026-09-11*

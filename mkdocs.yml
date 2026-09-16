@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "Corrupt Plans, Clean Traces: Evading Chain-of-Thought Monitoring with Plan Injection": posts/2026-09-16-corrupt-plans-clean-traces-evading-chain-of-thought-monitori.md
     - "Precision in Rice Variety Classification using Stacking-Based Ensemble Learning": posts/2026-09-11-precision-in-rice-variety-classification-using-stacking-base.md
     - "TANGO: Humanoid Navigation in Cluttered Environments with a Whole-Body Vision-Language-Action Model": posts/2026-09-10-tango-humanoid-navigation-in-cluttered-environments-with-a-w.md
     - "UniMate: One Unified Model to Animate Diverse Skeletons": posts/2026-09-09-unimate-one-unified-model-to-animate-diverse-skeletons.md
