@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="TempoVLA introduces a framework to give existing Vision-Language-Action (VLA) models explicit, bidirectional control over execution speed by combining Variable-Speed Trajectory Augmentation (VSTA) on the data side and speed conditioning on the model side.
+        <meta name="description" content="ScienceBuddy is an interactive scientific research workspace that employs a recursive-in-recursive self-improvement paradigm to enable continual learning by coupling harness evolution with model reinforcement learning based on researcher collaboration.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-07-tempovla-learning-speed-controllable-vision-language-action-/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-09-17-sciencebuddy-recursive-in-recursive-self-improvement-for-int/">
       
       
-        <link rel="prev" href="../2026-06-08-handoff-humanoid-agentic-task-space-whole-body-control-via-d/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-06-06-taillor-protecting-principal-components-in-parameter-efficie/">
+        <link rel="next" href="../2026-09-16-corrupt-plans-clean-traces-evading-chain-of-thought-monitori/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>TempoVLA: Learning Speed-Controllable Vision-Language-Action Policies - JarvisForResearchers</title>
+        <title>ScienceBuddy: Recursive-in-Recursive Self-Improvement for Interactive Scientific Agents - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              TempoVLA: Learning Speed-Controllable Vision-Language-Action Policies
+              ScienceBuddy: Recursive-in-Recursive Self-Improvement for Interactive Scientific Agents
             
           </span>
         </div>
@@ -656,10 +656,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-09-17-sciencebuddy-recursive-in-recursive-self-improvement-for-int/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ScienceBuddy: Recursive-in-Recursive Self-Improvement for Interactive Scientific Agents
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -675,6 +700,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scientific-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scientific workspace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pluggable-harness-mathcalh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pluggable harness (\(\mathcal{H}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-llm-theta_k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task LLM (\(\theta_k\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed-auxiliary-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed auxiliary model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harbor-tasks-mathcalp_x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Harbor tasks (\(\mathcal{P}_x\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3036,35 +3228,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    TempoVLA: Learning Speed-Controllable Vision-Language-Action Policies
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-06-07-tempovla-learning-speed-controllable-vision-language-action-/" class="md-nav__link">
         
   
   
@@ -3080,184 +3247,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#variable-speed-trajectory-augmentation-vsta" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Variable-Speed Trajectory Augmentation (VSTA)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#speed-conditioned-policy-pi_thetao_t-s" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Speed-Conditioned Policy \(\pi_\theta(o_t, s)\)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#textual-prefix" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Textual prefix
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#speed-modulated-rmsnorm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Speed-modulated RMSNorm
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#soft-prompt-with-speed-anchors" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Soft prompt with speed anchors
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vlm-scheduler" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        VLM Scheduler
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4403,10 +4392,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#variable-speed-trajectory-augmentation-vsta" class="md-nav__link">
+  <a href="#scientific-workspace" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Variable-Speed Trajectory Augmentation (VSTA)
+        Scientific workspace
       
     </span>
   </a>
@@ -4414,10 +4403,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#speed-conditioned-policy-pi_thetao_t-s" class="md-nav__link">
+  <a href="#pluggable-harness-mathcalh" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Speed-Conditioned Policy \(\pi_\theta(o_t, s)\)
+        Pluggable harness (\(\mathcal{H}\))
       
     </span>
   </a>
@@ -4425,10 +4414,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#textual-prefix" class="md-nav__link">
+  <a href="#task-llm-theta_k" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Textual prefix
+        Task LLM (\(\theta_k\))
       
     </span>
   </a>
@@ -4436,10 +4425,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#speed-modulated-rmsnorm" class="md-nav__link">
+  <a href="#fixed-auxiliary-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Speed-modulated RMSNorm
+        Fixed auxiliary model
       
     </span>
   </a>
@@ -4447,21 +4436,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#soft-prompt-with-speed-anchors" class="md-nav__link">
+  <a href="#harbor-tasks-mathcalp_x" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Soft prompt with speed anchors
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vlm-scheduler" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        VLM Scheduler
+        Harbor tasks (\(\mathcal{P}_x\))
       
     </span>
   </a>
@@ -4545,65 +4523,57 @@
       
       
       
-        <a href="../../tags/#tag:manipulation" class="md-tag">manipulation</a>
+        <a href="../../tags/#tag:nlp" class="md-tag">nlp</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:vision-language" class="md-tag">vision-language</a>
+        <a href="../../tags/#tag:reinforcement-learning" class="md-tag">reinforcement-learning</a>
       
     
   </nav>
 
 
 
-  <h1>TempoVLA: Learning Speed-Controllable Vision-Language-Action Policies</h1>
+  <h1>ScienceBuddy: Recursive-in-Recursive Self-Improvement for Interactive Scientific Agents</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-06-07</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-09-17</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
 <p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>TempoVLA introduces a framework to give existing Vision-Language-Action (VLA) models explicit, bidirectional control over execution speed by combining Variable-Speed Trajectory Augmentation (VSTA) on the data side and speed conditioning on the model side. This allows existing VLAs to handle tasks requiring both rapid transit and slow, precise manipulation without requiring full retraining.</p>
+<p>ScienceBuddy implements a recursive-in-recursive self-improvement framework for scientific agents. It couples the evolution of an executable procedural harness (<span class="arithmatex">\(\mathcal{H}\)</span>) with model reinforcement learning (<span class="arithmatex">\(\theta_k \to \theta_{k+1}\)</span>) by deriving tasks and evaluation rubrics directly from researcher collaboration, enabling sustained capability growth beyond simple conversational correction.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Existing Vision-Language-Action models (VLAs) inherently operate at a single, fixed execution speed dictated by the distribution of their training demonstrations. This uniformity is fundamentally inadequate for complex, real-world manipulation tasks. Such tasks necessitate dynamic temporal behavior, requiring the agent to transition fluidly between high-speed transit phases—where efficiency is paramount—and low-speed, high-precision contact stages, such as delicate insertion or fragile object handover.</p>
+<p>The core challenge addressed is how an autonomous scientific agent can translate unstructured, qualitative feedback from human researchers into sustained, quantifiable improvements in both its operational procedures and its underlying cognitive capabilities. Standard conversational correction mechanisms are insufficient because fixing an error in a single dialogue turn does not guarantee generalization or improvement across the agent's task repertoire. Furthermore, prior work on procedural refinement often lacks a mechanism to fully integrate human collaboration to define the necessary tasks and assessment criteria required to coordinate iterative procedural and policy learning within a scientific context.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We make three primary contributions to this domain:
-1. We propose VSTA alongside speed conditioning, a lightweight data-and-model pair that equips existing VLAs with bidirectional speed control without necessitating new data collection.
-2. We demonstrate that variable-speed training functions as an effective augmentation, consistently elevating the default 1x success rate both in simulation and in the physical world.
-3. We show that this design generalizes to VLM-driven dynamic speed scheduling, effectively transforming execution speed into a novel control channel usable by higher-level reasoning modules.</p>
+<p>We introduce several key advancements:
+1. A functional scientific research workspace, ScienceBuddy, which integrates researcher dialogue, executable analysis, inspectable artifacts, and a pluggable harness within a persistent environment.
+2. A formalized workflow for deriving executable tasks and rigorous evaluation rubrics directly from researcher collaboration, supported by environment augmentation calibrated to the agent's current state.
+3. The recursive-in-recursive self-improvement paradigm, which explicitly couples the evaluation of harness evolution with rubric-supervised model reinforcement learning.
+4. Empirical evidence derived from case studies demonstrating the system's operation across real researcher interactions, fixed-model harness evolution, and model learning under a fixed harness.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze. I will then follow your instructions precisely." src="../../assets/figures/2606.06491/fig_p1_c1.jpg" />
-*Figure 1: TempoVLA: a speed-controllable VLA framework. (a) VSTA re-times any demon-
-stration to a target speed by selectively merging consecutive actions to speed up or splitting them to
-slow down, while preserving motion semantics. (b) The policy takes a scalar speed s as an explicit
-conditioning *</p>
-<p>TempoVLA addresses the challenge of speed control through the coupling of two distinct mechanisms. On the data side, <strong>Variable-Speed Trajectory Augmentation (VSTA)</strong> re-times any existing demonstration to an arbitrary target speed <span class="arithmatex">\(s \in \mathbb{R}^+\)</span>. This is achieved by either merging consecutive actions to accelerate the trajectory (<span class="arithmatex">\(q&gt;p\)</span>) or by splitting actions to decelerate (<span class="arithmatex">\(q&lt;p\)</span>), all while rigorously preserving the underlying motion semantics. On the model side, the scalar speed <span class="arithmatex">\(s\)</span> is explicitly injected into the policy <span class="arithmatex">\(\pi_\theta(o_t, s)\)</span> through one of three proposed, lightweight conditioning schemes: textual prefix, speed-modulated RMSNorm, or soft prompt with speed anchors. Crucially, the low-level controller remains unmodified. This architecture enables the policy to scale its predicted action magnitudes proportionally to <span class="arithmatex">\(s\)</span>, thereby facilitating flexible speed control in both acceleration and deceleration regimes.</p>
-<h3 id="variable-speed-trajectory-augmentation-vsta">Variable-Speed Trajectory Augmentation (VSTA)</h3>
-<p>VSTA is an online data augmentation strategy. It takes a trajectory recorded at an original speed <span class="arithmatex">\(p\)</span> and transforms it to a target speed <span class="arithmatex">\(s\)</span>. The process involves motion-consistent segmentation of the trajectory, followed by a chunk-level speed transform. This transformation ensures that the kinematic and dynamic relationships between consecutive actions are maintained, even when the temporal spacing between them is altered.</p>
-<h3 id="speed-conditioned-policy-pi_thetao_t-s">Speed-Conditioned Policy <span class="arithmatex">\(\pi_\theta(o_t, s)\)</span></h3>
-<p>This is the core VLA policy that has been trained on the augmented dataset <span class="arithmatex">\(e_D\)</span>. It is designed to accept the scalar speed <span class="arithmatex">\(s\)</span> as an explicit conditioning input alongside the observation <span class="arithmatex">\(o_t\)</span>. The policy learns to map the state and the desired speed to the appropriate action distribution.</p>
-<h3 id="textual-prefix">Textual prefix</h3>
-<p>This is one of the three injection methods. It involves prepending a short, descriptive phrase, such as 'Perform the task at <span class="arithmatex">\(\langle s \rangle\)</span>x speed,' directly to the original natural language instruction <span class="arithmatex">\(\ell\)</span> before it enters the VLA encoder.</p>
-<h3 id="speed-modulated-rmsnorm">Speed-modulated RMSNorm</h3>
-<p>This scheme introduces a small two-layer MLP, <span class="arithmatex">\(\phi_{mod}(s)\)</span>, which embeds the scalar speed <span class="arithmatex">\(s\)</span>. The output of this MLP is then used to modulate the Root Mean Square Normalization (RMSNorm) applied within each expert layer of the policy. The modulation is defined as <span class="arithmatex">\(\text{adaRMSNorm}(\cdot) = \gamma(\sigma_{ts} + \phi_{mod}(s)) \odot x / \|x\|_{\text{RMS}}\)</span>.</p>
-<h3 id="soft-prompt-with-speed-anchors">Soft prompt with speed anchors</h3>
-<p>This method utilizes a learnable tensor, <span class="arithmatex">\(P \in \mathbb{R}^{K \times P \times d_{emb}}\)</span>, which stores embedding tokens corresponding to <span class="arithmatex">\(K\)</span> predefined training-speed anchors <span class="arithmatex">\(s_k \in S\)</span>. These tokens are inserted at the input layer of the VLA encoder, allowing the model to condition on the desired speed via these learned representations.</p>
-<h3 id="vlm-scheduler">VLM Scheduler</h3>
-<p>This component operates at the deployment level, above the core VLA. It is a high-level Vision-Language Model (VLM) tasked with observing the current scene state and predicting the appropriate speed <span class="arithmatex">\(s_t\)</span> for the subsequent sequence of action chunks. This enables the system to execute dynamic speed scheduling based on environmental context.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2609.17523/fig_p1_c1.jpg" />
+<em>Figure 1 | ScienceBuddy: a scientific workspace that learns through collaboration. Left: Scientific workspace.
+A multimodal workspace brings together documents, images, tables, and biological sequences with 224 tools across
+22 functional modules, spanning genomics, molecular and cancer biology, phar</em></p>
+<p>ScienceBuddy operates through a nested, recursive self-improvement loop. The inner recursion focuses on refining the agent's procedural execution by fixing the current task model (<span class="arithmatex">\(\theta_k\)</span>) and allowing an auxiliary model to propose bounded edits to the harness (<span class="arithmatex">\(\mathcal{H}_k\)</span>) based on observed failures. These harness candidates are only accepted if they demonstrably improve performance under paired development evaluation. The outer recursion then leverages this refined structure to improve the core model. It calibrates augmented task environments against the current model and the selected harness, subsequently training the model (<span class="arithmatex">\(\theta_k \to \theta_{k+1}\)</span>) using fresh on-policy rollouts. This training is guided by task-specific rubric rewards and utilizes GRPO. Critically, during this model training phase, the harness and associated rubrics remain static. This coupling is bidirectional: harness revisions dictate the training trajectories, while model updates alter the efficacy of the inherited procedures, facilitating background improvement alongside online service provision.</p>
+<h3 id="scientific-workspace">Scientific workspace</h3>
+<p>The <strong>Scientific workspace</strong> serves as the multimodal operational environment. It integrates diverse data types—documents, images, tables, and biological sequences—and provides access to 224 distinct tools organized across 22 functional modules, providing the necessary context for complex scientific reasoning.</p>
+<h3 id="pluggable-harness-mathcalh">Pluggable harness (<span class="arithmatex">\(\mathcal{H}\)</span>)</h3>
+<p>The <strong>Pluggable harness (<span class="arithmatex">\(\mathcal{H}\)</span>)</strong> is the explicit, editable component responsible for structuring the agent's behavior. It encapsulates the necessary instructions, learned skills, and selected context-management procedures, allowing for modular and targeted procedural refinement independent of the core policy weights.</p>
+<h3 id="task-llm-theta_k">Task LLM (<span class="arithmatex">\(\theta_k\)</span>)</h3>
+<p>The <strong>Task LLM (<span class="arithmatex">\(\theta_k\)</span>)</strong> represents the core policy model. Its parameters are the target of optimization in the outer recursion, where its policy is updated based on the outcomes of the structured training runs.</p>
+<h3 id="fixed-auxiliary-model">Fixed auxiliary model</h3>
+<p>The <strong>Fixed auxiliary model</strong> operates within the inner recursion. Its function is diagnostic: given the current state and observed failures of <span class="arithmatex">\(\theta_k\)</span>, it proposes bounded, localized procedural edits to the harness (<span class="arithmatex">\(\mathcal{H}_k\)</span>) without altering the task model itself.</p>
+<h3 id="harbor-tasks-mathcalp_x">Harbor tasks (<span class="arithmatex">\(\mathcal{P}_x\)</span>)</h3>
+<p><strong>Harbor tasks (<span class="arithmatex">\(\mathcal{P}_x\)</span>)</strong> constitute a complete, evaluable unit of work. Each package bundles the specific instruction (<span class="arithmatex">\(I_x\)</span>), the necessary input assets (<span class="arithmatex">\(A_x\)</span>), the execution environment (<span class="arithmatex">\(E_x\)</span>), and the associated evaluation rubric (<span class="arithmatex">\(C(x)\)</span>).</p>
 <h2 id="results">Results</h2>
+<p>The case studies provide qualitative evidence of the system's operation. Quantitatively, the reported results are:</p>
 <table>
 <thead>
 <tr>
@@ -4615,44 +4585,32 @@ conditioning *</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Replay success rate (SR) at 1x</td>
-<td style="text-align: left;">97.6%</td>
-<td style="text-align: left;">—</td>
-<td style="text-align: left;">Table 1</td>
+<td style="text-align: left;">first-response accuracy on feedback-accessible evaluation tasks</td>
+<td style="text-align: left;">Not quantified</td>
+<td style="text-align: left;">Not specified</td>
+<td style="text-align: left;">Case Study 4.3</td>
 </tr>
 <tr>
-<td style="text-align: left;">Motion Err. at 1.25x</td>
-<td style="text-align: left;">1.1E-8</td>
-<td style="text-align: left;">—</td>
-<td style="text-align: left;">Table 1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Overall SR (Textual Prefix)</td>
-<td style="text-align: left;">96.8</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Table 2</td>
-</tr>
-<tr>
-<td style="text-align: left;">Peak success rate (7-speed range)</td>
-<td style="text-align: left;">97.4</td>
-<td style="text-align: left;">96.7 (single-speed baseline)</td>
-<td style="text-align: left;">Table 3</td>
+<td style="text-align: left;">problem coverage on a common panel under H0</td>
+<td style="text-align: left;">Not quantified</td>
+<td style="text-align: left;">Not specified</td>
+<td style="text-align: left;">Case Study 4.4</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The ability to decouple execution speed from the core policy weights is a significant engineering advance for embodied AI. As demonstrated by the comparable performance across the three speed injection schemes, speed control can be integrated into existing, pre-trained VLAs with minimal architectural overhead. Furthermore, the textual prefix method offers the most straightforward deployment path, requiring no modification to the model's internal structure or the maintenance of fixed anchor sets. Beyond enabling speed control, the VSTA process itself acts as a robust data augmentation technique, consistently improving baseline performance. Finally, the integration with a VLM Scheduler opens the door for truly adaptive, context-aware robotic behavior where speed is managed as a strategic control variable.</p>
+<p>This architecture moves beyond treating agent interaction as a simple sequence of prompt-response exchanges. By formalizing the harness as an editable, evaluable artifact, we decouple procedural knowledge from parametric knowledge. This allows the system to learn <em>how</em> to perform a task (via harness evolution) and <em>what</em> to do (via model policy updates) concurrently and systematically. The ability to derive executable tasks and rubrics from researcher dialogue transforms unstructured feedback into structured, actionable training signals, which is critical for achieving reliable, sustained competence in complex scientific domains.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The implementation of VSTA is constrained by the reliance on motion-consistent segmentation, which is predicated on specific thresholds (<span class="arithmatex">\(\tau_{dir}\)</span>). Furthermore, this segmentation assumes that the underlying actions are closed under addition, such as Cartesian translations in <span class="arithmatex">\(\mathbb{R}^3\)</span> or axis-angle vectors in <span class="arithmatex">\(\text{so}(3)\)</span>. For the soft prompt scheme, inference requires selecting the nearest anchor <span class="arithmatex">\(k^\star = \arg \min_k |s - s_k|\)</span>, which inherently introduces a quantization error relative to the continuous target speed <span class="arithmatex">\(s\)</span>. Future work should investigate more robust segmentation methods for non-additive action spaces and explore continuous interpolation techniques for the soft prompt conditioning to mitigate quantization artifacts.</p>
+<p>A primary limitation noted is the absence of quantitative performance metrics for the specific case studies presented in the paper. Furthermore, the implementation of the nested update schedule—coordinating the inner harness refinement loop with the outer model training loop—introduces significant implementation complexity that requires careful engineering. Future work must focus on developing robust, scalable methods for automatically deriving high-quality rubrics from ambiguous human collaboration.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.06491">2606.06491</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260606491</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{TempoVLA: Learning Speed-Controllable Vision-Language-Action Policies}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Dong Jing and Jingchen Nie and Tianqi Zhang and Jiaqi Liu and Huaxiu Yao and Zhiwu Lu et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.06491}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2609.17523">2609.17523</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260917523</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{ScienceBuddy: Recursive-in-Recursive Self-Improvement for Interactive Scientific Agents}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Shuhan Xue and Jianyuan Zhong and Ziyuan Nan and Wenbin Li and Zhaochen Yu and Jinchao Ding et al.}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2609.17523}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.06491}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2609.17523}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
