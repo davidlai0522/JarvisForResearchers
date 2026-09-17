@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [ScienceBuddy: Recursive-in-Recursive Self-Improvement for Interactive Scientific Agents](2026-09-17-sciencebuddy-recursive-in-recursive-self-improvement-for-int/) { data-cat="Artificial Intelligence" data-date="2026-09-17" }
+
+*2026-09-17*
+
+ScienceBuddy is an interactive scientific research workspace that employs a recursive-in-recursive self-improvement paradigm to enable continual learning by coupling harness evolution with model reinforcement learning based on researcher collaboration.
+
 ## [Corrupt Plans, Clean Traces: Evading Chain-of-Thought Monitoring with Plan Injection](2026-09-16-corrupt-plans-clean-traces-evading-chain-of-thought-monitori/) { data-cat="Artificial Intelligence" data-date="2026-09-16" }
 
 *2026-09-16*
