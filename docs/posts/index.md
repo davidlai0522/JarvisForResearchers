@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Objective vs. Search: Decomposing What Makes a Good Tokeniser](2026-09-18-objective-vs-search-decomposing-what-makes-a-good-tokeniser/) { data-cat="NLP" data-date="2026-09-18" }
+
+*2026-09-18*
+
+This paper disentangles the effects of tokeniser optimization objectives (compression vs. log-likelihood) and search procedures (bottom-up vs. top-down) by introducing two novel tokenisation algorithms, BottomUpLL and TopDownComp.
+
 ## [ScienceBuddy: Recursive-in-Recursive Self-Improvement for Interactive Scientific Agents](2026-09-17-sciencebuddy-recursive-in-recursive-self-improvement-for-int/) { data-cat="Artificial Intelligence" data-date="2026-09-17" }
 
 *2026-09-17*
