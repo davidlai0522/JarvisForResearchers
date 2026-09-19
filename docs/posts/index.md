@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Workspace Models: Lightweight Robotic Memory via Saliency-Driven Supervision](2026-09-19-workspace-models-lightweight-robotic-memory-via-saliency-dri/) { data-cat="Robotics" data-date="2026-09-19" }
+
+*2026-09-19*
+
+The Workspace Model proposes using training-time VLM supervision to learn a lightweight, latent memory representation, the workspace token, which allows robotic policies to solve memory-intensive tasks with low deployment-time latency.
+
 ## [Objective vs. Search: Decomposing What Makes a Good Tokeniser](2026-09-18-objective-vs-search-decomposing-what-makes-a-good-tokeniser/) { data-cat="NLP" data-date="2026-09-18" }
 
 *2026-09-18*
