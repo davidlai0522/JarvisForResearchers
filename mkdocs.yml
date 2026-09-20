@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "Coding Agents with an Obstacle-Aware Harness for Safe Robot Manipulation": posts/2026-09-20-coding-agents-with-an-obstacle-aware-harness-for-safe-robot-.md
     - "Workspace Models: Lightweight Robotic Memory via Saliency-Driven Supervision": posts/2026-09-19-workspace-models-lightweight-robotic-memory-via-saliency-dri.md
     - "Objective vs. Search: Decomposing What Makes a Good Tokeniser": posts/2026-09-18-objective-vs-search-decomposing-what-makes-a-good-tokeniser.md
     - "ScienceBuddy: Recursive-in-Recursive Self-Improvement for Interactive Scientific Agents": posts/2026-09-17-sciencebuddy-recursive-in-recursive-self-improvement-for-int.md

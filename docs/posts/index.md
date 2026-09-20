@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Coding Agents with an Obstacle-Aware Harness for Safe Robot Manipulation](2026-09-20-coding-agents-with-an-obstacle-aware-harness-for-safe-robot-/) { data-cat="Robotics" data-date="2026-09-20" }
+
+*2026-09-20*
+
+SAFEHARNESS equips coding agents with two obstacle-aware harnesses—one for route planning and one for contact execution—to enforce safety constraints during robot manipulation tasks.
+
 ## [Workspace Models: Lightweight Robotic Memory via Saliency-Driven Supervision](2026-09-19-workspace-models-lightweight-robotic-memory-via-saliency-dri/) { data-cat="Robotics" data-date="2026-09-19" }
 
 *2026-09-19*
