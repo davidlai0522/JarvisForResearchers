@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="SciReasoner is a multimodal scientific foundation model that achieves native structural reasoning across proteins, small molecules, and inorganic crystals by discretizing structural information into a unified, structure-aware vocabulary integrated into an autoregressive LLM.
+        <meta name="description" content="SAFEHARNESS equips coding agents with two obstacle-aware harnesses—one for route planning and one for contact execution—to enforce safety constraints during robot manipulation tasks.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-07-10-accurate-interdisciplinary-and-transparent-structure-propert/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-09-20-coding-agents-with-an-obstacle-aware-harness-for-safe-robot-/">
       
       
-        <link rel="prev" href="../2026-07-11-longe2v-long-horizon-event-based-video-reconstruction-predic/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-07-09-elsa3d-elastic-semantic-anchoring-for-unified-3d-understandi/">
+        <link rel="next" href="../2026-09-19-workspace-models-lightweight-robotic-memory-via-saliency-dri/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Accurate, Interdisciplinary and Transparent Structure-property Understanding with Deep Native Structural Reasoning - JarvisForResearchers</title>
+        <title>Coding Agents with an Obstacle-Aware Harness for Safe Robot Manipulation - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Accurate, Interdisciplinary and Transparent Structure-property Understanding with Deep Native Structural Reasoning
+              Coding Agents with an Obstacle-Aware Harness for Safe Robot Manipulation
             
           </span>
         </div>
@@ -662,10 +662,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-09-20-coding-agents-with-an-obstacle-aware-harness-for-safe-robot-/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coding Agents with an Obstacle-Aware Harness for Safe Robot Manipulation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -681,6 +706,140 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#obstacle-aware-route-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obstacle-aware Route Planning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obstacle-aware-contact-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obstacle-aware Contact Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2202,35 +2361,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Accurate, Interdisciplinary and Transparent Structure-property Understanding with Deep Native Structural Reasoning
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-07-10-accurate-interdisciplinary-and-transparent-structure-propert/" class="md-nav__link">
         
   
   
@@ -2246,206 +2380,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#structure-aware-vocabulary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Structure-aware vocabulary
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#domain-specific-encoders" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Domain-specific encoders
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#llm-backbone" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LLM Backbone
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stage-1-warm-up-training" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Stage 1: Warm-up Training
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stage-2-full-parameter-multimodal-training" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Stage 2: Full-parameter Multimodal Training
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stage-3-annealing-training" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Stage 3: Annealing Training
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#intra-domain-structural-evidence-grounding" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Intra-domain structural evidence grounding
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cross-domain-reasoning-consolidation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cross-domain reasoning consolidation
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4515,10 +4449,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#structure-aware-vocabulary" class="md-nav__link">
+  <a href="#obstacle-aware-route-planning" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Structure-aware vocabulary
+        Obstacle-aware Route Planning
       
     </span>
   </a>
@@ -4526,76 +4460,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#domain-specific-encoders" class="md-nav__link">
+  <a href="#obstacle-aware-contact-execution" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Domain-specific encoders
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#llm-backbone" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LLM Backbone
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stage-1-warm-up-training" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Stage 1: Warm-up Training
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stage-2-full-parameter-multimodal-training" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Stage 2: Full-parameter Multimodal Training
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stage-3-annealing-training" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Stage 3: Annealing Training
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#intra-domain-structural-evidence-grounding" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Intra-domain structural evidence grounding
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cross-domain-reasoning-consolidation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cross-domain reasoning consolidation
+        Obstacle-aware Contact Execution
       
     </span>
   </a>
@@ -4679,21 +4547,14 @@
       
       
       
-        <a href="../../tags/#tag:foundation-models" class="md-tag">foundation-models</a>
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:multimodal" class="md-tag">multimodal</a>
+        <a href="../../tags/#tag:manipulation" class="md-tag">manipulation</a>
       
     
       
@@ -4707,49 +4568,55 @@
       
       
       
-        <a href="../../tags/#tag:reinforcement-learning" class="md-tag">reinforcement-learning</a>
+        <a href="../../tags/#tag:planning" class="md-tag">planning</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
       
     
   </nav>
 
 
 
-  <h1>Accurate, Interdisciplinary and Transparent Structure-property Understanding with Deep Native Structural Reasoning</h1>
+  <h1>Coding Agents with an Obstacle-Aware Harness for Safe Robot Manipulation</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-07-10</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-09-20</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
 <p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>SciReasoner is a multimodal foundation model designed for native structural reasoning across proteins, small molecules, and inorganic crystals. It achieves this by discretizing complex structural information—coordinates, topologies, and connectivities—into a unified, structure-aware vocabulary that is integrated directly into an autoregressive LLM. Post-training reinforcement learning is used to ground these structural tokens as addressable evidence within a Chain-of-Thought (CoT) framework, enabling inspectable, mechanistic explanations.</p>
+<p>SAFEHARNESS introduces two obstacle-aware harnesses—one for route planning and one for contact execution—to enforce safety constraints as a first-class objective during robot manipulation tasks driven by coding agents. This approach moves beyond post-hoc filtering by embedding safety directly into the motion generation process, achieving significant gains in both task success and collision avoidance on SafeLIBERO.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>Mechanistically explaining structure-property relationships across biology, chemistry, and materials science necessitates interpreting structural evidence through established scientific principles. Current AI paradigms encounter significant hurdles in this domain. Specifically, existing systems either maintain a strict separation between the native structural representation and the evidence-linked reasoning process, or they reduce complex, high-dimensional structures into linear strings. This string compression inherently discards the addressable physical evidence necessary for rigorous scientific inference. Furthermore, domain-specific models are typically engineered as black-box predictors, yielding scores without exposing the intermediate structural evidence that informed their decision.</p>
+<p>Coding agents show promise for autonomous robot manipulation, yet they fundamentally fail to prioritize safety constraints. Even when safety requirements are explicitly stated in the prompt, the agent's planning mechanism treats them as secondary instructions rather than hard constraints. This results in predictable collisions with obstacles during execution. The core issue is that the safety requirement is never elevated to a core priority during the planning phase.</p>
+<p>Prior work exhibits several limitations:
+1. Rollouts are evaluated solely on goal achievement, neglecting the trajectory's interaction with the environment.
+2. Simply augmenting the prompt with safety instructions does not alter the agent's behavior; the failure resides in the planning logic, not perception or instruction fidelity.
+3. Existing safety mechanisms—such as pre-computed planners, post-hoc filters, or trained safety policies—either fix the trajectory before execution or apply safety checks after the policy has already committed to a motion, failing to integrate safety into the decision that generates the motion itself.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce SciReasoner, a multimodal scientific foundation model engineered for native structural reasoning across proteins, small molecules, and inorganic crystals. Our primary technical contributions are threefold: first, the development of a unified structure-aware vocabulary that discretizes coordinates, topologies, and periodic connectivities, thereby treating structural tokens as discrete, addressable units of evidence. Second, we engineered a multi-stage training pipeline culminating in a post-training framework for self-bootstrapped native structural reasoning. This framework employs reinforcement learning to explicitly connect the semantic meaning of structural vocabulary tokens to a Chain-of-Thought (CoT) generation strategy, ensuring reasoning trajectories are traceable to physical evidence.</p>
+<p>We present the following contributions:
+1. We study the paradigm of coding agents under a safety constraint that has previously lacked a rigorous, quantifiable evaluation metric.
+2. We introduce SAFEHARNESS, a framework utilizing two distinct obstacle-aware harnesses designed to treat safety as an objective on equal footing with task completion.
+3. We demonstrate that SAFEHARNESS achieves 71.9% task success and 87.5% collision avoidance on SafeLIBERO, representing improvements of 6.5% and 27.0%, respectively, over the previous state-of-the-art.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2607.07708/fig_p3_u0.jpg" />
-<em>Please provide the figure you would like me to analyze.</em></p>
-<p>SciReasoner operates by unifying disparate scientific inputs—proteins, small molecules, and crystals—into a shared cross-modal latent space mediated by the structure-aware vocabulary. Domain-specific encoders are responsible for transforming the native physical objects into structured textual representations compatible with this vocabulary. These representations are then fed into the LLM Backbone alongside natural language instructions. The training proceeds through three distinct stages: Stage 1 (Warm-up), Stage 2 (Full-parameter Multimodal Training), and Stage 3 (Annealing Training). Crucially, the model's reasoning capability is finalized in the post-training phase, which utilizes reinforcement learning to ground structural tokens as verifiable evidence within the CoT, allowing for the inspection of the reasoning path.</p>
-<h3 id="structure-aware-vocabulary">Structure-aware vocabulary</h3>
-<p>This vocabulary serves as the common substrate for all modalities. It is not merely a token set but a carefully constructed lexicon encompassing local motifs, specific 3D geometric descriptors, atomic bond types, and crystal space group information. Its design mandate is to preserve the inherent physical and biochemical integrity of the input structures, ensuring that a token refers to a specific, addressable physical feature rather than a generalized linguistic concept.</p>
-<h3 id="domain-specific-encoders">Domain-specific encoders</h3>
-<p>These components act as modality translators. They are specialized converters responsible for mapping the native structure of a given scientific object into the structured textual format dictated by the structure-aware vocabulary. For small molecules, this is handled by ConfSeq; for proteins, Foldseek is employed; and for inorganic crystals, SLICES is utilized. The output of these encoders is a structured sequence that retains the physical integrity of the original object while being consumable by the LLM Backbone.</p>
-<h3 id="llm-backbone">LLM Backbone</h3>
-<p>This is the central autoregressive transformer architecture. It ingests the sequence composed of structure-aware tokens (derived from the domain-specific encoders) interleaved with natural language prompts and instructions. Its function is to process this multimodal input, generating coherent, contextually grounded outputs that satisfy the scientific query, whether that is a prediction or a mechanistic explanation.</p>
-<h3 id="stage-1-warm-up-training">Stage 1: Warm-up Training</h3>
-<p>This initial training phase is designed to stabilize the integration process. Its objective is to anchor the newly introduced structure-aware tokens to fundamental topological, geometric, and chemical semantics. This is performed without aggressively perturbing the pre-trained linguistic knowledge embedded within the LLM Backbone, preventing catastrophic forgetting of general language capabilities.</p>
-<h3 id="stage-2-full-parameter-multimodal-training">Stage 2: Full-parameter Multimodal Training</h3>
-<p>In this phase, the model undergoes comprehensive multimodal training. The focus shifts to developing the robust interface between the structural information and the linguistic instruction set. The model learns how to interpret the structured tokens in the context of natural language queries, effectively learning the cross-modal mapping required for scientific tasks.</p>
-<h3 id="stage-3-annealing-training">Stage 3: Annealing Training</h3>
-<p>This stage refines the model's ability to perform deep reasoning. It is characterized by an increased proportion of question-answer (QA)-style data in the training mix. This shift biases the model towards generating explanatory narratives rather than simple feature extraction, thereby fostering native structural reasoning capabilities.</p>
-<h3 id="intra-domain-structural-evidence-grounding">Intra-domain structural evidence grounding</h3>
-<p>This is a critical post-training step executed by domain-specific experts. It explicitly teaches the model how to treat the structural tokens not just as input features, but as verifiable evidence units within the context of reasoning specific to their domain (e.g., a specific bond type in a molecule, or a specific residue interaction in a protein).</p>
-<h3 id="cross-domain-reasoning-consolidation">Cross-domain reasoning consolidation</h3>
-<p>The final post-training step integrates the specialized knowledge gained during the intra-domain grounding. Expert-generated reasoning traces and the capabilities learned within each domain are consolidated into the final SciReasoner model, enabling it to reason coherently across the boundaries of proteins, molecules, and crystals.</p>
+<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2609.20822/fig_p2_c1.jpg" />
+*Figure 1: SAFEHARNESS puts safety on par with task completion. Coding agent receives a task
+instruction with a safety constraint, along with observation images. SAFEHARNESS then equips
+it with obstacle-aware route planning (Sec. 3.2) and obstacle-aware contact execution (Sec. 3.3) to
+enforce safety *</p>
+<p>SAFEHARNESS addresses the safety challenge by decomposing the manipulation task into two distinct phases: a route planning phase (free-space movement) and a contact-rich execution phase. Safety is enforced specifically within both phases using specialized, obstacle-aware mechanisms.</p>
+<h3 id="obstacle-aware-route-planning">Obstacle-aware Route Planning</h3>
+<p>This component operates by grounding both the target objects and the obstacles as geometric bounding boxes. The agent generates candidate routes as sequences of waypoints (a polyline). The core mechanism involves verifying this planned route against the obstacle bounding boxes. If the verification fails—meaning the planned path intersects an obstacle box—the agent is forced to replan. Furthermore, if execution halts due to an unpredicted physical constraint, the system triggers a replan cycle. This iterative plan-verify-execute loop ensures that the generated path adheres to known obstacle boundaries.</p>
+<h3 id="obstacle-aware-contact-execution">Obstacle-aware Contact Execution</h3>
+<p>This component governs the fine-grained decision-making during physical interaction. It determines the precise contact position and the required gripper rotation. The decision logic is contingent upon an adjacency test between the obstacle and the designated contact target. If an obstacle is found to be adjacent to the contact target, the system constrains the contact approach. Specifically, it prioritizes the approach direction that maximizes clearance from the adjacent obstacle, thereby embedding the safety constraint directly into the contact strategy selection.</p>
 <h2 id="results">Results</h2>
+<p>The empirical evaluation on the SafeLIBERO benchmark demonstrates the efficacy of the SAFEHARNESS framework.</p>
 <table>
 <thead>
 <tr>
@@ -4761,68 +4628,44 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Fmax (Cellular Component annotation)</td>
-<td style="text-align: left;">0.55</td>
-<td style="text-align: left;">0.42</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">Task Success Rate (SafeLIBERO)</td>
+<td style="text-align: left;">71.9%</td>
+<td style="text-align: left;">Previous SOTA</td>
+<td style="text-align: left;">Table 3.3</td>
 </tr>
 <tr>
-<td style="text-align: left;">Single-step retrosynthesis accuracy</td>
-<td style="text-align: left;">0.72</td>
-<td style="text-align: left;">0.63</td>
-<td style="text-align: left;">Abstract</td>
+<td style="text-align: left;">Collision Avoidance Rate (SafeLIBERO)</td>
+<td style="text-align: left;">87.5%</td>
+<td style="text-align: left;">Previous SOTA</td>
+<td style="text-align: left;">Table 3.3</td>
 </tr>
 <tr>
-<td style="text-align: left;">Mean Fmax (DeepFRI-GO)</td>
-<td style="text-align: left;">0.59</td>
-<td style="text-align: left;">0.52 (SaProt)</td>
-<td style="text-align: left;">Section 2.2.1</td>
+<td style="text-align: left;">Task Success Rate Improvement (vs. w/o Harnesses)</td>
+<td style="text-align: left;">2.3<span class="arithmatex">\(\times\)</span></td>
+<td style="text-align: left;">Same agent without harnesses</td>
+<td style="text-align: left;">Table 3.3</td>
 </tr>
 <tr>
-<td style="text-align: left;">Accuracy (subcellular localization)</td>
-<td style="text-align: left;">0.88</td>
-<td style="text-align: left;">0.84 (ESM2)</td>
-<td style="text-align: left;">Section 2.2.1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Isoform R2 (RNA function)</td>
-<td style="text-align: left;">0.86</td>
-<td style="text-align: left;">0.59</td>
-<td style="text-align: left;">Section 2.2.1</td>
-</tr>
-<tr>
-<td style="text-align: left;">RNA protein interaction MCC</td>
-<td style="text-align: left;">0.81</td>
-<td style="text-align: left;">0.74</td>
-<td style="text-align: left;">Section 2.2.1</td>
-</tr>
-<tr>
-<td style="text-align: left;">5.0% enrichment factor (DUD-E)</td>
-<td style="text-align: left;">7.70</td>
-<td style="text-align: left;">7.12</td>
-<td style="text-align: left;">Section 2.2.1</td>
-</tr>
-<tr>
-<td style="text-align: left;">R2 (formation-energy parity plot)</td>
-<td style="text-align: left;">0.895</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">Section 2.2.4</td>
+<td style="text-align: left;">Collision Avoidance Rate Improvement (vs. w/o Harnesses)</td>
+<td style="text-align: left;">1.5<span class="arithmatex">\(\times\)</span></td>
+<td style="text-align: left;">Same agent without harnesses</td>
+<td style="text-align: left;">Table 3.3</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>The development of SciReasoner addresses a fundamental bottleneck in applying large-scale AI to scientific discovery: the inability to bridge high-dimensional physical structure with symbolic, mechanistic explanation. By enforcing the representation of structure as addressable, discrete evidence within the LLM's context, we move beyond correlational pattern matching toward genuine structural inference. This capability is vital for accelerating hypothesis generation in fields where the relationship between atomic arrangement and macroscopic function is non-trivial and requires rigorous, traceable justification.</p>
+<p>The findings confirm a critical paradigm shift required for deploying LLM-driven agents in physical robotics. Safety cannot be treated as a post-hoc filter or a mere suggestion in the prompt; it must be architecturally integrated into the decision-making process itself. By decomposing the task and applying specialized, constraint-aware mechanisms to each phase (routing vs. contact), we demonstrate a scalable method for enforcing complex physical constraints. Furthermore, the success of the iterative planning cycle highlights that for long-horizon tasks, the ability to dynamically verify and correct plans against unforeseen environmental states is non-negotiable.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>The current evaluation suggests that high benchmark performance can sometimes be achieved by the model exploiting homology, scaffold, or template-level shortcuts, which warrants further investigation into true inductive reasoning versus pattern matching. Furthermore, the model exhibits a strong dependency on the quality and presence of structural inputs; ablating these inputs results in a consistent and significant degradation of performance, indicating that the structural encoding remains a critical, rather than fully redundant, component of the architecture.</p>
+<p>The current implementation of the route planning verifier is limited to checking for intersection with the obstacle bounding boxes based on an approximately measured scene representation. This scope excludes other critical physical constraints that might arise during motion. Additionally, in long-horizon episodes, the accumulation of extensive records—comprising tool calls and visual observations—within the agent's context window presents a risk of information overload, which could potentially degrade the reliability of the initial, critical safety constraint sentence. Future work must address robust context management to maintain constraint fidelity over extended operational periods.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2607.07708">2607.07708</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260707708</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Accurate, Interdisciplinary and Transparent Structure-property Understanding with Deep Native Structural Reasoning}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Chen Tang and Yizhou Wang and Jianyu Wu and Lintao Wang and Shixiang Tang and Pengze Li et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2607.07708}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2609.20822">2609.20822</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260920822</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Coding Agents with an Obstacle-Aware Harness for Safe Robot Manipulation}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Bingxin Xu and Yuzhang Shang and Zhen Dong and Emilio Ferrara}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2609.20822}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2607.07708}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2609.20822}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
