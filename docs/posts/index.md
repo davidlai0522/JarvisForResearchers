@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Can 4D Foundation Models Remember?](2026-09-21-can-4d-foundation-models-remember/) { data-cat="Computer Vision" data-date="2026-09-21" }
+
+*2026-09-21*
+
+This work introduces PERSISTBENCH, a dataset and metric suite leveraging 360◦videos to systematically evaluate whether 4D foundation models possess object-centric visual memory by testing object permanence, motion continuity, and appearance preservation.
+
 ## [Coding Agents with an Obstacle-Aware Harness for Safe Robot Manipulation](2026-09-20-coding-agents-with-an-obstacle-aware-harness-for-safe-robot-/) { data-cat="Robotics" data-date="2026-09-20" }
 
 *2026-09-20*
