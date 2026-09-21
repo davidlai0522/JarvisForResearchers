@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="AutoDex is an automated real-world data-collection system that validates generated dexterous grasp candidates on physical hardware, providing a reusable database of physically labeled grasp trials without human intervention.
+        <meta name="description" content="This work introduces PERSISTBENCH, a dataset and metric suite leveraging 360◦videos to systematically evaluate whether 4D foundation models possess object-centric visual memory by testing object permanence, motion continuity, and appearance preservation.
 ">
       
       
       
-        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-06-24-autodex-an-automated-real-world-system-for-dexterous-graspin/">
+        <link rel="canonical" href="https://davidlai0522.github.io/JarvisForResearchers/posts/2026-09-21-can-4d-foundation-models-remember/">
       
       
-        <link rel="prev" href="../2026-06-25-benchx-benchmarking-ai-models-for-cancer-detection-and-local/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../2026-06-23-how-transparent-is-diffusiongemma/">
+        <link rel="next" href="../2026-09-20-coding-agents-with-an-obstacle-aware-harness-for-safe-robot-/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>AutoDex: An Automated Real-World System for Dexterous Grasping Data Collection - JarvisForResearchers</title>
+        <title>Can 4D Foundation Models Remember? - JarvisForResearchers</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AutoDex: An Automated Real-World System for Dexterous Grasping Data Collection
+              Can 4D Foundation Models Remember?
             
           </span>
         </div>
@@ -664,10 +664,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2026-09-21-can-4d-foundation-models-remember/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Can 4D Foundation Models Remember?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -683,6 +708,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4d-foundation-model-f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4D Foundation Model (\(f\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target-probes-bmp_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Target Probes (\(\\{\bm{p}_t\\}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sam2-60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SAM2 [60]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlm-93-20-83" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VLM [93, 20, 83]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dinov2-51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DINOv2 [51]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations &amp; Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2680,35 +2872,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AutoDex: An Automated Real-World System for Dexterous Grasping Data Collection
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2026-06-24-autodex-an-automated-real-world-system-for-dexterous-graspin/" class="md-nav__link">
         
   
   
@@ -2724,162 +2891,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TL;DR
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Contributions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Works
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dense-20-camera-perception" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dense 20-camera perception
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#collision-monitored-motion-execution" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Collision-monitored motion execution
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#physical-successfailure-labeling" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Physical success/failure labeling
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#active-object-reset" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Active object reset
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Results
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why This Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations &amp; Open Questions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4501,10 +4512,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dense-20-camera-perception" class="md-nav__link">
+  <a href="#4d-foundation-model-f" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dense 20-camera perception
+        4D Foundation Model (\(f\))
       
     </span>
   </a>
@@ -4512,10 +4523,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#collision-monitored-motion-execution" class="md-nav__link">
+  <a href="#target-probes-bmp_t" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Collision-monitored motion execution
+        Target Probes (\(\\{\bm{p}_t\\}\))
       
     </span>
   </a>
@@ -4523,10 +4534,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#physical-successfailure-labeling" class="md-nav__link">
+  <a href="#sam2-60" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Physical success/failure labeling
+        SAM2 [60]
       
     </span>
   </a>
@@ -4534,10 +4545,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#active-object-reset" class="md-nav__link">
+  <a href="#vlm-93-20-83" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Active object reset
+        VLM [93, 20, 83]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dinov2-51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DINOv2 [51]
       
     </span>
   </a>
@@ -4614,73 +4636,57 @@
       
       
       
-        <a href="../../tags/#tag:grasping" class="md-tag">grasping</a>
+        <a href="../../tags/#tag:computer-vision" class="md-tag">computer-vision</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:machine-learning" class="md-tag">machine-learning</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:perception" class="md-tag">perception</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:pose-estimation" class="md-tag">pose-estimation</a>
-      
-    
-      
-      
-      
-      
-        <a href="../../tags/#tag:robotics" class="md-tag">robotics</a>
+        <a href="../../tags/#tag:foundation-models" class="md-tag">foundation-models</a>
       
     
   </nav>
 
 
 
-  <h1>AutoDex: An Automated Real-World System for Dexterous Grasping Data Collection</h1>
+  <h1>Can 4D Foundation Models Remember?</h1>
 
 <blockquote>
-<p><em>Generated by JarvisForResearchers Bot on 2026-06-24</em></p>
+<p><em>Generated by JarvisForResearchers Bot on 2026-09-21</em></p>
 </blockquote>
 <div class="admonition tip">
 <p class="admonition-title">Why we featured this paper</p>
-<p>Not yet indexed in S2 — assumed brand-new preprint</p>
+<p>Brand new preprint (2026) — accepted</p>
 </div>
 <h2 id="tldr">TL;DR</h2>
-<p>AutoDex is an end-to-end automated system designed to populate a database of physically validated dexterous grasp trials without continuous human intervention. It integrates candidate generation, dense multi-view perception, collision-monitored execution, automated labeling, and active object resetting to achieve high throughput and reliable real-world data collection for complex grasping tasks.</p>
+<p>We introduce PERSISTBENCH, a novel dataset and metric suite built upon 360<span class="arithmatex">\(^\circ\)</span> videos to rigorously assess whether 4D foundation models exhibit object-centric visual memory. By testing object permanence, motion continuity, and appearance preservation, we demonstrate that current models suffer significant performance degradation when objects leave the input field of view, indicating a failure in retaining object-specific state beyond immediate sensory input.</p>
 <h2 id="the-problem">The Problem</h2>
-<p>The development of robust dexterous grasping policies is fundamentally constrained by the availability of high-quality, physically labeled real-world interaction data. Current methodologies present a dichotomy: simulation offers high-throughput data generation but lacks the fidelity to certify real-world contact validity, while manual teleoperation provides ground truth but is inherently slow, subject to operator fatigue, and prone to bias. Scaling hardware validation—the only path to true physical validity—requires automating the entire data collection loop, encompassing perception, execution, labeling, and state reset, without human oversight.</p>
+<p>Current 4D foundation models are capable of perceiving and reconstructing dynamic environments. However, a critical gap remains regarding their capacity for visual memory: specifically, how effectively they retain information about perceived objects when those objects transition out of the observable field of view. Existing evaluation methodologies are insufficient for this task. Specifically, prior benchmarks predominantly rely on pixel-level metrics and lack the necessary ground truth for objects once they exit the view, precluding an object-centric assessment of visual memory. Furthermore, reconstruction benchmarks are inherently limited to evaluating rendering fidelity, failing to capture the object-centric nature of memory. Generative model benchmarks, being largely reference-free, cannot verify if a model faithfully preserves the appearance, location, and motion state of specific entities it has previously observed.</p>
 <h2 id="key-contributions">Key Contributions</h2>
-<p>We introduce AutoDex, an end-to-end automated system capable of executing and labeling generated dexterous grasp candidates directly on physical hardware. This system has yielded a substantial real-world grasp-trial database, cataloging successes and failures across 100 distinct objects, complete with synchronized multi-view observations and robot-state trajectories. Furthermore, we provide a system-level evaluation demonstrating the throughput gains over teleoperation, the achieved real-world success rate against a model-screened baseline, the efficacy of autonomous reset across challenging pose transitions, and the impact of dense multi-view perception on collection reliability.</p>
+<p>This work makes three primary contributions:
+1. Introduction of PERSISTBENCH, the first benchmark providing real-world, ground truth observations designed to systematically evaluate visual memory within 4D foundation models.
+2. Proposal of three distinct, object-centric evaluation aspects: object permanence, motion continuity, and appearance preservation.
+3. Leveraging 360<span class="arithmatex">\(^\circ\)</span> videos as an omniscient ground truth source to construct input-reference pairs where target objects are intentionally removed from the input field of view.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p><img alt="Please provide the figure you would like me to analyze." src="../../assets/figures/2606.23689/fig_p2_c1.jpg" />
-<em>Figure 1: The AutoDex pipeline. AutoDex builds a database of physically labeled dexterous-grasp
-trials by executing generated candidates in a multi-camera workcell, labeling lift-and-hold success
-or failure, and resetting the object between trials. At deployment, downstream systems retrieve
-successf</em></p>
-<p>AutoDex functions as a closed-loop, automated data acquisition pipeline. The process initiates by receiving candidate grasp proposals from a modular candidate generator (specifically, BODex). These candidates are then subjected to initial object pose estimation and continuous execution-time tracking using dense multi-view perception. Viable candidates are selected and tested on a physical multi-finger robot hand within a calibrated workcell. Trial outcomes are determined automatically via a lift-and-hold criterion. Upon completion of a trial, an active reset module is engaged to transition the object to a new stable pose, enabling continuous, unattended data collection if unattempted candidates remain at the current location.</p>
-<h3 id="dense-20-camera-perception">Dense 20-camera perception</h3>
-<p>This component is responsible for maintaining state awareness throughout the execution phase. It provides the necessary input for both the initial estimation of the object's pose and for tracking the object's state dynamically during the grasp attempt, even when occluded by the robot hand.</p>
-<h3 id="collision-monitored-motion-execution">Collision-monitored motion execution</h3>
-<p>Execution is performed unattended using a learned residual-torque monitor. This monitor, implemented as <span class="arithmatex">\(\hat{\tau}_{\theta} = MLP_{\theta}(q, \dot{q})\)</span>, calculates the expected torque based on the current state <span class="arithmatex">\((q, \dot{q})\)</span>. The residual torque, <span class="arithmatex">\(\tau_{res} = \hat{\tau}_{\theta} - \tau_{motor}\)</span>, is used to detect unexpected physical contacts that deviate from the model's prediction, ensuring safe operation during unsupervised attempts.</p>
-<h3 id="physical-successfailure-labeling">Physical success/failure labeling</h3>
-<p>The ground truth for each trial is established autonomously. The system employs a lift-and-hold criterion: a trial is classified as a success if the tracked object maintains a vertical separation of at least 5 cm from its initial height for a duration of 3 seconds.</p>
-<h3 id="active-object-reset">Active object reset</h3>
-<p>When the set of candidates for the current object pose is exhausted, this module takes over. It executes collision-free reset grasps to move the object from its current stable pose (<span class="arithmatex">\(P_i\)</span>) to a new, distinct stable pose (<span class="arithmatex">\(P_j\)</span>), thereby facilitating the exploration of the candidate space across multiple configurations without human intervention.</p>
+<p><img alt="Please provide the figure you would like me to analyze. I will then follow your instructions precisely." src="../../assets/figures/2609.20819/fig_p1_c1.jpg" />
+<em>Figure 1: As humans, we effortlessly maintain a dynamic mental representation of the world: after
+briefly observing a scene (top), we can infer what lies beyond our current field of view and antic-
+ipate how objects continue to move and appear over time. Test which option best matches your
+expectati</em></p>
+<p>The evaluation methodology involves probing a 4D foundation model, <span class="arithmatex">\(f\)</span>, using a set of target probes <span class="arithmatex">\(\\{\bm{p}_t\\}_{t=1}^T\)</span>. These probes generate outputs <span class="arithmatex">\(\\{\mathcal{O}_t\\}_{t=1}^T\)</span> from a set of initial input observations <span class="arithmatex">\(\\{\mathcal{I}_i\\}_{i=1}^N\)</span>. The generated outputs are then compared against ground-truth references <span class="arithmatex">\(\\{\mathcal{O}^{\text{ref}}_t\\}_{t=1}^T\)</span> using a set of criteria <span class="arithmatex">\(g\)</span>. Crucially, three metrics are employed to decouple the assessment of memory from mere rendering fidelity.</p>
+<h3 id="4d-foundation-model-f">4D Foundation Model (<span class="arithmatex">\(f\)</span>)</h3>
+<p>This is the model under investigation. It accepts the input observations <span class="arithmatex">\(\\{\mathcal{I}_i\\}\)</span> and the target probes <span class="arithmatex">\(\\{\bm{p}_t\\}\)</span> to produce the corresponding generated outputs <span class="arithmatex">\(\\{\mathcal{O}_t\\}\)</span>.</p>
+<h3 id="target-probes-bmp_t">Target Probes (<span class="arithmatex">\(\\{\bm{p}_t\\}\)</span>)</h3>
+<p>These are defined as camera trajectories parameterized in <span class="arithmatex">\(\text{SE}(3)\)</span>. They are used to query the foundation model, effectively forcing the model to generate scenes corresponding to viewpoints that may not have been present in the initial input observations.</p>
+<h3 id="sam2-60">SAM2 [60]</h3>
+<p>This component is integral to the Object Permanence evaluation. It is utilized to track the target object across the generated frames, producing a valid segmentation mask, denoted <span class="arithmatex">\(\text{SAM}_t\)</span>.</p>
+<h3 id="vlm-93-20-83">VLM [93, 20, 83]</h3>
+<p>The Vision-Language Model (VLM) is employed alongside the tracker's output in the Object Permanence evaluation. Its role is to provide semantic confirmation of the target object's presence, complementing the geometric tracking provided by SAM2.</p>
+<h3 id="dinov2-51">DINOv2 [51]</h3>
+<p>For the Appearance Preservation metric, DINOv2 is used to extract high-dimensional feature maps, specifically <span class="arithmatex">\(\mathbf{F}_t^{\text{pred}}\)</span> from the generated frame and <span class="arithmatex">\(\mathbf{F}_t^{\text{ref}}\)</span> from the ground-truth reference frame. These features are then compared via cosine similarity.</p>
 <h2 id="results">Results</h2>
-<p>The implementation of the AutoDex pipeline yielded significant improvements in data collection efficiency and quality compared to manual methods.</p>
+<p>The evaluation across the PERSISTBENCH suite yielded consistent findings regarding the limitations of current models.</p>
 <table>
 <thead>
 <tr>
@@ -4692,32 +4698,26 @@ successf</em></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Throughput Improvement</td>
-<td style="text-align: left;">4.8<span class="arithmatex">\(\times\)</span></td>
-<td style="text-align: left;">49.4 h (teleoperation)</td>
-<td style="text-align: left;">Figure 4 (left)</td>
-</tr>
-<tr>
-<td style="text-align: left;">Real-world Success Rate</td>
-<td style="text-align: left;">76%</td>
-<td style="text-align: left;">34%</td>
-<td style="text-align: left;">Figure 4 (right)</td>
+<td style="text-align: left;">Performance Degradation</td>
+<td style="text-align: left;">Every model performs substantially worse once the target object becomes invisible by leaving the input field of view.</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Section 1</td>
 </tr>
 </tbody>
 </table>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>For tasks involving high-dimensional manipulation, such as dexterous grasping, the bottleneck shifts from algorithmic design to data acquisition. AutoDex demonstrates that end-to-end automation is a necessary paradigm shift to bridge the gap between the scalability of simulation and the necessary reliability of real-world contact validation. The integration of dense multi-view perception with learned residual-torque monitoring provides a viable framework for safe, unsupervised execution in complex physical environments. Furthermore, the inclusion of an active reset mechanism proves critical for efficiently sampling the entire configuration space of an object.</p>
+<p>The results underscore a critical insight: high reconstruction fidelity does not equate to robust visual memory. The necessity of object-centric evaluation is paramount; relying solely on pixel-level metrics masks fundamental failures in state retention. Furthermore, the utilization of 360<span class="arithmatex">\(^\circ\)</span> videos provides a necessary paradigm shift, offering a rigorous, reference-based testing environment for out-of-view dynamics. Finally, the decomposition into permanence, continuity, and appearance confirms that visual memory is not a monolithic capability but a composite function requiring granular assessment.</p>
 <h2 id="limitations-open-questions">Limitations &amp; Open Questions</h2>
-<p>A primary limitation is that the system relies on the modular candidate generator (BODex), which only guarantees kinematic and geometric feasibility; it does not inherently guarantee stability under the full spectrum of real contact dynamics. Additionally, the current reset module for flat objects may necessitate relaxing the placement endpoint constraint, allowing release at a height <span class="arithmatex">\(h\)</span> above the target pose, which introduces a descent constraint that requires further investigation.</p>
+<p>The current evaluation setup operates under the assumption that both the input observations <span class="arithmatex">\(\\{\mathcal{I}_i\\}\)</span> and the generated outputs <span class="arithmatex">\(\\{\mathcal{O}_t\\}\)</span> are provided in video format, although the underlying formulation is generalizable to other modalities. A specific constraint in the Motion Continuity metric is that its calculation is restricted only to those frames where the object is successfully tracked, i.e., where <span class="arithmatex">\(\text{SAM}_t = 1\)</span>. Future work should address the robustness of the tracking mechanism itself when memory is degraded.</p>
 <hr />
 <h2 id="citation">Citation</h2>
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2606.23689">2606.23689</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260623689</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{AutoDex: An Automated Real-World System for Dexterous Grasping Data Collection}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Mingi Choi and Gunhee Kim and Jisoo Kim and Taeksoo Kim and Taeyun Ha and Jongbin Lim et al.}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2606.23689}</span><span class="p">,</span>
+<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2609.20819">2609.20819</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">260920819</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Can 4D Foundation Models Remember?}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Guangzhao He and Hadar Averbuch-Elor and Wei-Chiu Ma}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv preprint arXiv:2609.20819}</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2606.23689}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">url</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2609.20819}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 
