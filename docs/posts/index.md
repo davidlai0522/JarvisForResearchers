@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [FuseReg: Regularizing Layer Fusion Mitigates the Reconstruction-Generation Gap in Representation Autoencoders](2026-09-29-fusereg-regularizing-layer-fusion-mitigates-the-reconstructi/) { data-cat="Computer Vision" data-date="2026-09-29" }
+
+*2026-09-29*
+
+FuseReg mitigates the reconstruction-generation gap in Representation Autoencoders (RAEs) by introducing layer-fusion regularization that trains both the decoder and the generator on randomly sampled subsets of encoder layers.
+
 ## [Can 4D Foundation Models Remember?](2026-09-21-can-4d-foundation-models-remember/) { data-cat="Computer Vision" data-date="2026-09-21" }
 
 *2026-09-21*
