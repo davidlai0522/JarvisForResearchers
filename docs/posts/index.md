@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Can Language Models Play the Wikipedia Game?](2026-10-14-can-language-models-play-the-wikipedia-game/) { data-cat="Artificial Intelligence" data-date="2026-10-14" }
+
+*2026-10-14*
+
+This research evaluates the navigation capabilities of sentence embedding models and Large Language Models (LLMs) in the Wikipedia Game, an information retrieval task conducted on large, navigable graph datasets derived from Wikipedia and OpenAlex.
+
 ## [FuseReg: Regularizing Layer Fusion Mitigates the Reconstruction-Generation Gap in Representation Autoencoders](2026-09-29-fusereg-regularizing-layer-fusion-mitigates-the-reconstructi/) { data-cat="Computer Vision" data-date="2026-09-29" }
 
 *2026-09-29*
