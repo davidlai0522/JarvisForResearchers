@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "EgoExplorer: A Vision-Motion-Touch Observatory for Human Loco-Manipulation In Situ": posts/2026-10-15-egoexplorer-a-vision-motion-touch-observatory-for-human-loco.md
     - "Can Language Models Play the Wikipedia Game?": posts/2026-10-14-can-language-models-play-the-wikipedia-game.md
     - "FuseReg: Regularizing Layer Fusion Mitigates the Reconstruction-Generation Gap in Representation Autoencoders": posts/2026-09-29-fusereg-regularizing-layer-fusion-mitigates-the-reconstructi.md
     - "Can 4D Foundation Models Remember?": posts/2026-09-21-can-4d-foundation-models-remember.md

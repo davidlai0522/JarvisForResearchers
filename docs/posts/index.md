@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [EgoExplorer: A Vision-Motion-Touch Observatory for Human Loco-Manipulation In Situ](2026-10-15-egoexplorer-a-vision-motion-touch-observatory-for-human-loco/) { data-cat="Robotics" data-date="2026-10-15" }
+
+*2026-10-15*
+
+EgoExplorer is a 100-hour vision-motion-touch observatory that captures human loco-manipulation by using a C3 pipeline to reconstruct whole-body motion from sparse wearable sensor data.
+
 ## [Can Language Models Play the Wikipedia Game?](2026-10-14-can-language-models-play-the-wikipedia-game/) { data-cat="Artificial Intelligence" data-date="2026-10-14" }
 
 *2026-10-14*
