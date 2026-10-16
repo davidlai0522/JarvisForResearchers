@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Modeling and Understanding Neural Weights of Humanoid Policies with Diffusion](2026-10-16-modeling-and-understanding-neural-weights-of-humanoid-polici/) { data-cat="Robotics" data-date="2026-10-16" }
+
+*2026-10-16*
+
+This work introduces a latent diffusion framework, coupling a linear autoencoder with a Diffusion Transformer, to generate functional humanoid control networks directly in weight space and analyzes the resulting weights to uncover a kinematic prior.
+
 ## [EgoExplorer: A Vision-Motion-Touch Observatory for Human Loco-Manipulation In Situ](2026-10-15-egoexplorer-a-vision-motion-touch-observatory-for-human-loco/) { data-cat="Robotics" data-date="2026-10-15" }
 
 *2026-10-15*
