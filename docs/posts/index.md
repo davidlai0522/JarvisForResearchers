@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [LIBERO-PeRM: Benchmarking Personalized Robotic Manipulation](2026-10-17-libero-perm-benchmarking-personalized-robotic-manipulation/) { data-cat="Robotics" data-date="2026-10-17" }
+
+*2026-10-17*
+
+LIBERO-PeRM introduces a controlled benchmark for Personalized Robotic Manipulation (PeRM) by defining a taxonomy of observable preferences and generating 312 preference-conditioned tasks across five task suites.
+
 ## [Modeling and Understanding Neural Weights of Humanoid Policies with Diffusion](2026-10-16-modeling-and-understanding-neural-weights-of-humanoid-polici/) { data-cat="Robotics" data-date="2026-10-16" }
 
 *2026-10-16*

@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "LIBERO-PeRM: Benchmarking Personalized Robotic Manipulation": posts/2026-10-17-libero-perm-benchmarking-personalized-robotic-manipulation.md
     - "Modeling and Understanding Neural Weights of Humanoid Policies with Diffusion": posts/2026-10-16-modeling-and-understanding-neural-weights-of-humanoid-polici.md
     - "EgoExplorer: A Vision-Motion-Touch Observatory for Human Loco-Manipulation In Situ": posts/2026-10-15-egoexplorer-a-vision-motion-touch-observatory-for-human-loco.md
     - "Can Language Models Play the Wikipedia Game?": posts/2026-10-14-can-language-models-play-the-wikipedia-game.md
