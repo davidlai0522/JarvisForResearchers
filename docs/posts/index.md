@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Gen4P: Video Generators are 4D Perceivers](2026-10-18-gen4p-video-generators-are-4d-perceivers/) { data-cat="Computer Vision" data-date="2026-10-18" }
+
+*2026-10-18*
+
+Gen4P repurposes a pretrained multi-step video generator into a single-step, feed-forward 4D perceiver to unify the recovery of dense 3D tracks, point maps, depth maps, and camera poses from monocular video.
+
 ## [LIBERO-PeRM: Benchmarking Personalized Robotic Manipulation](2026-10-17-libero-perm-benchmarking-personalized-robotic-manipulation/) { data-cat="Robotics" data-date="2026-10-17" }
 
 *2026-10-17*
