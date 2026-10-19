@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Which Tokens to Merge? Diffusion Dynamics for Efficient Image Generation](2026-10-19-which-tokens-to-merge-diffusion-dynamics-for-efficient-image/) { data-cat="Computer Vision" data-date="2026-10-19" }
+
+*2026-10-19*
+
+Dynamics-aware Token Merging (DaTMe) is a training-free framework that grounds token merging in diffusion dynamics by constructing a dynamics-aware importance map combining temporal evolution and structural saliency derived from the Tweedie denoised estimate.
+
 ## [Gen4P: Video Generators are 4D Perceivers](2026-10-18-gen4p-video-generators-are-4d-perceivers/) { data-cat="Computer Vision" data-date="2026-10-18" }
 
 *2026-10-18*
