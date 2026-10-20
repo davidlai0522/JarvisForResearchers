@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Behavioral Couplings: From Formation to Behavioral Emergence in Language Models](2026-10-20-behavioral-couplings-from-formation-to-behavioral-emergence-/) { data-cat="NLP" data-date="2026-10-20" }
+
+*2026-10-20*
+
+This work investigates behavioral couplings in LLMs, demonstrating that training on documents describing co-occurring behaviors can induce unintended, coupled behaviors that can even compose across different training sets.
+
 ## [Which Tokens to Merge? Diffusion Dynamics for Efficient Image Generation](2026-10-19-which-tokens-to-merge-diffusion-dynamics-for-efficient-image/) { data-cat="Computer Vision" data-date="2026-10-19" }
 
 *2026-10-19*
