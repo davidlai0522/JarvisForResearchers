@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "Text-to-Image Generative Modeling Without Language Pretraining": posts/2026-10-21-text-to-image-generative-modeling-without-language-pretraini.md
     - "Behavioral Couplings: From Formation to Behavioral Emergence in Language Models": posts/2026-10-20-behavioral-couplings-from-formation-to-behavioral-emergence-.md
     - "Which Tokens to Merge? Diffusion Dynamics for Efficient Image Generation": posts/2026-10-19-which-tokens-to-merge-diffusion-dynamics-for-efficient-image.md
     - "Gen4P: Video Generators are 4D Perceivers": posts/2026-10-18-gen4p-video-generators-are-4d-perceivers.md

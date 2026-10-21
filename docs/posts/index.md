@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Text-to-Image Generative Modeling Without Language Pretraining](2026-10-21-text-to-image-generative-modeling-without-language-pretraini/) { data-cat="Machine Learning" data-date="2026-10-21" }
+
+*2026-10-21*
+
+Halcyon, an early-fusion multimodal autoregressive model pretrained entirely from scratch on GPIC, demonstrates that strong text-to-image generation can be achieved without internet-scale language pretraining.
+
 ## [Behavioral Couplings: From Formation to Behavioral Emergence in Language Models](2026-10-20-behavioral-couplings-from-formation-to-behavioral-emergence-/) { data-cat="NLP" data-date="2026-10-20" }
 
 *2026-10-20*
