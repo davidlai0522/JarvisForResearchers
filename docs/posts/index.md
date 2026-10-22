@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [SolarRenderer: Few-Step Generative Reference Rendering](2026-10-22-solarrenderer-few-step-generative-reference-rendering/) { data-cat="Computer Vision" data-date="2026-10-22" }
+
+*2026-10-22*
+
+SolarRenderer is a structure-conditioned video renderer that adapts a frozen MiniMax-H3 33B backbone using lightweight LoRAs to render realistic video from arbitrary structural representations in few steps.
+
 ## [Text-to-Image Generative Modeling Without Language Pretraining](2026-10-21-text-to-image-generative-modeling-without-language-pretraini/) { data-cat="Machine Learning" data-date="2026-10-21" }
 
 *2026-10-21*
