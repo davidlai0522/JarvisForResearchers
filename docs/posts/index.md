@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Think Harder Where It Matters: Item-Level Adaptive Recursion for Sequential Recommendation](2026-10-23-think-harder-where-it-matters-item-level-adaptive-recursion-/) { data-cat="Artificial Intelligence" data-date="2026-10-23" }
+
+*2026-10-23*
+
+LoopRec introduces item-level adaptive recursion for sequential recommendation by using a shared backbone and a lightweight gate at each recursion boundary to dynamically determine the necessary computation depth for each item.
+
 ## [SolarRenderer: Few-Step Generative Reference Rendering](2026-10-22-solarrenderer-few-step-generative-reference-rendering/) { data-cat="Computer Vision" data-date="2026-10-22" }
 
 *2026-10-22*
