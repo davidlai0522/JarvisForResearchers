@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "A Unified Framework for Image-to-3D Part Generation via Variable Granularity": posts/2026-10-24-a-unified-framework-for-image-to-3d-part-generation-via-vari.md
     - "Think Harder Where It Matters: Item-Level Adaptive Recursion for Sequential Recommendation": posts/2026-10-23-think-harder-where-it-matters-item-level-adaptive-recursion-.md
     - "SolarRenderer: Few-Step Generative Reference Rendering": posts/2026-10-22-solarrenderer-few-step-generative-reference-rendering.md
     - "Text-to-Image Generative Modeling Without Language Pretraining": posts/2026-10-21-text-to-image-generative-modeling-without-language-pretraini.md

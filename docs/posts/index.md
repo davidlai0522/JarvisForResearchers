@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [A Unified Framework for Image-to-3D Part Generation via Variable Granularity](2026-10-24-a-unified-framework-for-image-to-3d-part-generation-via-vari/) { data-cat="Computer Vision" data-date="2026-10-24" }
+
+*2026-10-24*
+
+FlexPart is a unified framework that integrates sparse points, bounding boxes, and masks into a single Diffusion Transformer (DiT) using gated adaptive modulation and an Asymmetric Geometric Guidance mechanism for controllable image-to-3D part generation.
+
 ## [Think Harder Where It Matters: Item-Level Adaptive Recursion for Sequential Recommendation](2026-10-23-think-harder-where-it-matters-item-level-adaptive-recursion-/) { data-cat="Artificial Intelligence" data-date="2026-10-23" }
 
 *2026-10-23*
