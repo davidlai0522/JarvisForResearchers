@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Cost-Aware Abstention for LLM-Based IT Ticket Classification](2026-10-25-cost-aware-abstention-for-llm-based-it-ticket-classification/) { data-cat="Machine Learning" data-date="2026-10-25" }
+
+*2026-10-25*
+
+This paper evaluates cost-aware abstention policies for LLM-based IT ticket classification, demonstrating that selecting a routing threshold based on asymmetric costs can significantly reduce expected operational costs compared to standard routing.
+
 ## [A Unified Framework for Image-to-3D Part Generation via Variable Granularity](2026-10-24-a-unified-framework-for-image-to-3d-part-generation-via-vari/) { data-cat="Computer Vision" data-date="2026-10-24" }
 
 *2026-10-24*
