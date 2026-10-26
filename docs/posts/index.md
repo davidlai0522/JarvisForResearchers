@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Direct Pass@$k$ Optimization for Thought Pruning: Balancing Quality and Diversity in Test-Time Reasoning](2026-10-26-direct-pass-k-optimization-for-thought-pruning-balancing-qua/) { data-cat="Artificial Intelligence" data-date="2026-10-26" }
+
+*2026-10-26*
+
+PKTP (Pass@k Thought Pruning) introduces a pruning framework that directly optimizes pass@k by modeling the joint distribution of rollout outcomes using a latent Gaussian model, enabling a greedy selection procedure that balances quality and diversity.
+
 ## [Cost-Aware Abstention for LLM-Based IT Ticket Classification](2026-10-25-cost-aware-abstention-for-llm-based-it-ticket-classification/) { data-cat="Machine Learning" data-date="2026-10-25" }
 
 *2026-10-25*
