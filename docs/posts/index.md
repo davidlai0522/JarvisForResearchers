@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [UniAction: Unified Action Conditioning for World Models](2026-10-27-uniaction-unified-action-conditioning-for-world-models/) { data-cat="Computer Vision" data-date="2026-10-27" }
+
+*2026-10-27*
+
+UniAction introduces a unified action-conditioning framework that represents heterogeneous actions as sparse sets of action elements, allowing them to condition a shared world model via native positional geometry and cardinality-calibrated attention.
+
 ## [Direct Pass@$k$ Optimization for Thought Pruning: Balancing Quality and Diversity in Test-Time Reasoning](2026-10-26-direct-pass-k-optimization-for-thought-pruning-balancing-qua/) { data-cat="Artificial Intelligence" data-date="2026-10-26" }
 
 *2026-10-26*

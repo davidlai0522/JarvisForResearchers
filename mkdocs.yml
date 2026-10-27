@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "UniAction: Unified Action Conditioning for World Models": posts/2026-10-27-uniaction-unified-action-conditioning-for-world-models.md
     - "Direct Pass@$k$ Optimization for Thought Pruning: Balancing Quality and Diversity in Test-Time Reasoning": posts/2026-10-26-direct-pass-k-optimization-for-thought-pruning-balancing-qua.md
     - "Cost-Aware Abstention for LLM-Based IT Ticket Classification": posts/2026-10-25-cost-aware-abstention-for-llm-based-it-ticket-classification.md
     - "A Unified Framework for Image-to-3D Part Generation via Variable Granularity": posts/2026-10-24-a-unified-framework-for-image-to-3d-part-generation-via-vari.md
