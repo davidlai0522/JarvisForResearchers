@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Retriever-Free Retrieval: Navigating Documents with Decision Models](2026-10-28-retriever-free-retrieval-navigating-documents-with-decision-/) { data-cat="Artificial Intelligence" data-date="2026-10-28" }
+
+*2026-10-28*
+
+DecisionRAG introduces a retriever-free retrieval method that leverages decision models to navigate the inherent hierarchical structure of a corpus by jointly evaluating candidate branches in a single forward pass without generating tokens.
+
 ## [UniAction: Unified Action Conditioning for World Models](2026-10-27-uniaction-unified-action-conditioning-for-world-models/) { data-cat="Computer Vision" data-date="2026-10-27" }
 
 *2026-10-27*
