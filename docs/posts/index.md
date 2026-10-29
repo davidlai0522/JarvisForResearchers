@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [KPPax: preprocess differentiable kinetic ODE for machine learning in atmospheric chemistry](2026-10-29-kppax-preprocess-differentiable-kinetic-ode-for-machine-lear/) { data-cat="Artificial Intelligence" data-date="2026-10-29" }
+
+*2026-10-29*
+
+KPPax is a kinetic preprocessor that translates Kinetic Pre-Processor (KPP) mechanisms into differentiable, just-in-time compiled, and vectorisable chemistry code in JAX, enabling direct use in machine learning workflows.
+
 ## [Retriever-Free Retrieval: Navigating Documents with Decision Models](2026-10-28-retriever-free-retrieval-navigating-documents-with-decision-/) { data-cat="Artificial Intelligence" data-date="2026-10-28" }
 
 *2026-10-28*

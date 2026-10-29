@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "KPPax: preprocess differentiable kinetic ODE for machine learning in atmospheric chemistry": posts/2026-10-29-kppax-preprocess-differentiable-kinetic-ode-for-machine-lear.md
     - "Retriever-Free Retrieval: Navigating Documents with Decision Models": posts/2026-10-28-retriever-free-retrieval-navigating-documents-with-decision-.md
     - "UniAction: Unified Action Conditioning for World Models": posts/2026-10-27-uniaction-unified-action-conditioning-for-world-models.md
     - "Direct Pass@$k$ Optimization for Thought Pruning: Balancing Quality and Diversity in Test-Time Reasoning": posts/2026-10-26-direct-pass-k-optimization-for-thought-pruning-balancing-qua.md
