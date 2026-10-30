@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Honeycomb-Surfels: Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction](2026-10-30-honeycomb-surfels-compact-hexagonal-primitives-for-efficient/) { data-cat="Computer Vision" data-date="2026-10-30" }
+
+*2026-10-30*
+
+Hexels introduce compact, planar hexagonal surface elements with a first-order spatial color field to achieve superior quality-efficiency trade-offs in 3D scene rendering, surface reconstruction, and 2D image representation compared to existing splatting methods.
+
 ## [KPPax: preprocess differentiable kinetic ODE for machine learning in atmospheric chemistry](2026-10-29-kppax-preprocess-differentiable-kinetic-ode-for-machine-lear/) { data-cat="Artificial Intelligence" data-date="2026-10-29" }
 
 *2026-10-29*
