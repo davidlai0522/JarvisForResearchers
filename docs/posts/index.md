@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Read, Allocate, Route: Role-Coupled Tokenization for Pixel-Space Generative Transformers](2026-10-31-read-allocate-route-role-coupled-tokenization-for-pixel-spac/) { data-cat="Computer Vision" data-date="2026-10-31" }
+
+*2026-10-31*
+
+SpecSlot introduces a role-coupled tokenization scheme that decouples output detail from the global attention sequence length by expanding spatial anchors into spectrally-defined slots, allowing for finer detail without increasing global communication cost.
+
 ## [Honeycomb-Surfels: Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction](2026-10-30-honeycomb-surfels-compact-hexagonal-primitives-for-efficient/) { data-cat="Computer Vision" data-date="2026-10-30" }
 
 *2026-10-30*
