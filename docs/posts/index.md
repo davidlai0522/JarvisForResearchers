@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Micro-Edits: Computational Support for Fine-Scale Edits in Film](2026-11-01-micro-edits-computational-support-for-fine-scale-edits-in-fi/) { data-cat="Computer Vision" data-date="2026-11-01" }
+
+*2026-11-01*
+
+This work introduces computational support for fine-scale film edits, termed micro-edits, by formalizing them as continuous optimization problems within audio-visual synchrony-constrained windows to assist editors in achieving specific creative goals like rhythm control and visual attention direction.
+
 ## [Read, Allocate, Route: Role-Coupled Tokenization for Pixel-Space Generative Transformers](2026-10-31-read-allocate-route-role-coupled-tokenization-for-pixel-spac/) { data-cat="Computer Vision" data-date="2026-10-31" }
 
 *2026-10-31*
