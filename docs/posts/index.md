@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [SwapBot: Tool-Centric Robot Manipulation via Interchangeable End-Effectors and Tactile Sensing](2026-11-02-swapbot-tool-centric-robot-manipulation-via-interchangeable-/) { data-cat="Robotics" data-date="2026-11-02" }
+
+*2026-11-02*
+
+SwapBot is a modular, tool-centric end effector system that integrates low-cost, tactile sensors and an intuitive teleoperation interface to enable robust, long-horizon robot manipulation using diverse household tools.
+
 ## [Micro-Edits: Computational Support for Fine-Scale Edits in Film](2026-11-01-micro-edits-computational-support-for-fine-scale-edits-in-fi/) { data-cat="Computer Vision" data-date="2026-11-01" }
 
 *2026-11-01*

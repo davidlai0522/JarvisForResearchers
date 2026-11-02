@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "SwapBot: Tool-Centric Robot Manipulation via Interchangeable End-Effectors and Tactile Sensing": posts/2026-11-02-swapbot-tool-centric-robot-manipulation-via-interchangeable-.md
     - "Micro-Edits: Computational Support for Fine-Scale Edits in Film": posts/2026-11-01-micro-edits-computational-support-for-fine-scale-edits-in-fi.md
     - "Read, Allocate, Route: Role-Coupled Tokenization for Pixel-Space Generative Transformers": posts/2026-10-31-read-allocate-route-role-coupled-tokenization-for-pixel-spac.md
     - "Honeycomb-Surfels: Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction": posts/2026-10-30-honeycomb-surfels-compact-hexagonal-primitives-for-efficient.md
