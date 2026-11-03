@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Latent Sparse Attention: Towards Subquadratic Ultra-Long Context Attention](2026-11-03-latent-sparse-attention-towards-subquadratic-ultra-long-cont/) { data-cat="Artificial Intelligence" data-date="2026-11-03" }
+
+*2026-11-03*
+
+Latent Sparse Attention (LSA) introduces a method to achieve subquadratic attention complexity at ultra-long context by clustering keys in a learned latent space, allowing queries to score cluster centroids instead of every key.
+
 ## [SwapBot: Tool-Centric Robot Manipulation via Interchangeable End-Effectors and Tactile Sensing](2026-11-02-swapbot-tool-centric-robot-manipulation-via-interchangeable-/) { data-cat="Robotics" data-date="2026-11-02" }
 
 *2026-11-02*
