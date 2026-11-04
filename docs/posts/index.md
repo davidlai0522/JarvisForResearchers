@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [EgoActionBench: Benchmarking Dense Action Captioning for Egocentric Human Videos](2026-11-04-egoactionbench-benchmarking-dense-action-captioning-for-egoc/) { data-cat="Computer Vision" data-date="2026-11-04" }
+
+*2026-11-04*
+
+EgoActionBench is a new benchmark designed to evaluate dense per-hand action captioning in egocentric videos by requiring models to recover temporally localized atomic actions associated with the left hand, right hand, or both hands.
+
 ## [Latent Sparse Attention: Towards Subquadratic Ultra-Long Context Attention](2026-11-03-latent-sparse-attention-towards-subquadratic-ultra-long-cont/) { data-cat="Artificial Intelligence" data-date="2026-11-03" }
 
 *2026-11-03*
