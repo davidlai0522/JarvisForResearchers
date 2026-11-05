@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [DreamX: Video Diffusion Model is a Universal Latent Action Learner](2026-11-05-dreamx-video-diffusion-model-is-a-universal-latent-action-le/) { data-cat="Computer Vision" data-date="2026-11-05" }
+
+*2026-11-05*
+
+DreamX repurposes a pretrained video diffusion model to learn universal, compact latent actions that disentangle motion from visual appearance, enabling cross-embodiment action transfer and efficient policy learning.
+
 ## [EgoActionBench: Benchmarking Dense Action Captioning for Egocentric Human Videos](2026-11-04-egoactionbench-benchmarking-dense-action-captioning-for-egoc/) { data-cat="Computer Vision" data-date="2026-11-04" }
 
 *2026-11-04*

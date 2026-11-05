@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "DreamX: Video Diffusion Model is a Universal Latent Action Learner": posts/2026-11-05-dreamx-video-diffusion-model-is-a-universal-latent-action-le.md
     - "EgoActionBench: Benchmarking Dense Action Captioning for Egocentric Human Videos": posts/2026-11-04-egoactionbench-benchmarking-dense-action-captioning-for-egoc.md
     - "Latent Sparse Attention: Towards Subquadratic Ultra-Long Context Attention": posts/2026-11-03-latent-sparse-attention-towards-subquadratic-ultra-long-cont.md
     - "SwapBot: Tool-Centric Robot Manipulation via Interchangeable End-Effectors and Tactile Sensing": posts/2026-11-02-swapbot-tool-centric-robot-manipulation-via-interchangeable-.md
