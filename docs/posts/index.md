@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [From Pixels to Actions - Towards Native Vision-Language-Action Policies](2026-11-06-from-pixels-to-actions-towards-native-vision-language-action/) { data-cat="Computer Vision" data-date="2026-11-06" }
+
+*2026-11-06*
+
+NEO-VLA introduces a structurally encoder-free vision-language-action framework where raw pixels are tokenized and evolve jointly with language throughout the backbone, allowing a flow-matching action expert to access visual representations at various computational depths for robust embodied control.
+
 ## [DreamX: Video Diffusion Model is a Universal Latent Action Learner](2026-11-05-dreamx-video-diffusion-model-is-a-universal-latent-action-le/) { data-cat="Computer Vision" data-date="2026-11-05" }
 
 *2026-11-05*
