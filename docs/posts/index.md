@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [EgoGeneralist: Unifying Egocentric Action-Video Tasks through Video-Native Modeling](2026-11-07-egogeneralist-unifying-egocentric-action-video-tasks-through/) { data-cat="Computer Vision" data-date="2026-11-07" }
+
+*2026-11-07*
+
+EgoGeneralist is a video-native framework that adapts pretrained video generators to unify action-conditioned egocentric video generation, egocentric 3D pose estimation, and joint action–video generation by using role-adaptive action rendering and cross-stream action–video coupling.
+
 ## [From Pixels to Actions - Towards Native Vision-Language-Action Policies](2026-11-06-from-pixels-to-actions-towards-native-vision-language-action/) { data-cat="Computer Vision" data-date="2026-11-06" }
 
 *2026-11-06*
