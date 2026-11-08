@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Do You Miss the Nights We Spent Crafting Figures? Rethinking Teaser and Framework Figures in the Age of Generative AI](2026-11-08-do-you-miss-the-nights-we-spent-crafting-figures-rethinking-/) { data-cat="Computer Vision" data-date="2026-11-08" }
+
+*2026-11-08*
+
+This study retrospectively analyzes 371 motivation and framework figures from 200 papers to examine how generative AI-assisted revisions affect visual communication and design, ultimately advocating for researcher-led design.
+
 ## [EgoGeneralist: Unifying Egocentric Action-Video Tasks through Video-Native Modeling](2026-11-07-egogeneralist-unifying-egocentric-action-video-tasks-through/) { data-cat="Computer Vision" data-date="2026-11-07" }
 
 *2026-11-07*
