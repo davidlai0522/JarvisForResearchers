@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "Where and Why is Grounded Reasoning Useful?": posts/2026-11-09-where-and-why-is-grounded-reasoning-useful.md
     - "Do You Miss the Nights We Spent Crafting Figures? Rethinking Teaser and Framework Figures in the Age of Generative AI": posts/2026-11-08-do-you-miss-the-nights-we-spent-crafting-figures-rethinking-.md
     - "EgoGeneralist: Unifying Egocentric Action-Video Tasks through Video-Native Modeling": posts/2026-11-07-egogeneralist-unifying-egocentric-action-video-tasks-through.md
     - "From Pixels to Actions - Towards Native Vision-Language-Action Policies": posts/2026-11-06-from-pixels-to-actions-towards-native-vision-language-action.md

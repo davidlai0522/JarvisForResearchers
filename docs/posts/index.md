@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Where and Why is Grounded Reasoning Useful?](2026-11-09-where-and-why-is-grounded-reasoning-useful/) { data-cat="Computer Vision" data-date="2026-11-09" }
+
+*2026-11-09*
+
+Grounded reasoning is most useful for tasks requiring undescribable visual references, such as counting, but shows limited benefit over text-only reasoning on general spatial reasoning and perception benchmarks.
+
 ## [Do You Miss the Nights We Spent Crafting Figures? Rethinking Teaser and Framework Figures in the Age of Generative AI](2026-11-08-do-you-miss-the-nights-we-spent-crafting-figures-rethinking-/) { data-cat="Computer Vision" data-date="2026-11-08" }
 
 *2026-11-08*
