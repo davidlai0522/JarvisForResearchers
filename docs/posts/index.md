@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [On Agentic Manipulation Policies](2026-11-10-on-agentic-manipulation-policies/) { data-cat="Robotics" data-date="2026-11-10" }
+
+*2026-11-10*
+
+Agentic Manipulation Policies (AMPs), exemplified by AMP1, demonstrate superior zero-shot generalization and robustness in robot manipulation tasks compared to specialist policies like VLAs and WAMs.
+
 ## [Where and Why is Grounded Reasoning Useful?](2026-11-09-where-and-why-is-grounded-reasoning-useful/) { data-cat="Computer Vision" data-date="2026-11-09" }
 
 *2026-11-09*
