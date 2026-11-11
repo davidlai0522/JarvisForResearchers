@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Reframe: Observation-Aligned Multi-Teacher On-Policy Distillation for Agentic Visual Reasoning](2026-11-11-reframe-observation-aligned-multi-teacher-on-policy-distilla/) { data-cat="Computer Vision" data-date="2026-11-11" }
+
+*2026-11-11*
+
+Reframe is a two-stage post-training framework that addresses observation neglect in agentic visual reasoning by first enforcing observation necessity via Ground-Drop-GRPO (GD-GRPO) and then ensuring observation validity through Observation-Gated-MOPD (OG-MOPD).
+
 ## [On Agentic Manipulation Policies](2026-11-10-on-agentic-manipulation-policies/) { data-cat="Robotics" data-date="2026-11-10" }
 
 *2026-11-10*

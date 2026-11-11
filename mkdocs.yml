@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "Reframe: Observation-Aligned Multi-Teacher On-Policy Distillation for Agentic Visual Reasoning": posts/2026-11-11-reframe-observation-aligned-multi-teacher-on-policy-distilla.md
     - "On Agentic Manipulation Policies": posts/2026-11-10-on-agentic-manipulation-policies.md
     - "Where and Why is Grounded Reasoning Useful?": posts/2026-11-09-where-and-why-is-grounded-reasoning-useful.md
     - "Do You Miss the Nights We Spent Crafting Figures? Rethinking Teaser and Framework Figures in the Age of Generative AI": posts/2026-11-08-do-you-miss-the-nights-we-spent-crafting-figures-rethinking-.md
