@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Toward Foundation Detection Models via Example-Based Grounding in EM-DETR](2026-11-12-toward-foundation-detection-models-via-example-based-groundi/) { data-cat="Computer Vision" data-date="2026-11-12" }
+
+*2026-11-12*
+
+This paper introduces a multi-domain foundation detection model, EM-FM, by extending the EM-DETR framework and employing a student-teacher strategy to integrate diverse medical image datasets annotated for both anatomical structures and abnormalities.
+
 ## [Reframe: Observation-Aligned Multi-Teacher On-Policy Distillation for Agentic Visual Reasoning](2026-11-11-reframe-observation-aligned-multi-teacher-on-policy-distilla/) { data-cat="Computer Vision" data-date="2026-11-11" }
 
 *2026-11-11*
