@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Measuring Robustness and Efficiency in a Connectome-Constrained Fly Visual System Model: Linking an Adversarial and a Perceptual Illusion](2026-11-13-measuring-robustness-and-efficiency-in-a-connectome-constrai/) { data-cat="Computer Vision" data-date="2026-11-13" }
+
+*2026-11-13*
+
+This work benchmarks the robustness and efficiency of a connectome-constrained fly visual system model (FlyNet) against artificial networks under adversarial and perceptual illusions on a collision-detection task.
+
 ## [Toward Foundation Detection Models via Example-Based Grounding in EM-DETR](2026-11-12-toward-foundation-detection-models-via-example-based-groundi/) { data-cat="Computer Vision" data-date="2026-11-12" }
 
 *2026-11-12*

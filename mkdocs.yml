@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "Measuring Robustness and Efficiency in a Connectome-Constrained Fly Visual System Model: Linking an Adversarial and a Perceptual Illusion": posts/2026-11-13-measuring-robustness-and-efficiency-in-a-connectome-constrai.md
     - "Toward Foundation Detection Models via Example-Based Grounding in EM-DETR": posts/2026-11-12-toward-foundation-detection-models-via-example-based-groundi.md
     - "Reframe: Observation-Aligned Multi-Teacher On-Policy Distillation for Agentic Visual Reasoning": posts/2026-11-11-reframe-observation-aligned-multi-teacher-on-policy-distilla.md
     - "On Agentic Manipulation Policies": posts/2026-11-10-on-agentic-manipulation-policies.md
