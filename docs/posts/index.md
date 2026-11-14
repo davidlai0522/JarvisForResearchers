@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Unbundling Multimodal Vision Encoding](2026-11-14-unbundling-multimodal-vision-encoding/) { data-cat="Computer Vision" data-date="2026-11-14" }
+
+*2026-11-14*
+
+This study unbundles the three design choices in multimodal vision encoding—visual prior, dedicated vision capacity, and pre-fusion placement—by training all models from scratch on common data to determine that dedicated vision capacity trained jointly with the backbone is key, and it does not need separate pretraining or pre-fusion placement.
+
 ## [Measuring Robustness and Efficiency in a Connectome-Constrained Fly Visual System Model: Linking an Adversarial and a Perceptual Illusion](2026-11-13-measuring-robustness-and-efficiency-in-a-connectome-constrai/) { data-cat="Computer Vision" data-date="2026-11-13" }
 
 *2026-11-13*
