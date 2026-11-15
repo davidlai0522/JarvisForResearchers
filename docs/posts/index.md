@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Back to Pixels: Lifting Latent Video Diffusion into Pixel Space](2026-11-15-back-to-pixels-lifting-latent-video-diffusion-into-pixel-spa/) { data-cat="Computer Vision" data-date="2026-11-15" }
+
+*2026-11-15*
+
+PixVid lifts a pretrained latent video diffusion model into a frame-wise pixel-space model by replacing the VAE decoder with a convolutional detailer head, enabling high-resolution, controllable, and low-latency video generation.
+
 ## [Unbundling Multimodal Vision Encoding](2026-11-14-unbundling-multimodal-vision-encoding/) { data-cat="Computer Vision" data-date="2026-11-14" }
 
 *2026-11-14*
