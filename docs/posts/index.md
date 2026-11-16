@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [BrickFlow: Connectivity-Guided Brick Reconstruction](2026-11-16-brickflow-connectivity-guided-brick-reconstruction/) { data-cat="Computer Vision" data-date="2026-11-16" }
+
+*2026-11-16*
+
+BrickFlow learns an assembly prior using an SE(3) flow model trained on procedurally generated LEGO assemblies, which is then enhanced with analytic connectivity-field guidance at test time for improved structural validity.
+
 ## [Back to Pixels: Lifting Latent Video Diffusion into Pixel Space](2026-11-15-back-to-pixels-lifting-latent-video-diffusion-into-pixel-spa/) { data-cat="Computer Vision" data-date="2026-11-15" }
 
 *2026-11-15*
