@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [BAL: Bidirectional Autoregression in Latent Space for Learning Human Movement Representations](2026-11-17-bal-bidirectional-autoregression-in-latent-space-for-learnin/) { data-cat="Computer Vision" data-date="2026-11-17" }
+
+*2026-11-17*
+
+BAL introduces a self-supervised framework that learns human movement representations by exploiting the natural ordering structure of behavior through bidirectional autoregressive prediction in a latent space, while mitigating representation collapse via global and local component decomposition.
+
 ## [BrickFlow: Connectivity-Guided Brick Reconstruction](2026-11-16-brickflow-connectivity-guided-brick-reconstruction/) { data-cat="Computer Vision" data-date="2026-11-16" }
 
 *2026-11-16*

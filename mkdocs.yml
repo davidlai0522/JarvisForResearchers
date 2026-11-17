@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "BAL: Bidirectional Autoregression in Latent Space for Learning Human Movement Representations": posts/2026-11-17-bal-bidirectional-autoregression-in-latent-space-for-learnin.md
     - "BrickFlow: Connectivity-Guided Brick Reconstruction": posts/2026-11-16-brickflow-connectivity-guided-brick-reconstruction.md
     - "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space": posts/2026-11-15-back-to-pixels-lifting-latent-video-diffusion-into-pixel-spa.md
     - "Unbundling Multimodal Vision Encoding": posts/2026-11-14-unbundling-multimodal-vision-encoding.md
