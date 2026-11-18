@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Latent Lattice Language Models](2026-11-18-latent-lattice-language-models/) { data-cat="Machine Learning" data-date="2026-11-18" }
+
+*2026-11-18*
+
+The Lattice of Latents (LLLM) increases language model computational capacity by introducing per-layer horizontal latent streams that run recurrently across time, complementing the standard vertical residual stream that flows through depth.
+
 ## [BAL: Bidirectional Autoregression in Latent Space for Learning Human Movement Representations](2026-11-17-bal-bidirectional-autoregression-in-latent-space-for-learnin/) { data-cat="Computer Vision" data-date="2026-11-17" }
 
 *2026-11-17*
