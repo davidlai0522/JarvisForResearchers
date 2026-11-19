@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "Ambient LLMs: Data-Efficient Supervised Fine-tuning via Temperature Matching": posts/2026-11-19-ambient-llms-data-efficient-supervised-fine-tuning-via-tempe.md
     - "Latent Lattice Language Models": posts/2026-11-18-latent-lattice-language-models.md
     - "BAL: Bidirectional Autoregression in Latent Space for Learning Human Movement Representations": posts/2026-11-17-bal-bidirectional-autoregression-in-latent-space-for-learnin.md
     - "BrickFlow: Connectivity-Guided Brick Reconstruction": posts/2026-11-16-brickflow-connectivity-guided-brick-reconstruction.md

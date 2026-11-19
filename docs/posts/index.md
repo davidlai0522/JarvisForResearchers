@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Ambient LLMs: Data-Efficient Supervised Fine-tuning via Temperature Matching](2026-11-19-ambient-llms-data-efficient-supervised-fine-tuning-via-tempe/) { data-cat="Machine Learning" data-date="2026-11-19" }
+
+*2026-11-19*
+
+Ambient SFT is a data-efficient fine-tuning framework that regularizes post-training by enforcing that the fine-tuned model matches the high-temperature conditional distributions of its pre-trained predecessor.
+
 ## [Latent Lattice Language Models](2026-11-18-latent-lattice-language-models/) { data-cat="Machine Learning" data-date="2026-11-18" }
 
 *2026-11-18*
