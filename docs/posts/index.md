@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [UltraTex: Aligning Physical Knowledge for High-Fidelity PBR Texture Generation](2026-11-20-ultratex-aligning-physical-knowledge-for-high-fidelity-pbr-t/) { data-cat="Computer Vision" data-date="2026-11-20" }
+
+*2026-11-20*
+
+UltraTex is a cascaded multi-view framework that generates high-fidelity Physically Based Rendering (PBR) texture maps by integrating physical knowledge through material-semantic conditioning and photometric representation alignment into a diffusion-based pipeline.
+
 ## [Ambient LLMs: Data-Efficient Supervised Fine-tuning via Temperature Matching](2026-11-19-ambient-llms-data-efficient-supervised-fine-tuning-via-tempe/) { data-cat="Machine Learning" data-date="2026-11-19" }
 
 *2026-11-19*
