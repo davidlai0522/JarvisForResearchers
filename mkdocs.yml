@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "RL Post-Training in Diffusion Transformers Is Activation Steering": posts/2026-11-21-rl-post-training-in-diffusion-transformers-is-activation-ste.md
     - "UltraTex: Aligning Physical Knowledge for High-Fidelity PBR Texture Generation": posts/2026-11-20-ultratex-aligning-physical-knowledge-for-high-fidelity-pbr-t.md
     - "Ambient LLMs: Data-Efficient Supervised Fine-tuning via Temperature Matching": posts/2026-11-19-ambient-llms-data-efficient-supervised-fine-tuning-via-tempe.md
     - "Latent Lattice Language Models": posts/2026-11-18-latent-lattice-language-models.md

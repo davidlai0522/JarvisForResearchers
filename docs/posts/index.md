@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [RL Post-Training in Diffusion Transformers Is Activation Steering](2026-11-21-rl-post-training-in-diffusion-transformers-is-activation-ste/) { data-cat="Computer Vision" data-date="2026-11-21" }
+
+*2026-11-21*
+
+Fixed, input-independent steering vectors added to the block outputs of a frozen diffusion transformer base model can recover the majority of the reward gains achieved by full Reinforcement Learning (RL) post-training.
+
 ## [UltraTex: Aligning Physical Knowledge for High-Fidelity PBR Texture Generation](2026-11-20-ultratex-aligning-physical-knowledge-for-high-fidelity-pbr-t/) { data-cat="Computer Vision" data-date="2026-11-20" }
 
 *2026-11-20*
