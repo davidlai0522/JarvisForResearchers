@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Posterior Matching Distillation](2026-11-22-posterior-matching-distillation/) { data-cat="Computer Vision" data-date="2026-11-22" }
+
+*2026-11-22*
+
+Posterior Matching Distillation (PMD) is a distribution-based distillation method that uses exponentially tilted means to supervise a stochastic student model, enabling it to recover the teacher's full conditional posterior while supporting any-step generation.
+
 ## [RL Post-Training in Diffusion Transformers Is Activation Steering](2026-11-21-rl-post-training-in-diffusion-transformers-is-activation-ste/) { data-cat="Computer Vision" data-date="2026-11-21" }
 
 *2026-11-21*
