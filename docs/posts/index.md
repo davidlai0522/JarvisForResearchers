@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [PlayCraft: Designing Engaging Games from Agent Play Experience](2026-11-23-playcraft-designing-engaging-games-from-agent-play-experienc/) { data-cat="Artificial Intelligence" data-date="2026-11-23" }
+
+*2026-11-23*
+
+PlayCraft is an automated framework that uses a vision-based agent to play games and iteratively revises them based on the agent's detailed play experience to design games that support player mastery.
+
 ## [Posterior Matching Distillation](2026-11-22-posterior-matching-distillation/) { data-cat="Computer Vision" data-date="2026-11-22" }
 
 *2026-11-22*
