@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Research Digest:
     - Overview: posts/index.md
+    - "Optimal Linear Regression Without a Variance": posts/2026-11-24-optimal-linear-regression-without-a-variance.md
     - "PlayCraft: Designing Engaging Games from Agent Play Experience": posts/2026-11-23-playcraft-designing-engaging-games-from-agent-play-experienc.md
     - "Posterior Matching Distillation": posts/2026-11-22-posterior-matching-distillation.md
     - "RL Post-Training in Diffusion Transformers Is Activation Steering": posts/2026-11-21-rl-post-training-in-diffusion-transformers-is-activation-ste.md

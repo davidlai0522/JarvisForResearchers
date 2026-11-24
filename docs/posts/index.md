@@ -9,6 +9,12 @@ AI-generated summaries of top robotics and ML papers, powered by Gemma 4 running
 
 ---
 
+## [Optimal Linear Regression Without a Variance](2026-11-24-optimal-linear-regression-without-a-variance/) { data-cat="Artificial Intelligence" data-date="2026-11-24" }
+
+*2026-11-24*
+
+This paper introduces a black-box reduction that allows for high-probability linear regression in the infinite variance regime (weak-moment regression) by converting it into a finite-variance regression problem using empirical residual pruning.
+
 ## [PlayCraft: Designing Engaging Games from Agent Play Experience](2026-11-23-playcraft-designing-engaging-games-from-agent-play-experienc/) { data-cat="Artificial Intelligence" data-date="2026-11-23" }
 
 *2026-11-23*
